@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B18B4AB9-3D72-42F6-A30C-C91332A1B8D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Drectsoft.Core.MainEmrPad</RootNamespace>
+    <AssemblyName>DrectSoft.Core.MainEmrPad</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.1.Wizard, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v14.1.UI, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="itextsharp">
+      <HintPath>..\..\DLL\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="O2S.Components.PDFRender4NET">
+      <HintPath>..\..\DLL\O2S.Components.PDFRender4NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogForm.Designer.cs">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMacroFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMacroFrom.Designer.cs">
+      <DependentUpon>ChangeMacroFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckTipContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckTipContent.Designer.cs">
+      <DependentUpon>CheckTipContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoiceForm.Designer.cs">
+      <DependentUpon>ChoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DailyForm\DailyFormDisplayDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyForm\DailyFormDisplayDateTime.Designer.cs">
+      <DependentUpon>DailyFormDisplayDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DailyForm\DailyFormTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyForm\DailyFormTitle.Designer.cs">
+      <DependentUpon>DailyFormTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DailyTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyTemplateForm.Designer.cs">
+      <DependentUpon>DailyTemplateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmrModelPermision.cs" />
+    <Compile Include="FindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindForm.Designer.cs">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\AddParentNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\AddParentNode.Designer.cs">
+      <DependentUpon>AddParentNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\ColorMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DaLianYiBaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DaLianYiBaoForm.Designer.cs">
+      <DependentUpon>DaLianYiBaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\DiagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DiagForm.Designer.cs">
+      <DependentUpon>DiagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\DiagFormLogic.cs" />
+    <Compile Include="HelpForm\DiagLibForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DiagLibForm.Designer.cs">
+      <DependentUpon>DiagLibForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\DictionaryDataSerach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DictionaryDataSerach.Designer.cs">
+      <DependentUpon>DictionaryDataSerach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\DoctorCustomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DoctorCustomForm.Designer.cs">
+      <DependentUpon>DoctorCustomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\OperInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\OperInfo.designer.cs">
+      <DependentUpon>OperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\ItemContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\ItemContent.Designer.cs">
+      <DependentUpon>ItemContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\NewChildNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\NewChildNode.Designer.cs">
+      <DependentUpon>NewChildNode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\DiagFormOper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\DiagFormOper.Designer.cs">
+      <DependentUpon>DiagFormOper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpForm\OperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm\OperForm.Designer.cs">
+      <DependentUpon>OperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrBatchIn.cs" />
+    <Compile Include="HistoryEMR\HistoryEmrBatchInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrBatchInForm.Designer.cs">
+      <DependentUpon>HistoryEmrBatchInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEMRBLL.cs" />
+    <Compile Include="HistoryEMR\HistoryEmrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrForm.Designer.cs">
+      <DependentUpon>HistoryEmrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrBatchInFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrBatchInFormNew.Designer.cs">
+      <DependentUpon>HistoryEmrBatchInFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEMRBLLNew.cs" />
+    <Compile Include="HistoryEMR\HistoryEmrTimeAndCaption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrTimeAndCaption.Designer.cs">
+      <DependentUpon>HistoryEmrTimeAndCaption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrBatchInFormNurse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryEMR\HistoryEmrBatchInFormNurse.Designer.cs">
+      <DependentUpon>HistoryEmrBatchInFormNurse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\ChooseDeptForDailyEmrPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\ChooseDeptForDailyEmrPrint.Designer.cs">
+      <DependentUpon>ChooseDeptForDailyEmrPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\DailyTemplateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\DailyTemplateForm.Designer.cs">
+      <DependentUpon>DailyTemplateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\EditorForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\EditorForm.Designer.cs">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\EditorFormDal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="New\HistoryEmrFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\HistoryEmrFormNew.Designer.cs">
+      <DependentUpon>HistoryEmrFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\MainFormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\MainFormNew.Designer.cs">
+      <DependentUpon>MainFormNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\ShowPathologic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\ShowPathologic.Designer.cs">
+      <DependentUpon>ShowPathologic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\UCEmrInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInput.Designer.cs">
+      <DependentUpon>UCEmrInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\UCEmrInputBody.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInputBody.Designer.cs">
+      <DependentUpon>UCEmrInputBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\UCEmrInputBodyDailyEmrBLL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInputPreView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInputPreView.Designer.cs">
+      <DependentUpon>UCEmrInputPreView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\UCEmrInputPreViewInner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInputPreViewInner.Designer.cs">
+      <DependentUpon>UCEmrInputPreViewInner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\UCEmrInputTabPages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInputTabPages.Designer.cs">
+      <DependentUpon>UCEmrInputTabPages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\Util.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PACSOutSide.cs" />
+    <Compile Include="PacsReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PacsReport.Designer.cs">
+      <DependentUpon>PacsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PadForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PadForm.Designer.cs">
+      <DependentUpon>PadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatDiagForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatDiagForm.Designer.cs">
+      <DependentUpon>PatDiagForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatRecUtil.cs" />
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportDetail.Designer.cs">
+      <DependentUpon>ReportDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportPacs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportPacs.Designer.cs">
+      <DependentUpon>ReportPacs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveAsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveAsForm.Designer.cs">
+      <DependentUpon>SaveAsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\ApartCell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\ApartCell.Designer.cs">
+      <DependentUpon>ApartCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\ColumnsInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\ColumnsInsert.Designer.cs">
+      <DependentUpon>ColumnsInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\RowsInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\RowsInsert.Designer.cs">
+      <DependentUpon>RowsInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\TableInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\TableInsert.Designer.cs">
+      <DependentUpon>TableInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\TableProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\TableProperty.Designer.cs">
+      <DependentUpon>TableProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThreeLevelCheck\UserSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThreeLevelCheck\UserSettingForm.Designer.cs">
+      <DependentUpon>UserSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCEmrInput.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCEmrInput.Designer.cs">
+      <DependentUpon>UCEmrInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCEmrInputBLL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrdersDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersDetail.Designer.cs">
+      <DependentUpon>OrdersDetail.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CatalogForm.resx">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMacroFrom.resx">
+      <DependentUpon>ChangeMacroFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckTipContent.resx">
+      <DependentUpon>CheckTipContent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChoiceForm.resx">
+      <DependentUpon>ChoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyForm\DailyFormDisplayDateTime.resx">
+      <DependentUpon>DailyFormDisplayDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyForm\DailyFormTitle.resx">
+      <DependentUpon>DailyFormTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyTemplateForm.resx">
+      <DependentUpon>DailyTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindForm.resx">
+      <DependentUpon>FindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\AddParentNode.resx">
+      <DependentUpon>AddParentNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\DaLianYiBaoForm.resx">
+      <DependentUpon>DaLianYiBaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\DiagForm.resx">
+      <DependentUpon>DiagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\DiagLibForm.resx">
+      <DependentUpon>DiagLibForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\DictionaryDataSerach.resx">
+      <DependentUpon>DictionaryDataSerach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\DoctorCustomForm.resx">
+      <DependentUpon>DoctorCustomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\OperInfo.resx">
+      <DependentUpon>OperInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\ItemContent.resx">
+      <DependentUpon>ItemContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\NewChildNode.resx">
+      <DependentUpon>NewChildNode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\DiagFormOper.resx">
+      <DependentUpon>DiagFormOper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HelpForm\OperForm.resx">
+      <DependentUpon>OperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryEMR\HistoryEmrBatchInForm.resx">
+      <DependentUpon>HistoryEmrBatchInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryEMR\HistoryEmrForm.resx">
+      <DependentUpon>HistoryEmrForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryEMR\HistoryEmrBatchInFormNew.resx">
+      <DependentUpon>HistoryEmrBatchInFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryEMR\HistoryEmrTimeAndCaption.resx">
+      <DependentUpon>HistoryEmrTimeAndCaption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryEMR\HistoryEmrBatchInFormNurse.resx">
+      <DependentUpon>HistoryEmrBatchInFormNurse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\ChooseDeptForDailyEmrPrint.resx">
+      <DependentUpon>ChooseDeptForDailyEmrPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\DailyTemplateForm.resx">
+      <DependentUpon>DailyTemplateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\HistoryEmrFormNew.resx">
+      <DependentUpon>HistoryEmrFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\MainFormNew.resx">
+      <DependentUpon>MainFormNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\ShowPathologic.resx">
+      <DependentUpon>ShowPathologic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\UCEmrInput.resx">
+      <DependentUpon>UCEmrInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\UCEmrInputBody.resx">
+      <DependentUpon>UCEmrInputBody.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\UCEmrInputPreView.resx">
+      <DependentUpon>UCEmrInputPreView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\UCEmrInputPreViewInner.resx">
+      <DependentUpon>UCEmrInputPreViewInner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\UCEmrInputTabPages.resx">
+      <DependentUpon>UCEmrInputTabPages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PacsReport.resx">
+      <DependentUpon>PacsReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PadForm.resx">
+      <DependentUpon>PadForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatDiagForm.resx">
+      <DependentUpon>PatDiagForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ReportDetail.resx">
+      <DependentUpon>ReportDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPacs.resx">
+      <DependentUpon>ReportPacs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveAsForm.resx">
+      <DependentUpon>SaveAsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\ApartCell.resx">
+      <DependentUpon>ApartCell.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\ColumnsInsert.resx">
+      <DependentUpon>ColumnsInsert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\RowsInsert.resx">
+      <DependentUpon>RowsInsert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\TableInsert.resx">
+      <DependentUpon>TableInsert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\TableProperty.resx">
+      <DependentUpon>TableProperty.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreeLevelCheck\UserSettingForm.resx">
+      <DependentUpon>UserSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCEmrInput.resx">
+      <DependentUpon>UCEmrInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrdersDetail.resx">
+      <DependentUpon>OrdersDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\新增.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="New\类文件说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\CommonTableConfig\CommonTableConfig.csproj">
+      <Project>{5a75fd8e-558d-46cb-8ea6-11f6a6fbd487}</Project>
+      <Name>CommonTableConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\PersonTtemTemplet\PersonTtemTemplet\PersonTtemTemplet.csproj">
+      <Project>{f1d0e65f-9158-40eb-a963-e6576f45894c}</Project>
+      <Name>PersonTtemTemplet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\病案首页\YDIEMMainPage\IEMMainPage.csproj">
+      <Project>{98cab920-2b8b-423c-adc4-626424d92ef2}</Project>
+      <Name>IEMMainPage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectSqlHelper\DrectSoft.DSSqlHelper.csproj">
+      <Project>{fcfe859e-bafb-4ee4-8df0-c1edd1c2acd6}</Project>
+      <Name>DrectSoft.DSSqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EditorUtility\DrectSoft.Library.EditorUtility.csproj">
+      <Project>{908813ed-adbb-4a7f-9a91-1b06397a794f}</Project>
+      <Name>DrectSoft.Library.EditorUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMR\YDNurseDocument\DrectSoft.Core.NurseDocument.csproj">
+      <Project>{c454f48f-1df2-4d05-ac3e-f71aab9f8440}</Project>
+      <Name>DrectSoft.Core.NurseDocument</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46A2B2D5-3872-4478-99FD-1AEE527390CD}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Emr.Util\DrectSoft.Emr.Util.csproj">
+      <Project>{c015a754-a3e4-4ae9-917e-1730644f6568}</Project>
+      <Name>DrectSoft.Emr.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library.EmrEditor\DrectSoft.Library.EmrEditor.csproj">
+      <Project>{4e80b653-b228-4605-891b-04a36ace2258}</Project>
+      <Name>DrectSoft.Library.EmrEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

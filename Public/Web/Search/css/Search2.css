@@ -1,0 +1,29 @@
+﻿    #left_list_content{width:740px; float:left; border:1px solid #69c;}
+.left_list{margin:0; padding:0; float:left; width:730px; padding:5px;}
+.left_list li{list-style:none; float:left; width:730px; background:#e2effa;}
+.frame_li{width:730px; border-bottom:1px dashed #ccc;}
+.left_list_int{width:730px; float:left;}
+.left_list_int img{width:80px; height:80px; float:left; border:none; margin:0 5px 0 0;}
+.prod_inf_content{width:300px; height:auto; float:left; background:#e2effa; margin:0 2px 0 0;}
+.prod_inf_content h4{margin:0; padding:10px 10px 0 10px; width:270px; float:left; font-size:14px; line-height:1.5em;}
+.prod_inf_content h4 a{color:#069; text-decoration:none;}
+.prod_inf_content h4 a:hover{color:#f00; text-decoration:underline;}
+.intro{color:#f00;}
+.update_date{margin:0; padding:6px 10px 0 10px; width:200px; float:left;}
+.update_date a{color:#f60;}
+.ent_inf_content{width:370px; height:auto; float:left; background:#e2effa; margin:0 2px 0 0; border-left:1px dashed #ccc;}
+.ent_inf_content h4{margin:0; padding:10px 10px 0 10px; width:auto; float:left; font-size:14px; line-height:1.5em;}
+.ent_inf_content h4 a{color:#069; text-decoration:none;}
+.ent_inf_content h4 a:hover{color:#f00; text-decoration:underline;}
+.area{margin:0; padding:5px 10px 0 10px; width:300px; float:left;}
+.area a{color:#f60;}
+.contact_list{margin:0; padding:4px 5px 0 5px; width:100px; float:left; background:#e8f0f7; height:76px;}
+.contact_list li{width:85px; padding:5px 0 4px 15px; background:url(../images/top_icons/001a_27.gif) no-repeat left center;}
+.contact_list li a{color:#069; text-decoration:none;}
+.contact_list li a:hover{color:#f00; text-decoration:underline;}
+.int_list{width:703px; margin:0; padding:4px 10px 7px 10px;}
+.int_list li{list-style:none; width:688px; background:url(../images/top_icons/004a_48.gif) no-repeat left center; padding:5px 0 4px 15px;}
+.use_tags{color:#f60; text-decoration:none;}
+.int_list li a{color:#069; text-decoration:none;}
+.int_list li a:hover{color:#f00; text-decoration:underline;}
+.int_list li a span{color:#000;}

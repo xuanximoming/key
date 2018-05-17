@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9CA7E08-5E02-4BE2-92A9-8FB73FA3D3D8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.FrameWork</RootNamespace>
+    <AssemblyName>DrectSoft.FrameWork</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>..\..\DLL\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BizBus\CallMode.cs" />
+    <Compile Include="BizBus\ClientBizBus.cs" />
+    <Compile Include="BizBus\DicKey.cs" />
+    <Compile Include="BizBus\PolicyListBuilder.cs" />
+    <Compile Include="BizBus\RemoteBizBus.cs" />
+    <Compile Include="BizBus\Service\Converter\PackageConverter.cs" />
+    <Compile Include="BizBus\Service\ServicePackage.cs" />
+    <Compile Include="BizBus\BusFactory.cs" />
+    <Compile Include="BizBus\IBizBus.cs" />
+    <Compile Include="BizBus\Service\IServicePackage.cs" />
+    <Compile Include="BizBus\Service\ServiceInvalidException.cs" />
+    <Compile Include="BizBus\Service\IService.cs" />
+    <Compile Include="BizBus\Service\ServiceKey.cs" />
+    <Compile Include="BizBus\Service\ServiceDesc.cs" />
+    <Compile Include="BizBus\Service\ServicePackageList.cs" />
+    <Compile Include="Config\AssemblyHelper.cs" />
+    <Compile Include="Config\Check\CheckConfig.cs" />
+    <Compile Include="Config\Check\ErrAssemblyInfo.cs" />
+    <Compile Include="Config\Check\ErrConfigInfo.cs" />
+    <Compile Include="Config\Check\ErrMessages.cs" />
+    <Compile Include="Config\Check\ErrPackageInfo.cs" />
+    <Compile Include="Config\Config.cs" />
+    <Compile Include="Config\Entity\ServicePackageListInfo.cs" />
+    <Compile Include="Config\Exchange\ConfigLoader.cs" />
+    <Compile Include="Config\ConfigUtil.cs" />
+    <Compile Include="Config\Check\ConfigValidator.cs" />
+    <Compile Include="BizBus\PackageListSearcher.cs" />
+    <Compile Include="Config\Exchange\PackageInfoLoader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Config\Exchange\PackageInfoSaver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Config\ParseAssembly.cs" />
+    <Compile Include="Config\Entity\ServiceInfo.cs" />
+    <Compile Include="Config\Entity\ServicePackageInfo.cs" />
+    <Compile Include="Config\Server\HostConfig.cs" />
+    <Compile Include="Config\Server\IHostConfig.cs" />
+    <Compile Include="Config\ServicePackageLoader.cs" />
+    <Compile Include="Config\UriParser.cs" />
+    <Compile Include="Execptions\ExceptionLevel.cs" />
+    <Compile Include="Execptions\FrameWorkException.cs" />
+    <Compile Include="Execptions\LogException.cs" />
+    <Compile Include="Execptions\WarningException.cs" />
+    <Compile Include="Filter\KeyMessageFilter.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Log\ILog.cs" />
+    <Compile Include="Log\Log.cs" />
+    <Compile Include="ObjectBuilder\Builder.cs" />
+    <Compile Include="ObjectBuilder\Extention\ExtendedTypeMappingStrategy.cs" />
+    <Compile Include="ObjectBuilder\Extention\DrectLocator.cs" />
+    <Compile Include="util\PagedList.cs" />
+    <Compile Include="Plugin\Common\AttributeReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\Biz\BizPluginAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\Common\DrectsoftConfigurationSectionHandler.cs" />
+    <Compile Include="Plugin\CorePluginAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\FramePluginAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\Common\PluginAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\Biz\BizPluginInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\Common\PluginLoader.cs" />
+    <Compile Include="Plugin\PluginInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plugin\PluginType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util\Tools.cs" />
+    <Compile Include="util\MemoryUtil.cs" />
+    <Compile Include="util\TypeUtil.cs" />
+    <Compile Include="util\XmlUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\SampleConfig.xml" />
+    <Content Include="Config\Sample.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plugin\other\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

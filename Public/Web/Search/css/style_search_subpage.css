@@ -1,0 +1,15 @@
+body{margin:0; padding:0; font-size:14px; color:#000;}
+/*body a{color:#000; text-decoration:none;}*/
+body a:hover{color:#f00; text-decoration:underline;}
+body ul{margin:0; padding:0;}
+body ul li{list-style:none;}
+body p{margin:0; padding:0;}
+body h1{font-size:20px; margin:0; padding:0;}
+body h2{font-size:14px; margin:0; padding:0;}
+body h3{font-size:12px; margin:0; padding:0;}
+
+
+.posi_nav{width:710px; float:left; padding:7px 15px 0 15px; height:18px;}
+.posi_nav p{float:left;}
+.posi_nav a{display:block;  padding:0 15px 0 5px; float:left; background:url(../images/icons/002a_62.gif) no-repeat right center;}
+

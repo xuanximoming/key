@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccountManager xsi:schemaLocation="http://www.DrectSoft.com/ AccountManager.xsd" xmlns="http://www.DrectSoft.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PermissionLevel>UserDept</PermissionLevel>
+	<MergeSameWard>false</MergeSameWard>
+</AccountManager>

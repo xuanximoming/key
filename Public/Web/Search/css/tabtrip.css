@@ -1,0 +1,134 @@
+﻿/*div.RadTabStripVertical .rtsLink*/
+div.RadTabStrip .rtsLink
+{
+	text-align:left;
+}
+
+/*div.RadTabStripVertical .firstTab*/
+div.RadTabStrip .firstTab
+{
+	background: transparent url(images/firstTab.gif) no-repeat left top;
+	width: 76px;
+	padding-left: 13px !important;
+	height: 36px;
+	text-decoration:none;
+	font: 11px/36px Arial;
+	color: #4b9800 !important;
+}
+/*div.RadTabStripVertical .firstTabSelected*/
+div.RadTabStrip .firstTabSelected
+{
+	background: transparent url(images/firstTabSelected.gif) no-repeat 0 0 !important;
+}
+/*div.RadTabStripVertical .firstTabHovered*/
+div.RadTabStrip .firstTabHovered
+{
+	background:transparent url(images/firstTabHover.gif) no-repeat 0 0 !important;
+}
+/*div.RadTabStripVertical .fourthTabSelected*/
+div.RadTabStrip .fourthTabSelected
+{
+	background:transparent url(images/fourthTabSelected.gif) no-repeat 0 0 !important;
+}
+/*div.RadTabStripVertical .fourthTab*/
+div.RadTabStrip .fourthTab
+{
+	background: transparent url(images/fourthTab.gif) no-repeat left top;
+	width: 76px;
+	padding-left: 13px !important;
+
+	height: 36px;
+	text-decoration:none;
+	font: 11px/36px Arial;
+	color: #737373 !important;
+}
+
+/*div.RadTabStripVertical .fourthTabHovered*/
+div.RadTabStrip .fourthTabHovered
+{
+	background:transparent url(images/fourthTabHover.gif) no-repeat 0 0 !important;
+}
+
+/*
+div.RadTabStripVertical .secondTab
+{
+	background: transparent url(images/secondTab.gif) no-repeat left top;
+	width: 76px;
+	padding-left: 13px !important;
+	height: 36px;
+	text-decoration:none;
+	font: 11px/36px Arial;
+	color: #4b9800 !important;
+}
+	
+
+
+
+div.RadTabStripVertical .thirdTab
+{
+	background: transparent url(images/thirdTab.gif) no-repeat left top;
+	width: 76px;
+	padding-left: 13px !important;
+	height: 36px;
+	text-decoration:none;
+	font: 11px/36px Arial;
+	color: #ac4500 !important;
+}
+div.RadTabStripVertical .secondTabSelected
+{
+	background: transparent url(images/secondTabSelected.gif) no-repeat 0 0 !important;
+}
+div.RadTabStripVertical .thirdTabSelected
+{
+	background: transparent url(images/thirdTabSelected.gif) no-repeat 0 0 !important;
+}
+
+
+
+div.RadTabStripVertical .secondTabHovered
+{
+	background:transparent url(images/secondTabHover.gif) no-repeat 0 0 !important;
+}
+div.RadTabStripVertical .thirdTabHovered
+{
+	background:transparent url(images/thirdTabHover.gif) no-repeat 0 0 !important;
+}
+
+
+div.RadTabStripVertical .rtsImg 
+{
+	float:right;
+	margin-top: 10px !important;
+	margin-right: 5px !important;
+}
+
+
+.time,
+.status
+{
+	color:#9b9b9b;
+}
+
+.chat
+{
+	list-style: none;
+	margin:0;
+	padding: 0;
+}
+.chat li
+{
+	padding: 5px 0px;
+}
+
+div.RadTabStripVerticalVertical .rtsUL
+{
+	width: 89px;
+}
+
+.exampleWrapper
+{
+	width: 435px;
+	height: 483px;
+	background: transparent url(images/background.gif) no-repeat left top;
+	position:relative;
+}

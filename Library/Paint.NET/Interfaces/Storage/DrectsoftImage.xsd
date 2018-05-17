@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by yzh_x (EMBRACE) -->
+<xs:schema xmlns:wi="http://www.winning.com.cn/winningimage" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.winning.com.cn/winningimage" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="SurfaceStoreData" type="wi:ImageType">
+		<xs:annotation>
+			<xs:documentation>根节点</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SizeType">
+		<xs:annotation>
+			<xs:documentation>尺寸类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Width" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>宽</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Height" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>高</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PointType">
+		<xs:annotation>
+			<xs:documentation>点类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="x" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>X</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="y" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Y</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PictureType">
+		<xs:annotation>
+			<xs:documentation>图片类型</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="picture" type="xs:base64Binary">
+				<xs:annotation>
+					<xs:documentation>图片内容</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="pictureRef" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>图片引用</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ShapeDataType">
+		<xs:annotation>
+			<xs:documentation>形状数据类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="points" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>点集合</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="point" type="wi:PointType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>点</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="type" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>形状类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="drawColor" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>画笔颜色</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isFillColor" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>是否填充颜色</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="fillColor" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>填充色</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isHatch" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>是否阴影</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hatch" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>阴影类型</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isTexture" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>是否材质</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="textureName" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>材质名</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="lineWidth" type="xs:float">
+				<xs:annotation>
+					<xs:documentation>线宽</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="text" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>文本</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="enable" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>有效</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ShapeType">
+		<xs:annotation>
+			<xs:documentation>形状类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="data" type="wi:ShapeDataType">
+				<xs:annotation>
+					<xs:documentation>形状数据</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NamedHatchStyleType">
+		<xs:annotation>
+			<xs:documentation>命名的阴影样式类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="style" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>样式</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NamedTextureStyleType">
+		<xs:annotation>
+			<xs:documentation>命名的材质样式类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>名称</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="texture" type="wi:PictureType">
+				<xs:annotation>
+					<xs:documentation>材质</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IndexedTraceType">
+		<xs:annotation>
+			<xs:documentation>索引的痕迹类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="index" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>索引</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SingleDataTraceType">
+		<xs:annotation>
+			<xs:documentation>单值的痕迹类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="data" type="wi:ShapeDataType">
+				<xs:annotation>
+					<xs:documentation>形状数据</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DoubleDataTraceType">
+		<xs:annotation>
+			<xs:documentation>双值的痕迹类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="newdata" type="wi:ShapeDataType">
+				<xs:annotation>
+					<xs:documentation>新的形状数据</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="olddata" type="wi:ShapeDataType">
+				<xs:annotation>
+					<xs:documentation>老的形状数据</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TraceType">
+		<xs:annotation>
+			<xs:documentation>痕迹类型</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="select" type="wi:IndexedTraceType">
+				<xs:annotation>
+					<xs:documentation>选择</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="deselect" type="wi:IndexedTraceType">
+				<xs:annotation>
+					<xs:documentation>不选中</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addnew" type="wi:SingleDataTraceType">
+				<xs:annotation>
+					<xs:documentation>添加</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="modify" type="wi:DoubleDataTraceType">
+				<xs:annotation>
+					<xs:documentation>修改</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="delete" type="wi:IndexedTraceType">
+				<xs:annotation>
+					<xs:documentation>删除</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="createNewShape" type="wi:SingleDataTraceType">
+				<xs:annotation>
+					<xs:documentation>创建</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ImageType">
+		<xs:annotation>
+			<xs:documentation>图形类型</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="size" type="wi:SizeType">
+				<xs:annotation>
+					<xs:documentation>图形尺寸</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="background" type="wi:PictureType">
+				<xs:annotation>
+					<xs:documentation>背景图</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="namedHatchStyles" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>命名的阴影样式集合</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="namedHatchStyle" type="wi:NamedHatchStyleType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>命名的阴影样式</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="namedTextureStyles" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>命名的材质样式集合</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="namedTextureStyle" type="wi:NamedTextureStyleType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>命名的材质样式</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="shapes" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>形状集合</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="shape" type="wi:ShapeType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>形状</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="traces" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>痕迹集合</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="trace" type="wi:TraceType" minOccurs="0" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>痕迹</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

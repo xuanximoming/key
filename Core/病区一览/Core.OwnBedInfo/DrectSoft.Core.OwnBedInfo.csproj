@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{541AC260-F680-458F-AA58-3B3AEFEC68F3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Core.OwnBedInfo</RootNamespace>
+    <AssemblyName>DrectSoft.Core.OwnBedInfo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1.Reporting.Extensions, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BedMappingStartUp.cs" />
+    <Compile Include="ChoosePatOrBaby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChoosePatOrBaby.Designer.cs">
+      <DependentUpon>ChoosePatOrBaby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultationStateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConsultationStateForm.Designer.cs">
+      <DependentUpon>ConsultationStateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMessage.Designer.cs">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AuditLogic.cs" />
+    <Compile Include="Helper\DataManager.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
+    <Compile Include="Helper\ImageKeyString.cs" />
+    <Compile Include="Helper\LayoutMaster.cs" />
+    <Compile Include="MedicalRecordrelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedicalRecordrelation.Designer.cs">
+      <DependentUpon>MedicalRecordrelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NursingRecordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NursingRecordForm.Designer.cs">
+      <DependentUpon>NursingRecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ReplenishPatRec.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReplenishPatRec.Designer.cs">
+      <DependentUpon>ReplenishPatRec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetPatientsBaby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetPatientsBaby.designer.cs">
+      <DependentUpon>SetPatientsBaby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableColumnNames\ConstResource.cs" />
+    <Compile Include="TableColumnNames\NotArchivedField.cs" />
+    <Compile Include="TableColumnNames\PatientWardField.cs" />
+    <Compile Include="TableColumnNames\SearchInfoField.cs" />
+    <Compile Include="TableColumnNames\SearchResultField.cs" />
+    <Compile Include="ToExcelColumnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToExcelColumnForm.designer.cs">
+      <DependentUpon>ToExcelColumnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCConsultationForDocCenter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCConsultationForDocCenter.Designer.cs">
+      <DependentUpon>UCConsultationForDocCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlAllListBedInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlAllListBedInfo.Designer.cs">
+      <DependentUpon>UserControlAllListBedInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DocCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocCenter.Designer.cs">
+      <DependentUpon>DocCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormInHosLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormInHosLogin.Designer.cs">
+      <DependentUpon>XtraFormInHosLogin.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChoosePatOrBaby.resx">
+      <DependentUpon>ChoosePatOrBaby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConsultationStateForm.resx">
+      <DependentUpon>ConsultationStateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMessage.resx">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedicalRecordrelation.resx">
+      <DependentUpon>MedicalRecordrelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NursingRecordForm.resx">
+      <DependentUpon>NursingRecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReplenishPatRec.resx">
+      <DependentUpon>ReplenishPatRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetPatientsBaby.resx">
+      <DependentUpon>SetPatientsBaby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToExcelColumnForm.resx">
+      <DependentUpon>ToExcelColumnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCConsultationForDocCenter.resx">
+      <DependentUpon>UCConsultationForDocCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlAllListBedInfo.resx">
+      <DependentUpon>UserControlAllListBedInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DocCenter.resx">
+      <DependentUpon>DocCenter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormInHosLogin.resx">
+      <DependentUpon>XtraFormInHosLogin.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\病历预评.png" />
+    <None Include="Resources\查看病人信息.png" />
+    <None Include="Resources\借阅管理.png" />
+    <None Include="Resources\全部患者.png" />
+    <None Include="Resources\刷新.png" />
+    <None Include="Resources\院内会诊.png" />
+    <None Include="Resources\查看病人信息1.bmp" />
+    <None Include="Resources\查看病人信息1.png" />
+    <None Include="Resources\查看病人信息2.png" />
+    <None Include="Resources\查看病人.jpg" />
+    <None Include="Resources\查看信息1.png" />
+    <None Include="Resources\病历预评1.png" />
+    <None Include="Resources\查看病人信息3.png" />
+    <None Include="Resources\查看信息11.png" />
+    <None Include="Resources\全部患者1.png" />
+    <None Include="Resources\院内会诊1.png" />
+    <None Include="Resources\刷新1.png" />
+    <None Include="Resources\借阅管理1.png" />
+    <None Include="Resources\清空.ico" />
+    <None Include="Resources\申请.ico" />
+    <Content Include="WorkList.txt" />
+    <Content Include="Drect.Soft.Core.OwnBedInfo.csproj.user" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\EMR\QcManager\QcManager.csproj">
+      <Project>{1936C301-11C8-4840-A219-86BAC2697975}</Project>
+      <Name>QcManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\FrameWork\DrectSoft.FrameWork.csproj">
+      <Project>{a9ca7e08-5e02-4be2-92a9-8fb73fa3d3d8}</Project>
+      <Name>DrectSoft.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Library\Resources\Resources.csproj">
+      <Project>{35923221-066f-4d8e-b72c-7fa5a6fd01fa}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46A2B2D5-3872-4478-99FD-1AEE527390CD}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4A36778F-8FD1-482E-8D57-B06A1AA81A16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DrectSqlHelper\DrectSoft.DSSqlHelper.csproj">
+      <Project>{fcfe859e-bafb-4ee4-8df0-c1edd1c2acd6}</Project>
+      <Name>DrectSoft.DSSqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MedicalRecordManage\MedicalRecordManage.csproj">
+      <Project>{5981c717-b25e-4128-b402-9f56cca597ae}</Project>
+      <Name>MedicalRecordManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\会诊系统\Consultation\Consultation\Consultation.csproj">
+      <Project>{ae291798-aac9-467b-8d6f-c6c957ef52ef}</Project>
+      <Name>Consultation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\病人信息维护\RedactPatientInfo\RedactPatientInfo\RedactPatientInfo.csproj">
+      <Project>{216ac98f-2dae-4ae1-a846-05a500a5ecde}</Project>
+      <Name>RedactPatientInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\病历借阅与查询\MedicalRrecordQuery\MedicalRecordQuery.csproj">
+      <Project>{ff2073fb-4610-41c6-9f10-36c76fab5952}</Project>
+      <Name>MedicalRecordQuery</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\科室质量管理\QCDeptReport\QCDeptReport.csproj">
+      <Project>{b8f91c58-8039-464c-8ba2-1b22d459060b}</Project>
+      <Name>QCDeptReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\质量管理\QCTimeLimit\QCTimeLimit\QCTimeLimit.csproj">
+      <Project>{9187a98e-d45d-42dc-97ac-cfce974b75f0}</Project>
+      <Name>QCTimeLimit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

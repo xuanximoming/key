@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4E80B653-B228-4605-891B-04A36ACE2258}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Library.EmrEditor</RootNamespace>
+    <AssemblyName>DrectSoft.Library.EmrEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Actions\ZYActions\ZYEditorAction.cs" />
+    <Compile Include="Src\Clipboard\EmrClipboard.cs" />
+    <Compile Include="Src\Common\ClipboardHandler.cs" />
+    <Compile Include="Src\Common\DocumentView.cs" />
+    <Compile Include="Src\Common\EllipseObject.cs" />
+    <Compile Include="Src\Common\FontCommon.cs" />
+    <Compile Include="Src\Common\IXMLSerializable.cs" />
+    <Compile Include="Src\Common\MathCommon.cs" />
+    <Compile Include="Src\Common\NameValueList.cs" />
+    <Compile Include="Src\Common\PointBuffer.cs" />
+    <Compile Include="Src\Common\RectangleCommon.cs" />
+    <Compile Include="Src\Common\RectangleObject.cs" />
+    <Compile Include="Src\Common\StackTraceHelper.cs" />
+    <Compile Include="Src\Common\StringCommon.cs" />
+    <Compile Include="Src\Common\VariableString.cs" />
+    <Compile Include="Src\Common\XMLCommon.cs" />
+    <Compile Include="Src\Common\ZYButtonGroup.cs" />
+    <Compile Include="Src\Common\ZYFlagDirection.cs" />
+    <Compile Include="Src\Common\ZYTime.cs" />
+    <Compile Include="Src\Document\Base\TextElement.cs" />
+    <Compile Include="Src\Document\Base\DefaultDocument.cs" />
+    <Compile Include="Src\Document\Base\IDocument.cs" />
+    <Compile Include="Src\Document\A_ContentChangeLog.cs" />
+    <Compile Include="Src\Document\WeiWenProcess.cs" />
+    <Compile Include="Src\Document\ElementType.cs" />
+    <Compile Include="Src\Document\PropertyElement\BoolControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\BoolControl.Designer.cs">
+      <DependentUpon>BoolControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\BoolEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\DateTimeFormatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\DateTimeFormatControl.Designer.cs">
+      <DependentUpon>DateTimeFormatControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\DateTimeFormatEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\DropDownWordBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\DropDownWordBook.designer.cs">
+      <DependentUpon>DropDownWordBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\DropDownWordBookEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\FontControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\FontControl.Designer.cs">
+      <DependentUpon>FontControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\FontEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\ItemInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\ItemInputForm.Designer.cs">
+      <DependentUpon>ItemInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\ParagraphControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\ParagraphControl.Designer.cs">
+      <DependentUpon>ParagraphControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\ParagraphConverter.cs" />
+    <Compile Include="Src\Document\PropertyElement\ParagraphEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\PercentEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyBase.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyButton.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyChar.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyCheckBox.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyFixedText.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyFormatDatetime.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyFormatNumber.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyFormatString.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyHorizontalLine.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyImage.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyLookUpeditorElement.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyMensesFormula.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyParagraph.cs" />
+    <Compile Include="Src\Document\PropertyElement\BlankConverter.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyPromptText.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertySelectableElement.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyToothCheck.cs" />
+    <Compile Include="Src\Document\PropertyElement\SupSubControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\SupSubControl.Designer.cs">
+      <DependentUpon>SupSubControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\SupSubEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\TrackBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\TrackBarControl.Designer.cs">
+      <DependentUpon>TrackBarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\DropDownEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\DropDownControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\DropDownControl.Designer.cs">
+      <DependentUpon>DropDownControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Document\PropertyElement\ElementTypeConverter.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyText.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyHaveNotElement.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyFlag.cs" />
+    <Compile Include="Src\Document\PropertyElement\SelectableEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\SelectableMultiEditor.cs" />
+    <Compile Include="Src\Document\PropertyElement\PropertyMultiSelectableElement.cs" />
+    <Compile Include="Src\Document\Table\CellEOF.cs" />
+    <Compile Include="Src\Document\Table\TPTextCell.cs" />
+    <Compile Include="Src\Document\Table\TPTextRow.cs" />
+    <Compile Include="Src\Document\Table\TPTextTable.cs" />
+    <Compile Include="Src\Document\UnderWriteMark.cs" />
+    <Compile Include="Src\Document\ZYAttribute.cs" />
+    <Compile Include="Src\Document\ZYAttributeCollection.cs" />
+    <Compile Include="Src\Document\ZYButton.cs" />
+    <Compile Include="Src\Document\ZYContent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Document\ZYDocumentInfo.cs" />
+    <Compile Include="Src\Document\ZYElement.cs" />
+    <Compile Include="Src\Document\ZYFlag.cs" />
+    <Compile Include="Src\Document\ZYFormatDatetime.cs" />
+    <Compile Include="Src\Document\ZYFormatString.cs" />
+    <Compile Include="Src\Document\ZYHorizontalLine.cs" />
+    <Compile Include="Src\Document\ZYLookupEditor.cs" />
+    <Compile Include="Src\Document\ZYMacro.cs" />
+    <Compile Include="Src\Document\ZYMensesFormula.cs" />
+    <Compile Include="Src\Document\ZYPromptText.cs" />
+    <Compile Include="Src\Document\ZYTextBlock.cs" />
+    <Compile Include="Src\Document\ZYTextBorder.cs" />
+    <Compile Include="Src\Document\ZYTextChar.cs" />
+    <Compile Include="Src\Document\ZYTextConst.cs" />
+    <Compile Include="Src\Document\ZYTextContainer.cs" />
+    <Compile Include="Src\Document\ZYTextDiv.cs" />
+    <Compile Include="Src\Document\ZYTextDocument.cs" />
+    <Compile Include="Src\Document\ZYTextElement.cs" />
+    <Compile Include="Src\Document\ZYTextEOF.cs" />
+    <Compile Include="Src\Document\ZYTextImage.cs" />
+    <Compile Include="Src\Document\ZYTextLine.cs" />
+    <Compile Include="Src\Document\ZYTextLineEnd.cs" />
+    <Compile Include="Src\Document\ZYTextLock.cs" />
+    <Compile Include="Src\Document\ZYTextObject.cs" />
+    <Compile Include="Src\Document\ZYTextParagraph.cs" />
+    <Compile Include="Src\Document\ZYTextSaveLog.cs" />
+    <Compile Include="Src\Document\ZYSelectableElement.cs" />
+    <Compile Include="Src\Document\ZYFixedText.cs" />
+    <Compile Include="Src\Document\ZYFormatNumber.cs" />
+    <Compile Include="Src\Document\ZYReplace.cs" />
+    <Compile Include="Src\Document\ZYTemplate.cs" />
+    <Compile Include="Src\Document\ZYText.cs" />
+    <Compile Include="Src\Document\ZYCheckBox.cs" />
+    <Compile Include="Src\Document\ZYPageEnd.cs" />
+    <Compile Include="Src\Document\ZYToothCheck.cs" />
+    <Compile Include="Src\Gui\ForImage\CommonFunction.cs" />
+    <Compile Include="Src\Gui\ForImage\DeviceContextBase.cs" />
+    <Compile Include="Src\Gui\dlgInputFormatText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\DocumentViewControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ForImage\frmEditImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ForImage\GDIObject.cs" />
+    <Compile Include="Src\Gui\ForImage\GDIPen.cs" />
+    <Compile Include="Src\Gui\FormatFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\FormatFrm.Designer.cs">
+      <DependentUpon>FormatFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\GraphicsUnitConvert.cs" />
+    <Compile Include="Src\Gui\ForImage\MouseCapturer.cs" />
+    <Compile Include="Src\Gui\ImplementFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ImplementFrm.Designer.cs">
+      <DependentUpon>ImplementFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\LookupEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\LookupEditorForm.Designer.cs">
+      <DependentUpon>LookupEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\MensesFormulaFrmNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\MensesFormulaFrmNew.Designer.cs">
+      <DependentUpon>MensesFormulaFrmNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\ModifyTipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ModifyTipForm.Designer.cs">
+      <DependentUpon>ModifyTipForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\PageFrameDrawer.cs" />
+    <Compile Include="Src\Gui\RectangleCounter.cs" />
+    <Compile Include="Src\Gui\RectangleDrawer.cs" />
+    <Compile Include="Src\Gui\ForImage\ReversibleDrawer.cs" />
+    <Compile Include="Src\Gui\SimpleRectangleTransform.cs" />
+    <Compile Include="Src\Gui\ForImage\StockObject.cs" />
+    <Compile Include="Src\Gui\TextBoxFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\TextBoxFrm.Designer.cs">
+      <DependentUpon>TextBoxFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\TextPageViewControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\TextRuler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ToothCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ToothCheck.Designer.cs">
+      <DependentUpon>ToothCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Gui\TransformBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\UpdateLock.cs" />
+    <Compile Include="Src\Gui\ForImage\Windows32.cs" />
+    <Compile Include="Src\Gui\ForImage\ZYColorSelector.cs" />
+    <Compile Include="Src\Print\CustomPrintDialog.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\Print\dlgPageSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Src\Print\DocumentPageDrawer.cs" />
+    <Compile Include="Src\Print\DrawerUtil.cs" />
+    <Compile Include="Src\Print\MeasureConvert.cs" />
+    <Compile Include="Src\Print\MessageBoxHelper.cs" />
+    <Compile Include="Src\Print\PageSettingPreview.cs" />
+    <Compile Include="Src\Print\PrintExPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Src\Print\PrintExPanel.Designer.cs">
+      <DependentUpon>PrintExPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Print\XPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ZYEditorControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\Gui\ZYViewControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Src\Print\IPageDocument.cs" />
+    <Compile Include="Src\Print\MultiPageTransform.cs" />
+    <Compile Include="Src\Gui\MultiRectangleTransform.cs" />
+    <Compile Include="Src\Print\PageLineInfo.cs" />
+    <Compile Include="Src\Print\PrintPage.cs" />
+    <Compile Include="Src\Print\PrintPageCollection.cs" />
+    <Compile Include="Src\Print\XPageSettings.cs" />
+    <Compile Include="Src\Print\XPaperSize.cs" />
+    <Compile Include="Src\Print\XPaperSizeCollection.cs" />
+    <Compile Include="Src\Undo\UndoStack.cs" />
+    <Compile Include="Src\Win32API\MessageFilter.cs" />
+    <Compile Include="Src\Win32API\Win32Caret.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Src\Win32API\Win32IME.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="编辑器修改记录\修改记录.txt" />
+    <None Include="Resources\delete.bmp" />
+    <Content Include="Src\Resources\l_indent_pos_lower.png" />
+    <Content Include="Src\Resources\l_indet_pos_upper.png" />
+    <Content Include="Src\Resources\r_indent_pos.png" />
+    <Content Include="Src\Resources\tab_pos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\BoolControl.resx">
+      <DependentUpon>BoolControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\DateTimeFormatControl.resx">
+      <DependentUpon>DateTimeFormatControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\DropDownWordBook.resx">
+      <DependentUpon>DropDownWordBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\FontControl.resx">
+      <DependentUpon>FontControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\ItemInputForm.resx">
+      <DependentUpon>ItemInputForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\ParagraphControl.resx">
+      <DependentUpon>ParagraphControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\SupSubControl.resx">
+      <DependentUpon>SupSubControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\TrackBarControl.resx">
+      <DependentUpon>TrackBarControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Document\PropertyElement\DropDownControl.resx">
+      <DependentUpon>DropDownControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\dlgInputFormatText.resx">
+      <DependentUpon>dlgInputFormatText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\ForImage\frmEditImage.resx">
+      <DependentUpon>frmEditImage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\FormatFrm.resx">
+      <DependentUpon>FormatFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\ImplementFrm.resx">
+      <DependentUpon>ImplementFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\LookupEditorForm.resx">
+      <DependentUpon>LookupEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\MensesFormulaFrmNew.resx">
+      <DependentUpon>MensesFormulaFrmNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\ModifyTipForm.resx">
+      <DependentUpon>ModifyTipForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\TextBoxFrm.resx">
+      <DependentUpon>TextBoxFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\ToothCheck.resx">
+      <DependentUpon>ToothCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\ZYEditorControl.resx">
+      <DependentUpon>ZYEditorControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Gui\ZYViewControl.resx">
+      <DependentUpon>ZYViewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Print\dlgPageSetup.en.resx">
+      <DependentUpon>dlgPageSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Print\dlgPageSetup.resx">
+      <DependentUpon>dlgPageSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Src\Print\PrintExPanel.resx">
+      <DependentUpon>PrintExPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Src\Util\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\Paint.NET\Paint.NET.csproj">
+      <Project>{925ec641-46fd-4b22-adfd-3b64dc29b33c}</Project>
+      <Name>Paint.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46A2B2D5-3872-4478-99FD-1AEE527390CD}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{FF0EDB66-CAA2-4EFB-B63E-15DDD2E3FC71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

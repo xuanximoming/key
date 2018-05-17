@@ -1,0 +1,3 @@
+SvcUtil net.tcp://127.0.0.1:8888/CommunicationService /namespace:*,YidanEmrClient /language:c#  /d:d:\WCFClient /out:ICommunicationService.cs /config:App /a
+
+SvcUtil net.tcp://127.0.0.1:8888/CommunicationService /namespace:*,YidanSoft.Core.Communication /language:c#  /d:d:\WCFClient /out:ICommunicationService.cs /config:App /a

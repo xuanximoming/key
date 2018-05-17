@@ -1,0 +1,30 @@
+CREATE OR REPLACE FUNCTION getItemValueFromXml(v_xmlContent Clob)
+  return varchar IS
+  v_itemValue varchar(4000);
+  xmlPar      XMLPARSER.parser := XMLPARSER.NEWPARSER;
+  doc         xmldom.DOMDocument;
+  itemNode       xmldom.DOMNode;
+  itemNodes      xmldom.DOMNodeList;
+  itemNodescount integer;
+begin
+  xmlparser.parseClob(xmlPar, v_xmlContent);
+  doc := xmlparser.getDocument(xmlPar);
+  xmlparser.freeParser(xmlPar);
+
+  itemNodes      := xmldom.getElementsByTagName(doc, 'Item');
+  itemNodescount := xmldom.getLength(itemNodes);
+
+  FOR itemNodeIndex in 0 .. itemNodescount - 1 LOOP
+    BEGIN
+      itemNode    := xmldom.item(itemNodes, itemNodeIndex);
+      v_itemValue := v_itemValue || xmldom.getNodeValue(xmldom.getFirstChild(itemNode));
+    END;
+  END LOOP;
+
+  return v_itemValue;
+  
+  EXCEPTION
+  WHEN OTHERS THEN
+    RETURN '';
+end;
+/

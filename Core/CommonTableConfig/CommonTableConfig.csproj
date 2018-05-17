@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A75FD8E-558D-46CB-8EA6-11F6A6FBD487}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Core.CommonTableConfig</RootNamespace>
+    <AssemblyName>DrectSoft.Core.CommonTableConfig</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="itextsharp">
+      <HintPath>..\..\DLL\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XDesigner.Report, Version=1.0.2011.11127, Culture=neutral, PublicKeyToken=2e40e961ea876340, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\XDesigner.Report.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonNoteCountEntity.cs" />
+    <Compile Include="CommonNoteUse\AbstractorFactry.cs" />
+    <Compile Include="CommonNoteUse\BaseDictory.cs" />
+    <Compile Include="CommonNoteBiz.cs" />
+    <Compile Include="CommonNoteConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteConfig.Designer.cs">
+      <DependentUpon>CommonNoteConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteEntity.cs" />
+    <Compile Include="CommonNoteUse\ColmonXMLEntity.cs" />
+    <Compile Include="CommonNoteUse\CommonChooseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\CommonChooseForm.Designer.cs">
+      <DependentUpon>CommonChooseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\CommonMethods.cs" />
+    <Compile Include="CommonNoteUse\InPatientSim.cs" />
+    <Compile Include="CommonNoteUse\MultiRepeatColumnReport.cs" />
+    <Compile Include="CommonNoteUse\HLJLDQLS.cs" />
+    <Compile Include="CommonNoteUse\InCommListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\InCommListForm.Designer.cs">
+      <DependentUpon>InCommListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\MultiRepeatColumnDrawer.cs" />
+    <Compile Include="CommonNoteUse\PrintForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\PrintForm1.Designer.cs">
+      <DependentUpon>PrintForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\PrintInCommonItemView.cs" />
+    <Compile Include="CommonNoteUse\InCommonNoteBiz.cs" />
+    <Compile Include="CommonNoteUse\InCommonNoteEnmtity.cs" />
+    <Compile Include="CommonNoteUse\InCommonNoteItemEntity.cs" />
+    <Compile Include="CommonNoteUse\InCommonNoteTabEntity.cs" />
+    <Compile Include="CommonNoteUse\PrintInCommonTabView.cs" />
+    <Compile Include="CommonNoteUse\PrintInCommonView.cs" />
+    <Compile Include="CommonNoteUse\PrintInpatientView.cs" />
+    <Compile Include="CommonNoteUse\ICUTongJiJLD.cs" />
+    <Compile Include="CommonNoteUse\RecordHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\RecordHistoryForm.Designer.cs">
+      <DependentUpon>RecordHistoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\RecordPrintView.cs" />
+    <Compile Include="CommonNoteUse\RowEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\RowEditForm.Designer.cs">
+      <DependentUpon>RowEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\TongJiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\TongJiForm.Designer.cs">
+      <DependentUpon>TongJiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCInCommonNoteInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCInCommonNoteInfo.Designer.cs">
+      <DependentUpon>UCInCommonNoteInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCInCommonTabSingle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCInCommonTabSingle.Designer.cs">
+      <DependentUpon>UCInCommonTabSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCIncommonNoteTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCIncommonNoteTab.Designer.cs">
+      <DependentUpon>UCIncommonNoteTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UClableText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UClableText.Designer.cs">
+      <DependentUpon>UClableText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCLableTongJi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCLableTongJi.Designer.cs">
+      <DependentUpon>UCLableTongJi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\ucLabText.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\ucLabText.Designer.cs">
+      <DependentUpon>ucLabText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UcMedEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UcMedEdit.Designer.cs">
+      <DependentUpon>UcMedEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UcPrintPic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UcPrintPic.Designer.cs">
+      <DependentUpon>UcPrintPic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCPrintRecord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCPrintRecord.Designer.cs">
+      <DependentUpon>UCPrintRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCRecordDateTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCRecordDateTime.Designer.cs">
+      <DependentUpon>UCRecordDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCRecordDoctor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCRecordDoctor.Designer.cs">
+      <DependentUpon>UCRecordDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\ChangeNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\ChangeNameForm.Designer.cs">
+      <DependentUpon>ChangeNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCRichEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\UCRichEdit.Designer.cs">
+      <DependentUpon>UCRichEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteUse\ZhiDingLieMing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteUse\ZhiDingLieMing.Designer.cs">
+      <DependentUpon>ZhiDingLieMing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNote_ItemEntity.cs" />
+    <Compile Include="CommonNote_ModelInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNote_ModelInfo.Designer.cs">
+      <DependentUpon>CommonNote_ModelInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNote_ModelWeiHu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNote_ModelWeiHu.Designer.cs">
+      <DependentUpon>CommonNote_ModelWeiHu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNote_TabEntity.cs" />
+    <Compile Include="CommonTabHelper.cs" />
+    <Compile Include="DataElementConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataElementConfig.Designer.cs">
+      <DependentUpon>DataElementConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataElementEntity.cs" />
+    <Compile Include="DataElemntBiz.cs" />
+    <Compile Include="DataTableToList.cs" />
+    <Compile Include="Drawer.cs" />
+    <Compile Include="EmrPrintTempEntity.cs" />
+    <Compile Include="CommonNoteUse\IPrintNurse.cs" />
+    <Compile Include="JLDZT\AddFrom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JLDZT\AddFrom.Designer.cs">
+      <DependentUpon>AddFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JLDZT\DayListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JLDZT\DayListForm.Designer.cs">
+      <DependentUpon>DayListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JLDZT\InpatListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JLDZT\InpatListForm.Designer.cs">
+      <DependentUpon>InpatListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JLDZT\JCDKSLR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JLDZT\JCDKSLR.Designer.cs">
+      <DependentUpon>JCDKSLR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadPrint.Designer.cs">
+      <DependentUpon>LoadPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadPrintBiz.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonNoteInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonNoteInfo.Designer.cs">
+      <DependentUpon>CommonNoteInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCCommonNoteTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCCommonNoteTab.Designer.cs">
+      <DependentUpon>UCCommonNoteTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataElementInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataElementInfo.Designer.cs">
+      <DependentUpon>DataElementInfo.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonNoteConfig.resx">
+      <DependentUpon>CommonNoteConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\ChangeNameForm.resx">
+      <DependentUpon>ChangeNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\CommonChooseForm.resx">
+      <DependentUpon>CommonChooseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\InCommListForm.resx">
+      <DependentUpon>InCommListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\PrintForm1.resx">
+      <DependentUpon>PrintForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\RecordHistoryForm.resx">
+      <DependentUpon>RecordHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\RowEditForm.resx">
+      <DependentUpon>RowEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\TongJiForm.resx">
+      <DependentUpon>TongJiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCInCommonNoteInfo.resx">
+      <DependentUpon>UCInCommonNoteInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCInCommonTabSingle.resx">
+      <DependentUpon>UCInCommonTabSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCIncommonNoteTab.resx">
+      <DependentUpon>UCIncommonNoteTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UClableText.resx">
+      <DependentUpon>UClableText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCLableTongJi.resx">
+      <DependentUpon>UCLableTongJi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\ucLabText.resx">
+      <DependentUpon>ucLabText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UcMedEdit.resx">
+      <DependentUpon>UcMedEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UcPrintPic.resx">
+      <DependentUpon>UcPrintPic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCPrintRecord.resx">
+      <DependentUpon>UCPrintRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCRecordDateTime.resx">
+      <DependentUpon>UCRecordDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCRecordDoctor.resx">
+      <DependentUpon>UCRecordDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\UCRichEdit.resx">
+      <DependentUpon>UCRichEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\ZhiDingLieMing.resx">
+      <DependentUpon>ZhiDingLieMing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteUse\ZhiDingLieMing.zh.resx">
+      <DependentUpon>ZhiDingLieMing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNote_ModelInfo.resx">
+      <DependentUpon>CommonNote_ModelInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNote_ModelWeiHu.resx">
+      <DependentUpon>CommonNote_ModelWeiHu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataElementConfig.resx">
+      <DependentUpon>DataElementConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JLDZT\AddFrom.resx">
+      <DependentUpon>AddFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JLDZT\DayListForm.resx">
+      <DependentUpon>DayListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JLDZT\InpatListForm.resx">
+      <DependentUpon>InpatListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JLDZT\JCDKSLR.resx">
+      <DependentUpon>JCDKSLR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadPrint.resx">
+      <DependentUpon>LoadPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonNoteInfo.resx">
+      <DependentUpon>CommonNoteInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCCommonNoteTab.resx">
+      <DependentUpon>UCCommonNoteTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataElementInfo.resx">
+      <DependentUpon>DataElementInfo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectSqlHelper\DrectSoft.DSSqlHelper.csproj">
+      <Project>{fcfe859e-bafb-4ee4-8df0-c1edd1c2acd6}</Project>
+      <Name>DrectSoft.DSSqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\Library.EmrEditor\DrectSoft.Library.EmrEditor.csproj">
+      <Project>{4e80b653-b228-4605-891b-04a36ace2258}</Project>
+      <Name>DrectSoft.Library.EmrEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork\DrectSoft.FrameWork.csproj">
+      <Project>{a9ca7e08-5e02-4be2-92a9-8fb73fa3d3d8}</Project>
+      <Name>DrectSoft.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\07057.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\00107.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BpA.png" />
+    <EmbeddedResource Include="Resources\cvp.png" />
+    <EmbeddedResource Include="Resources\FiO.png" />
+    <EmbeddedResource Include="Resources\f次.png" />
+    <EmbeddedResource Include="Resources\HR.png" />
+    <EmbeddedResource Include="Resources\R次分.png" />
+    <EmbeddedResource Include="Resources\spo2.png" />
+    <EmbeddedResource Include="Resources\tc.png" />
+    <EmbeddedResource Include="Resources\vtL.png" />
+    <EmbeddedResource Include="Resources\日期时间.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\DevButtonQurey.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

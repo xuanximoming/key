@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2442648D-A3E4-4C6F-A646-B7C633190086}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Emr.TemplateFactory</RootNamespace>
+    <AssemblyName>DrectSoft.Emr.TemplateFactory</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddNewTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewTemplate.Designer.cs">
+      <DependentUpon>AddNewTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewTemplet_Header.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewTemplet_Header.Designer.cs">
+      <DependentUpon>AddNewTemplet_Header.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\BaseDataMaintain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\BaseDataMaintain.designer.cs">
+      <DependentUpon>BaseDataMaintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\DataEntity.cs" />
+    <Compile Include="BaseDataMaintain\OperInfoEntity.cs" />
+    <Compile Include="BaseDataMaintain\SqlHelp.cs" />
+    <Compile Include="BaseDataMaintain\UCDiagnosisButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCDiagnosisButton.Designer.cs">
+      <DependentUpon>UCDiagnosisButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCDictionary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCDictionary.designer.cs">
+      <DependentUpon>UCDictionary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCEditModelFactory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCEditModelFactory.Designer.cs">
+      <DependentUpon>UCEditModelFactory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCEditOperInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCEditOperInfo.Designer.cs">
+      <DependentUpon>UCEditOperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCMacro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCMacro.designer.cs">
+      <DependentUpon>UCMacro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCSpecialCharacter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseDataMaintain\UCSpecialCharacter.designer.cs">
+      <DependentUpon>UCSpecialCharacter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ConfigFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigFrm.Designer.cs">
+      <DependentUpon>ConfigFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmrReplaceItem.cs" />
+    <Compile Include="EmrTemplet.cs" />
+    <Compile Include="EmrTempletHeader.cs" />
+    <Compile Include="FontMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FooterFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FooterFrm.Designer.cs">
+      <DependentUpon>FooterFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formtestdrag.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formtestdrag.Designer.cs">
+      <DependentUpon>Formtestdrag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IconImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IconImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="InLookBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InLookBar.Designer.cs">
+      <DependentUpon>InLookBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorPadForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditorPadForm.Designer.cs">
+      <DependentUpon>EditorPadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoAudit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoAudit.Designer.cs">
+      <DependentUpon>NoAudit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutlookBarItem.cs" />
+    <Compile Include="PageTitleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageTitleForm.Designer.cs">
+      <DependentUpon>PageTitleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RePlaceTempletTitle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RePlaceTempletTitle.Designer.cs">
+      <DependentUpon>RePlaceTempletTitle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchFrm.Designer.cs">
+      <DependentUpon>SearchFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetName.Designer.cs">
+      <DependentUpon>SetName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowTempletHeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowTempletHeader.Designer.cs">
+      <DependentUpon>ShowTempletHeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQLManger.cs" />
+    <Compile Include="SQLUtil.cs" />
+    <Compile Include="TableCellSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TableCellSetting.Designer.cs">
+      <DependentUpon>TableCellSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\ApartCell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\ApartCell.Designer.cs">
+      <DependentUpon>ApartCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\ColumnsInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\ColumnsInsert.Designer.cs">
+      <DependentUpon>ColumnsInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\RowsInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\RowsInsert.Designer.cs">
+      <DependentUpon>RowsInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\TableInsert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\TableInsert.Designer.cs">
+      <DependentUpon>TableInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Table\TableProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table\TableProperty.Designer.cs">
+      <DependentUpon>TableProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TemplatePagek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemplatePagek.Designer.cs">
+      <DependentUpon>TemplatePagek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templet_FootManger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templet_FootManger.Designer.cs">
+      <DependentUpon>Templet_FootManger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmrTemplet_Item.cs" />
+    <Compile Include="AddNewTemplate_Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewTemplate_Item.Designer.cs">
+      <DependentUpon>AddNewTemplate_Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmrTemplet_Foot.cs" />
+    <Compile Include="HeaderFooterSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HeaderFooterSetting.Designer.cs">
+      <DependentUpon>HeaderFooterSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RePlaceTempletSaveLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RePlaceTempletSaveLog.Designer.cs">
+      <DependentUpon>RePlaceTempletSaveLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreeViewImages2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeViewImages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ButtonImage\about.bmp" />
+    <Content Include="ButtonImage\abspos.bmp" />
+    <Content Include="ButtonImage\anchor.bmp" />
+    <Content Include="ButtonImage\BackColor.bmp" />
+    <Content Include="ButtonImage\backward.bmp" />
+    <Content Include="ButtonImage\bgcolor.bmp" />
+    <Content Include="ButtonImage\bgpic.bmp" />
+    <Content Include="ButtonImage\BLD.BMP" />
+    <Content Include="ButtonImage\blink.bmp" />
+    <Content Include="ButtonImage\BMP.BMP" />
+    <Content Include="ButtonImage\bold.bmp" />
+    <Content Include="ButtonImage\br.bmp" />
+    <Content Include="ButtonImage\checked.bmp" />
+    <Content Include="ButtonImage\CNT.BMP" />
+    <Content Include="ButtonImage\code.bmp" />
+    <Content Include="ButtonImage\componentmenu.bmp" />
+    <Content Include="ButtonImage\copy.bmp" />
+    <Content Include="ButtonImage\createlink.bmp" />
+    <Content Include="ButtonImage\createsql.bmp" />
+    <Content Include="ButtonImage\CTR.bmp" />
+    <Content Include="ButtonImage\cut.bmp" />
+    <Content Include="ButtonImage\database.bmp" />
+    <Content Include="ButtonImage\date.bmp" />
+    <Content Include="ButtonImage\delete.bmp" />
+    <Content Include="ButtonImage\design.bmp" />
+    <Content Include="ButtonImage\div.bmp" />
+    <Content Include="ButtonImage\editmenu.bmp" />
+    <Content Include="ButtonImage\emot.bmp" />
+    <Content Include="ButtonImage\excel.bmp" />
+    <Content Include="ButtonImage\fieldset.bmp" />
+    <Content Include="ButtonImage\file.bmp" />
+    <Content Include="ButtonImage\filemenu.bmp" />
+    <Content Include="ButtonImage\findreplace.bmp" />
+    <Content Include="ButtonImage\flash.bmp" />
+    <Content Include="ButtonImage\fontmenu.bmp" />
+    <Content Include="ButtonImage\forecolor.bmp" />
+    <Content Include="ButtonImage\formbutton.bmp" />
+    <Content Include="ButtonImage\formcheckbox.bmp" />
+    <Content Include="ButtonImage\formdropdown.bmp" />
+    <Content Include="ButtonImage\formmenu.bmp" />
+    <Content Include="ButtonImage\formradio.bmp" />
+    <Content Include="ButtonImage\formtext.bmp" />
+    <Content Include="ButtonImage\formtextarea.bmp" />
+    <Content Include="ButtonImage\forward.bmp" />
+    <Content Include="ButtonImage\help.bmp" />
+    <Content Include="ButtonImage\icq.bmp" />
+    <Content Include="ButtonImage\iframe.bmp" />
+    <Content Include="ButtonImage\img.bmp" />
+    <Content Include="ButtonImage\indent.bmp" />
+    <Content Include="ButtonImage\indent2.bmp" />
+    <Content Include="ButtonImage\inserthorizontalrule.bmp" />
+    <Content Include="ButtonImage\insertorderedlist.bmp" />
+    <Content Include="ButtonImage\insertparagraph.bmp" />
+    <Content Include="ButtonImage\insertunorderedlist.bmp" />
+    <Content Include="ButtonImage\italic.bmp" />
+    <Content Include="ButtonImage\justifycenter.bmp" />
+    <Content Include="ButtonImage\justifyfull.bmp" />
+    <Content Include="ButtonImage\justifyleft.bmp" />
+    <Content Include="ButtonImage\justifyright.bmp" />
+    <Content Include="ButtonImage\kb.bmp" />
+    <Content Include="ButtonImage\key.bmp" />
+    <Content Include="ButtonImage\LFT.bmp" />
+    <Content Include="ButtonImage\lock.bmp" />
+    <Content Include="ButtonImage\logicdelete.bmp" />
+    <Content Include="ButtonImage\map.bmp" />
+    <Content Include="ButtonImage\marquee.bmp" />
+    <Content Include="ButtonImage\maximize.bmp" />
+    <Content Include="ButtonImage\media.bmp" />
+    <Content Include="ButtonImage\minimize.bmp" />
+    <Content Include="ButtonImage\modecode.bmp" />
+    <Content Include="ButtonImage\modecodebtn.bmp" />
+    <Content Include="ButtonImage\modeedit.bmp" />
+    <Content Include="ButtonImage\modeeditbtn.bmp" />
+    <Content Include="ButtonImage\modepreview.bmp" />
+    <Content Include="ButtonImage\modetext.bmp" />
+    <Content Include="ButtonImage\modetextbtn.bmp" />
+    <Content Include="ButtonImage\modeviewbtn.bmp" />
+    <Content Include="ButtonImage\msn.bmp" />
+    <Content Include="ButtonImage\NEW.bmp" />
+    <Content Include="ButtonImage\newemrtemplate.bmp" />
+    <Content Include="ButtonImage\objectmenu.bmp" />
+    <Content Include="ButtonImage\OPEN.bmp" />
+    <Content Include="ButtonImage\outdent.bmp" />
+    <Content Include="ButtonImage\page.bmp" />
+    <Content Include="ButtonImage\pagesetting.bmp" />
+    <Content Include="ButtonImage\paragraphmenu.bmp" />
+    <Content Include="ButtonImage\paste.bmp" />
+    <Content Include="ButtonImage\pastetext.bmp" />
+    <Content Include="ButtonImage\pasteword.bmp" />
+    <Content Include="ButtonImage\print.bmp" />
+    <Content Include="ButtonImage\PROP.bmp" />
+    <Content Include="ButtonImage\qq.bmp" />
+    <Content Include="ButtonImage\quote.bmp" />
+    <Content Include="ButtonImage\redo.bmp" />
+    <Content Include="ButtonImage\refresh.bmp" />
+    <Content Include="ButtonImage\remoteupload.bmp" />
+    <Content Include="ButtonImage\removeformat.bmp" />
+    <Content Include="ButtonImage\RT.bmp" />
+    <Content Include="ButtonImage\run.bmp" />
+    <Content Include="ButtonImage\save.bmp" />
+    <Content Include="ButtonImage\SaveImage.bmp" />
+    <Content Include="ButtonImage\script.bmp" />
+    <Content Include="ButtonImage\selectall.bmp" />
+    <Content Include="ButtonImage\showborders.bmp" />
+    <Content Include="ButtonImage\showdetails.bmp" />
+    <Content Include="ButtonImage\showtree.bmp" />
+    <Content Include="ButtonImage\site.bmp" />
+    <Content Include="ButtonImage\sizeminus.bmp" />
+    <Content Include="ButtonImage\sizeplus.bmp" />
+    <Content Include="ButtonImage\space.bmp" />
+    <Content Include="ButtonImage\spellcheck.bmp" />
+    <Content Include="ButtonImage\SPELLING.bmp" />
+    <Content Include="ButtonImage\spliter.bmp" />
+    <Content Include="ButtonImage\strikethrough.bmp" />
+    <Content Include="ButtonImage\subscript.bmp" />
+    <Content Include="ButtonImage\superscript.bmp" />
+    <Content Include="ButtonImage\symbol.bmp" />
+    <Content Include="ButtonImage\tablecellprop.bmp" />
+    <Content Include="ButtonImage\tablecellsplit.bmp" />
+    <Content Include="ButtonImage\tablecoldelete.bmp" />
+    <Content Include="ButtonImage\tablecolinsertleft.bmp" />
+    <Content Include="ButtonImage\tablecolinsertright.bmp" />
+    <Content Include="ButtonImage\tablecolmerge.bmp" />
+    <Content Include="ButtonImage\tablecolsplit.bmp" />
+    <Content Include="ButtonImage\tableinsert.bmp" />
+    <Content Include="ButtonImage\tablemenu.bmp" />
+    <Content Include="ButtonImage\tableprop.bmp" />
+    <Content Include="ButtonImage\tablerowdelete.bmp" />
+    <Content Include="ButtonImage\tablerowinsertabove.bmp" />
+    <Content Include="ButtonImage\tablerowinsertbelow.bmp" />
+    <Content Include="ButtonImage\tablerowmerge.bmp" />
+    <Content Include="ButtonImage\tablerowprop.bmp" />
+    <Content Include="ButtonImage\tablerowsplit.bmp" />
+    <Content Include="ButtonImage\tabpage.bmp" />
+    <Content Include="ButtonImage\time.bmp" />
+    <Content Include="ButtonImage\tobig.bmp" />
+    <Content Include="ButtonImage\toolbarback.bmp" />
+    <Content Include="ButtonImage\toolmenu.bmp" />
+    <Content Include="ButtonImage\tosmall.bmp" />
+    <Content Include="ButtonImage\underline.bmp" />
+    <Content Include="ButtonImage\undo.bmp" />
+    <Content Include="ButtonImage\unlink.bmp" />
+    <Content Include="ButtonImage\unselect.bmp" />
+    <Content Include="ButtonImage\zoom.bmp" />
+    <Content Include="ButtonImage\zoommenu.bmp" />
+    <Content Include="ButtonImage\树状菜单图标1.bmp" />
+    <Content Include="ButtonImage\树状菜单图标2.bmp" />
+    <Content Include="Resources\TreeIcons.bmp" />
+    <None Include="Resources\审批.ico" />
+    <None Include="Resources\加载.ico" />
+    <None Include="Resources\不予审批.ico" />
+    <None Include="Resources\查询.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ButtonImage\descript.ion" />
+    <None Include="ButtonImage\myACDSeeCash.macdc" />
+    <None Include="ButtonImage\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AddNewTemplate.resx">
+      <DependentUpon>AddNewTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewTemplet_Header.resx">
+      <DependentUpon>AddNewTemplet_Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\BaseDataMaintain.resx">
+      <DependentUpon>BaseDataMaintain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\UCDiagnosisButton.resx">
+      <DependentUpon>UCDiagnosisButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\UCDictionary.resx">
+      <DependentUpon>UCDictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\UCEditModelFactory.resx">
+      <DependentUpon>UCEditModelFactory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\UCEditOperInfo.resx">
+      <DependentUpon>UCEditOperInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\UCMacro.resx">
+      <DependentUpon>UCMacro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseDataMaintain\UCSpecialCharacter.resx">
+      <DependentUpon>UCSpecialCharacter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigFrm.resx">
+      <DependentUpon>ConfigFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FooterFrm.resx">
+      <DependentUpon>FooterFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formtestdrag.resx">
+      <DependentUpon>Formtestdrag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResource.en.resx">
+      <DependentUpon>frmResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResource.resx">
+      <DependentUpon>frmResource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IconImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>IconImages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditorPadForm.resx">
+      <DependentUpon>EditorPadForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoAudit.resx">
+      <DependentUpon>NoAudit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageTitleForm.resx">
+      <DependentUpon>PageTitleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="RePlaceTempletTitle.resx">
+      <DependentUpon>RePlaceTempletTitle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchFrm.resx">
+      <DependentUpon>SearchFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetName.resx">
+      <DependentUpon>SetName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowTempletHeader.resx">
+      <DependentUpon>ShowTempletHeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TableCellSetting.resx">
+      <DependentUpon>TableCellSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\ApartCell.resx">
+      <DependentUpon>ApartCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\ColumnsInsert.resx">
+      <DependentUpon>ColumnsInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\RowsInsert.resx">
+      <DependentUpon>RowsInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\TableInsert.resx">
+      <DependentUpon>TableInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Table\TableProperty.resx">
+      <DependentUpon>TableProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TemplatePagek.resx">
+      <DependentUpon>TemplatePagek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templet_FootManger.resx">
+      <DependentUpon>Templet_FootManger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TreeViewImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TreeViewImages2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewTemplate_Item.resx">
+      <DependentUpon>AddNewTemplate_Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HeaderFooterSetting.resx">
+      <DependentUpon>HeaderFooterSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RePlaceTempletSaveLog.resx">
+      <DependentUpon>RePlaceTempletSaveLog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\All\SysTableEdit\SysTableEdit.csproj">
+      <Project>{7046EA4D-D216-48CF-9247-9DDC15FD7C3B}</Project>
+      <Name>SysTableEdit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\TemplatePerson\DrectSoft.Core.TemplatePerson.csproj">
+      <Project>{6eba1c83-b872-4957-b531-fd8fe9971a37}</Project>
+      <Name>DrectSoft.Core.TemplatePerson</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\病区一览\Core.OwnBedInfo\DrectSoft.Core.OwnBedInfo.csproj">
+      <Project>{541ac260-f680-458f-aa58-3b3aefec68f3}</Project>
+      <Name>DrectSoft.Core.OwnBedInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EditorUtility\DrectSoft.Library.EditorUtility.csproj">
+      <Project>{908813ed-adbb-4a7f-9a91-1b06397a794f}</Project>
+      <Name>DrectSoft.Library.EditorUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork\DrectSoft.FrameWork.csproj">
+      <Project>{a9ca7e08-5e02-4be2-92a9-8fb73fa3d3d8}</Project>
+      <Name>DrectSoft.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46A2B2D5-3872-4478-99FD-1AEE527390CD}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Emr.Util\DrectSoft.Emr.Util.csproj">
+      <Project>{c015a754-a3e4-4ae9-917e-1730644f6568}</Project>
+      <Name>DrectSoft.Emr.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library.EmrEditor\DrectSoft.Library.EmrEditor.csproj">
+      <Project>{4e80b653-b228-4605-891b-04a36ace2258}</Project>
+      <Name>DrectSoft.Library.EmrEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

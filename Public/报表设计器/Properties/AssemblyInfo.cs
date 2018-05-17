@@ -1,0 +1,17 @@
+using System.Resources;
+
+[assembly: System.Reflection.AssemblyVersion("1.0.0.0")]
+[assembly: System.Diagnostics.Debuggable(System.Diagnostics.DebuggableAttribute.DebuggingModes.Default | System.Diagnostics.DebuggableAttribute.DebuggingModes.DisableOptimizations | System.Diagnostics.DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints | System.Diagnostics.DebuggableAttribute.DebuggingModes.EnableEditAndContinue)]
+[assembly: System.Reflection.AssemblyCompany("Direcsoft Corporation")]
+[assembly: System.Reflection.AssemblyConfiguration("")]
+[assembly: System.Reflection.AssemblyCopyright("Direcsoft Corporation ©  2016")]
+[assembly: System.Reflection.AssemblyDescription("Report Maker")]
+[assembly: System.Reflection.AssemblyFileVersion("1.0.0.0")]
+[assembly: System.Reflection.AssemblyProduct("Make Reporter")]
+[assembly: System.Reflection.AssemblyTitle("Person Report Maker")]
+[assembly: System.Reflection.AssemblyTrademark("Direcsoft Corporation")]
+[assembly: System.Runtime.CompilerServices.CompilationRelaxations(8)]
+[assembly: System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows = true)]
+[assembly: System.Runtime.InteropServices.ComVisible(false)]
+[assembly: System.Runtime.InteropServices.Guid("8c103309-b5a1-45b1-9ead-adbdb2a35732")]
+[assembly: NeutralResourcesLanguageAttribute("zh-CN")]

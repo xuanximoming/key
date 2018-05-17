@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Size width="800" height="550"></Size>
+  <!--绘制一些非数据表格中文本-->
+  <ThemeText>
+    <item startX="0" startY="16" width="800" height="25" text="南 京 市 X X X 医 院" size="14" align="" orientation="0" fontStyle="1"></item>
+    <item startX="0" startY="48" width="800" height="25" text="产 程 图" size="13" align="" orientation="0" fontStyle="1"></item>
+    
+    <item startX="50" startY="120" width="20" height="250" text="宫口开大〈〉红色标记" size="9" align="" orientation="1" fontStyle="0"></item>
+    <item startX="735" startY="120" width="20" height="250" text="胎头下降〈〉红色标记" size="9" align="" orientation="1" fontStyle="0"></item>
+    <item startX="0" startY="100" width="100" height="20" text="产程小时" size="9" align="" orientation="0" fontStyle="0"></item>
+  </ThemeText>
+  <!--病人基本信息-->
+  <patient startX="0" startY="80" width="800" height="20">
+    <item  datafield="PATIENT_NAME">孕产次: @</item>
+    <item  datafield="AGESTR">床号: @</item>
+    <item  datafield="GENDER">住院号: @</item>
+    <item  datafield="ADMITDATE">宫缩开始: @</item>
+  </patient>
+  <specialLineColor>
+    <line x1="100" y1="120" x2="700" y2="120" size="1" color="黑"></line>
+    <line x1="100" y1="370" x2="700" y2="370" size="1" color="黑"></line>
+    <line x1="100" y1="120" x2="100" y2="370" size="1" color="黑"></line>
+    <line x1="700" y1="120" x2="700" y2="370" size="1" color="黑"></line>
+  </specialLineColor>
+  <zuobiao interval="25">
+    <item datafield="TEMPERATURE" labelColor="红" numberColor="黑" startX="100" startY="100" height="18" endX="700" endY="118"  width="600" max="24" min="1" text="" orientation="0" >1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24</item>
+    <item datafield="q" labelColor="红" numberColor="黑" startX="80" startY="110" height="250" endX="80" endY="360"  width="20" max="10" min="0" text="" orientation="1" >0,1,2,3,4,5,6,7,8,9,10</item>
+    <item datafield="b" labelColor="红" numberColor="黑" startX="705" startY="110" height="250" endX="705" endY="360"  width="20" max="5" min="-5" text="" orientation="1" >-5,-4,-3,-2,-1,0,+1,+2,+3,+4,+5</item>
+  </zuobiao>
+  <smalldatagrid colCount="24" rowCount="10" xInterval="25" yInterval="25" startX="100" startY="120"></smalldatagrid>
+</root>
+

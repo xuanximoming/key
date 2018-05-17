@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by zhouhui -->
+<xs:schema xmlns:kw="http://www.DrectSoft.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.DrectSoft.com/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="AccountManager">
+		<xs:annotation>
+			<xs:documentation>帐户权限管理配置</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PermissionLevel">
+					<xs:annotation>
+						<xs:documentation>医生权限管理级别</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="UserDeptMapping"/>
+							<xs:enumeration value="UserDept"/>
+							<xs:enumeration value="DeptClassTwo"/>
+							<xs:enumeration value="DeptClassOne"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="MergeSameWard" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>同一病区、不同科室的病人合并显示</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

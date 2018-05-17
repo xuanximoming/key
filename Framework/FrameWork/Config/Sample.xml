@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+   <Server path="bizplugin">
+      <ServicePackage imple="MyPluginImplement.dll" inf="MyPluginInterface.dll">
+         <Service inf="MyPluginInterface.IMyTest" imple="MyPluginImplement.TestImple1" key="mytest1" isdefault="true"/>
+         <Service inf="MyPluginInterface.IMyTest" imple="MyPluginImplement.TestImple2" key="mytest2"/>
+      </ServicePackage>
+   </Server>
+   <Client>
+      
+   </Client>
+</Config>

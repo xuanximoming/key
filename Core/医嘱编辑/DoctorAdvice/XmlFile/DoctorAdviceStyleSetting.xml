@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DoctorAdviceSetting xmlns="http://medical.DrectSoft.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://medical.DrectSoft.com
+DoctorAdviceStyleSetting.xsd">
+	<BusinessLogic>
+		<ConnectToHis>false</ConnectToHis>
+		<TempOrderFrequencyCode>00</TempOrderFrequencyCode>
+		<UseMedicomPlug>false</UseMedicomPlug>
+		<AutoSyncData>false</AutoSyncData>
+		<StartDateWarningHours>2</StartDateWarningHours>
+		<EnableOrderRules>false</EnableOrderRules>
+		<SetLimitedDetail>false</SetLimitedDetail>
+		<UseRadioCatalogInputStyle>true</UseRadioCatalogInputStyle>
+		<AutoHideHerbDetail>true</AutoHideHerbDetail>
+		<AllowLongHerbOrder>false</AllowLongHerbOrder>
+		<EnableItemAgeWarning>false</EnableItemAgeWarning>
+		<MaxWarningAge>18</MaxWarningAge>
+		<WaringItem/>
+		<UseEmptyOrderTemplate>false</UseEmptyOrderTemplate>
+		<UsedForAllPatient>true</UsedForAllPatient>
+		<BlockingTimeOfTakeDrug>8</BlockingTimeOfTakeDrug>
+		<EnableEmrOrderModul>true</EnableEmrOrderModul>
+	</BusinessLogic>
+	<CustomDrawSetting>
+		<DefaultFont FontStyle="Regular" Size="9" FontFamily="SimSun"/>
+		<MinFontSize>9</MinFontSize>
+		<Margin>
+			<All>1</All>
+			<Top>1</Top>
+			<Bottom>1</Bottom>
+			<Left>1</Left>
+			<Right>1</Right>
+		</Margin>
+		<FontOfCancel FontStyle="Bold" Size="12" FontFamily="SimSun"/>
+		<StartPosOfCancel>5</StartPosOfCancel>
+		<DefaultColor>
+			<NormalColor>
+				<BackColor>White</BackColor>
+				<ForeColor>Black</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>White</ForeColor>
+			</SelectedColor>
+		</DefaultColor>
+		<NewOrderColor>
+			<NormalColor>
+				<BackColor>White</BackColor>
+				<ForeColor>Black</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>White</ForeColor>
+			</SelectedColor>
+		</NewOrderColor>
+		<AuditedColor>
+			<NormalColor>
+				<BackColor>Gold</BackColor>
+				<ForeColor>Black</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>White</ForeColor>
+			</SelectedColor>
+		</AuditedColor>
+		<CancelledColor>
+			<NormalColor>
+				<BackColor>White</BackColor>
+				<ForeColor>Red</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>Yellow</ForeColor>
+			</SelectedColor>
+		</CancelledColor>
+		<ExecutedColor>
+			<NormalColor>
+				<BackColor>White</BackColor>
+				<ForeColor>Green</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>White</ForeColor>
+			</SelectedColor>
+		</ExecutedColor>
+		<CeasedColor>
+			<NormalColor>
+				<BackColor>White</BackColor>
+				<ForeColor>DimGray</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>White</ForeColor>
+			</SelectedColor>
+		</CeasedColor>
+		<NotSynchColor>
+			<NormalColor>
+				<BackColor>White</BackColor>
+				<ForeColor>Blue</ForeColor>
+			</NormalColor>
+			<SelectedColor>
+				<BackColor>Navy</BackColor>
+				<ForeColor>White</ForeColor>
+			</SelectedColor>
+		</NotSynchColor>
+		<GroupFlagColor>
+			<BackColor>Blue</BackColor>
+			<ForeColor>White</ForeColor>
+		</GroupFlagColor>
+		<GroupFlagWidth>5</GroupFlagWidth>
+		<ShowRepeatInfo>false</ShowRepeatInfo>
+		<ReplaceOfRepeatInfo>""</ReplaceOfRepeatInfo>
+	</CustomDrawSetting>
+	<GridSetting>
+		<GridFont FontStyle="Regular" Size="9" FontFamily="SimSun"/>
+		<RowHeight>30</RowHeight>
+		<ShowBand>false</ShowBand>
+		<Columns>
+			<ColumnBasic Name="Status" Caption="状态" Width="25" Memo="医嘱状态"/>
+			<ColumnBasic Name="GroupSerialNo" Caption="分组序号" Width="25" Memo="分组序号"/>
+			<ColumnBasic Name="UNStartDate" Caption="开始日期" Width="70" Memo="开始日期"/>
+			<ColumnBasic Name="UNStartTime" Caption="时间" Width="50" Memo="开始时间"/>
+			<ColumnBasic Name="UNContent" Caption="医嘱内容" Width="300" Memo="医嘱内容"/>
+			<ColumnBasic Name="Creator" Caption="医生签名" Width="70" Memo="创建者"/>
+			<ColumnBasic Name="AuditorDate" Caption="审核日期" Width="65" Memo="审核日期"/>
+			<ColumnBasic Name="AuditorTime" Caption="审核时间" Width="60" Memo="审核时间"/>
+			<ColumnBasic Name="Auditor" Caption="护士签名" Width="70" Memo="审核护士签名"/>
+			<ColumnBasic Name="ExecuteDate" Caption="执行日期" Width="65" Memo="执行日期"/>
+			<ColumnBasic Name="ExecuteTime" Caption="执行时间" Width="60" Memo="执行时间"/>
+			<ColumnBasic Name="Executor" Caption="护士签名" Width="60" Memo="执行护士签名"/>
+			<ColumnBasic Name="UNCeaseDate" Caption="停止日期" Width="65" Memo="停止日期"/>
+			<ColumnBasic Name="UNCeaseTime" Caption="时间" Width="50" Memo="停止时间"/>
+			<ColumnBasic Name="Ceasor" Caption="医生签名" Width="70" Memo="停止医生签名"/>
+			<ColumnBasic Name="CeaseAuditor" Caption="护士签名" Width="70" Memo="停止审核护士签名"/>
+			<ColumnBasic Name="CeaseAuditorDate" Caption="停止审核日期" Width="65" Memo="停止审核日期"/>
+			<ColumnBasic Name="CeaseAuditorTime" Caption="执行时间" Width="60" Memo="停止审核时间"/>
+		</Columns>
+		<LongOrderSetting>
+			<Band BandName="bandBeginInfo">
+				<ColumnName>UNStartDate</ColumnName>
+				<ColumnName>UNStartTime</ColumnName>
+				<ColumnName>Creator</ColumnName>
+				<ColumnName>ExecuteTime</ColumnName>
+				<ColumnName>UNContent</ColumnName>
+			</Band>
+			<Band BandName="bandCeaseInfo">
+				<ColumnName>UNCeaseDate</ColumnName>
+				<ColumnName>UNCeaseTime</ColumnName>
+				<ColumnName>Ceasor</ColumnName>
+				<ColumnName>CeaseAuditorTime</ColumnName>
+				<ColumnName>CeaseAuditor</ColumnName>
+			</Band>
+		</LongOrderSetting>
+		<TempOrderSetting>
+			<Band BandName="bandBeginInfo">
+				<ColumnName>UNStartDate</ColumnName>
+				<ColumnName>UNStartTime</ColumnName>
+				<ColumnName>Creator</ColumnName>
+				<ColumnName>Auditor</ColumnName>
+				<ColumnName>UNContent</ColumnName>
+			</Band>
+			<Band BandName="bandExecuteInfo">
+				<ColumnName>ExecuteDate</ColumnName>
+				<ColumnName>ExecuteTime</ColumnName>
+				<ColumnName>Executor</ColumnName>
+			</Band>
+		</TempOrderSetting>
+	</GridSetting>
+</DoctorAdviceSetting>

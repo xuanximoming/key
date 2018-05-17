@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5981C717-B25E-4128-B402-9F56CCA597AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedicalRecordManage</RootNamespace>
+    <AssemblyName>MedicalRecordManage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/MedicalRecordManage/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\DrectSoftLogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Framework\MainFrame\bin\Debug\DevExpress.Printing.v14.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Object\ConvertPY.cs" />
+    <Compile Include="Object\EMR_RecordWriteUp.cs" />
+    <Compile Include="Object\WriteUpObject.cs" />
+    <Compile Include="Object\RecordWriteUpModel.cs" />
+    <Compile Include="UCControl\MedIemArchive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedIemArchive.Designer.cs">
+      <DependentUpon>MedIemArchive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordWriteUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordWriteUp.Designer.cs">
+      <DependentUpon>MedicalRecordWriteUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordWriteUpApprove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordWriteUpApprove.Designer.cs">
+      <DependentUpon>MedicalRecordWriteUpApprove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordWriteUpApprovedList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordWriteUpApprovedList.Designer.cs">
+      <DependentUpon>MedicalRecordWriteUpApprovedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MyMedicalRecordList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MyMedicalRecordList.Designer.cs">
+      <DependentUpon>MyMedicalRecordList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordReadOnly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordReadOnly.Designer.cs">
+      <DependentUpon>MedicalRecordReadOnly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ApplyBack\MedicalRecordApplyBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ApplyBack\MedicalRecordApplyBack.Designer.cs">
+      <DependentUpon>MedicalRecordApplyBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ApplyBack\MedicalRecordApplyBackEditAndDelay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ApplyBack\MedicalRecordApplyBackEditAndDelay.Designer.cs">
+      <DependentUpon>MedicalRecordApplyBackEditAndDelay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Apply\ChoosePatOrBaby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Apply\ChoosePatOrBaby.Designer.cs">
+      <DependentUpon>ChoosePatOrBaby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Object\CApplyObject.cs" />
+    <Compile Include="Object\CGridCheckMarksSelection.cs" />
+    <Compile Include="Object\ComponentCommand.cs" />
+    <Compile Include="Object\DaoCommand.cs" />
+    <Compile Include="Object\EMR_RecordBorrow.cs" />
+    <Compile Include="Object\RecordModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Object\SqlUtil.cs" />
+    <Compile Include="UCControl\IndexCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\IndexCard.Designer.cs">
+      <DependentUpon>IndexCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordApprovedList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordApprovedList.Designer.cs">
+      <DependentUpon>MedicalRecordApprovedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordBrowse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordBrowse.Designer.cs">
+      <DependentUpon>MedicalRecordBrowse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordList.Designer.cs">
+      <DependentUpon>MedicalRecordList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordUnArchive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordUnArchive.Designer.cs">
+      <DependentUpon>MedicalRecordUnArchive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordArchive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordArchive.Designer.cs">
+      <DependentUpon>MedicalRecordArchive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Apply\MedicalRecordApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Apply\MedicalRecordApply.Designer.cs">
+      <DependentUpon>MedicalRecordApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordApprove.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCControl\MedicalRecordApprove.Designer.cs">
+      <DependentUpon>MedicalRecordApprove.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Apply\QueryPatientStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Apply\QueryPatientStatus.Designer.cs">
+      <DependentUpon>QueryPatientStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Apply\PatientStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Apply\PatientStatus.Designer.cs">
+      <DependentUpon>PatientStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmrBrowerDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EmrBrowerDlg.Designer.cs">
+      <DependentUpon>EmrBrowerDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MedicalRecordBrowseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MedicalRecordBrowseForm.Designer.cs">
+      <DependentUpon>MedicalRecordBrowseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Apply\MedicalRecordEditAndDelay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Apply\MedicalRecordEditAndDelay.Designer.cs">
+      <DependentUpon>MedicalRecordEditAndDelay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MedicalRecordManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MedicalRecordManageForm.Designer.cs">
+      <DependentUpon>MedicalRecordManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MedicalRecordWriteUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MedicalRecordWriteUpForm.Designer.cs">
+      <DependentUpon>MedicalRecordWriteUpForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="UCControl\MedIemArchive.resx">
+      <DependentUpon>MedIemArchive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordWriteUp.resx">
+      <DependentUpon>MedicalRecordWriteUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordWriteUpApprove.resx">
+      <DependentUpon>MedicalRecordWriteUpApprove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordWriteUpApprovedList.resx">
+      <DependentUpon>MedicalRecordWriteUpApprovedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MyMedicalRecordList.resx">
+      <DependentUpon>MyMedicalRecordList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordReadOnly.resx">
+      <DependentUpon>MedicalRecordReadOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ApplyBack\MedicalRecordApplyBack.resx">
+      <DependentUpon>MedicalRecordApplyBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ApplyBack\MedicalRecordApplyBackEditAndDelay.resx">
+      <DependentUpon>MedicalRecordApplyBackEditAndDelay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Apply\ChoosePatOrBaby.resx">
+      <DependentUpon>ChoosePatOrBaby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UCControl\IndexCard.resx">
+      <DependentUpon>IndexCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordApprovedList.resx">
+      <DependentUpon>MedicalRecordApprovedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordBrowse.resx">
+      <DependentUpon>MedicalRecordBrowse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordList.resx">
+      <DependentUpon>MedicalRecordList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordUnArchive.resx">
+      <DependentUpon>MedicalRecordUnArchive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordArchive.resx">
+      <DependentUpon>MedicalRecordArchive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Apply\MedicalRecordApply.resx">
+      <DependentUpon>MedicalRecordApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCControl\MedicalRecordApprove.resx">
+      <DependentUpon>MedicalRecordApprove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Apply\QueryPatientStatus.resx">
+      <DependentUpon>QueryPatientStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Apply\PatientStatus.resx">
+      <DependentUpon>PatientStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmrBrowerDlg.resx">
+      <DependentUpon>EmrBrowerDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MedicalRecordBrowseForm.resx">
+      <DependentUpon>MedicalRecordBrowseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Apply\MedicalRecordEditAndDelay.resx">
+      <DependentUpon>MedicalRecordEditAndDelay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MedicalRecordManageForm.resx">
+      <DependentUpon>MedicalRecordManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MedicalRecordWriteUpForm.resx">
+      <DependentUpon>MedicalRecordWriteUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\DrectSoftLogo.ico" />
+    <Content Include="Resources\DrectSoftLogo1.ico" />
+    <Content Include="Resources\作废.ico" />
+    <Content Include="Resources\保存.ico" />
+    <Content Include="Resources\借阅申请.ico" />
+    <Content Include="Resources\关闭.ico" />
+    <Content Include="Resources\删除.ico" />
+    <Content Include="Resources\取消.ico" />
+    <Content Include="Resources\审核不通过.ico" />
+    <Content Include="Resources\审核通过.ico" />
+    <None Include="Resources\归档.ico" />
+    <Content Include="Resources\归还.ico" />
+    <Content Include="Resources\提交.ico" />
+    <Content Include="Resources\撤销.ico" />
+    <Content Include="Resources\查看病历.ico" />
+    <Content Include="Resources\查询.ico" />
+    <Content Include="Resources\清空.ico" />
+    <Content Include="Resources\申请延期.ico" />
+    <Content Include="Resources\编辑.ico" />
+    <Content Include="Resources\退出.ico" />
+    <Content Include="Resources\重置.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectSqlHelper\DrectSoft.DSSqlHelper.csproj">
+      <Project>{fcfe859e-bafb-4ee4-8df0-c1edd1c2acd6}</Project>
+      <Name>DrectSoft.DSSqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\Emr.Util\DrectSoft.Emr.Util.csproj">
+      <Project>{c015a754-a3e4-4ae9-917e-1730644f6568}</Project>
+      <Name>DrectSoft.Emr.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\MainEmrPad\MainEmrPad.csproj">
+      <Project>{b18b4ab9-3d72-42f6-a30c-c91332a1b8d2}</Project>
+      <Name>MainEmrPad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMR\QcManager\QcManager.csproj">
+      <Project>{1936C301-11C8-4840-A219-86BAC2697975}</Project>
+      <Name>QcManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\CommonLib\CommonLib.csproj">
+      <Project>{f7a1a371-d9ee-497c-a137-13eb582bd421}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46A2B2D5-3872-4478-99FD-1AEE527390CD}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\病历借阅管理\RrecordManage\RrecordManage\RecordManage.csproj">
+      <Project>{cf4eadfa-880e-4712-a47d-76f9fffb35fb}</Project>
+      <Name>RecordManage</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

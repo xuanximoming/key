@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Migrated rules for TimeLimitQC.ruleset" Description="已通过项目“D:\DrectSoft.Net\Emr2010\Core\质量管理\TimeLimitQC\TimeLimitQC.csproj”中的“Debug (Any CPU)”配置的 CodeAnalysisRules 属性创建此规则集。" ToolsVersion="10.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1303" Action="None" />
+    <Rule Id="CA1304" Action="None" />
+    <Rule Id="CA1305" Action="None" />
+    <Rule Id="CA1306" Action="None" />
+  </Rules>
+</RuleSet>

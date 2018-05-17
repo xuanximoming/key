@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<reports>
+  <groups>
+    <group id="1" caption=""></group>
+    <group id="2" caption=""></group>
+    <group id="3" caption=""></group>
+  </groups>
+  <report caption="手术统计" groupindex="1">
+    <sql procedure="">
+      <!--描述存储过程名称及其参数，和参数对应控件-->
+      <param name="" controltype="" controlname="" break="0"/>
+      <param name="" controltype="" controlname="" break="0"/>
+      ....
+      <param name="" controltype="" controlname="" break="0"/>
+    </sql>
+    <datacolomns>
+      <!--描述打印数据表格是各列的宽度和显示名称-->
+      <Column name="" datafield="" width=""/>
+      <Column name="" datafield="" width=""/>
+      ....
+      <Column name="" datafield="" width=""/>
+    </datacolomns>
+    <PrintSetting pagesize="250,250" landspace="" margin="10,10,10,10">
+      <!--描述打印数据表格是各列的宽度和显示名称-->
+      <Title text="" width="" height="" x="" y="" fontsize="" bold="0"></Title>
+      <Title text="" width="" height="" x="" y="" fontsize="" bold="0"></Title>
+    </PrintSetting>
+  </report>
+</reports>

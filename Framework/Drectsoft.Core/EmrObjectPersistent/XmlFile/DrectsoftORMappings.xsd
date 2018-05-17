@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Wang Yi (DrectSoft) -->
+<xs:schema xmlns:kw="http://www.DrectSoft.com.cn/orm" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.DrectSoft.com.cn/orm" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ORMCollection">
+		<xs:annotation>
+			<xs:documentation>表和对象映射关系集合</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ORMapping" type="kw:ORMappingType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="ParentORMapping" type="kw:ORMappingType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="PKObject">
+			<xs:selector xpath="ORMapping|ParentORMapping"/>
+			<xs:field xpath="@Class"/>
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="OneToOneType">
+		<xs:annotation>
+			<xs:documentation>用来映射属性列名一对一的情况</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Property" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>属性名</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Column" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>列名(如果是父类的属性，子类中并没有对应字段，则列名不填)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="OneToStateType">
+		<xs:annotation>
+			<xs:documentation>用来映射以状态位保存数据的字段</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="kw:OneToOneType">
+				<xs:attribute name="Class" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Attribute类名</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PropertyWithClassType">
+		<xs:annotation>
+			<xs:documentation>属性和其类型名值对，在设置复杂的对应关系时需要</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Property" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>属性名</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Class" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>属性类型名称或工厂类名称</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PropertyWithClassComplexType">
+		<xs:annotation>
+			<xs:documentation>属性和其类型名值对，以及类型为抽象类时需要的信息</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="kw:PropertyWithClassType">
+				<xs:attribute name="KindColumn" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>表示类别的列名（如属性的类型是抽象类时，将根据类别使用工厂类创建实例，此时Class表示工厂类的名称；其余情况可以不填）</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DefaultValueType">
+		<xs:annotation>
+			<xs:documentation>列和缺省值值对</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="Column" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>当前表中的列名</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Value">
+			<xs:annotation>
+				<xs:documentation>默认值</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ORMappingType">
+		<xs:sequence>
+			<xs:element name="One-One" type="kw:OneToOneType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>属性和字段直接对应(如果希望属性是只读的，则需要额外定义Internal的属性，用来赋值、取值，在映射时也使用此属性名。以下同)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="State" type="kw:OneToStateType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>对用状态位保存数据的字段特殊处理(暂时无用)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Structure" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>一组字段映射到结构体</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="kw:PropertyWithClassType">
+							<xs:sequence>
+								<xs:element name="PropertyToColumn" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>结构体中的属性和列名对应关系</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:complexContent>
+											<xs:extension base="kw:OneToOneType">
+												<xs:attribute name="DefaultValue" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>如果属性没有对应的列，则需设置默认值</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="PropertyType" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>如果属性是Object类型，则要填写类型名</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="ActualProperty" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>属性是Object类型时，还需要填写列实际对应的列名（给列赋值时需要）</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+											</xs:extension>
+										</xs:complexContent>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ObjectClass" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>字段值来自于其它表时，连接到相关的类</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="kw:PropertyWithClassComplexType">
+							<xs:sequence>
+								<xs:element name="LinkedObject" maxOccurs="unbounded">
+									<xs:annotation>
+										<xs:documentation>需要为每一种可能出现的相关类指定列映射关系</xs:documentation>
+									</xs:annotation>
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="ColumnToColumn" maxOccurs="unbounded">
+												<xs:annotation>
+													<xs:documentation>当前表中字段与关联表中字段的对应关系</xs:documentation>
+												</xs:annotation>
+												<xs:complexType>
+													<xs:attribute name="SourceColumn" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>当前表中列名</xs:documentation>
+														</xs:annotation>
+													</xs:attribute>
+													<xs:attribute name="TargetColumn" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>关联表中原始列名</xs:documentation>
+														</xs:annotation>
+													</xs:attribute>
+													<xs:attribute name="DefaultValue" type="xs:string">
+														<xs:annotation>
+															<xs:documentation>关联表中列的缺省值(当前表中列名为空时有效)</xs:documentation>
+														</xs:annotation>
+													</xs:attribute>
+												</xs:complexType>
+											</xs:element>
+										</xs:sequence>
+										<xs:attribute name="Class" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>关联的类名</xs:documentation>
+											</xs:annotation>
+										</xs:attribute>
+									</xs:complexType>
+								</xs:element>
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SubClass" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>用子类来映射剩余的字段（以相同的方式定义子类映射关系，子类的不会单独使用）</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="kw:PropertyWithClassComplexType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DefaultValue" type="kw:DefaultValueType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>在用工厂类创建实例或其它一些比较复杂的映射方式时有些列不一定映射到属性，所以要给列指定默认值</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Class" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>类名</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ParentClass">
+			<xs:annotation>
+				<xs:documentation>父类名(目前只能支持两层)(应改成XLink)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Table" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>对应的表名</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

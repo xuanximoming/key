@@ -1,0 +1,374 @@
+.login_top_bg
+{
+    background-image: url(../Images/login-top-bg.gif);
+    background-repeat: repeat-x;
+}
+body
+{
+    background-color: #EEF2FB;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.login-buttom-bg
+{
+    background-image: url(../Images/login-buttom-bg.gif);
+    background-repeat: repeat-x;
+}
+.login-buttom-txt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #ABCAD3;
+    text-decoration: none;
+    line-height: 20px;
+}
+.login_txt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    color: #333333;
+}
+.Submit
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #629DAE;
+    text-decoration: none;
+    background-image: url(../Images/Submit_bg.gif);
+    background-repeat: repeat-x;
+}
+.login_bg
+{
+    background-image: url(../Images/login_bg.jpg);
+    background-repeat: repeat-x;
+}
+.login_bg2
+{
+    background-image: url(login-content-bg.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.admin_txt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-decoration: none;
+    height: 38px;
+    width: 100%;
+    line-height: 38px;
+}
+.login_txt_bt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+    color: #666666;
+    font-weight: bold;
+}
+.admin_topbg
+{
+    background-image: url(top-right.gif);
+    background-repeat: repeat-x;
+}
+.txt_bt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+}
+.left_topbg
+{
+    background-image: url(content-bg.gif);
+    background-repeat: repeat-x;
+}
+.admin_toptxt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #4A8091;
+    height: 18px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.left_bt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #395a7b;
+}
+.left_bt2
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #333333;
+}
+.titlebt
+{
+    font-size: 12px;
+    line-height: 26px;
+    font-weight: bold;
+    color: #000000;
+    background-image: url(../Images/top_bt.jpg);
+    background-repeat: no-repeat;
+    display: block;
+    text-indent: 15px;
+    padding-top: 5px;
+}
+
+.left_txt
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    color: #666666;
+}
+.left_txt2
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    color: #000000;
+}
+.nowtable
+{
+    background-color: #e1e5ee;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-top-color: #bfc4ca;
+    border-right-color: #bfc4ca;
+    border-bottom-color: #bfc4ca;
+    border-left-color: #bfc4ca;
+}
+.left_txt3
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    color: #003366;
+    text-decoration: none;
+}
+
+
+
+.left_ts
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: bold;
+    color: #FF6600;
+}
+.line_table
+{
+    border: 1px solid #CCCCCC;
+}
+.sec1
+{
+    cursor: hand;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    border: 1px solid #B5D0D9;
+    background-image: url(../Images/right_smbg.jpg);
+    background-repeat: repeat-x;
+}
+.sec2
+{
+    font-weight: bold;
+    cursor: hand;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    background-color: #e2e7ed;
+    border: 1px solid #e2e7ed;
+}
+.main_tab
+{
+    color: #000000;
+    background-color: #e2e7ed;
+    border: 1px solid #e2e7ed;
+}
+.MM a
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 26px;
+    color: #666666;
+    background-image: url(../Images/menu_bg.gif);
+    background-repeat: no-repeat;
+    list-style-type: none;
+    list-style-image: none;
+}
+a:link
+{
+    font-size: 12px;
+    line-height: 25px;
+    color: #333333;
+    text-decoration: none;
+}
+a:hover
+{
+    font-size: 12px;
+    line-height: 25px;
+    color: #666666;
+    text-decoration: none;
+}
+a:visited
+{
+    font-size: 12px;
+    line-height: 25px;
+    color: #333333;
+    text-decoration: none;
+}
+
+
+.MM a:link
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 26px;
+    color: #666666;
+    background-image: url(../Images/menu_bg.gif);
+    background-repeat: no-repeat;
+    list-style-type: none;
+    list-style-image: none;
+}
+.add_title
+{
+    font-size: 12;
+    font-weight: bolder;
+    line-height: 25px;
+    margin-top: 15px;
+    border: 1px solid #B5D0D9;
+    padding-left: 10px;
+    background-color: #E2E7ED;
+}
+
+.add_table
+{
+    border: 1px solid #B5D0D9;
+}
+.add_table td
+{
+    border-right: 1px solid #B5D0D9;
+    border-bottom: 1px solid #B5D0D9;
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+.sys_list_table
+{
+    border: 1px solid #B5D0D9;
+}
+.sys_list_table td
+{
+    padding-left: 10px;
+    border-right: 1px solid #B5D0D9;
+    border-bottom: 1px solid #B5D0D9;
+}
+.add_Newstable
+{
+    border: 1px solid #B5D0D9;
+}
+.add_Newstable td
+{
+}
+.sys_topBg
+{
+    font-weight: bolder;
+    background-color: #F0F3F7;
+}
+.TR_BG_list
+{
+}
+.list_date
+{
+    float: right;
+    color: #666;
+}
+.op_normal
+{
+    background-color: #eeeeee;
+    border: solid 1px #759f9d;
+    background-image: url("../Images/butbg.gif");
+    color: #444444;
+    font-size: 9pt;
+    height: 25px;
+    padding-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+
+and text-align:center and color:#000000
+{
+font-size:9pt;
+font-family:TimesNewRoman,Verdana,Arial,Helvetica;
+background-color:Transparent;
+star:expression(this.readOnly=true);
+}
+
+
+
+
+/*页面标题*/
+.main_content_table
+{
+    width: 100%;
+    height: 40px;
+    border-width:0px;
+    border-top: 0px solid #ccc;
+    border-right: 0px solid #ccc;
+}
+.main_content_table td
+{
+    line-height: 40px;
+    height: 40px;
+    padding: 0px 0px 0px 0px;
+ 
+}
+
+.main_title
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    font-family:@华文行楷;
+}
+
+
+/*页面导航条*/
+.PageUrl
+{
+    width: 100%;
+    float:left;
+    height:20px;
+    font-size: 12px;
+}

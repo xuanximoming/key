@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[UtilityLibrary.csproj]
+SCC_Aux_Path = "\\Emrserver\EPR_VSS"
+SCC_Project_Name = "$/TPEMR_Editor.root/TPEMR_Editor/UtilityLibrary", MEXBAAAA

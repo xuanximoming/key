@@ -1,0 +1,1070 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DrectSoft.Library.LookUpEditor</name>
+    </assembly>
+    <members>
+        <member name="T:DrectSoft.Common.Library.CaptureCursorForm">
+            <summary>
+            自动关闭窗口
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.CaptureCursorForm.WM_LBUTTONUP">
+            <summary>
+            鼠标左键弹起消息的值
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.CaptureCursorForm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.CaptureCursorForm.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.CaptureCursorForm.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            重写WndProc消息
+            </summary>
+            <param name="m"></param>
+        </member>
+        <member name="P:DrectSoft.Common.Library.CaptureCursorForm.TimerActived">
+            <summary>
+            设置计时器是否启动
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.ColorFormBack">
+            <summary>
+            窗体的默认背景色。不能设为与System.Control一样的颜色
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.ColorChildBack">
+            <summary>
+            窗体中子控件的默认背景色
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.ColorChildFore">
+            <summary>
+            窗体中子控件的默认前景色
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.ColorShadowBack">
+            <summary>
+            阴影部分的背景色
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.DefaultShadowOffset">
+            <summary>
+            默认的阴影部分偏移量
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.MultiStringSeparators">
+            <summary>
+            默认用来区分多选字符串的分隔符
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_InitPosition">
+            <summary>
+            ShowListForm 显示时的初始位置（屏幕坐标）
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_InputControlSize">
+            <summary>
+            ShowListForm 输入框的尺寸
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_ScreenSize">
+            <summary>
+            调用ShowListForm的窗口所在屏幕的尺寸
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_Left2Right">
+            <summary>
+            标记窗口是否从左到右排列控件
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_Top2Down">
+            <summary>
+            标记窗口是否从上到下排列控件
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_ShadowOffset">
+            <summary>
+            阴影部分的偏移量
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_DefDataRegionHeight">
+            <summary>
+            数据选择部分的默认高度（包括按钮区域的默认高度）
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_DefBottomRegionHeight">
+            <summary>
+            按钮区域的默认高度
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_CacheDataSet">
+            <summary>
+            用来缓存使用过的字典数据
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_DefaultTable">
+            <summary>
+            当前使用的字典的DataTable
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_DefaultView">
+            <summary>
+            当前DataTable的默认DataView
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_HaveSearch">
+            <summary>
+            标记输入框中的文本改变后是否进行过查询。以决定回车等事件如何处理
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_SearchText">
+            <summary>
+            用来在字典数据中进行查询的文本
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_SelectedRowIndex">
+            <summary>
+            保存DataGridView中选中的行的序号（处理多选时需要）
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_LocateIndex">
+            <summary>
+            需要在Grid显示时定位的行号
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.m_Initializing">
+            <summary>
+            标记是否处于初始化状态
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.CallShowListWindow(DrectSoft.Wordbook.BaseWordbook,DrectSoft.Wordbook.WordbookKind,System.String,DrectSoft.Common.Library.ShowListFormMode,System.Drawing.Point,System.Drawing.Size,System.Drawing.Rectangle,DrectSoft.Common.Library.ShowListCallType)">
+            <summary>
+            调用代码选择窗口。
+            初始化ShowList窗口的部分属性。这些属性因为与行为、显示效果等有关，所以需要统一设置。
+            <param name="wordbook">默认的字典类</param>
+            <param name="kind">字典类的类型</param>
+            <param name="initText">查询条件初始值</param>
+            <param name="formMode">ShowList窗口显示模式</param>
+            <param name="initPosition">ShowListForm默认显示位置(屏幕坐标)</param>
+            <param name="inputSize">ShowListForm输入框的尺寸</param>
+            <param name="screenSize">调用ShowListForm的窗口所在屏幕的尺寸</param>
+            <param name="callType">调用模式</param>
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.InitializeProperties">
+            <summary>
+            初始化属性
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.InitializePrivateVariable">
+            <summary>
+            初始化私有变量
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.CheckFormProperties(System.Boolean)">
+            <summary>
+            检查窗口的属性设置是否正确
+            </summary>
+            <param name="fullCheck">是否进行完整检查标志</param>
+            <returns>返回错误信息。为空表示没有错误</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.InitializeDataGridView">
+            <summary>
+            初始化DataGridView
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.ClearLastData">
+            <summary>
+            清除上次查询结果
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.InitializeWordbookData">
+            <summary>
+            初始化现在要使用的字典数据
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.ConvertStringList2DataTable(System.String,System.Collections.ObjectModel.Collection{System.String})">
+            <summary>
+            根据传入的StringList生成DataTable。自动添加序号、拼音、五笔列
+            </summary>
+            <param name="tableName">指定的DataTable名称</param>
+            <param name="source">用来生成DataTable的StringList</param>
+            <returns></returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.SearchMatchRow(System.String,DrectSoft.Common.Library.ShowListMatchType,System.Boolean)">
+            <summary>
+            根据当前的查询文本查找数据（即过滤数据）
+            </summary>
+            <param name="searchText">查询数据的条件值</param>
+            <param name="matchType">数据匹配模式</param>
+            <param name="useCodeFieldOnly">是否直接使用默认的代码列进行匹配</param>
+            <returns>返回匹配的记录行数</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.SearchMatchRow(System.String,DrectSoft.Common.Library.ShowListMatchType,System.Boolean,System.Boolean)">
+            <summary>
+            根据当前的查询文本查找数据（即过滤数据）
+            </summary>
+            <param name="searchText">查询数据的条件值</param>
+            <param name="matchType">数据匹配模式</param>
+            <param name="useCodeFieldOnly">是否直接使用默认的代码列进行匹配</param>
+            <param name="findOnly">是否只查找数据，不过滤</param>
+            <returns>返回匹配的记录行数</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.GetFilterOperatorByMatchType(DrectSoft.Common.Library.ShowListMatchType)">
+            <summary>
+            取得当前过滤使用的操作符
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.GetFirstMatchField(DrectSoft.Wordbook.StringType)">
+            <summary>
+            根据字符串类型，获取首选的查询字段名
+            </summary>
+            <param name="inputType">字符串类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.SaveSelectedRow">
+            <summary>
+            在选中记录后进行数据处理工作
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.CloneDataRow(System.Data.DataRow)">
+            <summary>
+            用传入的DataRow复制一条记录
+            </summary>
+            <param name="sourceRow"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.CommitSelectAction">
+            <summary>
+            完成数据选择操作
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.CancleSelectAction">
+            <summary>
+            取消数据选择动作
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.DoAfterRowHadBeenSelected">
+            <summary>
+            执行选中行后的操作
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.SetFormStyle">
+            <summary>
+            设置ShowListForm的显示样式
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.SetFormAndControlsSize">
+            <summary>
+            设置窗口中控件的尺寸
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.JudgeFormLayoutType">
+            <summary>
+            判断窗口布局类型，并获得Grid的理想宽度
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.DataSelectForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.DataSelectForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.ShowColumnTitle">
+            <summary>
+            是否显示字典列表的列标题。默认显示
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.ShowGridline">
+            <summary>
+            是否显示字典列表中的网格。默认显示
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.UseWB">
+            <summary>
+            是否习惯使用五笔代码
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.IsDynamic">
+            <summary>
+            动态查询
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.MatchType">
+            <summary>
+            查询匹配模式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.FormMode">
+            <summary>
+            ShowList窗口的显示模式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.Wordbook">
+            <summary>
+            当前ShowList窗口处理的字典类实例
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.BookKind">
+            <summary>
+            当前ShowList窗口处理的字典类类型
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.ShowShadow">
+            <summary>
+            ShowList窗口是否显示阴影
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.DisplayValue">
+            <summary>
+            显示在编辑框中的值。多个名称时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.CodeValue">
+            <summary>
+            编辑框中的值对应的代码。多个代码时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.QueryValue">
+            <summary>
+            编辑框中的值对应的代码。多个代码时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.ResultRows">
+            <summary>
+            选中的数据记录行集合
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.AlwaysShowWindow">
+            <summary>
+            是否总是显示ShowList窗口(默认只有一条匹配记录时不显示窗口)
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.SqlHelper">
+            <summary>
+            执行SQL语句的DataAccess。必须在使用前初始化此属性
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.GenShortCode">
+            <summary>
+            生成拼音、五笔缩写的对象。如果没有初始化，则将利用_sqlHelper创建新对象
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.MultiSelect">
+            <summary>
+            允许多选
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.MinCount">
+            <summary>
+            允许选择的最少记录数,最小为0
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.MaxCount">
+            <summary>
+            允许选择的最大记录数
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.InputRegionWidth">
+            <summary>
+            获取输入区域的宽度（包括阴影部分的宽度）
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.ValiableRegionSize">
+            <summary>
+            窗口有效区域的尺寸（含阴影部分）
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.DataSelectForm.DataRegionWidth">
+            <summary>
+            数据选择区域的宽度（grid+多选结果框）,不含阴影
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Library.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Library.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Library.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Library.Resource1">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Library.Resource1.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Library.Resource1.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.LookUpEditor">
+            <summary>
+            数据选择组件
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.LookUpEditor.m_OwnerForm">
+            <summary>
+            控件所属的Form
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.BeginInit">
+            <summary>
+            用信号通知对象初始化即将开始。
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.EndInit">
+            <summary>
+            用信号通知对象初始化已完成。
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.CreateListWordbook">
+            <summary>
+            用StringList创建List字典
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.SelectRecord(System.String,DrectSoft.Common.Library.ShowListCallType)">
+            <summary>
+            执行选择代码的过程
+            </summary>
+            <param name="searchText"></param>
+            <param name="callType">调用ShowListWindow方式--</param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.CleanupPropertiesValue">
+            <summary>
+            清除输入框中的数据
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.ResetPropertiesValue">
+            <summary>
+            重设ShowListBox中当前保留的代码等数据
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnCodeValueChanged(System.EventArgs)">
+            <summary>
+            选择的数据已改变事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.NotifyButtonStateChanged(DevExpress.XtraEditors.Controls.EditorButton)">
+            <summary>
+            
+            </summary>
+            <param name="button"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnClickButton(DevExpress.XtraEditors.Drawing.EditorButtonObjectInfoArgs)">
+            <summary>
+            
+            </summary>
+            <param name="buttonInfo"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnKeyDown(System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnPressButton(DevExpress.XtraEditors.Drawing.EditorButtonObjectInfoArgs)">
+            <summary>
+            
+            </summary>
+            <param name="buttonInfo"></param>
+        </member>
+        <member name="F:DrectSoft.Common.Library.LookUpEditor._isNeedPaint">
+            <summary>
+            是否需要绘制底部线条默认false
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpEditor.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            重写重绘事件
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.AllowButtonPress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.EditorTypeName">
+            <summary>
+            <para>Gets the class name of the current editor.
+            </para>
+            </summary>
+            <value>The string identifying the class name of the current editor.
+            </value>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.IsNeedFocus">
+            <summary>
+            <para>Gets a value indicating whether a container needs to set focus to the editor when it works as an inplace control.
+            </para>
+            </summary>
+            <value><b>true</b>, if a container needs to set focus to the editor; otherwise, <b>false</b>.
+            </value>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ViewInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.EditValue">
+            <summary>
+            代码中不能使用此属性，否则后果自负
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.Properties">
+            <summary>
+            代码中不能使用此属性，否则后果自负
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.KeepOriginalData">
+            <summary>
+            未选择记录时是否保留编辑框的现在的数据
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ReadOnly">
+            <summary>
+            ReadOnly
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ShowSButton">
+            <summary>
+            显示“S”按钮
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.BorderStyle">
+            <summary>
+            设置或获取边框样式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.EnterMoveNextControl">
+            <summary>
+            按回车是否自动跳转到下一控件
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ShowFormImmediately">
+            <summary>
+            自动弹出ShowList窗口
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.FormMode">
+            <summary>
+            ShowList窗口的显示模式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.Kind">
+            <summary>
+            使用的代码字典类型
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.NormalWordbook">
+            <summary>
+            预定义字典类
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ListWordbookName">
+            <summary>
+            默认的StringList字典名称
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ListWordbookValues">
+            <summary>
+            作为字典使用的StringList
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ListWordbook">
+            <summary>
+            使用StringList创建的字典类
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.SqlWordbook">
+            <summary>
+            使用SQL语句动态创建的字典类
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ListWindow">
+            <summary>
+            对应的ShowListWindow
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.CurrentWordbook">
+            <summary>
+            获得当前使用的字典类实例
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.DisplayValue">
+            <summary>
+            显示值
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.CodeValue">
+            <summary>
+            作为代码保存的值
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.QueryValue">
+            <summary>
+            编辑框中的值对应的代码。多个代码时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.HadGetValue">
+            <summary>
+            标记输入框是否已经选择了值/是否已初始化
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.ResultRows">
+            <summary>
+            选中的记录对应的DataRow
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.PersistentObjects">
+            <summary>
+            根据当前选中的字典记录生成其对应的对象实例.
+            如果对象类中有对数据库的操作,要记得给对象的SqlHelper属性赋值
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.MinCount">
+            <summary>
+            允许选择的最少记录数(最小为0),会影响到未输入内容时按回车是否弹出选择窗口
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.MaxCount">
+            <summary>
+            允许选择的最大记录数
+            </summary>
+        </member>
+        <member name="E:DrectSoft.Common.Library.LookUpEditor.CodeValueChanged">
+            <summary>
+            选择值变化事件
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpEditor.IsNeedPaint">
+            <summary>
+            IsNeedPaint
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.ShowListFormMode">
+            <summary>
+            ShowListForm的显示模式
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListFormMode.Full">
+            <summary>
+            完整显示
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListFormMode.Concision">
+            <summary>
+            简洁模式
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.ShowListMatchType">
+            <summary>
+            ShowList窗口匹配数据的模式枚举
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListMatchType.Full">
+            <summary>
+            完全匹配
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListMatchType.Begin">
+            <summary>
+            前导相似
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListMatchType.Any">
+            <summary>
+            模糊查询
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.ShowListCallType">
+            <summary>
+            ShowList选择窗口的调用模式
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListCallType.Initialize">
+            <summary>
+            初试化ShowListBox
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListCallType.Normal">
+            <summary>
+            普通调用模式
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.ShowListCallType.ShowDirectly">
+            <summary>
+            直接显示ShowListWindow模式
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.ShowListMatchTypeRecorder">
+            <summary>
+            showlist 匹配方式记录器
+            按用户记录对不同字典的查询方式的设置，保存在注册表中(在主程序中，在登录后，应设置当前用户属性)
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.ShowListMatchTypeRecorder.ReadDefaultSetting(System.String)">
+            <summary>
+            读取指定字典对应的默认设置
+            </summary>
+            <param name="wordbookName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.ShowListMatchTypeRecorder.WriteSetting(System.String,DrectSoft.Common.Library.ShowListMatchType,System.Boolean)">
+            <summary>
+            保存指定字典对应的默认设置。如果与默认的设置相同则不保存
+            </summary>
+            <param name="wordbookName"></param>
+            <param name="matchType"></param>
+            <param name="isDynamic"></param>
+        </member>
+        <member name="P:DrectSoft.Common.Library.ShowListMatchTypeRecorder.CurrentUserId">
+            <summary>
+            当前使用ShowList的用户
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.ShowListMatchTypeSetting">
+            <summary>
+            showList 匹配方式设置类
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.ShowListMatchTypeSetting.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.ShowListMatchTypeSetting.#ctor(DrectSoft.Common.Library.ShowListMatchType,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="matchType"></param>
+            <param name="isDynamic"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.ShowListMatchTypeSetting.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.ShowListMatchTypeSetting.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DrectSoft.Common.Library.ShowListMatchTypeSetting.MatchType">
+            <summary>
+            匹配模式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.ShowListMatchTypeSetting.IsDynamic">
+            <summary>
+            动态过滤
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.LookUpWindow">
+            <summary>
+            处理代码显示、选择的组件
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.CallLookUpWindow(DrectSoft.Wordbook.BaseWordbook,DrectSoft.Wordbook.WordbookKind,System.String)">
+            <summary>
+            初始化ShowList控件时调用此函数
+            </summary>
+            <param name="wordbook">需要使用的字典类</param>
+            <param name="kind">字典类类型</param>
+            <param name="codeValue">初始化的代码值</param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.CallLookUpWindow(DrectSoft.Wordbook.BaseWordbook,DrectSoft.Wordbook.WordbookKind,System.String,DrectSoft.Common.Library.ShowListFormMode,System.Drawing.Point,System.Drawing.Size,System.Drawing.Rectangle)">
+            <summary>
+            调用代码选择窗口。
+            初始化ShowList窗口的部分属性。这些属性因为与行为、显示效果等有关，所以需要统一设置。
+            <param name="wordbook">默认的字典类</param>
+            <param name="kind">字典类的类型</param>
+            <param name="initText">查询条件初始值</param>
+            <param name="formMode">ShowList窗口显示模式</param>
+            <param name="initPosition">ShowListForm默认显示位置(屏幕坐标)</param>
+            <param name="inputSize">ShowListForm输入框的尺寸</param>
+            <param name="screenSize">调用ShowListForm的窗口所在屏幕的尺寸</param>
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.CallLookUpWindow(DrectSoft.Wordbook.BaseWordbook,DrectSoft.Wordbook.WordbookKind,System.String,DrectSoft.Common.Library.ShowListFormMode,System.Drawing.Point,System.Drawing.Size,System.Drawing.Rectangle,DrectSoft.Common.Library.ShowListCallType)">
+            <summary>
+            调用代码选择窗口。
+            初始化ShowList窗口的部分属性。这些属性因为与行为、显示效果等有关，所以需要统一设置。
+            <param name="wordbook">默认的字典类</param>
+            <param name="kind">字典类的类型</param>
+            <param name="initText">查询条件初始值</param>
+            <param name="formMode">ShowList窗口显示模式</param>
+            <param name="initPosition">ShowListForm默认显示位置(屏幕坐标)</param>
+            <param name="inputSize">ShowListForm输入框的尺寸</param>
+            <param name="screenSize">调用ShowListForm的窗口所在屏幕的尺寸</param>
+            <param name="callType">调用模式</param>
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.ValidateWordbookHasOneRecord(DrectSoft.Wordbook.BaseWordbook,DrectSoft.Wordbook.WordbookKind)">
+            <summary>
+            检查指定的字典是否只包含一条记录。
+            </summary>
+            <param name="wordbook"></param>
+            <param name="kind"></param>
+            <returns>如果是的话则返回{代码,名称}对，否则返回空</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.BeginInit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.EndInit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.LookUpWindow.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.Dispose(System.Boolean)">
+            <summary> 
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.LookUpWindow.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.ShowColumnTitle">
+            <summary>
+            是否显示字典列表的列标题。默认显示
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.ShowGridline">
+            <summary>
+            是否显示字典列表中的网格。默认显示
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.UseWB">
+            <summary>
+            是否习惯使用五笔代码
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.IsDynamic">
+            <summary>
+            动态查询
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.MatchType">
+            <summary>
+            查询匹配模式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.FormMode">
+            <summary>
+            ShowList窗口的显示模式
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.Wordbook">
+            <summary>
+            当前ShowList窗口处理的字典类实例
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.BookKind">
+            <summary>
+            当前ShowList窗口处理的字典类类型
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.ShowShadow">
+            <summary>
+            ShowList窗口是否显示阴影
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.DisplayValue">
+            <summary>
+            显示在编辑框中的值。多个名称时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.CodeValue">
+            <summary>
+            编辑框中的值对应的代码。多个代码时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.QueryValue">
+            <summary>
+            编辑框中的值对应的代码。多个代码时用“,”隔开
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.ResultRows">
+            <summary>
+            选中的数据记录行集合
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.HadGetValue">
+            <summary>
+            标记是否已经选择了值
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.AlwaysShowWindow">
+            <summary>
+            是否总是显示ShowList窗口(默认只有一条匹配记录时不显示窗口)
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.SqlHelper">
+            <summary>
+            执行SQL语句的DataAccess。必须在使用前初始化此属性
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.GenShortCode">
+            <summary>
+            生成拼音、五笔缩写的对象。如果没有初始化，则将利用_sqlHelper创建新对象
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.MinCount">
+            <summary>
+            允许选择的最少记录数,最小为0
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.MaxCount">
+            <summary>
+            允许选择的最大记录数
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.Font">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.LookUpWindow.Owner">
+            <summary>
+            获取或设置拥有此窗体的窗体
+            </summary>
+        </member>
+        <member name="T:DrectSoft.Common.Library.WordbookChooseForm">
+            <summary>
+            选择并设置预定义字典的窗口
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.#ctor">
+            <summary>
+            创建字典选择窗口实例
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.ShowForm">
+            <summary>
+            以默认方式调用预定义字典选择窗口
+            </summary>
+            <returns>选中字典的关键信息组成的字符串</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.ShowForm(System.String)">
+            <summary>
+            用传入的字典关键信息初始化选中字典，并调用预定义字典选择窗口
+            </summary>
+            <param name="keyInfo">字典的关键信息组成的字符串</param>
+            <returns>选中字典的关键信息组成的字符串</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.CallSelectForm">
+            <summary>
+            显示预定义字典选择窗口
+            </summary>
+            <returns>选中字典的关键信息组成的字符串</returns>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.InitializeEditBox">
+            <summary>
+            用当前选中的字典类的信息初始化编辑界面
+            </summary>
+        </member>
+        <member name="F:DrectSoft.Common.Library.WordbookChooseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:DrectSoft.Common.Library.WordbookChooseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.WordbookChooseForm.Wordbook">
+            <summary>
+            当前选择的字典类
+            </summary>
+        </member>
+        <member name="P:DrectSoft.Common.Library.WordbookChooseForm.SqlExecutor">
+            <summary>
+            连接数据库的对象
+            </summary>
+        </member>
+    </members>
+</doc>

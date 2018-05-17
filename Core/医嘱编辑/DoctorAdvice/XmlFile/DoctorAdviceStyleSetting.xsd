@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Wang Yi (NetWorkStudio) -->
+<xs:schema xmlns:kw="http://medical.DrectSoft.com" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://medical.DrectSoft.com" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="DoctorAdviceSetting">
+		<xs:annotation>
+			<xs:documentation>医嘱录入设置</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BusinessLogic">
+					<xs:annotation>
+						<xs:documentation>业务逻辑设置</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ConnectToHis" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>是否连接到HIS</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="TempOrderFrequencyCode" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>默认的临时医嘱频次(ST)代码</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="UseMedicomPlug" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>标记是否使用美康的合理用药插件</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AutoSyncData" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>保存新医嘱时是否自动同步到HIS（其它修改仍自动同步）。为否时要手工点提交按钮</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="StartDateWarningHours" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>新医嘱的开始时间在当前时间之前多长时间就进行提示。以小时为单位</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="EnableOrderRules" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>是否启用处方规则(需要HIS提供相应的设置数据)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="SetLimitedDetail" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>设置受限制明细(启用处方规则时才有效)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="UseRadioCatalogInputStyle" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>医嘱类别输入模式。Fasle: 使用LookUpEditor  True: 使用单选框模式</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AutoHideHerbDetail" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>是否自动隐藏医嘱中的草药明细(隐藏后将显示成一条汇总记录)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="AllowLongHerbOrder" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>是否允许在长期医嘱中输入草药</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="EnableItemAgeWarning" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>启用项目使用年龄警告</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MaxWarningAge" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>项目使用年龄警告上限(在上限以下的都警告)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="WaringItem" type="xs:string">
+								<xs:annotation>
+									<xs:documentation>需要进行使用年龄控制的项目代码，多个时用"，"隔开</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="UseEmptyOrderTemplate" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>使用空白的医嘱打印模板</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="UsedForAllPatient" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>病区所有病人都使用电子医嘱(设为否时，医嘱同步过程将忽略对EMR中没有医嘱数据的病人的处理)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="BlockingTimeOfTakeDrug" type="xs:int">
+								<xs:annotation>
+									<xs:documentation>领药截止时间(处理"明起"的长期医嘱时需要此参数)</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="EnableEmrOrderModul" type="xs:boolean">
+								<xs:annotation>
+									<xs:documentation>启用电子病历系统的医嘱模块</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="kw:CustomDrawSetting"/>
+				<xs:element ref="kw:GridSetting"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GridSetting">
+		<xs:annotation>
+			<xs:documentation>医嘱Grid的样式</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="GridFont" type="kw:TypeXmlFont">
+					<xs:annotation>
+						<xs:documentation>Grid的默认字体</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RowHeight" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>Grid的默认行高</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShowBand" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>是否显示Grid的Band</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Columns">
+					<xs:annotation>
+						<xs:documentation>Grid中的所有列</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ColumnBasic" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>列基础信息</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="Name" type="xs:string" use="required">
+										<xs:annotation>
+											<xs:documentation>列名称</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Caption" type="xs:string" use="required">
+										<xs:annotation>
+											<xs:documentation>列的显示名称</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Width" type="xs:int" use="required">
+										<xs:annotation>
+											<xs:documentation>列默认宽度</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Memo" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>列说明</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="LongOrderSetting">
+					<xs:annotation>
+						<xs:documentation>长期医嘱设置</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Band" type="kw:TypeGridBand" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Grid中显示的Band</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="TempOrderSetting">
+					<xs:annotation>
+						<xs:documentation>临时医嘱设置</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Band" type="kw:TypeGridBand" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>Grid中显示的Band</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CustomDrawSetting">
+		<xs:annotation>
+			<xs:documentation>医嘱自画所需设置</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DefaultFont" type="kw:TypeXmlFont">
+					<xs:annotation>
+						<xs:documentation>医嘱内容默认字体</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="MinFontSize" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>医嘱内容最小字号</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Margin" type="kw:TypePadding">
+					<xs:annotation>
+						<xs:documentation>允许输出的区域与单元格四周的距离</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="FontOfCancel" type="kw:TypeXmlFont">
+					<xs:annotation>
+						<xs:documentation>"取消医嘱"的字体</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="StartPosOfCancel" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>"取消医嘱"输出时的起始位置(相对于允许输出的区域)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DefaultColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>单元格默认颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewOrderColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>新医嘱的颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="AuditedColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>已审核医嘱的颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CancelledColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>取消文字的颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExecutedColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>已执行医嘱的颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CeasedColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>已停止医嘱的颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NotSynchColor" type="kw:TypeCellColor">
+					<xs:annotation>
+						<xs:documentation>未同步的数据的颜色设置</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="GroupFlagColor" type="kw:TypeColorPair">
+					<xs:annotation>
+						<xs:documentation>分组标记的颜色(分别用BackColor和ForeColor表示正常状态和选中状态下的颜色)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="GroupFlagWidth" type="xs:int">
+					<xs:annotation>
+						<xs:documentation>分组标记的宽度</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShowRepeatInfo" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>重复信息是否显示标记</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ReplaceOfRepeatInfo" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>用来替换重复信息的字符串</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TypeXmlFont">
+		<xs:annotation>
+			<xs:documentation>字体设置。Size以打印机点（1/72 英寸）指定为度量单位；字符集默认为中文</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="FontFamily" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>字体名称</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="Size" type="xs:float" use="required">
+			<xs:annotation>
+				<xs:documentation>尺寸</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="FontStyle" use="required">
+			<xs:annotation>
+				<xs:documentation>样式</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Bold"/>
+					<xs:enumeration value="Italic"/>
+					<xs:enumeration value="Regular"/>
+					<xs:enumeration value="Strikeout"/>
+					<xs:enumeration value="Underline"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TypeGridBand">
+		<xs:annotation>
+			<xs:documentation>对Grid中Band的设置</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ColumnName" type="xs:string" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Band中包含的列</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="BandName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="bandBeginInfo"/>
+					<xs:enumeration value="bandExecuteInfo"/>
+					<xs:enumeration value="bandCeaseInfo"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TypePadding">
+		<xs:annotation>
+			<xs:documentation>表示与用户界面 (UI) 元素关联的空白或边距信息</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="All" type="xs:int"/>
+			<xs:element name="Top" type="xs:int"/>
+			<xs:element name="Bottom" type="xs:int"/>
+			<xs:element name="Left" type="xs:int"/>
+			<xs:element name="Right" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TypeColor">
+		<xs:annotation>
+			<xs:documentation>颜色名称（或如下的ARGB表达形式: A,R,G,B）</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="ColorName" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="TypeColorPair">
+		<xs:annotation>
+			<xs:documentation>颜色对（前景和背景色）</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="BackColor" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>背景色</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForeColor" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>前景色</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TypeCellColor">
+		<xs:annotation>
+			<xs:documentation>单元格颜色设置（分正常和选中两种情况）</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NormalColor" type="kw:TypeColorPair">
+				<xs:annotation>
+					<xs:documentation>正常情况下颜色</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SelectedColor" type="kw:TypeColorPair">
+				<xs:annotation>
+					<xs:documentation>选中情况下颜色设置</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BasisDataSynchSetting xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.yidansoft.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.yidansoft.com/
+BasisDataSynchSetting.xsd">
+	<TableMapping TargetTable="Ward" Enabled="true" NameField="name">
+		<DataSource SourceTable="YD_WARDS"/>
+		<SelectSentence>SELECT *FROM YD_WARDS where VALID=1</SelectSentence>
+	</TableMapping>
+	<TableMapping TargetTable="DEPARTMENT" Enabled="true" NameField="name">
+		<DataSource SourceTable="YD_DEPARTMENTS"/>
+		<SelectSentence>SELECT *FROM YD_DEPARTMENTS</SelectSentence>
+	</TableMapping>
+	<TableMapping TargetTable="DEPT2WARD" Enabled="true">
+		<DataSource SourceTable="YD_DEPT2WARD"/>
+		<SelectSentence>select *from YD_DEPT2WARD</SelectSentence>
+	</TableMapping>
+	<TableMapping TargetTable="Users" Enabled="true" NameField="Name">
+		<DataSource SourceTable="yd_users"/>
+		<SelectSentence> select  * from yd_users where VALID=1</SelectSentence>
+		<OtherSentence>update Users set GroupID = '00,' where ID = '00' and (GroupID is null or GroupID = '')</OtherSentence>
+	</TableMapping>
+  <TableMapping TargetTable="User2dept" Enabled="true" >
+    <DataSource SourceTable="yd_user2dept"/>
+    <SelectSentence> select  * from yd_user2dept </SelectSentence>
+  </TableMapping>
+  <TableMapping TargetTable="DIAGNOSIS" Enabled="true" >
+    <DataSource SourceTable="YD_DIAGNOSIS"/>
+    <SelectSentence> select  * from YD_DIAGNOSIS </SelectSentence>
+  </TableMapping>
+</BasisDataSynchSetting>

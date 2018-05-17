@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by  () -->
+<xs:schema xmlns:wb="http://www.DrectSoft.com.cn/Wordbook" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.DrectSoft.com.cn/Wordbook" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Wordbooks">
+		<xs:annotation>
+			<xs:documentation>预定义字典定义集合</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="WordbookCatalog" maxOccurs="5">
+					<xs:annotation>
+						<xs:documentation>分类别管理字典定义</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Wordbook" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>字典类定义</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="QuerySentence" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>查询语句标识符(指向预定义SQL语句文件)</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CodeField" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>代码字段</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="NameField" type="xs:string">
+											<xs:annotation>
+												<xs:documentation>名称字段</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="QueryCodeField" type="xs:string" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>查询代码字段</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="CodeFieldIsString" type="xs:boolean">
+											<xs:annotation>
+												<xs:documentation>标记代码字段是否是字符型</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+										<xs:element name="FilterFieldCollection">
+											<xs:annotation>
+												<xs:documentation>可以用来匹配数据的字段名集合，出现顺序影响到字段的优先级</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="FilterField" type="xs:string" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>过滤字段</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ParameterCollection" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>动态条件参数集合，现在只支持“AND”条件</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Parameter" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>条件参数</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="FieldName" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>参数对应的数据集字段名</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Caption" type="xs:string">
+																	<xs:annotation>
+																		<xs:documentation>参数显示名称</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Description" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>参数说明</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="OperatorName">
+																	<xs:annotation>
+																		<xs:documentation>参数操作符名称</xs:documentation>
+																	</xs:annotation>
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Less"/>
+																			<xs:enumeration value="Equal"/>
+																			<xs:enumeration value="More"/>
+																			<xs:enumeration value="NotLess"/>
+																			<xs:enumeration value="NotEqual"/>
+																			<xs:enumeration value="NotMore"/>
+																			<xs:enumeration value="In"/>
+																			<xs:enumeration value="Like"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="IsString" type="xs:boolean">
+																	<xs:annotation>
+																		<xs:documentation>标记是否是字符型参数</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="AllowUserEdit" type="xs:boolean" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>标记是否允许用户编辑</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="DataCatalog" type="xs:int" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>数据分类编号(只对数据类别型的字段有效)</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="DefaultValue" type="xs:string" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>参数默认值</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+																<xs:element name="Enabled" type="xs:boolean" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>参数是否有效</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="ViewStyleCollection">
+											<xs:annotation>
+												<xs:documentation>显示样式集合</xs:documentation>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ColumnStyleCollection" maxOccurs="unbounded">
+														<xs:annotation>
+															<xs:documentation>列显示样式集合</xs:documentation>
+														</xs:annotation>
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="ColumnStyle" maxOccurs="unbounded">
+																	<xs:annotation>
+																		<xs:documentation>列显示样式</xs:documentation>
+																	</xs:annotation>
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="FieldName" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>字段名</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="Caption" type="xs:string">
+																				<xs:annotation>
+																					<xs:documentation>显示名称</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																			<xs:element name="Width" type="xs:int">
+																				<xs:annotation>
+																					<xs:documentation>宽度</xs:documentation>
+																				</xs:annotation>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="WordbookName" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>字典名称，包括分类的名称</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Caption">
+										<xs:annotation>
+											<xs:documentation>字典显示名称</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="CatalogName" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>分类名称</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="Caption">
+							<xs:annotation>
+								<xs:documentation>分类的显示名称</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

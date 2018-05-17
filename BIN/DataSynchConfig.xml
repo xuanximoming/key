@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<JobConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.DrectSoft.com.cn/">
+  <System Name="电子病历">
+    <Job Name="基础数据同步" Description="从HIS同步基础数据" Enable="true" Visible="true" Class="DrectSoft.JobManager.BasisDataSynchronous" Library="DrectSoft.Core.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <DateTimeOfExecOnce>0001-01-01 00:00:00</DateTimeOfExecOnce>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>false</Repeatly>
+          <TimeOfExecOnce>02:00:00</TimeOfExecOnce>
+          <Interval>0</Interval>
+          <IntervalUnit>None</IntervalUnit>
+          <StarTime>00:00:00</StarTime>
+          <EndTime>00:00:00</EndTime>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-08-01</StartDate>
+          <EndDate>0001-01-01</EndDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+    <Job Name="病历自动归档" Description="对已出院病人的病历自动归档" Enable="true" Visible="true" Class="DrectSoft.JobManager.PatientRecordArchive" Library="DrectSoft.Core.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <DateTimeOfExecOnce>0001-01-01 00:00:00</DateTimeOfExecOnce>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>false</Repeatly>
+          <TimeOfExecOnce>02:30:00</TimeOfExecOnce>
+          <Interval>0</Interval>
+          <IntervalUnit>None</IntervalUnit>
+          <StarTime>00:00:00</StarTime>
+          <EndTime>00:00:00</EndTime>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-08-01</StartDate>
+          <EndDate>0001-01-01</EndDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+    <Job Name="住院病人和床位数据同步" Description="从HIS读取病人和床位数据" Enable="true" Visible="true" Class="DrectSoft.JobManager.PatInfoSynchronous" Library="DrectSoft.Core.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <DateTimeOfExecOnce>0001-01-01 00:00:00</DateTimeOfExecOnce>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>true</Repeatly>
+          <TimeOfExecOnce>00:00:00</TimeOfExecOnce>
+          <Interval>3</Interval>
+          <IntervalUnit>Minute</IntervalUnit>
+          <StarTime>00:00:00</StarTime>
+          <EndTime>23:59:59</EndTime>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-08-01</StartDate>
+          <EndDate>2017-11-14</EndDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+    <Job Name="时限质量数据更新" Description="定期更新病历书写时限情况" Enable="true" Visible="true" Class="DrectSoft.JobManager.TimeQcManager" Library="DrectSoft.Core.JobTasks.dll">
+      <JobSchedule>
+        <JobType>Repeat</JobType>
+        <DateTimeOfExecOnce>0001-01-01 00:00:00</DateTimeOfExecOnce>
+        <Frequency>
+          <Interval>1</Interval>
+          <IntervalUnit>Day</IntervalUnit>
+        </Frequency>
+        <FrequencyPerDay>
+          <Repeatly>true</Repeatly>
+          <TimeOfExecOnce>00:00:00</TimeOfExecOnce>
+          <Interval>30</Interval>
+          <IntervalUnit>Minute</IntervalUnit>
+          <StarTime>00:00:00</StarTime>
+          <EndTime>23:59:59</EndTime>
+        </FrequencyPerDay>
+        <Duration>
+          <StartDate>2010-01-01</StartDate>
+          <EndDate>0001-01-01</EndDate>
+          <HasEndDate>false</HasEndDate>
+        </Duration>
+      </JobSchedule>
+    </Job>
+  </System>
+</JobConfig>

@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{35923221-066F-4D8E-B72C-7FA5A6FD01FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Resources</RootNamespace>
+    <AssemblyName>DrectSoft.Resources</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ResourceManager.cs" />
+    <Compile Include="ResourceNames.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Button\BedFemale_16.png" />
+    <EmbeddedResource Include="Button\BedMale_16.png" />
+    <EmbeddedResource Include="Button\Bezier_16.png" />
+    <EmbeddedResource Include="Button\Binganguanli_24.png" />
+    <EmbeddedResource Include="Button\BingAn_24.png" />
+    <EmbeddedResource Include="Button\BingliLimit_24.png" />
+    <EmbeddedResource Include="Button\Bold_16.png" />
+    <EmbeddedResource Include="Button\CancelSubmit_16.png" />
+    <EmbeddedResource Include="Button\Cancel_24.png" />
+    <EmbeddedResource Include="Button\Cancel_32.png" />
+    <EmbeddedResource Include="Button\Cancel_48.png" />
+    <EmbeddedResource Include="Button\CardModel_16.png" />
+    <EmbeddedResource Include="Button\CA_16.png" />
+    <EmbeddedResource Include="Button\CA_32.png" />
+    <EmbeddedResource Include="Button\Check_16.png" />
+    <EmbeddedResource Include="Button\Check_32.png" />
+    <EmbeddedResource Include="Button\ClosedCurve_16.png" />
+    <EmbeddedResource Include="Button\CommonRecord_24.png" />
+    <EmbeddedResource Include="Button\Config 16.png" />
+    <EmbeddedResource Include="Button\Config_32.png" />
+    <EmbeddedResource Include="Button\Copy.png" />
+    <EmbeddedResource Include="Button\Copy_16.png" />
+    <EmbeddedResource Include="Button\Copy_32.png" />
+    <EmbeddedResource Include="Button\Curve2.PNG" />
+    <EmbeddedResource Include="Button\Curve_16.png" />
+    <EmbeddedResource Include="Button\Cut_16.png" />
+    <EmbeddedResource Include="Button\Cut_32.png" />
+    <EmbeddedResource Include="Button\Delete_24.png" />
+    <EmbeddedResource Include="Button\Delete_32.png" />
+    <EmbeddedResource Include="Button\Delete_48.png" />
+    <EmbeddedResource Include="Button\DeptConfig_24.png" />
+    <EmbeddedResource Include="Button\DocmentArchives_16.png" />
+    <EmbeddedResource Include="Button\DocmentArchives_32.png" />
+    <EmbeddedResource Include="Button\Doctor_32.png" />
+    <EmbeddedResource Include="Button\Doctor_48.png" />
+    <EmbeddedResource Include="Button\DocumentCheckedLocked_16.PNG" />
+    <EmbeddedResource Include="Button\Edit_16.png" />
+    <EmbeddedResource Include="Button\Ellipse_16.png" />
+    <EmbeddedResource Include="Button\Female_16.png" />
+    <EmbeddedResource Include="Button\FillColor_16.png" />
+    <EmbeddedResource Include="Button\Folder.png" />
+    <EmbeddedResource Include="Button\FolderChecked_16.png" />
+    <EmbeddedResource Include="Button\FolderClosed_16.png" />
+    <EmbeddedResource Include="Button\FolderOpen_16.png" />
+    <EmbeddedResource Include="Button\Folder_Add.png" />
+    <EmbeddedResource Include="Button\Folder_Delete.png" />
+    <EmbeddedResource Include="Button\Folder_Open.png" />
+    <EmbeddedResource Include="Button\Font.png" />
+    <EmbeddedResource Include="Button\FontColour_16.png" />
+    <EmbeddedResource Include="Button\FontItalic.png" />
+    <EmbeddedResource Include="Button\FontUnderline.png" />
+    <EmbeddedResource Include="Button\Help_16.png" />
+    <EmbeddedResource Include="Button\Help_24.png" />
+    <EmbeddedResource Include="Button\Help_32.png" />
+    <EmbeddedResource Include="Button\Help_48.png" />
+    <EmbeddedResource Include="Button\History_16.png" />
+    <EmbeddedResource Include="Button\History_24.png" />
+    <EmbeddedResource Include="Button\History_32.png" />
+    <EmbeddedResource Include="Button\History_48.png" />
+    <EmbeddedResource Include="Button\history_64.png" />
+    <EmbeddedResource Include="Button\Home_16.png" />
+    <EmbeddedResource Include="Button\Hyperlink_16.png" />
+    <EmbeddedResource Include="Button\IllnessCritical_16.png" />
+    <EmbeddedResource Include="Button\IllnessMiddling_16.png" />
+    <EmbeddedResource Include="Button\IllnessUrgence_16.png" />
+    <EmbeddedResource Include="Button\ImportEmrData_16.png" />
+    <EmbeddedResource Include="Button\Individual_16.png" />
+    <EmbeddedResource Include="Button\InfectiousDisease_24.png" />
+    <EmbeddedResource Include="Button\Information.png" />
+    <EmbeddedResource Include="Button\Information_16.png" />
+    <EmbeddedResource Include="Button\Info_24.png" />
+    <EmbeddedResource Include="Button\Info_32.png" />
+    <EmbeddedResource Include="Button\Info_48.png" />
+    <EmbeddedResource Include="Button\Italic_16.png" />
+    <EmbeddedResource Include="Button\LineColor_16.png" />
+    <EmbeddedResource Include="Button\Line_16.png" />
+    <EmbeddedResource Include="Button\Login_16.png" />
+    <EmbeddedResource Include="Button\Male_16.png" />
+    <EmbeddedResource Include="Button\Manager.png" />
+    <EmbeddedResource Include="Button\Maximize_16.png" />
+    <EmbeddedResource Include="Button\MedicalQA_24.png" />
+    <EmbeddedResource Include="Button\Minimize_16.png" />
+    <EmbeddedResource Include="Button\Minimize_24.png" />
+    <EmbeddedResource Include="Button\Minimize_32.png" />
+    <EmbeddedResource Include="Button\Minimize_48.png" />
+    <EmbeddedResource Include="Button\ModelAtom_16.png" />
+    <EmbeddedResource Include="Button\ModelDynamic_16.png" />
+    <EmbeddedResource Include="Button\ModelEmbedded_16.png" />
+    <EmbeddedResource Include="Button\ModelObject_16.png" />
+    <EmbeddedResource Include="Button\MultiInput_24.png" />
+    <EmbeddedResource Include="Button\NewDocument_16.png" />
+    <EmbeddedResource Include="Button\NewsAdmin1_24.png" />
+    <EmbeddedResource Include="Button\New_16.png" />
+    <EmbeddedResource Include="Button\New_32.png" />
+    <EmbeddedResource Include="Button\NoRecord_16.png" />
+    <EmbeddedResource Include="Button\NotArchived_16.png" />
+    <EmbeddedResource Include="Button\Nurse_24.png" />
+    <EmbeddedResource Include="Button\Nurse_32.png" />
+    <EmbeddedResource Include="Button\Nurse_48.png" />
+    <EmbeddedResource Include="Button\OrderEdit_16.png" />
+    <EmbeddedResource Include="Button\PasswordModification.png" />
+    <EmbeddedResource Include="Button\PasswordModification_16.png" />
+    <EmbeddedResource Include="Button\Password_256.png" />
+    <EmbeddedResource Include="Button\Password_32.png" />
+    <EmbeddedResource Include="Button\Password_48.png" />
+    <EmbeddedResource Include="Button\Paste_16.png" />
+    <EmbeddedResource Include="Button\Paste_32.png" />
+    <EmbeddedResource Include="Button\Patient_32.png" />
+    <EmbeddedResource Include="Button\Patient_48.png" />
+    <EmbeddedResource Include="Button\Pencil_16.png" />
+    <EmbeddedResource Include="Button\people_16.png" />
+    <EmbeddedResource Include="Button\people_256.png" />
+    <EmbeddedResource Include="Button\people_32.png" />
+    <EmbeddedResource Include="Button\Perform_16.png" />
+    <EmbeddedResource Include="Button\Point_16.png" />
+    <EmbeddedResource Include="Button\Polygon_16.png" />
+    <EmbeddedResource Include="Button\PredefineTemplet_16.png" />
+    <EmbeddedResource Include="Button\PrintTemplate.png" />
+    <EmbeddedResource Include="Button\Print_16.png" />
+    <EmbeddedResource Include="Button\Print_32.png" />
+    <EmbeddedResource Include="Button\Properties_16.png" />
+    <EmbeddedResource Include="Button\Question_16.png" />
+    <EmbeddedResource Include="Button\QYZLFX_24.png" />
+    <EmbeddedResource Include="Button\RecordEditor.bmp" />
+    <EmbeddedResource Include="Button\RecordEditor_32.png" />
+    <EmbeddedResource Include="Button\RecordQuery_16.png" />
+    <EmbeddedResource Include="Button\RecordScan_24.png" />
+    <EmbeddedResource Include="Button\Rectangle_16.png" />
+    <EmbeddedResource Include="Button\Redo_16.png" />
+    <EmbeddedResource Include="Button\Redo_32.png" />
+    <EmbeddedResource Include="Button\Refresh_16.png" />
+    <EmbeddedResource Include="Button\Replace_16.png" />
+    <EmbeddedResource Include="Button\SaveAll_16.png" />
+    <EmbeddedResource Include="Button\saveAndClose.png" />
+    <EmbeddedResource Include="Button\saveAndCloseLarge.png" />
+    <EmbeddedResource Include="Button\SaveAs_16.png" />
+    <EmbeddedResource Include="Button\SaveAs_32.png" />
+    <EmbeddedResource Include="Button\saveLarge.png" />
+    <EmbeddedResource Include="Button\Save_16.png" />
+    <EmbeddedResource Include="Button\Search_16.png" />
+    <EmbeddedResource Include="Button\SetGroup_16.png" />
+    <EmbeddedResource Include="Button\Shutdow_32.png" />
+    <EmbeddedResource Include="Button\SpellCheck_16.png" />
+    <EmbeddedResource Include="Button\Stop_16.png" />
+    <EmbeddedResource Include="Button\Strikethrough_16.png" />
+    <EmbeddedResource Include="Button\SubmitRecord_16.png" />
+    <EmbeddedResource Include="Button\Subscript_16.png" />
+    <EmbeddedResource Include="Button\Superscript_16.png" />
+    <EmbeddedResource Include="Button\SystemConfig_24.png" />
+    <EmbeddedResource Include="Button\Template_16.png" />
+    <EmbeddedResource Include="Button\Text_Letter_Omega.png" />
+    <EmbeddedResource Include="Button\Text_Snderline.png" />
+    <EmbeddedResource Include="Button\Text_Strikethrough.png" />
+    <EmbeddedResource Include="Button\TimeLimit1_24.png" />
+    <EmbeddedResource Include="Button\TransferData_16.png" />
+    <EmbeddedResource Include="Button\TTasks_24.png" />
+    <EmbeddedResource Include="Button\Underline_16.png" />
+    <EmbeddedResource Include="Button\Undo_16.png" />
+    <EmbeddedResource Include="Button\Undo_32.png" />
+    <EmbeddedResource Include="Button\UserInfo.png" />
+    <EmbeddedResource Include="Button\User_24.png" />
+    <EmbeddedResource Include="Button\User_256.png" />
+    <EmbeddedResource Include="Button\User_32.png" />
+    <EmbeddedResource Include="Button\User_48.png" />
+    <EmbeddedResource Include="Button\WaitingShift_16.png" />
+    <EmbeddedResource Include="Button\Warning_16.png" />
+    <EmbeddedResource Include="Button\Warning_24.png" />
+    <EmbeddedResource Include="Button\Warning_256.png" />
+    <EmbeddedResource Include="Button\Warning_32.png" />
+    <EmbeddedResource Include="Button\Warning_48.png" />
+    <EmbeddedResource Include="Button\YYY_24.png" />
+    <EmbeddedResource Include="Icon\DrectSoftLogo.ico" />
+    <EmbeddedResource Include="Images\NoImage.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Buttons_BigIcon36\临床路径.png" />
+    <Content Include="Buttons_BigIcon36\会诊申请.png" />
+    <Content Include="Buttons_BigIcon36\传染病.png" />
+    <Content Include="Buttons_BigIcon36\保存.png" />
+    <Content Include="Buttons_BigIcon36\入院登记.png" />
+    <Content Include="Buttons_BigIcon36\全部患者.png" />
+    <Content Include="Buttons_BigIcon36\删除.png" />
+    <Content Include="Buttons_BigIcon36\刷新.png" />
+    <Content Include="Buttons_BigIcon36\否决.png" />
+    <Content Include="Buttons_BigIcon36\打印.png" />
+    <Content Include="Buttons_BigIcon36\报表.png" />
+    <Content Include="Buttons_BigIcon36\提交.png" />
+    <Content Include="Buttons_BigIcon36\撤销我的病人.png" />
+    <Content Include="Buttons_BigIcon36\文书录入.png" />
+    <Content Include="Buttons_BigIcon36\更新病人.png" />
+    <Content Include="Buttons_BigIcon36\查询.png" />
+    <Content Include="Buttons_BigIcon36\病人信息.png" />
+    <Content Include="Buttons_BigIcon36\病人出院.png" />
+    <Content Include="Buttons_BigIcon36\病案借阅.png" />
+    <Content Include="Buttons_BigIcon36\补录.png" />
+    <Content Include="Buttons_BigIcon36\设为我的病人.png" />
+    <Content Include="Buttons_BigIcon36\设定婴儿.png" />
+    <Content Include="Buttons_BigIcon36\退出.png" />
+    <Content Include="Buttons_BigIcon36\退出2.png" />
+    <Content Include="Buttons_BigIcon36\通过.png" />
+    <Content Include="Buttons_BigIcon36\配置.png" />
+    <Content Include="Buttons_BigIcon36\院内会诊.png" />
+    <Content Include="Buttons_BigIcon44\临床路径.png" />
+    <Content Include="Buttons_BigIcon44\会诊申请.png" />
+    <Content Include="Buttons_BigIcon44\传染病.png" />
+    <Content Include="Buttons_BigIcon44\保存.png" />
+    <Content Include="Buttons_BigIcon44\入院登记.png" />
+    <Content Include="Buttons_BigIcon44\全部患者.png" />
+    <Content Include="Buttons_BigIcon44\删除.png" />
+    <Content Include="Buttons_BigIcon44\刷新.png" />
+    <Content Include="Buttons_BigIcon44\否决.png" />
+    <Content Include="Buttons_BigIcon44\打印.png" />
+    <Content Include="Buttons_BigIcon44\报表.png" />
+    <Content Include="Buttons_BigIcon44\提交.png" />
+    <Content Include="Buttons_BigIcon44\撤销我的病人.png" />
+    <Content Include="Buttons_BigIcon44\文书录入.png" />
+    <Content Include="Buttons_BigIcon44\更新病人.png" />
+    <Content Include="Buttons_BigIcon44\查询.png" />
+    <Content Include="Buttons_BigIcon44\病人信息.png" />
+    <Content Include="Buttons_BigIcon44\病人出院.png" />
+    <Content Include="Buttons_BigIcon44\病案借阅.png" />
+    <Content Include="Buttons_BigIcon44\补录.png" />
+    <Content Include="Buttons_BigIcon44\设为我的病人.png" />
+    <Content Include="Buttons_BigIcon44\设定婴儿.png" />
+    <Content Include="Buttons_BigIcon44\退出.png" />
+    <Content Include="Buttons_BigIcon44\退出2.png" />
+    <Content Include="Buttons_BigIcon44\通过.png" />
+    <Content Include="Buttons_BigIcon44\配置.png" />
+    <Content Include="Buttons_BigIcon44\院内会诊.png" />
+    <EmbeddedResource Include="Buttons_Common\浏览.ico" />
+    <Content Include="Buttons_BigIcon\临床路径.png" />
+    <Content Include="Buttons_BigIcon\会诊申请.png" />
+    <Content Include="Buttons_BigIcon\传染病.png" />
+    <Content Include="Buttons_BigIcon\保存.png" />
+    <Content Include="Buttons_BigIcon\入院登记.png" />
+    <Content Include="Buttons_BigIcon\全部患者.png" />
+    <Content Include="Buttons_BigIcon\删除.png" />
+    <Content Include="Buttons_BigIcon\刷新.png" />
+    <Content Include="Buttons_BigIcon\否决.png" />
+    <Content Include="Buttons_BigIcon\打印.png" />
+    <Content Include="Buttons_BigIcon\报表.png" />
+    <Content Include="Buttons_BigIcon\提交.png" />
+    <Content Include="Buttons_BigIcon\撤销我的病人.png" />
+    <Content Include="Buttons_BigIcon\文书录入.png" />
+    <Content Include="Buttons_BigIcon\更新病人.png" />
+    <Content Include="Buttons_BigIcon\查询.png" />
+    <Content Include="Buttons_BigIcon\病人信息.png" />
+    <Content Include="Buttons_BigIcon\病人出院.png" />
+    <Content Include="Buttons_BigIcon\病案借阅.png" />
+    <Content Include="Buttons_BigIcon\补录.png" />
+    <Content Include="Buttons_BigIcon\设为我的病人.png" />
+    <Content Include="Buttons_BigIcon\设定婴儿.png" />
+    <Content Include="Buttons_BigIcon\设定我的病人.png" />
+    <Content Include="Buttons_BigIcon\跟新病人.png" />
+    <Content Include="Buttons_BigIcon\退出.png" />
+    <Content Include="Buttons_BigIcon\退出2.png" />
+    <Content Include="Buttons_BigIcon\通过.png" />
+    <Content Include="Buttons_BigIcon\配置.png" />
+    <Content Include="Buttons_BigIcon\院内会诊.png" />
+    <Content Include="Buttons_Common\提交.ico" />
+    <Content Include="Buttons_Common\上移.ico" />
+    <Content Include="Buttons_Common\下移.ico" />
+    <Content Include="Buttons_Common\复制.ico" />
+    <Content Include="Buttons_Common\归档.ico" />
+    <Content Include="Buttons_Common\授权.ico" />
+    <Content Include="Buttons_Common\提取.ico" />
+    <Content Include="Images\ChangePasswordTopRig111ht.png" />
+    <Content Include="Images\LeftMain.png" />
+    <Content Include="Images\LeftMain2.png" />
+    <Content Include="Images\MinimizeTopRight111.png" />
+    <Content Include="Images\ReLoginTopRig111ht.png" />
+    <Content Include="Images\ShutdownTopRigh111t.png" />
+    <Content Include="Images\大文本编辑.jpg" />
+    <EmbeddedResource Include="Images\窗体化.bmp" />
+    <EmbeddedResource Include="Images\newright.png" />
+    <EmbeddedResource Include="Images\newLefttop.png" />
+    <EmbeddedResource Include="Button\Binglimoban_24.png" />
+    <EmbeddedResource Include="Button\Bingqu_24.png" />
+    <EmbeddedResource Include="Button\Browser_24.png" />
+    <EmbeddedResource Include="Button\Clinical_24.png" />
+    <EmbeddedResource Include="Button\DeptQA_24.png" />
+    <EmbeddedResource Include="Button\EmrPic_24.png" />
+    <EmbeddedResource Include="Button\EmrPrint_24.png" />
+    <EmbeddedResource Include="Button\DeptTemplate_24.png" />
+    <EmbeddedResource Include="Button\EMRManage_24.png" />
+    <EmbeddedResource Include="Button\ArrowDown_16_d.png" />
+    <EmbeddedResource Include="Button\ArrowUp_16_d.png" />
+    <EmbeddedResource Include="Button\AutoGroup_16.png" />
+    <EmbeddedResource Include="Button\AutoGroup_16_d.png" />
+    <EmbeddedResource Include="Button\Cancel_16_d.png" />
+    <EmbeddedResource Include="Button\CancelGroup_16.png" />
+    <EmbeddedResource Include="Button\CancelGroup_16_d.png" />
+    <EmbeddedResource Include="Button\Copy_16_d.png" />
+    <EmbeddedResource Include="Button\Copy_16_h.png" />
+    <EmbeddedResource Include="Button\Cut_16_d.png" />
+    <EmbeddedResource Include="Button\Cut_16_h.png" />
+    <EmbeddedResource Include="Button\Exit_16.png" />
+    <EmbeddedResource Include="Button\Exit_16_d.png" />
+    <EmbeddedResource Include="Button\ArrowDown_16.png" />
+    <EmbeddedResource Include="Button\ArrowUp_16.png" />
+    <EmbeddedResource Include="Button\Cancel_16.png" />
+    <EmbeddedResource Include="Button\Delete_16.png" />
+    <EmbeddedResource Include="Button\Delete_16_d.png" />
+    <EmbeddedResource Include="Button\AddToList_16.png" />
+    <EmbeddedResource Include="Button\AddToList_16_d.png" />
+    <EmbeddedResource Include="Button\CRBSP_24.png" />
+    <Content Include="Buttons_Common\上一周.ico" />
+    <Content Include="Buttons_Common\下一周.ico" />
+    <Content Include="Buttons_Common\不予审批.ico" />
+    <Content Include="Buttons_Common\体征信息录入.ico" />
+    <Content Include="Buttons_Common\体温单录入.ico" />
+    <Content Include="Buttons_Common\体温单查询.ico" />
+    <Content Include="Buttons_Common\作废.ico" />
+    <Content Include="Buttons_Common\保存.ico" />
+    <Content Include="Buttons_Common\关闭.ico" />
+    <Content Include="Buttons_Common\删除.ico" />
+    <Content Include="Buttons_Common\刷新.ico" />
+    <Content Include="Buttons_Common\加载.ico" />
+    <Content Include="Buttons_Common\取消.ico" />
+    <Content Include="Buttons_Common\右移.ico" />
+    <Content Include="Buttons_Common\否决.ico" />
+    <Content Include="Buttons_Common\审批.ico" />
+    <Content Include="Buttons_Common\导出.ico" />
+    <Content Include="Buttons_Common\展开.ico" />
+    <Content Include="Buttons_Common\左移.ico" />
+    <Content Include="Buttons_Common\恢复.ico" />
+    <Content Include="Buttons_Common\打印.ico" />
+    <Content Include="Buttons_Common\执行.ico" />
+    <Content Include="Buttons_Common\批量打印.ico" />
+    <Content Include="Buttons_Common\提醒.ico" />
+    <Content Include="Buttons_Common\插入.ico" />
+    <Content Include="Buttons_Common\搜索.ico" />
+    <Content Include="Buttons_Common\收缩.ico" />
+    <Content Include="Buttons_Common\新增.ico" />
+    <Content Include="Buttons_Common\本周.ico" />
+    <Content Include="Buttons_Common\查看详细.ico" />
+    <Content Include="Buttons_Common\查询.ico" />
+    <Content Include="Buttons_Common\清空.ico" />
+    <Content Include="Buttons_Common\申请.ico" />
+    <Content Include="Buttons_Common\登陆.ico" />
+    <Content Include="Buttons_Common\确定.ico" />
+    <Content Include="Buttons_Common\第一周.ico" />
+    <Content Include="Buttons_Common\签到.ico" />
+    <Content Include="Buttons_Common\签收.ico" />
+    <Content Include="Buttons_Common\结束.ico" />
+    <Content Include="Buttons_Common\编辑.ico" />
+    <Content Include="Buttons_Common\缴费.ico" />
+    <Content Include="Buttons_Common\设置.ico" />
+    <Content Include="Buttons_Common\返回.ico" />
+    <Content Include="Buttons_Common\退出.ico" />
+    <Content Include="Buttons_Common\通知.ico" />
+    <Content Include="Buttons_Common\重置.ico" />
+    <Content Include="Buttons_Common\阅览.ico" />
+    <Content Include="Buttons_Professional\001.png" />
+    <Content Include="Buttons_Professional\002.png" />
+    <Content Include="Buttons_Professional\003.png" />
+    <Content Include="Buttons_Professional\004.png" />
+    <Content Include="Buttons_Professional\005.png" />
+    <Content Include="Buttons_Professional\006.png" />
+    <Content Include="Buttons_Professional\007.png" />
+    <Content Include="Buttons_Professional\008.png" />
+    <Content Include="Buttons_Professional\009.png" />
+    <Content Include="Buttons_Professional\010.png" />
+    <Content Include="Buttons_Professional\011.png" />
+    <Content Include="Buttons_Professional\012.png" />
+    <Content Include="Buttons_Professional\013.png" />
+    <Content Include="Buttons_Professional\014.png" />
+    <Content Include="Buttons_Professional\015.png" />
+    <Content Include="Buttons_Professional\016.png" />
+    <Content Include="Buttons_Professional\017.png" />
+    <Content Include="Buttons_Professional\018.png" />
+    <Content Include="Buttons_Professional\019.png" />
+    <Content Include="Buttons_Professional\020.png" />
+    <Content Include="Buttons_Professional\021.png" />
+    <Content Include="Buttons_Professional\022.png" />
+    <Content Include="Buttons_Professional\023.png" />
+    <Content Include="Buttons_Professional\024.png" />
+    <Content Include="Buttons_Professional\025.png" />
+    <Content Include="Buttons_Professional\026.png" />
+    <Content Include="Buttons_Professional\027.png" />
+    <Content Include="Buttons_Professional\028.png" />
+    <Content Include="Buttons_Professional\029.png" />
+    <Content Include="Buttons_Professional\030.png" />
+    <Content Include="Buttons_Professional\031.png" />
+    <Content Include="Buttons_Professional\032.png" />
+    <Content Include="Buttons_Professional\033.png" />
+    <Content Include="Buttons_Professional\034.png" />
+    <Content Include="Buttons_Professional\035.png" />
+    <Content Include="Buttons_Professional\036.png" />
+    <Content Include="Buttons_Professional\037.png" />
+    <Content Include="Buttons_Professional\038.png" />
+    <Content Include="Buttons_Professional\039.png" />
+    <Content Include="Buttons_Professional\040.png" />
+    <Content Include="Buttons_Professional\041.png" />
+    <Content Include="Buttons_Professional\042.png" />
+    <Content Include="Buttons_Professional\043.png" />
+    <Content Include="Buttons_Professional\044.png" />
+    <Content Include="Buttons_Professional\045.png" />
+    <Content Include="Buttons_Professional\046.png" />
+    <Content Include="Buttons_Professional\047.png" />
+    <Content Include="Buttons_Professional\048.png" />
+    <Content Include="Buttons_Professional\049.png" />
+    <Content Include="Buttons_Professional\050.png" />
+    <Content Include="Buttons_Professional\051.png" />
+    <Content Include="Buttons_Professional\052.png" />
+    <Content Include="Buttons_Professional\053.png" />
+    <Content Include="Buttons_Professional\054.png" />
+    <Content Include="Buttons_Professional\055.png" />
+    <Content Include="Buttons_Professional\056.png" />
+    <Content Include="Buttons_Professional\057.png" />
+    <Content Include="Buttons_Professional\058.png" />
+    <Content Include="Buttons_Professional\059.png" />
+    <Content Include="Buttons_Professional\060.png" />
+    <Content Include="Buttons_Professional\061.png" />
+    <Content Include="Buttons_Professional\062.png" />
+    <Content Include="Buttons_Professional\063.png" />
+    <Content Include="Buttons_Professional\064.png" />
+    <Content Include="Buttons_Professional\065.png" />
+    <Content Include="Buttons_Professional\066.png" />
+    <Content Include="Buttons_Professional\067.png" />
+    <Content Include="Buttons_Professional\068.png" />
+    <Content Include="Buttons_Professional\069.png" />
+    <Content Include="Buttons_Professional\070.png" />
+    <Content Include="Buttons_Professional\071.png" />
+    <Content Include="Buttons_Professional\072.png" />
+    <Content Include="Buttons_Professional\073.png" />
+    <Content Include="Buttons_Professional\074.png" />
+    <Content Include="Buttons_Professional\075.png" />
+    <EmbeddedResource Include="Button\BasicInfo_24.png" />
+    <Content Include="Button\BasicInfo.png" />
+    <Content Include="Button\BingAn.png" />
+    <Content Include="Button\Binganguanli.png" />
+    <Content Include="Button\Binganguanli_11124.png" />
+    <Content Include="Button\BingliLimit.png" />
+    <Content Include="Button\Browser11111_24.png" />
+    <EmbeddedResource Include="Button\DataElement_24.png" />
+    <Content Include="Button\CommonRecord.png" />
+    <Content Include="Button\DataElement.png" />
+    <Content Include="Button\DeptConfig.png" />
+    <Content Include="Button\EmrPic.png" />
+    <Content Include="Button\Font_16.png" />
+    <EmbeddedResource Include="Button\LisRis_24.png" />
+    <EmbeddedResource Include="Button\Help_16_d.png" />
+    <EmbeddedResource Include="Button\KeShiPiPei_24.png" />
+    <Content Include="Button\Male.ico" />
+    <EmbeddedResource Include="Button\Medical_24.png" />
+    <EmbeddedResource Include="Button\News_24.png" />
+    <EmbeddedResource Include="Button\Wenshu_24.png" />
+    <EmbeddedResource Include="Button\ModuleDesign_24.png" />
+    <EmbeddedResource Include="Button\PrintDesign_24.png" />
+    <EmbeddedResource Include="Button\NewsManage_24.png" />
+    <EmbeddedResource Include="Button\SpecialCharacter_24.png" />
+    <EmbeddedResource Include="Button\WorkPrivilege_24.png" />
+    <EmbeddedResource Include="Button\ScienceStaic_24.png" />
+    <EmbeddedResource Include="Button\TimeLimit_24.png" />
+    <EmbeddedResource Include="Images\TabPageHeadBtn1.png" />
+    <EmbeddedResource Include="Images\TabPageHeadBtn2.png" />
+    <EmbeddedResource Include="Images\TabPageHeadBtn3-1.png" />
+    <EmbeddedResource Include="Button\PayOneself_16.png" />
+    <EmbeddedResource Include="Button\Paste_16_d.png" />
+    <EmbeddedResource Include="Button\Print_16_d.png" />
+    <EmbeddedResource Include="Button\Refresh_16_d.png" />
+    <EmbeddedResource Include="Button\Save_16_d.png" />
+    <EmbeddedResource Include="Button\SetGroup_16_d.png" />
+    <EmbeddedResource Include="Button\Stop_16_d.png" />
+    <EmbeddedResource Include="Button\TransferData_16_d.png" />
+    <EmbeddedResource Include="Button\SpellCheck_16_d.png" />
+    <EmbeddedResource Include="Button\Ok_16.png" />
+    <EmbeddedResource Include="Button\Ok_16_d.png" />
+    <EmbeddedResource Include="Button\NewsAdmin_24.png" />
+    <EmbeddedResource Include="Button\SCD_24.png" />
+    <Content Include="Button\MedicalQA.png" />
+    <Content Include="Button\MultiInput.png" />
+    <Content Include="Button\News.png" />
+    <Content Include="Button\NewsAdmin1.png" />
+    <Content Include="Button\Nurse.png" />
+    <Content Include="Button\QYZLFX.png" />
+    <Content Include="Button\RecordScan.png" />
+    <Content Include="Button\SystemConfig.png" />
+    <Content Include="Button\TimeLimit1.png" />
+    <Content Include="Button\WorkPrivilege.png" />
+    <Content Include="Button\YYY.png" />
+    <Content Include="Icon\editor.ico" />
+    <Content Include="Icon\editor1.ico" />
+    <Content Include="Icon\editor24.ico" />
+    <Content Include="Icon\editor32.ico" />
+    <EmbeddedResource Include="Images\headRight.png" />
+    <EmbeddedResource Include="Images\ChangePasswordTopRight.png" />
+    <EmbeddedResource Include="Images\ChangeWardTopRight.png" />
+    <EmbeddedResource Include="Images\headLeft.png" />
+    <EmbeddedResource Include="Images\HelpTopRight.png" />
+    <EmbeddedResource Include="Images\bg.jpg" />
+    <Content Include="Icon_Main\三测单整体录入.png" />
+    <Content Include="Icon_Main\个人模板维护.png" />
+    <Content Include="Icon_Main\临床知识库.png" />
+    <Content Include="Icon_Main\临床路径.png" />
+    <Content Include="Icon_Main\会诊系统.png" />
+    <Content Include="Icon_Main\传染病管理.png" />
+    <Content Include="Icon_Main\医嘱浏览.png" />
+    <Content Include="Icon_Main\医学图像维护.png" />
+    <Content Include="Icon_Main\医技报告浏览.png" />
+    <Content Include="Icon_Main\医生工作站.png" />
+    <Content Include="Icon_Main\医疗质量分析统计.png" />
+    <Content Include="Icon_Main\基本信息维护.png" />
+    <Content Include="Icon_Main\岗位权限维护.png" />
+    <Content Include="Icon_Main\护士工作站.png" />
+    <Content Include="Icon_Main\报表设计器.png" />
+    <Content Include="Icon_Main\数据元维护.png" />
+    <Content Include="Icon_Main\文书录入.png" />
+    <Content Include="Icon_Main\新头部.png" />
+    <Content Include="Icon_Main\新闻通知.png" />
+    <Content Include="Icon_Main\模型设计器.png" />
+    <Content Include="Icon_Main\特殊字符维护.png" />
+    <Content Include="Icon_Main\病例时限信息.png" />
+    <Content Include="Icon_Main\病例时限维护.png" />
+    <Content Include="Icon_Main\病历打印模板设置.png" />
+    <Content Include="Icon_Main\病历浏览.png" />
+    <Content Include="Icon_Main\病案管理.png" />
+    <Content Include="Icon_Main\病案首页.png" />
+    <Content Include="Icon_Main\科学统计查询.png" />
+    <Content Include="Icon_Main\科室模板维护.png" />
+    <Content Include="Icon_Main\科室模版设置.png" />
+    <Content Include="Icon_Main\科室质控管理.png" />
+    <Content Include="Icon_Main\系统参数维护.png" />
+    <Content Include="Icon_Main\表单模板维护.png" />
+    <Content Include="Icon_Main\质控管理系统.png" />
+    <Content Include="Icon_Main\通用单据维护.png" />
+    <Content Include="Icon_Main\院内新闻管理.png" />
+    <Content Include="Images\HuXiMaiBo.png" />
+    <Content Include="Images\LoginFormUI.png" />
+    <Content Include="Images\LogonBG.jpg" />
+    <Content Include="Images\MaiBoTiWenGang.png" />
+    <Content Include="Images\MaiBoTiWenKou.png" />
+    <Content Include="Images\MaiBoTiWenYe.png" />
+    <EmbeddedResource Include="Images\WardGeneralViewLegend.jpg" />
+    <EmbeddedResource Include="Images\MessageBoxError.png" />
+    <EmbeddedResource Include="Images\MessageBoxMessage.png" />
+    <EmbeddedResource Include="Images\MessageBoxPrompt.png" />
+    <EmbeddedResource Include="Images\MessageBoxWarning.png" />
+    <EmbeddedResource Include="Images\MinimizeTopRight.png" />
+    <EmbeddedResource Include="Images\ReLoginTopRight.png" />
+    <EmbeddedResource Include="Images\ShutdownTopRight.png" />
+    <EmbeddedResource Include="Images\TabPageHeadBtn3.png" />
+    <EmbeddedResource Include="Images\toolNoButton.png" />
+    <EmbeddedResource Include="Images\NursGangWen.png" />
+    <EmbeddedResource Include="Images\NursHuXi.png" />
+    <EmbeddedResource Include="Images\NursHuXiJi.png" />
+    <EmbeddedResource Include="Images\NursHuXiMaiBo.png" />
+    <EmbeddedResource Include="Images\NursKouWen.png" />
+    <EmbeddedResource Include="Images\NursMaiBo.png" />
+    <EmbeddedResource Include="Images\NursMaiBoTiWenGang.png" />
+    <EmbeddedResource Include="Images\NursMaiBoTiWenKou.png" />
+    <EmbeddedResource Include="Images\NursMaiBoTiWenYe.png" />
+    <EmbeddedResource Include="Images\NursQiBoQi.png" />
+    <EmbeddedResource Include="Images\NursTiWenHuXiMaiBo.png" />
+    <EmbeddedResource Include="Images\NursWuLiJiangWen.png" />
+    <EmbeddedResource Include="Images\NursXinLv.png" />
+    <EmbeddedResource Include="Images\NursYeXia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

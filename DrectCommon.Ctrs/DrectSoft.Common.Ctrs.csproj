@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A36778F-8FD1-482E-8D57-B06A1AA81A16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Common.Ctrs</RootNamespace>
+    <AssemblyName>DrectSoft.Common.Ctrs</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.TouchSkins.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DLG\DevMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DevMessageBox.Designer.cs">
+      <DependentUpon>DevMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DLG\DevSysMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DLG\DevSysMessageBox.Designer.cs">
+      <DependentUpon>DevSysMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORM\DevBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORM\DevBaseForm.Designer.cs">
+      <DependentUpon>DevBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DSCheckEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DSCheckEdit.Designer.cs">
+      <DependentUpon>DSCheckEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DSTextBoxSelFile.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DSTextBoxSelFile.designer.cs">
+      <DependentUpon>DSTextBoxSelFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\WaterTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\WaterTextBox.Designer.cs">
+      <DependentUpon>WaterTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DSDateEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DSDateEdit.Designer.cs">
+      <DependentUpon>DSDateEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DSSpinEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DSSpinEdit.Designer.cs">
+      <DependentUpon>DSSpinEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DSTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DSTextBox.Designer.cs">
+      <DependentUpon>DSTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonDown.Designer.cs">
+      <DependentUpon>DrectDevButtonDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonSubmit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonSubmit.Designer.cs">
+      <DependentUpon>DrectDevButtonSubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonUp.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonUp.Designer.cs">
+      <DependentUpon>DrectDevButtonUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextboxAndBtn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextboxAndBtn.Designer.cs">
+      <DependentUpon>DrectDevTextboxAndBtn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonAdd.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonAdd.Designer.cs">
+      <DependentUpon>DrectDevButtonAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonCancel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonCancel.Designer.cs">
+      <DependentUpon>DrectDevButtonCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonClear.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonClear.Designer.cs">
+      <DependentUpon>DrectDevButtonClear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonClose.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonClose.Designer.cs">
+      <DependentUpon>DrectDevButtonClose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonDelete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonDelete.Designer.cs">
+      <DependentUpon>DrectDevButtonDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonEdit.Designer.cs">
+      <DependentUpon>DrectDevButtonEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonFind.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonFind.Designer.cs">
+      <DependentUpon>DrectDevButtonFind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonImportExcel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonImportExcel.Designer.cs">
+      <DependentUpon>DrectDevButtonImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonOK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonOK.Designer.cs">
+      <DependentUpon>DrectDevButtonOK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonPrint.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonPrint.Designer.cs">
+      <DependentUpon>DrectDevButtonPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonQurey.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonQurey.Designer.cs">
+      <DependentUpon>DrectDevButtonQurey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonRefresh.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonRefresh.Designer.cs">
+      <DependentUpon>DrectDevButtonRefresh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonReset.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonReset.Designer.cs">
+      <DependentUpon>DrectDevButtonReset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonSave.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevButtonSave.Designer.cs">
+      <DependentUpon>DrectDevButtonSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevComboBoxEdit.Designer.cs">
+      <DependentUpon>DrectDevComboBoxEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextBox.Designer.cs">
+      <DependentUpon>DrectDevTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextboxAndButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextboxAndButton.Designer.cs">
+      <DependentUpon>DrectDevTextboxAndButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextEdit.Designer.cs">
+      <DependentUpon>DrectDevTextEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextEditIDNO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextEditIDNO.Designer.cs">
+      <DependentUpon>DrectDevTextEditIDNO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DretDevTextEditPost.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DretDevTextEditPost.Designer.cs">
+      <DependentUpon>DretDevTextEditPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextEditTel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OTHER\DrectDevTextEditTel.Designer.cs">
+      <DependentUpon>DrectDevTextEditTel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DOC\message.xml" />
+    <Content Include="DOC\程序集说明.txt" />
+    <EmbeddedResource Include="OTHER\DSTextBoxSelFile.resx">
+      <DependentUpon>DSTextBoxSelFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\上移.ico" />
+    <EmbeddedResource Include="Resources\下移.ico" />
+    <EmbeddedResource Include="Resources\提交.ico" />
+    <EmbeddedResource Include="DLG\DevSysMessageBox.resx">
+      <DependentUpon>DevSysMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTHER\DrectDevButtonImportExcel.resx">
+      <DependentUpon>DrectDevButtonImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTHER\DrectDevTextBox.resx">
+      <DependentUpon>DrectDevTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTHER\DrectDevTextboxAndButton.resx">
+      <DependentUpon>DrectDevTextboxAndButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\导出.ico" />
+    <EmbeddedResource Include="Resources\导出图片.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonImportExcel.ico" />
+    <EmbeddedResource Include="Resources\导出Excel.ico" />
+    <EmbeddedResource Include="Resources\确定.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonOK.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonPrint.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonClose.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonCancel.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonClear.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonReset.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonFind.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonQurey.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonEdit.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonSave.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonRefresh.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonDelete.ico" />
+    <EmbeddedResource Include="OTHER\DrectDevButtonAdd.ico" />
+    <EmbeddedResource Include="Resources\logo_20.ico" />
+    <EmbeddedResource Include="Resources\logo_201.ico" />
+    <EmbeddedResource Include="Resources\MessageBoxPrompt.png" />
+    <EmbeddedResource Include="Resources\MessageBoxMessage.png" />
+    <EmbeddedResource Include="Resources\MessageBoxError.png" />
+    <EmbeddedResource Include="Resources\MessageBoxWarning.png" />
+    <EmbeddedResource Include="Resources\重置.ico" />
+    <EmbeddedResource Include="Resources\展开.ico" />
+    <EmbeddedResource Include="Resources\新增.ico" />
+    <EmbeddedResource Include="Resources\搜索.ico" />
+    <EmbeddedResource Include="Resources\刷新.ico" />
+    <EmbeddedResource Include="Resources\收缩.ico" />
+    <EmbeddedResource Include="Resources\删除.ico" />
+    <EmbeddedResource Include="Resources\取消.ico" />
+    <EmbeddedResource Include="Resources\清空.ico" />
+    <EmbeddedResource Include="Resources\关闭.ico" />
+    <EmbeddedResource Include="Resources\打印.ico" />
+    <EmbeddedResource Include="Resources\查询.ico" />
+    <EmbeddedResource Include="Resources\编辑.ico" />
+    <EmbeddedResource Include="Resources\保存.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DLG\DevMessageBox.resx">
+      <DependentUpon>DevMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORM\DevBaseForm.resx">
+      <DependentUpon>DevBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTHER\DrectDevButtonAdd.resx">
+      <DependentUpon>DrectDevButtonAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OTHER\DrectDevTextEdit.resx">
+      <DependentUpon>DrectDevTextEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

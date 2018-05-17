@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <!-- 凡是 datafield 有值的情况下，值形如Value@的中@必须要按序排列 从1开始；时间和签名列除外 -->
+  <Columns horRepeat="0">
+    <Column offsetXPreCol="0" y="90" width="70" height="60" text="日期/时间" fontsize="" bold="0" align="0" datafield="DateTimeShow"></Column>
+  
+ 
+    <Column offsetXPreCol="70" y="90" width="30" height="60" text="体温℃" fontsize="" bold="0" align="0" datafield="Value1"></Column>
+    <Column offsetXPreCol="30" y="90" width="40" height="60" text="肤色" fontsize="" bold="0" align="0" datafield="Value2"></Column>
+    <Column offsetXPreCol="40" y="90" width="30" height="60" text="呼吸次/分" fontsize="" bold="0" align="0" datafield="Value3"></Column>
+    <Column offsetXPreCol="30" y="90" width="50" height="60" text="肌张力" fontsize="" bold="0" align="0" datafield="Value4"></Column>
+
+    <Column offsetXPreCol="50" y="90" width="40" height="60" text="皮肤" fontsize="" bold="0" align="0" datafield="Value5"></Column>
+    <Column offsetXPreCol="40" y="90" width="30" height="60" text="反应" fontsize="" bold="0" align="0" datafield="Value6"></Column>
+    <Column offsetXPreCol="30" y="90" width="70" height="25" text="二便" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column offsetXPreCol="0" y="115" width="35" height="35" text="大便" fontsize="" bold="0" align="0" datafield="Value7"></Column>
+
+    <Column offsetXPreCol="35" y="115" width="35" height="35" text="小便" fontsize="" bold="0" align="0" datafield="Value8"></Column>
+    <Column offsetXPreCol="35" y="90" width="40" height="60" text="呕吐" fontsize="" bold="0" align="0" datafield="Value9"></Column>
+
+    <Column offsetXPreCol="40" y="90" width="50" height="60" text="呕吐物性质" fontsize="" bold="0" align="0" datafield="Value10"></Column>
+
+	<Column offsetXPreCol="50" y="90" width="60" height="25" text="脐带渗血" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column offsetXPreCol="0" y="115" width="30" height="35" text="有" fontsize="" bold="0" align="0" datafield="Value11"></Column>
+    <Column offsetXPreCol="30" y="115" width="30" height="35" text="无" fontsize="" bold="0" align="0" datafield="Value12"></Column>
+    <Column offsetXPreCol="30" y="90" width="30" height="60" text="喂养情况" fontsize="" bold="0" align="0" datafield="Value13"></Column>
+    <Column offsetXPreCol="30" y="90" width="30" height="60" text="吸吮" fontsize="" bold="0" align="0" datafield="Value14"></Column>
+    <Column offsetXPreCol="30" y="90" width="300" height="60" text="观察及处理" fontsize="" bold="0" align="-1" datafield="Value15"></Column>
+    <Column offsetXPreCol="300" y="90" width="60" height="60" text="签名" fontsize="" bold="0" align="0" datafield="Value16"></Column>
+  </Columns>
+  <StaticText>
+    <item x="30" y="30" width="986" height="35" text=" 新生儿护理记录单" fontsize="20" bold="1" align=""></item>
+    <item x="0" y="710" width="1186" height="70" text="第      页" fontsize="11" bold="0" align=""></item>
+    <item x="110" y="650" width="986" height="70" text="备注:肤色 A、红润 B、青紫 C、苍白 D、瘀斑 E、出血点 F、黄染 呼吸：A、平稳 B、急促 C、呻吟 D、鼻扇 肌张力：A、正常 B、增强 C、减弱 皮肤：A、完整 B、破损 反应：A、好 B、差 呕吐：A、有 B、无 呕吐性质：A、粘液 B、咖啡色液体 C、血液 D、奶 喂养情况：A、母乳 B、混合喂养 C、人工喂养 吸吮A、有力 B、无力 C、拒乳" fontsize="11" bold="0" align="-1"></item>
+  </StaticText>
+
+  <PatientInfo>
+    <item x="40" y="40" width="986" height="40" align="0" fontsize="20" bold="1" datafield="HospitalName"   text="@"></item>
+    <item x="40" y="765" width="1100" height="40" align="0" fontsize="11" bold="0" datafield="CurrPage"   text="@"></item>
+    <item x="100" y="110" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="Depart"   text="科别：@"></item>
+    <item x="300" y="110" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InBedNo"  text="床号：@"></item>
+    <item x="500" y="110" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InpatientName"  text="姓名：@"></item>
+    <item x="760" y="110" width="220" height="32" align="-1" fontsize="11" bold="0" datafield="InNo"  text="住院号：@"></item>
+  </PatientInfo>
+
+  <OtherInfo>
+  </OtherInfo>
+
+  <SpecialLines>
+  </SpecialLines>
+
+  <PrintPageSize width="1169" height="827" type="A4" Landscape="true"></PrintPageSize>
+  <ImageSize width="986" height="740" rowCount="17" tableRowcount="17" rowHeight="28" dataRegionStartY="150"></ImageSize>
+  <DataValueStyle fontName="宋体" fontSize="9"></DataValueStyle>
+</root>

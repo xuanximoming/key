@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC865B2C-8C29-432C-9C2E-EAA4278BD2AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Core</RootNamespace>
+    <AssemblyName>DrectSoft.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.runtime, Version=2.7.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DLL\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AopAlliance">
+      <HintPath>..\..\DLL\AopAlliance.dll</HintPath>
+    </Reference>
+    <Reference Include="AspectSharp">
+      <HintPath>..\..\DLL\AspectSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="AspectSharp.Lang">
+      <HintPath>..\..\DLL\AspectSharp.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\DLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\DLL\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\..\DLL\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Account.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Account\AccountDALC.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Account\AccountException.cs">
+      <SubType>
+      </SubType>
+    </Compile>
+    <Compile Include="Account\AccountLog.cs" />
+    <Compile Include="Account\AccountManager.cs">
+      <DependentUpon>AccountManager.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Account\AccountPermission.cs" />
+    <Compile Include="Account\IAccount.cs" />
+    <Compile Include="Account\IPermission.cs" />
+    <Compile Include="Account\Permission.cs" />
+    <Compile Include="BasicSettings.cs" />
+    <Compile Include="Configs\AppConfig.cs" />
+    <Compile Include="Configs\AppConfigDalc.cs" />
+    <Compile Include="Configs\AppConfigReader.cs" />
+    <Compile Include="Configs\AppFormIconConfig.cs" />
+    <Compile Include="DataAccess\DataAccessFactory.cs" />
+    <Compile Include="DataAccess\IDataAccess.cs" />
+    <Compile Include="DataAccess\OracleDataAccess.cs" />
+    <Compile Include="DataAccess\PingHost.cs" />
+    <Compile Include="DataAccess\SqlDataAccess.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\Anesthesia.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\BasicDictionnary.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\ChineseDiagnosis.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\CommonBaseCode.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\DruggeryCatalog.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\DruggeryForm.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\DruggerySource.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\Hospitalinfo.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\IemMainPageInfo.cs" />
+    <Compile Include="EmrObjectPersistent\Others\EmrDefaultSetting.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\ICDDiagnosis.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\MedicareType.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\OrderFrequency.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\OrderUsage.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\ZoneCountry.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\ZoneProvince.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\Order.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderChangedEventArgs.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\ChargeItemOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\DruggeryOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\DruggeryOrderContent\OutDruggeryContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\ItemOrderContent\GeneralOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\OperationOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\TextOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\TextOrderContent\AfterOperationContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\TextOrderContent\LeaveHospitalOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\OrderContent\TextOrderContent\ShiftDeptOrderContent.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\Order\LongOrder.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\Order\TempOrder.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\DoctorAdvice\SuiteOrder.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\EPBaseObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\Department.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\Employee.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\Ward.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\InfoObjects\Address.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\InfoObjects\LinkMan.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\InfoObjects\WorkDepartment.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Inpatient\AdmissionBasicInfo.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Inpatient\AdmissionInfo.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Inpatient\Inpatient.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Inpatient\PatientBasicInfo.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Item\ChargeItem.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Item\Druggery.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Item\ItemBase.cs" />
+    <Compile Include="EmrObjectPersistent\Enums\DataFlagEnums.cs" />
+    <Compile Include="EmrObjectPersistent\Enums\DoctorAdviceEnumDefines.cs" />
+    <Compile Include="EmrObjectPersistent\FlagEnums\DruggeryAttributeFlag.cs" />
+    <Compile Include="EmrObjectPersistent\FlagEnums\ItemAttributeFlag.cs" />
+    <Compile Include="EmrObjectPersistent\FlagEnums\ItemPrintAttributeFlag.cs" />
+    <Compile Include="EmrObjectPersistent\FlagEnums\OrderAttributeFlag.cs" />
+    <Compile Include="EmrObjectPersistent\ObjectCreateFactory\OrderContentFactory.cs" />
+    <Compile Include="EmrObjectPersistent\ObjectCreateFactory\PersistentObjectFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmrObjectPersistent\Others\MessageStringManager.cs" />
+    <Compile Include="EmrObjectPersistent\Others\OrderOperateInfo.cs" />
+    <Compile Include="EmrObjectPersistent\Others\SpecialMethodAttribute.cs" />
+    <Compile Include="EmrObjectPersistent\Structures\ItemUnit.cs" />
+    <Compile Include="EmrObjectPersistent\Structures\OutputInfoStruct.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\ColumnToColumn.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\DefaultValueType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\LinkedObject.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\ManyToObjectClassType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\ManyToStructureType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\ManyToSubClassType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\OneToOneType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\OneToStateType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\ORMapping.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\ORMCollection.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\PreDefineSql.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\PropertyWithClassComplexType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\PropertyWithClassType.cs" />
+    <Compile Include="EmrObjectPersistent\XMLSchemaClasses\StructPropertyMap.cs" />
+    <Compile Include="Log\IDrectSoftLog.cs" />
+    <Compile Include="Log\DrectSoftLog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Security\HisEncryption.cs" />
+    <Compile Include="Security\IUser.cs" />
+    <Compile Include="Security\Users.cs" />
+    <Compile Include="Tools\FormStyleExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\FormStyleExtender.Designer.cs">
+      <DependentUpon>FormStyleExtender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\GenerateShortCode.cs" />
+    <Compile Include="Tools\GraphicsDpis.cs" />
+    <Compile Include="Tools\GraphicsUnitTransformer.cs" />
+    <Compile Include="Tools\ICustomMessageBox.cs" />
+    <Compile Include="Tools\LocalizedEnumConverter.cs" />
+    <Compile Include="Tools\NameAbbreviation.cs" />
+    <Compile Include="Tools\ProcessBarExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools\ProcessBarExtender.designer.cs">
+      <DependentUpon>ProcessBarExtender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ProcessBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\ProcessBarForm.designer.cs">
+      <DependentUpon>ProcessBarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ResourceEnumConverter.cs" />
+    <Compile Include="Tools\UtilsForExtension.cs" />
+    <Compile Include="Tools\XSLTTransHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\ProcessBarForm.resx">
+      <DependentUpon>ProcessBarForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\AccountManager.xml" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\IemMainpageBasicinfo.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\IemMainpageDiagnosis.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\IemMainpageOperation.cs" />
+    <Content Include="EmrObjectPersistent\XmlFile\PreDefSqlSentence.xml" />
+    <Content Include="EmrObjectPersistent\XmlFile\DrectsoftORMappings.xml" />
+    <Content Include="Resources\DrectSoftWordbooks.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Account\AccountManager.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="EmrObjectPersistent\XmlFile\PreDefSqlSentence.xsd" />
+    <None Include="EmrObjectPersistent\XmlFile\DrectsoftORMappings.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Log\LogApp.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Library\企业库4.1\Data\Data.csproj">
+      <Project>{d349b6d8-992f-443f-bb57-57e50dd98794}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FrameWork\DrectSoft.FrameWork.csproj">
+      <Project>{a9ca7e08-5e02-4be2-92a9-8fb73fa3d3d8}</Project>
+      <Name>DrectSoft.FrameWork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

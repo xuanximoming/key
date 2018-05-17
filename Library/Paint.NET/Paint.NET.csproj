@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{925EC641-46FD-4B22-ADFD-3B64DC29B33C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Basic.Paint.NET</RootNamespace>
+    <AssemblyName>DrectSoft.Basic.Paint.NET</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\ActionBuilder.cs" />
+    <Compile Include="Actions\CreateGhost.cs" />
+    <Compile Include="Actions\DeleteShape.cs" />
+    <Compile Include="Actions\SelectShape.cs" />
+    <Compile Include="EditImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditImageForm.Designer.cs">
+      <DependentUpon>EditImageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\CustomNamedHatchStyle.cs" />
+    <Compile Include="Interfaces\CustomNamedTestureStyles.cs" />
+    <Compile Include="Interfaces\CustomNamedTextureStyle.cs" />
+    <Compile Include="Interfaces\DefaultNamedHatchStyles.cs" />
+    <Compile Include="Interfaces\DefaultNamedTextureStyles.cs" />
+    <Compile Include="Interfaces\IShapeReadonlySurface.cs" />
+    <Compile Include="Interfaces\NamedHatchStyles.cs" />
+    <Compile Include="Interfaces\NamedHatchStylesForXmlSerialize.cs" />
+    <Compile Include="Interfaces\NamedTextureStyles.cs" />
+    <Compile Include="Interfaces\NamedTextureStylesForXmlSerialize.cs" />
+    <Compile Include="Interfaces\Picture.cs" />
+    <Compile Include="Interfaces\Storage\IStreamItemWriter.cs" />
+    <Compile Include="Interfaces\Storage\IStreamItemReader.cs" />
+    <Compile Include="Interfaces\OneOneMapping.cs" />
+    <Compile Include="Interfaces\CustomNamedHatchStyles.cs" />
+    <Compile Include="Interfaces\Storage\ISurfaceStorage.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Shapes\LabelShape.cs" />
+    <Compile Include="Shapes\ShapeForXmlSerialize.cs" />
+    <Compile Include="SurfaceStyleSettingHelper.cs" />
+    <Compile Include="UI\BrushStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IPaintPanel.cs" />
+    <Compile Include="UI\ColorStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\LineWidthStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\PaintDesignPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PaintDesignPanel.Designer.cs">
+      <DependentUpon>PaintDesignPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NamedStyleSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NamedStyleSettingForm.Designer.cs">
+      <DependentUpon>NamedStyleSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\SerializationBasedStreamItemReader.cs" />
+    <Compile Include="Storage\SerializationBasedStreamItemWriter.cs" />
+    <Compile Include="Storage\SurfaceStorage.cs" />
+    <Compile Include="Interfaces\Storage\SurfaceStoreData.cs" />
+    <Compile Include="UI\ControlSurface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BoundCalculator\NoneBoundCalculator.cs" />
+    <Compile Include="Rtf\RtfSurface.cs">
+    </Compile>
+    <Compile Include="UI\NewPictureStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\DrawConfigStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Interfaces\IActionBuilder.cs" />
+    <Compile Include="Interfaces\IShapeSelector.cs" />
+    <Compile Include="Interfaces\IShapeSurface.cs" />
+    <Compile Include="MouseDrawMode\UnlimitedMouseDownDrawMode.cs" />
+    <Compile Include="MouseDrawMode\LimitedMouseDownDrawMode.cs" />
+    <Compile Include="MouseDrawMode\MouseDragDrawMode.cs" />
+    <Compile Include="ShapeSelector.cs" />
+    <Compile Include="ShapeSource.cs" />
+    <Compile Include="Interfaces\ActionExecutor.cs" />
+    <Compile Include="Interfaces\IShapeFactory.cs" />
+    <Compile Include="Interfaces\IShapeSource.cs" />
+    <Compile Include="Actions\ModifyShape.cs" />
+    <Compile Include="Actions\NewShape.cs" />
+    <Compile Include="UI\NewSizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NewSizeForm.Designer.cs">
+      <DependentUpon>NewSizeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PaintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\PaintPanel.Designer.cs">
+      <DependentUpon>PaintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShapeStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Shapes\ShapeFactory.cs" />
+    <Compile Include="ShapeList.cs" />
+    <Compile Include="Interfaces\ShapeData.cs" />
+    <Compile Include="Shapes\BezierShape.cs" />
+    <Compile Include="Shapes\ClosedCurveShape.cs" />
+    <Compile Include="Shapes\NoneShape.cs" />
+    <Compile Include="Shapes\PolygonShape.cs" />
+    <Compile Include="Shapes\CurveShape.cs" />
+    <Compile Include="Shapes\EllipseShape.cs" />
+    <Compile Include="Shapes\LineShape.cs" />
+    <Compile Include="Shapes\RectangleShape.cs" />
+    <Compile Include="Shapes\ShapeBase.cs" />
+    <Compile Include="Shapes\LinesShape.cs" />
+    <Compile Include="Interfaces\Enums.cs" />
+    <Compile Include="Ghost.cs" />
+    <Compile Include="Interfaces\IAction.cs" />
+    <Compile Include="Interfaces\IBoundCalculator.cs" />
+    <Compile Include="Interfaces\IShape.cs" />
+    <Compile Include="Interfaces\IMouseDrawMode.cs" />
+    <Compile Include="Interfaces\IGhost.cs" />
+    <Compile Include="MouseDrawMode\MouseMoveDrawMode.cs" />
+    <Compile Include="BoundCalculator\NormalBoundCalculator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditImageForm.resx">
+      <DependentUpon>EditImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ControlSurface.resx">
+      <DependentUpon>ControlSurface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PaintDesignPanel.resx">
+      <DependentUpon>PaintDesignPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NamedStyleSettingForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NamedStyleSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NewSizeForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewSizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PaintPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PaintPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="SurfaceMouseHelpers\SurfaceMouseModifyHelper.cs" />
+    <Compile Include="SurfaceMouseHelpers\SurfaceMouseNewHelper.cs" />
+    <Compile Include="UI\TextEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UICommon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Interfaces\Storage\DrectsoftImage.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Interfaces\Storage\DrectsoftImage.xsx">
+      <DependentUpon>DrectsoftImage.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{35923221-066f-4d8e-b72c-7fa5a6fd01fa}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

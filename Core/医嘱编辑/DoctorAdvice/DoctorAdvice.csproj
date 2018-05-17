@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{46054D9B-0D7A-43B0-A975-F4EE66B8B4BA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DrectSoft.Core.DoctorAdvice</RootNamespace>
+    <AssemblyName>DrectSoft.Core.DoctorAdvice</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/DoctorAdvice/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRules>
+    </CodeAnalysisRules>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoundableOrder\OrderCollection.cs" />
+    <Compile Include="BoundableOrder\OrderTable.cs" />
+    <Compile Include="BoundableOrder\OrderTableView.cs" />
+    <Compile Include="BoundableOrder\OrderView.cs" />
+    <Compile Include="ConstString\ConstFormat.cs" />
+    <Compile Include="ConstString\ConstMessages.cs" />
+    <Compile Include="ConstString\ConstNames.cs" />
+    <Compile Include="ConstString\ConstSchemaNames.cs" />
+    <Compile Include="ConstString\ConstSqlSentences.cs" />
+    <Compile Include="CoreBusinessLogic.cs" />
+    <Compile Include="CustomEventArgs.cs" />
+    <Compile Include="CustomException.cs" />
+    <Compile Include="ConstString\ExchangeInfoOrderConst.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="LogSendRecord.cs" />
+    <Compile Include="OrderInterfaceLogic.cs" />
+    <Compile Include="SuiteOrderHandle.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeRuleChecker.cs" />
+    <Compile Include="UI\AdviceEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AdviceEditor.Designer.cs">
+      <DependentUpon>AdviceEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomDrawOperation.cs" />
+    <Compile Include="EnumDefines.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Migrated rules for DoctorAdvice.ruleset" />
+    <None Include="XmlFile\DoctorAdviceStyleSetting.xsd">
+      <SubType>
+      </SubType>
+    </None>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdviceEditor.resx">
+      <DependentUpon>AdviceEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DateTimeInputForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DateTimeInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrequencyInputor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrequencyInputor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OrderContentEditor.resx">
+      <DependentUpon>OrderContentEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OrderSuiteEditForm.resx">
+      <DependentUpon>OrderSuiteEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SkinTestInputForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SkinTestInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SuiteChoice.resx">
+      <DependentUpon>SuiteChoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="UILogic.cs" />
+    <Compile Include="UI\DateTimeInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DateTimeInputForm.Designer.cs">
+      <DependentUpon>DateTimeInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FrequencyInputor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FrequencyInputor.Designer.cs">
+      <DependentUpon>FrequencyInputor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderContentEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\OrderContentEditor.Designer.cs">
+      <DependentUpon>OrderContentEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderSuiteEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\OrderSuiteEditForm.Designer.cs">
+      <DependentUpon>OrderSuiteEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SkinTestInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SkinTestInputForm.Designer.cs">
+      <DependentUpon>SkinTestInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SuiteChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SuiteChoice.Designer.cs">
+      <DependentUpon>SuiteChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XMLSchemaClasses\GridCustomDrawSetting.cs" />
+    <Compile Include="XMLSchemaClasses\DoctorAdviceSetting.cs" />
+    <Compile Include="XMLSchemaClasses\OrderGridSetting.cs" />
+    <Compile Include="XMLSchemaClasses\SchemaCustomTypes.cs" />
+    <Compile Include="XMLSchemaClasses\BusinessLogicSetting.cs" />
+    <Compile Include="XMLSchemaClasses\TypeConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XmlFile\DoctorAdviceStyleSetting.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\编辑.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\查看详细.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\查询.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\打印.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\导出.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\否决.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\缴费.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\结束.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\签到.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\清空.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取消.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\确定.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\删除.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\申请.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\收缩.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\刷新.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\搜索.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\提醒.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\通知.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\新增.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\展开.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\重置.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\插入.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Framework\FrameWork\DrectSoft.FrameWork.csproj">
+      <Project>{a9ca7e08-5e02-4be2-92a9-8fb73fa3d3d8}</Project>
+      <Name>DrectSoft.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Library\Resources\Resources.csproj">
+      <Project>{35923221-066f-4d8e-b72c-7fa5a6fd01fa}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46a2b2d5-3872-4478-99fd-1aee527390cd}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\质量管理\TimeLimitQC\TimeLimitQC.csproj">
+      <Project>{4b62a583-404e-475d-810f-5fbff5ed9eef}</Project>
+      <Name>TimeLimitQC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

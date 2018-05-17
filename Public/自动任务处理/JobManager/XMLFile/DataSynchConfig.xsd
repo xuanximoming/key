@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Wang Yi (DrectSoft) -->
+<xs:schema xmlns:kw="http://www.DrectSoft.com.cn/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.DrectSoft.com.cn/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="JobConfig">
+		<xs:annotation>
+			<xs:documentation>任务配置信息</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="System">
+					<xs:annotation>
+						<xs:documentation>同步任务所在系统</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence minOccurs="0" maxOccurs="unbounded">
+							<xs:element name="Job">
+								<xs:annotation>
+									<xs:documentation>任务</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="JobSchedule" type="kw:JobPlan">
+											<xs:annotation>
+												<xs:documentation>任务计划配置</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="Name" type="xs:string" use="required">
+										<xs:annotation>
+											<xs:documentation>任务名称</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Description" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>任务描述</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Enable" type="xs:boolean" use="required">
+										<xs:annotation>
+											<xs:documentation>任务是否启用</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Visible" type="xs:boolean" use="required">
+										<xs:annotation>
+											<xs:documentation>在UI中是否可见</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Class" type="xs:string" use="required">
+										<xs:annotation>
+											<xs:documentation>任务的启动类全名</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="Library" type="xs:string" use="required">
+										<xs:annotation>
+											<xs:documentation>任务的DLL全名</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="IconName" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>图标名称</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="LogDirectory" type="xs:string">
+										<xs:annotation>
+											<xs:documentation>日志目录路径</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="Name" type="xs:string" use="required">
+							<xs:annotation>
+								<xs:documentation>系统名称</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="JobPlan">
+		<xs:annotation>
+			<xs:documentation>任务的执行计划</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="JobType">
+				<xs:annotation>
+					<xs:documentation>任务类型（重复执行或只执行一次）</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Repeat"/>
+						<xs:enumeration value="JustOnce"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DateTimeOfExecOnce" type="xs:string" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>执行一次的Datetime（任务类型为JustOnce时有效）,格式:yyyy-MM-dd HH:mm:ss</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Frequency">
+				<xs:annotation>
+					<xs:documentation>执行频率</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Interval" type="xs:int">
+							<xs:annotation>
+								<xs:documentation>执行间隔，单位由执行周期类型决定</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IntervalUnit">
+							<xs:annotation>
+								<xs:documentation>执行周期的单位，3：天；4：周</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Day"/>
+									<xs:enumeration value="Week"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="WeekDays" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>周中的天数组合，“0/1”组成的七位字符串，由星期日到星期六；1表示启用，0表示不启用；执行周期为周时才有效</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FrequencyPerDay">
+				<xs:annotation>
+					<xs:documentation>每天执行时的频率设置</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Repeatly" type="xs:boolean">
+							<xs:annotation>
+								<xs:documentation>重复执行，为否时每天只执行一次</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="TimeOfExecOnce" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>执行一次的时间点,格式:HH:mm:ss</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Interval" type="xs:int" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>重复执行的时间间隔</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IntervalUnit" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>重复执行的时间间隔单位，1:分钟；2:小时</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Minute"/>
+									<xs:enumeration value="Hour"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="StartTime" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>重复执行开始的时间,格式:HH:mm:ss</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EndTime" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>重复执行结束的时间,格式:HH:mm:ss</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Duration">
+				<xs:annotation>
+					<xs:documentation>持续时间（任务启用的时间范围）</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="StartDate" type="xs:string">
+							<xs:annotation>
+								<xs:documentation>任务开始执行的日期,格式:yyyy-MM-dd</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="EndDate" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>任务停止执行的日期,格式:yyyy-MM-dd</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="HasEndDate" type="xs:boolean">
+							<xs:annotation>
+								<xs:documentation>是否有结束日期</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

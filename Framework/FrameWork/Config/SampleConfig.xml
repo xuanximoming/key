@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PluginSettings>
+  <COREPLUGIN path="CorePlugin">
+    <Plugin Name="Core" Description="核心业务" InterfaceAssembly="FrameWork" ImplementAssembly="DrectSoft.CorePlugin">
+      <BIZ>
+        <Interface type="DrectSoft.FrameWork.Application.IDataAccess">
+          <Implement type="DrectSoft.CorePlugin.DataAccess.SqlDataAccess" mode="Singleton" id="Sql">
+          </Implement>
+        </Interface>
+        <Interface type="DrectSoft.FrameWork.Application.ITest" defaultMapping="Test" >
+          <Implement type="DrectSoft.CorePlugin.Test" mode="Singleton" id="Test">
+          </Implement>
+          <Implement type="DrectSoft.CorePlugin.Test1" mode="Singleton" id="Test1">
+          </Implement>
+        </Interface>
+        <Interface type="DrectSoft.FrameWork.Application.IAccount" defaultMapping="Account">
+          <Implement type="DrectSoft.CorePlugin.Account" mode="Singleton" id="Account"/>
+        </Interface>
+        <Entity type="DrectSoft.FrameWork.Application.User"/>
+      </BIZ>
+    </Plugin>
+  </COREPLUGIN>
+  <BIZPLUGIN path="BizPlugin">
+    <Plugin Name="YaoFang" Description="药房"  InterfaceAssembly="">
+      <BIZ></BIZ>
+      <INTERCHANGE></INTERCHANGE>
+    </Plugin>
+  </BIZPLUGIN>
+  <FRAMEPLUGIN path="FramePlugin"></FRAMEPLUGIN>
+  <EXTERNALPLUGIN path="ExternalPlugin"></EXTERNALPLUGIN>
+</PluginSettings>

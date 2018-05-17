@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <val id="dealytimes" value="3"></val>
+  <val id="dealymaxtime" value="3"></val>
+  <val id="readmaxtime" value="3"></val>
+  <val id="remindtime" value="1"></val>
+  <val id="applylimit" value="10"></val>
+</parameters>
