@@ -1,1 +1,0 @@
-F:\Demo\EMRX86\Framework\MainFrame\bin\Debug\adcemr.exe.config
