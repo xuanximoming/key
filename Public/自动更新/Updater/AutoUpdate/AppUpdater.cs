@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Xml;
 
+
 namespace AutoUpdate
 {
     public class AppUpdater : IDisposable
