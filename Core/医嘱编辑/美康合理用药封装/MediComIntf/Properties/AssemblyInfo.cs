@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MediComIntf")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("winning.net")]
+[assembly: AssemblyCompany(".net")]
 [assembly: AssemblyProduct("MediComIntf")]
-[assembly: AssemblyCopyright("Copyright © winning.net 2006")]
+[assembly: AssemblyCopyright("Copyright ©  2006")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
