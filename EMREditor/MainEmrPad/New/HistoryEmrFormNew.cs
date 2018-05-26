@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DrectSoft.Emr.Util;
-using System.Xml;
-using DevExpress.XtraTreeList.Nodes;
+﻿using DevExpress.Utils;
 using DevExpress.XtraBars;
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Service;
-using DrectSoft.Core.MainEmrPad.New;
-using DrectSoft.Common.Eop;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.DSSqlHelper;
+using DevExpress.XtraTreeList.Nodes;
+using DrectSoft.Common;
 using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Common.Eop;
+using DrectSoft.Core.MainEmrPad.New;
+using DrectSoft.DSSqlHelper;
+using DrectSoft.Emr.Util;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace DrectSoft.Core.MainEmrPad
 {
@@ -72,6 +70,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// <param name="inpatient"></param>
         public HistoryEmrFormNew(RecordDal recordDal, EmrModel model, TreeListNode node, Inpatient inpatient, IEmrHost app)
         {
+            WaitDialogForm m_WaitDialog = new WaitDialogForm("正在加载病历...", "请稍候");
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             m_RecordDal = recordDal;
@@ -80,6 +79,7 @@ namespace DrectSoft.Core.MainEmrPad
             m_App = app;
             GetEmrContent(model);
             AddPadForm();
+            DS_Common.HideWaitDialog(m_WaitDialog);
         }
 
         /// <summary>

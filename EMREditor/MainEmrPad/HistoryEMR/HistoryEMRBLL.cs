@@ -1,15 +1,14 @@
-﻿using System;
+﻿using DrectSoft.Common.Eop;
+using DrectSoft.Emr.Util;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Common.Eop;
-using System.Data;
-using DrectSoft.Emr.Util;
-using System.IO;
 using System.Xml;
-using DrectSoft.Service;
-using System.Data.SqlClient;
 
 namespace DrectSoft.Core.MainEmrPad
 {
@@ -91,12 +90,12 @@ namespace DrectSoft.Core.MainEmrPad
         /// </summary>
         /// <param name="id"></param>
         /// <param name="boo"></param>
-        public  void UpdateRecordValid(int id, bool boo)
+        public void UpdateRecordValid(int id, bool boo)
         {
             try
             {
-                string sqlStr = string.Format(" update recorddetail set valid=0 where id='{0}' ",id);
-                m_Host.SqlHelper.ExecuteNoneQuery(sqlStr,CommandType.Text);
+                string sqlStr = string.Format(" update recorddetail set valid=0 where id='{0}' ", id);
+                m_Host.SqlHelper.ExecuteNoneQuery(sqlStr, CommandType.Text);
                 //string sqlStr = " update recorddetail set valid=@valid where id=@id ";
                 //DbParameter[] sqlParams = new DbParameter[]
                 //{
