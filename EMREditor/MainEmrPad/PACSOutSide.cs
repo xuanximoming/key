@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
+﻿using DrectSoft.Common.Eop;
+using System;
 using System.Diagnostics;
-using DrectSoft.Common.Eop;
+using System.IO;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.MainEmrPad
 {
@@ -15,10 +12,45 @@ namespace DrectSoft.Core.MainEmrPad
     /// </summary>
     public static class PACSOutSide
     {
+
         /// <summary>
-        /// 武汉十三医院调用pacs方法
+        /// 对外PACS调用方法 
         /// </summary>
-        private static void PacsWHSS(string noofHis)
+        /// <param name="currinpatient"></param>
+        public static void PacsAll(Inpatient currinpatient)
+        {
+            try
+            {
+                string valuestr = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("PACSRevision");
+                valuestr = valuestr.ToLower();
+                if (valuestr == "dll")  //dll调用方式
+                {
+                    PacsDll(currinpatient);
+                }
+                else if (valuestr == "exe") //exe调用方式
+                {
+                    PacsExe(currinpatient);
+                }
+                else if (valuestr == "url") //url浏览方式
+                {
+                    PacsUrl(currinpatient.NoOfHisFirstPage);
+                }
+                else
+                {
+                    MessageBox.Show("没有对接PSCS接口！");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// exe调用
+        /// </summary>
+        private static void PacsExe(Inpatient currinpatient)
         {
             try
             {
@@ -27,7 +59,7 @@ namespace DrectSoft.Core.MainEmrPad
                 if (hasFile)
                 {
                     //xll 接口调用方式发生变化 修改2012-12-18
-                    string infostr = string.Format(@"G_study.inhospitalno='{0}'", noofHis);
+                    string infostr = string.Format(@"G_study.inhospitalno='{0}'", currinpatient.NoOfHisFirstPage);
                     Process.Start(fileName, infostr);
                 }
                 else
@@ -40,89 +72,15 @@ namespace DrectSoft.Core.MainEmrPad
                 throw ex;
             }
         }
-
         /// <summary>
-        /// 对外PACS调用方法 
-        /// </summary>
-        /// <param name="currinpatient"></param>
-        public static void PacsAll(Inpatient currinpatient)
-        {
-            try
-            {
-                string valuestr = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("PACSRevision");
-                valuestr = valuestr.ToLower();
-                if (valuestr == "whssyy")  //武汉十三医院
-                {
-                    PacsWHSS(currinpatient.NoOfHisFirstPage);
-                }
-                else if (valuestr == "dongfang")
-                {
-                    PACSDongFang(currinpatient.NoOfHisFirstPage);
-                }
-                //新增的處理大連六院的PACS調閱 add by 楊偉康 2013年7月15日 11:06:26
-                else if (valuestr == "dlly")
-                {
-                    PACSDaLianHosp(currinpatient.NoOfHisFirstPage);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        #region 大连六院调用PACS 相关  add by ywk
-
-        //查看报告及阅片
-        //若HIS的一个字段就能唯一标识一个检查，则按下列方式传入参数。
-        //HisCode1为HIS的能唯一标识一个检查的号，如申请单号。
-        //HisCode2传入空字符;
-        // 若HIS的两个字段不能唯一标识一个检查，则需同时传入这两个字段的值。
-        [DllImport("PacsReport.dll")]
-        public static extern void ShowPACSReport(string HisCode1, string HisCode2);
-        [DllImport("PacsReport.dll")]
-        public static extern void UnLoadPACSReport();
-        /// <summary>
-        /// 大連六院的调用PACS 
-        ///  add by ywk 二〇一三年七月十五日 11:07:16 
-        /// </summary>
-        /// <param name="patnoofhis">HIS与EMR连接住院号</param>
-        private static void PACSDaLianHosp(string patnoofhis)
-        {
-            string pacsdllpath = Application.StartupPath + @"\PacsReport.dll";
-            if (!File.Exists(pacsdllpath))//不存在此接口DLL就不执行 
-            {
-                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("Pacs需调用DLL路径不存在");
-                return;
-            }
-            //进行显示PACS的程序
-            try
-            {
-                ShowPACSReport(patnoofhis, "");
-            }
-            catch (Exception ex)
-            {
-                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("调用PACS出错，错误信息为：" + ex.Message);
-                UnLoadPACSReport();
-                return;
-            }
-            //进程退出再调用 
-            //finally
-            //{
-            //    UnLoadPACSReport();
-            //}
-
-        }
-        #endregion
-        /// <summary>
-        /// 东方医院调用pacs方式
+        /// url调用pacs方式
         /// </summary>
         /// <param name="noofhis"></param>
-        private static void PACSDongFang(string noofhis)
+        private static void PacsUrl(string noofhis)
         {
             try
             {
-                string temppacsUrl = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("DongFangPACSUrl");
+                string temppacsUrl = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("PacsUrl");
                 string pacsUrl = string.Format(temppacsUrl, noofhis);
                 System.Diagnostics.Process.Start("IEXPLORE.EXE", pacsUrl);
             }
@@ -131,6 +89,76 @@ namespace DrectSoft.Core.MainEmrPad
                 throw ex;
             }
         }
+
+
+        #region PACS相关
+        [DllImport("joint.dll")]
+        public static extern int PacsView(int nPatientType, string lpszID, int nImageType); //Pacs调阅3.1版
+        [DllImport("joint.dll")]
+        public static extern bool PacsViewByPatientInfo(int nType, string str, int nPatientType);
+
+        /// <summary>
+        /// dll调用方式
+        /// </summary>
+        public static void PacsDll(Inpatient m_CurrentInpatient)
+        {
+            try
+            {
+                string HospitalNo = m_CurrentInpatient.RecordNoOfHospital;//住院号
+                int nPatientType = 2;//患者类型（1.门诊号 2.住院号）
+                int LookType = 1;//类型（1.图像 2.报告）
+
+                if (CheckPackIsExist())
+                {
+                    try
+                    {
+                        if (PacsView(nPatientType, m_CurrentInpatient.RecordNoOfHospital, LookType) != 1)
+                        {
+                            MessageBox.Show("调用失败");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 判断调用PACS的DLL是否存在 
+        /// </summary>
+        private static bool CheckPackIsExist()
+        {
+            try
+            {
+                string jointpath = Application.StartupPath + @"\joint.dll";//获取程序所在文件夹
+                if (!File.Exists(jointpath))//不存在此接口DLL就不执行 
+                {
+                    return false;
+                }
+                string connectpath = Application.StartupPath + @"\Connection.dll";//获取程序所在文件夹
+                if (!File.Exists(connectpath))//不存在此接口DLL就不执行 
+                {
+                    return false;
+                }
+                string pacspath = Application.StartupPath + @"\PACSID.dll";//获取程序所在文件夹
+                if (!File.Exists(pacspath))//不存在此接口DLL就不执行 
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        #endregion
 
 
     }
