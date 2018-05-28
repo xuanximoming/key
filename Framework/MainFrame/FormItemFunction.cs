@@ -1,13 +1,13 @@
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Core;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Wordbook;
 /*********************************************************************************
 ** File Name	:   FormItemFunctio.cs
 ** User		    :	xjt
 ** Date	        :	2010-06-12
 ** Description	:	功能选择
 *********************************************************************************/
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Core;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Wordbook;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,9 +55,6 @@ namespace DrectSoft.MainFrame
         {
             if ((lookUpEditorDepart.DisplayValue != null) && (lookUpEditorDepart.DisplayValue != ""))
             {
-                //string getDeptWards = @"SELECT a.id DEPTID, a.name DEPTNAME, b.id WARDID, b.name WARDNAME 
-                //   FROM department a, ward b, dept2ward c
-                // WHERE a.id = c.deptid and b.id = c.wardid and a.valid = '1' and b.valid = '1' and c.deptid='" + lookUpEditorDepart.CodeValue + "' ORDER BY a.name";
                 string getDeptWards = @"select * 
                                             from ( SELECT a.id||b.id FLOWID ,
                                                           a.id DEPTID,
@@ -129,12 +126,25 @@ namespace DrectSoft.MainFrame
                 }
 
                 //update by Ukey 2016-08-26 判断非管理员权限的单一员工权限， 限制切换科室的一个人进入两个（非全院科室）权限
-                string SqlGetPower = @"select power,deptorward from users where id ='" + this.id + "'";
-                DtPower = ((IEmrHost)FormMain.Instance).SqlHelper.ExecuteDataTable(SqlGetPower);
+                DtPower = ((IEmrHost)FormMain.Instance).SqlHelper.ExecuteDataTable("select deptorward from users where id ='" + this.id + "'");
                 DataRow DrRow = DtPower.Rows[0];
-                string StPower = null, strdeptorward = null;
-                StPower = DrRow["power"].ToString();
-                strdeptorward = DrRow["deptorward"].ToString();
+                string strdeptorward = null;
+                string[] deptorwardArray = DrRow["deptorward"].ToString().Split(',');
+
+                foreach (string dept in deptorwardArray)
+                {
+                    if (strdeptorward != null)
+                    {
+                        strdeptorward += "," + "'" + dept + "'";
+
+                    }
+                    else
+                    {
+                        strdeptorward = "'" + dept + "'";
+                    }
+                }
+
+
 
                 DataTable dt = null;
                 Dictionary<string, int> columnwidth = new Dictionary<string, int>();

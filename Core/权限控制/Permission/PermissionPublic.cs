@@ -300,52 +300,6 @@ namespace DrectSoft.Core.Permission
         {
             //TODO:
         }
-
-        /// <summary>
-        /// 更新员工信息
-        /// </summary>
-        /// <param name="id">员工ID</param>
-        /// <param name="name">姓名</param>
-        /// <param name="deptId">科室ID</param>
-        /// <param name="wardId">病区ID</param>
-        /// <param name="jobId">岗位ID</param>
-        /// <returns></returns>
-        /* public string UpdateUser(string id, string name, string deptId, string wardId, string jobId)
-         {
-             try
-             {
-                 //string updateUserSql = "UPDATE dbo.Users SET Name='" + name + "',DeptId='" + deptId + "',WardID='" + wardId + "',JobID='" + jobId + "' WHERE ID='" + id + "'";
-                 string returnInfo = string.Empty;
-                 SqlParameter[] sqlParam = new SqlParameter[] 
-             { 
-                 new SqlParameter("@ID", SqlDbType.VarChar),
-                 new SqlParameter("@Name", SqlDbType.VarChar),
-                 new SqlParameter("@DeptId", SqlDbType.VarChar),
-                 new SqlParameter("@WardID", SqlDbType.VarChar),
-                 new SqlParameter("@JobID", SqlDbType.VarChar)
-             };
-                 sqlParam[0].Value = id;
-                 sqlParam[1].Value = name;
-                 sqlParam[2].Value = deptId;
-                 sqlParam[3].Value = wardId;
-                 sqlParam[4].Value = jobId;
-                 try
-                 {
-                     m_DataAccess.ExecuteNoneQuery("usp_UpdateUserInfo", sqlParam, CommandType.StoredProcedure);
-                     returnInfo = "岗位信息更新成功";
-                 }
-                 catch (Exception ex)
-                 {
-                     throw new ApplicationException(ex.Message);
-                 }
-                 return returnInfo;
-             }
-             catch (Exception)
-             {
-                 throw;
-             }
-         }
-         */
         /// <summary>
         /// 更新员工信息
         /// </summary>
