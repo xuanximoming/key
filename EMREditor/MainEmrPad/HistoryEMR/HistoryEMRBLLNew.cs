@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DrectSoft.FrameWork.WinForm.Plugin;
+﻿using DrectSoft.Common;
 using DrectSoft.Common.Eop;
-using System.Data;
-using DrectSoft.Emr.Util;
-using System.IO;
-using System.Xml;
-using DrectSoft.Service;
-using System.Data.SqlClient;
-using DrectSoft.DSSqlHelper;
-using DrectSoft.Core.MainEmrPad.HistoryEMR;
-using DrectSoft.Common;
 using DrectSoft.Core.MainEmrPad.New;
+using DrectSoft.DSSqlHelper;
+using DrectSoft.Emr.Util;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Xml;
 
 namespace DrectSoft.Core.MainEmrPad
 {

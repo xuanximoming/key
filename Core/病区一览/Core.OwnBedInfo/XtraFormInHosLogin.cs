@@ -30,22 +30,6 @@ namespace DrectSoft.Core.OwnBedInfo
             m_app = app;
         }
         List<TextEdit> m_TextEditControlList = new List<TextEdit>();
-        ///// <summary>
-        ///// 科室
-        ///// </summary>
-        //private DataTable Ward
-        //{
-        //    get { return _ward; }
-        //}
-        //private DataTable _ward;
-        ///// <summary>
-        ///// 科室
-        ///// </summary>
-        //private DataTable Dept
-        //{
-        //    get { return _dept; }
-        //}
-        //private DataTable _dept;
 
         private DataTable Province
         {
@@ -64,16 +48,6 @@ namespace DrectSoft.Core.OwnBedInfo
             get { return _qxian; }
         }
         private DataTable _qxian;
-        //private DataTable Depts
-        //{
-        //    get { return _depts; }
-        //}
-        //private DataTable _depts;
-        //private DataTable Wards
-        //{
-        //    get { return _wards; }
-        //}
-        //private DataTable _wards;
 
         private DataTable Nations
         {
@@ -158,7 +132,6 @@ namespace DrectSoft.Core.OwnBedInfo
             try
             {
                 //by cyq 2012-09-13 
-                // textEditNoOfRecord.Text = patEntity.NoOfRecord;
                 textEditNoOfRecord.Text = patEntity.NoOfRecord;
                 textEditPatID.Text = patEntity.PatID;
                 txtBedID.Text = patEntity.OutBed;
@@ -1428,11 +1401,6 @@ namespace DrectSoft.Core.OwnBedInfo
                     textEditPatID.Focus();
                     return "住院号码不能为空";
                 }
-                //else if (string.IsNullOrEmpty(luePayId.CodeValue.Trim()))
-                //{
-                //    luePayId.Focus();
-                //    return "请选择医疗付款方式";
-                //}
                 else if (string.IsNullOrEmpty(txtName.Text.Trim()))
                 {
                     txtName.Focus();

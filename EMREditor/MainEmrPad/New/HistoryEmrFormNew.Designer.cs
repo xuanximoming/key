@@ -80,7 +80,7 @@
             this.barLargeButtonItemClose});
             this.barManager1.LargeImages = this.imageCollection1;
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 6;
+            this.barManager1.MaxItemId = 8;
             this.barManager1.StatusBar = this.bar1;
             // 
             // bar2

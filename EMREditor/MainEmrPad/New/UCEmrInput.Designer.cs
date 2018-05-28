@@ -29,101 +29,110 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem31 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem32 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem33 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip73 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem71 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem53 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip74 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem72 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem54 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip75 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem73 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem55 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip76 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem74 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem56 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip77 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem75 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem57 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip78 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem76 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem58 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip79 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem77 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem59 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip80 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem78 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem60 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip81 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem79 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip82 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem80 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem61 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip83 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem81 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem62 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip84 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem82 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem63 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip85 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem83 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem64 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip86 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem84 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem65 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip87 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem85 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem66 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip88 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem86 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem67 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip89 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem87 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem68 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip90 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem88 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem69 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip91 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem89 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem70 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip92 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem90 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem71 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip93 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem91 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem72 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip94 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem92 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem73 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip95 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem93 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip96 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem94 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip97 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem95 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip98 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem96 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip108 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem106 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem78 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip99 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem97 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip100 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem98 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem74 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip101 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem99 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem75 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip102 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem100 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem76 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip103 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem101 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip104 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem102 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip105 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem103 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip106 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem104 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem77 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip107 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem105 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCEmrInput));
-            DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip35 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem34 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem25 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip109 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem79 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip110 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem107 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem80 = new DevExpress.Utils.ToolTipItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnItem_ImportHostoryEmr = new DevExpress.XtraBars.BarButtonItem();
@@ -189,6 +198,7 @@
             this.btnItem_Collect = new DevExpress.XtraBars.BarButtonItem();
             this.btnItem_AssessmentPlan = new DevExpress.XtraBars.BarButtonItem();
             this.btn_left = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_get = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barStaticItem_bedNo = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem_patientName = new DevExpress.XtraBars.BarStaticItem();
@@ -208,7 +218,6 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.panelControlBody = new DevExpress.XtraEditors.PanelControl();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.btn_get = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxFont)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox_Size)).BeginInit();
@@ -353,12 +362,12 @@
             this.btnItem_ImportHostoryEmr.Id = 1;
             this.btnItem_ImportHostoryEmr.ImageIndex = 4;
             this.btnItem_ImportHostoryEmr.Name = "btnItem_ImportHostoryEmr";
-            toolTipTitleItem1.Text = "导入";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "导入历史病历";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnItem_ImportHostoryEmr.SuperTip = superToolTip1;
+            toolTipTitleItem71.Text = "导入";
+            toolTipItem53.LeftIndent = 6;
+            toolTipItem53.Text = "导入历史病历";
+            superToolTip73.Items.Add(toolTipTitleItem71);
+            superToolTip73.Items.Add(toolTipItem53);
+            this.btnItem_ImportHostoryEmr.SuperTip = superToolTip73;
             this.btnItem_ImportHostoryEmr.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_ImportHostoryEmr_ItemClick);
             // 
             // btnItem_New
@@ -367,12 +376,12 @@
             this.btnItem_New.Id = 0;
             this.btnItem_New.ImageIndex = 10;
             this.btnItem_New.Name = "btnItem_New";
-            toolTipTitleItem2.Text = "新增";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "新增病历";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnItem_New.SuperTip = superToolTip2;
+            toolTipTitleItem72.Text = "新增";
+            toolTipItem54.LeftIndent = 6;
+            toolTipItem54.Text = "新增病历";
+            superToolTip74.Items.Add(toolTipTitleItem72);
+            superToolTip74.Items.Add(toolTipItem54);
+            this.btnItem_New.SuperTip = superToolTip74;
             this.btnItem_New.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_New_ItemClick);
             // 
             // btnItem_Edit
@@ -381,12 +390,12 @@
             this.btnItem_Edit.Id = 3;
             this.btnItem_Edit.ImageIndex = 0;
             this.btnItem_Edit.Name = "btnItem_Edit";
-            toolTipTitleItem3.Text = "编辑";
-            toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "开放编写病历功能";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnItem_Edit.SuperTip = superToolTip3;
+            toolTipTitleItem73.Text = "编辑";
+            toolTipItem55.LeftIndent = 6;
+            toolTipItem55.Text = "开放编写病历功能";
+            superToolTip75.Items.Add(toolTipTitleItem73);
+            superToolTip75.Items.Add(toolTipItem55);
+            this.btnItem_Edit.SuperTip = superToolTip75;
             // 
             // btnItem_Delete
             // 
@@ -394,12 +403,12 @@
             this.btnItem_Delete.Id = 2;
             this.btnItem_Delete.ImageIndex = 17;
             this.btnItem_Delete.Name = "btnItem_Delete";
-            toolTipTitleItem4.Text = "删除";
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "删除病历";
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnItem_Delete.SuperTip = superToolTip4;
+            toolTipTitleItem74.Text = "删除";
+            toolTipItem56.LeftIndent = 6;
+            toolTipItem56.Text = "删除病历";
+            superToolTip76.Items.Add(toolTipTitleItem74);
+            superToolTip76.Items.Add(toolTipItem56);
+            this.btnItem_Delete.SuperTip = superToolTip76;
             this.btnItem_Delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Delete_ItemClick);
             // 
             // btnItem_Readonly
@@ -408,12 +417,12 @@
             this.btnItem_Readonly.Id = 4;
             this.btnItem_Readonly.ImageIndex = 24;
             this.btnItem_Readonly.Name = "btnItem_Readonly";
-            toolTipTitleItem5.Text = "只读";
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "设置编辑器不可修改";
-            superToolTip5.Items.Add(toolTipTitleItem5);
-            superToolTip5.Items.Add(toolTipItem5);
-            this.btnItem_Readonly.SuperTip = superToolTip5;
+            toolTipTitleItem75.Text = "只读";
+            toolTipItem57.LeftIndent = 6;
+            toolTipItem57.Text = "设置编辑器不可修改";
+            superToolTip77.Items.Add(toolTipTitleItem75);
+            superToolTip77.Items.Add(toolTipItem57);
+            this.btnItem_Readonly.SuperTip = superToolTip77;
             // 
             // btnItem_Save
             // 
@@ -421,12 +430,12 @@
             this.btnItem_Save.Id = 5;
             this.btnItem_Save.ImageIndex = 18;
             this.btnItem_Save.Name = "btnItem_Save";
-            toolTipTitleItem6.Text = "保存";
-            toolTipItem6.LeftIndent = 6;
-            toolTipItem6.Text = "保存当前病历";
-            superToolTip6.Items.Add(toolTipTitleItem6);
-            superToolTip6.Items.Add(toolTipItem6);
-            this.btnItem_Save.SuperTip = superToolTip6;
+            toolTipTitleItem76.Text = "保存";
+            toolTipItem58.LeftIndent = 6;
+            toolTipItem58.Text = "保存当前病历";
+            superToolTip78.Items.Add(toolTipTitleItem76);
+            superToolTip78.Items.Add(toolTipItem58);
+            this.btnItem_Save.SuperTip = superToolTip78;
             this.btnItem_Save.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Save_ItemClick);
             // 
             // btnItem_SaveAs
@@ -435,12 +444,12 @@
             this.btnItem_SaveAs.Id = 6;
             this.btnItem_SaveAs.ImageIndex = 36;
             this.btnItem_SaveAs.Name = "btnItem_SaveAs";
-            toolTipTitleItem7.Text = "另存";
-            toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "另存为科室或个人模板";
-            superToolTip7.Items.Add(toolTipTitleItem7);
-            superToolTip7.Items.Add(toolTipItem7);
-            this.btnItem_SaveAs.SuperTip = superToolTip7;
+            toolTipTitleItem77.Text = "另存";
+            toolTipItem59.LeftIndent = 6;
+            toolTipItem59.Text = "另存为科室或个人模板";
+            superToolTip79.Items.Add(toolTipTitleItem77);
+            superToolTip79.Items.Add(toolTipItem59);
+            this.btnItem_SaveAs.SuperTip = superToolTip79;
             this.btnItem_SaveAs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_SaveAs_ItemClick);
             // 
             // btnItem_SaveAll
@@ -449,12 +458,12 @@
             this.btnItem_SaveAll.Id = 7;
             this.btnItem_SaveAll.ImageIndex = 27;
             this.btnItem_SaveAll.Name = "btnItem_SaveAll";
-            toolTipTitleItem8.Text = "全部保存";
-            toolTipItem8.LeftIndent = 6;
-            toolTipItem8.Text = "保存全部已经打开的病历";
-            superToolTip8.Items.Add(toolTipTitleItem8);
-            superToolTip8.Items.Add(toolTipItem8);
-            this.btnItem_SaveAll.SuperTip = superToolTip8;
+            toolTipTitleItem78.Text = "全部保存";
+            toolTipItem60.LeftIndent = 6;
+            toolTipItem60.Text = "保存全部已经打开的病历";
+            superToolTip80.Items.Add(toolTipTitleItem78);
+            superToolTip80.Items.Add(toolTipItem60);
+            this.btnItem_SaveAll.SuperTip = superToolTip80;
             // 
             // btnItem_CheckSelf
             // 
@@ -462,9 +471,9 @@
             this.btnItem_CheckSelf.Id = 8;
             this.btnItem_CheckSelf.ImageIndex = 22;
             this.btnItem_CheckSelf.Name = "btnItem_CheckSelf";
-            toolTipTitleItem9.Text = "病历自检";
-            superToolTip9.Items.Add(toolTipTitleItem9);
-            this.btnItem_CheckSelf.SuperTip = superToolTip9;
+            toolTipTitleItem79.Text = "病历自检";
+            superToolTip81.Items.Add(toolTipTitleItem79);
+            this.btnItem_CheckSelf.SuperTip = superToolTip81;
             this.btnItem_CheckSelf.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_CheckSelf_ItemClick);
             // 
             // btnItem_Submit
@@ -473,12 +482,12 @@
             this.btnItem_Submit.Id = 9;
             this.btnItem_Submit.ImageIndex = 15;
             this.btnItem_Submit.Name = "btnItem_Submit";
-            toolTipTitleItem10.Text = "提交";
-            toolTipItem9.LeftIndent = 6;
-            toolTipItem9.Text = "三级检诊中提交病历给上级医师审核";
-            superToolTip10.Items.Add(toolTipTitleItem10);
-            superToolTip10.Items.Add(toolTipItem9);
-            this.btnItem_Submit.SuperTip = superToolTip10;
+            toolTipTitleItem80.Text = "提交";
+            toolTipItem61.LeftIndent = 6;
+            toolTipItem61.Text = "三级检诊中提交病历给上级医师审核";
+            superToolTip82.Items.Add(toolTipTitleItem80);
+            superToolTip82.Items.Add(toolTipItem61);
+            this.btnItem_Submit.SuperTip = superToolTip82;
             this.btnItem_Submit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Submit_ItemClick);
             // 
             // btnItem_Audit
@@ -487,12 +496,12 @@
             this.btnItem_Audit.Id = 10;
             this.btnItem_Audit.ImageIndex = 21;
             this.btnItem_Audit.Name = "btnItem_Audit";
-            toolTipTitleItem11.Text = "审核";
-            toolTipItem10.LeftIndent = 6;
-            toolTipItem10.Text = "三级检诊中审核已经提交的病历";
-            superToolTip11.Items.Add(toolTipTitleItem11);
-            superToolTip11.Items.Add(toolTipItem10);
-            this.btnItem_Audit.SuperTip = superToolTip11;
+            toolTipTitleItem81.Text = "审核";
+            toolTipItem62.LeftIndent = 6;
+            toolTipItem62.Text = "三级检诊中审核已经提交的病历";
+            superToolTip83.Items.Add(toolTipTitleItem81);
+            superToolTip83.Items.Add(toolTipItem62);
+            this.btnItem_Audit.SuperTip = superToolTip83;
             this.btnItem_Audit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Audit_ItemClick);
             // 
             // btnItem_CancelAudit
@@ -501,12 +510,12 @@
             this.btnItem_CancelAudit.Id = 11;
             this.btnItem_CancelAudit.ImageIndex = 38;
             this.btnItem_CancelAudit.Name = "btnItem_CancelAudit";
-            toolTipTitleItem12.Text = "取消审核";
-            toolTipItem11.LeftIndent = 6;
-            toolTipItem11.Text = "取消审核状态，将病历退给创建人";
-            superToolTip12.Items.Add(toolTipTitleItem12);
-            superToolTip12.Items.Add(toolTipItem11);
-            this.btnItem_CancelAudit.SuperTip = superToolTip12;
+            toolTipTitleItem82.Text = "取消审核";
+            toolTipItem63.LeftIndent = 6;
+            toolTipItem63.Text = "取消审核状态，将病历退给创建人";
+            superToolTip84.Items.Add(toolTipTitleItem82);
+            superToolTip84.Items.Add(toolTipItem63);
+            this.btnItem_CancelAudit.SuperTip = superToolTip84;
             this.btnItem_CancelAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_CancelAudit_ItemClick);
             // 
             // btnItem_Print
@@ -515,12 +524,12 @@
             this.btnItem_Print.Id = 12;
             this.btnItem_Print.ImageIndex = 12;
             this.btnItem_Print.Name = "btnItem_Print";
-            toolTipTitleItem13.Text = "打印";
-            toolTipItem12.LeftIndent = 6;
-            toolTipItem12.Text = "打印当前病历";
-            superToolTip13.Items.Add(toolTipTitleItem13);
-            superToolTip13.Items.Add(toolTipItem12);
-            this.btnItem_Print.SuperTip = superToolTip13;
+            toolTipTitleItem83.Text = "打印";
+            toolTipItem64.LeftIndent = 6;
+            toolTipItem64.Text = "打印当前病历";
+            superToolTip85.Items.Add(toolTipTitleItem83);
+            superToolTip85.Items.Add(toolTipItem64);
+            this.btnItem_Print.SuperTip = superToolTip85;
             this.btnItem_Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Print_ItemClick);
             // 
             // barSubItem_Table
@@ -537,12 +546,12 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_SplitCell),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_CombineCell)});
             this.barSubItem_Table.Name = "barSubItem_Table";
-            toolTipTitleItem14.Text = "表格";
-            toolTipItem13.LeftIndent = 6;
-            toolTipItem13.Text = "表格相关操作";
-            superToolTip14.Items.Add(toolTipTitleItem14);
-            superToolTip14.Items.Add(toolTipItem13);
-            this.barSubItem_Table.SuperTip = superToolTip14;
+            toolTipTitleItem84.Text = "表格";
+            toolTipItem65.LeftIndent = 6;
+            toolTipItem65.Text = "表格相关操作";
+            superToolTip86.Items.Add(toolTipTitleItem84);
+            superToolTip86.Items.Add(toolTipItem65);
+            this.barSubItem_Table.SuperTip = superToolTip86;
             // 
             // barSubItem_Insert
             // 
@@ -653,12 +662,12 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_DeptTemplete),
             new DevExpress.XtraBars.LinkPersistInfo(this.barCheckItem1)});
             this.barSubItem_Tool.Name = "barSubItem_Tool";
-            toolTipTitleItem15.Text = "工具";
-            toolTipItem14.LeftIndent = 6;
-            toolTipItem14.Text = "病历操作工具集合";
-            superToolTip15.Items.Add(toolTipTitleItem15);
-            superToolTip15.Items.Add(toolTipItem14);
-            this.barSubItem_Tool.SuperTip = superToolTip15;
+            toolTipTitleItem85.Text = "工具";
+            toolTipItem66.LeftIndent = 6;
+            toolTipItem66.Text = "病历操作工具集合";
+            superToolTip87.Items.Add(toolTipTitleItem85);
+            superToolTip87.Items.Add(toolTipItem66);
+            this.barSubItem_Tool.SuperTip = superToolTip87;
             // 
             // barButtonItem_ExportEmr
             // 
@@ -705,12 +714,12 @@
             this.btnItem_ThreeLevelCheck.Id = 17;
             this.btnItem_ThreeLevelCheck.ImageIndex = 37;
             this.btnItem_ThreeLevelCheck.Name = "btnItem_ThreeLevelCheck";
-            toolTipTitleItem16.Text = "三级检诊";
-            toolTipItem15.LeftIndent = 6;
-            toolTipItem15.Text = "设置三级检诊的人员";
-            superToolTip16.Items.Add(toolTipTitleItem16);
-            superToolTip16.Items.Add(toolTipItem15);
-            this.btnItem_ThreeLevelCheck.SuperTip = superToolTip16;
+            toolTipTitleItem86.Text = "三级检诊";
+            toolTipItem67.LeftIndent = 6;
+            toolTipItem67.Text = "设置三级检诊的人员";
+            superToolTip88.Items.Add(toolTipTitleItem86);
+            superToolTip88.Items.Add(toolTipItem67);
+            this.btnItem_ThreeLevelCheck.SuperTip = superToolTip88;
             this.btnItem_ThreeLevelCheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_ThreeLevelCheck_ItemClick);
             // 
             // btnItem_ReplaceItem
@@ -719,33 +728,54 @@
             this.btnItem_ReplaceItem.Id = 18;
             this.btnItem_ReplaceItem.ImageIndex = 40;
             this.btnItem_ReplaceItem.Name = "btnItem_ReplaceItem";
-            toolTipTitleItem17.Text = "替换复用元素";
-            toolTipItem16.LeftIndent = 6;
-            toolTipItem16.Text = "替换此病人所有病历的复用元素";
-            superToolTip17.Items.Add(toolTipTitleItem17);
-            superToolTip17.Items.Add(toolTipItem16);
-            this.btnItem_ReplaceItem.SuperTip = superToolTip17;
+            toolTipTitleItem87.Text = "替换复用元素";
+            toolTipItem68.LeftIndent = 6;
+            toolTipItem68.Text = "替换此病人所有病历的复用元素";
+            superToolTip89.Items.Add(toolTipTitleItem87);
+            superToolTip89.Items.Add(toolTipItem68);
+            this.btnItem_ReplaceItem.SuperTip = superToolTip89;
             this.btnItem_ReplaceItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_ReplaceItem_ItemClick);
             // 
             // btnItem_Pacs
             // 
             this.btnItem_Pacs.Caption = "调用PACS图像";
             this.btnItem_Pacs.Id = 20;
+            this.btnItem_Pacs.ImageIndex = 45;
             this.btnItem_Pacs.Name = "btnItem_Pacs";
+            toolTipTitleItem88.Text = "调用PACS图像";
+            toolTipItem69.LeftIndent = 6;
+            toolTipItem69.Text = "调用接口查看pacs图像";
+            superToolTip90.Items.Add(toolTipTitleItem88);
+            superToolTip90.Items.Add(toolTipItem69);
+            this.btnItem_Pacs.SuperTip = superToolTip90;
             this.btnItem_Pacs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Pacs_ItemClick);
             // 
             // btnItem_CheckOutDept
             // 
             this.btnItem_CheckOutDept.Caption = "出科检查";
             this.btnItem_CheckOutDept.Id = 21;
+            this.btnItem_CheckOutDept.ImageIndex = 23;
             this.btnItem_CheckOutDept.Name = "btnItem_CheckOutDept";
+            toolTipTitleItem89.Text = "出科检查";
+            toolTipItem70.LeftIndent = 6;
+            toolTipItem70.Text = "病人出科检查";
+            superToolTip91.Items.Add(toolTipTitleItem89);
+            superToolTip91.Items.Add(toolTipItem70);
+            this.btnItem_CheckOutDept.SuperTip = superToolTip91;
             this.btnItem_CheckOutDept.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_CheckOutDept_ItemClick);
             // 
             // btnCallMedRecord
             // 
-            this.btnCallMedRecord.Caption = "调用病理系统";
+            this.btnCallMedRecord.Caption = "调用病案系统";
             this.btnCallMedRecord.Id = 69;
+            this.btnCallMedRecord.ImageIndex = 1;
             this.btnCallMedRecord.Name = "btnCallMedRecord";
+            toolTipTitleItem90.Text = "调用病案系统";
+            toolTipItem71.LeftIndent = 6;
+            toolTipItem71.Text = "调用医院内病案系统";
+            superToolTip92.Items.Add(toolTipTitleItem90);
+            superToolTip92.Items.Add(toolTipItem71);
+            this.btnCallMedRecord.SuperTip = superToolTip92;
             this.btnCallMedRecord.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCallMedRecord_ItemClick);
             // 
             // btnCallPathologic
@@ -807,12 +837,12 @@
             this.btnItem_Copy.Id = 22;
             this.btnItem_Copy.ImageIndex = 25;
             this.btnItem_Copy.Name = "btnItem_Copy";
-            toolTipTitleItem18.Text = "复制";
-            toolTipItem17.LeftIndent = 6;
-            toolTipItem17.Text = "复制当前病历选中的内容";
-            superToolTip18.Items.Add(toolTipTitleItem18);
-            superToolTip18.Items.Add(toolTipItem17);
-            this.btnItem_Copy.SuperTip = superToolTip18;
+            toolTipTitleItem91.Text = "复制";
+            toolTipItem72.LeftIndent = 6;
+            toolTipItem72.Text = "复制当前病历选中的内容";
+            superToolTip93.Items.Add(toolTipTitleItem91);
+            superToolTip93.Items.Add(toolTipItem72);
+            this.btnItem_Copy.SuperTip = superToolTip93;
             this.btnItem_Copy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Copy_ItemClick);
             // 
             // btnItem_Paste
@@ -821,12 +851,12 @@
             this.btnItem_Paste.Id = 23;
             this.btnItem_Paste.ImageIndex = 26;
             this.btnItem_Paste.Name = "btnItem_Paste";
-            toolTipTitleItem19.Text = "粘贴";
-            toolTipItem18.LeftIndent = 6;
-            toolTipItem18.Text = "粘贴到当前病历";
-            superToolTip19.Items.Add(toolTipTitleItem19);
-            superToolTip19.Items.Add(toolTipItem18);
-            this.btnItem_Paste.SuperTip = superToolTip19;
+            toolTipTitleItem92.Text = "粘贴";
+            toolTipItem73.LeftIndent = 6;
+            toolTipItem73.Text = "粘贴到当前病历";
+            superToolTip94.Items.Add(toolTipTitleItem92);
+            superToolTip94.Items.Add(toolTipItem73);
+            this.btnItem_Paste.SuperTip = superToolTip94;
             this.btnItem_Paste.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Paste_ItemClick);
             // 
             // barItem_Cut
@@ -835,9 +865,9 @@
             this.barItem_Cut.Id = 24;
             this.barItem_Cut.ImageIndex = 3;
             this.barItem_Cut.Name = "barItem_Cut";
-            toolTipTitleItem20.Text = "剪切";
-            superToolTip20.Items.Add(toolTipTitleItem20);
-            this.barItem_Cut.SuperTip = superToolTip20;
+            toolTipTitleItem93.Text = "剪切";
+            superToolTip95.Items.Add(toolTipTitleItem93);
+            this.barItem_Cut.SuperTip = superToolTip95;
             this.barItem_Cut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barItem_Cut_ItemClick);
             // 
             // btnItem_Undo
@@ -846,9 +876,9 @@
             this.btnItem_Undo.Id = 25;
             this.btnItem_Undo.ImageIndex = 34;
             this.btnItem_Undo.Name = "btnItem_Undo";
-            toolTipTitleItem21.Text = "撤销";
-            superToolTip21.Items.Add(toolTipTitleItem21);
-            this.btnItem_Undo.SuperTip = superToolTip21;
+            toolTipTitleItem94.Text = "撤销";
+            superToolTip96.Items.Add(toolTipTitleItem94);
+            this.btnItem_Undo.SuperTip = superToolTip96;
             this.btnItem_Undo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Undo_ItemClick);
             // 
             // btnItem_Redo
@@ -857,9 +887,9 @@
             this.btnItem_Redo.Id = 26;
             this.btnItem_Redo.ImageIndex = 31;
             this.btnItem_Redo.Name = "btnItem_Redo";
-            toolTipTitleItem22.Text = "还原";
-            superToolTip22.Items.Add(toolTipTitleItem22);
-            this.btnItem_Redo.SuperTip = superToolTip22;
+            toolTipTitleItem95.Text = "还原";
+            superToolTip97.Items.Add(toolTipTitleItem95);
+            this.btnItem_Redo.SuperTip = superToolTip97;
             this.btnItem_Redo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Redo_ItemClick);
             // 
             // barEditItem_Font
@@ -884,9 +914,9 @@
             this.btnItem_BackColor.Id = 28;
             this.btnItem_BackColor.ImageIndex = 43;
             this.btnItem_BackColor.Name = "btnItem_BackColor";
-            toolTipTitleItem23.Text = "设置当前输入界面的背景色";
-            superToolTip23.Items.Add(toolTipTitleItem23);
-            this.btnItem_BackColor.SuperTip = superToolTip23;
+            toolTipTitleItem96.Text = "设置当前输入界面的背景色";
+            superToolTip98.Items.Add(toolTipTitleItem96);
+            this.btnItem_BackColor.SuperTip = superToolTip98;
             this.btnItem_BackColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_BackColor_ItemClick);
             // 
             // barItem_InsertPic
@@ -895,12 +925,12 @@
             this.barItem_InsertPic.Id = 68;
             this.barItem_InsertPic.ImageIndex = 49;
             this.barItem_InsertPic.Name = "barItem_InsertPic";
-            toolTipTitleItem24.Text = "插入图片";
-            toolTipItem19.LeftIndent = 6;
-            toolTipItem19.Text = "点击可在当前病历插入图片";
-            superToolTip24.Items.Add(toolTipTitleItem24);
-            superToolTip24.Items.Add(toolTipItem19);
-            this.barItem_InsertPic.SuperTip = superToolTip24;
+            toolTipTitleItem106.Text = "插入图片";
+            toolTipItem78.LeftIndent = 6;
+            toolTipItem78.Text = "点击可在当前病历插入图片";
+            superToolTip108.Items.Add(toolTipTitleItem106);
+            superToolTip108.Items.Add(toolTipItem78);
+            this.barItem_InsertPic.SuperTip = superToolTip108;
             this.barItem_InsertPic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barItem_InsertPic_ItemClick);
             // 
             // btnItem_FontColor
@@ -909,9 +939,9 @@
             this.btnItem_FontColor.Id = 29;
             this.btnItem_FontColor.ImageIndex = 42;
             this.btnItem_FontColor.Name = "btnItem_FontColor";
-            toolTipTitleItem25.Text = "设置所选择字体的颜色";
-            superToolTip25.Items.Add(toolTipTitleItem25);
-            this.btnItem_FontColor.SuperTip = superToolTip25;
+            toolTipTitleItem97.Text = "设置所选择字体的颜色";
+            superToolTip99.Items.Add(toolTipTitleItem97);
+            this.btnItem_FontColor.SuperTip = superToolTip99;
             this.btnItem_FontColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_FontColor_ItemClick);
             // 
             // barEditItem_FontSize
@@ -939,12 +969,12 @@
             this.btnItem_Italy.Id = 31;
             this.btnItem_Italy.ImageIndex = 29;
             this.btnItem_Italy.Name = "btnItem_Italy";
-            toolTipTitleItem26.Text = "斜体";
-            toolTipItem20.LeftIndent = 6;
-            toolTipItem20.Text = "选中文件斜体显示";
-            superToolTip26.Items.Add(toolTipTitleItem26);
-            superToolTip26.Items.Add(toolTipItem20);
-            this.btnItem_Italy.SuperTip = superToolTip26;
+            toolTipTitleItem98.Text = "斜体";
+            toolTipItem74.LeftIndent = 6;
+            toolTipItem74.Text = "选中文件斜体显示";
+            superToolTip100.Items.Add(toolTipTitleItem98);
+            superToolTip100.Items.Add(toolTipItem74);
+            this.btnItem_Italy.SuperTip = superToolTip100;
             this.btnItem_Italy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Italy_ItemClick);
             // 
             // btnItem_UnderLine
@@ -955,12 +985,12 @@
             this.btnItem_UnderLine.Id = 32;
             this.btnItem_UnderLine.ImageIndex = 30;
             this.btnItem_UnderLine.Name = "btnItem_UnderLine";
-            toolTipTitleItem27.Text = "下划线";
-            toolTipItem21.LeftIndent = 6;
-            toolTipItem21.Text = "选中文件下划线显示";
-            superToolTip27.Items.Add(toolTipTitleItem27);
-            superToolTip27.Items.Add(toolTipItem21);
-            this.btnItem_UnderLine.SuperTip = superToolTip27;
+            toolTipTitleItem99.Text = "下划线";
+            toolTipItem75.LeftIndent = 6;
+            toolTipItem75.Text = "选中文件下划线显示";
+            superToolTip101.Items.Add(toolTipTitleItem99);
+            superToolTip101.Items.Add(toolTipItem75);
+            this.btnItem_UnderLine.SuperTip = superToolTip101;
             this.btnItem_UnderLine.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_UnderLine_ItemClick);
             // 
             // btnItem_Bold
@@ -970,12 +1000,12 @@
             this.btnItem_Bold.Id = 33;
             this.btnItem_Bold.ImageIndex = 28;
             this.btnItem_Bold.Name = "btnItem_Bold";
-            toolTipTitleItem28.Text = "粗体";
-            toolTipItem22.LeftIndent = 6;
-            toolTipItem22.Text = "选中文字粗体显示";
-            superToolTip28.Items.Add(toolTipTitleItem28);
-            superToolTip28.Items.Add(toolTipItem22);
-            this.btnItem_Bold.SuperTip = superToolTip28;
+            toolTipTitleItem100.Text = "粗体";
+            toolTipItem76.LeftIndent = 6;
+            toolTipItem76.Text = "选中文字粗体显示";
+            superToolTip102.Items.Add(toolTipTitleItem100);
+            superToolTip102.Items.Add(toolTipItem76);
+            this.btnItem_Bold.SuperTip = superToolTip102;
             this.btnItem_Bold.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Bold_ItemClick);
             // 
             // btnItem_QZ
@@ -985,9 +1015,9 @@
             this.btnItem_QZ.Id = 34;
             this.btnItem_QZ.ImageIndex = 41;
             this.btnItem_QZ.Name = "btnItem_QZ";
-            toolTipTitleItem29.Text = "圈字";
-            superToolTip29.Items.Add(toolTipTitleItem29);
-            this.btnItem_QZ.SuperTip = superToolTip29;
+            toolTipTitleItem101.Text = "圈字";
+            superToolTip103.Items.Add(toolTipTitleItem101);
+            this.btnItem_QZ.SuperTip = superToolTip103;
             this.btnItem_QZ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_QZ_ItemClick);
             // 
             // btnItem_Sup
@@ -998,9 +1028,9 @@
             this.btnItem_Sup.Id = 35;
             this.btnItem_Sup.ImageIndex = 33;
             this.btnItem_Sup.Name = "btnItem_Sup";
-            toolTipTitleItem30.Text = "上标";
-            superToolTip30.Items.Add(toolTipTitleItem30);
-            this.btnItem_Sup.SuperTip = superToolTip30;
+            toolTipTitleItem102.Text = "上标";
+            superToolTip104.Items.Add(toolTipTitleItem102);
+            this.btnItem_Sup.SuperTip = superToolTip104;
             this.btnItem_Sup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Sup_ItemClick);
             // 
             // btnItem_Sub
@@ -1011,9 +1041,9 @@
             this.btnItem_Sub.Id = 36;
             this.btnItem_Sub.ImageIndex = 32;
             this.btnItem_Sub.Name = "btnItem_Sub";
-            toolTipTitleItem31.Text = "下标";
-            superToolTip31.Items.Add(toolTipTitleItem31);
-            this.btnItem_Sub.SuperTip = superToolTip31;
+            toolTipTitleItem103.Text = "下标";
+            superToolTip105.Items.Add(toolTipTitleItem103);
+            this.btnItem_Sub.SuperTip = superToolTip105;
             this.btnItem_Sub.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Sub_ItemClick);
             // 
             // btnItem_Collect
@@ -1022,12 +1052,12 @@
             this.btnItem_Collect.Id = 46;
             this.btnItem_Collect.ImageIndex = 35;
             this.btnItem_Collect.Name = "btnItem_Collect";
-            toolTipTitleItem32.Text = "病历提取";
-            toolTipItem23.LeftIndent = 6;
-            toolTipItem23.Text = "提取当前选中的病历内容";
-            superToolTip32.Items.Add(toolTipTitleItem32);
-            superToolTip32.Items.Add(toolTipItem23);
-            this.btnItem_Collect.SuperTip = superToolTip32;
+            toolTipTitleItem104.Text = "病历提取";
+            toolTipItem77.LeftIndent = 6;
+            toolTipItem77.Text = "提取当前选中的病历内容";
+            superToolTip106.Items.Add(toolTipTitleItem104);
+            superToolTip106.Items.Add(toolTipItem77);
+            this.btnItem_Collect.SuperTip = superToolTip106;
             this.btnItem_Collect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Collect_ItemClick);
             // 
             // btnItem_AssessmentPlan
@@ -1036,9 +1066,9 @@
             this.btnItem_AssessmentPlan.Id = 47;
             this.btnItem_AssessmentPlan.ImageIndex = 39;
             this.btnItem_AssessmentPlan.Name = "btnItem_AssessmentPlan";
-            toolTipTitleItem33.Text = "诊疗计划";
-            superToolTip33.Items.Add(toolTipTitleItem33);
-            this.btnItem_AssessmentPlan.SuperTip = superToolTip33;
+            toolTipTitleItem105.Text = "诊疗计划";
+            superToolTip107.Items.Add(toolTipTitleItem105);
+            this.btnItem_AssessmentPlan.SuperTip = superToolTip107;
             this.btnItem_AssessmentPlan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_AssessmentPlan_ItemClick);
             // 
             // btn_left
@@ -1051,10 +1081,25 @@
             this.btn_left.Id = 74;
             this.btn_left.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btn_left.LargeGlyph")));
             this.btn_left.Name = "btn_left";
-            toolTipItem24.Text = "左对齐";
-            superToolTip34.Items.Add(toolTipItem24);
-            this.btn_left.SuperTip = superToolTip34;
+            toolTipItem79.Text = "左对齐";
+            superToolTip109.Items.Add(toolTipItem79);
+            this.btn_left.SuperTip = superToolTip109;
             this.btn_left.DownChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_left_DownChanged);
+            // 
+            // btn_get
+            // 
+            this.btn_get.Caption = "转换病历";
+            this.btn_get.Glyph = ((System.Drawing.Image)(resources.GetObject("btn_get.Glyph")));
+            this.btn_get.Id = 75;
+            this.btn_get.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btn_get.LargeGlyph")));
+            this.btn_get.Name = "btn_get";
+            toolTipTitleItem107.Text = "住院记录";
+            toolTipItem80.LeftIndent = 6;
+            toolTipItem80.Text = "转科住院记录转到自己名下";
+            superToolTip110.Items.Add(toolTipTitleItem107);
+            superToolTip110.Items.Add(toolTipItem80);
+            this.btn_get.SuperTip = superToolTip110;
+            this.btn_get.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_get_ItemClick);
             // 
             // bar3
             // 
@@ -1256,21 +1301,6 @@
             this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // btn_get
-            // 
-            this.btn_get.Caption = "转换病历";
-            this.btn_get.Glyph = ((System.Drawing.Image)(resources.GetObject("btn_get.Glyph")));
-            this.btn_get.Id = 75;
-            this.btn_get.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btn_get.LargeGlyph")));
-            this.btn_get.Name = "btn_get";
-            toolTipTitleItem34.Text = "住院记录";
-            toolTipItem25.LeftIndent = 6;
-            toolTipItem25.Text = "转科住院记录转到自己名下";
-            superToolTip35.Items.Add(toolTipTitleItem34);
-            superToolTip35.Items.Add(toolTipItem25);
-            this.btn_get.SuperTip = superToolTip35;
-            this.btn_get.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_get_ItemClick);
             // 
             // UCEmrInput
             // 

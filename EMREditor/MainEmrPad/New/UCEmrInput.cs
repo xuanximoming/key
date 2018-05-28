@@ -25,7 +25,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
@@ -266,20 +265,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                 repositoryItemComboBoxFont.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
                 repositoryItemComboBox_Size.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
                 repositoryItemComboBox1.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
-                bool IsShowPacs = DS_BaseService.IsShowThisMD("IsShowLISPACSDoc", "PACS");
-                try
-                {
-                    if (IsShowPacs)
-                    //控制PACS\LIS栏位的显示add by ywk \二〇一三年六月六日 13:13:12
-                    {
-                        PacsClose();
-                        PacsStart();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MyMessageBox.Show(1, ex);
-                }
                 ///设置bar2按钮不可用
                 CanEditEmrDoc(false);
                 ///设置工具栏按钮显示状态
@@ -473,14 +458,6 @@ namespace DrectSoft.Core.MainEmrPad.New
             try
             {
                 DS_Common.SetWaitDialogCaption(m_WaitDialog, "正在加载病人基本信息...");
-                bool IsShowPacs = DS_BaseService.IsShowThisMD("IsShowLISPACSDoc", "PACS");
-                if (IsShowPacs)
-                //控制PACS\LIS栏位的显示add by ywk \二〇一三年六月六日 13:13:12
-                {
-                    PacsClose();
-                    PacsStart();
-                }
-
                 m_CurrentInpatient = inpatient;
                 m_CurrentInpatient.ReInitializeAllProperties();
                 CurrentInputBody.App = m_app;
@@ -929,11 +906,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                     if (CurrentInputBody.CurrentModel.InstanceId != -1)
                     {
                         DataTable dt = DS_SqlService.GetRecordByIDContainsDel(CurrentInputBody.CurrentModel.InstanceId);
-                        //if (dt != null && dt.Rows.Count == 0)
-                        //{
-                        //    MessageBox.Show("打印前请先提交病历", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.WarningIcon);
-                        //    return;
-                        //}
                         if (null != dt && dt.Rows.Count == 1 && Convert.ToInt32(dt.Rows[0]["VALID"]) == 0)
                         {
                             string userNameAndID = DS_BaseService.GetUserNameAndID(dt.Rows[0]["owner"].ToString());
@@ -1032,6 +1004,7 @@ namespace DrectSoft.Core.MainEmrPad.New
 
         /// <summary>
         /// 调用PACS图像
+        /// 此方法用于pacs接口
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -1040,14 +1013,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             try
             {
                 string valuestr = DS_SqlService.GetConfigValueByKey("PACSRevision");
-                if (valuestr == "yczxyy")  //宜昌中心医院
-                {
-                    PacsZhongXinHos();
-                }
-                else
-                {
-                    PACSOutSide.PacsAll(m_CurrentInpatient);
-                }
+                PACSOutSide.PacsAll(m_CurrentInpatient);
             }
             catch (Exception ex)
             {
@@ -1948,122 +1914,6 @@ namespace DrectSoft.Core.MainEmrPad.New
         #endregion
 
         #region 工具栏按钮事件对应方法
-        #region PACS相关
-        [DllImport("joint.dll")]
-        public static extern int PacsView(int nPatientType, string lpszID, int nImageType); //Pacs调阅3.1版
-
-        [DllImport("joint.dll")]
-        public static extern bool PacsViewByPatientInfo(int nType, string str, int nPatientType);
-        [DllImport("joint.dll")]
-        public static extern int PacsInitialize();
-        [DllImport("joint.dll")]
-        public static extern void PacsRelease();
-
-        /// <summary>
-        /// 中心医院调用pacs方法
-        /// </summary>
-        private void PacsZhongXinHos()
-        {
-            try
-            {
-                string HospitalNo = m_CurrentInpatient.RecordNoOfHospital;//住院号
-                int nPatientType = 2;//患者类型（1.门诊号 2.住院号）
-                int LookType = 1;//类型（1.图像 2.报告）
-
-                if (CheckPackIsExist())
-                {
-                    try
-                    {
-                        if (PacsView(nPatientType, m_CurrentInpatient.RecordNoOfHospital, LookType) != 1)
-                        {
-                            MessageBox.Show("调用失败");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        PacsClose();
-                        PacsStart();
-
-                        throw ex;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// 判断调用PACS的DLL是否存在 
-        /// </summary>
-        private bool CheckPackIsExist()
-        {
-            try
-            {
-                string jointpath = Application.StartupPath + @"\joint.dll";//获取程序所在文件夹
-                if (!File.Exists(jointpath))//不存在此接口DLL就不执行 
-                {
-                    //m_app.CustomMessageBox.MessageShow("调用失败，缺少程序集joint.dll");
-                    return false;
-                }
-                string connectpath = Application.StartupPath + @"\Connection.dll";//获取程序所在文件夹
-                if (!File.Exists(connectpath))//不存在此接口DLL就不执行 
-                {
-                    //m_app.CustomMessageBox.MessageShow("调用失败，缺少程序集Connection.dll");
-                    return false;
-                }
-                string pacspath = Application.StartupPath + @"\PACSID.dll";//获取程序所在文件夹
-                if (!File.Exists(pacspath))//不存在此接口DLL就不执行 
-                {
-                    //m_app.CustomMessageBox.MessageShow("调用失败，缺少程序集PACSID.dll");
-                    return false;
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 启动Pacs调用
-        /// </summary>
-        public void PacsStart()
-        {
-            try
-            {
-                if (CheckPackIsExist())
-                {
-                    PacsInitialize();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 关闭Pacs调用
-        /// </summary>
-        public void PacsClose()
-        {
-            try
-            {
-                if (CheckPackIsExist())
-                {
-                    PacsRelease();//关闭Pacs调用
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        #endregion
 
         #region 出科检查
         private bool isReportVialde = false;
