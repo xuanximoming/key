@@ -160,7 +160,6 @@
     <Compile Include="Configs\AppFormIconConfig.cs" />
     <Compile Include="DataAccess\DataAccessFactory.cs" />
     <Compile Include="DataAccess\IDataAccess.cs" />
-    <Compile Include="DataAccess\OracleDataAccess.cs" />
     <Compile Include="DataAccess\PingHost.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\Anesthesia.cs" />
