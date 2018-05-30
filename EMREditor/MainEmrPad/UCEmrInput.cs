@@ -36,7 +36,6 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Xml;
 using XWriterDemo;
@@ -505,16 +504,6 @@ namespace DrectSoft.Core.MainEmrPad
         {
             try
             {
-                try
-                {
-                    PacsClose();
-                    PacsStart();
-                }
-                catch (Exception ex)
-                {
-
-                    MyMessageBox.Show(1, ex);
-                }
 
                 //暂时将医嘱隐藏
                 navBarGroup_DoctorAdive.Visible = false;
@@ -10239,9 +10228,6 @@ namespace DrectSoft.Core.MainEmrPad
         {
             try
             {
-                PacsClose();
-                PacsStart();
-
                 m_CurrentInpatient = inpatient;
                 m_CurrentInpatient.ReInitializeAllProperties();
                 InitDictionary();
@@ -11999,53 +11985,6 @@ namespace DrectSoft.Core.MainEmrPad
 
         #endregion
 
-        #region 调用PACS图像
-        [DllImport("joint.dll")]
-        public static extern int PacsView(int nPatientType, string lpszID, int nImageType); //Pacs调阅3.1版
-
-        [DllImport("joint.dll")]
-        public static extern bool PacsViewByPatientInfo(int nType, string str, int nPatientType);
-        [DllImport("joint.dll")]
-        public static extern int PacsInitialize();
-        [DllImport("joint.dll")]
-        public static extern void PacsRelease();
-
-        /// <summary>
-        /// 关闭Pacs调用
-        /// </summary>
-        public void PacsClose()
-        {
-            try
-            {
-                if (CheckPackIsExist())
-                {
-                    PacsRelease();//关闭Pacs调用
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// 启动Pacs调用
-        /// </summary>
-        public void PacsStart()
-        {
-            try
-            {
-                if (CheckPackIsExist())
-                {
-                    PacsInitialize();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
 
         /// <summary>
         /// 新增的调用PACS图像
@@ -12146,7 +12085,7 @@ namespace DrectSoft.Core.MainEmrPad
                 throw new Exception(ex.Message);
             }
         }
-        #endregion
+
         /// <summary>
         /// 导出PDF文档
         /// add by ywk 2012年8月17日 16:40:48
@@ -12302,23 +12241,23 @@ namespace DrectSoft.Core.MainEmrPad
                     {
                         //MessageBox.Show("启动成功");
                         //if (PacsViewByPatientInfo(LookType, HospitalNo, nPatientType))
-                        if (PacsView(nPatientType, m_CurrentInpatient.RecordNoOfHospital, LookType) == 1)
-                        {
-                            //MessageBox.Show("调用成功");
-                            //PacsRelease();//
-                        }
-                        else
-                        {
-                            MessageBox.Show("调用失败");
-                        }
+                        //if (PacsView(nPatientType, m_CurrentInpatient.RecordNoOfHospital, LookType) == 1)
+                        //{
+                        //MessageBox.Show("调用成功");
+                        //PacsRelease();//
+                        // }
+                        // else
+                        //{
+                        MessageBox.Show("调用失败");
+                        //}
                     }
                 }
                 catch (Exception ex)
                 {
                     try
                     {
-                        PacsClose();
-                        PacsStart();
+                        //PacsClose();
+                        //PacsStart();
                     }
                     catch (Exception ex1)
                     { }

@@ -62,50 +62,6 @@
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DrectSoft.Basic.Wordbook">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Basic.Wordbook.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Common.Ctrs">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Common.Ctrs.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Core">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Core.MainEmrPad">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.MainEmrPad.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Core.NursingDocuments">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.NursingDocuments.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Core.PersonTtemTemplet">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.PersonTtemTemplet.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Emr.NurseCenter">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.NurseCenter.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Emr.QcManager">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.QcManager.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Emr.TemplateFactory">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.TemplateFactory.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Emr.Util">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.Util.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.FrameWork">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.FrameWork.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.FrameWork.WinForm">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.FrameWork.WinForm.dll</HintPath>
-    </Reference>
-    <Reference Include="DrectSoft.Library.LookUpEditor">
-      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Library.LookUpEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="EMR, Version=1.0.5736.194, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\EMRX86\BIN\EMR.exe</HintPath>
-    </Reference>
-    <Reference Include="RemObjects.SDK, Version=7.0.65.1067, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -113,53 +69,77 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="changePat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCEmr.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCEmr.Designer.cs">
-      <DependentUpon>UCEmr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCTemplate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCTemplate.Designer.cs">
-      <DependentUpon>UCTemplate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCEmrQCManager.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UCEmrQCManager.Designer.cs">
-      <DependentUpon>UCEmrQCManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmThreeSingleTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmThreeSingleTest.Designer.cs">
-      <DependentUpon>FrmThreeSingleTest.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmThreeSingleTest.resx">
-      <DependentUpon>FrmThreeSingleTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCEmr.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>UCEmr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCTemplate.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>UCTemplate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCEmrQCManager.resx">
-      <DependentUpon>UCEmrQCManager.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Base\SDT.CommonClient\SDT.CommonClient.csproj">
-      <Project>{b2b5b5c0-4487-478d-b803-76ef82a3cb82}</Project>
-      <Name>SDT.CommonClient</Name>
+    <ProjectReference Include="..\..\Core\NurseCenter\NurseCenter.csproj">
+      <Project>{e3038fe3-dd85-4593-a467-7aac51fab28b}</Project>
+      <Name>NurseCenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\PersonTtemTemplet\PersonTtemTemplet\PersonTtemTemplet.csproj">
+      <Project>{f1d0e65f-9158-40eb-a963-e6576f45894c}</Project>
+      <Name>PersonTtemTemplet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\TemplatePerson\DrectSoft.Core.TemplatePerson.csproj">
+      <Project>{6eba1c83-b872-4957-b531-fd8fe9971a37}</Project>
+      <Name>DrectSoft.Core.TemplatePerson</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
+      <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
+      <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\Emr.Util\DrectSoft.Emr.Util.csproj">
+      <Project>{c015a754-a3e4-4ae9-917e-1730644f6568}</Project>
+      <Name>DrectSoft.Emr.Util</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\MainEmrPad\MainEmrPad.csproj">
+      <Project>{b18b4ab9-3d72-42f6-a30c-c91332a1b8d2}</Project>
+      <Name>MainEmrPad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\TemplateFactory\DrectSoft.Emr.TemplateFactory.csproj">
+      <Project>{2442648d-a3e4-4c6f-a646-b7c633190086}</Project>
+      <Name>DrectSoft.Emr.TemplateFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMR\NursingDocuments\NursingDocuments.csproj">
+      <Project>{9a07db5f-af92-461b-8445-0faacdbe3fdf}</Project>
+      <Name>NursingDocuments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMR\QcManager\QcManager.csproj">
+      <Project>{1936c301-11c8-4840-a219-86bac2697975}</Project>
+      <Name>QcManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
+      <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
+      <Name>DrectSoft.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\EMR\EMR.csproj">
+      <Project>{e61197d3-2f87-4733-bd0c-4aeb7feebb35}</Project>
+      <Name>EMR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork.WinForm\DrectSoft.FrameWork.WinForm.csproj">
+      <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
+      <Name>DrectSoft.FrameWork.WinForm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Framework\FrameWork\DrectSoft.FrameWork.csproj">
+      <Project>{a9ca7e08-5e02-4be2-92a9-8fb73fa3d3d8}</Project>
+      <Name>DrectSoft.FrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\LookUpEditer\LookUpEditor.csproj">
+      <Project>{46a2b2d5-3872-4478-99fd-1aee527390cd}</Project>
+      <Name>LookUpEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Library\数据选择组件\Wordbook\Wordbook.csproj">
+      <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
+      <Name>Wordbook</Name>
     </ProjectReference>
     <ProjectReference Include="..\EmrInsert\EmrInsert.csproj">
       <Project>{adc3d0ce-447b-4755-91a0-c82c5413858c}</Project>

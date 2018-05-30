@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Emr.Util;
 using DrectSoft.FrameWork;
 using DrectSoft.FrameWork.WinForm;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Emr.Util;
-using DevExpress.XtraTreeList.Nodes;
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Common.Ctrs.DLG;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.MainEmrPad.New
 {
@@ -45,7 +39,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             {
                 m_UCEmrInput = new UCEmrInput();
                 m_UCEmrInput.Dock = DockStyle.Fill;
-               
+
                 this.Controls.Add(m_UCEmrInput);
             }
             catch (Exception ex)

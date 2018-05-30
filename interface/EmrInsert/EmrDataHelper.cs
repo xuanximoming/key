@@ -1,6 +1,4 @@
 ﻿using DrectSoft.Core;
-using DrectSoft.Core.OwnBedInfo;
-using SDT.Client.Passport;
 using System;
 using System.Data;
 using System.Drawing;
@@ -13,9 +11,7 @@ namespace EmrInsert
     {
 
         public bool isLoginResult = false;
-
         public IDataAccess m_SqlHelper;
-
         DrectSoft.MainFrame.FormMain _Formain = null;
         public DrectSoft.MainFrame.FormMain Formain
         {
@@ -29,45 +25,14 @@ namespace EmrInsert
                 return _Formain;
             }
         }
-        /// <summary>
-        /// 科室代码
-        /// </summary>
-        private string m_DeptId;
-        /// <summary>
-        /// 病区代码
-        /// </summary>
-        private string m_WardId;
 
-        public void thisLogin()
+        public void thisLogin(string UserId)
         {
             if (Formain.isLG == null)
             {
-                if (LoginInfo.EmployeeID == null)
-                {
-                    Formain.m_FormLogin.textBoxUserID.Text = "00";
-                }
-                else
-                {
-                    DataTable dt = SqlDataHelper.SelectDataTable(string.Format(" select * from dbo.CORP_Employee where EmployeeID='{0}'", LoginInfo.EmployeeID));
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        string emrid = Convert.ToString(dt.Rows[0]["EmrID"]);
-                        if (emrid == "" || emrid == null) emrid = "00";
-                        //if (emrid.Length < 6)
-                        //{
-                        //    string str = "";
-                        //    for (int i = 0; i < 6 - emrid.Length; i++)
-                        //    {
-                        //        str = str + "0";
-                        //    }
-                        //    emrid = str + emrid;
-                        //}
-                        Formain.m_FormLogin.textBoxUserID.Text = emrid;
-                    }
-                    else
-                        Formain.m_FormLogin.textBoxUserID.Text = "00";
-                }
-
+                if (UserId == null || UserId == "")
+                    UserId = "00";
+                Formain.m_FormLogin.textBoxUserID.Text = UserId;
                 Formain.otherUser = true;
                 Formain.m_FormLogin.textBoxUserID_Leave(null, null);
                 Formain.m_FormLogin.textBoxPassword.Text = "";
@@ -76,59 +41,22 @@ namespace EmrInsert
                 try
                 {
                     isLoginResult = Formain.Login();
-                    m_DeptId = "2401";
-                    m_WardId = "2401";
                     m_SqlHelper = Formain.SqlHelper;
                 }
                 catch { }
             }
         }
 
+        #region  SQL Exec
         /// <summary>
-        /// 执行SQL语句
+        /// sql 执行
         /// </summary>
         /// <param name="sql"></param>
-        public void ExecuteNoneQuery(string sql)
-        {
-            try
-            {
-                m_SqlHelper.ExecuteNoneQuery(sql);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        /// <summary>
-        /// 查询所有病历档案或者某人档案
-        /// </summary>
-        /// <param name="patID">档案号，传人null查询全部</param>
         /// <returns></returns>
-        public DataTable SelectPatent(string patID)
-        {
-            try
-            {
-                if (m_SqlHelper == null)
-                    thisLogin();
-                DataTable dt = null;
-                if (patID == null)
-                    dt = m_SqlHelper.ExecuteDataTable("SELECT * FROM inpatient");
-                else
-                    dt = m_SqlHelper.ExecuteDataTable(string.Format("SELECT * FROM inpatient where noofinpat='{0}' ", patID));
-                return dt;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         public DataTable SelectDataBase(string sql)
         {
             try
             {
-                if (m_SqlHelper == null)
-                    thisLogin();
                 DataTable dt = m_SqlHelper.ExecuteDataTable(sql);
                 return dt;
             }
@@ -137,48 +65,9 @@ namespace EmrInsert
                 throw ex;
             }
         }
-        /// <summary>
-        /// 插入患者档案
-        /// </summary>
-        /// <param name="patRow"></param>
-        /// <returns></returns>
-        public void InsertData(PatientEntity m_patientInfo, string edittype, int noofipat)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("Insert into InPatient(PatNoOfHis,NoOfClinic,NoOfRecord,Name,PayID,Origin,InCount,SexID,Birth,Age," +
-                "AgeStr,IDNO,Marital,JobID,Status,AttendLevel,Style,OutWardBed,PatID,ADMITDATE)");
-            sb.AppendFormat(" values('{0}' ", m_patientInfo.PatNoOfHis);//PatNoOfHis
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.NoOfcClinic);//NoOfClinic
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.NoOfRecord);//NoOfRecord
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.Name);//Name
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.PayID);//PayID
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.ORIGIN);//Origin
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.InCount);//InCount
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.SexID);//SexID
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.Birth);//Birth
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.Age);//Age
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.AgeStr);//AgeStr
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.IDNO);//IDNO
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.Marital);//Marital
-            sb.AppendFormat(" ,'{0}' ", m_patientInfo.JobID);//JobID
-            sb.AppendFormat(" ,'{0}' ", 1501);//Status
-            sb.AppendFormat(" ,'{0}' ", 12511);//AttendLevel
-            sb.AppendFormat(" ,'{0}' ", 0);//Style
-            sb.AppendFormat(" ,'{0}','{1}','{2}' )", 1, m_patientInfo.PatID, m_patientInfo.AdmitDate);//OutWardBed,m_patientInfo,AdmitDate
 
-            try
-            {
-                //int id = 0;
-                m_SqlHelper.ExecuteNoneQuery(sb.ToString());
-                DataTable dt = m_SqlHelper.ExecuteDataTable(string.Format("SELECT * FROM inpatient where Name='{0}' ", "周媛媛"));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
         /// <summary>
-        /// 添加档案信息
+        /// 添加病人档案信息
         /// </summary>
         /// <param name="dtHisPat"></param>
         /// <param name="sb"></param>
@@ -258,8 +147,65 @@ namespace EmrInsert
             m_SqlHelper.ExecuteNoneQuery(sb.ToString());
         }
 
+
         /// <summary>
-        /// 添加档案信息
+        /// 更新病人档案信息
+        /// </summary>
+        /// <param name="dtHisPat"></param>
+        /// <param name="sb"></param>
+        /// <param name="row"></param>
+        /// <param name="pt"></param>
+        public void UpdatePatent(DataTable dtHisPat, StringBuilder sb, DataRow row, string pt)
+        {
+            sb.Append("Update InPatient set ");
+            sb.AppendFormat(" PatNoOfHis=N'{0}' ", row["InID"]);//PatNoOfHis
+            sb.AppendFormat(" ,NoOfClinic=N'{0}' ", row["InID"]);//NoOfClinic
+            sb.AppendFormat(" ,NoOfRecord=N'{0}'", pt);//NoOfRecord
+            sb.AppendFormat(" ,Name=N'{0}' ", row["Name"]);//Name
+            string patent = Convert.ToString(row["PatientTypeID"]);
+
+            if (patent.Equals("086028000A000001"))
+                sb.AppendFormat(" ,PayID='{0}' ", 6);//PayID
+            else if (patent.Equals("086028000A000002"))
+                sb.AppendFormat(" ,PayID='{0}' ", 1);//PayID
+            else
+                sb.AppendFormat(" ,PayID='{0}' ", 1);//PayID
+            if (Convert.ToString(row["SexID"]).Equals("086028000A000001"))
+                sb.AppendFormat(" ,SexID='{0}' ", 1);//SexID
+            else
+                sb.AppendFormat(" ,SexID='{0}' ", 2);//SexID
+            sb.AppendFormat(" ,Birth=N'{0}' ", Convert.ToDateTime(dtHisPat.Rows[0]["Birthday"]).ToString("yyyy-MM-dd HH:mm:ss"));//Birth
+            sb.AppendFormat(" ,Age=N'{0}' ", DateTime.Now.Year - Convert.ToDateTime(dtHisPat.Rows[0]["Birthday"]).Year);//Age
+            sb.AppendFormat(" ,NATIONID=N'{0}' ", dtHisPat.Rows[0]["Email"]); // NATIONID
+            sb.AppendFormat(" ,OFFICETEL=N'{0}' ", dtHisPat.Rows[0]["Mobile"]);//OFFICETEL
+            sb.AppendFormat(" ,ContactTEL=N'{0}' ", dtHisPat.Rows[0]["Mobile"]);//ContactTEL
+            sb.AppendFormat(" ,NATIVEADDRESS=N'{0}' ", dtHisPat.Rows[0]["Address"]);//NATIVEADDRESS
+            sb.AppendFormat(" ,AgeStr=N'{0}' ", DateTime.Now.Year - Convert.ToDateTime(dtHisPat.Rows[0]["Birthday"]).Year);//AgeStr
+            sb.AppendFormat(" ,IDNO=N'{0}' ", dtHisPat.Rows[0]["IdentityCard"]);//IDNO
+            sb.AppendFormat(" ,PatID='{0}'", pt);//PatID
+            sb.AppendFormat(" ,ADMITDEPT=N'{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//ADMITDEPT
+            sb.AppendFormat(" ,ADMITWARD=N'{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//ADMITWARD
+            sb.AppendFormat(" ,ADMITBED=N'{0}' ", row["BedOrder"]);//ADMITBED
+            sb.AppendFormat(" ,ADMITDATE=N'{0}' ", Convert.ToDateTime(row["InTime"]).ToString("yyyy-MM-dd HH:mm:ss"));//ADMITDATE
+            sb.AppendFormat(" ,INWARDDATE=N'{0}' ", Convert.ToDateTime(row["InTime"]).ToString("yyyy-MM-dd HH:mm:ss"));//INWARDDATE
+            sb.AppendFormat(" ,ADMITDIAGNOSIS=N'{0}' ", dtHisPat.Rows[0]["InICO"]);//ADMITDIAGNOSIS
+            sb.AppendFormat(" ,OUTHOSDEPT=N'{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//OUTHOSDEPT
+            sb.AppendFormat(" ,OUTHOSWARD='{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//OUTHOSWARD 
+            sb.AppendFormat(" ,OUTBED=N'{0}' ", row["BedOrder"]);//OUTBED
+            if (!string.IsNullOrEmpty(Convert.ToString(row["OutTime"])))
+                sb.AppendFormat(" ,OUTWARDDATE='{0}' ", Convert.ToDateTime(row["OutTime"]).ToString("yyyy-MM-dd HH:mm:ss"));// OUTWARDDATE
+            else
+                sb.AppendFormat(" ,OUTWARDDATE='{0}' ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            sb.AppendFormat(" ,OUTDIAGNOSIS=N'{0}' ", dtHisPat.Rows[0]["OutICO"]);//OUTDIAGNOSIS
+            sb.AppendFormat(" ,ADMITWAY='{0}' ", "3");//ADMITWAY
+            sb.AppendFormat(" ,CLINICDOCTOR='{0}' ", "001538");//CLINICDOCTOR
+            sb.AppendFormat("where PatNoOfHis='{0}'", row["InID"]);
+            m_SqlHelper.ExecuteNoneQuery(sb.ToString());
+        }
+
+
+        /// <summary>
+        /// 更新患者床位档案信息
         /// </summary>
         /// <param name="dtHisPat"></param>
         /// <param name="sb"></param>
@@ -268,13 +214,6 @@ namespace EmrInsert
         public void updatePatent_Bed(DataTable dtHisPat, StringBuilder sb, DataRow row, string pt, string NoOfRecord)
         {
             sb.Append("update InPatient set  ");
-
-            //  sb.AppendFormat(" values('{0}' ", row["InID"]);//PatNoOfHis
-            //  sb.AppendFormat(" ,N'{0}' ", row["InID"]);//NoOfClinic
-            //  sb.AppendFormat(" ,N'{0}'", pt);//NoOfRecord
-            //   sb.AppendFormat(" ,N'{0}' ", row["Name"]);//Name
-            //   string patent = Convert.ToString(row["PatientTypeID"]);
-
 
             sb.AppendFormat(" ADMITBED=N'{0}', ", row["BedOrder"]);//ADMITBED
             sb.AppendFormat(" OUTBED=N'{0}' ", row["BedOrder"]);//ADMITBED
@@ -462,60 +401,7 @@ namespace EmrInsert
             }
             return Convert.ToInt32(age);
         }
-        /// <summary>
-        /// 添加档案信息
-        /// </summary>
-        /// <param name="dtHisPat"></param>
-        /// <param name="sb"></param>
-        /// <param name="row"></param>
-        /// <param name="pt"></param>
-        public void UpdatePatent(DataTable dtHisPat, StringBuilder sb, DataRow row, string pt)
-        {
-            sb.Append("Update InPatient set ");
-            sb.AppendFormat(" PatNoOfHis=N'{0}' ", row["InID"]);//PatNoOfHis
-            sb.AppendFormat(" ,NoOfClinic=N'{0}' ", row["InID"]);//NoOfClinic
-            sb.AppendFormat(" ,NoOfRecord=N'{0}'", pt);//NoOfRecord
-            sb.AppendFormat(" ,Name=N'{0}' ", row["Name"]);//Name
-            string patent = Convert.ToString(row["PatientTypeID"]);
 
-            if (patent.Equals("086028000A000001"))
-                sb.AppendFormat(" ,PayID='{0}' ", 6);//PayID
-            else if (patent.Equals("086028000A000002"))
-                sb.AppendFormat(" ,PayID='{0}' ", 1);//PayID
-            else
-                sb.AppendFormat(" ,PayID='{0}' ", 1);//PayID
-            if (Convert.ToString(row["SexID"]).Equals("086028000A000001"))
-                sb.AppendFormat(" ,SexID='{0}' ", 1);//SexID
-            else
-                sb.AppendFormat(" ,SexID='{0}' ", 2);//SexID
-            sb.AppendFormat(" ,Birth=N'{0}' ", Convert.ToDateTime(dtHisPat.Rows[0]["Birthday"]).ToString("yyyy-MM-dd HH:mm:ss"));//Birth
-            sb.AppendFormat(" ,Age=N'{0}' ", DateTime.Now.Year - Convert.ToDateTime(dtHisPat.Rows[0]["Birthday"]).Year);//Age
-            sb.AppendFormat(" ,NATIONID=N'{0}' ", dtHisPat.Rows[0]["Email"]); // NATIONID
-            sb.AppendFormat(" ,OFFICETEL=N'{0}' ", dtHisPat.Rows[0]["Mobile"]);//OFFICETEL
-            sb.AppendFormat(" ,ContactTEL=N'{0}' ", dtHisPat.Rows[0]["Mobile"]);//ContactTEL
-            sb.AppendFormat(" ,NATIVEADDRESS=N'{0}' ", dtHisPat.Rows[0]["Address"]);//NATIVEADDRESS
-            sb.AppendFormat(" ,AgeStr=N'{0}' ", DateTime.Now.Year - Convert.ToDateTime(dtHisPat.Rows[0]["Birthday"]).Year);//AgeStr
-            sb.AppendFormat(" ,IDNO=N'{0}' ", dtHisPat.Rows[0]["IdentityCard"]);//IDNO
-            sb.AppendFormat(" ,PatID='{0}'", pt);//PatID
-            sb.AppendFormat(" ,ADMITDEPT=N'{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//ADMITDEPT
-            sb.AppendFormat(" ,ADMITWARD=N'{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//ADMITWARD
-            sb.AppendFormat(" ,ADMITBED=N'{0}' ", row["BedOrder"]);//ADMITBED
-            sb.AppendFormat(" ,ADMITDATE=N'{0}' ", Convert.ToDateTime(row["InTime"]).ToString("yyyy-MM-dd HH:mm:ss"));//ADMITDATE
-            sb.AppendFormat(" ,INWARDDATE=N'{0}' ", Convert.ToDateTime(row["InTime"]).ToString("yyyy-MM-dd HH:mm:ss"));//INWARDDATE
-            sb.AppendFormat(" ,ADMITDIAGNOSIS=N'{0}' ", dtHisPat.Rows[0]["InICO"]);//ADMITDIAGNOSIS
-            sb.AppendFormat(" ,OUTHOSDEPT=N'{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//OUTHOSDEPT
-            sb.AppendFormat(" ,OUTHOSWARD='{0}' ", LengthBath(Convert.ToString(row["EmrID"]), 4));//OUTHOSWARD 
-            sb.AppendFormat(" ,OUTBED=N'{0}' ", row["BedOrder"]);//OUTBED
-            if (!string.IsNullOrEmpty(Convert.ToString(row["OutTime"])))
-                sb.AppendFormat(" ,OUTWARDDATE='{0}' ", Convert.ToDateTime(row["OutTime"]).ToString("yyyy-MM-dd HH:mm:ss"));// OUTWARDDATE
-            else
-                sb.AppendFormat(" ,OUTWARDDATE='{0}' ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            sb.AppendFormat(" ,OUTDIAGNOSIS=N'{0}' ", dtHisPat.Rows[0]["OutICO"]);//OUTDIAGNOSIS
-            sb.AppendFormat(" ,ADMITWAY='{0}' ", "3");//ADMITWAY
-            sb.AppendFormat(" ,CLINICDOCTOR='{0}' ", "001538");//CLINICDOCTOR
-            sb.AppendFormat("where PatNoOfHis='{0}'", row["InID"]);
-            m_SqlHelper.ExecuteNoneQuery(sb.ToString());
-        }
 
         public void OutPat(string bedOrder)
         {
@@ -540,5 +426,6 @@ namespace EmrInsert
             }
             return emr;
         }
+        #endregion
     }
 }
