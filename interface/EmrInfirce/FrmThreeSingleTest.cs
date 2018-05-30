@@ -119,7 +119,7 @@ namespace EmrInfirce
             }
             catch (Exception ex)
             {
-                SDT.Client.ControlsHelper.Show(ex.Message);
+                //SDT.Client.ControlsHelper.Show(ex.Message);
             }
 
             return true;

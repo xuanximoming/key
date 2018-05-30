@@ -4,7 +4,7 @@ using DrectSoft.Emr.QcManager;
 using DrectSoft.FrameWork;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using EmrInsert;
-using SDT.Client.WinForm;
+//using SDT.Client.WinForm;
 using System;
 using System.Data;
 using System.Drawing;
@@ -15,7 +15,7 @@ namespace EmrInfirce
     /// <summary>
     /// 医生写病历
     /// </summary>
-    public partial class UCEmrQCManager : FormSDT, IEmrHost
+    public partial class UCEmrQCManager : /*FormSDT, */IEmrHost
     {
         EmrDataHelper emrHelper = null;
         Inpatient _currentPat;
@@ -86,8 +86,8 @@ namespace EmrInfirce
             mana.TopLevel = false;
             mana.Dock = DockStyle.Fill;
             mana.FormBorderStyle = FormBorderStyle.None;
-            this.Controls.Clear();
-            this.Controls.Add(mana);
+            //this.Controls.Clear();
+            //this.Controls.Add(mana);
 
             mana.Show();
 
@@ -152,7 +152,7 @@ namespace EmrInfirce
             }
             catch (Exception ex)
             {
-                SDT.Client.ControlsHelper.Show(ex.Message);
+                // SDT.Client.ControlsHelper.Show(ex.Message);
             }
 
 

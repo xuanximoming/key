@@ -1,6 +1,4 @@
-using SDT.ORM;
 using System;
-using System.Data;
 using System.Data.Common;
 
 namespace EmrInsert
@@ -17,7 +15,7 @@ namespace EmrInsert
         {
             try
             {
-                DbTransaction newTransaction = ORMHelper.GetNewTransaction(IsolationLevel.ReadUncommitted);
+                DbTransaction newTransaction = null;// = ORMHelper.GetNewTransaction(IsolationLevel.ReadUncommitted);
                 return newTransaction;
             }
             catch (Exception ex)
@@ -35,7 +33,7 @@ namespace EmrInsert
         {
             try
             {
-                return DBHelper.FromCustomSql(sql, sqltra);
+                return 0;//DBHelper.FromCustomSql(sql, sqltra);
 
             }
             catch (Exception ex)
@@ -68,71 +66,71 @@ namespace EmrInsert
         /// 查询
         /// </summary>
         /// <param name="sql">查询语句</param>
-        public static DataTable SelectDataTable(string sql, DbTransaction tran)
-        {
-            try
-            {
-                if (tran != null)
-                {
-                    return DBHelper.SelectToDataTable(sql);
+        //public static DataTable SelectDataTable(string sql, DbTransaction tran)
+        //{
+        //    try
+        //    {
+        //        if (tran != null)
+        //        {
+        //            return DBHelper.SelectToDataTable(sql);
 
-                }
-                else
-                {
-                    return DBHelper.SelectToDataTable(sql);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// 查询
-        /// </summary>
-        /// <param name="sql">查询语句</param>
-        public static DataTable SelectDataTable(string sql)
-        {
-            try
-            {
-                return DBHelper.SelectToDataTable(sql);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //        }
+        //        else
+        //        {
+        //            return DBHelper.SelectToDataTable(sql);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         /// <summary>
         /// 查询
         /// </summary>
         /// <param name="sql">查询语句</param>
-        public static DataSet SelectAdapter(string sql)
-        {
-            try
-            {
-                return DBHelper.SelectToDataSet(sql);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //public static DataTable SelectDataTable(string sql)
+        //{
+        //    try
+        //    {
+        //        return DBHelper.SelectToDataTable(sql);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
-        }
+        /// <summary>
+        /// 查询
+        /// </summary>
+        /// <param name="sql">查询语句</param>
+        //public static DataSet SelectAdapter(string sql)
+        //{
+        //    try
+        //    {
+        //        return DBHelper.SelectToDataSet(sql);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
 
-        public static int ExecuteNonQuery(string sql)
-        {
-            try
-            {
-                return DBHelper.FromCustomSql(sql); ;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //}
 
-        }
+        //public static int ExecuteNonQuery(string sql)
+        //{
+        //    try
+        //    {
+        //        return DBHelper.FromCustomSql(sql); ;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+
+        //}
 
 
         #region 生成主键

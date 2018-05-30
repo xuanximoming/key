@@ -1,6 +1,6 @@
 ﻿using DrectSoft.Core;
 using DrectSoft.Core.OwnBedInfo;
-using SDT.Client.Passport;
+//using SDT.Client.Passport;
 using System;
 using System.Data;
 using System.Drawing;
@@ -42,31 +42,23 @@ namespace EmrInsert
         {
             if (Formain.isLG == null)
             {
-                if (LoginInfo.EmployeeID == null)
-                {
-                    Formain.m_FormLogin.textBoxUserID.Text = "00";
-                }
-                else
-                {
-                    DataTable dt = SqlDataHelper.SelectDataTable(string.Format(" select * from dbo.CORP_Employee where EmployeeID='{0}'", LoginInfo.EmployeeID));
-                    if (dt != null && dt.Rows.Count > 0)
-                    {
-                        string emrid = Convert.ToString(dt.Rows[0]["EmrID"]);
-                        if (emrid == "" || emrid == null) emrid = "00";
-                        //if (emrid.Length < 6)
-                        //{
-                        //    string str = "";
-                        //    for (int i = 0; i < 6 - emrid.Length; i++)
-                        //    {
-                        //        str = str + "0";
-                        //    }
-                        //    emrid = str + emrid;
-                        //}
-                        Formain.m_FormLogin.textBoxUserID.Text = emrid;
-                    }
-                    else
-                        Formain.m_FormLogin.textBoxUserID.Text = "00";
-                }
+                Formain.m_FormLogin.textBoxUserID.Text = "00";
+                //if (LoginInfo.EmployeeID == null)
+                //{
+                //    Formain.m_FormLogin.textBoxUserID.Text = "00";
+                //}
+                //else
+                //{
+                //    DataTable dt = SqlDataHelper.SelectDataTable(string.Format(" select * from dbo.CORP_Employee where EmployeeID='{0}'", LoginInfo.EmployeeID));
+                //    if (dt != null && dt.Rows.Count > 0)
+                //    {
+                //        string emrid = Convert.ToString(dt.Rows[0]["EmrID"]);
+                //        if (emrid == "" || emrid == null) emrid = "00";
+                //        Formain.m_FormLogin.textBoxUserID.Text = emrid;
+                //    }
+                //    else
+                //        Formain.m_FormLogin.textBoxUserID.Text = "00";
+                //}
 
                 Formain.otherUser = true;
                 Formain.m_FormLogin.textBoxUserID_Leave(null, null);
