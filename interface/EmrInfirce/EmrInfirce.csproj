@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{365B4E91-C897-447D-A2B5-3EA7400A19CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EmrInfirce</RootNamespace>
+    <AssemblyName>EmrInfirce</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\YZSoftware\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\BIN\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DrectSoft.Basic.Wordbook">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Basic.Wordbook.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Common.Ctrs">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Common.Ctrs.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Core">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Core.MainEmrPad">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.MainEmrPad.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Core.NursingDocuments">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.NursingDocuments.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Core.PersonTtemTemplet">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Core.PersonTtemTemplet.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Emr.NurseCenter">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.NurseCenter.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Emr.QcManager">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.QcManager.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Emr.TemplateFactory">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.TemplateFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Emr.Util">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Emr.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.FrameWork">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.FrameWork.WinForm">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.FrameWork.WinForm.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Library.LookUpEditor">
+      <HintPath>..\..\..\..\EMRX86\BIN\DrectSoft.Library.LookUpEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="EMR, Version=1.0.5736.194, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\EMRX86\BIN\EMR.exe</HintPath>
+    </Reference>
+    <Reference Include="RemObjects.SDK, Version=7.0.65.1067, Culture=neutral, PublicKeyToken=3df3cad1b7aa5098, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UCEmr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCEmr.Designer.cs">
+      <DependentUpon>UCEmr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCTemplate.Designer.cs">
+      <DependentUpon>UCTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCEmrQCManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UCEmrQCManager.Designer.cs">
+      <DependentUpon>UCEmrQCManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThreeSingleTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThreeSingleTest.Designer.cs">
+      <DependentUpon>FrmThreeSingleTest.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmThreeSingleTest.resx">
+      <DependentUpon>FrmThreeSingleTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCEmr.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UCEmr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCTemplate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>UCTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCEmrQCManager.resx">
+      <DependentUpon>UCEmrQCManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Base\SDT.CommonClient\SDT.CommonClient.csproj">
+      <Project>{b2b5b5c0-4487-478d-b803-76ef82a3cb82}</Project>
+      <Name>SDT.CommonClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EmrInsert\EmrInsert.csproj">
+      <Project>{adc3d0ce-447b-4755-91a0-c82c5413858c}</Project>
+      <Name>EmrInsert</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
