@@ -69,7 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="changePat.cs" />
+    <Compile Include="patient.cs" />
+    <Compile Include="IChangePat.cs" />
+    <Compile Include="ChangePat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

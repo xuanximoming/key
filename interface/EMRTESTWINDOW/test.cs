@@ -18,10 +18,11 @@ namespace EMRTESTWINDOW
         {
             try
             {
+                ChangePat changepat = new ChangePat();
+                IChangePat ichangepat = changepat;
                 string patNum = "0106713_1";
-                changePat changpat = new changePat();
-                int i = changpat.InitEmr("003322");
-                tabPage1.Controls.Add(changpat.ChangePatient(patNum));
+                int i = ichangepat.InitEmr("003322");
+                tabPage1.Controls.Add(ichangepat.ChangePatient(patNum));
             }
             catch (Exception ex)
             {
