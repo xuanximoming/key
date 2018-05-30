@@ -657,10 +657,6 @@ namespace DrectSoft.Core.OwnBedInfo
                 App.ChoosePatient(syxh);
                 App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
             }
-
-            //App.ChoosePatient(syxh);
-            //if (App.CurrentPatientInfo != null)
-            //    App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", YD_BaseService.GetUCEmrInputPath());
         }
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmrInfirce;
+using System;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -17,14 +18,9 @@ namespace EMRTESTWINDOW
         {
             try
             {
-                string patNum = "002623_1";
-                emr = Assembly.LoadFile(Application.StartupPath.ToString() + "\\EmrInfirce.dll");
-                object emrUC = emr.CreateInstance("EmrInfirce.UCEmr");
-                mthod = emrUC.GetType().GetMethod("Shuaxin");
-                uc = (UserControl)emrUC;
-                uc.Dock = DockStyle.Fill;
-                mthod.Invoke(uc, new object[] { patNum });
-                tabPage1.Controls.Add(uc);
+                string patNum = "0106713_1";
+                changePat changpat = new changePat();
+                tabPage1.Controls.Add(changpat.Shuaxin(patNum));
             }
             catch (Exception ex)
             {

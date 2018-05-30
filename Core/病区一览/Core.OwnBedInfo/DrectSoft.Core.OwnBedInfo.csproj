@@ -270,7 +270,6 @@
     <None Include="Resources\清空.ico" />
     <None Include="Resources\申请.ico" />
     <Content Include="WorkList.txt" />
-    <Content Include="Drect.Soft.Core.OwnBedInfo.csproj.user" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="changePat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UCEmr.cs">
       <SubType>UserControl</SubType>
@@ -126,6 +127,14 @@
     <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
       <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
       <Name>DrectSoft.Common.Ctrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
+      <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
+      <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\EMREditor\Emr.Util\DrectSoft.Emr.Util.csproj">
       <Project>{c015a754-a3e4-4ae9-917e-1730644f6568}</Project>

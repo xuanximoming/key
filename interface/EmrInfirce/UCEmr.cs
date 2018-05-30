@@ -1,7 +1,5 @@
-﻿using DrectSoft.Common.Eop;
-using DrectSoft.Core;
-using DrectSoft.Core.MainEmrPad;
-using DrectSoft.Emr.Util;
+﻿using DrectSoft.Common;
+using DrectSoft.Core.MainEmrPad.New;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using EmrInsert;
 using System;
@@ -14,10 +12,9 @@ namespace EmrInfirce
     /// <summary>
     /// 医生写病历
     /// </summary>
-    public partial class UCEmr : UserControl, IEmrHost
+    public partial class UCEmr : UserControl
     {
         EmrDataHelper emrHelper = null;
-        Inpatient _currentPat;
         private decimal _noOfInpat;
         private const string str_queryPatByID = "select * from InPatient where NOOFINPAT={0}";
 
@@ -40,14 +37,6 @@ namespace EmrInfirce
         public UCEmr()
         {
             InitializeComponent();
-            // BindEmr(4983);
-        }
-
-        public void BindEmr(decimal noOfInpat)
-        {
-            _noOfInpat = noOfInpat;
-            EmrLogin();
-            AddControls();
         }
 
         private void EmrLogin()
@@ -77,11 +66,8 @@ namespace EmrInfirce
         {
             if (_EmrHost == null)
                 EmrLogin();
-            UCEmrInput m_UCEmrInput = new UCEmrInput();
             _EmrHost.ChoosePatient(_noOfInpat);
-            RecordDal m_RecordDal = new RecordDal(_EmrHost.SqlHelper);
-            m_UCEmrInput.SetInnerVar(_EmrHost, m_RecordDal);
-            m_UCEmrInput.CurrentInpatient = _EmrHost.CurrentPatientInfo;
+            UCEmrInput m_UCEmrInput = new UCEmrInput(_EmrHost.CurrentPatientInfo, _EmrHost);
             m_UCEmrInput.Dock = DockStyle.Fill;
             this.Controls.Clear();
             this.Controls.Add(m_UCEmrInput);
@@ -94,25 +80,15 @@ namespace EmrInfirce
         {
             try
             {
-                //if (_EmrHost == null)
-                //    EmrLogin();
-                ////判断点知病历中是否存在该患者
-                //DataTable dt = emrHelper.SelectPatent(PatID);
-
-                ////如果不存在就添加
-                //if (dt == null || dt.Rows.Count == 0)
-                //    _noOfInpat=emrHelper.InsertPatent(inpRow);
-                //else
-                //emrHelper.SetEntityByPage(2041);
-
-                //判断当前患者是否存在
                 if (_EmrHost == null)
                 {
                     emrHelper = new EmrDataHelper();
                     emrHelper.thisLogin();
                     _EmrHost = emrHelper.Formain;
+                    DS_Common.currentUser = _EmrHost.User;
                     _Formain = emrHelper.Formain;
                 }
+                //判断emrdb中是否存在此病人信息
                 DataTable dt = emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", inid));
 
                 //不存在则添加
@@ -146,6 +122,7 @@ namespace EmrInfirce
                 }
                 else
                 {
+                    _noOfInpat = Convert.ToDecimal(dt.Rows[0]["noOfInpat"]);
                     //DataTable dtHisIns = SqlDataHelper.SelectDataTable(string.Format("select a.*,b.DegreeID,c.GroupName,c.EmrID,d.BedOrder from Inp_Register as a inner join PAT_Patient as b on  a.PatientID=b.PatientID " +
                     //    " inner join SDTC_Group as c  on a.CurrentGroupID=c.GroupID left join Inp_Bed as d on a.CurrentBedID=d.BedID " +
                     //   "where  a.inid='{0}'", inid));
@@ -159,10 +136,6 @@ namespace EmrInfirce
                     //emrHelper.UpdatePatent(dtHisPt, sb, dtHisIns.Rows[0], pt);
                     //dt = emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", dtHisIns.Rows[0]["InID"].ToString()));
                 }
-                if (dt != null && dt.Rows.Count > 0)
-                    _noOfInpat = Convert.ToDecimal(dt.Rows[0]["noOfInpat"]);
-                else
-                    return;
                 AddControls();
             }
             catch (Exception ex)
@@ -175,223 +148,224 @@ namespace EmrInfirce
         #region IEmrHost 成员
 
 
-        /// <summary>
-        /// 要自己写东西...........................构建用户信息
-        /// </summary>
-        DrectSoft.Core.IUser IEmrHost.User
-        {
-            get
-            {
-
-                return _EmrHost.User;
-            }
-        }
-
-        /// <summary>
-        /// 不用管此方法
-        /// </summary>
-        /// <param name="assemblyName"></param>
-        /// <param name="startupClassName"></param>
-        /// <returns></returns>
-        bool IEmrHost.LoadPlugIn(string assemblyName, string startupClassName)
-        {
-            return false;
-            //throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 不用管此方法
-        /// </summary>
-        /// <param name="typeName"></param>
-        /// <returns></returns>
-        bool IEmrHost.LoadPlugIn(string typeName)
-        {
-            return false;
-            //throw new NotImplementedException();
-        }
-
-        void IEmrHost.ChoosePatient(decimal firstPageNo)
-        {
-            //DataRow row = GetPatInfo(firstPageNo);
-            //if (row != null)
-            //    CurrentPatientInfo = new Inpatient(row);
-            _EmrHost.ChoosePatient(firstPageNo);
-        }
-
-        //private DataRow GetPatInfo(decimal noOfInpat)
+        ///// <summary>
+        ///// 要自己写东西...........................构建用户信息
+        ///// </summary>
+        //DrectSoft.Core.IUser IEmrHost.User
         //{
-        //    //DataTable table = SqlHelper.ExecuteDataTable(string.Format(str_queryPatByID, noOfInpat));
+        //    get
+        //    {
 
-        //    //if (table.Rows.Count < 1) return null;
-        //    //return table.Rows[0];
+        //        return _EmrHost.User;
+        //    }
+        //}
 
+        ///// <summary>
+        ///// 不用管此方法
+        ///// </summary>
+        ///// <param name="assemblyName"></param>
+        ///// <param name="startupClassName"></param>
+        ///// <returns></returns>
+        //bool IEmrHost.LoadPlugIn(string assemblyName, string startupClassName)
+        //{
+        //    return false;
+        //    //throw new NotImplementedException();
+        //}
+
+        ///// <summary>
+        ///// 不用管此方法
+        ///// </summary>
+        ///// <param name="typeName"></param>
+        ///// <returns></returns>
+        //bool IEmrHost.LoadPlugIn(string typeName)
+        //{
+        //    return false;
+        //    //throw new NotImplementedException();
+        //}
+
+        //void IEmrHost.ChoosePatient(decimal firstPageNo)
+        //{
+        //    //DataRow row = GetPatInfo(firstPageNo);
+        //    //if (row != null)
+        //    //    CurrentPatientInfo = new Inpatient(row);
+        //    _EmrHost.ChoosePatient(firstPageNo);
+        //}
+
+        ////private DataRow GetPatInfo(decimal noOfInpat)
+        ////{
+        ////    //DataTable table = SqlHelper.ExecuteDataTable(string.Format(str_queryPatByID, noOfInpat));
+
+        ////    //if (table.Rows.Count < 1) return null;
+        ////    //return table.Rows[0];
+
+
+        ////}
+
+        //public Inpatient CurrentPatientInfo
+        //{
+        //    get { return _currentPat; }
+        //    set
+        //    {
+        //        _currentPat = value;
+        //    }
 
         //}
 
-        public Inpatient CurrentPatientInfo
-        {
-            get { return _currentPat; }
-            set
-            {
-                _currentPat = value;
-            }
+        ///// <summary>
+        ///// 医院信息
+        ///// </summary>
+        //DrectSoft.Core.HospitalInfo IEmrHost.CurrentHospitalInfo
+        //{
+        //    get
+        //    {
+        //        return _EmrHost.CurrentHospitalInfo;
+        //        //HospitalInfo info = _EmrHost.CurrentHospitalInfo;
+        //        //return info;
+        //    }
+        //}
 
-        }
+        //DrectSoft.Core.ICustomMessageBox IEmrHost.CustomMessageBox
+        //{
+        //    get
+        //    {
+        //        return _EmrHost.CustomMessageBox;
+        //    }
+        //}
 
-        /// <summary>
-        /// 医院信息
-        /// </summary>
-        DrectSoft.Core.HospitalInfo IEmrHost.CurrentHospitalInfo
-        {
-            get
-            {
-                return _EmrHost.CurrentHospitalInfo;
-                //HospitalInfo info = _EmrHost.CurrentHospitalInfo;
-                //return info;
-            }
-        }
+        //DrectSoft.Core.IDataAccess IEmrHost.SqlHelper
+        //{
+        //    get
+        //    {
 
-        DrectSoft.Core.ICustomMessageBox IEmrHost.CustomMessageBox
-        {
-            get
-            {
-                return _EmrHost.CustomMessageBox;
-            }
-        }
+        //        return _EmrHost.SqlHelper;
+        //    }
+        //}
 
-        DrectSoft.Core.IDataAccess IEmrHost.SqlHelper
-        {
-            get
-            {
+        //string IEmrHost.MacAddress
+        //{
+        //    get { return _EmrHost.MacAddress; }
+        //}
 
-                return _EmrHost.SqlHelper;
-            }
-        }
+        //DrectSoft.Core.IAppConfigReader IEmrHost.AppConfig
+        //{
+        //    get { return _EmrHost.AppConfig; }
+        //}
 
-        string IEmrHost.MacAddress
-        {
-            get { return _EmrHost.MacAddress; }
-        }
+        //DataSet IEmrHost.PatientInfos
+        //{
+        //    get { return _EmrHost.PatientInfos; }
+        //}
 
-        DrectSoft.Core.IAppConfigReader IEmrHost.AppConfig
-        {
-            get { return _EmrHost.AppConfig; }
-        }
+        //string IEmrHost.RefreshPatientInfos()
+        //{
+        //    return _EmrHost.RefreshPatientInfos();
+        //}
 
-        DataSet IEmrHost.PatientInfos
-        {
-            get { return _EmrHost.PatientInfos; }
-        }
+        //System.Collections.ObjectModel.Collection<DrectSoft.FrameWork.Plugin.Manager.PlugInConfiguration> IEmrHost.PrivilegeMenu
+        //{
+        //    get { return _EmrHost.PrivilegeMenu; }
+        //}
 
-        string IEmrHost.RefreshPatientInfos()
-        {
-            return _EmrHost.RefreshPatientInfos();
-        }
+        //DrectSoft.FrameWork.Plugin.PluginManager IEmrHost.Manager
+        //{
+        //    get { return _EmrHost.Manager; }
+        //}
 
-        System.Collections.ObjectModel.Collection<DrectSoft.FrameWork.Plugin.Manager.PlugInConfiguration> IEmrHost.PrivilegeMenu
-        {
-            get { return _EmrHost.PrivilegeMenu; }
-        }
+        //bool IEmrHost.EmrAllowEdit
+        //{
+        //    get
+        //    {
+        //        return _EmrHost.EmrAllowEdit;
+        //    }
+        //    set
+        //    {
+        //        _EmrHost.EmrAllowEdit = value;
+        //    }
+        //}
 
-        DrectSoft.FrameWork.Plugin.PluginManager IEmrHost.Manager
-        {
-            get { return _EmrHost.Manager; }
-        }
+        //PluginUtil IEmrHost.PublicMethod
+        //{
+        //    get { return _EmrHost.PublicMethod; }
+        //}
 
-        bool IEmrHost.EmrAllowEdit
-        {
-            get
-            {
-                return _EmrHost.EmrAllowEdit;
-            }
-            set
-            {
-                _EmrHost.EmrAllowEdit = value;
-            }
-        }
+        //private EmrDefaultSetting m_EmrDefaultSetting;
+        //DrectSoft.Common.Eop.EmrDefaultSetting IEmrHost.EmrDefaultSettings
+        //{
+        //    get
+        //    {
+        //        return _EmrHost.EmrDefaultSettings;
+        //        //if (m_EmrDefaultSetting == null)
+        //        //{
+        //        //    m_EmrDefaultSetting =DrectSoft. Util.InitEmrDefaultSet();
+        //        //}
 
-        PluginUtil IEmrHost.PublicMethod
-        {
-            get { return _EmrHost.PublicMethod; }
-        }
+        //        //return m_EmrDefaultSetting;
+        //    }
+        //}
 
-        private EmrDefaultSetting m_EmrDefaultSetting;
-        DrectSoft.Common.Eop.EmrDefaultSetting IEmrHost.EmrDefaultSettings
-        {
-            get
-            {
-                return _EmrHost.EmrDefaultSettings;
-                //if (m_EmrDefaultSetting == null)
-                //{
-                //    m_EmrDefaultSetting =DrectSoft. Util.InitEmrDefaultSet();
-                //}
+        //private DrectSoftLog _logger;
+        //DrectSoft.Core.DrectSoftLog IEmrHost.Logger
+        //{
+        //    get
+        //    {
+        //        return _EmrHost.Logger;
+        //    }
+        //}
 
-                //return m_EmrDefaultSetting;
-            }
-        }
+        //private string m_CurrentSelectedEmrID = string.Empty;
+        //string IEmrHost.CurrentSelectedEmrID
+        //{
+        //    get
+        //    {
+        //        return _EmrHost.CurrentSelectedEmrID;
+        //    }
+        //    set
+        //    {
+        //        _EmrHost.CurrentSelectedEmrID = value;
+        //    }
+        //}
 
-        private DrectSoftLog _logger;
-        DrectSoft.Core.DrectSoftLog IEmrHost.Logger
-        {
-            get
-            {
-                return _EmrHost.Logger;
-            }
-        }
+        //void IEmrHost.ShowMessageWindow(DataTable dt, bool isClear)
+        //{
+        //    // throw new NotImplementedException();
+        //}
 
-        private string m_CurrentSelectedEmrID = string.Empty;
-        string IEmrHost.CurrentSelectedEmrID
-        {
-            get
-            {
-                return _EmrHost.CurrentSelectedEmrID;
-            }
-            set
-            {
-                _EmrHost.CurrentSelectedEmrID = value;
-            }
-        }
 
-        void IEmrHost.ShowMessageWindow(DataTable dt, bool isClear)
-        {
-            // throw new NotImplementedException();
-        }
 
+
+        //public void ChoosePatient(decimal firstPageNo, string FloderState)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void ChoosePatient(string firstPageNo, out Inpatient MyInp)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public string FloderState
+        //{
+        //    get
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //    set
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
+
+        //public Inpatient NEWCurrentPatientInfo
+        //{
+        //    get
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //    set
+        //    {
+        //        throw new NotImplementedException();
+        //    }
+        //}
         #endregion
-
-
-        public void ChoosePatient(decimal firstPageNo, string FloderState)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ChoosePatient(string firstPageNo, out Inpatient MyInp)
-        {
-            throw new NotImplementedException();
-        }
-
-        public string FloderState
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public Inpatient NEWCurrentPatientInfo
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
     }
 }

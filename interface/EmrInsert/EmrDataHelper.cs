@@ -1,6 +1,5 @@
 ﻿using DrectSoft.Core;
 using DrectSoft.Core.OwnBedInfo;
-//using SDT.Client.Passport;
 using System;
 using System.Data;
 using System.Drawing;
@@ -13,9 +12,7 @@ namespace EmrInsert
     {
 
         public bool isLoginResult = false;
-
         public IDataAccess m_SqlHelper;
-
         DrectSoft.MainFrame.FormMain _Formain = null;
         public DrectSoft.MainFrame.FormMain Formain
         {
@@ -43,22 +40,6 @@ namespace EmrInsert
             if (Formain.isLG == null)
             {
                 Formain.m_FormLogin.textBoxUserID.Text = "00";
-                //if (LoginInfo.EmployeeID == null)
-                //{
-                //    Formain.m_FormLogin.textBoxUserID.Text = "00";
-                //}
-                //else
-                //{
-                //    DataTable dt = SqlDataHelper.SelectDataTable(string.Format(" select * from dbo.CORP_Employee where EmployeeID='{0}'", LoginInfo.EmployeeID));
-                //    if (dt != null && dt.Rows.Count > 0)
-                //    {
-                //        string emrid = Convert.ToString(dt.Rows[0]["EmrID"]);
-                //        if (emrid == "" || emrid == null) emrid = "00";
-                //        Formain.m_FormLogin.textBoxUserID.Text = emrid;
-                //    }
-                //    else
-                //        Formain.m_FormLogin.textBoxUserID.Text = "00";
-                //}
 
                 Formain.otherUser = true;
                 Formain.m_FormLogin.textBoxUserID_Leave(null, null);
