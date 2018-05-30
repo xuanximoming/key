@@ -1,3 +1,4 @@
+using DrectSoft.Core;
 using MainFrame;
 using System;
 using System.ComponentModel;
@@ -6,7 +7,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-using DrectSoft.Core;
 
 namespace DrectSoft.MainFrame
 {
@@ -204,20 +204,20 @@ namespace DrectSoft.MainFrame
             bool result;
             try
             {
-                this.m_Acnt.Login(this.m_TempUserID, this.textBoxPassword.Text, 0);
+                this.m_Acnt.Login(this.m_TempUserID, this.textBoxPassword.Text, 1);
                 string masterID = this.m_Acnt.User.MasterID;
                 if (!string.IsNullOrEmpty(masterID))
                 {
                     this.m_MasterAcnt.InitMaster(masterID);
                 }
                 this.m_Log.Info(string.Concat(new string[]
-				{
-					"用户:",
-					this.m_Acnt.User.Name,
-					"于",
-					DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-					"成功登录系统"
-				}));
+                {
+                    "用户:",
+                    this.m_Acnt.User.Name,
+                    "于",
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    "成功登录系统"
+                }));
             }
             catch (Exception ex)
             {

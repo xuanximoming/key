@@ -71,45 +71,6 @@
   <ItemGroup>
     <Compile Include="changePat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UCEmr.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCEmr.Designer.cs">
-      <DependentUpon>UCEmr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCTemplate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UCTemplate.Designer.cs">
-      <DependentUpon>UCTemplate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UCEmrQCManager.cs" />
-    <Compile Include="UCEmrQCManager.Designer.cs">
-      <DependentUpon>UCEmrQCManager.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmThreeSingleTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmThreeSingleTest.Designer.cs">
-      <DependentUpon>FrmThreeSingleTest.cs</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="FrmThreeSingleTest.resx">
-      <DependentUpon>FrmThreeSingleTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCEmr.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>UCEmr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCTemplate.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>UCTemplate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UCEmrQCManager.resx">
-      <DependentUpon>UCEmrQCManager.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\NurseCenter\NurseCenter.csproj">

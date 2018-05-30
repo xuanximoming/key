@@ -20,7 +20,8 @@ namespace EMRTESTWINDOW
             {
                 string patNum = "0106713_1";
                 changePat changpat = new changePat();
-                tabPage1.Controls.Add(changpat.Shuaxin(patNum));
+                int i = changpat.InitEmr("003322");
+                tabPage1.Controls.Add(changpat.ChangePatient(patNum));
             }
             catch (Exception ex)
             {
