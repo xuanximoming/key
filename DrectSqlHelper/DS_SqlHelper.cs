@@ -20,6 +20,7 @@ namespace DrectSoft.DSSqlHelper
     /// </summary>
     public sealed class DS_SqlHelper
     {
+        static string strPath = "./adcemr.exe";
         #region 当前IDbCommand中的参数列表，用于外部获取存储过程返回的参数  暂时只开放执行ExecuteNonQueryInTran方法中返回的参数 Add by wwj 2013-02-22
         public static List<IDataParameter> CmdParameterList
         {
@@ -151,10 +152,11 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
                 string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                DbProviderName = ConfigurationManager.ConnectionStrings[connectionStringsSection].ProviderName;
-                ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+                DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
+                ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
             }
             catch (Exception ce)
             {
@@ -169,7 +171,8 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
                 string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
                 if (dbProviderName != "")
                 {
@@ -177,9 +180,11 @@ namespace DrectSoft.DSSqlHelper
                 }
                 else
                 {
-                    DbProviderName = ConfigurationManager.ConnectionStrings[connectionStringsSection].ProviderName;
+                    DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
                 }
-                ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+                ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
+
+
             }
             catch (Exception ce)
             {
@@ -201,9 +206,10 @@ namespace DrectSoft.DSSqlHelper
                 }
                 else
                 {
-                    ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
                     string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                    DbProviderName = ConfigurationManager.ConnectionStrings[connectionStringsSection].ProviderName;
+                    DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
                 }
                 if (dbConnetionString != "")
                 {
@@ -211,9 +217,10 @@ namespace DrectSoft.DSSqlHelper
                 }
                 else
                 {
-                    ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
                     string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                    ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+                    ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
                 }
 
             }
@@ -231,8 +238,10 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                DbProviderName = ConfigurationManager.ConnectionStrings[dbName].ProviderName;
-                ConnectionString = ConfigurationManager.ConnectionStrings[dbName].ConnectionString;
+                Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
+                DbProviderName = config.ConnectionStrings.ConnectionStrings[dbName].ProviderName;
+                ConnectionString = config.ConnectionStrings.ConnectionStrings[dbName].ConnectionString;
             }
             catch (Exception ce)
             {

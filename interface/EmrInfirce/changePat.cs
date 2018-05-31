@@ -50,7 +50,8 @@ namespace EmrInfirce
             //不存在则添加
             if (dt == null || dt.Rows.Count == 0)
             {
-
+                MessageBox.Show("EMR中没有此患者信息，请确认！");
+                return null;
                 #region 添加示例
                 //DataTable dtHisIns = SqlDataHelper.SelectDataTable(string.Format("select a.*,b.DegreeID,c.GroupName,c.EmrID,d.BedOrder from Inp_Register as a inner join PAT_Patient as b on  a.PatientID=b.PatientID " +
                 //    " inner join SDTC_Group as c  on a.CurrentGroupID=c.GroupID left join Inp_Bed as d on a.CurrentBedID=d.BedID " +

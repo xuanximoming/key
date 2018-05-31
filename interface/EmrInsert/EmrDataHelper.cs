@@ -43,7 +43,10 @@ namespace EmrInsert
                     isLoginResult = Formain.Login();
                     m_SqlHelper = Formain.SqlHelper;
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(5, ex.Message);
+                }
             }
         }
 

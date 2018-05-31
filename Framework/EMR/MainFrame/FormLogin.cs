@@ -2,8 +2,6 @@ using DrectSoft.Core;
 using MainFrame;
 using System;
 using System.ComponentModel;
-using System.Configuration;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -12,7 +10,6 @@ namespace DrectSoft.MainFrame
 {
     public partial class FormLogin : Form
     {
-        private const string noVerifyUser = "NoVerify";
         private Account m_Acnt;
         private DrectSoftLog m_Log;
         private FormMain m_FormMain;
@@ -80,7 +77,7 @@ namespace DrectSoft.MainFrame
         {
             if (e.KeyChar == '\r')
             {
-                this.ProcessLogin();
+                this.ProcessLogin(0);
             }
         }
 
@@ -124,7 +121,7 @@ namespace DrectSoft.MainFrame
 
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            ProcessLogin();
+            ProcessLogin(0);
         }
 
         private void FormLogin_KeyPress(object sender, KeyPressEventArgs e)
@@ -144,8 +141,11 @@ namespace DrectSoft.MainFrame
         {
             base.DialogResult = DialogResult.Cancel;
         }
-
-        private void ProcessLogin()
+        /// <summary>
+        /// 登录程序
+        /// </summary>
+        /// <param name="type">登录方式0：通过登录界面登录，1：医生工作站跳转</param>
+        private void ProcessLogin(int type)
         {
             if (!this.isloging)
             {
@@ -156,13 +156,11 @@ namespace DrectSoft.MainFrame
                 this.progressBarControlWait.Properties.ShowTitle = true;
                 this.progressBarControlWait.Properties.PercentView = true;
                 this.ChangeProgressBar(0, 20);
-                if (this.CheckNeedVerify())
+
+                if (!this.LoginDb(type))
                 {
-                    if (!this.LoginDb())
-                    {
-                        this.isloging = false;
-                        return;
-                    }
+                    this.isloging = false;
+                    return;
                 }
                 this.m_FormMain.ProcessLogin();
                 this.ChangeProgressBar(91, 100);
@@ -184,27 +182,17 @@ namespace DrectSoft.MainFrame
             }
         }
 
-        private bool CheckNeedVerify()
-        {
-            AppSettingsReader appSettingsReader = new AppSettingsReader();
-            string a = "";
-            try
-            {
-                a = (string)appSettingsReader.GetValue("NoVerify", typeof(string));
-            }
-            catch
-            {
-                Trace.WriteLine("CanSkipVerify Config Not Find!");
-            }
-            return a != bool.TrueString;
-        }
-
-        private bool LoginDb()
+        /// <summary>
+        /// 登录数据库
+        /// </summary>
+        /// <param name="type">登录方式0：通过登录界面登录，1：医生工作站跳转</param>
+        /// <returns>成功true 失败flase</returns>
+        private bool LoginDb(int type)
         {
             bool result;
             try
             {
-                this.m_Acnt.Login(this.m_TempUserID, this.textBoxPassword.Text, 1);
+                this.m_Acnt.Login(this.m_TempUserID, this.textBoxPassword.Text, type);
                 string masterID = this.m_Acnt.User.MasterID;
                 if (!string.IsNullOrEmpty(masterID))
                 {
@@ -251,21 +239,13 @@ namespace DrectSoft.MainFrame
             this.progressBarControlWait.Visible = false;
             if (this.textBoxUserID.Text.Trim() != string.Empty)
             {
-                this.ProcessLogin();
+                this.ProcessLogin(1);
             }
-        }
-
-        private void textBoxUserID_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
-        {
         }
 
         private void pictureEditLogIn_Click(object sender, EventArgs e)
         {
-            this.ProcessLogin();
+            this.ProcessLogin(0);
         }
 
         private void pictureEditExit_Click(object sender, EventArgs e)

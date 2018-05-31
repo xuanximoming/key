@@ -30,7 +30,7 @@ namespace DrectSoft.Core
 
         // 取职工科室对应设置, 若未指定病区，则通过指定的科室关联出所有的病区
         private const string SelectRelateDepts = @"select a.DeptId, b.Name DeptName , a.WardId,c.Name WardName  from User2Dept a
-		                                          left join Department b on a.DeptId=b.ID
+                                                  left join Department b on a.DeptId=b.ID
                                                   left join Ward c on a.WardId=b.ID
                                                   where UserId = '{0}' and DeptId <> ''
                                                   union
