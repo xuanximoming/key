@@ -308,7 +308,7 @@ namespace DrectSoft.Core.IEMMainPage
                 if (GetFeeType == "0")
                 {
                     //add by  ywk 2012年10月8日 12:33:30
-                    string sqlView = string.Format(@"select * from YD_IEMFEEINFO where 住院号='{0}'", m_App.CurrentPatientInfo.NoOfFirstPage);
+                    string sqlView = string.Format(@"select * from ZC_IEMFEEINFO where 住院号='{0}'", m_App.CurrentPatientInfo.NoOfFirstPage);
                     dataTable = sqlHelper.ExecuteDataTable(sqlView, CommandType.Text);
                     if (dataTable == null || dataTable.Rows.Count <= 0) return;
                     Dt_FeeInfo = dataTable.Copy();//将所有的费用信息COPY下来，再进行筛选

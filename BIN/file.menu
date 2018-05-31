@@ -12,6 +12,7 @@
 		<plugin key="BLBX"  caption="病案补写" class="MedicalRecordManage.UI.MedicalRecordWriteUpForm" library="MedicalRecordManage.dll"  iconname="RecordScan"/>
 		<plugin key="BGK" caption="报告卡" class="DrectSoft.Core.ReportManager.ReportManager"  library="DrectSoft.Core.ReportManager.dll"  iconname="EMRManage"/> 
 		<plugin key="CRBSP" caption="传染病审批" class="DrectSoft.Core.ZymosisReport.ApproveMainForm" library="DrectSoft.Core.ZymosisReport.dll"  iconname="CRBSP"/>
+		<plugin key="CRBSB" caption="传染病申报" class="DrectSoft.Core.ZymosisReport.MainForm" library="DrectSoft.Core.ZymosisReport.dll"  iconname="CRBSB"/>
 		<plugin key="BLLL" caption="病历浏览" class="MedicalRecordManage.FormMain" library="MedicalRecordManage.dll"  iconname="Browser"/>
 		<plugin key="YNXWGL" caption="院内新闻管理" class="DrectSoft.Core.DoctorTasks.NewFormManager" library="DrectSoft.Core.DoctorTasks.dll" iconname="NewsAdmin"/>
 		<plugin key="XWTZ" caption="新闻通知" class="DrectSoft.Core.DoctorTasks.NewCenter" library="DrectSoft.Core.DoctorTasks.dll" iconname="News"/>	

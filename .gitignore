@@ -6,6 +6,7 @@ Thumbs.db
 *.aps
 *.pch
 *.vspscc
+*.manifest
 *_i.c
 *_p.c
 *.ncb

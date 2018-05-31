@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtReportNo = new DevExpress.XtraEditors.TextEdit();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.chkReportType1 = new DevExpress.XtraEditors.CheckEdit();
             this.chkReportType2 = new DevExpress.XtraEditors.CheckEdit();
@@ -122,11 +121,11 @@
             this.txtpatid = new DevExpress.XtraEditors.TextEdit();
             this.chkRecordtype23 = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpEditorDoc = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowDoc = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.lookUpWindowDoc = new DrectSoft.Common.Library.LookUpWindow();
             this.lookUpEditorDept = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow();
             this.lookUpEditorZymosis = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowZymosis = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.lookUpWindowZymosis = new DrectSoft.Common.Library.LookUpWindow();
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
@@ -153,7 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSex1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSex2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdno.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateBirth.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateBirth.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateBirth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAgeUnit1.Properties)).BeginInit();
@@ -191,17 +190,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype13.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype21.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype22.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateAttackdate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateAttackdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateAttackdate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateDiagdate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateDiagdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDiagdate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Diedate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Diedate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Diedate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDiagdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textCorrectName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCancelReason.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDoctortel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateReportDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateReportDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateReportDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoMemo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoOtherDiag.Properties)).BeginInit();
@@ -244,7 +243,7 @@
             this.txtReportNo.Name = "txtReportNo";
             this.txtReportNo.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtReportNo.Properties.MaxLength = 32;
-            this.txtReportNo.Size = new System.Drawing.Size(120, 21);
+            this.txtReportNo.Size = new System.Drawing.Size(120, 20);
             this.txtReportNo.TabIndex = 0;
             this.txtReportNo.ToolTip = "卡片编号";
             this.txtReportNo.Enter += new System.EventHandler(this.Dev_Enter);
@@ -304,7 +303,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtName.Properties.MaxLength = 32;
-            this.txtName.Size = new System.Drawing.Size(120, 21);
+            this.txtName.Size = new System.Drawing.Size(120, 20);
             this.txtName.TabIndex = 4;
             this.txtName.ToolTip = "患者姓名";
             this.txtName.Enter += new System.EventHandler(this.Dev_Enter);
@@ -325,7 +324,7 @@
             this.txtParentname.Name = "txtParentname";
             this.txtParentname.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtParentname.Properties.MaxLength = 32;
-            this.txtParentname.Size = new System.Drawing.Size(126, 21);
+            this.txtParentname.Size = new System.Drawing.Size(126, 20);
             this.txtParentname.TabIndex = 5;
             this.txtParentname.ToolTip = "患儿家长姓名";
             this.txtParentname.Enter += new System.EventHandler(this.Dev_Enter);
@@ -388,7 +387,7 @@
             this.txtIdno.Name = "txtIdno";
             this.txtIdno.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtIdno.Properties.MaxLength = 18;
-            this.txtIdno.Size = new System.Drawing.Size(323, 21);
+            this.txtIdno.Size = new System.Drawing.Size(323, 20);
             this.txtIdno.TabIndex = 6;
             this.txtIdno.ToolTip = "身份证号";
             this.txtIdno.Enter += new System.EventHandler(this.Dev_Enter);
@@ -411,11 +410,11 @@
             this.dateBirth.Name = "dateBirth";
             this.dateBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateBirth.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateBirth.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.dateBirth.Properties.MaxLength = 10;
-            this.dateBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateBirth.Size = new System.Drawing.Size(120, 21);
+            this.dateBirth.Size = new System.Drawing.Size(120, 20);
             this.dateBirth.TabIndex = 9;
             this.dateBirth.ToolTip = "出生日期";
             this.dateBirth.Enter += new System.EventHandler(this.Dev_Enter);
@@ -438,7 +437,7 @@
             this.txtAge.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtAge.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtAge.Properties.MaxLength = 10;
-            this.txtAge.Size = new System.Drawing.Size(80, 21);
+            this.txtAge.Size = new System.Drawing.Size(80, 20);
             this.txtAge.TabIndex = 10;
             this.txtAge.ToolTip = "实足年龄";
             this.txtAge.Enter += new System.EventHandler(this.Dev_Enter);
@@ -504,7 +503,7 @@
             this.txtOrganization.Name = "txtOrganization";
             this.txtOrganization.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtOrganization.Properties.MaxLength = 64;
-            this.txtOrganization.Size = new System.Drawing.Size(323, 21);
+            this.txtOrganization.Size = new System.Drawing.Size(323, 20);
             this.txtOrganization.TabIndex = 14;
             this.txtOrganization.ToolTip = "工作单位";
             this.txtOrganization.Enter += new System.EventHandler(this.Dev_Enter);
@@ -525,7 +524,7 @@
             this.txtOfficetel.Name = "txtOfficetel";
             this.txtOfficetel.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtOfficetel.Properties.MaxLength = 16;
-            this.txtOfficetel.Size = new System.Drawing.Size(120, 21);
+            this.txtOfficetel.Size = new System.Drawing.Size(120, 20);
             this.txtOfficetel.TabIndex = 15;
             this.txtOfficetel.ToolTip = "单位电话";
             this.txtOfficetel.Enter += new System.EventHandler(this.Dev_Enter);
@@ -629,7 +628,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtAddress.Properties.MaxLength = 128;
-            this.txtAddress.Size = new System.Drawing.Size(602, 21);
+            this.txtAddress.Size = new System.Drawing.Size(602, 20);
             this.txtAddress.TabIndex = 22;
             this.txtAddress.ToolTip = "详细到具体门牌";
             this.txtAddress.Enter += new System.EventHandler(this.Dev_Enter);
@@ -971,11 +970,11 @@
             this.dateAttackdate.Name = "dateAttackdate";
             this.dateAttackdate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateAttackdate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateAttackdate.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.dateAttackdate.Properties.MaxLength = 10;
-            this.dateAttackdate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateAttackdate.Size = new System.Drawing.Size(120, 21);
+            this.dateAttackdate.Size = new System.Drawing.Size(120, 20);
             this.dateAttackdate.TabIndex = 25;
             this.dateAttackdate.ToolTip = "发病日期";
             this.dateAttackdate.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1007,11 +1006,11 @@
             this.dateDiagdate.Name = "dateDiagdate";
             this.dateDiagdate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateDiagdate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateDiagdate.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.dateDiagdate.Properties.MaxLength = 19;
-            this.dateDiagdate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateDiagdate.Size = new System.Drawing.Size(150, 21);
+            this.dateDiagdate.Size = new System.Drawing.Size(150, 20);
             this.dateDiagdate.TabIndex = 26;
             this.dateDiagdate.ToolTip = "诊断日期";
             this.dateDiagdate.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1033,11 +1032,11 @@
             this.Diedate.Name = "Diedate";
             this.Diedate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.Diedate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.Diedate.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.Diedate.Properties.MaxLength = 10;
-            this.Diedate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.Diedate.Size = new System.Drawing.Size(200, 21);
+            this.Diedate.Size = new System.Drawing.Size(200, 20);
             this.Diedate.TabIndex = 28;
             this.Diedate.ToolTip = "死亡日期";
             this.Diedate.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1053,7 +1052,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.timeDiagdate.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.timeDiagdate.Properties.Mask.EditMask = "HH:mm";
-            this.timeDiagdate.Size = new System.Drawing.Size(60, 21);
+            this.timeDiagdate.Size = new System.Drawing.Size(60, 20);
             this.timeDiagdate.TabIndex = 27;
             this.timeDiagdate.ToolTip = "诊断时间";
             this.timeDiagdate.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1084,7 +1083,7 @@
             this.textCorrectName.Name = "textCorrectName";
             this.textCorrectName.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.textCorrectName.Properties.MaxLength = 64;
-            this.textCorrectName.Size = new System.Drawing.Size(210, 21);
+            this.textCorrectName.Size = new System.Drawing.Size(210, 20);
             this.textCorrectName.TabIndex = 31;
             this.textCorrectName.ToolTip = "订正病名";
             this.textCorrectName.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1106,7 +1105,7 @@
             this.txtCancelReason.Name = "txtCancelReason";
             this.txtCancelReason.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtCancelReason.Properties.MaxLength = 64;
-            this.txtCancelReason.Size = new System.Drawing.Size(200, 21);
+            this.txtCancelReason.Size = new System.Drawing.Size(200, 20);
             this.txtCancelReason.TabIndex = 32;
             this.txtCancelReason.ToolTip = "退卡原因";
             this.txtCancelReason.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1144,7 +1143,7 @@
             this.txtDoctortel.Name = "txtDoctortel";
             this.txtDoctortel.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtDoctortel.Properties.MaxLength = 16;
-            this.txtDoctortel.Size = new System.Drawing.Size(200, 21);
+            this.txtDoctortel.Size = new System.Drawing.Size(200, 20);
             this.txtDoctortel.TabIndex = 34;
             this.txtDoctortel.ToolTip = "联系电话";
             this.txtDoctortel.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1170,11 +1169,11 @@
             this.dateReportDate.Properties.Appearance.Options.UseBackColor = true;
             this.dateReportDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateReportDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateReportDate.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.dateReportDate.Properties.MaxLength = 10;
-            this.dateReportDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateReportDate.Size = new System.Drawing.Size(200, 21);
+            this.dateReportDate.Size = new System.Drawing.Size(200, 20);
             this.dateReportDate.TabIndex = 36;
             this.dateReportDate.ToolTip = "填卡日期";
             this.dateReportDate.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1198,6 +1197,7 @@
             this.memoMemo.Size = new System.Drawing.Size(602, 64);
             this.memoMemo.TabIndex = 37;
             this.memoMemo.ToolTip = "备注";
+            this.memoMemo.UseOptimizedRendering = true;
             this.memoMemo.Enter += new System.EventHandler(this.Dev_Enter);
             this.memoMemo.Leave += new System.EventHandler(this.Dev_Leave);
             // 
@@ -1211,6 +1211,7 @@
             this.memoOtherDiag.Size = new System.Drawing.Size(602, 46);
             this.memoOtherDiag.TabIndex = 30;
             this.memoOtherDiag.ToolTip = "其他法定管理以及重点监测传染病";
+            this.memoOtherDiag.UseOptimizedRendering = true;
             this.memoOtherDiag.Enter += new System.EventHandler(this.Dev_Enter);
             this.memoOtherDiag.Leave += new System.EventHandler(this.Dev_Leave);
             // 
@@ -1238,7 +1239,7 @@
             this.txtpatid.Name = "txtpatid";
             this.txtpatid.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtpatid.Properties.MaxLength = 32;
-            this.txtpatid.Size = new System.Drawing.Size(120, 21);
+            this.txtpatid.Size = new System.Drawing.Size(120, 20);
             this.txtpatid.TabIndex = 1;
             this.txtpatid.ToolTip = "病案号";
             this.txtpatid.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1265,7 +1266,7 @@
             this.lookUpEditorDoc.Name = "lookUpEditorDoc";
             this.lookUpEditorDoc.ShowFormImmediately = true;
             this.lookUpEditorDoc.ShowSButton = true;
-            this.lookUpEditorDoc.Size = new System.Drawing.Size(210, 20);
+            this.lookUpEditorDoc.Size = new System.Drawing.Size(210, 18);
             this.lookUpEditorDoc.TabIndex = 35;
             this.lookUpEditorDoc.ToolTip = "报告医生";
             this.lookUpEditorDoc.Enter += new System.EventHandler(this.Dev_Enter);
@@ -1289,7 +1290,7 @@
             this.lookUpEditorDept.Name = "lookUpEditorDept";
             this.lookUpEditorDept.ShowFormImmediately = true;
             this.lookUpEditorDept.ShowSButton = true;
-            this.lookUpEditorDept.Size = new System.Drawing.Size(210, 20);
+            this.lookUpEditorDept.Size = new System.Drawing.Size(210, 18);
             this.lookUpEditorDept.TabIndex = 33;
             this.lookUpEditorDept.ToolTip = "报告单位";
             this.lookUpEditorDept.CodeValueChanged += new System.EventHandler(this.lookUpEditorDept_CodeValueChanged);
@@ -1313,7 +1314,7 @@
             this.lookUpEditorZymosis.Name = "lookUpEditorZymosis";
             this.lookUpEditorZymosis.ShowFormImmediately = true;
             this.lookUpEditorZymosis.ShowSButton = true;
-            this.lookUpEditorZymosis.Size = new System.Drawing.Size(602, 20);
+            this.lookUpEditorZymosis.Size = new System.Drawing.Size(602, 18);
             this.lookUpEditorZymosis.TabIndex = 29;
             this.lookUpEditorZymosis.ToolTip = "传染病病种";
             this.lookUpEditorZymosis.TextChanged += new System.EventHandler(this.lookUpEditorZymosis_TextChanged);
@@ -1619,7 +1620,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Name = "UCReportCard";
-            this.Size = new System.Drawing.Size(940, 823);
+            this.Size = new System.Drawing.Size(759, 785);
             this.Load += new System.EventHandler(this.UCReportCard_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCReportCard_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.txtReportNo.Properties)).EndInit();
@@ -1630,7 +1631,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSex1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSex2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIdno.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateBirth.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateBirth.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateBirth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAgeUnit1.Properties)).EndInit();
@@ -1668,17 +1669,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype13.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype21.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype22.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateAttackdate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateAttackdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateAttackdate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateDiagdate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateDiagdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateDiagdate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Diedate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Diedate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Diedate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeDiagdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textCorrectName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCancelReason.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDoctortel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateReportDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateReportDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateReportDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoMemo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoOtherDiag.Properties)).EndInit();

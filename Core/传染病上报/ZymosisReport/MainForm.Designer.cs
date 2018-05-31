@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barLargeButtonItemSearch = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItemNew = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -43,7 +42,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.gridControlCardList = new DevExpress.XtraGrid.GridControl();
@@ -55,7 +54,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkEditOwner = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpEditDept = new DevExpress.XtraEditors.LookUpEdit();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.textEditPatID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -71,10 +70,10 @@
             this.barLargeButtonItemWithDraw = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItemPass = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItemReject = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.xtraTabControlCardInfo = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCardInfo = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControlReprotCard = new DevExpress.XtraEditors.PanelControl();
+            this.panelControlReprotCard = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -91,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlCardInfo)).BeginInit();
             this.xtraTabControlCardInfo.SuspendLayout();
             this.xtraTabPageCardInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlReprotCard)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -210,7 +208,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1197, 74);
+            this.barDockControlTop.Size = new System.Drawing.Size(1197, 79);
             // 
             // barDockControlBottom
             // 
@@ -223,19 +221,20 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 74);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 655);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 79);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 650);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1197, 74);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 655);
+            this.barDockControlRight.Location = new System.Drawing.Point(1197, 79);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 650);
             // 
             // dockManager1
             // 
             this.dockManager1.Form = this;
+            this.dockManager1.MenuManager = this.barManager1;
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.dockPanel1});
             this.dockManager1.TopZIndexControls.AddRange(new string[] {
@@ -250,14 +249,14 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPanel1.ID = new System.Guid("07d3d199-bdd8-4620-ab4e-013c64240988");
-            this.dockPanel1.Location = new System.Drawing.Point(0, 74);
+            this.dockPanel1.Location = new System.Drawing.Point(0, 79);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.AllowFloating = false;
             this.dockPanel1.Options.FloatOnDblClick = false;
             this.dockPanel1.Options.ShowCloseButton = false;
             this.dockPanel1.Options.ShowMaximizeButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(283, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(283, 655);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(326, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(326, 650);
             this.dockPanel1.Text = "工具栏";
             // 
             // dockPanel1_Container
@@ -266,7 +265,7 @@
             this.dockPanel1_Container.Controls.Add(this.groupBox2);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(275, 628);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(318, 623);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // gridControlCardList
@@ -276,7 +275,7 @@
             this.gridControlCardList.MainView = this.gridViewCardList;
             this.gridControlCardList.MenuManager = this.barManager1;
             this.gridControlCardList.Name = "gridControlCardList";
-            this.gridControlCardList.Size = new System.Drawing.Size(275, 460);
+            this.gridControlCardList.Size = new System.Drawing.Size(318, 455);
             this.gridControlCardList.TabIndex = 1;
             this.gridControlCardList.TabStop = false;
             this.gridControlCardList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -375,7 +374,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(275, 168);
+            this.groupBox2.Size = new System.Drawing.Size(318, 168);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "查询条件";
@@ -403,7 +402,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "部门编码"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "部门名称")});
             this.lookUpEditDept.Properties.ContextMenuStrip = this.contextMenuStrip1;
-            this.lookUpEditDept.Size = new System.Drawing.Size(187, 21);
+            this.lookUpEditDept.Size = new System.Drawing.Size(187, 20);
             this.lookUpEditDept.TabIndex = 2;
             // 
             // contextMenuStrip1
@@ -426,7 +425,7 @@
             this.textEditPatID.MenuManager = this.barManager1;
             this.textEditPatID.Name = "textEditPatID";
             this.textEditPatID.Properties.ContextMenuStrip = this.contextMenuStrip1;
-            this.textEditPatID.Size = new System.Drawing.Size(97, 21);
+            this.textEditPatID.Size = new System.Drawing.Size(97, 20);
             this.textEditPatID.TabIndex = 1;
             // 
             // labelControl5
@@ -444,7 +443,7 @@
             this.textEditName.MenuManager = this.barManager1;
             this.textEditName.Name = "textEditName";
             this.textEditName.Properties.ContextMenuStrip = this.contextMenuStrip1;
-            this.textEditName.Size = new System.Drawing.Size(97, 21);
+            this.textEditName.Size = new System.Drawing.Size(97, 20);
             this.textEditName.TabIndex = 0;
             // 
             // labelControl1
@@ -603,11 +602,11 @@
             // xtraTabControlCardInfo
             // 
             this.xtraTabControlCardInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControlCardInfo.Location = new System.Drawing.Point(283, 74);
+            this.xtraTabControlCardInfo.Location = new System.Drawing.Point(326, 79);
             this.xtraTabControlCardInfo.Name = "xtraTabControlCardInfo";
             this.xtraTabControlCardInfo.SelectedTabPage = this.xtraTabPageCardInfo;
             this.xtraTabControlCardInfo.ShowTabHeader = DevExpress.Utils.DefaultBoolean.False;
-            this.xtraTabControlCardInfo.Size = new System.Drawing.Size(914, 655);
+            this.xtraTabControlCardInfo.Size = new System.Drawing.Size(871, 650);
             this.xtraTabControlCardInfo.TabIndex = 1;
             this.xtraTabControlCardInfo.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPageCardInfo});
@@ -619,19 +618,17 @@
             this.xtraTabPageCardInfo.AutoScroll = true;
             this.xtraTabPageCardInfo.Controls.Add(this.panelControlReprotCard);
             this.xtraTabPageCardInfo.Name = "xtraTabPageCardInfo";
-            this.xtraTabPageCardInfo.Size = new System.Drawing.Size(908, 649);
+            this.xtraTabPageCardInfo.Size = new System.Drawing.Size(865, 644);
             this.xtraTabPageCardInfo.Text = "报告卡信息";
             // 
             // panelControlReprotCard
             // 
-            this.panelControlReprotCard.Appearance.BackColor = System.Drawing.Color.LightBlue;
-            this.panelControlReprotCard.Appearance.Options.UseBackColor = true;
+            this.panelControlReprotCard.AutoScroll = true;
             this.panelControlReprotCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlReprotCard.Location = new System.Drawing.Point(0, 0);
             this.panelControlReprotCard.Name = "panelControlReprotCard";
-            this.panelControlReprotCard.Size = new System.Drawing.Size(908, 649);
+            this.panelControlReprotCard.Size = new System.Drawing.Size(865, 644);
             this.panelControlReprotCard.TabIndex = 0;
-            this.panelControlReprotCard.Resize += new System.EventHandler(this.panelControlReprotCard_Resize);
             // 
             // MainForm
             // 
@@ -667,7 +664,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlCardInfo)).EndInit();
             this.xtraTabControlCardInfo.ResumeLayout(false);
             this.xtraTabPageCardInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControlReprotCard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -717,8 +713,8 @@
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItemExit;
         private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItemDelete;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
-        private DevExpress.XtraEditors.PanelControl panelControlReprotCard;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Panel panelControlReprotCard;
 
     }
 }

@@ -365,6 +365,7 @@
     <Content Include="Buttons_Common\归档.ico" />
     <Content Include="Buttons_Common\授权.ico" />
     <Content Include="Buttons_Common\提取.ico" />
+    <EmbeddedResource Include="Button\CRBSB_24.png" />
     <Content Include="Images\ChangePasswordTopRig111ht.png" />
     <Content Include="Images\LeftMain.png" />
     <Content Include="Images\LeftMain2.png" />

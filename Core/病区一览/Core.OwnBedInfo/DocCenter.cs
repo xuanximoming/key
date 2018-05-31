@@ -123,70 +123,6 @@ namespace DrectSoft.Core.OwnBedInfo
 
 
         }
-
-        #region "已弃用 -- 改用SetButtonState方法 by cyq 2012-11-08 方法统一封装"
-        /// <summary>
-        /// 系统界面配置参数控制
-        /// </summary>
-        //private void CopntrolModPatient()
-        //{
-        //    //基本信息维护功能
-        //    if (GetConfigValueByKey("ManualMaintainBasicInfo") == "1")
-        //    {
-        //        barButtonItem_PersonalInfo.Visibility = BarItemVisibility.Never;
-        //        barButtonItemChange.Visibility = BarItemVisibility.Always;
-        //        barButtonItemOut.Visibility = BarItemVisibility.Always;
-        //    }
-        //    else
-        //    {
-        //        barButtonItem_PersonalInfo.Visibility = BarItemVisibility.Always;
-        //        barButtonItemChange.Visibility = BarItemVisibility.Never;
-        //        barButtonItemOut.Visibility = BarItemVisibility.Never;
-        //    }
-        //    //从his查病人信息功能
-        //    if (GetConfigValueByKey("GetInpatientForHis") == "1")
-        //    {
-        //        barButtonItem_PersonalInfo.Visibility = BarItemVisibility.Always;
-        //    }
-        //    else
-        //    {
-
-        //        barButtonItem_PersonalInfo.Visibility = BarItemVisibility.Never;
-        //    }
-        //    //简版工作站
-        //    string simpledoctor = GetConfigValueByKey("SimpleDoctorCentor");
-        //    if (simpledoctor == "1")
-        //    {
-        //        barLargeButtonItemPatientInfo.Visibility =
-        //            barLargeButtonItemConsultation.Visibility =
-        //            barLargeButtonItemEmrApply.Visibility =
-        //        barLargeButtonItemReportCard.Visibility = BarItemVisibility.Never;  //最上面功能图标配置
-        //        dockPanel1.Visibility = DockVisibility.Hidden;
-        //        //临床路径 会诊申请 传染病上报上
-        //        barButtonItem7.Visibility =
-        //            btn_AppConsult.Visibility =
-        //            barButtonItemReportCard.Visibility = BarItemVisibility.Never;  //右键的控制
-        //        xtraTabPageCheck.PageVisible = xtraTabPagePoint.PageVisible = false;   //病历审核和病历评分页控制
-        //    }
-        //    else
-        //    {
-
-        //        barLargeButtonItemPatientInfo.Visibility =
-        //        barLargeButtonItemConsultation.Visibility =
-        //        barLargeButtonItemEmrApply.Visibility =
-        //    barLargeButtonItemReportCard.Visibility = BarItemVisibility.Always;   //最上面功能图标配置
-        //        dockPanel1.Visibility = DockVisibility.Visible;
-        //        //临床路径 会诊申请 传染病上报上
-        //        barButtonItem7.Visibility =
-        //            btn_AppConsult.Visibility =
-        //            barButtonItemReportCard.Visibility = BarItemVisibility.Always;  //右键的控制
-        //        xtraTabPageCheck.PageVisible = xtraTabPagePoint.PageVisible = true;   //病历审核和病历评分页控制
-
-        //    }
-
-        //}
-        #endregion
-
         /// <summary>
         /// 显示序号
         /// </summary>
@@ -3375,11 +3311,7 @@ namespace DrectSoft.Core.OwnBedInfo
         {
             try
             {
-
-                //ApplyExamine frm = new ApplyExamine(m_App);
-                //frm.ShowDialog(this.Owner);
                 MedicalRecordManage.UI.MedicalRecordApplyBack frm = new MedicalRecordManage.UI.MedicalRecordApplyBack(m_App);
-                //      MedicalRecordManage.UI.MedicalRecordApply frm = new MedicalRecordManage.UI.MedicalRecordApply(m_App);
                 frm.ShowDialog(this.Owner);
             }
             catch (Exception ex)

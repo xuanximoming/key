@@ -152,11 +152,23 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
-                ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
-                string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
-                ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
+                if (System.IO.File.Exists(strPath))
+                {
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
+                    string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                    DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
+                    ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
+
+                }
+                else
+                {
+                    ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                    string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                    DbProviderName = ConfigurationManager.ConnectionStrings[connectionStringsSection].ProviderName;
+                    ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+
+                }
             }
             catch (Exception ce)
             {
@@ -171,18 +183,37 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
-                ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
-                string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                if (dbProviderName != "")
+                if (System.IO.File.Exists(strPath))
                 {
-                    DbProviderName = dbProviderName;
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
+                    string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                    if (dbProviderName != "")
+                    {
+                        DbProviderName = dbProviderName;
+                    }
+                    else
+                    {
+                        DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
+                    }
+                    ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
+
                 }
                 else
                 {
-                    DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
+                    ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                    string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                    if (dbProviderName != "")
+                    {
+                        DbProviderName = dbProviderName;
+                    }
+                    else
+                    {
+                        DbProviderName = ConfigurationManager.ConnectionStrings[connectionStringsSection].ProviderName;
+                    }
+                    ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+
                 }
-                ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
 
 
             }
@@ -200,29 +231,54 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                if (dbProviderName != "")
+                if (System.IO.File.Exists(strPath))
                 {
-                    DbProviderName = dbProviderName;
+                    if (dbProviderName != "")
+                    {
+                        DbProviderName = dbProviderName;
+                    }
+                    else
+                    {
+                        Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                        ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
+                        string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                        DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
+                    }
+                    if (dbConnetionString != "")
+                    {
+                        ConnectionString = dbConnetionString;
+                    }
+                    else
+                    {
+                        Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                        ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
+                        string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                        ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
+                    }
                 }
                 else
                 {
-                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
-                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
-                    string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                    DbProviderName = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ProviderName;
+                    if (dbProviderName != "")
+                    {
+                        DbProviderName = dbProviderName;
+                    }
+                    else
+                    {
+                        ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                        string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                        DbProviderName = ConfigurationManager.ConnectionStrings[connectionStringsSection].ProviderName;
+                    }
+                    if (dbConnetionString != "")
+                    {
+                        ConnectionString = dbConnetionString;
+                    }
+                    else
+                    {
+                        ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+                        string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+                        ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+                    }
                 }
-                if (dbConnetionString != "")
-                {
-                    ConnectionString = dbConnetionString;
-                }
-                else
-                {
-                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
-                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
-                    string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
-                    ConnectionString = config.ConnectionStrings.ConnectionStrings[connectionStringsSection].ConnectionString;
-                }
-
             }
             catch (Exception ce)
             {
@@ -238,10 +294,18 @@ namespace DrectSoft.DSSqlHelper
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
-                ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
-                DbProviderName = config.ConnectionStrings.ConnectionStrings[dbName].ProviderName;
-                ConnectionString = config.ConnectionStrings.ConnectionStrings[dbName].ConnectionString;
+                if (System.IO.File.Exists(strPath))
+                {
+                    Configuration config = ConfigurationManager.OpenExeConfiguration(strPath);
+                    ConfigurationSection obj = config.GetSection("dataConfiguration") as ConfigurationSection;
+                    DbProviderName = config.ConnectionStrings.ConnectionStrings[dbName].ProviderName;
+                    ConnectionString = config.ConnectionStrings.ConnectionStrings[dbName].ConnectionString;
+                }
+                else
+                {
+                    DbProviderName = ConfigurationManager.ConnectionStrings[dbName].ProviderName;
+                    ConnectionString = ConfigurationManager.ConnectionStrings[dbName].ConnectionString;
+                }
             }
             catch (Exception ce)
             {

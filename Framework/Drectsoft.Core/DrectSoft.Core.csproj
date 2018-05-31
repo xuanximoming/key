@@ -305,7 +305,6 @@
     <None Include="Account\AccountManager.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
     <None Include="EmrObjectPersistent\XmlFile\PreDefSqlSentence.xsd" />
     <None Include="EmrObjectPersistent\XmlFile\DrectsoftORMappings.xsd">

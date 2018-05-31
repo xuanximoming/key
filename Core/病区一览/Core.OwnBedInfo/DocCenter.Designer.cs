@@ -419,7 +419,7 @@ namespace DrectSoft.Core.OwnBedInfo
             new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemEmrApply, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemWriteUp, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemReportCard, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemClinical, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemClinical),
             new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemRefresh, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.barLargeButtonItemExit, true)});
             this.bar1.OptionsBar.AllowQuickCustomization = false;
@@ -532,7 +532,6 @@ namespace DrectSoft.Core.OwnBedInfo
             this.barLargeButtonItemReportCard.Id = 49;
             this.barLargeButtonItemReportCard.LargeImageIndex = 19;
             this.barLargeButtonItemReportCard.Name = "barLargeButtonItemReportCard";
-            this.barLargeButtonItemReportCard.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barLargeButtonItemReportCard.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLargeButtonItemReportCard_ItemClick);
             // 
             // barLargeButtonItemClinical
