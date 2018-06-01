@@ -28,7 +28,7 @@ namespace DrectSoft.Core.MainEmrPad.New
     /// <summary>
     /// 编辑器封装类
     /// </summary>
-    public partial class EditorForm : UserControl
+    public partial class HistoryEditorForm : UserControl
     {
         #region Field && Property
 
@@ -106,7 +106,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         #endregion
 
         #region .ctor
-        public EditorForm(Inpatient inpatient, IEmrHost app)
+        public HistoryEditorForm(Inpatient inpatient, IEmrHost app)
         {
             try
             {
@@ -501,7 +501,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 //弹出其他相应窗口 name=''
                 if (m_DiagFormLogic.ShowDialog(name))
                 {
-                    m_DiagFormLogic.GetDiag(this);
+                    //m_DiagFormLogic.GetDiag(this);
                     return name;
                 }
                 //特殊的病历信息抓取，比如首次病程中包括一部分入院记录中的数据
@@ -761,7 +761,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 XmlDocument doc = new XmlDocument();
                 doc.PreserveWhitespace = true;
                 doc.LoadXml(emrContent);
-                FillModelMacro(doc);
+                //FillModelMacro(doc);
                 CurrentEditorControl.LoadXML(doc);
                 SetEditorProperty();
             }
@@ -1037,67 +1037,6 @@ namespace DrectSoft.Core.MainEmrPad.New
         }
 
         /// <summary>
-        /// 重新填充宏元素
-        /// </summary>
-        public void FillModelMacro()
-        {
-            try
-            {
-                if (this != null)
-                {
-                    bool isModified = this.CurrentEditorControl.EMRDoc.Modified;
-
-                    //替换文档中的宏
-                    //获得所有宏元素列表
-                    ArrayList al = new ArrayList();
-                    ZYTextDocument doc = this.CurrentEditorControl.EMRDoc;
-
-                    doc.GetAllSpecElement(al, doc.RootDocumentElement, ElementType.Macro, null);
-
-                    //循环每个宏元素，根据宏元素的Name属性，查询并赋值线Text属性
-                    foreach (ZYMacro m in al)
-                    {
-                        if (m.Name == "科室" && m.Text.Trim() != "科室")
-                            continue;
-                        if (m.Name == "入院科室" && m.Text.Trim() != "入院科室")
-                            continue;
-                        if (m.Name == "病区" && m.Text.Trim() != "病区")
-                            continue;
-                        if (m.Name == "医师签名" && m.text.Trim() != "医师签名")
-                            continue;
-                        if (m.Name == "当前日期" && m.text.Trim() != "当前日期")
-                            continue;
-                        if (m.Name == "当前时间" && m.text.Trim() != "当前时间")
-                            continue;
-
-                        //Add by wwj 2013-05-14 解决中心医院“医生签名”宏元素名称设置不正确而导致医师的名字被替换的问题
-                        if (m.Name == "主任医师" && m.text.Trim() != "主任医师")
-                            continue;
-                        if (m.Name == "主治医师" && m.text.Trim() != "主治医师")
-                            continue;
-                        if (m.Name == "住院医师" && m.text.Trim() != "住院医师")
-                            continue;
-                        if (m.Name == "管床医生" && m.text.Trim() != "管床医生")
-                            continue;
-
-                        m.Text = m_PadFormDal.GetDataByNameForMacro(m_CurrentInpatient.NoOfFirstPage.ToString(), m.Name);
-                    }
-
-                    doc.RefreshSize();
-                    doc.ContentChanged();
-                    doc.OwnerControl.Refresh();
-                    doc.UpdateCaret();
-
-                    this.CurrentEditorControl.EMRDoc.Modified = isModified;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        /// <summary>
         /// 替换首次病程中内容的标题 在加载完病程（即调用LoadDocument）之后调用
         /// </summary>
         /// <param name="model"></param>
@@ -1224,25 +1163,18 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                //<p align="0">
-                //  <text fontbold="1" type="text" name="记录日期">2011-09-08 13:30:48</text>
-                //  <span fontbold="1" creator="22">      </span>
-                //  <text type="text" name="标题">术后病程</text>
-                //  <eof />
-                //</p>
-
                 //已经存在<text>...</text>标签的不需要再次插入
                 if (doc.GetElementsByTagName("text").Cast<XmlNode>().Count(node =>
-                {
-                    if (((XmlElement)node).HasAttribute("type") && ((XmlElement)node).HasAttribute("name"))
                     {
-                        if (node.Attributes["type"].Value == "text" && node.Attributes["name"].Value == "记录日期")
+                        if (((XmlElement)node).HasAttribute("type") && ((XmlElement)node).HasAttribute("name"))
                         {
-                            return true;
+                            if (node.Attributes["type"].Value == "text" && node.Attributes["name"].Value == "记录日期")
+                            {
+                                return true;
+                            }
                         }
-                    }
-                    return false;
-                }) > 0)
+                        return false;
+                    }) > 0)
                 {
                     return;
                 }

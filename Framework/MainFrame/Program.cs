@@ -93,7 +93,7 @@ namespace MainFrame
 
             ad.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
-            ad.CreateInstanceAndUnwrap(exeAssembly, typeof(StartupClass).FullName, false, BindingFlags.Public | BindingFlags.Instance, null, new object[] { false, "file.menu", m_ShowMainTopText, appinfo }, null, null, null);
+            ad.CreateInstanceAndUnwrap(exeAssembly, typeof(StartupClass).FullName, false, BindingFlags.Public | BindingFlags.Instance, null, new object[] { false, "file.menu", m_ShowMainTopText, appinfo }, null, null);
 
         }
         /// <summary>
@@ -137,7 +137,7 @@ namespace MainFrame
                                 newstr += DatasourceList[i].ToString() + "";
                             }
 
-                            //如果医院使用一个客户端两个库，就要限制只可以登录一个咯
+                            //如果医院使用一个客户端两个库，就要限制只可以登录一个
                             //add by ywk 2013年5月6日16:22:28 
                             //先开一个新库，再开老库不让开，再开新库就可以
                             string softpath = currentsoftpath + "adcemr.exe.config";
@@ -193,7 +193,7 @@ namespace MainFrame
             //应该先判断当前有没有开着EMR程序，如果开着就进下面判断，如果没开就直接true
             Process myproc = new Process();
             Process[] prc = Process.GetProcesses();
-            if (Process.GetProcessesByName("Emr").Length == 1)//没有开启多个EMR程序
+            if (Process.GetProcessesByName("adcemr").Length == 1)//没有开启多个EMR程序
             {
                 return true;
             }
@@ -389,7 +389,7 @@ namespace MainFrame
             Process myproc = new Process();
             Process[] prc = Process.GetProcesses();
 
-            if (Process.GetProcessesByName("dcemr").Length <= 1)//没有开启多个EMR程序
+            if (Process.GetProcessesByName("adcemr").Length <= 1)//没有开启多个EMR程序
             {
                 if (Process.GetProcessesByName("AutoUpdate").Length == 0)
                 {

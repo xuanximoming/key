@@ -41,13 +41,13 @@ namespace DrectSoft.Core.MainEmrPad
         /// <summary>
         /// 当前界面选中的编辑器
         /// </summary>
-        EditorForm CurrentForm
+        HistoryEditorForm CurrentForm
         {
             get
             {
                 if (panelEmrContent.Controls.Count > 0)
                 {
-                    return panelEmrContent.Controls[0] as EditorForm;
+                    return panelEmrContent.Controls[0] as HistoryEditorForm;
                 }
                 return null;
             }
@@ -199,7 +199,7 @@ namespace DrectSoft.Core.MainEmrPad
         {
             try
             {
-                EditorForm pad = new EditorForm(m_CurrentInpatient, m_App);
+                HistoryEditorForm pad = new HistoryEditorForm(m_CurrentInpatient, m_App);
                 pad.Dock = DockStyle.Fill;
                 if (m_Model.ModelContent.InnerXml.Trim() != "")
                 {

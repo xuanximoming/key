@@ -1,17 +1,17 @@
 (1)EMREditor\EMREditor\MainEmrPad\New\MainForm.cs
-	文书录入入口窗体
+    文书录入入口窗体
 (2)EMREditor\EMREditor\MainEmrPad\New\UCEmrInput.cs
-	文书录入上面3条Bar
+    文书录入上面3条Bar
 (3)EMREditor\EMREditor\MainEmrPad\New\UCEmrInputBody.cs
-	文书录入Body部分
+    文书录入Body部分
 (4)EMREditor\EMREditor\MainEmrPad\New\UCEmrInputTabPages.cs
-	文书录入Body部分中的Tab页
+    文书录入Body部分中的Tab页
 (5)EMREditor\EMREditor\MainEmrPad\New\PrintForm.cs
-	打印预览界面
+    打印预览界面
 (6)EMREditor\EMREditor\MainEmrPad\New\EditorForm.cs
-	封装编辑器的类，方便调用
+    封装编辑器的类，方便调用
 (7)EMREditor\EMREditor\MainEmrPad\New\EditorFormDal.cs
-	封装编辑器类的数据访问层
+    封装编辑器类的数据访问层
 (8)EMREditor\EMREditor\MainEmrPad\New\UCEmrInputPreView.cs
    EMREditor\EMREditor\MainEmrPad\New\UCEmrInputPreViewInner.cs
     病程预览区用户控件
@@ -24,7 +24,7 @@
 (12)EMREditor\EMREditor\MainEmrPad\New\ChooseDeptForDailyEmrPrint.cs
     选择科室，包括转科和入科的记录
 (13)EMREditor\EMREditor\MainEmrPad\New\DailyTemplateForm.cs
-	新增病程时设置标题和时间的窗体
+    新增病程时设置标题和时间的窗体
     
 修改记录：
 2013-05-27 界面中数据的捞取改为多线程的方式，加快加载速度
