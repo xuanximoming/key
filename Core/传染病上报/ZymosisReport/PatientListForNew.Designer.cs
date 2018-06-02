@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientListForNew));
             this.checkEditOutHospital = new DevExpress.XtraEditors.CheckEdit();
             this.textEditBedNo = new DevExpress.XtraEditors.TextEdit();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.textEditPatID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -44,6 +45,7 @@
             this.gridViewPatientList = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemImageXB = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,8 +53,7 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.repositoryItemImageXB = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
-            this.imageListXB = new System.Windows.Forms.ImageList();
+            this.imageListXB = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOutHospital.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditBedNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditPatID.Properties)).BeginInit();
@@ -61,9 +62,9 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPatientList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPatientList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageXB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageXB)).BeginInit();
             this.SuspendLayout();
             // 
             // checkEditOutHospital
@@ -81,7 +82,7 @@
             this.textEditBedNo.Location = new System.Drawing.Point(534, 15);
             this.textEditBedNo.Name = "textEditBedNo";
             this.textEditBedNo.Properties.ContextMenuStrip = this.contextMenuStrip1;
-            this.textEditBedNo.Size = new System.Drawing.Size(120, 21);
+            this.textEditBedNo.Size = new System.Drawing.Size(120, 20);
             this.textEditBedNo.TabIndex = 2;
             this.textEditBedNo.TextChanged += new System.EventHandler(this.textEditBedNo_TextChanged);
             this.textEditBedNo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEditBedNo_KeyDown);
@@ -104,7 +105,7 @@
             this.textEditPatID.Location = new System.Drawing.Point(344, 15);
             this.textEditPatID.Name = "textEditPatID";
             this.textEditPatID.Properties.ContextMenuStrip = this.contextMenuStrip1;
-            this.textEditPatID.Size = new System.Drawing.Size(120, 21);
+            this.textEditPatID.Size = new System.Drawing.Size(120, 20);
             this.textEditPatID.TabIndex = 1;
             this.textEditPatID.ToolTip = "住院号";
             this.textEditPatID.TextChanged += new System.EventHandler(this.textEditPatID_TextChanged);
@@ -123,7 +124,7 @@
             this.textEditName.Location = new System.Drawing.Point(156, 15);
             this.textEditName.Name = "textEditName";
             this.textEditName.Properties.ContextMenuStrip = this.contextMenuStrip1;
-            this.textEditName.Size = new System.Drawing.Size(120, 21);
+            this.textEditName.Size = new System.Drawing.Size(120, 20);
             this.textEditName.TabIndex = 0;
             this.textEditName.ToolTip = "支持汉字、拼音、五笔检索";
             this.textEditName.TextChanged += new System.EventHandler(this.textEditName_TextChanged);
@@ -242,6 +243,13 @@
             this.gridColumn4.VisibleIndex = 1;
             this.gridColumn4.Width = 60;
             // 
+            // repositoryItemImageXB
+            // 
+            this.repositoryItemImageXB.AutoHeight = false;
+            this.repositoryItemImageXB.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemImageXB.Name = "repositoryItemImageXB";
+            // 
             // gridColumn5
             // 
             this.gridColumn5.AppearanceCell.Options.UseTextOptions = true;
@@ -331,13 +339,6 @@
             this.labelControl4.TabIndex = 4;
             this.labelControl4.Text = "检索条件>>>";
             // 
-            // repositoryItemImageXB
-            // 
-            this.repositoryItemImageXB.AutoHeight = false;
-            this.repositoryItemImageXB.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemImageXB.Name = "repositoryItemImageXB";
-            // 
             // imageListXB
             // 
             this.imageListXB.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
@@ -367,10 +368,10 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlPatientList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewPatientList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageXB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemImageXB)).EndInit();
             this.ResumeLayout(false);
 
         }

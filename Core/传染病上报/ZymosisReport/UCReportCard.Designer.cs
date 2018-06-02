@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtReportNo = new DevExpress.XtraEditors.TextEdit();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.chkReportType1 = new DevExpress.XtraEditors.CheckEdit();
             this.chkReportType2 = new DevExpress.XtraEditors.CheckEdit();
@@ -121,11 +122,11 @@
             this.txtpatid = new DevExpress.XtraEditors.TextEdit();
             this.chkRecordtype23 = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpEditorDoc = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowDoc = new DrectSoft.Common.Library.LookUpWindow();
+            this.lookUpWindowDoc = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.lookUpEditorDept = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow();
+            this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.lookUpEditorZymosis = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowZymosis = new DrectSoft.Common.Library.LookUpWindow();
+            this.lookUpWindowZymosis = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
@@ -1194,7 +1195,7 @@
             this.memoMemo.Name = "memoMemo";
             this.memoMemo.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.memoMemo.Properties.MaxLength = 255;
-            this.memoMemo.Size = new System.Drawing.Size(602, 64);
+            this.memoMemo.Size = new System.Drawing.Size(602, 95);
             this.memoMemo.TabIndex = 37;
             this.memoMemo.ToolTip = "备注";
             this.memoMemo.UseOptimizedRendering = true;
@@ -1312,6 +1313,7 @@
             this.lookUpEditorZymosis.ListWindow = this.lookUpWindowZymosis;
             this.lookUpEditorZymosis.Location = new System.Drawing.Point(93, 474);
             this.lookUpEditorZymosis.Name = "lookUpEditorZymosis";
+            this.lookUpEditorZymosis.ReadOnly = true;
             this.lookUpEditorZymosis.ShowFormImmediately = true;
             this.lookUpEditorZymosis.ShowSButton = true;
             this.lookUpEditorZymosis.Size = new System.Drawing.Size(602, 18);
@@ -1496,7 +1498,7 @@
             // panelControl_attachedCard
             // 
             this.panelControl_attachedCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelControl_attachedCard.Location = new System.Drawing.Point(33, 788);
+            this.panelControl_attachedCard.Location = new System.Drawing.Point(33, 811);
             this.panelControl_attachedCard.Name = "panelControl_attachedCard";
             this.panelControl_attachedCard.Size = new System.Drawing.Size(662, 210);
             this.panelControl_attachedCard.TabIndex = 80;
@@ -1535,6 +1537,7 @@
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScroll = true;
             this.Controls.Add(this.cheJieChu1);
             this.Controls.Add(this.cheJieChu0);
             this.Controls.Add(this.labelControl47);
@@ -1620,7 +1623,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Name = "UCReportCard";
-            this.Size = new System.Drawing.Size(759, 785);
+            this.Size = new System.Drawing.Size(742, 808);
             this.Load += new System.EventHandler(this.UCReportCard_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCReportCard_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.txtReportNo.Properties)).EndInit();

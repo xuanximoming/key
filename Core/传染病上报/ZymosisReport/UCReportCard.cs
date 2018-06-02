@@ -1650,7 +1650,7 @@ namespace DrectSoft.Core.ZymosisReport
                 dateDiagdate.Enabled = boo;
                 timeDiagdate.Enabled = boo;
                 Diedate.Enabled = boo;
-                lookUpEditorZymosis.Enabled = boo;
+                lookUpEditorZymosis.Enabled = !boo;
 
                 memoOtherDiag.Enabled = boo;
                 textCorrectName.Enabled = boo;

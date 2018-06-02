@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barLargeButtonItemSearch = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItemNew = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -42,7 +43,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.gridControlCardList = new DevExpress.XtraGrid.GridControl();
@@ -54,7 +55,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkEditOwner = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpEditDept = new DevExpress.XtraEditors.LookUpEdit();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.textEditPatID = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -70,7 +71,7 @@
             this.barLargeButtonItemWithDraw = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItemPass = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barLargeButtonItemReject = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.xtraTabControlCardInfo = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPageCardInfo = new DevExpress.XtraTab.XtraTabPage();
             this.panelControlReprotCard = new System.Windows.Forms.Panel();
