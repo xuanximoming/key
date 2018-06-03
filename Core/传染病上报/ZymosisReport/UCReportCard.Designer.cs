@@ -121,12 +121,6 @@
             this.labelControl34 = new DevExpress.XtraEditors.LabelControl();
             this.txtpatid = new DevExpress.XtraEditors.TextEdit();
             this.chkRecordtype23 = new DevExpress.XtraEditors.CheckEdit();
-            this.lookUpEditorDoc = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowDoc = new DrectSoft.Common.Library.LookUpWindow(this.components);
-            this.lookUpEditorDept = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow(this.components);
-            this.lookUpEditorZymosis = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowZymosis = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.labelControl35 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
@@ -145,6 +139,12 @@
             this.labelControl47 = new DevExpress.XtraEditors.LabelControl();
             this.cheJieChu0 = new DevExpress.XtraEditors.CheckEdit();
             this.cheJieChu1 = new DevExpress.XtraEditors.CheckEdit();
+            this.lookUpEditorZymosis = new DrectSoft.Common.Library.LookUpEditor();
+            this.lookUpWindowZymosis = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.lookUpEditorDoc = new DrectSoft.Common.Library.LookUpEditor();
+            this.lookUpWindowDoc = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.lookUpEditorDept = new DrectSoft.Common.Library.LookUpEditor();
+            this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtReportNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkReportType1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkReportType2.Properties)).BeginInit();
@@ -207,16 +207,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoOtherDiag.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpatid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype23.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDoc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDept)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDept)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorZymosis)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowZymosis)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cheJieChu0.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cheJieChu1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorZymosis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowZymosis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDept)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDept)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -1258,79 +1258,6 @@
             this.chkRecordtype23.ToolTip = "未分类";
             this.chkRecordtype23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbx_KeyPress);
             // 
-            // lookUpEditorDoc
-            // 
-            this.lookUpEditorDoc.EnterMoveNextControl = true;
-            this.lookUpEditorDoc.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
-            this.lookUpEditorDoc.ListWindow = this.lookUpWindowDoc;
-            this.lookUpEditorDoc.Location = new System.Drawing.Point(93, 682);
-            this.lookUpEditorDoc.Name = "lookUpEditorDoc";
-            this.lookUpEditorDoc.ShowFormImmediately = true;
-            this.lookUpEditorDoc.ShowSButton = true;
-            this.lookUpEditorDoc.Size = new System.Drawing.Size(210, 18);
-            this.lookUpEditorDoc.TabIndex = 35;
-            this.lookUpEditorDoc.ToolTip = "报告医生";
-            this.lookUpEditorDoc.Enter += new System.EventHandler(this.Dev_Enter);
-            this.lookUpEditorDoc.Leave += new System.EventHandler(this.Dev_Leave);
-            // 
-            // lookUpWindowDoc
-            // 
-            this.lookUpWindowDoc.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lookUpWindowDoc.GenShortCode = null;
-            this.lookUpWindowDoc.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
-            this.lookUpWindowDoc.Owner = null;
-            this.lookUpWindowDoc.SqlHelper = null;
-            // 
-            // lookUpEditorDept
-            // 
-            this.lookUpEditorDept.Enabled = false;
-            this.lookUpEditorDept.EnterMoveNextControl = true;
-            this.lookUpEditorDept.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
-            this.lookUpEditorDept.ListWindow = this.lookUpWindowDept;
-            this.lookUpEditorDept.Location = new System.Drawing.Point(93, 655);
-            this.lookUpEditorDept.Name = "lookUpEditorDept";
-            this.lookUpEditorDept.ShowFormImmediately = true;
-            this.lookUpEditorDept.ShowSButton = true;
-            this.lookUpEditorDept.Size = new System.Drawing.Size(210, 18);
-            this.lookUpEditorDept.TabIndex = 33;
-            this.lookUpEditorDept.ToolTip = "报告单位";
-            this.lookUpEditorDept.CodeValueChanged += new System.EventHandler(this.lookUpEditorDept_CodeValueChanged);
-            this.lookUpEditorDept.Enter += new System.EventHandler(this.Dev_Enter);
-            this.lookUpEditorDept.Leave += new System.EventHandler(this.Dev_Leave);
-            // 
-            // lookUpWindowDept
-            // 
-            this.lookUpWindowDept.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lookUpWindowDept.GenShortCode = null;
-            this.lookUpWindowDept.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
-            this.lookUpWindowDept.Owner = null;
-            this.lookUpWindowDept.SqlHelper = null;
-            // 
-            // lookUpEditorZymosis
-            // 
-            this.lookUpEditorZymosis.EnterMoveNextControl = true;
-            this.lookUpEditorZymosis.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
-            this.lookUpEditorZymosis.ListWindow = this.lookUpWindowZymosis;
-            this.lookUpEditorZymosis.Location = new System.Drawing.Point(93, 474);
-            this.lookUpEditorZymosis.Name = "lookUpEditorZymosis";
-            this.lookUpEditorZymosis.ReadOnly = true;
-            this.lookUpEditorZymosis.ShowFormImmediately = true;
-            this.lookUpEditorZymosis.ShowSButton = true;
-            this.lookUpEditorZymosis.Size = new System.Drawing.Size(602, 18);
-            this.lookUpEditorZymosis.TabIndex = 29;
-            this.lookUpEditorZymosis.ToolTip = "传染病病种";
-            this.lookUpEditorZymosis.TextChanged += new System.EventHandler(this.lookUpEditorZymosis_TextChanged);
-            this.lookUpEditorZymosis.Enter += new System.EventHandler(this.Dev_Enter);
-            this.lookUpEditorZymosis.Leave += new System.EventHandler(this.Dev_Leave);
-            // 
-            // lookUpWindowZymosis
-            // 
-            this.lookUpWindowZymosis.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lookUpWindowZymosis.GenShortCode = null;
-            this.lookUpWindowZymosis.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
-            this.lookUpWindowZymosis.Owner = null;
-            this.lookUpWindowZymosis.SqlHelper = null;
-            // 
             // labelControl35
             // 
             this.labelControl35.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1532,6 +1459,80 @@
             this.cheJieChu1.TabIndex = 83;
             this.cheJieChu1.TabStop = false;
             // 
+            // lookUpEditorZymosis
+            // 
+            this.lookUpEditorZymosis.Enabled = false;
+            this.lookUpEditorZymosis.EnterMoveNextControl = true;
+            this.lookUpEditorZymosis.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lookUpEditorZymosis.ListWindow = this.lookUpWindowZymosis;
+            this.lookUpEditorZymosis.Location = new System.Drawing.Point(93, 474);
+            this.lookUpEditorZymosis.Name = "lookUpEditorZymosis";
+            this.lookUpEditorZymosis.ShowFormImmediately = true;
+            this.lookUpEditorZymosis.ShowSButton = true;
+            this.lookUpEditorZymosis.Size = new System.Drawing.Size(602, 18);
+            this.lookUpEditorZymosis.TabIndex = 29;
+            this.lookUpEditorZymosis.ToolTip = "传染病病种";
+            this.lookUpEditorZymosis.TextChanged += new System.EventHandler(this.lookUpEditorZymosis_TextChanged);
+            this.lookUpEditorZymosis.Enter += new System.EventHandler(this.Dev_Enter);
+            this.lookUpEditorZymosis.Leave += new System.EventHandler(this.Dev_Leave);
+            // 
+            // lookUpWindowZymosis
+            // 
+            this.lookUpWindowZymosis.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowZymosis.GenShortCode = null;
+            this.lookUpWindowZymosis.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
+            this.lookUpWindowZymosis.Owner = null;
+            this.lookUpWindowZymosis.SqlHelper = null;
+            // 
+            // lookUpEditorDoc
+            // 
+            this.lookUpEditorDoc.Enabled = false;
+            this.lookUpEditorDoc.EnterMoveNextControl = true;
+            this.lookUpEditorDoc.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lookUpEditorDoc.ListWindow = this.lookUpWindowDoc;
+            this.lookUpEditorDoc.Location = new System.Drawing.Point(93, 682);
+            this.lookUpEditorDoc.Name = "lookUpEditorDoc";
+            this.lookUpEditorDoc.ShowFormImmediately = true;
+            this.lookUpEditorDoc.ShowSButton = true;
+            this.lookUpEditorDoc.Size = new System.Drawing.Size(210, 18);
+            this.lookUpEditorDoc.TabIndex = 35;
+            this.lookUpEditorDoc.ToolTip = "报告医生";
+            this.lookUpEditorDoc.Enter += new System.EventHandler(this.Dev_Enter);
+            this.lookUpEditorDoc.Leave += new System.EventHandler(this.Dev_Leave);
+            // 
+            // lookUpWindowDoc
+            // 
+            this.lookUpWindowDoc.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowDoc.GenShortCode = null;
+            this.lookUpWindowDoc.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
+            this.lookUpWindowDoc.Owner = null;
+            this.lookUpWindowDoc.SqlHelper = null;
+            // 
+            // lookUpEditorDept
+            // 
+            this.lookUpEditorDept.Enabled = false;
+            this.lookUpEditorDept.EnterMoveNextControl = true;
+            this.lookUpEditorDept.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lookUpEditorDept.ListWindow = this.lookUpWindowDept;
+            this.lookUpEditorDept.Location = new System.Drawing.Point(93, 655);
+            this.lookUpEditorDept.Name = "lookUpEditorDept";
+            this.lookUpEditorDept.ShowFormImmediately = true;
+            this.lookUpEditorDept.ShowSButton = true;
+            this.lookUpEditorDept.Size = new System.Drawing.Size(210, 18);
+            this.lookUpEditorDept.TabIndex = 33;
+            this.lookUpEditorDept.ToolTip = "报告单位";
+            this.lookUpEditorDept.CodeValueChanged += new System.EventHandler(this.lookUpEditorDept_CodeValueChanged);
+            this.lookUpEditorDept.Enter += new System.EventHandler(this.Dev_Enter);
+            this.lookUpEditorDept.Leave += new System.EventHandler(this.Dev_Leave);
+            // 
+            // lookUpWindowDept
+            // 
+            this.lookUpWindowDept.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowDept.GenShortCode = null;
+            this.lookUpWindowDept.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
+            this.lookUpWindowDept.Owner = null;
+            this.lookUpWindowDept.SqlHelper = null;
+            // 
             // UCReportCard
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -1623,7 +1624,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Name = "UCReportCard";
-            this.Size = new System.Drawing.Size(742, 808);
+            this.Size = new System.Drawing.Size(708, 808);
             this.Load += new System.EventHandler(this.UCReportCard_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCReportCard_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.txtReportNo.Properties)).EndInit();
@@ -1688,17 +1689,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoOtherDiag.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtpatid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkRecordtype23.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDoc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDept)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDept)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorZymosis)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowZymosis)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cheJieChu0.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cheJieChu1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorZymosis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowZymosis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorDept)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowDept)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

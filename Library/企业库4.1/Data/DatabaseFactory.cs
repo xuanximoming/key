@@ -83,7 +83,16 @@ namespace Microsoft.Practices.EnterpriseLibrary.Data
         {
             try
             {
-                DatabaseProviderFactory factory = new DatabaseProviderFactory(ConfigurationSourceFactory.Create());
+                DatabaseProviderFactory factory = null;
+                if (System.IO.File.Exists("./adcemr.exe.config"))
+                {
+                    FileConfigurationSource fileSource = new FileConfigurationSource("./adcemr.exe.config");
+                    factory = new DatabaseProviderFactory(fileSource);
+                }
+                else
+                {
+                    factory = new DatabaseProviderFactory(ConfigurationSourceFactory.Create());
+                }
                 return factory.Create(name);
             }
             catch (ConfigurationErrorsException configurationException)

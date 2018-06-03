@@ -18,14 +18,16 @@ namespace EMRTESTWINDOW
                 ChangePat changepat = new ChangePat();
                 IChangePat ichangepat = changepat;
                 string patNum = "0106713_1";
-                int i = ichangepat.InitEmr("003322");
-                uc = ichangepat.ChangePatient(patNum);
-                if (uc == null)
-                {
-                    return;
-                }
-                tabPage1.Controls.Clear();
-                tabPage1.Controls.Add(uc);
+                int i = ichangepat.InitEmr("00");
+                //uc = ichangepat.ChangePatient(patNum);
+                ichangepat.ChangePatient(this.Handle.ToString(), patNum);
+                //if (uc == null)
+                //{
+                //    return;
+                //}
+
+                // this.Controls.Clear();
+                // this.Controls.Add(uc);
             }
             catch (Exception ex)
             {

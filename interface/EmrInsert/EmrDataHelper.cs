@@ -1,4 +1,6 @@
-﻿using DrectSoft.Core;
+﻿using DrectSoft.Common;
+using DrectSoft.Core;
+using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.Data;
 using System.Drawing;
@@ -10,8 +12,9 @@ namespace EmrInsert
     public partial class EmrDataHelper
     {
 
-        public bool isLoginResult = false;
-        public IDataAccess m_SqlHelper;
+        private bool isLoginResult = false;
+        private IDataAccess _SqlHelper;
+        private IEmrHost _EmrHost = null;
         DrectSoft.MainFrame.FormMain _Formain = null;
         public DrectSoft.MainFrame.FormMain Formain
         {
@@ -26,7 +29,7 @@ namespace EmrInsert
             }
         }
 
-        public void thisLogin(string UserId)
+        public IEmrHost thisLogin(string UserId)
         {
             if (Formain.isLG == null)
             {
@@ -41,13 +44,16 @@ namespace EmrInsert
                 try
                 {
                     isLoginResult = Formain.Login();
-                    m_SqlHelper = Formain.SqlHelper;
+                    _SqlHelper = Formain.SqlHelper;
                 }
                 catch (Exception ex)
                 {
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(5, ex.Message);
                 }
+                _EmrHost = this.Formain;
+                DS_Common.currentUser = _EmrHost.User;
             }
+            return _EmrHost;
         }
 
         #region  SQL Exec
@@ -60,7 +66,7 @@ namespace EmrInsert
         {
             try
             {
-                DataTable dt = m_SqlHelper.ExecuteDataTable(sql);
+                DataTable dt = _SqlHelper.ExecuteDataTable(sql);
                 return dt;
             }
             catch (Exception ex)
@@ -147,7 +153,7 @@ namespace EmrInsert
             sb.AppendFormat(" ,'{0}' ", "0");//MOTHER
             sb.AppendFormat(" ,'{0}' ", dtHisPat.Rows[0]["Mobile"]);//ContactTEL
             sb.Append(")");
-            m_SqlHelper.ExecuteNoneQuery(sb.ToString());
+            _SqlHelper.ExecuteNoneQuery(sb.ToString());
         }
 
 
@@ -203,7 +209,7 @@ namespace EmrInsert
             sb.AppendFormat(" ,ADMITWAY='{0}' ", "3");//ADMITWAY
             sb.AppendFormat(" ,CLINICDOCTOR='{0}' ", "001538");//CLINICDOCTOR
             sb.AppendFormat("where PatNoOfHis='{0}'", row["InID"]);
-            m_SqlHelper.ExecuteNoneQuery(sb.ToString());
+            _SqlHelper.ExecuteNoneQuery(sb.ToString());
         }
 
 
@@ -222,7 +228,7 @@ namespace EmrInsert
             sb.AppendFormat(" OUTBED=N'{0}' ", row["BedOrder"]);//ADMITBED
 
             sb.AppendFormat(" where NoOfRecord='{0}' ", NoOfRecord);
-            m_SqlHelper.ExecuteNoneQuery(sb.ToString());
+            _SqlHelper.ExecuteNoneQuery(sb.ToString());
         }
 
         /// <summary>
@@ -409,7 +415,7 @@ namespace EmrInsert
         public void OutPat(string bedOrder)
         {
             string sqlStr = string.Format("Update InPatient set Status='1503' where OutBed='{0}' ", bedOrder);
-            m_SqlHelper.ExecuteNoneQuery(sqlStr);
+            _SqlHelper.ExecuteNoneQuery(sqlStr);
         }
         /// <summary>
         /// 改变长度
