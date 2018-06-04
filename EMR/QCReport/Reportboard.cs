@@ -200,6 +200,7 @@ namespace DrectSoft.Core.QCReport
 
                 gridControl1.DataSource = dt;
 
+
                 paramList.Clear();
                 //把查询条件作为Key-Value对
                 foreach (Control ctl in flowLayoutPanel1.Controls)
