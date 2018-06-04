@@ -34,6 +34,7 @@ namespace EmrInfirce
             }
             catch (Exception ex)
             {
+                MessageBox.Show("电子病历初始化失败！" + ex.Message);
                 return 0;
             }
         }
@@ -107,8 +108,8 @@ namespace EmrInfirce
         /// <summary>
         /// 加载病人信息
         /// </summary>
+        /// <param name="WinHandle">父窗口句柄</param>
         /// <param name="PatNoOfHis">患者ID</param>
-        /// <returns>返回UCEmrInput实例</returns>
         public void ChangePatient(string WinHandle, string PatNoOfHis)
         {
             DataTable dt = _emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", PatNoOfHis));
@@ -116,63 +117,19 @@ namespace EmrInfirce
             if (dt == null || dt.Rows.Count == 0)
             {
                 MessageBox.Show("EMR中没有此患者信息，请确认！");
-                //return null;
-                #region 添加示例
-                //DataTable dtHisIns = SqlDataHelper.SelectDataTable(string.Format("select a.*,b.DegreeID,c.GroupName,c.EmrID,d.BedOrder from Inp_Register as a inner join PAT_Patient as b on  a.PatientID=b.PatientID " +
-                //    " inner join SDTC_Group as c  on a.CurrentGroupID=c.GroupID left join Inp_Bed as d on a.CurrentBedID=d.BedID " +
-                //   "where  a.inid='{0}'", inid));
-                //if (dtHisIns == null || dtHisIns.Rows.Count == 0)
-                //{
-                //    SDT.Client.ControlsHelper.Show("该患者未分床(占床)或者没有病案号。");
-                //    return;
-                //}
-                //if (Convert.ToString(dtHisIns.Rows[0]["DegreeID"]).Trim() == string.Empty)
-                //{
-                //    SDT.Client.ControlsHelper.Show("该患者没有病案号。");
-                //    return;
-                //}
-                //DataTable dtHisPt = SqlDataHelper.SelectDataTable(string.Format("select *,'' as  InICO,'' as OutICO from PAT_Patient where DegreeID='{0}'", dtHisIns.Rows[0]["DegreeID"].ToString()));
-                //if (dtHisPt == null)
-                //    return;
-                //StringBuilder sb = new StringBuilder();
-                //string pt = Convert.ToString(dtHisPt.Rows[0]["DegreeID"]);
-                //if (string.IsNullOrEmpty(pt))
-                //{
-                //    SDT.Client.ControlsHelper.Show("该患者没有病案号，请录入病案号后，再试。");
-                //    return;
-                //}
-                //emrHelper.InsertPatent(dtHisPt, sb, dtHisIns.Rows[0], pt);
-                //dt = emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", dtHisIns.Rows[0]["InID"].ToString()));
-                #endregion
             }
             //存在更新
             else
             {
                 _noOfInpat = Convert.ToDecimal(dt.Rows[0]["noOfInpat"]);
-
-                #region 更新示例
-                //DataTable dtHisIns = SqlDataHelper.SelectDataTable(string.Format("select a.*,b.DegreeID,c.GroupName,c.EmrID,d.BedOrder from Inp_Register as a inner join PAT_Patient as b on  a.PatientID=b.PatientID " +
-                //    " inner join SDTC_Group as c  on a.CurrentGroupID=c.GroupID left join Inp_Bed as d on a.CurrentBedID=d.BedID " +
-                //   "where  a.inid='{0}'", inid));
-
-
-                //DataTable dtHisPt = SqlDataHelper.SelectDataTable(string.Format("select *,'' as  InICO,'' as OutICO from PAT_Patient where DegreeID='{0}'", dtHisIns.Rows[0]["DegreeID"].ToString()));
-
-                //StringBuilder sb = new StringBuilder();
-                //string pt = Convert.ToString(dtHisPt.Rows[0]["DegreeID"]);
-
-                //emrHelper.UpdatePatent(dtHisPt, sb, dtHisIns.Rows[0], pt);
-                //dt = emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", dtHisIns.Rows[0]["InID"].ToString()));
-                #endregion
             }
 
             CreateUCEmrInput();
-            ClinicEmr(WinHandle);
+            EmrSetWindow(WinHandle, _UCEmrInput);
         }
         /// <summary>
         /// 创建UCEmrInput实例
         /// </summary>
-        /// <returns>返回UCEmrInput实例</returns>
         private void CreateUCEmrInput()
         {
             _EmrHost.ChoosePatient(_noOfInpat);
@@ -180,12 +137,17 @@ namespace EmrInfirce
             _UCEmrInput.Dock = DockStyle.Fill;
         }
 
-        private int ClinicEmr(string WinHandle)
+        /// <summary>
+        /// 设置父窗口
+        /// </summary>
+        /// <param name="WinHandle">父窗口句柄</param>
+        /// <returns>1、成功 -1 失败</returns>
+        private int EmrSetWindow(string WinHandle, UserControl m_UserControl)
         {
             int result;
             try
             {
-                if (_UCEmrInput == null || _UCEmrInput.IsDisposed)
+                if (m_UserControl == null || m_UserControl.IsDisposed)
                 {
                     CreateUCEmrInput();
                 }
@@ -194,7 +156,7 @@ namespace EmrInfirce
                     Form EmrForm = new Form();
                     EmrForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                     EmrForm.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-                    EmrForm.Controls.Add(_UCEmrInput);
+                    EmrForm.Controls.Add(m_UserControl);
                     new CrossPlatformControlHostManager
                     {
                         ContainerHandle = new IntPtr(Convert.ToInt32(WinHandle)),
@@ -207,6 +169,7 @@ namespace EmrInfirce
             }
             catch (Exception ex)
             {
+                MessageBox.Show("句柄父窗口创建失败！" + ex.Message);
                 result = -1;
             }
             return result;

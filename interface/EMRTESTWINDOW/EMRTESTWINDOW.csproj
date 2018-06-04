@@ -153,10 +153,6 @@
       <Project>{365b4e91-c897-447d-a2b5-3ea7400a19ca}</Project>
       <Name>EmrInfirce</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EmrInsert\EmrInsert.csproj">
-      <Project>{adc3d0ce-447b-4755-91a0-c82c5413858c}</Project>
-      <Name>EmrInsert</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo20.ico" />
