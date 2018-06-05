@@ -1,10 +1,9 @@
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Runtime.ConstrainedExecution;
-using System.Security.Permissions;
 using System;
+using System.Reflection;
 using System.Resources;
+using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
+using System.Security.Permissions;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -12,9 +11,9 @@ using System.Resources;
 [assembly: AssemblyTitle("DoctorAdvice")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Yindansoft NetWorkStudio")]
+[assembly: AssemblyCompany("Drectsoft NetWorkStudio")]
 [assembly: AssemblyProduct("DoctorAdvice")]
-[assembly: AssemblyCopyright("版权所有 (C) Yindansoft NetWorkStudio 2006")]
+[assembly: AssemblyCopyright("版权所有 (C) Drectsoft")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
