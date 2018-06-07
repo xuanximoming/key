@@ -5415,11 +5415,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                     for (int iCount = s1; iCount <= s2; iCount++)
                     {
                         myElement = (ZYTextElement)myElements[iCount];
-                        //Debug.WriteLine("██s1 != s2时, myElement:" + myElement);
-                        //if( myElement.HandleSelectedChange()) return ;
-                        //						if( myElement is ZYTextContainer )
-                        //							myOwnerControl.AddInvalidateRect( ( myElement as ZYTextContainer).ContentBounds );
-                        //						else
                         if (myElement is ZYTextBlock)
                             myOwnerControl.AddInvalidateRect((myElement as ZYTextBlock).GetContentBounds());
                         else
@@ -5445,11 +5440,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                     for (int iCount = e1; iCount <= e2; iCount++)
                     {
                         myElement = (ZYTextElement)myElements[iCount];
-                        //Debug.WriteLine("██e1 != e2时, myElement:" + myElement);
-                        //if( myElement.HandleSelectedChange()) return ;
-                        //						if( myElement is ZYTextContainer )
-                        //							myOwnerControl.AddInvalidateRect( ( myElement as ZYTextContainer).ContentBounds );
-                        //						else
                         if (myElement is ZYTextBlock)
                             myOwnerControl.AddInvalidateRect((myElement as ZYTextBlock).GetContentBounds());
                         else

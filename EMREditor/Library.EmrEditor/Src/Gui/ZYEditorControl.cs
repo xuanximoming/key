@@ -246,6 +246,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         /// <param name="e"></param>
         protected override void OnKeyPress(System.Windows.Forms.KeyPressEventArgs e)
         {
+            if (editactions.ContainsKey((System.Windows.Forms.Keys)e.KeyChar)) return;
             if (bolLockingUI && !IsInActiveEditArea(this.Document.Content.CurrentElement)) return;
             LastMessageTick = System.Environment.TickCount;
             //BeforeUserMessage();
@@ -261,7 +262,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                         return;
                     WeiWenProcess.KeyPress(e);
                 }
-
+                //屏蔽掉需要OnKeyDown处理的事件
                 A_InsertChar a = new A_InsertChar();
                 a.KeyCode = (System.Windows.Forms.Keys)e.KeyChar;
                 a.OwnerDocument = this.EMRDoc;
@@ -272,6 +273,48 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         }
 
 
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// PB 语言调用时，不触发ProcessDialogKey  方向键不触发OnKeyPress，处理ProcessDialogKey事件
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (bolLockingUI && e.KeyData != (Keys.C | Keys.Control) && !IsInActiveEditArea(this.Document.Content.CurrentElement))
+            {
+                return;
+            }
+            if (myDocument != null)
+            {
+                // 自动执行插入-修改模式的切换
+                if (bolEnableInsertMode && e.KeyData == System.Windows.Forms.Keys.Insert)
+                    this.InsertMode = !this.InsertMode;
+                else
+                {
+                    //如果是tab键
+                    if (e.KeyData == Keys.Tab)
+                    {
+                        A_InsertChar a = new A_InsertChar();
+                        a.KeyCode = e.KeyData;
+                        a.OwnerDocument = this.EMRDoc;
+                        a.Execute();
+                        e.Handled = true;
+                    }
+
+                    if (editactions.ContainsKey(e.KeyData))
+                    {
+                        ZYEditorAction action = editactions[e.KeyData];
+                        action.OwnerDocument = this.EMRDoc;
+                        action.Execute();
+                        e.Handled = true;
+                    }
+                }
+            }
+            base.OnKeyDown(e);
+        }
         /// <summary>
         /// keydown事件不能响应方向键,OnPreviewKeyDown不能给出返回值，还是用ProcessDialogKey吧
         /// </summary>
@@ -307,7 +350,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
 
                     if (editactions.ContainsKey(keyData))
                     {
-
                         ZYEditorAction action = editactions[keyData];
                         action.OwnerDocument = this.EMRDoc;
                         action.Execute();
