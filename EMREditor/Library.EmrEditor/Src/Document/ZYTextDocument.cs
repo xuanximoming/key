@@ -1136,7 +1136,8 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         public void UpdateCaret()
         {
             ZYTextElement myElement = myContent.CurrentElement;
-            myOwnerControl.MoveTextCaretTo(myElement.RealLeft + myElement.Width - 2, myElement.RealTop + myElement.Height, myElement.Height);
+            //myOwnerControl.MoveTextCaretTo(myElement.RealLeft + myElement.Width - 2, myElement.RealTop + myElement.Height, myElement.Height);
+            myOwnerControl.MoveTextCaretTo(myElement.RealLeft, myElement.RealTop + myElement.Height, myElement.Height);
 
         }
 
