@@ -108,6 +108,9 @@
     <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -126,6 +129,7 @@
     <Reference Include="DevExpress.XtraNavBar.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -197,6 +201,12 @@
     <Compile Include="Lock\FormLock.Designer.cs">
       <DependentUpon>FormLock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\FormReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\FormReg.Designer.cs">
+      <DependentUpon>FormReg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\FormResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +251,9 @@
     <EmbeddedResource Include="Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\FormReg.resx">
+      <DependentUpon>FormReg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FormResetPassword.resx">
       <DependentUpon>FormResetPassword.cs</DependentUpon>
@@ -331,9 +344,17 @@
     <Content Include="emr.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\PersonTtemTemplet\PersonTtemTemplet\PersonTtemTemplet.csproj">
+      <Project>{F1D0E65F-9158-40EB-A963-E6576F45894C}</Project>
+      <Name>PersonTtemTemplet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\权限控制\Permission\Permission.csproj">
       <Project>{9f7acdd5-a9d0-462c-ab12-9f63c44c6a40}</Project>
       <Name>Permission</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\病案首页\IemMainPageExtension\IemMainPageExtension.csproj">
+      <Project>{42904EE7-A171-4B67-8626-869293BB4905}</Project>
+      <Name>IemMainPageExtension</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
       <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>

@@ -1,6 +1,7 @@
 ﻿using DrectSoft.FrameWork;
 using DrectSoft.FrameWork.Plugin.Manager;
 using DrectSoft.MainFrame;
+using DrectSoft.MainFrame.Login;
 using System;
 using System.Collections;
 using System.Configuration;
@@ -287,9 +288,9 @@ namespace MainFrame
                         }
                         if (dt_client_ip.Rows.Count <= 0 || dt_client_ip.Rows[0]["ip_code"].ToString().Trim() != EncryptDES(PublicClass.GetIPStr().Trim(), "ip__code"))
                         {
-
-                            MessageBox.Show("此计算机IP:" + PublicClass.GetIPStr().Trim() + "未进行注册，请联系管理员！");
-                            rvalue = false;
+                            FormReg FormReg = new FormReg(PublicClass.GetIPStr().Trim());
+                            if (DialogResult.OK != FormReg.ShowDialog())
+                                rvalue = false;
                         }
 
                     }
