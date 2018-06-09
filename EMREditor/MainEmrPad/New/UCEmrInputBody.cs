@@ -909,6 +909,14 @@ namespace DrectSoft.Core.MainEmrPad.New
                                 return item;
                             }
                         }
+                        else if (DoctorEmployee.Kind == EmployeeKind.Outdoctor)
+                        {
+                            if (modelContainer.ContainerCatalog == chooseNodeList[2])
+                            {
+                                item.Selected = true;
+                                return item;
+                            }
+                        }
                         else
                         {
                             return null;
