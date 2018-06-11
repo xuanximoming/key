@@ -1,6 +1,7 @@
 ﻿using DrectSoft.FrameWork;
 using DrectSoft.FrameWork.Plugin.Manager;
 using DrectSoft.MainFrame;
+using DrectSoft.MainFrame.Login;
 using System;
 using System.Collections;
 using System.Configuration;
@@ -287,9 +288,22 @@ namespace MainFrame
                         }
                         if (dt_client_ip.Rows.Count <= 0 || dt_client_ip.Rows[0]["ip_code"].ToString().Trim() != EncryptDES(PublicClass.GetIPStr().Trim(), "ip__code"))
                         {
-
-                            MessageBox.Show("此计算机IP:" + PublicClass.GetIPStr().Trim() + "未进行注册，请联系管理员！");
-                            rvalue = false;
+                            DataTable DtCount = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataTable("select * from CLIENT_LOG", CommandType.Text);
+                            string RegNum = PublicClass.DecryptDES(ConfigurationManager.AppSettings["RegNum"], "hospname");
+                            //超过限定数量,弹出清理对话框
+                            if (int.Parse(RegNum) <= DtCount.Rows.Count)
+                            {
+                                FormReg FormReg = new FormReg(PublicClass.GetIPStr().Trim());
+                                if (DialogResult.OK != FormReg.ShowDialog())
+                                    rvalue = false;
+                            }
+                            else
+                            {
+                                //没有超过数量，并且没有注册的IP地址，注册
+                                string SqlInsert = @"insert into CLIENT_LOG (IP, IP_CODE) values ('{0}', '{1}')";
+                                SqlInsert = string.Format(SqlInsert, PublicClass.GetIPStr().Trim(), PublicClass.EncryptDES(PublicClass.GetIPStr().Trim(), "ip__code"));
+                                int result = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteNonQuery(SqlInsert, CommandType.Text);
+                            }
                         }
 
                     }

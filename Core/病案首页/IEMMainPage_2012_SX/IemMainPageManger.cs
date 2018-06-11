@@ -1473,7 +1473,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                     InserIemOperInfo_sx(item, m_app.SqlHelper);
 
                 //插入产妇婴儿情况
-                InsertIemObstetricsBaby(this.IemInfo.IemObstetricsBaby, m_app.SqlHelper);
+                if (this.IemInfo.IemObstetricsBaby != null)
+                    InsertIemObstetricsBaby(this.IemInfo.IemObstetricsBaby, m_app.SqlHelper);
                 EditIemFeeInfo_sx(this.IemInfo, "1");
                 m_app.SqlHelper.CommitTransaction();
 

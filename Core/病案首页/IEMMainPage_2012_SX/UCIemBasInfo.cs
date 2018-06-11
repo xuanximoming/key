@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using DrectSoft.Wordbook;
-using DrectSoft.Common.Library;
-
-using DrectSoft.FrameWork.WinForm.Plugin;
-
-using Convertmy = DrectSoft.Core.UtilsForExtension;
-using DevExpress.XtraEditors;
-using DrectSoft.Common.Eop;
+﻿using DevExpress.XtraEditors;
 using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Eop;
+using DrectSoft.Common.Library;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Wordbook;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
+using Convertmy = DrectSoft.Core.UtilsForExtension;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -481,7 +476,7 @@ namespace DrectSoft.Core.IEMMainPage
             }
             catch (Exception ex)
             {
-               MyMessageBox.Show(1, ex);
+                MyMessageBox.Show(1, ex);
             }
         }
 
@@ -1012,7 +1007,7 @@ namespace DrectSoft.Core.IEMMainPage
                 }
                 else
                 {
-                    
+
                     return daysPart;
                 }
             }
@@ -1045,7 +1040,7 @@ namespace DrectSoft.Core.IEMMainPage
                 //  txtPatNoOfHis.Text = info.IemBasicInfo.PatNoOfHis.ToString();
                 #region 将his首页序号 修改为显示his中病人的id号
                 txtPatNoOfHis.Text = info.IemBasicInfo.NOOFRECORD.ToString();
-                #endregion 
+                #endregion
             }
 
             //txtPatNoOfHis.Text = info.IemBasicInfo.PatNoOfHis.ToString();
@@ -1089,10 +1084,10 @@ namespace DrectSoft.Core.IEMMainPage
             lueJG_CityID.CodeValue = info.IemBasicInfo.JG_CityID;
             #region 0622添加
             textEdit_hkdz.Text = info.IemBasicInfo.HKDZ_ProvinceName;
-           textEdit_xzz.Text = info.IemBasicInfo.XZZ_ProvinceName;
-           textEdit_jg.Text = info.IemBasicInfo.JG_ProvinceName;
-           textEdit_csd.Text = info.IemBasicInfo.CSD_ProvinceName;
-         //   txt_job.Text = info.IemBasicInfo.JobID;
+            textEdit_xzz.Text = info.IemBasicInfo.XZZ_ProvinceName;
+            textEdit_jg.Text = info.IemBasicInfo.JG_ProvinceName;
+            textEdit_csd.Text = info.IemBasicInfo.CSD_ProvinceName;
+            //   txt_job.Text = info.IemBasicInfo.JobID;
             #endregion
             //第四行
             txtIDNO.Text = info.IemBasicInfo.IDNO;
@@ -1155,7 +1150,7 @@ namespace DrectSoft.Core.IEMMainPage
             }
 
             lueAdmitDept.CodeValue = info.IemBasicInfo.AdmitDeptID;
-           // lueAdmitWard.CodeValue = info.IemBasicInfo.AdmitWardID;
+            // lueAdmitWard.CodeValue = info.IemBasicInfo.AdmitWardID;
             textEdit_rybg.Text = info.IemBasicInfo.AdmitWardID;
 
             lueTransAdmitDept.CodeValue = info.IemBasicInfo.Trans_AdmitDeptID;
@@ -1264,14 +1259,14 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第三行
             m_IemInfo.IemBasicInfo.CSD_ProvinceID = lueCSD_ProvinceID.CodeValue;
-         //   m_IemInfo.IemBasicInfo.CSD_ProvinceName = lueCSD_ProvinceID.Text;
+            //   m_IemInfo.IemBasicInfo.CSD_ProvinceName = lueCSD_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.CSD_ProvinceName = textEdit_csd.Text.Trim();
             m_IemInfo.IemBasicInfo.CSD_CityID = lueCSD_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.CSD_CityName = lueCSD_CityID.Text;
             m_IemInfo.IemBasicInfo.CSD_DistrictID = lueCSD_DistrictID.CodeValue;
             m_IemInfo.IemBasicInfo.CSD_DistrictName = lueCSD_DistrictID.Text;
             m_IemInfo.IemBasicInfo.JG_ProvinceID = lueJG_ProvinceID.CodeValue;
-           // m_IemInfo.IemBasicInfo.JG_ProvinceName = lueJG_ProvinceID.Text;
+            // m_IemInfo.IemBasicInfo.JG_ProvinceName = lueJG_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.JG_ProvinceName = textEdit_jg.Text.Trim();
             m_IemInfo.IemBasicInfo.JG_CityID = lueJG_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.JG_CityName = lueJG_CityID.Text;
@@ -1286,7 +1281,7 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第五行
             m_IemInfo.IemBasicInfo.XZZ_ProvinceID = lueXZZ_ProvinceID.CodeValue;
-         //   m_IemInfo.IemBasicInfo.XZZ_ProvinceName = lueXZZ_ProvinceID.Text;
+            //   m_IemInfo.IemBasicInfo.XZZ_ProvinceName = lueXZZ_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.XZZ_ProvinceName = textEdit_xzz.Text.Trim();
             m_IemInfo.IemBasicInfo.XZZ_CityID = lueXZZ_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.XZZ_CityName = lueXZZ_CityID.Text;
@@ -1297,7 +1292,7 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第六行
             m_IemInfo.IemBasicInfo.HKDZ_ProvinceID = lueHKDZ_ProvinceID.CodeValue;
-          //  m_IemInfo.IemBasicInfo.HKDZ_ProvinceName = lueHKDZ_ProvinceID.Text;
+            //  m_IemInfo.IemBasicInfo.HKDZ_ProvinceName = lueHKDZ_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.HKDZ_ProvinceName = textEdit_hkdz.Text.Trim();
             m_IemInfo.IemBasicInfo.HKDZ_CityID = lueHKDZ_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.HKDZ_CityName = lueHKDZ_CityID.Text;
@@ -1348,9 +1343,9 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemBasicInfo.AdmitDeptID = lueAdmitDept.CodeValue;
             m_IemInfo.IemBasicInfo.AdmitDeptName = lueAdmitDept.Text;
             m_IemInfo.IemBasicInfo.AdmitWardID = textEdit_rybg.Text.Trim();
-                //lueAdmitWard.CodeValue;
+            //lueAdmitWard.CodeValue;
             m_IemInfo.IemBasicInfo.AdmitWardName = textEdit_rybg.Text.Trim();
-                ///lueAdmitWard.Text;
+            ///lueAdmitWard.Text;
 
             m_IemInfo.IemBasicInfo.Trans_AdmitDeptID = lueTransAdmitDept.CodeValue;
             m_IemInfo.IemBasicInfo.Trans_AdmitDeptName = lueTransAdmitDept.Text;
@@ -1360,9 +1355,9 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemBasicInfo.OutHosDeptID = lueOutHosDept.CodeValue;
             m_IemInfo.IemBasicInfo.OutHosDeptName = lueOutHosDept.Text;
             m_IemInfo.IemBasicInfo.OutHosWardID = textEdit_cybf.Text.Trim();
-                //lueOutHosWard.CodeValue;
+            //lueOutHosWard.CodeValue;
             m_IemInfo.IemBasicInfo.OutHosWardName = textEdit_cybf.Text.Trim();
-                //lueOutHosWard.Text;
+            //lueOutHosWard.Text;
             m_IemInfo.IemBasicInfo.ActualDays = seActualDays.Value.ToString();
 
             m_IemInfo.IemBasicInfo.MZZYZD_CODE = lueMZZYZD_CODE.DiaCode;//.CodeValue;
@@ -1828,7 +1823,6 @@ namespace DrectSoft.Core.IEMMainPage
         {
             getMZResult();
             GetUI();
-            //((ShowUC)this.Parent).Close(true, m_IemInfo);
 
             //点击确认按钮就将数据更新到数据库
             CurrentInpatient = m_App.CurrentPatientInfo;
