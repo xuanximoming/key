@@ -18,7 +18,7 @@ namespace EMRTESTWINDOW
                 ChangePat changepat = new ChangePat();
                 IChangePat ichangepat = changepat;
                 string patNum = "0106713_1";
-                int i = ichangepat.InitEmr("00");
+                int i = ichangepat.InitEmr("100032", "管理员", "000", "00", "00");
                 //uc = ichangepat.ChangePatient(patNum);
                 ichangepat.ChangePatient(this.Handle.ToString(), patNum);
                 //if (uc == null)

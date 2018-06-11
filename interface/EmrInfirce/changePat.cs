@@ -20,15 +20,27 @@ namespace EmrInfirce
         /// <summary>
         /// 初始化EMR
         /// </summary>
-        /// <param name="UserId">用户名</param>
-        public int InitEmr(string UserId)
+        /// <param name="UserId">用户ID</param>
+        /// <param name="Name">用户名</param>
+        /// <param name="DeptId">科室代码</param>
+        /// <param name="WardId">病区代码</param>
+        /// <param name="Cate">用户权限</param>
+        /// <returns>1、成功，0失败</returns>
+        public int InitEmr(string UserId, string Name, string DeptId, string WardId, string Cate)
         {
             try
             {
                 if (_EmrHost == null)
                 {
                     _emrHelper = new EmrDataHelper();
+                    _emrHelper._UserId = UserId;
+                    _emrHelper._Name = Name;
+                    _emrHelper._DeptId = DeptId;
+                    _emrHelper._WardId = WardId;
+                    _emrHelper._Cate = Cate;
                     _EmrHost = _emrHelper.thisLogin(UserId);
+                    if (_EmrHost == null)
+                        return 0;
                 }
                 return 1;
             }

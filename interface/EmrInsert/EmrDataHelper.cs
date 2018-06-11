@@ -16,6 +16,7 @@ namespace EmrInsert
         private bool isLoginResult = false;
         private IDataAccess _SqlHelper;
         private IEmrHost _EmrHost = null;
+        public string _UserId, _Name, _DeptId, _WardId, _Cate;
         DrectSoft.MainFrame.FormMain _Formain = null;
         public DrectSoft.MainFrame.FormMain Formain
         {
@@ -36,6 +37,11 @@ namespace EmrInsert
             {
                 if (UserId == null || UserId == "")
                     UserId = "00";
+                if (!Formain.GetUser(UserId))
+                {
+                    AddUser();
+                    return null;
+                }
                 Formain.m_FormLogin.textBoxUserID.Text = UserId;
                 Formain.otherUser = true;
                 Formain.m_FormLogin.textBoxUserID_Leave(null, null);
@@ -57,6 +63,24 @@ namespace EmrInsert
             return _EmrHost;
         }
 
+        /// <summary>
+        /// 添加用户信息
+
+        private void AddUser()
+        {
+            string SqlAddUser = @"insert into users (ID, NAME, PY, WB, SEXY, BIRTH, MARITAL, IDNO, 
+                                     DEPTID, WARDID, CATEGORY, JOBTITLE, RECIPEID, RECIPEMARK, 
+                                     NARCOSISMARK, GROUPID, GRADE, PASSWD, JOBID, REGDATE, OPERATOR, 
+                                     ONLINESTATE, STATUS, VALID, MEMO, HISID, DEPTORWARD, POWER)
+                                  values ('{0}', '{1}', get_pinyin('{1}'), get_wb('{1}'), '', '2018/06/11', 
+                                 null, null, '{2}', '{3}', '{4}', '', null, '', '', null, 
+                                 '', 'QK+S40FfCEQ=', '', '2005110717:30:35', null, 0, 1, 1, 
+                                  null, null, null, -1)";
+
+            SqlAddUser = string.Format(SqlAddUser, _UserId, _Name, _DeptId, _WardId, _Cate);
+            Formain.SqlHelper.ExecuteNoneQuery(SqlAddUser, CommandType.Text);
+            MessageBox.Show("用户权限不足，请联系管理员维护权限！");
+        }
         #region  SQL Exec
         /// <summary>
         /// sql 执行

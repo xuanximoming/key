@@ -47,7 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.DevButtonDelete1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonDelete(this.components);
-            this.DevButtonAdd1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd(this.components);
+            this.DevButtonAdd = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd(this.components);
             this.timeEditCheckTime = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlBabyInfo = new DevExpress.XtraEditors.GroupControl();
@@ -179,24 +179,24 @@
             this.修改ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
             // 
             // 新增ToolStripMenuItem
             // 
             this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
-            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.新增ToolStripMenuItem.Text = "新增";
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             // 
             // label1
@@ -216,7 +216,7 @@
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.DevButtonDelete1);
-            this.panelControl1.Controls.Add(this.DevButtonAdd1);
+            this.panelControl1.Controls.Add(this.DevButtonAdd);
             this.panelControl1.Controls.Add(this.timeEditCheckTime);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -234,14 +234,15 @@
             this.DevButtonDelete1.TabIndex = 59;
             this.DevButtonDelete1.Text = "删除(&D)";
             // 
-            // DevButtonAdd1
+            // DevButtonAdd
             // 
-            this.DevButtonAdd1.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonAdd1.Image")));
-            this.DevButtonAdd1.Location = new System.Drawing.Point(193, 5);
-            this.DevButtonAdd1.Name = "DevButtonAdd1";
-            this.DevButtonAdd1.Size = new System.Drawing.Size(80, 23);
-            this.DevButtonAdd1.TabIndex = 58;
-            this.DevButtonAdd1.Text = "新增(&A)";
+            this.DevButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonAdd.Image")));
+            this.DevButtonAdd.Location = new System.Drawing.Point(193, 5);
+            this.DevButtonAdd.Name = "DevButtonAdd";
+            this.DevButtonAdd.Size = new System.Drawing.Size(80, 23);
+            this.DevButtonAdd.TabIndex = 58;
+            this.DevButtonAdd.Text = "新增(&A)";
+            this.DevButtonAdd.Click += new System.EventHandler(this.DevButtonAdd_Click);
             // 
             // timeEditCheckTime
             // 
@@ -275,6 +276,7 @@
             // gridControl1
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 22);
             this.gridControl1.MainView = this.gridView1;
@@ -384,6 +386,7 @@
             // gridControl2
             // 
             this.gridControl2.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl2.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl2.Location = new System.Drawing.Point(2, 22);
             this.gridControl2.MainView = this.gridView2;
@@ -537,7 +540,7 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DrectSoft.Common.Ctrs.OTHER.DevButtonDelete DevButtonDelete1;
-        private DrectSoft.Common.Ctrs.OTHER.DevButtonAdd DevButtonAdd1;
+        private DrectSoft.Common.Ctrs.OTHER.DevButtonAdd DevButtonAdd;
         private DevExpress.XtraEditors.TimeEdit timeEditCheckTime;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.GroupControl groupControlBabyInfo;

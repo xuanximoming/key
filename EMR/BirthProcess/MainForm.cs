@@ -114,5 +114,20 @@ namespace DrectSoft.Core.BirthProcess
             frm.ShowDialog();
             frm.Dispose();
         }
+        private void DevButtonAdd_Click(object sender, EventArgs e)
+        {
+            gridView1.AddNewRow();
+        }
+    }
+    class recoder1
+    {
+        string datetimenow { get; set; }
+        string gongkai { get; set; }
+        string taitou { get; set; }
+        string fangshi { get; set; }
+        string fengmian { get; set; }
+        string qianzi { get; set; }
+        string luru { get; set; }
+        string shanchu { get; set; }
     }
 }
