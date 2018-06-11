@@ -54,13 +54,13 @@ namespace DrectSoft.MainFrame.Login
         private void InitIp()
         {
             DataTable dt = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataTable("select IP from CLIENT_LOG", CommandType.Text);
-            if (dt.Rows.Count > 0)
+            if (dt != null)
             {
 
                 Dictionary<string, int> columnwidth = new Dictionary<string, int>();
                 SqlWordbook sqlWordBook = null;
                 dt.Columns["IP"].Caption = "IP地址";
-                columnwidth.Add("IP", 150);
+                columnwidth.Add("IP", 400);
                 sqlWordBook = new SqlWordbook("queryip", dt, "IP", "IP", columnwidth, "IP");
                 this.lookUpEditorIP.SqlWordbook = sqlWordBook;
             }
@@ -69,6 +69,8 @@ namespace DrectSoft.MainFrame.Login
         private void ButtonDel_Click(object sender, System.EventArgs e)
         {
             int result = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteNonQuery(string.Format("delete from CLIENT_LOG where ip = '{0}'", this.lookUpEditorIP.Text.Trim()), CommandType.Text);
+            InitIp();
+            MessageBox.Show("删除成功！");
         }
     }
 }

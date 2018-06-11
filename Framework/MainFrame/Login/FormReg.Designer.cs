@@ -90,10 +90,10 @@
             this.lookUpEditorIP.EnterMoveNextControl = true;
             this.lookUpEditorIP.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lookUpEditorIP.ListWindow = this.lookUpWindowIp;
-            this.lookUpEditorIP.Location = new System.Drawing.Point(79, 114);
+            this.lookUpEditorIP.Location = new System.Drawing.Point(80, 114);
             this.lookUpEditorIP.Name = "lookUpEditorIP";
             this.lookUpEditorIP.ShowSButton = true;
-            this.lookUpEditorIP.Size = new System.Drawing.Size(147, 18);
+            this.lookUpEditorIP.Size = new System.Drawing.Size(160, 18);
             this.lookUpEditorIP.TabIndex = 4;
             this.lookUpEditorIP.ToolTip = "IP";
             // 
