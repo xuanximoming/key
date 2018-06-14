@@ -46,7 +46,7 @@ namespace EmrInfirce
             }
             catch (Exception ex)
             {
-                MessageBox.Show("电子病历初始化失败！" + ex.Message);
+                MessageBox.Show("电子病历初始化失败！\r\n" + ex.Message);
                 return 0;
             }
         }

@@ -36,6 +36,7 @@
             this.ButtonDel = new DevExpress.XtraEditors.SimpleButton();
             this.lookUpEditorIP = new DrectSoft.Common.Library.LookUpEditor();
             this.lookUpWindowIp = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.IPInput.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorIP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowIp)).BeginInit();
@@ -43,7 +44,7 @@
             // 
             // IP
             // 
-            this.IP.Location = new System.Drawing.Point(27, 53);
+            this.IP.Location = new System.Drawing.Point(27, 73);
             this.IP.Name = "IP";
             this.IP.Size = new System.Drawing.Size(47, 14);
             this.IP.TabIndex = 0;
@@ -52,14 +53,14 @@
             // IPInput
             // 
             this.IPInput.Enabled = false;
-            this.IPInput.Location = new System.Drawing.Point(77, 50);
+            this.IPInput.Location = new System.Drawing.Point(77, 70);
             this.IPInput.Name = "IPInput";
             this.IPInput.Size = new System.Drawing.Size(163, 20);
             this.IPInput.TabIndex = 1;
             // 
             // LabDelIp
             // 
-            this.LabDelIp.Location = new System.Drawing.Point(9, 115);
+            this.LabDelIp.Location = new System.Drawing.Point(9, 135);
             this.LabDelIp.Name = "LabDelIp";
             this.LabDelIp.Size = new System.Drawing.Size(71, 14);
             this.LabDelIp.TabIndex = 5;
@@ -68,7 +69,7 @@
             // SBOK
             // 
             this.SBOK.Image = global::DrectSoft.MainFrame.Properties.Resources.新增;
-            this.SBOK.Location = new System.Drawing.Point(261, 44);
+            this.SBOK.Location = new System.Drawing.Point(261, 64);
             this.SBOK.Name = "SBOK";
             this.SBOK.Size = new System.Drawing.Size(75, 32);
             this.SBOK.TabIndex = 6;
@@ -78,7 +79,7 @@
             // ButtonDel
             // 
             this.ButtonDel.Image = global::DrectSoft.MainFrame.Properties.Resources.删除;
-            this.ButtonDel.Location = new System.Drawing.Point(261, 106);
+            this.ButtonDel.Location = new System.Drawing.Point(261, 126);
             this.ButtonDel.Name = "ButtonDel";
             this.ButtonDel.Size = new System.Drawing.Size(75, 32);
             this.ButtonDel.TabIndex = 7;
@@ -90,7 +91,7 @@
             this.lookUpEditorIP.EnterMoveNextControl = true;
             this.lookUpEditorIP.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lookUpEditorIP.ListWindow = this.lookUpWindowIp;
-            this.lookUpEditorIP.Location = new System.Drawing.Point(80, 114);
+            this.lookUpEditorIP.Location = new System.Drawing.Point(80, 134);
             this.lookUpEditorIP.Name = "lookUpEditorIP";
             this.lookUpEditorIP.ShowSButton = true;
             this.lookUpEditorIP.Size = new System.Drawing.Size(160, 18);
@@ -105,6 +106,16 @@
             this.lookUpWindowIp.Owner = null;
             this.lookUpWindowIp.SqlHelper = null;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl1.Location = new System.Drawing.Point(12, 21);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(319, 19);
+            this.labelControl1.TabIndex = 8;
+            this.labelControl1.Text = "注册已经超过限制，请删除已经弃用的IP地址";
+            // 
             // FormReg
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -112,6 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 203);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.ButtonDel);
             this.Controls.Add(this.SBOK);
             this.Controls.Add(this.LabDelIp);
@@ -120,7 +132,7 @@
             this.Controls.Add(this.IP);
             this.Name = "FormReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormReg";
+            this.Text = "机器重新注册";
             ((System.ComponentModel.ISupportInitialize)(this.IPInput.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorIP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowIp)).EndInit();
@@ -138,5 +150,6 @@
         private DevExpress.XtraEditors.LabelControl LabDelIp;
         private DevExpress.XtraEditors.SimpleButton SBOK;
         private DevExpress.XtraEditors.SimpleButton ButtonDel;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

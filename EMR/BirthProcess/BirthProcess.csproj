@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B975E199-9C2E-4E60-9220-2ACA79949BCF}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DrectSoft.Core.BirthProcess</RootNamespace>
     <AssemblyName>DrectSoft.Core.BirthProcess</AssemblyName>
@@ -87,6 +87,7 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -107,6 +108,12 @@
     <Compile Include="DataLoader.cs" />
     <Compile Include="DataPoint.cs" />
     <Compile Include="DrawHepler.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,11 +126,15 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BirthProcessImage.resx">
       <DependentUpon>BirthProcessImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdit.resx">
       <DependentUpon>FrmEdit.cs</DependentUpon>
@@ -161,9 +172,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +182,10 @@
     <ProjectReference Include="..\..\DrectCommon\DrectSoft.Common.csproj">
       <Project>{c9714a65-9719-4154-9b20-a26157d53c45}</Project>
       <Name>DrectSoft.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DrectSqlHelper\DrectSoft.DSSqlHelper.csproj">
+      <Project>{fcfe859e-bafb-4ee4-8df0-c1edd1c2acd6}</Project>
+      <Name>DrectSoft.DSSqlHelper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
       <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>

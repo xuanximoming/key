@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Columns;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using System.Linq;
-using DevExpress.XtraEditors.Repository;
+﻿using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.Utils;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DrectSoft.Common;
 using DrectSoft.Common.Ctrs.DLG;
-using DrectSoft.Common.Eop;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
 {
@@ -105,7 +101,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         private void SetBtnEnable()
         {
 
-        btnHis.Enabled=btnDelHis.Enabled=  btnTongJi.Enabled=  btnTopAdd.Enabled = btnAddNew.Enabled = btnRemove.Enabled = btnTopSave.Enabled = btnAddColName.Enabled = btnEdit.Enabled = m_canEdit;
+            btnHis.Enabled = btnDelHis.Enabled = btnTongJi.Enabled = btnTopAdd.Enabled = btnAddNew.Enabled = btnRemove.Enabled = btnTopSave.Enabled = btnAddColName.Enabled = btnEdit.Enabled = m_canEdit;
             gridViewTab.OptionsBehavior.ReadOnly = !m_canEdit;
         }
 
@@ -666,51 +662,51 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 DataColumn dc = null;
 
                 //xll 2013-08-19 无论有无数据 都从维护处取表结构
-             //   if (m_InCommonNoteTab == null || m_InCommonNoteTab.InCommonNoteItemList == null || m_InCommonNoteTab.InCommonNoteItemList.Count <= 0)
-              //  {
+                //   if (m_InCommonNoteTab == null || m_InCommonNoteTab.InCommonNoteItemList == null || m_InCommonNoteTab.InCommonNoteItemList.Count <= 0)
+                //  {
 
-                    dc = new DataColumn("xgnum");
-                    dc.Caption = "修改次数";
-                    dc.DataType = typeof(int);
-                    dt.Columns.Add(dc);
+                dc = new DataColumn("xgnum");
+                dc.Caption = "修改次数";
+                dc.DataType = typeof(int);
+                dt.Columns.Add(dc);
 
-                    dc = new DataColumn("groupFlow");
-                    dc.Caption = "流水号";
-                    dc.DataType = typeof(String);
-                    dt.Columns.Add(dc);
+                dc = new DataColumn("groupFlow");
+                dc.Caption = "流水号";
+                dc.DataType = typeof(String);
+                dt.Columns.Add(dc);
 
-                    dc = new DataColumn("jlsj");
-                    dc.Caption = "记录时间";
-                    dc.DataType = typeof(DateTime);
-                    dt.Columns.Add(dc);
-                    inCommonNoteBiz.SetCommonTabOtherName(m_commonNote_TabEntity, m_InCommonNoteTab.InCommonNote_Tab_Flow);
-                    foreach (var item in m_commonNote_TabEntity.CommonNote_ItemList)
+                dc = new DataColumn("jlsj");
+                dc.Caption = "记录时间";
+                dc.DataType = typeof(DateTime);
+                dt.Columns.Add(dc);
+                inCommonNoteBiz.SetCommonTabOtherName(m_commonNote_TabEntity, m_InCommonNoteTab.InCommonNote_Tab_Flow);
+                foreach (var item in m_commonNote_TabEntity.CommonNote_ItemList)
+                {
+                    dc = new DataColumn(item.CommonNote_Item_Flow);
+                    if (string.IsNullOrEmpty(item.OtherName))
                     {
-                        dc = new DataColumn(item.CommonNote_Item_Flow);
-                        if (string.IsNullOrEmpty(item.OtherName))
-                        {
-                            dc.Caption = "未指定列";
-                        }
-                        else
-                        {
-                            dc.Caption = item.OtherName;
-                        }
-
-                        if (item.DataElement == null)
-                        {
-                            item.DataElement = m_DataElemntBiz.GetDataElement(item.DataElementFlow);
-                        }
-                        dataElementList.Add(item.CommonNote_Item_Flow, item.DataElement);
-                        Type type = GetDatetype(item.DataElement.ElementType);
-                        if (type == null) continue;
-                        dc.DataType = type;
-                        dt.Columns.Add(dc);
+                        dc.Caption = "未指定列";
+                    }
+                    else
+                    {
+                        dc.Caption = item.OtherName;
                     }
 
-                    dc = new DataColumn("jlr");
-                    dc.Caption = "记录人";
-                    dc.DataType = typeof(string);
+                    if (item.DataElement == null)
+                    {
+                        item.DataElement = m_DataElemntBiz.GetDataElement(item.DataElementFlow);
+                    }
+                    dataElementList.Add(item.CommonNote_Item_Flow, item.DataElement);
+                    Type type = GetDatetype(item.DataElement.ElementType);
+                    if (type == null) continue;
+                    dc.DataType = type;
                     dt.Columns.Add(dc);
+                }
+
+                dc = new DataColumn("jlr");
+                dc.Caption = "记录人";
+                dc.DataType = typeof(string);
+                dt.Columns.Add(dc);
                 //}
                 //else
                 //{
@@ -1263,10 +1259,10 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
-           // dt.DefaultView.Sort = "jlsj asc";
+            // dt.DefaultView.Sort = "jlsj asc";
         }
 
         /// <summary>
@@ -1554,7 +1550,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
 
                 //直接数据库删除
                 string message = "";
-                string rowhisFlow=Guid.NewGuid().ToString();
+                string rowhisFlow = Guid.NewGuid().ToString();
                 foreach (var item in inCommonNoteItemEntityList)
                 {
                     item.Valide = "0";
@@ -1603,66 +1599,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         //保存
         public void btnSave_Click(object sender, EventArgs e)
         {
-            #region 原先保存方式
-            //try
-            //{
-            //int indexrow = gridViewTab.GetFocusedDataSourceRowIndex();
-            //    if (indexrow < 0)
-            //    {
-            //        m_app.CustomMessageBox.MessageShow("没有要保存的数据");
-            //        return;
-            //    }
-
-            //    PrintInCommonItemView printInCommonItemView = gridViewTab.GetFocusedRow() as PrintInCommonItemView;
-            //    List<InCommonNoteItemEntity> inCommonNoteItemEntityList = dicitemList[printInCommonItemView.GroupFlow];
-            //    // List<InCommonNoteItemEntity> inCommonNoteItemEntityList = new List<InCommonNoteItemEntity>();
-
-            //    UCRecordDateTime uCRecordDateTime = scorlInfo.Controls["uCRecordDateTime"] as UCRecordDateTime;
-            //    UCRecordDoctor uCRecordDoctor = scorlInfo.Controls["uCRecordDoctor"] as UCRecordDoctor;
-            //    string datestr = uCRecordDateTime.GetDate();
-            //    string timestr = uCRecordDateTime.GetTime();
-            //    string recordDoc = uCRecordDoctor.GetDoc();
-            //    string message = "";
-            //    foreach (var item in scorlInfo.Controls)
-            //    {
-            //        if (item is ucLabText)
-            //        {
-            //            bool getResult = (item as ucLabText).GetInCommonNoteItemSave(ref message);
-            //            //inCommonNoteItemEntityList.Add((item as ucLabText).inCommonNoteItemEntity);
-            //            if (getResult == false)
-            //            {
-            //                m_app.CustomMessageBox.MessageShow(message);
-            //                return;
-            //            }
-            //        }
-            //    }
-            //    if (inCommonNoteBiz == null)
-            //        inCommonNoteBiz = new InCommonNoteBiz(m_app);
-            //    foreach (var item in inCommonNoteItemEntityList)
-            //    {
-            //        item.RecordDate = datestr;
-            //        item.RecordTime = timestr;
-            //        item.RecordDoctorName = recordDoc;
-            //        inCommonNoteBiz.SaveIncommonNoteItem(item);
-            //    }
-            //    inCommonNoteBiz.GetDetaliInCommonNote(ref m_inCommonNote);
-            //    m_InCommonNoteTab = m_inCommonNote.InCommonNoteTabList.Find(a => a.InCommonNote_Tab_Flow == m_InCommonNoteTab.InCommonNote_Tab_Flow);
-            //    BindData();
-            //    if (dicitemList.Count == 1)
-            //    {
-            //        gridViewTab_FocusedRowChanged(null, null);
-            //    }
-            //    else
-            //    {
-            //        gridViewTab.MoveBy(-1);
-            //        gridViewTab.MoveBy(indexrow);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    m_app.CustomMessageBox.MessageShow(ex.Message);
-            //}
-            #endregion
             try
             {
                 this.Focus();
@@ -1679,7 +1615,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 }
                 int maxrows = 0;  //单据最大支持数据行数
                 int.TryParse(m_commonNote_TabEntity.MaxRows, out maxrows);
-                if (maxrows > 0 && AddRowCount>0)
+                if (maxrows > 0 && AddRowCount > 0)
                 {
                     if ((datarowcount + AddRowCount) > maxrows)
                     {
@@ -1690,7 +1626,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 //保存修改的数据
                 foreach (List<InCommonNoteItemEntity> itemList in dicitemListChanged.Values)
                 {
-                    string rowhisflow=Guid.NewGuid().ToString(); //每次生成的历史行序号
+                    string rowhisflow = Guid.NewGuid().ToString(); //每次生成的历史行序号
                     foreach (var item in itemList)
                     {
                         string message = "";
@@ -1765,17 +1701,17 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 }
                 else if (e.Info.Kind == DevExpress.Utils.Drawing.IndicatorKind.Row)
                 {
-                 DataTable dataTable=   gridControl1.DataSource as DataTable;
-                 if (dataTable.Rows[e.RowHandle] != null
-                     && Convert.ToInt32(dataTable.Rows[e.RowHandle]["xgnum"]) > 1)
-                 {
-                     e.Info.DisplayText = (e.RowHandle + 1).ToString()+"*";
-                 }
-                 else
-                 {
-                     e.Info.DisplayText = (e.RowHandle + 1).ToString();
-                 }
-                   
+                    DataTable dataTable = gridControl1.DataSource as DataTable;
+                    if (dataTable.Rows[e.RowHandle] != null
+                        && Convert.ToInt32(dataTable.Rows[e.RowHandle]["xgnum"]) > 1)
+                    {
+                        e.Info.DisplayText = (e.RowHandle + 1).ToString() + "*";
+                    }
+                    else
+                    {
+                        e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -1896,7 +1832,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -2504,14 +2440,14 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         {
             try
             {
-              DataTable dataTable=  gridControl1.DataSource as DataTable;
-              if (dataTable == null || dataTable.Rows == null || dataTable.Rows.Count <= 0)
-              {
-                  DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("界面没有数据，无法统计");
-                  return;
-              }
-              TongJiForm tongJiForm = new TongJiForm(dataTable, m_commonNote_TabEntity.CommonNoteFlow, m_commonNoteCountEntity);
-              tongJiForm.ShowDialog();
+                DataTable dataTable = gridControl1.DataSource as DataTable;
+                if (dataTable == null || dataTable.Rows == null || dataTable.Rows.Count <= 0)
+                {
+                    DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("界面没有数据，无法统计");
+                    return;
+                }
+                TongJiForm tongJiForm = new TongJiForm(dataTable, m_commonNote_TabEntity.CommonNoteFlow, m_commonNoteCountEntity);
+                tongJiForm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -2524,8 +2460,8 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         {
             try
             {
-                 DataRow dataRow = gridViewTab.GetFocusedDataRow();
-               
+                DataRow dataRow = gridViewTab.GetFocusedDataRow();
+
                 if (dataRow == null)
                 {
                     m_app.CustomMessageBox.MessageShow("未选中记录");
@@ -2533,21 +2469,21 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 }
 
                 string groupflow = dataRow["groupFlow"].ToString();
-              List<InCommonNoteItemEntity> inCommonNoteItemEntityList=  InCommonNoteBiz.GetIncommHisInfo(groupflow);
-                if(inCommonNoteItemEntityList==null||inCommonNoteItemEntityList.Count<=0)
+                List<InCommonNoteItemEntity> inCommonNoteItemEntityList = InCommonNoteBiz.GetIncommHisInfo(groupflow);
+                if (inCommonNoteItemEntityList == null || inCommonNoteItemEntityList.Count <= 0)
                 {
-                      m_app.CustomMessageBox.MessageShow("无修改历史");
-                      return;
+                    m_app.CustomMessageBox.MessageShow("无修改历史");
+                    return;
                 }
-               DataTable dt= InCommonNoteBiz.GetDateTable(inCommonNoteItemEntityList,m_commonNote_TabEntity.CommonNote_ItemList);
-                 if(dt==null||dt.Rows==null||dt.Rows.Count<=1)
-                 {
-                     m_app.CustomMessageBox.MessageShow("无修改历史");
-                     return;
-                 }
-                 RecordHistoryForm recordHistoryForm = new RecordHistoryForm(dt, dataElementList);
-                 recordHistoryForm.Text = "护理记录修改历史查询（第" + (gridViewTab.FocusedRowHandle + 1) + "条记录）";
-                 recordHistoryForm.ShowDialog();
+                DataTable dt = InCommonNoteBiz.GetDateTable(inCommonNoteItemEntityList, m_commonNote_TabEntity.CommonNote_ItemList);
+                if (dt == null || dt.Rows == null || dt.Rows.Count <= 1)
+                {
+                    m_app.CustomMessageBox.MessageShow("无修改历史");
+                    return;
+                }
+                RecordHistoryForm recordHistoryForm = new RecordHistoryForm(dt, dataElementList);
+                recordHistoryForm.Text = "护理记录修改历史查询（第" + (gridViewTab.FocusedRowHandle + 1) + "条记录）";
+                recordHistoryForm.ShowDialog();
             }
             catch (Exception ex)
             {
