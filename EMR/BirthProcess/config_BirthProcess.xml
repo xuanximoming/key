@@ -3,12 +3,12 @@
   <Size width="800" height="550"></Size>
   <!--绘制一些非数据表格中文本-->
   <ThemeText>
-    <item startX="0" startY="16" width="800" height="25" text="南 京 市 X X X 医 院" size="14" align="" orientation="0" fontStyle="1"></item>
+    <item startX="0" startY="16" width="800" height="25" text="河 北 省 X X X 医 院" size="14" align="" orientation="0" fontStyle="1"></item>
     <item startX="0" startY="48" width="800" height="25" text="产 程 图" size="13" align="" orientation="0" fontStyle="1"></item>
     
     <item startX="50" startY="120" width="20" height="250" text="宫口开大〈〉红色标记" size="9" align="" orientation="1" fontStyle="0"></item>
     <item startX="735" startY="120" width="20" height="250" text="胎头下降〈〉红色标记" size="9" align="" orientation="1" fontStyle="0"></item>
-    <item startX="0" startY="100" width="100" height="20" text="产程小时" size="9" align="" orientation="0" fontStyle="0"></item>
+    <item startX="10" startY="100" width="100" height="20" text="产程小时" size="9" align="" orientation="0" fontStyle="0"></item>
   </ThemeText>
   <!--病人基本信息-->
   <patient startX="0" startY="80" width="800" height="20">

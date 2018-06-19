@@ -7,7 +7,7 @@ namespace EmrInfirce
     public interface IChangePat
     {
         [DispId(1)]
-        int InitEmr(string UserId);
+        int InitEmr(string UserId, string Name, string DeptId, string WardId, string Cate);
         [DispId(2)]
         void ChangePatient(string WinHandle, string PatNoOfHis);
         [DispId(3)]

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
@@ -355,9 +354,9 @@ namespace DrectSoft.Core.BirthProcess
             {
                 DrawBlankTable(dataIamgeSize);//绘制空表
 
-                DataTable dt = dataLoader.GetDateTimeForColumns(DataLoader.m_currentDate);
-                DateTime dte = Convert.ToDateTime(dt.Rows[0][0].ToString());
-                DateTime endDte = dte.AddDays(m_Days - 1);
+                //DataTable dt = dataLoader.GetDateTimeForColumns(DataLoader.m_currentDate);
+                //DateTime dte = Convert.ToDateTime(dt.Rows[0][0].ToString());
+                //DateTime endDte = dte.AddDays(m_Days - 1);
                 //dataLoader.GetNursingRecordByDate(dte.ToShortDateString(), endDte.ToShortDateString());
                 ////--------------------------------------------------加载体征数据--------------------------------------------------
                 //DataCollection VitalSignsDataPoints = null;

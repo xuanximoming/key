@@ -38,7 +38,7 @@
             this.repositoryItemComboBox3 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ButtonEdit = new DevExpress.XtraEditors.SimpleButton();
-            this.DevButtonSave1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonSave(this.components);
+            this.DevButtonSave = new DrectSoft.Common.Ctrs.OTHER.DevButtonSave(this.components);
             this.ButtonShowImage = new DevExpress.XtraEditors.SimpleButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.新增ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,23 +47,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.DevButtonDelete1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonDelete(this.components);
-            this.DevButtonAdd1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd(this.components);
+            this.DevButtonAdd = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd(this.components);
             this.timeEditCheckTime = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupControlBabyInfo = new DevExpress.XtraEditors.GroupControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox4 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControlProcessState = new DevExpress.XtraEditors.GroupControl();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -89,6 +94,7 @@
             this.groupControlBabyInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlProcessState)).BeginInit();
             this.groupControlProcessState.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
@@ -153,15 +159,16 @@
             this.ButtonEdit.Text = "修改孕产信息";
             this.ButtonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
-            // DevButtonSave1
+            // DevButtonSave
             // 
-            this.DevButtonSave1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DevButtonSave1.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonSave1.Image")));
-            this.DevButtonSave1.Location = new System.Drawing.Point(889, 480);
-            this.DevButtonSave1.Name = "DevButtonSave1";
-            this.DevButtonSave1.Size = new System.Drawing.Size(80, 23);
-            this.DevButtonSave1.TabIndex = 56;
-            this.DevButtonSave1.Text = "保存(&S)";
+            this.DevButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DevButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonSave.Image")));
+            this.DevButtonSave.Location = new System.Drawing.Point(889, 479);
+            this.DevButtonSave.Name = "DevButtonSave";
+            this.DevButtonSave.Size = new System.Drawing.Size(80, 23);
+            this.DevButtonSave.TabIndex = 56;
+            this.DevButtonSave.Text = "保存(&S)";
+            this.DevButtonSave.Click += new System.EventHandler(this.DevButtonSave_Click);
             // 
             // ButtonShowImage
             // 
@@ -179,24 +186,24 @@
             this.修改ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
             // 
             // 新增ToolStripMenuItem
             // 
             this.新增ToolStripMenuItem.Name = "新增ToolStripMenuItem";
-            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.新增ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.新增ToolStripMenuItem.Text = "新增";
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             // 
             // label1
@@ -216,7 +223,7 @@
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.DevButtonDelete1);
-            this.panelControl1.Controls.Add(this.DevButtonAdd1);
+            this.panelControl1.Controls.Add(this.DevButtonAdd);
             this.panelControl1.Controls.Add(this.timeEditCheckTime);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -234,14 +241,15 @@
             this.DevButtonDelete1.TabIndex = 59;
             this.DevButtonDelete1.Text = "删除(&D)";
             // 
-            // DevButtonAdd1
+            // DevButtonAdd
             // 
-            this.DevButtonAdd1.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonAdd1.Image")));
-            this.DevButtonAdd1.Location = new System.Drawing.Point(193, 5);
-            this.DevButtonAdd1.Name = "DevButtonAdd1";
-            this.DevButtonAdd1.Size = new System.Drawing.Size(80, 23);
-            this.DevButtonAdd1.TabIndex = 58;
-            this.DevButtonAdd1.Text = "新增(&A)";
+            this.DevButtonAdd.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonAdd.Image")));
+            this.DevButtonAdd.Location = new System.Drawing.Point(193, 5);
+            this.DevButtonAdd.Name = "DevButtonAdd";
+            this.DevButtonAdd.Size = new System.Drawing.Size(80, 23);
+            this.DevButtonAdd.TabIndex = 58;
+            this.DevButtonAdd.Text = "新增(&A)";
+            this.DevButtonAdd.Click += new System.EventHandler(this.DevButtonAdd_Click);
             // 
             // timeEditCheckTime
             // 
@@ -270,15 +278,18 @@
             this.groupControlBabyInfo.Name = "groupControlBabyInfo";
             this.groupControlBabyInfo.Size = new System.Drawing.Size(977, 213);
             this.groupControlBabyInfo.TabIndex = 64;
-            this.groupControlBabyInfo.Text = "宫缩和胎头下降信息";
+            this.groupControlBabyInfo.Text = "宫缩和胎头下降信息(表一)";
             // 
             // gridControl1
             // 
             this.gridControl1.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 22);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBox4});
             this.gridControl1.Size = new System.Drawing.Size(973, 189);
             this.gridControl1.TabIndex = 5;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -287,6 +298,8 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn20,
+            this.gridColumn19,
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
@@ -297,17 +310,27 @@
             this.gridColumn8});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn3, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "患者索引";
+            this.gridColumn20.FieldName = "NOOFINPAT";
+            this.gridColumn20.Name = "gridColumn20";
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "行号索引";
+            this.gridColumn19.FieldName = "UterineRaws";
+            this.gridColumn19.Name = "gridColumn19";
             // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "检查时间";
             this.gridColumn1.ColumnEdit = this.repositoryItemTimeEdit1;
+            this.gridColumn1.FieldName = "CheckTime";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.OptionsColumn.AllowEdit = false;
-            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
@@ -315,6 +338,7 @@
             // 
             this.gridColumn2.Caption = "宫口开大(cm)";
             this.gridColumn2.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.gridColumn2.FieldName = "PalaceMouth";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
@@ -323,6 +347,7 @@
             // 
             this.gridColumn3.Caption = "胎头下降(cm)";
             this.gridColumn3.ColumnEdit = this.repositoryItemSpinEdit2;
+            this.gridColumn3.FieldName = "FetalHeadDrop";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
@@ -331,6 +356,7 @@
             // 
             this.gridColumn4.Caption = "检查方法";
             this.gridColumn4.ColumnEdit = this.repositoryItemComboBox1;
+            this.gridColumn4.FieldName = "InspectionMode";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
@@ -338,15 +364,27 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "是否分娩";
-            this.gridColumn5.ColumnEdit = this.repositoryItemComboBox1;
+            this.gridColumn5.ColumnEdit = this.repositoryItemComboBox4;
+            this.gridColumn5.FieldName = "Delivery";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
+            // 
+            // repositoryItemComboBox4
+            // 
+            this.repositoryItemComboBox4.AutoHeight = false;
+            this.repositoryItemComboBox4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox4.Items.AddRange(new object[] {
+            "是",
+            "否"});
+            this.repositoryItemComboBox4.Name = "repositoryItemComboBox4";
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "医生签名";
             this.gridColumn6.ColumnEdit = this.repositoryItemComboBox2;
+            this.gridColumn6.FieldName = "SignaturesDoctor";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.OptionsColumn.ReadOnly = true;
@@ -357,6 +395,7 @@
             // 
             this.gridColumn7.Caption = "录入人";
             this.gridColumn7.ColumnEdit = this.repositoryItemComboBox3;
+            this.gridColumn7.FieldName = "InputPerson";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.OptionsColumn.ReadOnly = true;
@@ -367,6 +406,7 @@
             // 
             this.gridColumn8.Caption = "删除";
             this.gridColumn8.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.gridColumn8.FieldName = "Del";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 7;
@@ -379,11 +419,12 @@
             this.groupControlProcessState.Name = "groupControlProcessState";
             this.groupControlProcessState.Size = new System.Drawing.Size(977, 187);
             this.groupControlProcessState.TabIndex = 65;
-            this.groupControlProcessState.Text = "产程状态信息";
+            this.groupControlProcessState.Text = "产程状态信息(表二)";
             // 
             // gridControl2
             // 
             this.gridControl2.ContextMenuStrip = this.contextMenuStrip1;
+            this.gridControl2.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl2.Location = new System.Drawing.Point(2, 22);
             this.gridControl2.MainView = this.gridView2;
@@ -396,6 +437,8 @@
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn21,
+            this.gridColumn18,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
@@ -409,68 +452,93 @@
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "患者索引";
+            this.gridColumn21.FieldName = "Noofinpat";
+            this.gridColumn21.Name = "gridColumn21";
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 0;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "行索引";
+            this.gridColumn18.FieldName = "UterineRaws";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 1;
+            // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "检查时间";
+            this.gridColumn9.FieldName = "CheckTime";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 0;
+            this.gridColumn9.VisibleIndex = 2;
             // 
             // gridColumn10
             // 
             this.gridColumn10.Caption = "血压";
+            this.gridColumn10.FieldName = "BloodPressure";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 1;
+            this.gridColumn10.VisibleIndex = 3;
             // 
             // gridColumn11
             // 
             this.gridColumn11.Caption = "胎方位";
+            this.gridColumn11.FieldName = "FetalAzimuth";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 2;
+            this.gridColumn11.VisibleIndex = 4;
             // 
             // gridColumn12
             // 
             this.gridColumn12.Caption = "胎心";
+            this.gridColumn12.FieldName = "FetalHeart";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 3;
+            this.gridColumn12.VisibleIndex = 5;
             // 
             // gridColumn13
             // 
             this.gridColumn13.Caption = "宫颈强度";
+            this.gridColumn13.FieldName = "CervicalStrength";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 4;
+            this.gridColumn13.VisibleIndex = 6;
             // 
             // gridColumn14
             // 
             this.gridColumn14.Caption = "宫颈持续";
+            this.gridColumn14.FieldName = "CervicalContinuity";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 5;
+            this.gridColumn14.VisibleIndex = 7;
             // 
             // gridColumn15
             // 
             this.gridColumn15.Caption = "宫颈间歇";
+            this.gridColumn15.FieldName = "CervicalIntermission";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 6;
+            this.gridColumn15.VisibleIndex = 8;
             // 
             // gridColumn16
             // 
             this.gridColumn16.Caption = "胎膜";
+            this.gridColumn16.FieldName = "FetalMembrane";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 7;
+            this.gridColumn16.VisibleIndex = 9;
             // 
             // gridColumn17
             // 
             this.gridColumn17.Caption = "备注";
+            this.gridColumn17.FieldName = "Remarks";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 8;
+            this.gridColumn17.VisibleIndex = 10;
             // 
             // labelInfo
             // 
@@ -493,9 +561,9 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ButtonEdit);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.DevButtonSave1);
+            this.Controls.Add(this.DevButtonSave);
             this.Name = "MainForm";
-            this.Size = new System.Drawing.Size(977, 507);
+            this.Size = new System.Drawing.Size(977, 506);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();
@@ -512,6 +580,7 @@
             this.groupControlBabyInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlProcessState)).EndInit();
             this.groupControlProcessState.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
@@ -524,7 +593,7 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton ButtonEdit;
-        private DrectSoft.Common.Ctrs.OTHER.DevButtonSave DevButtonSave1;
+        private DrectSoft.Common.Ctrs.OTHER.DevButtonSave DevButtonSave;
         private DevExpress.XtraEditors.SimpleButton ButtonShowImage;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit1;
@@ -537,7 +606,7 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DrectSoft.Common.Ctrs.OTHER.DevButtonDelete DevButtonDelete1;
-        private DrectSoft.Common.Ctrs.OTHER.DevButtonAdd DevButtonAdd1;
+        private DrectSoft.Common.Ctrs.OTHER.DevButtonAdd DevButtonAdd;
         private DevExpress.XtraEditors.TimeEdit timeEditCheckTime;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.GroupControl groupControlBabyInfo;
@@ -567,5 +636,10 @@
         private System.Windows.Forms.ToolStripMenuItem 新增ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
     }
 }
