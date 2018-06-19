@@ -396,7 +396,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="编辑器修改记录\修改记录.txt" />
-    <None Include="Resources\delete.bmp" />
+    <None Include="Src\Resources\delete.bmp" />
     <Content Include="Src\Resources\l_indent_pos_lower.png" />
     <Content Include="Src\Resources\l_indet_pos_upper.png" />
     <Content Include="Src\Resources\r_indent_pos.png" />
@@ -495,9 +495,6 @@
       <DependentUpon>PrintExPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src\Util\" />

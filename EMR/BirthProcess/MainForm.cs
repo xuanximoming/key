@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DrectSoft.Core.BirthProcess
@@ -34,7 +35,8 @@ namespace DrectSoft.Core.BirthProcess
         public MainForm()
         {
             InitializeComponent();
-            //Init();
+            DS_SqlHelper.CreateSqlHelper();
+            Init();
         }
 
         public MainForm(IEmrHost app)
@@ -50,13 +52,34 @@ namespace DrectSoft.Core.BirthProcess
 
         private void Init()
         {
-            timeEditCheckTime.Time = DateTime.Now;
-            List<recoder1> list = new List<recoder1>();
-            List<recoder2> list1 = new List<recoder2>();
-            gridControl1.DataSource = list;
-            gridControl2.DataSource = list1;
-        }
 
+            timeEditCheckTime.Time = DateTime.Now;
+            SqlParameter[] sqlParams = new SqlParameter[]
+                        {
+                            new SqlParameter("@Noofinpat",SqlDbType.VarChar,9),
+                            new SqlParameter("@result",SqlDbType.Structured,50),
+                        };
+            sqlParams[0].Value = "10000000";
+            sqlParams[1].Direction = ParameterDirection.Output;
+            DataSet ds = DS_SqlHelper.ExecuteDataSet("BIRTHPROCESS.usp_GetBIRTHPROCESS_UTERINE", sqlParams, CommandType.StoredProcedure);
+            DataTable dt = ds.Tables[0];
+
+            List<recoder1> list = new List<recoder1>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                recoder1 rec = new recoder1();
+                Type t = rec.GetType();
+                PropertyInfo[] PropertyList = t.GetProperties();
+                foreach (PropertyInfo info in PropertyList)
+                {
+
+                    info.SetValue(rec, row[info.Name].ToString(), null);
+                }
+                list.Add(rec);
+            }
+            gridControl1.DataSource = list;
+        }
         private void simpleButtonShowImage_Click(object sender, EventArgs e)
         {
             BirthProcessImage birthProcessImage = new BirthProcessImage();
@@ -130,6 +153,7 @@ namespace DrectSoft.Core.BirthProcess
             recoder1 rec = new recoder1();
             rec.Noofinpat = "10000000";
             rec.UterineRaws = Guid.NewGuid().ToString();
+            rec.CheckTime = DateTime.Now.ToString();
             list.Add(rec);
             gridControl1.DataSource = list;
             gridView1.RefreshData();
@@ -163,14 +187,22 @@ namespace DrectSoft.Core.BirthProcess
                 sqlParams[7].Value = rec.SignaturesDoctor != null ? rec.SignaturesDoctor : "";
                 sqlParams[8].Value = rec.InputPerson != null ? rec.InputPerson : "";
                 sqlParams[9].Value = rec.Del != null ? rec.Del : "";
-                DS_SqlHelper.CreateSqlHelper();
                 DS_SqlHelper.ExecuteNonQuery("BIRTHPROCESS.usp_SaveBIRTHPROCESS_UTERINE", sqlParams, CommandType.StoredProcedure);
             }
         }
 
         private void DevButtonSave_Click(object sender, EventArgs e)
         {
-            Save1();
+            try
+            {
+                Save1();
+                MessageBox.Show("保存成功！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
     class recoder1

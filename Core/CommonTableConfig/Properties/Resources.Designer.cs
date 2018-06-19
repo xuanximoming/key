@@ -63,16 +63,6 @@ namespace DrectSoft.Core.CommonTableConfig.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap _00107 {
-            get {
-                object obj = ResourceManager.GetObject("00107", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
         internal static System.Drawing.Bitmap _07057 {
             get {
                 object obj = ResourceManager.GetObject("07057", resourceCulture);

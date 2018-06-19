@@ -220,11 +220,11 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                                         {
                 new SqlParameter("@InCommonNoteFlow",SqlDbType.VarChar,50),
                 new SqlParameter("@incommonnote_tabflow",SqlDbType.VarChar,50),
-                 new SqlParameter("@StartDate",SqlDbType.VarChar,50),
-                  new SqlParameter("@EndDate",SqlDbType.VarChar,50),
-                   new SqlParameter("@result",SqlDbType.Structured,50),
-                    new SqlParameter("@result1",SqlDbType.Structured,50),
-                     new SqlParameter("@result2",SqlDbType.Structured,50)
+                new SqlParameter("@StartDate",SqlDbType.VarChar,50), 
+                new SqlParameter("@EndDate",SqlDbType.VarChar,50),
+                new SqlParameter("@result",SqlDbType.Structured,50),
+                new SqlParameter("@result1",SqlDbType.Structured,50),
+                new SqlParameter("@result2",SqlDbType.Structured,50)
                                          };
                 sqlParams[0].Value = inCommonNote.InCommonNoteFlow;
                 sqlParams[1].Value = inCommonNoteTab.InCommonNote_Tab_Flow;
