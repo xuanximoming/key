@@ -310,6 +310,7 @@
     <Compile Include="Src\Gui\LookupEditorForm.Designer.cs">
       <DependentUpon>LookupEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Src\Gui\MeasureConvert.cs" />
     <Compile Include="Src\Gui\MensesFormulaFrmNew.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -780,6 +780,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         {
             return false;
         }
+        int ss = 60;
 
         /// <summary>
         /// 刷新界面,重新绘制对象

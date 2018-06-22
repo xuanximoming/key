@@ -26,18 +26,17 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
 
             this.Bounds = bounds;
             this.Margins = m;
+            this.BorderWidth = 1;
             //TODO 页面边框
             if (HightlightingBorder)
             {
-
+                this.BorderColor = System.Drawing.Color.Black;
             }//this.BorderColor = this.BorderColor;//System.Drawing.Color.SkyBlue;
             else
                 this.BorderColor = System.Drawing.Color.Gray;
             this.BorderWidth = 1;
             if (FillBackground)
-            {
-                //this.BackColor = System.Drawing.Color.w///*this.BackColor;*/System.Drawing.Color.Brown;
-            }
+                this.BackColor = System.Drawing.Color.White;
             else
                 this.BackColor = System.Drawing.Color.Transparent;
             this.DrawPageFrame(g, ClipRectangle);
@@ -77,6 +76,8 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         private int intTopMargin = 30;
         private int intRightMargin = 20;
         private int intBottomMargin = 40;
+        private int intPageHeaderHeight = 10;
+        private int intPageFooterHeight = 10;
         /// <summary>
         /// 左页边距
         /// </summary>
@@ -84,6 +85,22 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         {
             get { return intLeftMargin; }
             set { intLeftMargin = value; }
+        }
+        /// <summary>
+        /// 页眉高度
+        /// </summary>
+        public int PageHeaderHeight
+        {
+            get { return intPageHeaderHeight; }
+            set { intPageHeaderHeight = value; }
+        }
+        /// <summary>
+        /// 页脚高度
+        /// </summary>
+        public int PageFooterHeight
+        {
+            get { return intPageFooterHeight; }
+            set { intPageFooterHeight = value; }
         }
         /// <summary>
         /// 顶页边距
@@ -218,7 +235,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
             {
                 drawer.Bounds = this.myBounds;
                 if (this.intBorderColor.A != 0 && this.intBorderWidth > 0)
-                    drawer.BorderPen = new System.Drawing.Pen(this.intBorderColor, this.intBorderWidth);
+                    drawer.BorderPen = new System.Drawing.Pen(this.intBorderColor, (float)this.intBorderWidth);
                 if (this.intBackColor.A != 0)
                     drawer.FillBrush = new System.Drawing.SolidBrush(this.intBackColor);
                 if (drawer.Draw(g, ClipRectangle))
@@ -229,9 +246,9 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                     {
                         System.Drawing.Rectangle rect = new System.Drawing.Rectangle(
                             myBounds.Left + this.intLeftMargin,
-                            myBounds.Top + this.intTopMargin,
+                            myBounds.Top + this.intTopMargin + this.PageHeaderHeight,
                             myBounds.Width - this.intLeftMargin - this.intRightMargin,
-                            myBounds.Height - this.intTopMargin - this.intBottomMargin);
+                            myBounds.Height - this.intTopMargin - this.intBottomMargin - this.PageHeaderHeight - this.PageFooterHeight);
 
                         System.Drawing.Point[] ps = new System.Drawing.Point[16];
                         ps[0] = rect.Location;

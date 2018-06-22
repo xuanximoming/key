@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DrectSoft.Library.EmrEditor.Src.Common;
+﻿using DrectSoft.Library.EmrEditor.Src.Common;
 
 namespace DrectSoft.Library.EmrEditor.Src.Document
 {
@@ -10,7 +6,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
     {
         public ZYMacro()
         {
-        this.Type = ElementType.Macro;
+            this.Type = ElementType.Macro;
         }
 
 

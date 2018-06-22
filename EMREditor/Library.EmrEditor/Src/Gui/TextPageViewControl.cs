@@ -1,6 +1,4 @@
-﻿using DrectSoft.Library.EmrEditor.Src.Document;
-///////////////////////序列化需要的引用
-using DrectSoft.Library.EmrEditor.Src.Print;
+﻿using DrectSoft.Library.EmrEditor.Src.Print;
 using DrectSoft.Library.EmrEditor.Src.Win32API;
 using System;
 using System.Drawing;
@@ -12,7 +10,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
     /// </summary>
     /// 
     [Serializable]
-    public class TextPageViewControl : DocumentViewControl //PageScrollableControl
+    public class TextPageViewControl : DocumentViewControl//,PageScrollableControl
     {
         /// <summary>
         /// 初始化对象
@@ -770,11 +768,12 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                     e.Graphics.ResetClip();
 
                     PageFrameDrawer pfdraw = new PageFrameDrawer();
+                    pfdraw.PageHeaderHeight = (int)(MeasureConvert.DocumentToMillimeter((double)this.myPages.HeadHeight) * 3.776);
+                    pfdraw.PageFooterHeight = (int)(MeasureConvert.DocumentToMillimeter((double)this.myPages.FooterHeight) * 3.776);
                     pfdraw.BackColor = this.PageBackColor;
-                    #region bwy :
                     pfdraw.DrawTopMargin = this.drawtopmargin;
                     pfdraw.DrawBottomMargin = this.drawbottommargin;
-                    #endregion bwy :
+
                     pfdraw.DrawPageFrame(
                         ClientBounds,
                         this.myClientMargins,
@@ -785,7 +784,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
 
                     e.Graphics.Restore(state);
 
-                    Rectangle rectFooter = new Rectangle();
                     foreach (SimpleRectangleTransform item in trans)
                     {
                         if (item.Visible && item.Tag == myPage)
@@ -797,35 +795,9 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                             if (!rect.IsEmpty)
                             {
                                 TransformPaint(e, item);
-
-                                if (item.Flag2 == 2)
-                                {
-                                    rectFooter = item.DescRect;
-                                }
                             }
                         }
                     }
-
-                    //****************TODO 重新绘制页脚，解决表格延生到下面一页的BUG，此为折中方案，不好！！！！！！ Add by wwj 2012-05-31**************
-                    if (!rectFooter.IsEmpty)
-                    {
-                        //Modified by wwj 2013-04-17 解决绘制页脚时背景色的问题
-                        Brush backColorBrush = Brushes.White;
-                        if (this.PageBackColor.A != 0)
-                        {
-                            backColorBrush = new System.Drawing.SolidBrush(this.PageBackColor);
-                        }
-
-                        ZYTextDocument emrDoc = ((ZYEditorControl)this).EMRDoc;
-                        e.Graphics.FillRectangle(backColorBrush,
-                            new Rectangle(0 - emrDoc.Pages.LeftMargin + 3,
-                                            rectFooter.Top - 20,
-                                            rectFooter.Width + emrDoc.Pages.LeftMargin + emrDoc.Pages.RightMargin,//- 8,
-                                            rectFooter.Height + emrDoc.Pages.BottomMargin - 2 + 20));
-                        ((ZYEditorControl)this).EMRDoc.DrawFooter(e.Graphics, rectFooter);
-                    }
-
-                    //*****************************************************************************************************************************
                 }
             }
             base.OnPaint(e);

@@ -1060,6 +1060,22 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                                 }
                             }
                         }
+                        //if (this.OwnerDocument.Info && this != this.OwnerDocument.FootContainer && this != this.OwnerDocument.HeadContainer)
+                        //{
+                        //    int lineX = myLine.RealLeft;
+                        //    int lineY = myLine.RealTop + myLine.Height + this.OwnerDocument.Info.LineSpacing / 2;
+                        //    System.Drawing.Pen pen = new System.Drawing.Pen(System.Drawing.Brushes.Silver, 1f);
+                        //    pen.DashPattern = new float[]
+                        //            {
+                        //                1.8f,
+                        //                1f
+                        //            };
+                        //    System.Drawing.Graphics myGraph = this.myOwnerDocument.View.Graph;
+                        //    System.Drawing.Drawing2D.GraphicsState state = myGraph.Save();
+                        //    myGraph.ResetClip();
+                        //    myGraph.DrawLine(pen, lineX, lineY, this.OwnerDocument.Pages.PaperWidth - this.OwnerDocument.Pages.LeftMargin - this.OwnerDocument.Pages.RightMargin, lineY);
+                        //    myGraph.Restore(state);
+                        //}
                     }// if
                 }//foreach
 

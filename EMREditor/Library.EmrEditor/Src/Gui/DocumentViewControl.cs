@@ -1,22 +1,12 @@
 ﻿#define CaptureMouseMove
 #define ReversibleDraw
-
 using System;
-using System.Collections;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Windows.Forms;
 using DrectSoft.Library.EmrEditor.Src.Common;
-
 #if CaptureMouseMove || ReversibleDraw
-
-using DrectSoft.Library.EmrEditor.Src.Win32API;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-///////////////////////序列化需要的引用
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using Windows32;
 #endif
 
@@ -30,13 +20,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
     [Serializable]
     public class DocumentViewControl : ScrollableControl
     {
-        #region bwy : 为了预防出错而加，测试用
-        //public bool AutoScroll = true;
-        //public bool HScroll = true;
-        //public bool VScroll = true;
-        //public Size AutoScrollMinSize = new Size();
-        //public Point AutoScrollPosition = new Point();
-        #endregion bwy :
         /// <summary>
         /// 初始化对象
         /// </summary>
@@ -160,10 +143,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                 fXZoomRate = 1f;
             if (fYZoomRate <= 0)
                 fYZoomRate = 1f;
-
-#region bwy 
-
-#endregion bwy
             this.UpdateViewBounds();
             this.Invalidate();
         }
@@ -397,12 +376,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
             this.RefreshScaleTransform();
             return myTransform.TransformPoint(p);
         }
-        //		
-        //		public virtual System.Drawing.Rectangle ClipRectangleToView( System.Drawing.Rectangle rect )
-        //		{
-        //			this.RefreshScaleTransform();
-        //			return myTransform.TransformRectangle( rect );
-        //		}
 
         /// <summary>
         /// 将视图区坐标转换为客户区坐标
@@ -484,11 +457,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
             this.AutoScrollMinSize = size;
         }
 
-        //public virtual System.Windows.Forms.MouseEventArgs CreateViewMouseEventArgs()
-        //{
-        //    System.Drawing.Point p = this.ViewMousePosition;
-        //    return new System.Windows.Forms.MouseEventArgs(System.Windows.Forms.Control.MouseButtons, 0, p.X, p.Y, 0);
-        //}
 
         protected bool bolMouseDragScroll = false;
         /// <summary>
@@ -526,7 +494,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         /// <param name="e">事件参数</param>
         protected virtual void OnViewMouseDown(MouseEventArgs e)
         {
-            Debug.WriteLine("DocumentViewControl：OnViewMouseDown");
+            //Debug.WriteLine("DocumentViewControl：OnViewMouseDown");
             if (ViewMouseDown != null)
                 ViewMouseDown(this, e);
         }
@@ -617,31 +585,30 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                 return;
 
             System.Drawing.RectangleF rectf = trans.TransformRectangleF(
-                rect.Left,
-                rect.Top,
-                rect.Width,
-                rect.Height);// this.ClipRectangleToView( e.ClipRectangle );
-            rect.X = (int)Math.Floor(rectf.Left);
-            rect.Y = (int)Math.Floor(rectf.Top);
-            rect.Width = (int)System.Math.Ceiling(rectf.Width);
-            rect.Height = (int)System.Math.Ceiling(rectf.Height);
+                (float)rect.Left,
+                (float)rect.Top,
+                (float)rect.Width,
+                (float)rect.Height);
+            rect.X = (int)Math.Floor((double)rectf.Left);
+            rect.Y = (int)Math.Floor((double)rectf.Top);
+            rect.Width = (int)System.Math.Ceiling((double)rectf.Width);
+            rect.Height = (int)System.Math.Ceiling((double)rectf.Height);
 
             e.Graphics.PageUnit = this.intGraphicsUnit;
             e.Graphics.ResetTransform();
 
-            //e.Graphics.TranslateTransform( trans.SourceRect.Left , trans.SourceRect.Top );
             e.Graphics.ScaleTransform(this.fXZoomRate, this.fYZoomRate);
-            double rate = this.ClientToViewXRate * this.fXZoomRate;
+            double rate = this.ClientToViewXRate * (double)this.fXZoomRate;
 
             e.Graphics.TranslateTransform(
-                (float)(trans.SourceRect.Left * rate - trans.DescRectF.X),
-                (float)(trans.SourceRect.Top * rate - trans.DescRectF.Y));
+                (float)((double)trans.SourceRect.Left * rate - (double)trans.DescRectF.X),
+                (float)((double)trans.SourceRect.Top * rate - (double)trans.DescRectF.Y));
 
-            if (trans.XZoomRate < 1)
-                rect.Width = rect.Width + (int)System.Math.Ceiling(1 / trans.XZoomRate);
+            if (trans.XZoomRate < 1f)
+                rect.Width += (int)System.Math.Ceiling((double)(1f / trans.XZoomRate));
 
-            if (trans.YZoomRate < 1)
-                rect.Height = rect.Height + (int)System.Math.Ceiling(1 / trans.YZoomRate);
+            if (trans.YZoomRate < 1f)
+                rect.Height += (int)System.Math.Ceiling((double)(1f / trans.YZoomRate));
 
             System.Windows.Forms.PaintEventArgs e2 =
                 new System.Windows.Forms.PaintEventArgs(
@@ -649,7 +616,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                 rect);
 
             e2.Graphics.ResetClip();
-
+            e2.Graphics.SetClip(new Rectangle(rect.Left, rect.Top, rect.Width + 2, rect.Height + 2));
 
             OnViewPaint(e2, trans);
         }
@@ -1013,7 +980,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
             System.Drawing.Rectangle rect = myTransform.UnTransformRectangle(x, y, width, height);
             if (rect.IsEmpty == false)
             {
-                //rect.Offset(  - this.AutoScrollPosition.X , - this.AutoScrollPosition.Y );
                 return InnerScrollToView(rect.Left, rect.Top, rect.Width, rect.Height);
             }
             else
@@ -1096,7 +1062,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                 if (dx != 0 || dy != 0)
                 {
                     bolScrollFlag = true;
-                    Debug.WriteLine( "DX:" + dx + " DY:" + dy );
+                    Debug.WriteLine("DX:" + dx + " DY:" + dy);
                     System.Drawing.Point p = new System.Drawing.Point(
                         dx - this.AutoScrollPosition.X,
                         dy - this.AutoScrollPosition.Y);

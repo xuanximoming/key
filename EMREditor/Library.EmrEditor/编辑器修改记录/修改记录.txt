@@ -146,3 +146,11 @@ EMREditor\EMREditor\DrectSoft.Library.EmrEditor\Src\Common\ZYFlagDirection.cs
 修改：
 EMREditor\EMREditor\DrectSoft.Library.EmrEditor\Src\Document\ZYTextDocument.cs
 EMREditor\EMREditor\DrectSoft.Library.EmrEditor\Src\Gui\ZYEditorControl.cs
+
+*********************2018-06-22 Ukey****************************************
+修复表格跨页，表格延伸到页眉页脚
+EMREditor\EMREditor\DrectSoft.Library.EmrEditor\Src\Gui\DocumentViewControl\TransformPaint
+        e2.Graphics.SetClip(new Rectangle(rect.Left, rect.Top, rect.Width + 2, rect.Height + 2));
+
+删除刷新页脚解决表格跨页问题
+EMREditor\EMREditor\DrectSoft.Library.EmrEditor\Src\Gui\TextPageViewControl

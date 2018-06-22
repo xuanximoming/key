@@ -84,12 +84,29 @@
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DrectSoft.Basic.Paint.NET, Version=1.7.1.2, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BIN\DrectSoft.Basic.Paint.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Basic.Wordbook, Version=1.1.2.2, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BIN\DrectSoft.Basic.Wordbook.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Library.LookUpEditor, Version=1.1.2.3, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BIN\DrectSoft.Library.LookUpEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DrectSoft.Service, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\BIN\DrectSoft.Service.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -186,6 +203,10 @@
     <ProjectReference Include="..\..\DrectSqlHelper\DrectSoft.DSSqlHelper.csproj">
       <Project>{fcfe859e-bafb-4ee4-8df0-c1edd1c2acd6}</Project>
       <Name>DrectSoft.DSSqlHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EMREditor\Library.EmrEditor\DrectSoft.Library.EmrEditor.csproj">
+      <Project>{4E80B653-B228-4605-891B-04A36ACE2258}</Project>
+      <Name>DrectSoft.Library.EmrEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
       <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
