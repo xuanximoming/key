@@ -152,7 +152,6 @@ namespace DrectSoft.MainFrame
                 return;
             }
 
-            //IAccount acnt = bizbus.BuildUp<IAccount>();
             try
             {
                 if (textBoxUserID.Text.Contains("用户已过期"))

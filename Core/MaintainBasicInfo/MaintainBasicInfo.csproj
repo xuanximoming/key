@@ -96,9 +96,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="YidanSoft.Library.LookUpEditor">
-      <HintPath>..\..\..\..\STUDY\C\demo\Debug\YidanSoft.Library.LookUpEditor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProcess.cs" />
