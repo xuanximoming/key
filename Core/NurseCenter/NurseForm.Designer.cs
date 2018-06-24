@@ -117,6 +117,7 @@
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.dateEditTo = new DevExpress.XtraEditors.DateEdit();
             this.tabBuxie = new DevExpress.XtraTab.XtraTabPage();
+            this.paintTran = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.lue_pageSize = new DrectSoft.Common.Library.LookUpEditor();
             this.lookUpWindowPageSize = new DrectSoft.Common.Library.LookUpWindow();
@@ -144,7 +145,6 @@
             this.timerMessageWindow = new System.Windows.Forms.Timer();
             this.timer1 = new System.Windows.Forms.Timer();
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.paintTran = new DevExpress.XtraTab.XtraTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -312,7 +312,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(640, 555);
+            this.panelControl3.Size = new System.Drawing.Size(611, 555);
             this.panelControl3.TabIndex = 0;
             // 
             // panelControl9
@@ -322,7 +322,7 @@
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl9.Location = new System.Drawing.Point(0, 0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(640, 520);
+            this.panelControl9.Size = new System.Drawing.Size(611, 520);
             this.panelControl9.TabIndex = 0;
             // 
             // xtraTabControl1
@@ -332,7 +332,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(640, 520);
+            this.xtraTabControl1.Size = new System.Drawing.Size(611, 520);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -346,7 +346,7 @@
             this.xtraTabPage1.Controls.Add(this.panelControl7);
             this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(634, 491);
+            this.xtraTabPage1.Size = new System.Drawing.Size(605, 491);
             this.xtraTabPage1.Text = "在院全部病人";
             // 
             // panelControl7
@@ -357,7 +357,7 @@
             this.panelControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl7.Location = new System.Drawing.Point(0, 0);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(634, 491);
+            this.panelControl7.Size = new System.Drawing.Size(605, 491);
             this.panelControl7.TabIndex = 0;
             // 
             // gridControl1
@@ -368,7 +368,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageXB});
-            this.gridControl1.Size = new System.Drawing.Size(634, 411);
+            this.gridControl1.Size = new System.Drawing.Size(605, 411);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.TabStop = false;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -377,7 +377,7 @@
             // 
             // gridView1
             // 
-            this.gridView1.AppearancePrint.Row.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridView1.AppearancePrint.Row.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridView1.AppearancePrint.Row.Options.UseFont = true;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.col_ksmc,
@@ -635,7 +635,7 @@
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl11.Location = new System.Drawing.Point(0, 0);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(634, 80);
+            this.panelControl11.Size = new System.Drawing.Size(605, 80);
             this.panelControl11.TabIndex = 0;
             // 
             // labelControl10
@@ -679,7 +679,7 @@
             // 
             this.check_0.Location = new System.Drawing.Point(186, 16);
             this.check_0.Name = "check_0";
-            this.check_0.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_0.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.check_0.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.check_0.Properties.Appearance.Options.UseFont = true;
             this.check_0.Properties.Appearance.Options.UseForeColor = true;
@@ -703,7 +703,7 @@
             this.check_Default.EditValue = true;
             this.check_Default.Location = new System.Drawing.Point(561, 16);
             this.check_Default.Name = "check_Default";
-            this.check_Default.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.check_Default.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.check_Default.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.check_Default.Properties.Appearance.Options.UseFont = true;
             this.check_Default.Properties.Appearance.Options.UseForeColor = true;
@@ -748,7 +748,7 @@
             // 
             this.check_I.Location = new System.Drawing.Point(266, 16);
             this.check_I.Name = "check_I";
-            this.check_I.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.check_I.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.check_I.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.check_I.Properties.Appearance.Options.UseFont = true;
             this.check_I.Properties.Appearance.Options.UseForeColor = true;
@@ -762,7 +762,7 @@
             // 
             this.check_II.Location = new System.Drawing.Point(346, 16);
             this.check_II.Name = "check_II";
-            this.check_II.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_II.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.check_II.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.check_II.Properties.Appearance.Options.UseFont = true;
             this.check_II.Properties.Appearance.Options.UseForeColor = true;
@@ -794,7 +794,7 @@
             // 
             this.check_Empty.Location = new System.Drawing.Point(506, 16);
             this.check_Empty.Name = "check_Empty";
-            this.check_Empty.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.check_Empty.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.check_Empty.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.check_Empty.Properties.Appearance.Options.UseFont = true;
             this.check_Empty.Properties.Appearance.Options.UseForeColor = true;
@@ -849,7 +849,7 @@
             // 
             // gridView2
             // 
-            this.gridView2.AppearancePrint.Row.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridView2.AppearancePrint.Row.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridView2.AppearancePrint.Row.Options.UseFont = true;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn9,
@@ -1224,6 +1224,12 @@
             this.tabBuxie.Size = new System.Drawing.Size(634, 491);
             this.tabBuxie.Text = "补写病历";
             // 
+            // paintTran
+            // 
+            this.paintTran.Name = "paintTran";
+            this.paintTran.Size = new System.Drawing.Size(634, 491);
+            this.paintTran.Text = " 转科病人查看";
+            // 
             // panelControl8
             // 
             this.panelControl8.Appearance.BackColor = System.Drawing.Color.White;
@@ -1242,7 +1248,7 @@
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl8.Location = new System.Drawing.Point(0, 520);
             this.panelControl8.Name = "panelControl8";
-            this.panelControl8.Size = new System.Drawing.Size(640, 35);
+            this.panelControl8.Size = new System.Drawing.Size(611, 35);
             this.panelControl8.TabIndex = 0;
             // 
             // lue_pageSize
@@ -1250,7 +1256,7 @@
             this.lue_pageSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lue_pageSize.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lue_pageSize.ListWindow = this.lookUpWindowPageSize;
-            this.lue_pageSize.Location = new System.Drawing.Point(217, 9);
+            this.lue_pageSize.Location = new System.Drawing.Point(188, 9);
             this.lue_pageSize.MenuManager = this.barManager1;
             this.lue_pageSize.Name = "lue_pageSize";
             this.lue_pageSize.ShowFormImmediately = true;
@@ -1261,7 +1267,7 @@
             // 
             // lookUpWindowPageSize
             // 
-            this.lookUpWindowPageSize.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowPageSize.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowPageSize.GenShortCode = null;
             this.lookUpWindowPageSize.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowPageSize.Owner = null;
@@ -1273,7 +1279,7 @@
             this.lkl_pageNext.AutoSize = true;
             this.lkl_pageNext.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lkl_pageNext.LinkColor = System.Drawing.Color.Blue;
-            this.lkl_pageNext.Location = new System.Drawing.Point(547, 13);
+            this.lkl_pageNext.Location = new System.Drawing.Point(518, 13);
             this.lkl_pageNext.Name = "lkl_pageNext";
             this.lkl_pageNext.Size = new System.Drawing.Size(43, 14);
             this.lkl_pageNext.TabIndex = 8;
@@ -1285,7 +1291,7 @@
             // 
             this.lbl_pageNote1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_pageNote1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbl_pageNote1.Location = new System.Drawing.Point(112, 12);
+            this.lbl_pageNote1.Location = new System.Drawing.Point(83, 12);
             this.lbl_pageNote1.Name = "lbl_pageNote1";
             this.lbl_pageNote1.Size = new System.Drawing.Size(103, 14);
             this.lbl_pageNote1.TabIndex = 0;
@@ -1294,7 +1300,7 @@
             // labelControl7
             // 
             this.labelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl7.Location = new System.Drawing.Point(475, 10);
+            this.labelControl7.Location = new System.Drawing.Point(446, 10);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(12, 14);
             this.labelControl7.TabIndex = 5;
@@ -1303,7 +1309,7 @@
             // lbl_pageNote2
             // 
             this.lbl_pageNote2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_pageNote2.Location = new System.Drawing.Point(269, 12);
+            this.lbl_pageNote2.Location = new System.Drawing.Point(240, 12);
             this.lbl_pageNote2.Name = "lbl_pageNote2";
             this.lbl_pageNote2.Size = new System.Drawing.Size(67, 14);
             this.lbl_pageNote2.TabIndex = 2;
@@ -1315,7 +1321,7 @@
             this.lkl_pagePre.AutoSize = true;
             this.lkl_pagePre.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lkl_pagePre.LinkColor = System.Drawing.Color.Blue;
-            this.lkl_pagePre.Location = new System.Drawing.Point(421, 13);
+            this.lkl_pagePre.Location = new System.Drawing.Point(392, 13);
             this.lkl_pagePre.Name = "lkl_pagePre";
             this.lkl_pagePre.Size = new System.Drawing.Size(43, 14);
             this.lkl_pagePre.TabIndex = 4;
@@ -1326,7 +1332,7 @@
             // labelControl3
             // 
             this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl3.Location = new System.Drawing.Point(529, 10);
+            this.labelControl3.Location = new System.Drawing.Point(500, 10);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(12, 14);
             this.labelControl3.TabIndex = 7;
@@ -1335,7 +1341,7 @@
             // txt_pageNo
             // 
             this.txt_pageNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_pageNo.Location = new System.Drawing.Point(493, 7);
+            this.txt_pageNo.Location = new System.Drawing.Point(464, 7);
             this.txt_pageNo.Name = "txt_pageNo";
             this.txt_pageNo.Properties.MaxLength = 5;
             this.txt_pageNo.Size = new System.Drawing.Size(30, 20);
@@ -1348,7 +1354,7 @@
             this.lkl_pageLast.AutoSize = true;
             this.lkl_pageLast.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lkl_pageLast.LinkColor = System.Drawing.Color.Blue;
-            this.lkl_pageLast.Location = new System.Drawing.Point(594, 13);
+            this.lkl_pageLast.Location = new System.Drawing.Point(565, 13);
             this.lkl_pageLast.Name = "lkl_pageLast";
             this.lkl_pageLast.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lkl_pageLast.Size = new System.Drawing.Size(31, 14);
@@ -1363,7 +1369,7 @@
             this.lkl_pageFirst.AutoSize = true;
             this.lkl_pageFirst.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lkl_pageFirst.LinkColor = System.Drawing.Color.Blue;
-            this.lkl_pageFirst.Location = new System.Drawing.Point(385, 13);
+            this.lkl_pageFirst.Location = new System.Drawing.Point(356, 13);
             this.lkl_pageFirst.Name = "lkl_pageFirst";
             this.lkl_pageFirst.Size = new System.Drawing.Size(31, 14);
             this.lkl_pageFirst.TabIndex = 3;
@@ -1388,11 +1394,11 @@
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
             this.dockPanel1.ID = new System.Guid("cbd86705-8b12-4ffb-bf35-a952b900506c");
-            this.dockPanel1.Location = new System.Drawing.Point(640, 0);
+            this.dockPanel1.Location = new System.Drawing.Point(611, 0);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.Options.ShowCloseButton = false;
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(390, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(390, 555);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(419, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(419, 555);
             this.dockPanel1.TabStop = false;
             this.dockPanel1.Text = "会诊操作";
             // 
@@ -1401,7 +1407,7 @@
             this.dockPanel1_Container.Controls.Add(this.navBarControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(382, 528);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(411, 528);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // navBarControl1
@@ -1417,9 +1423,9 @@
             this.navBarGroupConsultInfo});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 182;
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 411;
             this.navBarControl1.OptionsNavPane.ShowExpandButton = false;
-            this.navBarControl1.Size = new System.Drawing.Size(382, 528);
+            this.navBarControl1.Size = new System.Drawing.Size(411, 528);
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "操作";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinNavigationPaneViewInfoRegistrator("DevExpress Style");
@@ -1437,7 +1443,7 @@
             // navBarGroupControlContainer5
             // 
             this.navBarGroupControlContainer5.Name = "navBarGroupControlContainer5";
-            this.navBarGroupControlContainer5.Size = new System.Drawing.Size(382, 424);
+            this.navBarGroupControlContainer5.Size = new System.Drawing.Size(411, 424);
             this.navBarGroupControlContainer5.TabIndex = 7;
             // 
             // navBarGroupControlContainer2
@@ -1517,12 +1523,6 @@
             this.bar1.OptionsBar.MultiLine = true;
             this.bar1.OptionsBar.UseWholeRow = true;
             this.bar1.Text = "Custom 2";
-            // 
-            // paintTran
-            // 
-            this.paintTran.Name = "paintTran";
-            this.paintTran.Size = new System.Drawing.Size(0, 0);
-            this.paintTran.Text = " 转科病人查看";
             // 
             // NurseForm
             // 

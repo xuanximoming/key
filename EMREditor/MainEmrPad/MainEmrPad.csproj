@@ -706,10 +706,6 @@
       <Project>{908813ed-adbb-4a7f-9a91-1b06397a794f}</Project>
       <Name>DrectSoft.Library.EditorUtility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\EMR\YDNurseDocument\DrectSoft.Core.NurseDocument.csproj">
-      <Project>{c454f48f-1df2-4d05-ac3e-f71aab9f8440}</Project>
-      <Name>DrectSoft.Core.NurseDocument</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Framework\Drectsoft.Core\DrectSoft.Core.csproj">
       <Project>{dc865b2c-8c29-432c-9c2e-eaa4278bd2ae}</Project>
       <Name>DrectSoft.Core</Name>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommonNoteConfig));
             this.gcDataCommon = new DevExpress.XtraGrid.GridControl();
             this.gvDataCommon = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -38,12 +39,12 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnModelWeiHu = new DevExpress.XtraEditors.SimpleButton();
             this.btnCopy = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAdd = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd();
-            this.btnEdit = new DrectSoft.Common.Ctrs.OTHER.DevButtonEdit();
-            this.btnDel = new DrectSoft.Common.Ctrs.OTHER.DevButtonDelete();
+            this.btnAdd = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd(this.components);
+            this.btnEdit = new DrectSoft.Common.Ctrs.OTHER.DevButtonEdit(this.components);
+            this.btnDel = new DrectSoft.Common.Ctrs.OTHER.DevButtonDelete(this.components);
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.txtCommonNoteName = new DrectSoft.Common.Ctrs.OTHER.DevTextEdit();
-            this.btnSearch = new DrectSoft.Common.Ctrs.OTHER.DevButtonFind();
+            this.btnSearch = new DrectSoft.Common.Ctrs.OTHER.DevButtonFind(this.components);
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gcDataCommon)).BeginInit();
@@ -57,6 +58,7 @@
             // 
             // gcDataCommon
             // 
+            this.gcDataCommon.Cursor = System.Windows.Forms.Cursors.Default;
             this.gcDataCommon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcDataCommon.Location = new System.Drawing.Point(0, 81);
             this.gcDataCommon.MainView = this.gvDataCommon;
@@ -150,7 +152,7 @@
             // 
             // btnModelWeiHu
             // 
-            this.btnModelWeiHu.Image = global::DrectSoft.Core.CommonTableConfig.Properties.Resources._00107;
+            this.btnModelWeiHu.Image = ((System.Drawing.Image)(resources.GetObject("btnModelWeiHu.Image")));
             this.btnModelWeiHu.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.btnModelWeiHu.Location = new System.Drawing.Point(373, 7);
             this.btnModelWeiHu.Name = "btnModelWeiHu";

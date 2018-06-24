@@ -3,19 +3,19 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
+using DrectSoft.Common;
+using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Core.PersonTtemTemplet;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Library.EmrEditor.Src.Document;
+using DrectSoft.Service;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using DrectSoft.Common;
-using DrectSoft.Common.Ctrs.DLG;
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Service;
-using DrectSoft.Core.PersonTtemTemplet;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Library.EmrEditor.Src.Document;
 
 namespace DrectSoft.EMR.ThreeRecordAll
 {

@@ -125,7 +125,7 @@ namespace DrectSoft.Core.Consultation
             Bitmap bmp1 = new Bitmap(m_PageWidth, m_PageHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             Graphics g1 = Graphics.FromImage(bmp1);
             Rectangle rect = new Rectangle(0, 0, bmp1.Width, bmp1.Height);
-            m_FilePath1 = "C:\\" + Guid.NewGuid().ToString() + ".wmf";
+            m_FilePath1 = ".\\PrintImage\\" + Guid.NewGuid().ToString() + ".wmf";
             mf1 = new Metafile(m_FilePath1, g1.GetHdc(), rect, MetafileFrameUnit.Pixel);
             g1 = Graphics.FromImage(mf1);
             g1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -133,17 +133,6 @@ namespace DrectSoft.Core.Consultation
             DrawConsultRecord(g1);
             g1.Save();
             g1.Dispose();
-            Bitmap bmp2 = new Bitmap(m_PageWidth, m_PageHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            Graphics g2 = Graphics.FromImage(bmp2);
-
-            m_FilePath2 = "C:\\" + Guid.NewGuid().ToString() + ".wmf";
-            mf2 = new Metafile(m_FilePath2, g2.GetHdc(), rect, MetafileFrameUnit.Pixel);
-            g2 = Graphics.FromImage(mf2);
-            g2.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            g2.Clear(Color.White);
-            DrawConsultRecord(g2);
-            g2.Save();
-            g2.Dispose();
         }
 
         public void DeleteMetaFile()

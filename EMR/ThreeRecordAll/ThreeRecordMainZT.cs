@@ -1,23 +1,22 @@
 ﻿using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.Data;
 using System.Reflection;
 using System.Windows.Forms;
-using DrectSoft.Common.Ctrs.DLG;
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Common.Eop;
-using DrectSoft.Core.NursingDocuments;
-using DrectSoft.FrameWork.WinForm.Plugin;
 
 namespace DrectSoft.EMR.ThreeRecordAll
 {
     public partial class ThreeRecordMainZT : DevBaseForm
     {
         IEmrHost m_app;
-        NursingRecord nursingRecord;  //nursedocumentz中的
-        Form form;
+        //NursingRecord nursingRecord;  //nursedocumentz中的
 
-        DrectSoft.Core.NurseDocument.Controls.NursingRecord ydNursingRecord;  //ydnursedocuments中的
+
+        //DrectSoft.Core.NurseDocument.Controls.NursingRecord ydNursingRecord;  //ydnursedocuments中的
         string mName = "";
 
         /// <summary>
@@ -42,19 +41,6 @@ namespace DrectSoft.EMR.ThreeRecordAll
         /// </summary>
         public void ADDInpatientForm()
         {
-            //    string departcode = m_app.User.CurrentDeptId;
-            //    string wardcode = m_app.User.CurrentWardId;
-            //    string patid = txtPatId.Text;
-            //    string sql = @"select * from inpatient i where i.outhosdept=@departCode and i.outhosward=@wardcode and status in ('1501') order by outbed;";
-            //    SqlParameter[] sqlParams = new SqlParameter[]
-            //   {
-            //        new SqlParameter("@departCode",SqlDbType.VarChar,50),
-            //        new SqlParameter("@wardcode",SqlDbType.VarChar,50)
-            //   };
-            //    sqlParams[0].Value = departcode;
-            //    sqlParams[1].Value = wardcode;
-            //    DataTable dtInpatient = m_app.SqlHelper.ExecuteDataTable(sql, sqlParams, CommandType.Text);
-            //    gcInpatient.DataSource = dtInpatient;
             InPatListForm inPatListForm = new InPatListForm(m_app);
             inPatListForm.gvInpatient.DoubleClick += new EventHandler(gvInpatient_DoubleClick);
             inPatListForm.gvInpatient.KeyUp += new KeyEventHandler(gvInpatient_KeyUp);
@@ -87,13 +73,13 @@ namespace DrectSoft.EMR.ThreeRecordAll
                 if (gvInpatient == null) { return; }
                 DataRow drInpatient = gvInpatient.GetFocusedDataRow();
                 if (drInpatient == null || drInpatient["NOOFINPAT"] == null) return;
-                if (mName.Contains("DrectSoft.Core.YDNurseDocument"))
+                if (mName.Contains("DrectSoft.Core.NurseDocument"))
                 {
-                    LoadYDNurseDocument(drInpatient);
+                    LoadDCNurseDocument(drInpatient);
                 }
                 else
                 {
-                    LoadNurseDocument(drInpatient);
+                    //LoadNurseDocument(drInpatient);
                 }
             }
             catch (Exception ex)
@@ -107,92 +93,31 @@ namespace DrectSoft.EMR.ThreeRecordAll
         /// Modify by xlb 2013-05-03
         /// </summary>
         /// <param name="drInpatient"></param>
-        private void LoadYDNurseDocument(DataRow drInpatient)
+        private void LoadDCNurseDocument(DataRow drInpatient)
         {
+
             try
             {
+                //修改调用方式，防止项目互相调用
                 WaitDialogForm waitDialog = new WaitDialogForm("正在绘制三测单", "请您稍后！");
+                //加载dll文件
+                Assembly AmainNursingMeasure = Assembly.Load("DrectSoft.Core.NurseDocument");
+                //获取类
+                Type TypeM = AmainNursingMeasure.GetType("DrectSoft.Core.NurseDocument.LoadNurseDocument");
+                //实例化一个类
+                object obj = Activator.CreateInstance(TypeM);
+                //创建方法
+                MethodInfo m = TypeM.GetMethod("MyLoadNurseDocument");
+                //参数对象  
+                object[] p = new object[] { this, m_app, drInpatient, null };
+                m.Invoke(obj, p);
 
-                //获取病人对象
-                Inpatient m_NewPat = new Inpatient();
-                m_app.ChoosePatient(Convert.ToDecimal((drInpatient["NOOFINPAT"])).ToString(), out m_NewPat);
-                //Inpatient m_NewPat = new Inpatient(Convert.ToDecimal(drInpatient["NOOFINPAT"]));
-                DrectSoft.Core.NurseDocument.MainNursingMeasure mainNursingMeasure = new DrectSoft.Core.NurseDocument.MainNursingMeasure(drInpatient["NOOFINPAT"].ToString());
-                string version = DrectSoft.Core.NurseDocument.ConfigInfo.GetNurseMeasureVersion(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                mainNursingMeasure.CurrentPat = drInpatient["NOOFINPAT"].ToString();
-
-                mainNursingMeasure.eventHandlerXieRu += delegate(object sender1, EventArgs e1)
+                if (p[3] != null)
                 {
-                    #region 注销 by xlb 2013-05-06
-                    //if (ydNursingRecord == null)
-                    //{
-                    //    ydNursingRecord = new DrectSoft.Core.YDNurseDocument.Controls.NursingRecord(m_app, drInpatient["NOOFINPAT"].ToString());
-                    //    ydNursingRecord.SetQieHuanInpatVisible(false);
-                    //    //ydNursingRecord.TopMost = true;
-                    //    ydNursingRecord.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
-                    //    {
-                    //        ydNursingRecord = null;
-                    //        mainNursingMeasure.LoadDataImage(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                    //    };
-                    //    ydNursingRecord.Show(this);
-                    //}
-                    #endregion
-                    if (form == null)
-                    {
-                        Assembly a = Assembly.Load("DrectSoft.Core.YDNurseDocument");
-                        Type type = a.GetType(version);
-                        form = (Form)Activator.CreateInstance(type, new object[] { m_app, drInpatient["NOOFINPAT"].ToString() });
-                        form.Height = DrectSoft.Core.NurseDocument.ConfigInfo.GetNurseRecordSize(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                        form.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
-                        {
-                            form = null;
-                            mainNursingMeasure.LoadDataImage(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                        };
-                        form.Show(this);
-
-                    }
-                    mainNursingMeasure.LoadDataImage(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                };
-
-                mainNursingMeasure.Load(m_app, m_NewPat);
-
-
-                mainNursingMeasure.ReadOnlyControl = true;
-                scrolThreeRecord.Controls.Clear();
-                scrolThreeRecord.Controls.Add(mainNursingMeasure);
-                mainNursingMeasure.Dock = DockStyle.Fill;
-                waitDialog.Hide();
-                #region 注销 by xlb 2013-05-06
-                //if (ydNursingRecord != null)
-                //{
-                //    ydNursingRecord.RefreshForm(drInpatient["NOOFINPAT"].ToString());
-                //    ydNursingRecord.RefreshDate(drInpatient["NOOFINPAT"].ToString());
-                //    ydNursingRecord.dateEdit_DateTimeChanged(null, null);
-                //    ydNursingRecord.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
-                //    {
-                //        mainNursingMeasure.LoadDataImage(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                //    };
-                //}
-                #endregion
-                if (form != null)
-                {
-                    switch (version.Trim())
-                    {
-                        case "DrectSoft.Core.YDNurseDocument.Controls.NursingRecordNew":
-                            (form as DrectSoft.Core.NurseDocument.Controls.NursingRecordNew).RefreshDate(drInpatient["NOOFINPAT"].ToString());
-                            (form as DrectSoft.Core.NurseDocument.Controls.NursingRecordNew).dateEdit_DateTimeChanged(null, null);
-
-                            break;
-                        case "DrectSoft.Core.YDNurseDocument.Controls.NursingRecord":
-                            (form as DrectSoft.Core.NurseDocument.Controls.NursingRecord).RefreshDate(drInpatient["NOOFINPAT"].ToString());
-                            (form as DrectSoft.Core.NurseDocument.Controls.NursingRecord).dateEdit_DateTimeChanged(null, null);
-
-                            break;
-                    }
-                    form.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
-                    {
-                        mainNursingMeasure.LoadDataImage(decimal.Parse(drInpatient["NOOFINPAT"].ToString()));
-                    };
+                    XtraUserControl XtraUc = p[3] as XtraUserControl;
+                    scrolThreeRecord.Controls.Clear();
+                    scrolThreeRecord.Controls.Add(XtraUc);
+                    XtraUc.Dock = DockStyle.Fill;
                 }
                 waitDialog.Hide();
             }
@@ -206,51 +131,49 @@ namespace DrectSoft.EMR.ThreeRecordAll
         /// nursedocument界面
         /// </summary>
         /// <param name="drInpatient"></param>
-        private void LoadNurseDocument(DataRow drInpatient)
-        {
-            WaitDialogForm waitDialog = new WaitDialogForm("正在绘制三测单", "请您稍后！");
-            Inpatient m_NewPat = new Inpatient();
-            m_app.ChoosePatient(Convert.ToDecimal((drInpatient["NOOFINPAT"])).ToString(), out m_NewPat);
-            //Inpatient m_NewPat = new Inpatient(Convert.ToDecimal(drInpatient["NOOFINPAT"]));
-            MainNursingMeasure mainNursingMeasure = new MainNursingMeasure(drInpatient["NOOFINPAT"].ToString());
-            mainNursingMeasure.eventHandlerDaoRu += delegate(object sender1, EventArgs e1)
-            {
-                if (nursingRecord == null)
-                {
-                    nursingRecord = new NursingRecord(m_app, m_NewPat);
-                    nursingRecord.SetQieHuanInpatVisible(false);
-                    //nursingRecord.TopMost = true;
-                    nursingRecord.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
-                    {
-                        nursingRecord = null;
-                        mainNursingMeasure.ucThreeMeasureTable.LoadData();
-                        mainNursingMeasure.ucThreeMeasureTable.Refresh();
-                    };
-                }
-                nursingRecord.Show(this);
-                mainNursingMeasure.ucThreeMeasureTable.LoadData();
-                mainNursingMeasure.ucThreeMeasureTable.Refresh();
-            };
+        //private void LoadNurseDocument(DataRow drInpatient)
+        //{
+        //    WaitDialogForm waitDialog = new WaitDialogForm("正在绘制三测单", "请您稍后！");
+        //    Inpatient m_NewPat = new Inpatient();
+        //    m_app.ChoosePatient(Convert.ToDecimal((drInpatient["NOOFINPAT"])).ToString(), out m_NewPat);
+        //    MainNursingMeasure mainNursingMeasure = new MainNursingMeasure(drInpatient["NOOFINPAT"].ToString());
+        //    mainNursingMeasure.eventHandlerDaoRu += delegate(object sender1, EventArgs e1)
+        //    {
+        //        if (nursingRecord == null)
+        //        {
+        //            nursingRecord = new NursingRecord(m_app, m_NewPat);
+        //            nursingRecord.SetQieHuanInpatVisible(false);
+        //            nursingRecord.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
+        //            {
+        //                nursingRecord = null;
+        //                mainNursingMeasure.ucThreeMeasureTable.LoadData();
+        //                mainNursingMeasure.ucThreeMeasureTable.Refresh();
+        //            };
+        //        }
+        //        nursingRecord.Show(this);
+        //        mainNursingMeasure.ucThreeMeasureTable.LoadData();
+        //        mainNursingMeasure.ucThreeMeasureTable.Refresh();
+        //    };
 
-            mainNursingMeasure.Load(m_app, m_NewPat);
+        //    mainNursingMeasure.Load(m_app, m_NewPat);
 
-            mainNursingMeasure.ReadOnlyControl = true;
-            scrolThreeRecord.Controls.Clear();
-            scrolThreeRecord.Controls.Add(mainNursingMeasure);
-            mainNursingMeasure.Dock = DockStyle.Fill;
-            waitDialog.Hide();
-            if (nursingRecord != null)
-            {
-                nursingRecord.RefreshDate(m_NewPat);
-                nursingRecord.dateEdit_DateTimeChanged(null, null);
-                nursingRecord.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
-                {
-                    mainNursingMeasure.ucThreeMeasureTable.LoadData();
-                    mainNursingMeasure.ucThreeMeasureTable.Refresh();
-                };
-            }
-            waitDialog.Hide();
-        }
+        //    mainNursingMeasure.ReadOnlyControl = true;
+        //    scrolThreeRecord.Controls.Clear();
+        //    scrolThreeRecord.Controls.Add(mainNursingMeasure);
+        //    mainNursingMeasure.Dock = DockStyle.Fill;
+        //    waitDialog.Hide();
+        //    if (nursingRecord != null)
+        //    {
+        //        nursingRecord.RefreshDate(m_NewPat);
+        //        nursingRecord.dateEdit_DateTimeChanged(null, null);
+        //        nursingRecord.FormClosed += delegate(object sender2, FormClosedEventArgs e2)
+        //        {
+        //            mainNursingMeasure.ucThreeMeasureTable.LoadData();
+        //            mainNursingMeasure.ucThreeMeasureTable.Refresh();
+        //        };
+        //    }
+        //    waitDialog.Hide();
+        //}
 
         /// <summary>
         /// 窗体加载事件

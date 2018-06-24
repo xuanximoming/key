@@ -2,7 +2,6 @@
 <root>
 <defaultprint>A4</defaultprint>
 <!--此处字段关联的数据列名需和表原始的字段名称相同,字段代替使用时 需要天数据保存还配置天数据字段，需要时段数据保存还配置时段数据 切记！！！！-->
-
   <!--曲线图 点图标 大小-->
   <fonticonsize width="7" height="7"></fonticonsize>
   <!--表格中文本（填充天数据）字号-->

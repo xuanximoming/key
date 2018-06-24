@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DrectSoft.FrameWork;
-using DrectSoft.FrameWork.WinForm;
-using DrectSoft.Core.NurseDocument.Controls;
-using DevExpress.Utils;
-using System.Drawing.Imaging;
-using DrectSoft.Common.Ctrs.DLG;
-using System.IO;
-using DrectSoft.Common.Eop;
+﻿using DevExpress.Utils;
 using DrectSoft.Common;
+using DrectSoft.Core.NurseDocument.Controls;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.NurseDocument
 {
@@ -84,7 +74,7 @@ namespace DrectSoft.Core.NurseDocument
 
         private void UC_ImageBoard_SizeChanged(object sender, EventArgs e)
         {
-            labelBottom.Left = (this.Width - labelBottom.Width)/2;
+            labelBottom.Left = (this.Width - labelBottom.Width) / 2;
         }
 
         public void LoadData(decimal currInpatient, DataLoader dataLoader)
@@ -111,7 +101,7 @@ namespace DrectSoft.Core.NurseDocument
         /// <summary>
         /// 打印
         /// </summary>
-        public void PrintDocument(decimal currInpatient,DataLoader dataLoader)
+        public void PrintDocument(decimal currInpatient, DataLoader dataLoader)
         {
             try
             {
@@ -129,7 +119,7 @@ namespace DrectSoft.Core.NurseDocument
         /// <summary>
         /// 批量打印
         /// </summary>
-        public void PrintAllDocument(decimal currInpatient,DataLoader dataLoader)
+        public void PrintAllDocument(decimal currInpatient, DataLoader dataLoader)
         {
             try
             {

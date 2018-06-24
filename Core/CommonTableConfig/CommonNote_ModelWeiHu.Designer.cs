@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommonNote_ModelWeiHu));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnReSet = new DrectSoft.Common.Ctrs.OTHER.DevButtonReset();
-            this.btnSearch = new DrectSoft.Common.Ctrs.OTHER.DevButtonFind();
+            this.btnReSet = new DrectSoft.Common.Ctrs.OTHER.DevButtonReset(this.components);
+            this.btnSearch = new DrectSoft.Common.Ctrs.OTHER.DevButtonFind(this.components);
             this.txtDescription = new DrectSoft.Common.Ctrs.OTHER.DevTextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtFileName = new DrectSoft.Common.Ctrs.OTHER.DevTextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDelete = new DrectSoft.Common.Ctrs.OTHER.DevButtonDelete();
-            this.btnEdit = new DrectSoft.Common.Ctrs.OTHER.DevButtonEdit();
-            this.btnAdd = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd();
+            this.btnDelete = new DrectSoft.Common.Ctrs.OTHER.DevButtonDelete(this.components);
+            this.btnEdit = new DrectSoft.Common.Ctrs.OTHER.DevButtonEdit(this.components);
+            this.btnAdd = new DrectSoft.Common.Ctrs.OTHER.DevButtonAdd(this.components);
             this.gcCommonModel = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -145,7 +146,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Image = global::DrectSoft.Core.CommonTableConfig.Properties.Resources._07057;
+            this.btnLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnLoad.Image")));
             this.btnLoad.Location = new System.Drawing.Point(296, 9);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
@@ -189,6 +190,7 @@
             // 
             // gcCommonModel
             // 
+            this.gcCommonModel.Cursor = System.Windows.Forms.Cursors.Default;
             this.gcCommonModel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcCommonModel.Location = new System.Drawing.Point(0, 85);
             this.gcCommonModel.MainView = this.gridView1;

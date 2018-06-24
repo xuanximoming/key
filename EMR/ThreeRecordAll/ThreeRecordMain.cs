@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.FrameWork;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.FrameWork.WinForm;
+﻿using DevExpress.XtraBars;
 using DevExpress.XtraTab;
-using DevExpress.XtraBars;
+using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.Core.CommonTableConfig;
 using DrectSoft.Core.CommonTableConfig.JLDZT;
+using DrectSoft.FrameWork;
+using DrectSoft.FrameWork.WinForm;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace DrectSoft.EMR.ThreeRecordAll
 {
@@ -63,7 +58,6 @@ namespace DrectSoft.EMR.ThreeRecordAll
                 SetPLVisible();
                 SetNurseJLD();
                 SetNurseJLDPL();
-                //SetBarJLDJZT();
 
                 if (btnSCDOPL.Visibility == BarItemVisibility.Always)
                 {
@@ -79,41 +73,6 @@ namespace DrectSoft.EMR.ThreeRecordAll
             {
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.StackTrace);
             }
-            #region 注销
-            //try
-            //{
-            //    if (m_app == null) return;
-            //    tabPageZT.Controls.Clear();
-            //    ThreeRecordMainZT threeRecordMainZT = new ThreeRecordMainZT(m_app);
-            //    threeRecordMainZT.TopLevel = false;
-            //    threeRecordMainZT.FormBorderStyle = FormBorderStyle.None;
-            //    threeRecordMainZT.Dock = DockStyle.Fill;
-            //    threeRecordMainZT.Show();
-            //    tabPageZT.Controls.Add(threeRecordMainZT);
-            //    //-----是否显示护理信息批量录入界面, 护理信息批量录入界面 目前只提供给 青龙山医院 add by tj 2012-11-13-------------
-            //    DataTable dt = m_app.SqlHelper.ExecuteDataTable("select value from appcfg t where t.configkey='ShowMultiRecordsInput'");
-            //    if (dt != null && dt.Rows.Count > 0)
-            //    {
-            //        string val = dt.Rows[0][0].ToString();
-            //        if (!string.IsNullOrEmpty(val))
-            //        {
-            //            if (val.Equals("0"))
-            //            {
-            //                tabPagePL.PageVisible = false;
-            //            }
-            //            else
-            //            {
-            //                tabPagePL.PageVisible = true;
-            //            }
-            //        }
-            //    }
-            //    //-------------------------------------------
-            //}
-            //catch (Exception ex)
-            //{
-            //    Common.Ctrs.DLG.MyMessageBox.Show(1, ex);
-            //}
-            #endregion
         }
 
         /// <summary>
@@ -137,23 +96,6 @@ namespace DrectSoft.EMR.ThreeRecordAll
             {
                 throw ex;
             }
-
-            //DataTable dt = m_app.SqlHelper.ExecuteDataTable("select value from appcfg t where t.configkey='ShowMultiRecordsInput'");
-            //if (dt != null && dt.Rows.Count > 0)
-            //{
-            //  string val = dt.Rows[0][0].ToString();
-            //if (!string.IsNullOrEmpty(val))
-            //{
-            //    if (val.Equals("0"))
-            //    {
-            //        btnSCDOPL.Visibility = BarItemVisibility.Never;
-            //    }
-            //    else
-            //    {
-            //        btnSCDOPL.Visibility = BarItemVisibility.Always;
-            //    }
-            //}
-            //}
         }
 
         /// <summary>
@@ -184,26 +126,36 @@ namespace DrectSoft.EMR.ThreeRecordAll
                 throw ex;
             }
         }
-
         /// <summary>
-        /// 记录单据整体录入
-        /// 显示病人使用的所有单据
-        /// xlb 2013-01-28
+        /// 记录单快速录入
         /// </summary>
-        private void SetBarJLDJZT()
+        private void SetNurseJLDPL()
         {
             try
             {
                 CommonNoteBiz commonNoteBiz = new CommonNoteBiz(m_app);
-                //获取当前病区使用的所有配置单，没有则隐藏该功能
                 List<CommonNoteEntity> commonNoteEntityList = commonNoteBiz.GetCommonNoteByDeptWard(m_app.User.CurrentWardId, "02");
-
+                if (commonNoteEntityList == null) return;
+                //只显示批量的
+                commonNoteEntityListPL = commonNoteEntityList.FindAll(a => a.UsingFlag == "1") as List<CommonNoteEntity>;
+                if (commonNoteEntityListPL == null || commonNoteEntityListPL.Count == 0)
+                {
+                    btnHLDPL.Visibility = BarItemVisibility.Never;
+                }
+                else
+                {
+                    btnHLDPL.Visibility = BarItemVisibility.Always;
+                }
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
+
         }
+
+
 
         /// <summary>
         /// 新的记录单整体录入
@@ -239,31 +191,7 @@ namespace DrectSoft.EMR.ThreeRecordAll
 
         }
 
-        /// <summary>
-        /// 记录单快速录入
-        /// </summary>
-        private void SetNurseJLDPL()
-        {
-            try
-            {
-                CommonNoteBiz commonNoteBiz = new CommonNoteBiz(m_app);
-                List<CommonNoteEntity> commonNoteEntityList = commonNoteBiz.GetCommonNoteByDeptWard(m_app.User.CurrentWardId, "02");
-                if (commonNoteEntityList == null) return;
-                //只显示批量的
-                commonNoteEntityListPL = commonNoteEntityList.FindAll(a => a.UsingFlag == "1") as List<CommonNoteEntity>;
-                if (commonNoteEntityListPL == null || commonNoteEntityListPL.Count == 0)
-                {
-                    btnHLDPL.Visibility = BarItemVisibility.Never;
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
 
-                throw ex;
-            }
-
-        }
 
         /// <summary>
         /// 护理单批量录入 对于单个单据 暂不用

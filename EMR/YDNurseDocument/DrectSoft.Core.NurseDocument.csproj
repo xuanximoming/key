@@ -217,6 +217,7 @@
     <Compile Include="EnumReclos.cs" />
     <Compile Include="IDlg.cs" />
     <Compile Include="LegendIconSource.cs" />
+    <Compile Include="LoadNurseDocument.cs" />
     <Compile Include="MethodSet.cs" />
     <Compile Include="Controls\PaientStatus.cs">
       <SubType>Form</SubType>

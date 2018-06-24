@@ -29,6 +29,7 @@ using System.Data.OracleClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
@@ -2342,9 +2343,17 @@ namespace DrectSoft.Core.MainEmrPad.New
                                 //加载内容
                                 xtraTabControlEmr.SelectedTabPage = m_TempContainerPages[container];
                                 Control ctl = xtraTabControlEmr.SelectedTabPage.Controls.Count == 0 ? null : xtraTabControlEmr.SelectedTabPage.Controls[0];//zyx 2012-0-6
-                                if (ctl != null && ctl.GetType().FullName.Equals("DrectSoft.Core.YDNurseDocument.MainNursingMeasure"))//如果是新的体温单界面
+                                if (ctl != null && ctl.GetType().FullName.Equals("DrectSoft.Core.NurseDocument.MainNursingMeasure"))//如果是新的体温单界面
                                 {
-                                    (ctl as DrectSoft.Core.NurseDocument.MainNursingMeasure).simpleButtonRefresh_Click(null, null);
+                                    //参数对象  
+                                    object[] p = new object[2];
+                                    //产生方法  
+                                    MethodInfo m = ctl.GetType().GetMethod("simpleButtonRefresh_Click");
+                                    //参数赋值。传入函数  
+                                    p[0] = null;
+                                    p[1] = null;
+                                    //调用
+                                    m.Invoke(ctl, p);
                                 }
                             }
                             else

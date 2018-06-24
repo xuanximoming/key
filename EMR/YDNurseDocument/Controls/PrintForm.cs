@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Drawing.Printing;
-using System.IO;
-using System.Drawing.Imaging;
-using DrectSoft.Core.NurseDocument;
-using DevExpress.Utils;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
+﻿using DevExpress.Utils;
+using DrectSoft.Common;
 using DrectSoft.Common.Ctrs.DLG;
 using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Common;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.NurseDocument.Controls
 {
     public partial class PrintForm : DevBaseForm
     {
         PrintDocument m_PrintDocument;
-        PaperSize p=null;
-        Metafile m_Image=null;
+        PaperSize p = null;
+        Metafile m_Image = null;
         int m_Width;
         int m_Height;
         public ThreeMeasureDrawHepler threeMeasureDrawHepler = null;
@@ -53,9 +48,9 @@ namespace DrectSoft.Core.NurseDocument.Controls
                 Bitmap _dataImage = new Bitmap(ConfigInfo.dataIamgeSize.Width, ConfigInfo.dataIamgeSize.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb); //用于绘制数据表单
                 Graphics g = Graphics.FromImage(_dataImage);
                 System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, ConfigInfo.dataIamgeSize.Width, ConfigInfo.dataIamgeSize.Height);
-                m_Image = new Metafile(ConfigInfo.MetafilePath,g.GetHdc(),rect,MetafileFrameUnit.Pixel);
+                m_Image = new Metafile(ConfigInfo.MetafilePath, g.GetHdc(), rect, MetafileFrameUnit.Pixel);
                 Graphics gg = Graphics.FromImage(m_Image);
-                threeMeasureDrawHepler.DrawDataImage(gg); 
+                threeMeasureDrawHepler.DrawDataImage(gg);
                 gg.Save();
                 gg.Dispose();
                 ReDrawImage((Metafile)System.Drawing.Image.FromFile(ConfigInfo.MetafilePath));
@@ -74,7 +69,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
             catch (Exception ex)
             {
-                //MyMessageBox.Show(1, ex);
+                MyMessageBox.Show(1, ex);
             }
         }
 
@@ -83,7 +78,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             panelContainer.BackColor = Color.White;
             m_PrintDocument = new PrintDocument();
             m_PrintDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
-            m_PrintDocument.DefaultPageSettings.Margins = new Margins(0,0,0,0);
+            m_PrintDocument.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
             ReDrawImage(this.m_Image);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -137,7 +132,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             if (m_Image != null)
             {
                 string pageType = lookUpEditPageSize.Text;
-                
+
                 Size imageSize = new Size(ConfigInfo.dataIamgeSize.Width, ConfigInfo.dataIamgeSize.Height);
 
                 if (pageType == "A4")
@@ -209,8 +204,8 @@ namespace DrectSoft.Core.NurseDocument.Controls
                         p = ps;
                 }
 
-               // Common.Ctrs.DLG.MessageBox.Show("打印机不支持" + pageType + "打印!");
-               // return;
+                // Common.Ctrs.DLG.MessageBox.Show("打印机不支持" + pageType + "打印!");
+                // return;
             }
 
             pageSetupDialog.Document.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
@@ -222,8 +217,8 @@ namespace DrectSoft.Core.NurseDocument.Controls
                     m_PrintDocument.Print();
                 }
             }
-            AddPrintHistory(DataLoader.WeekIndex+
-            1, DataLoader.WeekIndex+1, Convert.ToInt32(spinEditPrintCount.Value));
+            AddPrintHistory(DataLoader.WeekIndex +
+            1, DataLoader.WeekIndex + 1, Convert.ToInt32(spinEditPrintCount.Value));
 
         }
 
@@ -252,7 +247,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
         }
 
-        
+
 
         /// <summary>
         /// 初始化打印机列表
@@ -314,7 +309,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             dr["PageValue"] = "B5 (JIS)";
             dataTablePageSize.Rows.Add(dr);
 
-            
+
 
             lookUpEditPageSize.Properties.DataSource = dataTablePageSize;
             lookUpEditPageSize.Properties.DisplayMember = "PageName";
@@ -364,7 +359,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             try
             {
                 SaveFileDialog file = new SaveFileDialog();
-                file.InitialDirectory = "D:\\";
+                file.InitialDirectory = ".\\PrintImage";
                 file.Filter = "Pdf Files(*.pdf)|*.pdf";
                 file.FileName = "体温单";
                 if (file.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -375,7 +370,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
                     doc.Open();
                     Bitmap bt = new Bitmap(ConfigInfo.MetafilePath);
                     iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(bt, BaseColor.WHITE);
-                   // iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(m_Image, BaseColor.WHITE);
+                    // iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(m_Image, BaseColor.WHITE);
                     image.Alignment = iTextSharp.text.Image.MIDDLE_ALIGN;
                     image.ScalePercent(70);
                     doc.Add(image);

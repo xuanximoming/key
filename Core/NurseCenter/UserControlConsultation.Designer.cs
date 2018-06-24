@@ -45,6 +45,7 @@
             this.simpleButtonConsultFee = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonFeeInterface = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonPrint = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButtonSign = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonRemind = new DevExpress.XtraEditors.SimpleButton();
             this.checkEditMyDept = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOtherDept = new DevExpress.XtraEditors.CheckEdit();
@@ -103,13 +104,12 @@
             this.barButtonItemRemind = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonShowConsult = new DevExpress.XtraBars.BarButtonItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
-            this.simpleButtonSign = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl16)).BeginInit();
             this.panelControl16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditConsultState.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateFrom.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateFrom.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateFrom.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateTo.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateTo.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUnFee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditFee.Properties)).BeginInit();
@@ -149,20 +149,20 @@
             // 
             // lookUpEditConsultState
             // 
-            this.lookUpEditConsultState.Location = new System.Drawing.Point(281, 10);
+            this.lookUpEditConsultState.Location = new System.Drawing.Point(257, 10);
             this.lookUpEditConsultState.Name = "lookUpEditConsultState";
             this.lookUpEditConsultState.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEditConsultState.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "编号", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "名称")});
-            this.lookUpEditConsultState.Size = new System.Drawing.Size(135, 21);
+            this.lookUpEditConsultState.Size = new System.Drawing.Size(135, 20);
             this.lookUpEditConsultState.TabIndex = 19;
             // 
             // simpleButtonConsultSearch
             // 
             this.simpleButtonConsultSearch.Image = global::DrectSoft.Emr.NurseCenter.Properties.Resources.查询;
-            this.simpleButtonConsultSearch.Location = new System.Drawing.Point(338, 38);
+            this.simpleButtonConsultSearch.Location = new System.Drawing.Point(314, 38);
             this.simpleButtonConsultSearch.Name = "simpleButtonConsultSearch";
             this.simpleButtonConsultSearch.Size = new System.Drawing.Size(78, 23);
             this.simpleButtonConsultSearch.TabIndex = 18;
@@ -171,7 +171,7 @@
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(14, 13);
+            this.labelControl16.Location = new System.Drawing.Point(7, 13);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(60, 14);
             this.labelControl16.TabIndex = 17;
@@ -179,7 +179,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(217, 13);
+            this.labelControl15.Location = new System.Drawing.Point(193, 13);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(60, 14);
             this.labelControl15.TabIndex = 15;
@@ -200,9 +200,9 @@
             this.dateEditConsultDateFrom.Name = "dateEditConsultDateFrom";
             this.dateEditConsultDateFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditConsultDateFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateEditConsultDateFrom.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEditConsultDateFrom.Size = new System.Drawing.Size(106, 21);
+            this.dateEditConsultDateFrom.Size = new System.Drawing.Size(106, 20);
             this.dateEditConsultDateFrom.TabIndex = 11;
             this.dateEditConsultDateFrom.ToolTip = "开始日期";
             // 
@@ -221,18 +221,18 @@
             this.dateEditConsultDateTo.Name = "dateEditConsultDateTo";
             this.dateEditConsultDateTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditConsultDateTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dateEditConsultDateTo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEditConsultDateTo.Size = new System.Drawing.Size(106, 21);
+            this.dateEditConsultDateTo.Size = new System.Drawing.Size(106, 20);
             this.dateEditConsultDateTo.TabIndex = 12;
             this.dateEditConsultDateTo.ToolTip = "结束日期";
             // 
             // checkEditUnFee
             // 
             this.checkEditUnFee.EditValue = true;
-            this.checkEditUnFee.Location = new System.Drawing.Point(77, 11);
+            this.checkEditUnFee.Location = new System.Drawing.Point(70, 11);
             this.checkEditUnFee.Name = "checkEditUnFee";
-            this.checkEditUnFee.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkEditUnFee.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkEditUnFee.Properties.Appearance.Options.UseFont = true;
             this.checkEditUnFee.Properties.Caption = "未缴费";
             this.checkEditUnFee.Size = new System.Drawing.Size(58, 19);
@@ -242,9 +242,9 @@
             // checkEditFee
             // 
             this.checkEditFee.EditValue = true;
-            this.checkEditFee.Location = new System.Drawing.Point(141, 11);
+            this.checkEditFee.Location = new System.Drawing.Point(134, 11);
             this.checkEditFee.Name = "checkEditFee";
-            this.checkEditFee.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkEditFee.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEditFee.Properties.Appearance.Options.UseFont = true;
             this.checkEditFee.Properties.Caption = "已缴费";
             this.checkEditFee.Size = new System.Drawing.Size(57, 19);
@@ -323,6 +323,18 @@
             this.simpleButtonPrint.ToolTip = "会诊取消";
             this.simpleButtonPrint.Click += new System.EventHandler(this.simpleButtonPrint_Click);
             // 
+            // simpleButtonSign
+            // 
+            this.simpleButtonSign.Dock = System.Windows.Forms.DockStyle.Left;
+            this.simpleButtonSign.Image = global::DrectSoft.Emr.NurseCenter.Properties.Resources.签到;
+            this.simpleButtonSign.Location = new System.Drawing.Point(78, 0);
+            this.simpleButtonSign.Name = "simpleButtonSign";
+            this.simpleButtonSign.Size = new System.Drawing.Size(78, 25);
+            this.simpleButtonSign.TabIndex = 13;
+            this.simpleButtonSign.Text = "医师签到";
+            this.simpleButtonSign.ToolTip = "会诊取消";
+            this.simpleButtonSign.Click += new System.EventHandler(this.simpleButtonSign_Click);
+            // 
             // simpleButtonRemind
             // 
             this.simpleButtonRemind.Dock = System.Windows.Forms.DockStyle.Left;
@@ -340,7 +352,7 @@
             this.checkEditMyDept.EditValue = true;
             this.checkEditMyDept.Location = new System.Drawing.Point(7, 40);
             this.checkEditMyDept.Name = "checkEditMyDept";
-            this.checkEditMyDept.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkEditMyDept.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkEditMyDept.Properties.Appearance.Options.UseFont = true;
             this.checkEditMyDept.Properties.Caption = "本科室";
             this.checkEditMyDept.Size = new System.Drawing.Size(70, 19);
@@ -352,7 +364,7 @@
             this.checkEditOtherDept.EditValue = true;
             this.checkEditOtherDept.Location = new System.Drawing.Point(74, 40);
             this.checkEditOtherDept.Name = "checkEditOtherDept";
-            this.checkEditOtherDept.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkEditOtherDept.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEditOtherDept.Properties.Appearance.Options.UseFont = true;
             this.checkEditOtherDept.Properties.Caption = "其他科室";
             this.checkEditOtherDept.Size = new System.Drawing.Size(82, 19);
@@ -413,7 +425,7 @@
             this.gridViewMyDept.Appearance.ViewCaption.Options.UseForeColor = true;
             this.gridViewMyDept.Appearance.ViewCaption.Options.UseTextOptions = true;
             this.gridViewMyDept.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridViewMyDept.AppearancePrint.Row.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridViewMyDept.AppearancePrint.Row.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridViewMyDept.AppearancePrint.Row.Options.UseFont = true;
             this.gridViewMyDept.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn40,
@@ -599,7 +611,7 @@
             this.gridViewOtherDept.Appearance.ViewCaption.Options.UseForeColor = true;
             this.gridViewOtherDept.Appearance.ViewCaption.Options.UseTextOptions = true;
             this.gridViewOtherDept.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridViewOtherDept.AppearancePrint.Row.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gridViewOtherDept.AppearancePrint.Row.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.gridViewOtherDept.AppearancePrint.Row.Options.UseFont = true;
             this.gridViewOtherDept.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn53,
@@ -907,18 +919,6 @@
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
             // 
-            // simpleButtonSign
-            // 
-            this.simpleButtonSign.Dock = System.Windows.Forms.DockStyle.Left;
-            this.simpleButtonSign.Image = global::DrectSoft.Emr.NurseCenter.Properties.Resources.签到;
-            this.simpleButtonSign.Location = new System.Drawing.Point(78, 0);
-            this.simpleButtonSign.Name = "simpleButtonSign";
-            this.simpleButtonSign.Size = new System.Drawing.Size(78, 25);
-            this.simpleButtonSign.TabIndex = 13;
-            this.simpleButtonSign.Text = "医师签到";
-            this.simpleButtonSign.ToolTip = "会诊取消";
-            this.simpleButtonSign.Click += new System.EventHandler(this.simpleButtonSign_Click);
-            // 
             // UserControlConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -933,9 +933,9 @@
             this.panelControl16.ResumeLayout(false);
             this.panelControl16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditConsultState.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateFrom.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateFrom.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateFrom.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateTo.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateTo.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditConsultDateTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUnFee.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditFee.Properties)).EndInit();

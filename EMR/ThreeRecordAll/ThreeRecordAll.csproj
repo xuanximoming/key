@@ -310,14 +310,6 @@
       <Project>{c5bbbfd3-0e0f-441c-866b-d1f7986bc9fc}</Project>
       <Name>Wordbook</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NursingDocuments\NursingDocuments.csproj">
-      <Project>{9a07db5f-af92-461b-8445-0faacdbe3fdf}</Project>
-      <Name>NursingDocuments</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\YDNurseDocument\DrectSoft.Core.NurseDocument.csproj">
-      <Project>{c454f48f-1df2-4d05-ac3e-f71aab9f8440}</Project>
-      <Name>DrectSoft.Core.NurseDocument</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

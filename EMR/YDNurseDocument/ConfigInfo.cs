@@ -16,7 +16,7 @@ namespace DrectSoft.Core.NurseDocument
     /// </summary>
     public abstract class ConfigInfo
     {
-        public static string MetafilePath = "C:\\three.wmf";
+        public static string MetafilePath = ".\\PrintImage\\three.wmf";
         public static string m_xmlFilePath = "";
         public static XmlDocument xmlDoc = new XmlDocument();
 

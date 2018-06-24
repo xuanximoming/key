@@ -1,3 +1,6 @@
+using DrectSoft.FrameWork;
+using DrectSoft.FrameWork.WinForm;
+using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.Data;
 using System.Data.OracleClient;
@@ -5,9 +8,6 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using DrectSoft.FrameWork;
-using DrectSoft.FrameWork.WinForm;
-using DrectSoft.FrameWork.WinForm.Plugin;
 #pragma warning disable 0618
 
 namespace DrectSoft.Core.ImageManager
@@ -60,13 +60,6 @@ namespace DrectSoft.Core.ImageManager
         private Control CreateValueControlCore()
         {
             Control result = new Control(); ;
-
-            //PP = new PaintDesignPanel(false);
-            //PP.ExitWithSave += new EventHandler(PP_ExitWithSave);
-            //result = PP.GetControl();
-            //result.BackColor = Color.White;
-
-            //m_tempPP = new PaintDesignPanel(false);
             return result;
         }
 

@@ -46,7 +46,7 @@ namespace DrectSoft.Core.MainEmrPad
                 throw ex;
             }
         }
-
+        #region PACS相关
         /// <summary>
         /// exe调用
         /// </summary>
@@ -89,9 +89,6 @@ namespace DrectSoft.Core.MainEmrPad
                 throw ex;
             }
         }
-
-
-        #region PACS相关
         [DllImport("joint.dll")]
         public static extern int PacsView(int nPatientType, string lpszID, int nImageType); //Pacs调阅3.1版
         [DllImport("joint.dll")]

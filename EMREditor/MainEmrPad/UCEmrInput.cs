@@ -36,6 +36,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
 using XWriterDemo;
@@ -1143,12 +1144,6 @@ namespace DrectSoft.Core.MainEmrPad
                     {
                         try
                         {
-                            //string valuestr = GetConfigValueByKey("PACSRevision");
-                            //if (valuestr == "whssyy")  //武汉十三医院
-                            //{
-                            //    PacsWHSS();
-                            //}
-
                             PACSOutSide.PacsAll(m_CurrentInpatient);
                         }
                         catch (Exception ex)
@@ -1167,9 +1162,17 @@ namespace DrectSoft.Core.MainEmrPad
                                 //加载内容
                                 xtraTabControl1.SelectedTabPage = m_TempContainerPages[container];
                                 Control ctl = xtraTabControl1.SelectedTabPage.Controls.Count == 0 ? null : xtraTabControl1.SelectedTabPage.Controls[0];//zyx 2012-0-6
-                                if (ctl != null && ctl.GetType().FullName.Equals("DrectSoft.Core.YDNurseDocument.MainNursingMeasure"))//如果是新的体温单界面
+                                if (ctl != null && ctl.GetType().FullName.Equals("DrectSoft.Core.NurseDocument.MainNursingMeasure"))//如果是新的体温单界面
                                 {
-                                    (ctl as DrectSoft.Core.NurseDocument.MainNursingMeasure).simpleButtonRefresh_Click(null, null);
+                                    //参数对象  
+                                    object[] p = new object[2];
+                                    //产生方法  
+                                    MethodInfo m = ctl.GetType().GetMethod("simpleButtonRefresh_Click");
+                                    //参数赋值。传入函数  
+                                    p[0] = null;
+                                    p[1] = null;
+                                    //调用
+                                    m.Invoke(ctl, p);
                                 }
                             }
                             else
