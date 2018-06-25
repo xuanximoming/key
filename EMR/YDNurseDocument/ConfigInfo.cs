@@ -89,7 +89,6 @@ namespace DrectSoft.Core.NurseDocument
         {
             try
             {
-                //m_xmlFilePath = AppDomain.CurrentDomain.BaseDirectory + "Config.xml";
                 ClearGlobalVariable();
                 m_xmlFilePath = GetXMLPath(currInpatient.ToString());
                 xmlDoc = new XmlDocument();
@@ -583,13 +582,13 @@ namespace DrectSoft.Core.NurseDocument
                     else
                     {
                         configName = "Config.xml";
-                        return AppDomain.CurrentDomain.BaseDirectory + "Config.xml";
+                        return AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
                     }
                 }
                 else
                 {
                     configName = "Config.xml";
-                    return AppDomain.CurrentDomain.BaseDirectory + "Config.xml";
+                    return AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
                 }
 
             }
@@ -613,9 +612,9 @@ namespace DrectSoft.Core.NurseDocument
             {
                 xmlDoc = new XmlDocument();
                 string conxml = "";
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Config.xml"))
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml"))
                 {
-                    conxml = AppDomain.CurrentDomain.BaseDirectory + "Config.xml";
+                    conxml = AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
                 }
                 else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Configbaby.xml"))
                 {
@@ -686,7 +685,7 @@ namespace DrectSoft.Core.NurseDocument
             Brush m_brush = Brushes.Red;//默认红色
             if (xmlDoc == null)
             {
-                xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "Config.xml");
+                xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml");
             }
 
             XmlNode nodeElement = xmlDoc.GetElementsByTagName("columns")[0];

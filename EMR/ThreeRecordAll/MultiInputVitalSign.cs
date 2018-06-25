@@ -61,7 +61,7 @@ namespace DrectSoft.EMR.ThreeRecordAll
                 IsLoad = false;
                 InitializeComponent();
                 this.TopLevel = false;
-                m_xmlFilePath = AppDomain.CurrentDomain.BaseDirectory + "Config.xml";
+                m_xmlFilePath = AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
                 radios.Clear();
                 radios.AddRange(new CheckEdit[] { radio1, radio2, radio3, radio4, radio5, radio6 });
                 dateEdit.Text = DateTime.Now.ToShortDateString();
