@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NurseForm));
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barButton_Bl = new DevExpress.XtraBars.BarButtonItem();
             this.barButton_View = new DevExpress.XtraBars.BarButtonItem();
             this.btnSetBaby = new DevExpress.XtraBars.BarButtonItem();
             this.btnZhuanke = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuYuan = new DevExpress.XtraBars.BarButtonItem();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -69,7 +70,7 @@
             this.col_Ssrq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.btn_reset1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonReset();
+            this.btn_reset1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonReset(this.components);
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControlBedNO = new DevExpress.XtraEditors.LabelControl();
             this.check_0 = new DevExpress.XtraEditors.CheckEdit();
@@ -106,7 +107,7 @@
             this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btn_reset2 = new DrectSoft.Common.Ctrs.OTHER.DevButtonReset();
+            this.btn_reset2 = new DrectSoft.Common.Ctrs.OTHER.DevButtonReset(this.components);
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -120,7 +121,7 @@
             this.paintTran = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.lue_pageSize = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowPageSize = new DrectSoft.Common.Library.LookUpWindow();
+            this.lookUpWindowPageSize = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.lkl_pageNext = new System.Windows.Forms.LinkLabel();
             this.lbl_pageNote1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -130,7 +131,7 @@
             this.txt_pageNo = new DevExpress.XtraEditors.TextEdit();
             this.lkl_pageLast = new System.Windows.Forms.LinkLabel();
             this.lkl_pageFirst = new System.Windows.Forms.LinkLabel();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
@@ -141,9 +142,7 @@
             this.navBarGroupControlContainer3 = new DevExpress.XtraNavBar.NavBarGroupControlContainer();
             this.OwnDept = new DevExpress.XtraNavBar.NavBarGroup();
             this.OtherDept = new DevExpress.XtraNavBar.NavBarGroup();
-            this.imageListBrxb = new System.Windows.Forms.ImageList();
-            this.timerMessageWindow = new System.Windows.Forms.Timer();
-            this.timer1 = new System.Windows.Forms.Timer();
+            this.imageListBrxb = new System.Windows.Forms.ImageList(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -362,6 +361,7 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(0, 80);
             this.gridControl1.MainView = this.gridView1;
@@ -809,7 +809,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.panelControl4);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(634, 491);
+            this.xtraTabPage2.Size = new System.Drawing.Size(605, 491);
             this.xtraTabPage2.Text = "科室历史病人查询";
             // 
             // panelControl4
@@ -820,7 +820,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(0, 0);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(634, 491);
+            this.panelControl4.Size = new System.Drawing.Size(605, 491);
             this.panelControl4.TabIndex = 0;
             // 
             // panelControl6
@@ -829,7 +829,7 @@
             this.panelControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl6.Location = new System.Drawing.Point(0, 50);
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(634, 441);
+            this.panelControl6.Size = new System.Drawing.Size(605, 441);
             this.panelControl6.TabIndex = 1;
             // 
             // gridControl2
@@ -840,7 +840,7 @@
             this.gridControl2.Name = "gridControl2";
             this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageHistoryXB});
-            this.gridControl2.Size = new System.Drawing.Size(630, 437);
+            this.gridControl2.Size = new System.Drawing.Size(601, 437);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.TabStop = false;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1119,7 +1119,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(634, 50);
+            this.panelControl2.Size = new System.Drawing.Size(605, 50);
             this.panelControl2.TabIndex = 0;
             // 
             // btn_reset2
@@ -1221,13 +1221,13 @@
             // 
             this.tabBuxie.AutoScroll = true;
             this.tabBuxie.Name = "tabBuxie";
-            this.tabBuxie.Size = new System.Drawing.Size(634, 491);
+            this.tabBuxie.Size = new System.Drawing.Size(605, 491);
             this.tabBuxie.Text = "补写病历";
             // 
             // paintTran
             // 
             this.paintTran.Name = "paintTran";
-            this.paintTran.Size = new System.Drawing.Size(634, 491);
+            this.paintTran.Size = new System.Drawing.Size(605, 491);
             this.paintTran.Text = " 转科病人查看";
             // 
             // panelControl8
@@ -1508,12 +1508,6 @@
             this.imageListBrxb.ImageSize = new System.Drawing.Size(16, 16);
             this.imageListBrxb.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // bar1
             // 
             this.bar1.BarName = "Custom 2";
@@ -1680,8 +1674,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn24;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn25;
-        private System.Windows.Forms.Timer timerMessageWindow;
-        private System.Windows.Forms.Timer timer1;
         private DevExpress.XtraGrid.Columns.GridColumn col_ksmc;
         private DevExpress.XtraBars.BarButtonItem btnSetBaby;
         private DevExpress.XtraEditors.LabelControl labelControl3;

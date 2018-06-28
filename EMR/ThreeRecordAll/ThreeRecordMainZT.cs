@@ -13,10 +13,6 @@ namespace DrectSoft.EMR.ThreeRecordAll
     public partial class ThreeRecordMainZT : DevBaseForm
     {
         IEmrHost m_app;
-        //NursingRecord nursingRecord;  //nursedocumentz中的
-
-
-        //DrectSoft.Core.NurseDocument.Controls.NursingRecord ydNursingRecord;  //ydnursedocuments中的
         string mName = "";
 
         /// <summary>

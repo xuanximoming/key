@@ -1,4 +1,5 @@
 ﻿using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -8,7 +9,6 @@ namespace DrectSoft.Core.RedactPatientInfo
     public partial class XtraFormPatientInfo : DevExpress.XtraEditors.XtraForm
     {
         IEmrHost m_app;
-        IDataAccess sql_Helper;
 
         string m_NoOfInpat;
         public XtraFormPatientInfo()
@@ -30,20 +30,29 @@ namespace DrectSoft.Core.RedactPatientInfo
                 string sqlEmr = " select patnoofhis from inpatient where noofinpat = '{0}' ";
                 string patnoofhis = m_app.SqlHelper.ExecuteScalar(string.Format(sqlEmr, m_NoOfInpat)).ToString();
                 DataTable dt = new DataTable();
-                IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
-
-                if (sqlHelper == null)
+                //从his查病人信息功能
+                if (DS_SqlService.GetConfigValueByKey("GetInpatientForHis") == "1")
                 {
-                    m_app.CustomMessageBox.MessageShow("无法连接到HIS", CustomMessageBoxKind.ErrorOk);
-                    return;
+                    IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
+
+                    if (sqlHelper == null)
+                    {
+                        m_app.CustomMessageBox.MessageShow("无法连接到HIS", CustomMessageBoxKind.ErrorOk);
+                        return;
+                    }
+                    string sqlHis = " select * from zc_inpatient where zc_inpatient.patnoofhis = '{0}' ";
+                    dt = sqlHelper.ExecuteDataTable(string.Format(sqlHis, patnoofhis), CommandType.Text);
                 }
-                string sqlHis = " select * from zc_inpatient where zc_inpatient.patnoofhis = '{0}' ";
-                dt = sqlHelper.ExecuteDataTable(string.Format(sqlHis, patnoofhis), CommandType.Text);
+                else
+                {
+                    dt = m_app.SqlHelper.ExecuteDataTable(string.Format(" select * from inpatient where noofinpat = '{0}' ", m_NoOfInpat), CommandType.Text);
+                }
+
                 InitPatientInfo(dt);
             }
             catch (Exception ex)
             {
-                //m_app.CustomMessageBox.MessageShow("调用HIS时，" + ex.Message, CustomMessageBoxKind.ErrorOk);
+                string ErrorMessage = ex.Message;
                 m_app.CustomMessageBox.MessageShow("调用HIS时出错，请联系管理员！", CustomMessageBoxKind.ErrorOk);
             }
         }

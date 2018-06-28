@@ -1,37 +1,26 @@
-﻿using System;
+﻿using DevExpress.Utils;
+using DevExpress.XtraBars;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraTab;
+using DrectSoft.Common;
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Core;
+using DrectSoft.Core.OwnBedInfo;
+using DrectSoft.Core.QCDeptReport;
+using DrectSoft.FrameWork;
+using DrectSoft.FrameWork.WinForm;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
+using DrectSoft.Wordbook;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Reflection;
 using System.Windows.Forms;
-using DrectSoft.FrameWork;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.FrameWork.WinForm;
-using DrectSoft.Core.RedactPatientInfo;
-using System.Data.SqlClient;
-using DevExpress.Utils;
-using DevExpress.XtraGrid;
-using DrectSoft.Common.Eop;
-using DrectSoft.Core.Consultation;
-using DrectSoft.Core;
-using DrectSoft.Wordbook;
-using DrectSoft.Common.Library;
-using DevExpress.XtraEditors.Controls;
-using DrectSoft.Core.OwnBedInfo;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using System.Collections;
-using System.Data.OracleClient;
-using DevExpress.XtraBars;
-using DrectSoft.Common;
-using DrectSoft.Common.Ctrs.DLG;
-using DevExpress.XtraEditors;
-using DevExpress.XtraTab;
-using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.Service;
-
-using DrectSoft.Core.QCDeptReport;
 namespace DrectSoft.Emr.NurseCenter
 {
     /// <summary>
@@ -40,19 +29,6 @@ namespace DrectSoft.Emr.NurseCenter
     public partial class NurseForm : DevBaseForm, IStartPlugIn
     {
         IEmrHost m_App;
-
-        BasePatientInfo BasicPatView
-        {
-            get
-            {
-                if (_basicPatView == null)
-                {
-                    _basicPatView = new BasePatientInfo(m_App);
-                }
-                return _basicPatView;
-            }
-        }
-        BasePatientInfo _basicPatView;
 
         private WaitDialogForm m_WaitDialog;
         //全部在院病人 数据集
@@ -64,8 +40,8 @@ namespace DrectSoft.Emr.NurseCenter
         private int m_totalCount2 = 0;
         private int? m_pageSize;
         private int pageSizeLocationX;
-        private UCTran uctran=null;
-        ReplenishPatRec repl=null; //病历补写界面
+        private UCTran uctran = null;
+        ReplenishPatRec repl = null; //病历补写界面
 
         StringFormat s = new StringFormat();
         /// <summary>
@@ -78,7 +54,7 @@ namespace DrectSoft.Emr.NurseCenter
             s.Alignment = StringAlignment.Near;
             s.LineAlignment = StringAlignment.Center;
             gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(gridView1_CustomDrawCell);
-            //针对有婴儿的母亲姓名列的显示 add by 杨伟康  2012年11月27日9:17:59
+            //针对有婴儿的母亲姓名列的显示 add by ykw  2012年11月27日9:17:59
             gridView2.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(gridView2_CustomDrawCell);
         }
 
@@ -98,45 +74,6 @@ namespace DrectSoft.Emr.NurseCenter
             if (m_WaitDialog != null)
                 m_WaitDialog.Hide();
         }
-
-        #region "获取在院病人 已弃用by cyq 2012-08-22(变更为RefreshDataOfTab1)"
-        //private void BindWardPats()
-        //{
-        //    gridView1.ExpandAllGroups();
-
-
-        //    //to do 根据CHECKBOX情况传参数
-        //    //gridControl1.DataSource = GetPatientDataInner(3, string.Empty, "N");
-
-        //    //to do 根据CHECKBOX情况传参数
-        //    DataTable dtSource = GetPatientDataInner(3, string.Empty, "N");
-        //    string filter = string.Format(@"  yebz='0' ");
-        //    //gridMain.DataSource = m_DataManager.TableWard;
-        //    if (dtSource != null)
-        //    {
-        //        dtSource.DefaultView.RowFilter = filter;
-        //    }
-        //    //处理含有婴儿的情况  ywk
-        //    DataTable newDt = dtSource.DefaultView.ToTable();
-        //    string ResultName = string.Empty;//声明最终要在列表显示的姓名的内容
-        //    for (int i = 0; i < newDt.Rows.Count; i++)
-        //    {
-        //        ResultName = DataManager.GetPatsBabyContent(m_App, newDt.Rows[i]["noofinpat"].ToString());
-        //        newDt.Rows[i]["PatName"] = ResultName;
-        //    }
-        //    //cyq 2012-08-21
-        //    SetPagingTip(newDt.Rows.Count);
-        //    this.gridControl1.DataSource = OrderBy(newDt).ToPagedList(m_pageIndex1, m_pageSize);
-        //    //gridControl1.DataSource = GetPatientDataInner(3, string.Empty, "N");
-
-        //    ////泗县修改 2012年5月10日9:27:33 ywk 
-        //    //gridView2.ExpandAllGroups();
-        //    ////to do 根据CHECKBOX情况传参数
-        //    //gridControl2.DataSource = GetPatientDataByAdmiitDate(3, string.Empty, "N");
-
-        //}
-        #endregion
-
         /// <summary>
         /// 初始化复选框 - 在院全部病人
         /// edit by Yanqiao.Cai 2012-11-09
@@ -149,12 +86,6 @@ namespace DrectSoft.Emr.NurseCenter
         {
             try
             {
-                //check_0.Checked = true;
-                //check_Default.Checked = true;
-                //check_Empty.Checked = false;
-                //check_I.Checked = true;
-                //check_II.Checked = true;
-                //check_III.Checked = true;
                 Reset1();
                 check_0.CheckedChanged += new EventHandler(checkHl_CheckedChanged);
                 check_I.CheckedChanged += new EventHandler(checkHl_CheckedChanged);
@@ -189,12 +120,10 @@ namespace DrectSoft.Emr.NurseCenter
             {
                 return;
             }
-            //BasicPatView.ShowCurrentPatInfo(syxh.ToString());
-            //using (BasePatientInfo info = new BasePatientInfo(m_App))
-            //{
-            //    info.ShowCurrentPatInfo(syxh.ToString());
-            //}
-            XtraFormPatientInfo patientInfo = new XtraFormPatientInfo(m_App, syxh.ToString());
+            Assembly RedactPatientInfo = Assembly.Load("DrectSoft.Core.RedactPatientInfo");
+            Type TyRedactPatientInfo = RedactPatientInfo.GetType("DrectSoft.Core.RedactPatientInfo.XtraFormPatientInfo");
+            //实例化一个类
+            DevExpress.XtraEditors.XtraForm patientInfo = (DevExpress.XtraEditors.XtraForm)Activator.CreateInstance(TyRedactPatientInfo, new object[] { m_App, syxh.ToString() });
             patientInfo.ShowDialog();
 
         }
@@ -206,12 +135,6 @@ namespace DrectSoft.Emr.NurseCenter
         {
             Decimal syxh = FindFocusedPat();
             if (syxh < 0) return;
-            //让主框架选择病人
-            //m_App.ChoosePatient(syxh);
-            ////打开病历编辑器
-            //m_App.LoadPlugIn("DrectSoft.Core.RecordsInput.dll", "DrectSoft.Core.RecordsInput.FormMain");
-            //打开护理文档
-            //m_App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
             //处理有婴儿的情况
             DataRow dataRow = gridView1.GetDataRow(gridView1.FocusedRowHandle);
             string noofinpat = dataRow["NoOfInpat"].ToString();
@@ -223,16 +146,12 @@ namespace DrectSoft.Emr.NurseCenter
                 {
                     m_App.ChoosePatient(decimal.Parse(choosepat.NOOfINPAT));
                     m_App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
-                    //新版本的护士站 暂时没有启用xll 20120905
-                    //m_App.LoadPlugIn("DrectSoft.Core.EMR_NursingDocument.dll", "DrectSoft.Core.EMR_NursingDocument.EMRInput.Table.MainForm");
                 }
             }
             else
             {
                 m_App.ChoosePatient(syxh);
                 m_App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());//add by ywk  2012年8月2日 16:43:27 
-                //m_App.CurrentPatientInfo
-                //m_App.LoadPlugIn("DrectSoft.Core.EMR_NursingDocument.dll", "DrectSoft.Core.EMR_NursingDocument.MainNurseDocument");
             }
 
         }
@@ -286,29 +205,14 @@ namespace DrectSoft.Emr.NurseCenter
             //add by ywk 2012年5月10日9:08:29 （泗县修改）
             //科室历史病人查询中，入院时间默认一个月
             Reset2();
-            //对会诊完成且未收费的进行收费提醒 
-            //InitTimerMessageWindow();*********暂时不要**********
             //ConsultationDefaultFocusRow();
-            if (GetConfigValueByKey("ManualMaintainBasicInfo") == "1")
+            if (DS_SqlService.GetConfigValueByKey("ManualMaintainBasicInfo") == "1")
             {
-                barButton_View.Visibility = BarItemVisibility.Never;
                 btnZhuanke.Visibility = btnChuYuan.Visibility = BarItemVisibility.Always;
             }
             else
             {
-                barButton_View.Visibility = BarItemVisibility.Always;
                 btnZhuanke.Visibility = btnChuYuan.Visibility = BarItemVisibility.Never;
-            }
-
-            //从his查病人信息功能
-            if (GetConfigValueByKey("GetInpatientForHis") == "1")
-            {
-                barButton_View.Visibility = BarItemVisibility.Always;
-            }
-            else
-            {
-
-                barButton_View.Visibility = BarItemVisibility.Never;
             }
 
             bool HasHZ = DrectSoft.Service.DS_BaseService.FlieHasKey("HZXT");
@@ -339,7 +243,7 @@ namespace DrectSoft.Emr.NurseCenter
             {
                 dockPanel1.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Visible;
             }
-            else 
+            else
             {
                 dockPanel1.Visibility = DevExpress.XtraBars.Docking.DockVisibility.AutoHide;//自动隐藏
             }
@@ -412,47 +316,6 @@ namespace DrectSoft.Emr.NurseCenter
             return dtResult;
         }
 
-        /// <summary>
-        /// 得到配置信息  xll 2012年9月5日
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public string GetConfigValueByKey(string key)
-        {
-
-            string sql1 = " select * from appcfg where configkey = '" + key + "'  ";
-            DataTable dt = m_App.SqlHelper.ExecuteDataTable(sql1, CommandType.Text);
-            string config = string.Empty;
-            if (dt.Rows.Count > 0)
-            {
-                config = dt.Rows[0]["value"].ToString();
-            }
-            return config;
-        }
-
-
-        //UCMessageWindow m_UCMessageWindow;
-        int m_GetMessageWindownInterval = 0;
-        /// <summary>
-        /// 对会诊完成且未收费的进行收费提醒 
-        /// </summary>
-        private void InitTimerMessageWindow()
-        {
-            //AppConfigReader m_cfgreader = new AppConfigReader();
-            //m_GetMessageWindownInterval = Convert.ToInt32(m_cfgreader.GetConfig("DocCenterTimeInterval").Config);
-            //timerMessageWindow.Interval = m_GetMessageWindownInterval;
-            //timerMessageWindow.Tick += new EventHandler(timerMessageWindow_Tick);
-            //timerMessageWindow.Enabled = true;
-            //DataTable dt = GetConsultationInfo();
-            //if (dt.Rows.Count > 0)
-            //{
-            //    ShowMessageWindow(dt, false);
-            //}
-        }
-        void timerMessageWindow_Tick(object sender, EventArgs e)
-        {
-        }
-
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             LoadPatRecordEditor();
@@ -500,20 +363,6 @@ namespace DrectSoft.Emr.NurseCenter
                 setBaby.ShowDialog();
             }
         }
-
-        #region "获取在院病人 已弃用by cyq 2012-08-22(变更为RefreshDataOfTab1)"
-        //private void GetPatient()
-        //{
-        //    //to do 根据CHECKBOX情况传参数
-        //    string strEmpty = "Y";
-        //    if (!check_Empty.Checked)
-        //        strEmpty = "N";
-
-        //    DataTable dtSource = GetPatientDataInner(3, string.Empty, strEmpty);
-        //    SetPagingTip(dtSource.Rows.Count);
-        //    gridControl1.DataSource = OrderBy(dtSource).ToPagedList(m_pageIndex1, m_pageSize);
-        //}
-        #endregion
 
         /// <summary>
         /// 根据checkbox勾选状态筛选数据
@@ -982,15 +831,6 @@ namespace DrectSoft.Emr.NurseCenter
                 m_App.ChoosePatient(syxh);
                 m_App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
             }
-
-
-            //让主框架选择病人
-            //m_App.ChoosePatient(syxh);
-            //////打开病历编辑器
-            ////m_App.LoadPlugIn("DrectSoft.Core.RecordsInput.dll", "DrectSoft.Core.RecordsInput.FormMain");
-            ////打开护理文档
-            //m_App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
-
         }
 
         #endregion
@@ -1227,14 +1067,6 @@ namespace DrectSoft.Emr.NurseCenter
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        /// <summary>
-        /// 定时刷新会诊信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void timer1_Tick(object sender, EventArgs e)
-        {
         }
 
         /// <summary>
@@ -1483,7 +1315,7 @@ namespace DrectSoft.Emr.NurseCenter
         {
             try
             {
-                string config = GetConfigValueByKey("PageSizeConfig");
+                string config = DS_SqlService.GetConfigValueByKey("PageSizeConfig");
                 DataTable dtable = new DataTable();
                 dtable.Columns.Add(new DataColumn("ID", Type.GetType("System.Int32")));
                 if (!string.IsNullOrEmpty(config))
@@ -1512,7 +1344,7 @@ namespace DrectSoft.Emr.NurseCenter
         {
             try
             {
-                string aroundSizeStr = GetConfigValueByKey("PageSizeValueConfig");
+                string aroundSizeStr = DS_SqlService.GetConfigValueByKey("PageSizeValueConfig");
                 int aroundSize = string.IsNullOrEmpty(aroundSizeStr) ? 30 : int.Parse(aroundSizeStr);
                 string selectValue = string.Empty;
                 var listEnu = dataTable.Select(" 1=1 ");
@@ -1683,7 +1515,7 @@ namespace DrectSoft.Emr.NurseCenter
                     }
                     textEditBedNo.Focus();
                 }
-                    //xll 添加病历补写功能
+                //xll 添加病历补写功能
                 else if (xtraTabControl1.SelectedTabPage == xtraTabPage2)
                 {
                     panelControl8.Visible = true;
@@ -1702,10 +1534,10 @@ namespace DrectSoft.Emr.NurseCenter
                     //Replenish.Controls.Clear();
                     if (tabBuxie.Controls.Count == 0)
                     {
-                         repl = new ReplenishPatRec();
+                        repl = new ReplenishPatRec();
                         repl.Dock = DockStyle.Fill;
                         repl.AutoSize = false;
-                  
+
                         tabBuxie.Controls.Add(repl);
                     }
                     repl.LoadData(m_App);
@@ -1717,13 +1549,13 @@ namespace DrectSoft.Emr.NurseCenter
                     //Replenish.Controls.Clear();
                     if (paintTran.Controls.Count == 0)
                     {
-                       uctran = new UCTran(m_App);
-                       uctran.Dock = DockStyle.Fill;
-                       uctran.AutoSize = false;
+                        uctran = new UCTran(m_App);
+                        uctran.Dock = DockStyle.Fill;
+                        uctran.AutoSize = false;
 
-                       paintTran.Controls.Add(uctran);
+                        paintTran.Controls.Add(uctran);
                     }
-                   
+
                 }
             }
             catch (Exception ex)
@@ -1752,7 +1584,7 @@ namespace DrectSoft.Emr.NurseCenter
                     DialogResult dResult = m_App.CustomMessageBox.MessageShow("确定让病人出院吗？", CustomMessageBoxKind.QuestionYesNo);
                     if (dResult == DialogResult.Yes)
                     {
-                       // string sql = string.Format("update inpatient set inpatient.status=1503,inpatient.emrouthos='1' where inpatient.noofinpat={0};", Convert.ToInt32(syxh));
+                        // string sql = string.Format("update inpatient set inpatient.status=1503,inpatient.emrouthos='1' where inpatient.noofinpat={0};", Convert.ToInt32(syxh));
                         string sql = "update inpatient i set i.status=1503,i.outhosdept=@outhostdept, i.outhosward=@outhostward,i.outwarddate=@outwarddate,i.outhosdate=@outhostdate,i.emrouthos='1' where i.noofinpat=@noofinpat";
                         SqlParameter[] sps ={
                                                new SqlParameter("@outhostdept",m_App.User.CurrentDeptId),
@@ -1761,7 +1593,7 @@ namespace DrectSoft.Emr.NurseCenter
                                                new SqlParameter("@outhostdate",DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
                                                new SqlParameter("@noofinpat",Convert.ToInt32(syxh))
                                             };
-                        m_App.SqlHelper.ExecuteNoneQuery(sql,sps, CommandType.Text);
+                        m_App.SqlHelper.ExecuteNoneQuery(sql, sps, CommandType.Text);
                         RefreshDataOfTab1();
                     }
                 }

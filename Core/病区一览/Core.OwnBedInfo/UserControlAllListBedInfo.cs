@@ -5,7 +5,6 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DrectSoft.Common;
 using DrectSoft.Common.Ctrs.DLG;
-using DrectSoft.Core.RedactPatientInfo;
 using DrectSoft.DSSqlHelper;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using DrectSoft.Service;
@@ -13,6 +12,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
@@ -739,9 +739,9 @@ namespace DrectSoft.Core.OwnBedInfo
                 DataRow dataRow = gridViewGridWardPat.GetDataRow(gridViewGridWardPat.FocusedRowHandle);
                 if (dataRow == null || string.IsNullOrEmpty(dataRow["NoOfInpat"].ToString())) return;
                 //to do 调用病患基本信息窗体
-                //BasePatientInfo info = new BasePatientInfo(App);
-                //info.ShowCurrentPatInfo(dataRow["NoOfInpat"].ToString());
-                XtraFormPatientInfo patientInfo = new XtraFormPatientInfo(App, dataRow["NoOfInpat"].ToString());
+                Assembly AspatientInfo = Assembly.Load("DrectSoft.Core.RedactPatientInfo");
+                Type TypatientInfo = AspatientInfo.GetType("DrectSoft.Core.RedactPatientInfo.XtraFormPatientInfo");
+                DevExpress.XtraEditors.XtraForm patientInfo = (DevExpress.XtraEditors.XtraForm)Activator.CreateInstance(TypatientInfo, new object[] { App, dataRow["NoOfInpat"].ToString() });
                 patientInfo.ShowDialog();
             }
             catch (Exception ex)

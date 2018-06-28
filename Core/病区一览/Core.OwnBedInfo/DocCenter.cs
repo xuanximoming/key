@@ -13,7 +13,6 @@ using DrectSoft.Common.Ctrs.DLG;
 using DrectSoft.Common.Eop;
 using DrectSoft.Core.Consultation;
 using DrectSoft.Core.QCDeptReport;
-using DrectSoft.Core.RedactPatientInfo;
 using DrectSoft.DSSqlHelper;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using DrectSoft.Service;
@@ -24,6 +23,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
@@ -1579,9 +1579,9 @@ namespace DrectSoft.Core.OwnBedInfo
                     return;
                 }
                 //to do 调用病患基本信息窗体
-                //BasePatientInfo info = new BasePatientInfo(m_App);
-                //info.ShowCurrentPatInfo(dataRow["NoOfInpat"].ToString());
-                XtraFormPatientInfo patientInfo = new XtraFormPatientInfo(m_App, dataRow["NoOfInpat"].ToString());
+                Assembly AspatientInfo = Assembly.Load("DrectSoft.Core.RedactPatientInfo");
+                Type TypatientInfo = AspatientInfo.GetType("DrectSoft.Core.RedactPatientInfo.XtraFormPatientInfo");
+                DevExpress.XtraEditors.XtraForm patientInfo = (DevExpress.XtraEditors.XtraForm)Activator.CreateInstance(TypatientInfo, new object[] { m_App, dataRow["NoOfInpat"].ToString() });
                 patientInfo.ShowDialog();
             }
             catch (Exception ex)
@@ -2496,9 +2496,9 @@ namespace DrectSoft.Core.OwnBedInfo
                 if (!string.IsNullOrEmpty(noOfInpat))
                 {
                     //to do 调用病患基本信息窗体
-                    //BasePatientInfo info = new BasePatientInfo(m_App);
-                    //info.ShowCurrentPatInfo(dataRow["NoOfInpat"].ToString());
-                    XtraFormPatientInfo patientInfo = new XtraFormPatientInfo(m_App, noOfInpat);
+                    Assembly AspatientInfo = Assembly.Load("DrectSoft.Core.RedactPatientInfo");
+                    Type TypatientInfo = AspatientInfo.GetType("DrectSoft.Core.RedactPatientInfo.XtraFormPatientInfo");
+                    DevExpress.XtraEditors.XtraForm patientInfo = (DevExpress.XtraEditors.XtraForm)Activator.CreateInstance(TypatientInfo, new object[] { m_App, noOfInpat });
                     patientInfo.ShowDialog();
                 }
             }

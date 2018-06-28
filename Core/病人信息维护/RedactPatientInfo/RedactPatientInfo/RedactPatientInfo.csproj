@@ -254,6 +254,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\DrectService\DrectSoft.Service.csproj">
+      <Project>{ff0edb66-caa2-4efb-b63e-15ddd2e3fc71}</Project>
+      <Name>DrectSoft.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\EMR\病人医技报告\InPatientReport\InPatientReport.csproj">
       <Project>{b0deefb9-29e2-4f82-9a89-377b823067e9}</Project>
       <Name>InPatientReport</Name>

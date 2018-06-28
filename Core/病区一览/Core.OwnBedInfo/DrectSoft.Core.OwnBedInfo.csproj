@@ -341,10 +341,6 @@
       <Project>{ae291798-aac9-467b-8d6f-c6c957ef52ef}</Project>
       <Name>Consultation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\病人信息维护\RedactPatientInfo\RedactPatientInfo\RedactPatientInfo.csproj">
-      <Project>{216ac98f-2dae-4ae1-a846-05a500a5ecde}</Project>
-      <Name>RedactPatientInfo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\病历借阅与查询\MedicalRrecordQuery\MedicalRecordQuery.csproj">
       <Project>{ff2073fb-4610-41c6-9f10-36c76fab5952}</Project>
       <Name>MedicalRecordQuery</Name>
