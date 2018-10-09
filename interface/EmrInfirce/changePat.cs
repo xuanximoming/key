@@ -129,6 +129,7 @@ namespace EmrInfirce
             if (dt == null || dt.Rows.Count == 0)
             {
                 MessageBox.Show("EMR中没有此患者信息，请确认！");
+                return;
             }
             //存在更新
             else
