@@ -1,25 +1,21 @@
-﻿using System;
+﻿using DevExpress.Utils;
+using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.DSSqlHelper;
+using DrectSoft.Emr.Util;
+using DrectSoft.Library.EmrEditor.Src.Print;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Management;
-using DevExpress.XtraEditors;
-using DrectSoft.Emr.Util;
-using System.Drawing.Printing;
-using System.Xml;
-using DevExpress.Utils;
-using DrectSoft.Core;
-using iTextSharp.text;
-using System.IO;
-using iTextSharp.text.pdf;
-using DrectSoft.Common.Ctrs.DLG;
-using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
-using DrectSoft.DSSqlHelper;
-using DrectSoft.Common.Ctrs.FORM;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace DrectSoft.Core.MainEmrPad
 {
@@ -614,7 +610,7 @@ namespace DrectSoft.Core.MainEmrPad
             try
             {
                 List<Metafile> images = CurrentForm.zyEditorControl1.EMRDoc.GeneratePrintImage2();
-                
+
                 int StartprintPage = Convert.ToInt32(spinEditBegin.EditValue); //开始打印的页数
                 int EndprintPage = Convert.ToInt32(spinEditEnd.EditValue); //结束打印的页数
                 e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
@@ -630,7 +626,7 @@ namespace DrectSoft.Core.MainEmrPad
                     }
                     else if (ADDIndex >= 1 && ADDIndex < EndprintPage)
                     {
-                     
+
                         e.Graphics.DrawImage(images[StartprintPage + ADDIndex - 2], new RectangleF(0, 0, images[StartprintPage + ADDIndex - 2].Width, images[StartprintPage + ADDIndex - 2].Height));
                         ADDIndex++;
                         e.HasMorePages = true;
@@ -638,7 +634,7 @@ namespace DrectSoft.Core.MainEmrPad
 
                     else if (ADDIndex == EndprintPage)//索引循环到了等于终止的页数,直接打印最后一页
                     {
-                     
+
                         e.Graphics.DrawImage(images[EndprintPage - 1], new RectangleF(0, 0, images[EndprintPage - 1].Width, images[EndprintPage - 1].Height));
                         ADDIndex++;
                         e.HasMorePages = false;
@@ -647,10 +643,10 @@ namespace DrectSoft.Core.MainEmrPad
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-            
+
         }
 
         private void JumpPrint(bool isJumpPrint)
@@ -759,7 +755,8 @@ namespace DrectSoft.Core.MainEmrPad
 
         private void simpleButtonPageSetting_Click(object sender, EventArgs e)
         {
-            CurrentForm.zyEditorControl1.EMRDoc._PageSetting();
+            XPageSettings PageSettings = new XPageSettings();
+            CurrentForm.zyEditorControl1.EMRDoc._PageSetting(ref PageSettings);
         }
 
         private void simpleButtonClose_Click(object sender, EventArgs e)

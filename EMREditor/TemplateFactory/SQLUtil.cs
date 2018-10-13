@@ -1,11 +1,11 @@
-﻿using System;
+﻿using DrectSoft.Core;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
-using DrectSoft.Core;
-using DrectSoft.FrameWork.WinForm.Plugin;
 
 namespace DrectSoft.Emr.TemplateFactory
 {
@@ -476,6 +476,32 @@ namespace DrectSoft.Emr.TemplateFactory
             }
             return config;
         }
+        /// <summary>
+        /// 设置编辑器的页面设置，APPCFG中PageSetting参数 by ukey 2018-10-14
+        /// </summary>
+        /// <param name="kind">纸张类型</param>
+        /// <param name="pagersize">纸张大小</param>
+        /// <param name="margins">页边距</param>
+        public void SetPageSetting(System.Drawing.Printing.PaperKind kind, System.Drawing.Printing.PaperSize pagersize, System.Drawing.Printing.Margins margins)
+        {
+            string config = GetConfigValueByKey("PageSetting");
+            System.Xml.XmlDocument doc = new XmlDocument();
+            doc.LoadXml(config);
+            XmlNode pagesetting = doc.ChildNodes[0].SelectSingleNode("pagesettings");
+            XmlElement ele = (pagesetting as XmlElement).SelectSingleNode("page") as XmlElement;
+
+            ele.SetAttribute("kind", kind.ToString());
+            ele.SetAttribute("width", pagersize.Width.ToString());
+            ele.SetAttribute("height", pagersize.Height.ToString());
+            ele = (pagesetting as XmlElement).SelectSingleNode("margins") as XmlElement;
+            ele.SetAttribute("left", margins.Left.ToString());
+            ele.SetAttribute("top", margins.Top.ToString());
+            ele.SetAttribute("right", margins.Right.ToString());
+            ele.SetAttribute("bottom", margins.Bottom.ToString());
+            config = doc.InnerXml;
+            string sql = " update appcfg set value = '{0}' where configkey = 'PageSetting'; ";
+            m_app.SqlHelper.ExecuteNoneQuery(string.Format(sql, config), CommandType.Text);
+        }
 
         /// <summary>
         /// 设置页眉高度和页脚高度 2012-02-16 wwj
@@ -495,7 +521,6 @@ namespace DrectSoft.Emr.TemplateFactory
             ele.SetAttribute("height", headerHeight.ToString());
             ele = (pagesetting as XmlElement).SelectSingleNode("footer") as XmlElement;
             ele.SetAttribute("height", footerHeight.ToString());
-
             config = doc.InnerXml;
             string sql = " update appcfg set value = '{0}' where configkey = 'PageSetting'; ";
             m_app.SqlHelper.ExecuteNoneQuery(string.Format(sql, config), CommandType.Text);

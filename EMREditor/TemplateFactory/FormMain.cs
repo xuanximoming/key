@@ -16,12 +16,14 @@ using DrectSoft.Library.EmrEditor.Src.Clipboard;
 using DrectSoft.Library.EmrEditor.Src.Common;
 using DrectSoft.Library.EmrEditor.Src.Document;
 using DrectSoft.Library.EmrEditor.Src.Gui;
+using DrectSoft.Library.EmrEditor.Src.Print;
 using DrectSoft.Wordbook;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -4830,7 +4832,18 @@ namespace DrectSoft.Emr.TemplateFactory
         {
             try
             {
-                pnlText.EMRDoc._PageSetting();
+                // 2018-10-14 修改，添加修改编辑器页面设置
+                XPageSettings PageSettings = new XPageSettings();
+                bool result = pnlText.EMRDoc._PageSetting(ref PageSettings);
+                if (!result)
+                {
+                    Margins margins = new System.Drawing.Printing.Margins();
+                    PaperSize pagersize = new System.Drawing.Printing.PaperSize();
+                    margins = PageSettings.Margins;
+                    pagersize.Width = PageSettings.PaperSize.Width;
+                    pagersize.Height = PageSettings.PaperSize.Height;
+                    m_Util.SetPageSetting(PageSettings.PaperSize.Kind, pagersize, margins);
+                }
             }
             catch (Exception ex)
             {

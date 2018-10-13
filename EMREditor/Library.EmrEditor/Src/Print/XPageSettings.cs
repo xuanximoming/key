@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
 using System.Drawing.Printing;
+using System.Xml;
 
 namespace DrectSoft.Library.EmrEditor.Src.Print
 {
@@ -91,7 +88,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
                     //纵向打印
                     //if (this.bolLandscape == false)
                     //{
-                        ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Width, myPaperSize.Height);
+                    ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Width, myPaperSize.Height);
                     //}
                     //    //横向打印
                     //else
@@ -117,7 +114,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
                     {
                         //if (this.bolLandscape == false)
                         //{
-                            ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Width, myPaperSize.Height);
+                        ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Width, myPaperSize.Height);
                         //}
                         //else
                         //{
@@ -146,7 +143,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
         {
             //page
             XmlElement page = myElement.OwnerDocument.CreateElement("page");
-            page.SetAttribute("kind",this. PaperSize.Kind.ToString());
+            page.SetAttribute("kind", this.PaperSize.Kind.ToString());
             page.SetAttribute("width", PaperSize.Width.ToString());
             page.SetAttribute("height", PaperSize.Height.ToString());
             myElement.AppendChild(page);
@@ -166,10 +163,9 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
         public void FromXml(System.Xml.XmlElement myElement)
         {
             XmlElement ele = (XmlElement)myElement.SelectSingleNode("page");
-            //XPageSettings ps = new XPageSettings();
-            
+
             this.PaperSize.Kind = (PaperKind)Enum.Parse(typeof(PaperKind), ele.GetAttribute("kind"));
-            
+
             if (this.PaperSize.Kind == PaperKind.Custom)
             {
                 this.PaperSize.Width = int.Parse(ele.GetAttribute("width"));

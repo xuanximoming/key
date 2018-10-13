@@ -2709,13 +2709,18 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
             return true;
         }
 
-        //页面设置 
-        public bool _PageSetting()
+        /// <summary>
+        /// 页面设置 ，2018-10-14 修改，方便修改编辑器页面设置
+        /// </summary>
+        /// <param name="refPageSetting">页面属性</param>
+        /// <returns></returns>
+        public bool _PageSetting(ref XPageSettings refPageSetting)
         {
             using (XDesignerPrinting.dlgPageSetup dlg = new XDesignerPrinting.dlgPageSetup())
             {
                 dlg.PageSettings = this.Pages.PageSettings;
-                if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                DialogResult result = dlg.ShowDialog();
+                if (result == DialogResult.OK)
                 {
                     this.Pages.PageSettings = dlg.PageSettings;
                     this.RefreshLine();
@@ -2723,6 +2728,11 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                     this.OwnerControl.UpdatePages();
                     this.Refresh();
                     return true;
+                }
+                else if (result == DialogResult.Yes)
+                {
+                    refPageSetting = dlg.PageSettings;
+                    return false;
                 }
             }
             return false;

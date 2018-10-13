@@ -3,10 +3,11 @@ using DevExpress.XtraEditors.Controls;
 using DrectSoft.Common.Ctrs.DLG;
 using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.Common.Eop;
+using DrectSoft.DSSqlHelper;
 using DrectSoft.Emr.Util;
 using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Library.EmrEditor.Src.Print;
 using DrectSoft.Service;
-using DrectSoft.DSSqlHelper;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
@@ -1159,7 +1160,8 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                m_CurrentEditorForm.CurrentEditorControl.EMRDoc._PageSetting();
+                XPageSettings PageSettings = new XPageSettings();
+                m_CurrentEditorForm.CurrentEditorControl.EMRDoc._PageSetting(ref PageSettings);
             }
             catch (Exception ex)
             {

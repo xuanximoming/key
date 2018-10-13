@@ -1,8 +1,8 @@
+using DrectSoft.Library.EmrEditor.Src.Print;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 using XDesignerCommon;
-using DrectSoft.Library.EmrEditor.Src.Print;
 
 
 namespace XDesignerPrinting
@@ -549,11 +549,12 @@ namespace XDesignerPrinting
         private void btnSetDefault_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("是否要把当前的选项设置为默认配置? ", "系统提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr != DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
-                return;
+                this.DialogResult = System.Windows.Forms.DialogResult.Yes;
+                this.Close();
             }
-            
         }
+
     }
 }
