@@ -19,7 +19,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
         private Dictionary<string, VitalSignInfoEntity> m_VitalSignsCaption = new Dictionary<string, VitalSignInfoEntity>();//存放护理数据名称（其元素后期可以从配置文件中读取）
         private DataTable dtWayOFSurvey;//体温测量方式
         private string[] m_TimeSlot = null;
-        //private int m_DayOfModify=0;
         private UCTemperatureEditor[] m_UCTemperatureEditor = new UCTemperatureEditor[6];
         private XmlDocument xmlDoc = new XmlDocument();
         private string m_xmlFilePath = "";
@@ -28,59 +27,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
 
         private Dictionary<string, VitalSignMeasureNew> m_vitalMeasureDictionary = new Dictionary<string, VitalSignMeasureNew>();
         #region 初始化窗体
-
-        //public UCNursingRecordTableNew()
-        //{
-        //    try
-        //    {
-        //        InitializeComponent();
-        //        if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + ConfigInfo.configName))
-        //        {
-        //            MessageBox.Show("Config配置文件不存在");
-        //            return;
-        //        }
-        //        m_xmlFilePath = AppDomain.CurrentDomain.BaseDirectory + ConfigInfo.configName;
-        //        xmlDoc.Load(m_xmlFilePath);
-
-        //        InitDataGridViewForVitalSigns();
-
-        //        XmlNode nodeElement = xmlDoc.GetElementsByTagName("DataRowEdit")[0];
-        //        XmlNodeList nodeList = nodeElement.ChildNodes;
-        //        foreach (XmlNode node in nodeList)
-        //        {
-        //            VitalSignInfoEntity obj = new VitalSignInfoEntity();
-        //            obj.caption = node.InnerText;
-        //            obj.datafield = node.Attributes["datafield"] == null ? "" : node.Attributes["datafield"].Value;
-        //            obj.cellCtlType = (CellControlType)Enum.Parse(typeof(CellControlType), node.Attributes["cellControl"] == null ? "1" : node.Attributes["cellControl"].Value);
-        //            obj.showForm = node.Attributes["showDlg"] == null ? "" : node.Attributes["showDlg"].Value;
-        //            obj.datasource = null;
-        //            obj.showtype = node.Attributes["showtype"] == null ? "" : node.Attributes["showtype"].Value;
-        //            m_VitalSignsCaption.Add(obj.datafield, obj);
-        //        }
-
-        //        foreach (KeyValuePair<string, VitalSignInfoEntity> pair in m_VitalSignsCaption)
-        //        {
-        //            DataGridViewRow newRow = newRow = new DataGridViewRow();
-        //            newRow.Tag = pair.Key;
-        //            newRow.HeaderCell.Value = pair.Value.caption;
-        //            if (pair.Value.showtype == "0")//时段数据
-        //            {
-        //                dgvVitalSigns.Rows.Add(newRow);
-        //            }
-        //            else //天数据
-        //            {
-        //                dgvVitalSigns1.Rows.Add(newRow);
-        //            }
-        //        }
-        //        dgvVitalSigns1.Height = m_VitalSignsCaption.Count * 18;
-        //        panel1.Height = dgvVitalSigns1.Height + dgvVitalSigns.Height;
-        //        //dgvVitalSigns1.Location = new Point(dgvVitalSigns.Top + dgvVitalSigns.Height);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MyMessageBox.Show(1, ex);
-        //    }
-        //}
 
         public UCNursingRecordTableNew()
         {
@@ -134,12 +80,12 @@ namespace DrectSoft.Core.NurseDocument.Controls
         {
             try
             {
-                if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + ConfigInfo.configName))
+                if (!File.Exists(ConfigInfo.GetXMLPath(null)))
                 {
                     MessageBox.Show("配置文件不存在");
                     return;
                 }
-                m_xmlFilePath = AppDomain.CurrentDomain.BaseDirectory + ConfigInfo.configName;
+                m_xmlFilePath = ConfigInfo.GetXMLPath(null);
                 /*加载xml*/
                 xmlDoc.Load(m_xmlFilePath);
                 InitDataGridViewForVitalSigns();
@@ -237,64 +183,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
         }
 
-        #region 注销 by xlb 2013-05-03
-        ///// <summary>
-        ///// 根据列名字段名称得到时段数据的值
-        ///// Modify by xlb 天数据写入某个时段默认界面第一时间段
-        ///// </summary>
-        ///// <param name="fieldName">列名</param>
-        ///// <param name="index">时段序号</param>
-        ///// <returns></returns>
-        //private string GetDataFieldValue(string fieldName, int index)
-        //{
-        //    try
-        //    {
-        //        string value = null;
-        //        if (m_VitalSignsCaption[fieldName].showtype == "0")//时段数据
-        //        {
-        //            foreach (DataGridViewRow dgvr in dgvVitalSigns.Rows)
-        //            {
-        //                if (dgvr.Tag != null)
-        //                {
-        //                    if (dgvr.Tag.ToString().Equals(fieldName))
-        //                    {
-        //                        value = dgvr.Cells[index].Value == null ? "" : dgvr.Cells[index].Value.ToString();
-        //                        break;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            foreach (DataGridViewRow dgvr in dgvVitalSigns1.Rows)
-        //            {
-        //                if (dgvr.Tag != null)
-        //                {
-        //                    if (dgvr.Tag.ToString().Equals(fieldName))
-        //                    {
-        //                        if (index == 0)
-        //                        {
-
-        //                            value = dgvr.Cells[index].Value == null ? "" : dgvr.Cells[index].Value.ToString();
-        //                        }
-        //                        else
-        //                        {
-        //                            value = "";
-        //                        }
-        //                        break;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        return value;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
-        #endregion
-
         /// <summary>
         /// 根据列名字段名称得到时段数据的值
         /// Add by xlb 天数据写入某个时段默认界面第一时间段
@@ -364,10 +252,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
             newRow.HeaderCell.Value = "物理升温(℃)";
             dgvVitalSigns.Rows.Add(newRow);
 
-            //dgvVitalSigns.Rows[0].Cells[0].Selected = false;
-            //dgvVitalSigns.ClearSelection();
-            //m_currentCell = null;
-
             m_UCTemperatureEditor[0] = ucTemperatureEditor1;
             m_UCTemperatureEditor[1] = ucTemperatureEditor2;
             m_UCTemperatureEditor[2] = ucTemperatureEditor3;
@@ -400,12 +284,12 @@ namespace DrectSoft.Core.NurseDocument.Controls
         {
             XmlDocument xmlDoc = new XmlDocument();
             //edit zyx 2012-12-28 
-            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + ConfigInfo.configName))
+            if (!File.Exists(ConfigInfo.GetXMLPath(null)))
             {
                 MessageBox.Show("Config配置文件不存在");
                 return;
             }
-            xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + ConfigInfo.configName);
+            xmlDoc.Load(ConfigInfo.GetXMLPath(null));
             XmlNode nodeElement = xmlDoc.GetElementsByTagName("HourOfday")[0];
             XmlNodeList nodeList = nodeElement.ChildNodes;
             m_TimeSlot = new string[nodeList.Count];
@@ -472,16 +356,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
         }
 
-        #endregion
-
-        #region 属性集
-        /// <summary>
-        /// 护理信息允许修改的天数
-        /// </summary>
-        //public int DayOfModify
-        //{
-        //    get { return m_DayOfModify; }
-        //}
         #endregion
 
         #region 保存护理信息数据
@@ -905,10 +779,8 @@ namespace DrectSoft.Core.NurseDocument.Controls
                                 new SqlParameter("@DoctorOfRecord",SqlDbType.VarChar),//记录人---9
                 new SqlParameter("@TimeSlot",SqlDbType.VarChar),//时间点---10
             };
-            sqlParam[0].Value = noofinpat;// MethodSet.CurrentInPatient.NoOfFirstPage;
+            sqlParam[0].Value = noofinpat;
             sqlParam[1].Value = DateOfSurvey;
-            //sqlParam[2].Value = dgvVitalSigns[index, 0].Value.ToString().Trim().Split(':')[0];
-            //sqlParam[3].Value = Int32.Parse(FilterValue("name", dgvVitalSigns[index, 0].Value.ToString().Trim().Split(':')[1],"detailid"));
             sqlParam[2].Value = m_UCTemperatureEditor[index].TxtTemperature.Text;
             sqlParam[3].Value = m_UCTemperatureEditor[index].LookUpWayOfSurvey.EditValue.ToString();
             sqlParam[4].Value = dgvVitalSigns[index, 1].Value == null ? "" : dgvVitalSigns[index, 1].Value.ToString().Trim();
@@ -922,7 +794,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
             return sqlParam;
         }
         #endregion
-
 
         #region 获取指定日期对应的护理信息数据
         /// <summary>
@@ -998,8 +869,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
 
             }
             //住院天数
-            //if (txtDayOfHospital1.Text.Trim() == "" && Convert.ToDateTime(DateOfSurvey) == Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")))
-            // {
             DateTime AdmitDate;
             if (ConfigInfo.isAdminDate)
             {
@@ -1018,34 +887,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             {
                 txtDayOfHospital1.Text = (CurrDate.Subtract(AdmitDate).Days + 1).ToString();
             }
-            //  }
-            //手术后日数
-            //if (txtDaysAfterSurgery1.Text.Trim() == "" && Convert.ToDateTime(DateOfSurvey) == Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")))
-            //   if (ConfigInfo.editable == 1)
-            {
-                //    ucNursingRecordTable1.SetDaysAfterSurgery(dateEdit.Text, NoOfInpat);//zyx 解决手术后天数不显示问题
-                //}
-                //else 
-                //{
-                //    ucNursingRecordTable1.GetDaysAfterSurgery(dateEdit.DateTime.Date.ToString("yyyy-MM-dd"), NoOfInpat);
-            }
-            //if (ConfigInfo.editable == 1)
-            //{
-            //    //SetDaysAfterSurgery(MethodSet.DaysAfterSurgery);
-            //    SetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
-            //}
-            //else
-            //{
-            //    if (dt != null && dt.Rows != null && dt.Rows.Count > 0) 
-            //    {
-            //        txtDaysAfterSurgery1.Text = dt.Rows[0]["DAYSAFTERSURGERY"] == null ? "" : dt.Rows[0]["DAYSAFTERSURGERY"].ToString();
-            //    }else
-            //    {
-            //        SetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
-            //    }
-            //}
             GetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
-            // }
         }
 
         public void GetDaysAfterSurgery(string dateOfSurvey, string _noofinpat)
@@ -1163,8 +1005,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
         }
         #endregion
 
-
-
         #region 对于手术后天数的处理 add  by ywk
         /// <summary>
         /// 设置手术后天数 edit by ywk
@@ -1177,8 +1017,8 @@ namespace DrectSoft.Core.NurseDocument.Controls
             //泗縣需求 分娩手術走同樣邏輯 add by ywk2013年6月14日 15:11:13
             string serachsql = string.Format
                 (@"    select * from patientstatus  p left join THERE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
-and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
-and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime asc", patid, inputdate + " 23:59:59");
+                        and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
+                        and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime asc", patid, inputdate + " 23:59:59");
 
             DataTable AllSurgeryData = MethodSet.App.SqlHelper.ExecuteDataTable(serachsql, CommandType.Text);
 
@@ -1277,109 +1117,6 @@ and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime a
 
         #endregion
 
-        //private void dgvVitalSigns1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        //{
-        //    try
-        //    {
-        //        DataGridViewRow dr = dgvVitalSigns1.Rows[e.RowIndex];
-        //        VitalSignInfoEntity tagEntity = m_VitalSignsCaption[dr.Tag.ToString()];
-        //        if (tagEntity != null && tagEntity.datafield != "")
-        //        {
-        //            if (tagEntity.cellCtlType == CellControlType.ShowDlg) //需要弹出对话框编辑
-        //            {
-        //                e.Cancel = true;
-        //                string str = string.Empty;
-        //                if (dgvVitalSigns1[dgvVitalSigns1.CurrentCell.ColumnIndex, dgvVitalSigns1.CurrentCell.RowIndex].Value != null)
-        //                {
-        //                    str = dgvVitalSigns1[dgvVitalSigns1.CurrentCell.ColumnIndex, dgvVitalSigns1.CurrentCell.RowIndex].Value.ToString();
-        //                }
-        //                else
-        //                {
-        //                    str = "";
-        //                }
-        //                //if (obj == null)
-        //                //{
-        //                obj = (Form)Activator.CreateInstance(Type.GetType(tagEntity.showForm), str);
-        //                obj.StartPosition = FormStartPosition.CenterScreen;
-        //                DialogResult result = obj.ShowDialog();
-        //                if (result != DialogResult.Cancel)
-        //                {
-        //                    dgvVitalSigns1[dgvVitalSigns1.CurrentCell.ColumnIndex, dgvVitalSigns1.CurrentCell.RowIndex].Value = ((IDlg)obj).EditValue;
-        //                }
-        //                obj.Dispose();
-        //                //}
-        //                //else 
-        //                // {
-        //                //obj = null;
-        //                // }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MyMessageBox.Show(1, ex);
-        //    }
-        //}
-
-        /// <summary>
-        /// 根据Config配置来加载界面
-        /// </summary>
-        //public void RefreshFormControls(string curPat)
-        //{
-        //    try
-        //    {
-        //        string path = ConfigInfo.GetXMLPath( curPat);
-        //        if (!File.Exists(path))
-        //        {
-        //            MessageBox.Show("Config配置文件不存在");
-        //            return;
-        //        }
-
-        //        xmlDoc.Load(path);
-
-        //        dgvVitalSigns.Rows.Clear();
-        //        //dgvVitalSigns1.Rows.Clear();
-        //        InitDataGridViewForVitalSigns();
-        //        m_VitalSignsCaption.Clear();
-
-        //        XmlNode nodeElement = xmlDoc.GetElementsByTagName("DataRowEdit")[0];
-        //        XmlNodeList nodeList = nodeElement.ChildNodes;
-
-
-        //        foreach (XmlNode node in nodeList)
-        //        {
-        //            VitalSignInfoEntity obj = new VitalSignInfoEntity();
-        //            obj.caption = node.InnerText;
-        //            obj.datafield = node.Attributes["datafield"] == null ? "" : node.Attributes["datafield"].Value;
-        //            obj.cellCtlType = (CellControlType)Enum.Parse(typeof(CellControlType), node.Attributes["cellControl"] == null ? "1" : node.Attributes["cellControl"].Value);
-        //            obj.showForm = node.Attributes["showDlg"] == null ? "" : node.Attributes["showDlg"].Value;
-        //            obj.datasource = null;
-        //            obj.showtype = node.Attributes["showtype"] == null ? "" : node.Attributes["showtype"].Value;
-        //            m_VitalSignsCaption.Add(obj.datafield, obj);
-        //        }
-
-        //        foreach (KeyValuePair<string, VitalSignInfoEntity> pair in m_VitalSignsCaption)
-        //        {
-        //            DataGridViewRow newRow = newRow = new DataGridViewRow();
-        //            newRow.Tag = pair.Key;
-        //            newRow.HeaderCell.Value = pair.Value.caption;
-        //            if (pair.Value.showtype == "0")//时段数据
-        //            {
-        //                dgvVitalSigns.Rows.Add(newRow);
-        //            }
-        //            else //天数据
-        //            {
-        //                //dgvVitalSigns1.Rows.Add(newRow);
-        //            }
-        //        }
-        //        //dgvVitalSigns1.Height = m_VitalSignsCaption.Count * 18;
-        //        panel1.Height = /*dgvVitalSigns1.Height + */dgvVitalSigns.Height;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //}
 
         public void RefreshFormControls(string curPat)
         {
@@ -1482,11 +1219,7 @@ and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime a
 
         private void dgvVitalSigns_Enter(object sender, EventArgs e)
         {
-            //dgvVitalSigns.ClearSelection();
-            //dgvVitalSigns[0, 1].DataGridView.=true;
-
             dgvVitalSigns.CurrentCell = dgvVitalSigns.Rows[1].Cells[0];
-            //dgvVitalSigns.EditMode = DataGridViewEditMode.EditProgrammatically;//.EditOnKeystroke;//.EditOnEnter;
             dgvVitalSigns.BeginEdit(true);
         }
 

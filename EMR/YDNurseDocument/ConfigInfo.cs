@@ -563,21 +563,29 @@ namespace DrectSoft.Core.NurseDocument
         {
             try
             {
-                DS_SqlHelper.CreateSqlHelper();
-                string noofinpat = currentInpatient.ToString();
-                string sql = "select * from Inpatient i where ISBABY='1' and noofinpat=@noofinpat";
-                SqlParameter[] parms = new SqlParameter[] 
-                 {
-                    new SqlParameter("@noofinpat",SqlDbType.NVarChar)
-                 };
-                parms[0].Value = noofinpat;
-                DataTable dt = DS_SqlHelper.ExecuteDataTable(sql, parms, CommandType.Text);
-                if (dt != null && dt.Rows.Count > 0)
+                if (currentInpatient != null && currentInpatient != "")
                 {
-                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Configbaby.xml"))
+                    DS_SqlHelper.CreateSqlHelper();
+                    string noofinpat = currentInpatient.ToString();
+                    string sql = "select * from Inpatient i where ISBABY='1' and noofinpat=@noofinpat";
+                    SqlParameter[] parms = new SqlParameter[] 
                     {
-                        configName = "Configbaby.xml";
-                        return AppDomain.CurrentDomain.BaseDirectory + "Configbaby.xml";
+                        new SqlParameter("@noofinpat",SqlDbType.NVarChar)
+                    };
+                    parms[0].Value = noofinpat;
+                    DataTable dt = DS_SqlHelper.ExecuteDataTable(sql, parms, CommandType.Text);
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Configbaby.xml"))
+                        {
+                            configName = "Configbaby.xml";
+                            return AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Configbaby.xml";
+                        }
+                        else
+                        {
+                            configName = "Config.xml";
+                            return AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
+                        }
                     }
                     else
                     {
@@ -587,8 +595,7 @@ namespace DrectSoft.Core.NurseDocument
                 }
                 else
                 {
-                    configName = "Config.xml";
-                    return AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
+                    return AppDomain.CurrentDomain.BaseDirectory + "Sheet\\" + configName;
                 }
 
             }
@@ -612,13 +619,9 @@ namespace DrectSoft.Core.NurseDocument
             {
                 xmlDoc = new XmlDocument();
                 string conxml = "";
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml"))
+                if (File.Exists(GetXMLPath(null)))
                 {
-                    conxml = AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml";
-                }
-                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "Configbaby.xml"))
-                {
-                    conxml = AppDomain.CurrentDomain.BaseDirectory + "Configbaby.xml";
+                    conxml = GetXMLPath(null);
                 }
                 else
                 {
@@ -685,7 +688,7 @@ namespace DrectSoft.Core.NurseDocument
             Brush m_brush = Brushes.Red;//默认红色
             if (xmlDoc == null)
             {
-                xmlDoc.Load(AppDomain.CurrentDomain.BaseDirectory + "Sheet\\Config.xml");
+                xmlDoc.Load(GetXMLPath(null));
             }
 
             XmlNode nodeElement = xmlDoc.GetElementsByTagName("columns")[0];
