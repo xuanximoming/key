@@ -388,7 +388,6 @@ namespace DrectSoft.Core.IEMMainPage
                 m_UCIemBasInfo = new UCIemBasInfo(this);
 
             ShowUCForm.ShowUCIemBasInfo(m_UCIemBasInfo, info);
-            ShowUCForm.StartPosition = FormStartPosition.CenterScreen;
             HideWaitDialog();
             if (ShowUCForm.ShowDialog() == DialogResult.OK)
             {

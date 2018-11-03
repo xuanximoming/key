@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.txtAge = new DevExpress.XtraEditors.TextEdit();
             this.deBirth = new DevExpress.XtraEditors.DateEdit();
             this.seActualDays = new DevExpress.XtraEditors.SpinEdit();
@@ -144,8 +143,8 @@
             this.chkBZSH2 = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
-            this.lueMZZYZD_CODE = new DevTextBoxAndButton.Bwj(this.components);
-            this.lueMZXYZD_CODE = new DevTextBoxAndButton.Bwj(this.components);
+            this.lueMZZYZD_CODE = new DevTextBoxAndButton.Bwj();
+            this.lueMZXYZD_CODE = new DevTextBoxAndButton.Bwj();
             this.textEdit_csd = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_jg = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_xzz = new DevExpress.XtraEditors.TextEdit();
@@ -262,7 +261,7 @@
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(437, 127);
+            this.txtAge.Location = new System.Drawing.Point(437, 65);
             this.txtAge.Name = "txtAge";
             this.txtAge.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtAge.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -277,7 +276,7 @@
             // deBirth
             // 
             this.deBirth.EditValue = null;
-            this.deBirth.Location = new System.Drawing.Point(285, 127);
+            this.deBirth.Location = new System.Drawing.Point(285, 65);
             this.deBirth.Name = "deBirth";
             this.deBirth.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.deBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -294,7 +293,7 @@
             0,
             0,
             0});
-            this.seActualDays.Location = new System.Drawing.Point(515, 404);
+            this.seActualDays.Location = new System.Drawing.Point(515, 342);
             this.seActualDays.Name = "seActualDays";
             this.seActualDays.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.seActualDays.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -316,7 +315,7 @@
             0,
             0,
             0});
-            this.seInCount.Location = new System.Drawing.Point(285, 89);
+            this.seInCount.Location = new System.Drawing.Point(285, 27);
             this.seInCount.Name = "seInCount";
             this.seInCount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.seInCount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -334,7 +333,7 @@
             // labelControl38
             // 
             this.labelControl38.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl38.Location = new System.Drawing.Point(598, 406);
+            this.labelControl38.Location = new System.Drawing.Point(598, 344);
             this.labelControl38.Name = "labelControl38";
             this.labelControl38.Size = new System.Drawing.Size(12, 14);
             this.labelControl38.TabIndex = 80;
@@ -343,7 +342,7 @@
             // labelControl39
             // 
             this.labelControl39.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl39.Location = new System.Drawing.Point(463, 406);
+            this.labelControl39.Location = new System.Drawing.Point(463, 344);
             this.labelControl39.Name = "labelControl39";
             this.labelControl39.Size = new System.Drawing.Size(48, 14);
             this.labelControl39.TabIndex = 78;
@@ -352,7 +351,7 @@
             // labelControl40
             // 
             this.labelControl40.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl40.Location = new System.Drawing.Point(346, 406);
+            this.labelControl40.Location = new System.Drawing.Point(346, 344);
             this.labelControl40.Name = "labelControl40";
             this.labelControl40.Size = new System.Drawing.Size(24, 14);
             this.labelControl40.TabIndex = 76;
@@ -361,7 +360,7 @@
             // labelControl41
             // 
             this.labelControl41.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl41.Location = new System.Drawing.Point(210, 406);
+            this.labelControl41.Location = new System.Drawing.Point(210, 344);
             this.labelControl41.Name = "labelControl41";
             this.labelControl41.Size = new System.Drawing.Size(48, 14);
             this.labelControl41.TabIndex = 74;
@@ -370,7 +369,7 @@
             // teOutWardDate
             // 
             this.teOutWardDate.EditValue = new System.DateTime(2011, 3, 5, 0, 0, 0, 0);
-            this.teOutWardDate.Location = new System.Drawing.Point(152, 404);
+            this.teOutWardDate.Location = new System.Drawing.Point(152, 342);
             this.teOutWardDate.Name = "teOutWardDate";
             this.teOutWardDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.teOutWardDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -382,7 +381,7 @@
             // deOutWardDate
             // 
             this.deOutWardDate.EditValue = null;
-            this.deOutWardDate.Location = new System.Drawing.Point(81, 404);
+            this.deOutWardDate.Location = new System.Drawing.Point(81, 342);
             this.deOutWardDate.Name = "deOutWardDate";
             this.deOutWardDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.deOutWardDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -395,7 +394,7 @@
             // labelControl42
             // 
             this.labelControl42.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl42.Location = new System.Drawing.Point(27, 406);
+            this.labelControl42.Location = new System.Drawing.Point(27, 344);
             this.labelControl42.Name = "labelControl42";
             this.labelControl42.Size = new System.Drawing.Size(48, 14);
             this.labelControl42.TabIndex = 72;
@@ -404,7 +403,7 @@
             // labelControl35
             // 
             this.labelControl35.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl35.Location = new System.Drawing.Point(463, 380);
+            this.labelControl35.Location = new System.Drawing.Point(463, 318);
             this.labelControl35.Name = "labelControl35";
             this.labelControl35.Size = new System.Drawing.Size(48, 14);
             this.labelControl35.TabIndex = 66;
@@ -413,7 +412,7 @@
             // labelControl31
             // 
             this.labelControl31.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl31.Location = new System.Drawing.Point(346, 380);
+            this.labelControl31.Location = new System.Drawing.Point(346, 318);
             this.labelControl31.Name = "labelControl31";
             this.labelControl31.Size = new System.Drawing.Size(24, 14);
             this.labelControl31.TabIndex = 59;
@@ -422,7 +421,7 @@
             // labelControl30
             // 
             this.labelControl30.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl30.Location = new System.Drawing.Point(210, 380);
+            this.labelControl30.Location = new System.Drawing.Point(210, 318);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(48, 14);
             this.labelControl30.TabIndex = 57;
@@ -431,7 +430,7 @@
             // teAdmitDate
             // 
             this.teAdmitDate.EditValue = new System.DateTime(2011, 3, 5, 0, 0, 0, 0);
-            this.teAdmitDate.Location = new System.Drawing.Point(152, 378);
+            this.teAdmitDate.Location = new System.Drawing.Point(152, 316);
             this.teAdmitDate.Name = "teAdmitDate";
             this.teAdmitDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.teAdmitDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -443,7 +442,7 @@
             // deAdmitDate
             // 
             this.deAdmitDate.EditValue = null;
-            this.deAdmitDate.Location = new System.Drawing.Point(81, 378);
+            this.deAdmitDate.Location = new System.Drawing.Point(81, 316);
             this.deAdmitDate.Name = "deAdmitDate";
             this.deAdmitDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.deAdmitDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -456,7 +455,7 @@
             // labelControl29
             // 
             this.labelControl29.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl29.Location = new System.Drawing.Point(27, 380);
+            this.labelControl29.Location = new System.Drawing.Point(27, 318);
             this.labelControl29.Name = "labelControl29";
             this.labelControl29.Size = new System.Drawing.Size(48, 14);
             this.labelControl29.TabIndex = 53;
@@ -465,7 +464,7 @@
             // txtContactTEL
             // 
             this.txtContactTEL.EditValue = "";
-            this.txtContactTEL.Location = new System.Drawing.Point(509, 302);
+            this.txtContactTEL.Location = new System.Drawing.Point(509, 240);
             this.txtContactTEL.Name = "txtContactTEL";
             this.txtContactTEL.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtContactTEL.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -477,7 +476,7 @@
             // labelControl28
             // 
             this.labelControl28.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl28.Location = new System.Drawing.Point(457, 304);
+            this.labelControl28.Location = new System.Drawing.Point(457, 242);
             this.labelControl28.Name = "labelControl28";
             this.labelControl28.Size = new System.Drawing.Size(24, 14);
             this.labelControl28.TabIndex = 51;
@@ -486,7 +485,7 @@
             // txtContactAddress
             // 
             this.txtContactAddress.EditValue = "";
-            this.txtContactAddress.Location = new System.Drawing.Point(310, 302);
+            this.txtContactAddress.Location = new System.Drawing.Point(310, 240);
             this.txtContactAddress.Name = "txtContactAddress";
             this.txtContactAddress.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtContactAddress.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -498,7 +497,7 @@
             // labelControl27
             // 
             this.labelControl27.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl27.Location = new System.Drawing.Point(280, 304);
+            this.labelControl27.Location = new System.Drawing.Point(280, 242);
             this.labelControl27.Name = "labelControl27";
             this.labelControl27.Size = new System.Drawing.Size(24, 14);
             this.labelControl27.TabIndex = 49;
@@ -507,7 +506,7 @@
             // labelControl26
             // 
             this.labelControl26.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl26.Location = new System.Drawing.Point(166, 304);
+            this.labelControl26.Location = new System.Drawing.Point(166, 242);
             this.labelControl26.Name = "labelControl26";
             this.labelControl26.Size = new System.Drawing.Size(24, 14);
             this.labelControl26.TabIndex = 47;
@@ -516,7 +515,7 @@
             // txtContactPerson
             // 
             this.txtContactPerson.EditValue = "";
-            this.txtContactPerson.Location = new System.Drawing.Point(93, 302);
+            this.txtContactPerson.Location = new System.Drawing.Point(93, 240);
             this.txtContactPerson.Name = "txtContactPerson";
             this.txtContactPerson.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtContactPerson.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -528,7 +527,7 @@
             // labelControl25
             // 
             this.labelControl25.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl25.Location = new System.Drawing.Point(28, 304);
+            this.labelControl25.Location = new System.Drawing.Point(28, 242);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(60, 14);
             this.labelControl25.TabIndex = 45;
@@ -537,7 +536,7 @@
             // labelControl22
             // 
             this.labelControl22.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl22.Location = new System.Drawing.Point(27, 256);
+            this.labelControl22.Location = new System.Drawing.Point(27, 194);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(48, 14);
             this.labelControl22.TabIndex = 39;
@@ -546,7 +545,7 @@
             // txtXZZ_Post
             // 
             this.txtXZZ_Post.EditValue = "";
-            this.txtXZZ_Post.Location = new System.Drawing.Point(547, 227);
+            this.txtXZZ_Post.Location = new System.Drawing.Point(547, 165);
             this.txtXZZ_Post.Name = "txtXZZ_Post";
             this.txtXZZ_Post.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtXZZ_Post.Size = new System.Drawing.Size(61, 18);
@@ -555,7 +554,7 @@
             // labelControl21
             // 
             this.labelControl21.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl21.Location = new System.Drawing.Point(493, 229);
+            this.labelControl21.Location = new System.Drawing.Point(493, 167);
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(48, 14);
             this.labelControl21.TabIndex = 37;
@@ -564,7 +563,7 @@
             // txtXZZ_TEL
             // 
             this.txtXZZ_TEL.EditValue = "";
-            this.txtXZZ_TEL.Location = new System.Drawing.Point(408, 227);
+            this.txtXZZ_TEL.Location = new System.Drawing.Point(408, 165);
             this.txtXZZ_TEL.Name = "txtXZZ_TEL";
             this.txtXZZ_TEL.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtXZZ_TEL.Size = new System.Drawing.Size(79, 18);
@@ -573,7 +572,7 @@
             // labelControl20
             // 
             this.labelControl20.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl20.Location = new System.Drawing.Point(378, 229);
+            this.labelControl20.Location = new System.Drawing.Point(378, 167);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(24, 14);
             this.labelControl20.TabIndex = 35;
@@ -582,7 +581,7 @@
             // txtOfficePlace
             // 
             this.txtOfficePlace.EditValue = "";
-            this.txtOfficePlace.Location = new System.Drawing.Point(119, 277);
+            this.txtOfficePlace.Location = new System.Drawing.Point(119, 215);
             this.txtOfficePlace.Name = "txtOfficePlace";
             this.txtOfficePlace.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtOfficePlace.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -594,7 +593,7 @@
             // labelControl19
             // 
             this.labelControl19.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl19.Location = new System.Drawing.Point(27, 279);
+            this.labelControl19.Location = new System.Drawing.Point(27, 217);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(84, 14);
             this.labelControl19.TabIndex = 33;
@@ -603,7 +602,7 @@
             // txtIDNO
             // 
             this.txtIDNO.EditValue = "";
-            this.txtIDNO.Location = new System.Drawing.Point(81, 201);
+            this.txtIDNO.Location = new System.Drawing.Point(81, 139);
             this.txtIDNO.Name = "txtIDNO";
             this.txtIDNO.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtIDNO.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -616,7 +615,7 @@
             // labelControl18
             // 
             this.labelControl18.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl18.Location = new System.Drawing.Point(27, 203);
+            this.labelControl18.Location = new System.Drawing.Point(27, 141);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(48, 14);
             this.labelControl18.TabIndex = 31;
@@ -625,7 +624,7 @@
             // labelControl17
             // 
             this.labelControl17.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl17.Location = new System.Drawing.Point(517, 129);
+            this.labelControl17.Location = new System.Drawing.Point(517, 67);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(24, 14);
             this.labelControl17.TabIndex = 29;
@@ -634,7 +633,7 @@
             // labelControl16
             // 
             this.labelControl16.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl16.Location = new System.Drawing.Point(517, 203);
+            this.labelControl16.Location = new System.Drawing.Point(517, 141);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(24, 14);
             this.labelControl16.TabIndex = 27;
@@ -643,7 +642,7 @@
             // labelControl12
             // 
             this.labelControl12.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl12.Location = new System.Drawing.Point(27, 177);
+            this.labelControl12.Location = new System.Drawing.Point(27, 115);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(36, 14);
             this.labelControl12.TabIndex = 20;
@@ -652,7 +651,7 @@
             // labelControl11
             // 
             this.labelControl11.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl11.Location = new System.Drawing.Point(277, 203);
+            this.labelControl11.Location = new System.Drawing.Point(277, 141);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(24, 14);
             this.labelControl11.TabIndex = 18;
@@ -661,7 +660,7 @@
             // labelControl10
             // 
             this.labelControl10.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl10.Location = new System.Drawing.Point(405, 203);
+            this.labelControl10.Location = new System.Drawing.Point(405, 141);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(24, 14);
             this.labelControl10.TabIndex = 16;
@@ -670,7 +669,7 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl9.Location = new System.Drawing.Point(405, 129);
+            this.labelControl9.Location = new System.Drawing.Point(405, 67);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(24, 14);
             this.labelControl9.TabIndex = 14;
@@ -679,7 +678,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl8.Location = new System.Drawing.Point(234, 129);
+            this.labelControl8.Location = new System.Drawing.Point(234, 67);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(48, 14);
             this.labelControl8.TabIndex = 12;
@@ -688,7 +687,7 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl7.Location = new System.Drawing.Point(129, 129);
+            this.labelControl7.Location = new System.Drawing.Point(129, 67);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(24, 14);
             this.labelControl7.TabIndex = 10;
@@ -698,7 +697,7 @@
             // 
             this.txtSocialCare.EditValue = "";
             this.txtSocialCare.Enabled = false;
-            this.txtSocialCare.Location = new System.Drawing.Point(94, 22);
+            this.txtSocialCare.Location = new System.Drawing.Point(94, -12);
             this.txtSocialCare.Name = "txtSocialCare";
             this.txtSocialCare.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtSocialCare.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -712,7 +711,7 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.labelControl6.Location = new System.Drawing.Point(27, 71);
+            this.labelControl6.Location = new System.Drawing.Point(27, 9);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(84, 14);
             this.labelControl6.TabIndex = 7;
@@ -721,7 +720,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl4.Location = new System.Drawing.Point(329, 91);
+            this.labelControl4.Location = new System.Drawing.Point(329, 29);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(36, 14);
             this.labelControl4.TabIndex = 6;
@@ -730,7 +729,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl3.Location = new System.Drawing.Point(269, 91);
+            this.labelControl3.Location = new System.Drawing.Point(269, 29);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(12, 14);
             this.labelControl3.TabIndex = 4;
@@ -738,7 +737,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(58, 127);
+            this.txtName.Location = new System.Drawing.Point(58, 65);
             this.txtName.Name = "txtName";
             this.txtName.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtName.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -753,7 +752,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl2.Location = new System.Drawing.Point(27, 129);
+            this.labelControl2.Location = new System.Drawing.Point(27, 67);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(24, 14);
             this.labelControl2.TabIndex = 2;
@@ -762,7 +761,7 @@
             // txtPatNoOfHis
             // 
             this.txtPatNoOfHis.Enabled = false;
-            this.txtPatNoOfHis.Location = new System.Drawing.Point(517, 89);
+            this.txtPatNoOfHis.Location = new System.Drawing.Point(517, 27);
             this.txtPatNoOfHis.Name = "txtPatNoOfHis";
             this.txtPatNoOfHis.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtPatNoOfHis.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -774,7 +773,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl1.Location = new System.Drawing.Point(475, 91);
+            this.labelControl1.Location = new System.Drawing.Point(475, 29);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(48, 14);
             this.labelControl1.TabIndex = 0;
@@ -784,21 +783,23 @@
             // 
             this.labelLogoName.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelLogoName.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelLogoName.Location = new System.Drawing.Point(210, 46);
+            this.labelLogoName.Location = new System.Drawing.Point(193, 528);
             this.labelLogoName.Name = "labelLogoName";
             this.labelLogoName.Size = new System.Drawing.Size(225, 33);
             this.labelLogoName.TabIndex = 111;
             this.labelLogoName.Text = "住 院 病 案 首 页";
+            this.labelLogoName.Visible = false;
             // 
             // labelHospitalName
             // 
-            this.labelHospitalName.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelHospitalName.Appearance.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelHospitalName.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelHospitalName.Location = new System.Drawing.Point(266, 25);
+            this.labelHospitalName.Location = new System.Drawing.Point(250, 537);
             this.labelHospitalName.Name = "labelHospitalName";
             this.labelHospitalName.Size = new System.Drawing.Size(120, 16);
             this.labelHospitalName.TabIndex = 112;
             this.labelHospitalName.Text = "*******人民医院";
+            this.labelHospitalName.Visible = false;
             // 
             // simpleButton1
             // 
@@ -810,7 +811,7 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(420, 564);
+            this.btn_OK.Location = new System.Drawing.Point(420, 496);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(75, 27);
             this.btn_OK.TabIndex = 109;
@@ -819,7 +820,7 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(524, 564);
+            this.btn_Close.Location = new System.Drawing.Point(524, 496);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(75, 27);
             this.btn_Close.TabIndex = 109;
@@ -829,7 +830,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl5.Location = new System.Drawing.Point(27, 91);
+            this.labelControl5.Location = new System.Drawing.Point(27, 29);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(60, 14);
             this.labelControl5.TabIndex = 4;
@@ -837,7 +838,7 @@
             // 
             // txtCardNumber
             // 
-            this.txtCardNumber.Location = new System.Drawing.Point(94, 90);
+            this.txtCardNumber.Location = new System.Drawing.Point(94, 28);
             this.txtCardNumber.Name = "txtCardNumber";
             this.txtCardNumber.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtCardNumber.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -852,7 +853,7 @@
             // labelControl13
             // 
             this.labelControl13.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl13.Location = new System.Drawing.Point(27, 151);
+            this.labelControl13.Location = new System.Drawing.Point(27, 89);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(115, 14);
             this.labelControl13.TabIndex = 2;
@@ -862,7 +863,7 @@
             // 
             this.labelControl14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.labelControl14.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl14.Location = new System.Drawing.Point(148, 151);
+            this.labelControl14.Location = new System.Drawing.Point(148, 89);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(26, 14);
             this.labelControl14.TabIndex = 14;
@@ -870,7 +871,7 @@
             // 
             // txtMonthAge
             // 
-            this.txtMonthAge.Location = new System.Drawing.Point(180, 149);
+            this.txtMonthAge.Location = new System.Drawing.Point(180, 87);
             this.txtMonthAge.Name = "txtMonthAge";
             this.txtMonthAge.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtMonthAge.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -885,7 +886,7 @@
             // labelControl15
             // 
             this.labelControl15.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl15.Location = new System.Drawing.Point(227, 151);
+            this.labelControl15.Location = new System.Drawing.Point(227, 89);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(12, 14);
             this.labelControl15.TabIndex = 14;
@@ -895,7 +896,7 @@
             // 
             this.labelControl45.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.labelControl45.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl45.Location = new System.Drawing.Point(253, 151);
+            this.labelControl45.Location = new System.Drawing.Point(253, 89);
             this.labelControl45.Name = "labelControl45";
             this.labelControl45.Size = new System.Drawing.Size(91, 14);
             this.labelControl45.TabIndex = 12;
@@ -903,7 +904,7 @@
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(350, 149);
+            this.txtWeight.Location = new System.Drawing.Point(350, 87);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtWeight.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -918,7 +919,7 @@
             // labelControl46
             // 
             this.labelControl46.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl46.Location = new System.Drawing.Point(396, 151);
+            this.labelControl46.Location = new System.Drawing.Point(396, 89);
             this.labelControl46.Name = "labelControl46";
             this.labelControl46.Size = new System.Drawing.Size(12, 14);
             this.labelControl46.TabIndex = 14;
@@ -927,7 +928,7 @@
             // labelControl47
             // 
             this.labelControl47.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl47.Location = new System.Drawing.Point(596, 151);
+            this.labelControl47.Location = new System.Drawing.Point(596, 89);
             this.labelControl47.Name = "labelControl47";
             this.labelControl47.Size = new System.Drawing.Size(12, 14);
             this.labelControl47.TabIndex = 14;
@@ -937,7 +938,7 @@
             // 
             this.labelControl48.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.labelControl48.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl48.Location = new System.Drawing.Point(444, 151);
+            this.labelControl48.Location = new System.Drawing.Point(444, 89);
             this.labelControl48.Name = "labelControl48";
             this.labelControl48.Size = new System.Drawing.Size(91, 14);
             this.labelControl48.TabIndex = 12;
@@ -945,7 +946,7 @@
             // 
             // txtInWeight
             // 
-            this.txtInWeight.Location = new System.Drawing.Point(541, 149);
+            this.txtInWeight.Location = new System.Drawing.Point(541, 87);
             this.txtInWeight.Name = "txtInWeight";
             this.txtInWeight.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtInWeight.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
@@ -960,7 +961,7 @@
             // labelControl49
             // 
             this.labelControl49.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl49.Location = new System.Drawing.Point(146, 177);
+            this.labelControl49.Location = new System.Drawing.Point(146, 115);
             this.labelControl49.Name = "labelControl49";
             this.labelControl49.Size = new System.Drawing.Size(72, 14);
             this.labelControl49.TabIndex = 20;
@@ -970,7 +971,7 @@
             // labelControl50
             // 
             this.labelControl50.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl50.Location = new System.Drawing.Point(277, 177);
+            this.labelControl50.Location = new System.Drawing.Point(277, 115);
             this.labelControl50.Name = "labelControl50";
             this.labelControl50.Size = new System.Drawing.Size(12, 14);
             this.labelControl50.TabIndex = 14;
@@ -980,7 +981,7 @@
             // labelControl51
             // 
             this.labelControl51.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl51.Location = new System.Drawing.Point(344, 177);
+            this.labelControl51.Location = new System.Drawing.Point(344, 115);
             this.labelControl51.Name = "labelControl51";
             this.labelControl51.Size = new System.Drawing.Size(12, 14);
             this.labelControl51.TabIndex = 14;
@@ -990,7 +991,7 @@
             // labelControl52
             // 
             this.labelControl52.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl52.Location = new System.Drawing.Point(378, 177);
+            this.labelControl52.Location = new System.Drawing.Point(378, 115);
             this.labelControl52.Name = "labelControl52";
             this.labelControl52.Size = new System.Drawing.Size(24, 14);
             this.labelControl52.TabIndex = 20;
@@ -999,7 +1000,7 @@
             // labelControl53
             // 
             this.labelControl53.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl53.Location = new System.Drawing.Point(469, 177);
+            this.labelControl53.Location = new System.Drawing.Point(469, 115);
             this.labelControl53.Name = "labelControl53";
             this.labelControl53.Size = new System.Drawing.Size(72, 14);
             this.labelControl53.TabIndex = 20;
@@ -1009,7 +1010,7 @@
             // labelControl54
             // 
             this.labelControl54.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl54.Location = new System.Drawing.Point(596, 177);
+            this.labelControl54.Location = new System.Drawing.Point(596, 115);
             this.labelControl54.Name = "labelControl54";
             this.labelControl54.Size = new System.Drawing.Size(12, 14);
             this.labelControl54.TabIndex = 14;
@@ -1019,7 +1020,7 @@
             // labelControl55
             // 
             this.labelControl55.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl55.Location = new System.Drawing.Point(27, 229);
+            this.labelControl55.Location = new System.Drawing.Point(27, 167);
             this.labelControl55.Name = "labelControl55";
             this.labelControl55.Size = new System.Drawing.Size(36, 14);
             this.labelControl55.TabIndex = 20;
@@ -1028,7 +1029,7 @@
             // labelControl56
             // 
             this.labelControl56.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl56.Location = new System.Drawing.Point(146, 229);
+            this.labelControl56.Location = new System.Drawing.Point(146, 167);
             this.labelControl56.Name = "labelControl56";
             this.labelControl56.Size = new System.Drawing.Size(72, 14);
             this.labelControl56.TabIndex = 20;
@@ -1038,7 +1039,7 @@
             // labelControl57
             // 
             this.labelControl57.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl57.Location = new System.Drawing.Point(277, 229);
+            this.labelControl57.Location = new System.Drawing.Point(277, 167);
             this.labelControl57.Name = "labelControl57";
             this.labelControl57.Size = new System.Drawing.Size(12, 14);
             this.labelControl57.TabIndex = 14;
@@ -1048,7 +1049,7 @@
             // labelControl58
             // 
             this.labelControl58.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl58.Location = new System.Drawing.Point(344, 229);
+            this.labelControl58.Location = new System.Drawing.Point(344, 167);
             this.labelControl58.Name = "labelControl58";
             this.labelControl58.Size = new System.Drawing.Size(12, 14);
             this.labelControl58.TabIndex = 14;
@@ -1058,7 +1059,7 @@
             // labelControl59
             // 
             this.labelControl59.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl59.Location = new System.Drawing.Point(146, 256);
+            this.labelControl59.Location = new System.Drawing.Point(146, 194);
             this.labelControl59.Name = "labelControl59";
             this.labelControl59.Size = new System.Drawing.Size(72, 14);
             this.labelControl59.TabIndex = 20;
@@ -1068,7 +1069,7 @@
             // labelControl60
             // 
             this.labelControl60.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl60.Location = new System.Drawing.Point(277, 256);
+            this.labelControl60.Location = new System.Drawing.Point(277, 194);
             this.labelControl60.Name = "labelControl60";
             this.labelControl60.Size = new System.Drawing.Size(12, 14);
             this.labelControl60.TabIndex = 14;
@@ -1078,7 +1079,7 @@
             // labelControl61
             // 
             this.labelControl61.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl61.Location = new System.Drawing.Point(344, 256);
+            this.labelControl61.Location = new System.Drawing.Point(344, 194);
             this.labelControl61.Name = "labelControl61";
             this.labelControl61.Size = new System.Drawing.Size(12, 14);
             this.labelControl61.TabIndex = 14;
@@ -1088,7 +1089,7 @@
             // txtHKDZ_Post
             // 
             this.txtHKDZ_Post.EditValue = "";
-            this.txtHKDZ_Post.Location = new System.Drawing.Point(547, 254);
+            this.txtHKDZ_Post.Location = new System.Drawing.Point(547, 192);
             this.txtHKDZ_Post.Name = "txtHKDZ_Post";
             this.txtHKDZ_Post.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtHKDZ_Post.Size = new System.Drawing.Size(61, 18);
@@ -1097,7 +1098,7 @@
             // labelControl62
             // 
             this.labelControl62.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl62.Location = new System.Drawing.Point(493, 256);
+            this.labelControl62.Location = new System.Drawing.Point(493, 194);
             this.labelControl62.Name = "labelControl62";
             this.labelControl62.Size = new System.Drawing.Size(48, 14);
             this.labelControl62.TabIndex = 37;
@@ -1106,7 +1107,7 @@
             // txtOfficeTEL
             // 
             this.txtOfficeTEL.EditValue = "";
-            this.txtOfficeTEL.Location = new System.Drawing.Point(378, 277);
+            this.txtOfficeTEL.Location = new System.Drawing.Point(378, 215);
             this.txtOfficeTEL.Name = "txtOfficeTEL";
             this.txtOfficeTEL.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtOfficeTEL.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -1118,7 +1119,7 @@
             // labelControl63
             // 
             this.labelControl63.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl63.Location = new System.Drawing.Point(320, 279);
+            this.labelControl63.Location = new System.Drawing.Point(320, 217);
             this.labelControl63.Name = "labelControl63";
             this.labelControl63.Size = new System.Drawing.Size(48, 14);
             this.labelControl63.TabIndex = 35;
@@ -1127,7 +1128,7 @@
             // txtOfficePost
             // 
             this.txtOfficePost.EditValue = "";
-            this.txtOfficePost.Location = new System.Drawing.Point(547, 277);
+            this.txtOfficePost.Location = new System.Drawing.Point(547, 215);
             this.txtOfficePost.Name = "txtOfficePost";
             this.txtOfficePost.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.txtOfficePost.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -1139,7 +1140,7 @@
             // labelControl64
             // 
             this.labelControl64.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl64.Location = new System.Drawing.Point(493, 279);
+            this.labelControl64.Location = new System.Drawing.Point(493, 217);
             this.labelControl64.Name = "labelControl64";
             this.labelControl64.Size = new System.Drawing.Size(48, 14);
             this.labelControl64.TabIndex = 37;
@@ -1148,7 +1149,7 @@
             // labelControl65
             // 
             this.labelControl65.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl65.Location = new System.Drawing.Point(27, 330);
+            this.labelControl65.Location = new System.Drawing.Point(27, 268);
             this.labelControl65.Name = "labelControl65";
             this.labelControl65.Size = new System.Drawing.Size(48, 14);
             this.labelControl65.TabIndex = 45;
@@ -1156,7 +1157,7 @@
             // 
             // chkInHosType1
             // 
-            this.chkInHosType1.Location = new System.Drawing.Point(92, 328);
+            this.chkInHosType1.Location = new System.Drawing.Point(92, 266);
             this.chkInHosType1.Name = "chkInHosType1";
             this.chkInHosType1.Properties.Caption = "1.急诊";
             this.chkInHosType1.Properties.RadioGroupIndex = 0;
@@ -1167,7 +1168,7 @@
             // 
             // chkInHosType2
             // 
-            this.chkInHosType2.Location = new System.Drawing.Point(173, 328);
+            this.chkInHosType2.Location = new System.Drawing.Point(173, 266);
             this.chkInHosType2.Name = "chkInHosType2";
             this.chkInHosType2.Properties.Caption = "2.门诊";
             this.chkInHosType2.Properties.RadioGroupIndex = 0;
@@ -1178,7 +1179,7 @@
             // 
             // chkInHosType3
             // 
-            this.chkInHosType3.Location = new System.Drawing.Point(254, 328);
+            this.chkInHosType3.Location = new System.Drawing.Point(254, 266);
             this.chkInHosType3.Name = "chkInHosType3";
             this.chkInHosType3.Properties.Caption = "3.其他医疗机构转入";
             this.chkInHosType3.Properties.RadioGroupIndex = 0;
@@ -1189,7 +1190,7 @@
             // 
             // chkInHosType4
             // 
-            this.chkInHosType4.Location = new System.Drawing.Point(396, 328);
+            this.chkInHosType4.Location = new System.Drawing.Point(396, 266);
             this.chkInHosType4.Name = "chkInHosType4";
             this.chkInHosType4.Properties.Caption = "9.其他";
             this.chkInHosType4.Properties.RadioGroupIndex = 0;
@@ -1201,7 +1202,7 @@
             // textEdit3
             // 
             this.textEdit3.EditValue = "";
-            this.textEdit3.Location = new System.Drawing.Point(547, 254);
+            this.textEdit3.Location = new System.Drawing.Point(547, 192);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.textEdit3.Size = new System.Drawing.Size(61, 18);
@@ -1209,7 +1210,7 @@
             // 
             // chkCURE_TYPE4
             // 
-            this.chkCURE_TYPE4.Location = new System.Drawing.Point(396, 351);
+            this.chkCURE_TYPE4.Location = new System.Drawing.Point(396, 289);
             this.chkCURE_TYPE4.Name = "chkCURE_TYPE4";
             this.chkCURE_TYPE4.Properties.Caption = "2.中西医 ";
             this.chkCURE_TYPE4.Properties.RadioGroupIndex = 1;
@@ -1220,7 +1221,7 @@
             // 
             // chkCURE_TYPE3
             // 
-            this.chkCURE_TYPE3.Location = new System.Drawing.Point(254, 351);
+            this.chkCURE_TYPE3.Location = new System.Drawing.Point(254, 289);
             this.chkCURE_TYPE3.Name = "chkCURE_TYPE3";
             this.chkCURE_TYPE3.Properties.Caption = "1.2民族医）";
             this.chkCURE_TYPE3.Properties.RadioGroupIndex = 1;
@@ -1231,7 +1232,7 @@
             // 
             // chkCURE_TYPE2
             // 
-            this.chkCURE_TYPE2.Location = new System.Drawing.Point(173, 351);
+            this.chkCURE_TYPE2.Location = new System.Drawing.Point(173, 289);
             this.chkCURE_TYPE2.Name = "chkCURE_TYPE2";
             this.chkCURE_TYPE2.Properties.Caption = "1.1 中医";
             this.chkCURE_TYPE2.Properties.RadioGroupIndex = 1;
@@ -1242,7 +1243,7 @@
             // 
             // chkCURE_TYPE1
             // 
-            this.chkCURE_TYPE1.Location = new System.Drawing.Point(92, 351);
+            this.chkCURE_TYPE1.Location = new System.Drawing.Point(92, 289);
             this.chkCURE_TYPE1.Name = "chkCURE_TYPE1";
             this.chkCURE_TYPE1.Properties.Caption = "1.中医（";
             this.chkCURE_TYPE1.Properties.RadioGroupIndex = 1;
@@ -1254,7 +1255,7 @@
             // labelControl23
             // 
             this.labelControl23.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl23.Location = new System.Drawing.Point(28, 354);
+            this.labelControl23.Location = new System.Drawing.Point(28, 292);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(48, 14);
             this.labelControl23.TabIndex = 45;
@@ -1262,7 +1263,7 @@
             // 
             // chkCURE_TYPE5
             // 
-            this.chkCURE_TYPE5.Location = new System.Drawing.Point(491, 351);
+            this.chkCURE_TYPE5.Location = new System.Drawing.Point(491, 289);
             this.chkCURE_TYPE5.Name = "chkCURE_TYPE5";
             this.chkCURE_TYPE5.Properties.Caption = "3.西医";
             this.chkCURE_TYPE5.Properties.RadioGroupIndex = 1;
@@ -1274,7 +1275,7 @@
             // labelControl24
             // 
             this.labelControl24.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl24.Location = new System.Drawing.Point(27, 433);
+            this.labelControl24.Location = new System.Drawing.Point(27, 371);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(156, 14);
             this.labelControl24.TabIndex = 45;
@@ -1283,7 +1284,7 @@
             // labelControl32
             // 
             this.labelControl32.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl32.Location = new System.Drawing.Point(28, 487);
+            this.labelControl32.Location = new System.Drawing.Point(28, 425);
             this.labelControl32.Name = "labelControl32";
             this.labelControl32.Size = new System.Drawing.Size(84, 14);
             this.labelControl32.TabIndex = 45;
@@ -1291,7 +1292,7 @@
             // 
             // chkSSLCLJ2
             // 
-            this.chkSSLCLJ2.Location = new System.Drawing.Point(207, 485);
+            this.chkSSLCLJ2.Location = new System.Drawing.Point(207, 423);
             this.chkSSLCLJ2.Name = "chkSSLCLJ2";
             this.chkSSLCLJ2.Properties.Caption = "2. 西医";
             this.chkSSLCLJ2.Properties.RadioGroupIndex = 2;
@@ -1302,7 +1303,7 @@
             // 
             // chkSSLCLJ1
             // 
-            this.chkSSLCLJ1.Location = new System.Drawing.Point(142, 485);
+            this.chkSSLCLJ1.Location = new System.Drawing.Point(142, 423);
             this.chkSSLCLJ1.Name = "chkSSLCLJ1";
             this.chkSSLCLJ1.Properties.Caption = "1. 中医";
             this.chkSSLCLJ1.Properties.RadioGroupIndex = 2;
@@ -1313,7 +1314,7 @@
             // 
             // chkSSLCLJ3
             // 
-            this.chkSSLCLJ3.Location = new System.Drawing.Point(280, 485);
+            this.chkSSLCLJ3.Location = new System.Drawing.Point(280, 423);
             this.chkSSLCLJ3.Name = "chkSSLCLJ3";
             this.chkSSLCLJ3.Properties.Caption = "3 否";
             this.chkSSLCLJ3.Properties.RadioGroupIndex = 2;
@@ -1325,7 +1326,7 @@
             // labelControl33
             // 
             this.labelControl33.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl33.Location = new System.Drawing.Point(344, 487);
+            this.labelControl33.Location = new System.Drawing.Point(344, 425);
             this.labelControl33.Name = "labelControl33";
             this.labelControl33.Size = new System.Drawing.Size(132, 14);
             this.labelControl33.TabIndex = 45;
@@ -1333,7 +1334,7 @@
             // 
             // chkZYZJ1
             // 
-            this.chkZYZJ1.Location = new System.Drawing.Point(482, 484);
+            this.chkZYZJ1.Location = new System.Drawing.Point(482, 422);
             this.chkZYZJ1.Name = "chkZYZJ1";
             this.chkZYZJ1.Properties.Caption = "1.是";
             this.chkZYZJ1.Properties.RadioGroupIndex = 3;
@@ -1344,7 +1345,7 @@
             // 
             // chkZYZJ2
             // 
-            this.chkZYZJ2.Location = new System.Drawing.Point(542, 484);
+            this.chkZYZJ2.Location = new System.Drawing.Point(542, 422);
             this.chkZYZJ2.Name = "chkZYZJ2";
             this.chkZYZJ2.Properties.Caption = "2. 否";
             this.chkZYZJ2.Properties.RadioGroupIndex = 3;
@@ -1356,7 +1357,7 @@
             // labelControl34
             // 
             this.labelControl34.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl34.Location = new System.Drawing.Point(28, 512);
+            this.labelControl34.Location = new System.Drawing.Point(28, 450);
             this.labelControl34.Name = "labelControl34";
             this.labelControl34.Size = new System.Drawing.Size(108, 14);
             this.labelControl34.TabIndex = 45;
@@ -1364,7 +1365,7 @@
             // 
             // chkZYZLSB1
             // 
-            this.chkZYZLSB1.Location = new System.Drawing.Point(142, 509);
+            this.chkZYZLSB1.Location = new System.Drawing.Point(142, 447);
             this.chkZYZLSB1.Name = "chkZYZLSB1";
             this.chkZYZLSB1.Properties.Caption = "1.是";
             this.chkZYZLSB1.Properties.RadioGroupIndex = 4;
@@ -1375,7 +1376,7 @@
             // 
             // chkZYZLSB2
             // 
-            this.chkZYZLSB2.Location = new System.Drawing.Point(207, 510);
+            this.chkZYZLSB2.Location = new System.Drawing.Point(207, 448);
             this.chkZYZLSB2.Name = "chkZYZLSB2";
             this.chkZYZLSB2.Properties.Caption = "2. 否";
             this.chkZYZLSB2.Properties.RadioGroupIndex = 4;
@@ -1386,7 +1387,7 @@
             // 
             // chkZYZLJS1
             // 
-            this.chkZYZLJS1.Location = new System.Drawing.Point(482, 509);
+            this.chkZYZLJS1.Location = new System.Drawing.Point(482, 447);
             this.chkZYZLJS1.Name = "chkZYZLJS1";
             this.chkZYZLJS1.Properties.Caption = "1.是";
             this.chkZYZLJS1.Properties.RadioGroupIndex = 5;
@@ -1397,7 +1398,7 @@
             // 
             // chkZYZLJS2
             // 
-            this.chkZYZLJS2.Location = new System.Drawing.Point(542, 509);
+            this.chkZYZLJS2.Location = new System.Drawing.Point(542, 447);
             this.chkZYZLJS2.Name = "chkZYZLJS2";
             this.chkZYZLJS2.Properties.Caption = "2. 否";
             this.chkZYZLJS2.Properties.RadioGroupIndex = 5;
@@ -1409,7 +1410,7 @@
             // labelControl36
             // 
             this.labelControl36.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl36.Location = new System.Drawing.Point(344, 512);
+            this.labelControl36.Location = new System.Drawing.Point(344, 450);
             this.labelControl36.Name = "labelControl36";
             this.labelControl36.Size = new System.Drawing.Size(108, 14);
             this.labelControl36.TabIndex = 45;
@@ -1417,7 +1418,7 @@
             // 
             // chkBZSH1
             // 
-            this.chkBZSH1.Location = new System.Drawing.Point(142, 534);
+            this.chkBZSH1.Location = new System.Drawing.Point(142, 472);
             this.chkBZSH1.Name = "chkBZSH1";
             this.chkBZSH1.Properties.Caption = "1.是";
             this.chkBZSH1.Properties.RadioGroupIndex = 6;
@@ -1428,7 +1429,7 @@
             // 
             // chkBZSH2
             // 
-            this.chkBZSH2.Location = new System.Drawing.Point(207, 535);
+            this.chkBZSH2.Location = new System.Drawing.Point(207, 473);
             this.chkBZSH2.Name = "chkBZSH2";
             this.chkBZSH2.Properties.Caption = "2. 否";
             this.chkBZSH2.Properties.RadioGroupIndex = 6;
@@ -1440,7 +1441,7 @@
             // labelControl37
             // 
             this.labelControl37.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl37.Location = new System.Drawing.Point(27, 537);
+            this.labelControl37.Location = new System.Drawing.Point(27, 475);
             this.labelControl37.Name = "labelControl37";
             this.labelControl37.Size = new System.Drawing.Size(60, 14);
             this.labelControl37.TabIndex = 45;
@@ -1449,7 +1450,7 @@
             // labelControl43
             // 
             this.labelControl43.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl43.Location = new System.Drawing.Point(27, 460);
+            this.labelControl43.Location = new System.Drawing.Point(27, 398);
             this.labelControl43.Name = "labelControl43";
             this.labelControl43.Size = new System.Drawing.Size(156, 14);
             this.labelControl43.TabIndex = 116;
@@ -1460,7 +1461,7 @@
             this.lueMZZYZD_CODE.BackColor = System.Drawing.Color.White;
             this.lueMZZYZD_CODE.DiaCode = "";
             this.lueMZZYZD_CODE.DiaValue = "";
-            this.lueMZZYZD_CODE.Location = new System.Drawing.Point(193, 430);
+            this.lueMZZYZD_CODE.Location = new System.Drawing.Point(193, 368);
             this.lueMZZYZD_CODE.Name = "lueMZZYZD_CODE";
             this.lueMZZYZD_CODE.Size = new System.Drawing.Size(291, 21);
             this.lueMZZYZD_CODE.TabIndex = 117;
@@ -1472,7 +1473,7 @@
             this.lueMZXYZD_CODE.BackColor = System.Drawing.Color.White;
             this.lueMZXYZD_CODE.DiaCode = "";
             this.lueMZXYZD_CODE.DiaValue = "";
-            this.lueMZXYZD_CODE.Location = new System.Drawing.Point(193, 457);
+            this.lueMZXYZD_CODE.Location = new System.Drawing.Point(193, 395);
             this.lueMZXYZD_CODE.Name = "lueMZXYZD_CODE";
             this.lueMZXYZD_CODE.Size = new System.Drawing.Size(291, 21);
             this.lueMZXYZD_CODE.TabIndex = 118;
@@ -1482,7 +1483,7 @@
             // textEdit_csd
             // 
             this.textEdit_csd.EditValue = "";
-            this.textEdit_csd.Location = new System.Drawing.Point(81, 174);
+            this.textEdit_csd.Location = new System.Drawing.Point(81, 112);
             this.textEdit_csd.Name = "textEdit_csd";
             this.textEdit_csd.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.textEdit_csd.Size = new System.Drawing.Size(275, 18);
@@ -1491,7 +1492,7 @@
             // textEdit_jg
             // 
             this.textEdit_jg.EditValue = "";
-            this.textEdit_jg.Location = new System.Drawing.Point(405, 173);
+            this.textEdit_jg.Location = new System.Drawing.Point(405, 111);
             this.textEdit_jg.Name = "textEdit_jg";
             this.textEdit_jg.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.textEdit_jg.Size = new System.Drawing.Size(203, 18);
@@ -1500,7 +1501,7 @@
             // textEdit_xzz
             // 
             this.textEdit_xzz.EditValue = "";
-            this.textEdit_xzz.Location = new System.Drawing.Point(81, 226);
+            this.textEdit_xzz.Location = new System.Drawing.Point(81, 164);
             this.textEdit_xzz.Name = "textEdit_xzz";
             this.textEdit_xzz.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.textEdit_xzz.Size = new System.Drawing.Size(275, 18);
@@ -1509,7 +1510,7 @@
             // textEdit_hkdz
             // 
             this.textEdit_hkdz.EditValue = "";
-            this.textEdit_hkdz.Location = new System.Drawing.Point(81, 254);
+            this.textEdit_hkdz.Location = new System.Drawing.Point(81, 192);
             this.textEdit_hkdz.Name = "textEdit_hkdz";
             this.textEdit_hkdz.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.textEdit_hkdz.Size = new System.Drawing.Size(275, 18);
@@ -1518,7 +1519,7 @@
             // textEdit_rybg
             // 
             this.textEdit_rybg.EditValue = "";
-            this.textEdit_rybg.Location = new System.Drawing.Point(372, 376);
+            this.textEdit_rybg.Location = new System.Drawing.Point(372, 314);
             this.textEdit_rybg.Name = "textEdit_rybg";
             this.textEdit_rybg.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.textEdit_rybg.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -1530,7 +1531,7 @@
             // textEdit_cybf
             // 
             this.textEdit_cybf.EditValue = "";
-            this.textEdit_cybf.Location = new System.Drawing.Point(372, 404);
+            this.textEdit_cybf.Location = new System.Drawing.Point(372, 342);
             this.textEdit_cybf.Name = "textEdit_cybf";
             this.textEdit_cybf.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White;
             this.textEdit_cybf.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
@@ -1543,7 +1544,7 @@
             // 
             this.lueMZXYZD_CODE1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueMZXYZD_CODE1.ListWindow = null;
-            this.lueMZXYZD_CODE1.Location = new System.Drawing.Point(524, 456);
+            this.lueMZXYZD_CODE1.Location = new System.Drawing.Point(524, 394);
             this.lueMZXYZD_CODE1.Name = "lueMZXYZD_CODE1";
             this.lueMZXYZD_CODE1.ShowFormImmediately = true;
             this.lueMZXYZD_CODE1.ShowSButton = true;
@@ -1555,7 +1556,7 @@
             // 
             this.lueOutHosWard.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueOutHosWard.ListWindow = null;
-            this.lueOutHosWard.Location = new System.Drawing.Point(372, 403);
+            this.lueOutHosWard.Location = new System.Drawing.Point(372, 341);
             this.lueOutHosWard.Name = "lueOutHosWard";
             this.lueOutHosWard.ShowFormImmediately = true;
             this.lueOutHosWard.ShowSButton = true;
@@ -1567,7 +1568,7 @@
             // 
             this.lueOutHosDept.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueOutHosDept.ListWindow = null;
-            this.lueOutHosDept.Location = new System.Drawing.Point(259, 403);
+            this.lueOutHosDept.Location = new System.Drawing.Point(259, 341);
             this.lueOutHosDept.Name = "lueOutHosDept";
             this.lueOutHosDept.ShowFormImmediately = true;
             this.lueOutHosDept.ShowSButton = true;
@@ -1579,7 +1580,7 @@
             // 
             this.lueTransAdmitDept.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueTransAdmitDept.ListWindow = null;
-            this.lueTransAdmitDept.Location = new System.Drawing.Point(512, 377);
+            this.lueTransAdmitDept.Location = new System.Drawing.Point(512, 315);
             this.lueTransAdmitDept.Name = "lueTransAdmitDept";
             this.lueTransAdmitDept.ShowFormImmediately = true;
             this.lueTransAdmitDept.ShowSButton = true;
@@ -1590,7 +1591,7 @@
             // 
             this.lueAdmitWard.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueAdmitWard.ListWindow = null;
-            this.lueAdmitWard.Location = new System.Drawing.Point(372, 377);
+            this.lueAdmitWard.Location = new System.Drawing.Point(372, 315);
             this.lueAdmitWard.Name = "lueAdmitWard";
             this.lueAdmitWard.ShowFormImmediately = true;
             this.lueAdmitWard.ShowSButton = true;
@@ -1602,7 +1603,7 @@
             // 
             this.lueAdmitDept.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueAdmitDept.ListWindow = null;
-            this.lueAdmitDept.Location = new System.Drawing.Point(259, 377);
+            this.lueAdmitDept.Location = new System.Drawing.Point(259, 315);
             this.lueAdmitDept.Name = "lueAdmitDept";
             this.lueAdmitDept.ShowFormImmediately = true;
             this.lueAdmitDept.ShowSButton = true;
@@ -1614,7 +1615,7 @@
             // 
             this.lueMZZYZD_CODE1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueMZZYZD_CODE1.ListWindow = null;
-            this.lueMZZYZD_CODE1.Location = new System.Drawing.Point(524, 429);
+            this.lueMZZYZD_CODE1.Location = new System.Drawing.Point(524, 367);
             this.lueMZZYZD_CODE1.Name = "lueMZZYZD_CODE1";
             this.lueMZZYZD_CODE1.ShowFormImmediately = true;
             this.lueMZZYZD_CODE1.ShowSButton = true;
@@ -1626,7 +1627,7 @@
             // 
             this.lueRelationship.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueRelationship.ListWindow = null;
-            this.lueRelationship.Location = new System.Drawing.Point(196, 301);
+            this.lueRelationship.Location = new System.Drawing.Point(196, 239);
             this.lueRelationship.Name = "lueRelationship";
             this.lueRelationship.ShowFormImmediately = true;
             this.lueRelationship.ShowSButton = true;
@@ -1637,7 +1638,7 @@
             // 
             this.lueNationality.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueNationality.ListWindow = null;
-            this.lueNationality.Location = new System.Drawing.Point(547, 128);
+            this.lueNationality.Location = new System.Drawing.Point(547, 66);
             this.lueNationality.Name = "lueNationality";
             this.lueNationality.ShowFormImmediately = true;
             this.lueNationality.ShowSButton = true;
@@ -1648,7 +1649,7 @@
             // 
             this.lueNation.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueNation.ListWindow = null;
-            this.lueNation.Location = new System.Drawing.Point(547, 200);
+            this.lueNation.Location = new System.Drawing.Point(547, 138);
             this.lueNation.Name = "lueNation";
             this.lueNation.ShowFormImmediately = true;
             this.lueNation.ShowSButton = true;
@@ -1659,7 +1660,7 @@
             // 
             this.lueCSD_ProvinceID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueCSD_ProvinceID.ListWindow = null;
-            this.lueCSD_ProvinceID.Location = new System.Drawing.Point(81, 174);
+            this.lueCSD_ProvinceID.Location = new System.Drawing.Point(81, 112);
             this.lueCSD_ProvinceID.Name = "lueCSD_ProvinceID";
             this.lueCSD_ProvinceID.ShowFormImmediately = true;
             this.lueCSD_ProvinceID.ShowSButton = true;
@@ -1672,7 +1673,7 @@
             // 
             this.luePayId.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.luePayId.ListWindow = null;
-            this.luePayId.Location = new System.Drawing.Point(120, 68);
+            this.luePayId.Location = new System.Drawing.Point(120, 6);
             this.luePayId.Name = "luePayId";
             this.luePayId.ShowFormImmediately = true;
             this.luePayId.ShowSButton = true;
@@ -1683,7 +1684,7 @@
             // 
             this.lueMarital.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueMarital.ListWindow = null;
-            this.lueMarital.Location = new System.Drawing.Point(433, 200);
+            this.lueMarital.Location = new System.Drawing.Point(433, 138);
             this.lueMarital.Name = "lueMarital";
             this.lueMarital.ShowFormImmediately = true;
             this.lueMarital.ShowSButton = true;
@@ -1694,7 +1695,7 @@
             // 
             this.lueJob.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueJob.ListWindow = null;
-            this.lueJob.Location = new System.Drawing.Point(305, 200);
+            this.lueJob.Location = new System.Drawing.Point(305, 138);
             this.lueJob.Name = "lueJob";
             this.lueJob.ShowFormImmediately = true;
             this.lueJob.ShowSButton = true;
@@ -1705,7 +1706,7 @@
             // 
             this.lueSex.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueSex.ListWindow = null;
-            this.lueSex.Location = new System.Drawing.Point(156, 126);
+            this.lueSex.Location = new System.Drawing.Point(156, 64);
             this.lueSex.Name = "lueSex";
             this.lueSex.ShowFormImmediately = true;
             this.lueSex.ShowSButton = true;
@@ -1716,7 +1717,7 @@
             // 
             this.hLineEx1.BackColor = System.Drawing.Color.White;
             this.hLineEx1.IsBold = true;
-            this.hLineEx1.Location = new System.Drawing.Point(7, 115);
+            this.hLineEx1.Location = new System.Drawing.Point(7, 53);
             this.hLineEx1.Name = "hLineEx1";
             this.hLineEx1.Size = new System.Drawing.Size(610, 2);
             this.hLineEx1.TabIndex = 110;
@@ -1726,7 +1727,7 @@
             // 
             this.lueCSD_CityID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueCSD_CityID.ListWindow = null;
-            this.lueCSD_CityID.Location = new System.Drawing.Point(223, 174);
+            this.lueCSD_CityID.Location = new System.Drawing.Point(223, 112);
             this.lueCSD_CityID.Name = "lueCSD_CityID";
             this.lueCSD_CityID.ShowFormImmediately = true;
             this.lueCSD_CityID.ShowSButton = true;
@@ -1739,7 +1740,7 @@
             // 
             this.lueCSD_DistrictID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueCSD_DistrictID.ListWindow = null;
-            this.lueCSD_DistrictID.Location = new System.Drawing.Point(295, 174);
+            this.lueCSD_DistrictID.Location = new System.Drawing.Point(295, 112);
             this.lueCSD_DistrictID.Name = "lueCSD_DistrictID";
             this.lueCSD_DistrictID.ShowFormImmediately = true;
             this.lueCSD_DistrictID.ShowSButton = true;
@@ -1752,7 +1753,7 @@
             // 
             this.lueJG_ProvinceID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueJG_ProvinceID.ListWindow = null;
-            this.lueJG_ProvinceID.Location = new System.Drawing.Point(405, 174);
+            this.lueJG_ProvinceID.Location = new System.Drawing.Point(405, 112);
             this.lueJG_ProvinceID.Name = "lueJG_ProvinceID";
             this.lueJG_ProvinceID.ShowFormImmediately = true;
             this.lueJG_ProvinceID.ShowSButton = true;
@@ -1765,7 +1766,7 @@
             // 
             this.lueJG_CityID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueJG_CityID.ListWindow = null;
-            this.lueJG_CityID.Location = new System.Drawing.Point(547, 174);
+            this.lueJG_CityID.Location = new System.Drawing.Point(547, 112);
             this.lueJG_CityID.Name = "lueJG_CityID";
             this.lueJG_CityID.ShowFormImmediately = true;
             this.lueJG_CityID.ShowSButton = true;
@@ -1777,7 +1778,7 @@
             // 
             this.lueXZZ_ProvinceID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueXZZ_ProvinceID.ListWindow = null;
-            this.lueXZZ_ProvinceID.Location = new System.Drawing.Point(81, 226);
+            this.lueXZZ_ProvinceID.Location = new System.Drawing.Point(81, 164);
             this.lueXZZ_ProvinceID.Name = "lueXZZ_ProvinceID";
             this.lueXZZ_ProvinceID.ShowFormImmediately = true;
             this.lueXZZ_ProvinceID.ShowSButton = true;
@@ -1790,7 +1791,7 @@
             // 
             this.lueXZZ_CityID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueXZZ_CityID.ListWindow = null;
-            this.lueXZZ_CityID.Location = new System.Drawing.Point(223, 226);
+            this.lueXZZ_CityID.Location = new System.Drawing.Point(223, 164);
             this.lueXZZ_CityID.Name = "lueXZZ_CityID";
             this.lueXZZ_CityID.ShowFormImmediately = true;
             this.lueXZZ_CityID.ShowSButton = true;
@@ -1803,7 +1804,7 @@
             // 
             this.lueXZZ_DistrictID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueXZZ_DistrictID.ListWindow = null;
-            this.lueXZZ_DistrictID.Location = new System.Drawing.Point(295, 226);
+            this.lueXZZ_DistrictID.Location = new System.Drawing.Point(295, 164);
             this.lueXZZ_DistrictID.Name = "lueXZZ_DistrictID";
             this.lueXZZ_DistrictID.ShowFormImmediately = true;
             this.lueXZZ_DistrictID.ShowSButton = true;
@@ -1816,7 +1817,7 @@
             // 
             this.lueHKDZ_ProvinceID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueHKDZ_ProvinceID.ListWindow = null;
-            this.lueHKDZ_ProvinceID.Location = new System.Drawing.Point(81, 253);
+            this.lueHKDZ_ProvinceID.Location = new System.Drawing.Point(81, 191);
             this.lueHKDZ_ProvinceID.Name = "lueHKDZ_ProvinceID";
             this.lueHKDZ_ProvinceID.ShowFormImmediately = true;
             this.lueHKDZ_ProvinceID.ShowSButton = true;
@@ -1829,7 +1830,7 @@
             // 
             this.lueHKDZ_CityID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueHKDZ_CityID.ListWindow = null;
-            this.lueHKDZ_CityID.Location = new System.Drawing.Point(223, 253);
+            this.lueHKDZ_CityID.Location = new System.Drawing.Point(223, 191);
             this.lueHKDZ_CityID.Name = "lueHKDZ_CityID";
             this.lueHKDZ_CityID.ShowFormImmediately = true;
             this.lueHKDZ_CityID.ShowSButton = true;
@@ -1842,7 +1843,7 @@
             // 
             this.lueHKDZ_DistrictID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueHKDZ_DistrictID.ListWindow = null;
-            this.lueHKDZ_DistrictID.Location = new System.Drawing.Point(295, 253);
+            this.lueHKDZ_DistrictID.Location = new System.Drawing.Point(295, 191);
             this.lueHKDZ_DistrictID.Name = "lueHKDZ_DistrictID";
             this.lueHKDZ_DistrictID.ShowFormImmediately = true;
             this.lueHKDZ_DistrictID.ShowSButton = true;
@@ -2006,7 +2007,7 @@
             this.Controls.Add(this.chkInHosType4);
             this.Controls.Add(this.textEdit3);
             this.Name = "UCIemBasInfo";
-            this.Size = new System.Drawing.Size(625, 598);
+            this.Size = new System.Drawing.Size(625, 531);
             this.Load += new System.EventHandler(this.UCIemBasInfo_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCIemBasInfo_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.txtAge.Properties)).EndInit();

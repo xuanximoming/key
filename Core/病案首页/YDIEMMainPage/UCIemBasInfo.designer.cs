@@ -275,12 +275,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXseDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seActualDays.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deAdmitDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deAdmitDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deAdmitDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deOutWardDate.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOutWardDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deOutWardDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seInCount.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -330,7 +330,7 @@
             this.teOutWardDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.teOutWardDate.Properties.Mask.EditMask = "HH:mm";
-            this.teOutWardDate.Size = new System.Drawing.Size(51, 19);
+            this.teOutWardDate.Size = new System.Drawing.Size(51, 18);
             this.teOutWardDate.TabIndex = 56;
             this.teOutWardDate.EditValueChanged += new System.EventHandler(this.deOutWardDate_EditValueChanged);
             // 
@@ -380,7 +380,7 @@
             this.teAdmitDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.teAdmitDate.Properties.Mask.EditMask = "HH:mm";
-            this.teAdmitDate.Size = new System.Drawing.Size(51, 19);
+            this.teAdmitDate.Size = new System.Drawing.Size(51, 18);
             this.teAdmitDate.TabIndex = 51;
             this.teAdmitDate.EditValueChanged += new System.EventHandler(this.deOutWardDate_EditValueChanged);
             // 
@@ -404,7 +404,7 @@
             this.txtContactTEL.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtContactTEL.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtContactTEL.Properties.MaxLength = 13;
-            this.txtContactTEL.Size = new System.Drawing.Size(101, 19);
+            this.txtContactTEL.Size = new System.Drawing.Size(101, 18);
             this.txtContactTEL.TabIndex = 41;
             // 
             // labelControl28
@@ -426,7 +426,7 @@
             this.txtContactAddress.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtContactAddress.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtContactAddress.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtContactAddress.Size = new System.Drawing.Size(141, 19);
+            this.txtContactAddress.Size = new System.Drawing.Size(141, 18);
             this.txtContactAddress.TabIndex = 40;
             // 
             // labelControl27
@@ -457,7 +457,7 @@
             this.txtContactPerson.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtContactPerson.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtContactPerson.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtContactPerson.Size = new System.Drawing.Size(91, 19);
+            this.txtContactPerson.Size = new System.Drawing.Size(91, 18);
             this.txtContactPerson.TabIndex = 38;
             // 
             // labelControl25
@@ -486,7 +486,7 @@
             this.txtXZZ_Post.Name = "txtXZZ_Post";
             this.txtXZZ_Post.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtXZZ_Post.Properties.MaxLength = 6;
-            this.txtXZZ_Post.Size = new System.Drawing.Size(61, 19);
+            this.txtXZZ_Post.Size = new System.Drawing.Size(61, 18);
             this.txtXZZ_Post.TabIndex = 29;
             // 
             // labelControl21
@@ -506,7 +506,7 @@
             this.txtXZZ_TEL.Name = "txtXZZ_TEL";
             this.txtXZZ_TEL.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtXZZ_TEL.Properties.MaxLength = 13;
-            this.txtXZZ_TEL.Size = new System.Drawing.Size(79, 19);
+            this.txtXZZ_TEL.Size = new System.Drawing.Size(79, 18);
             this.txtXZZ_TEL.TabIndex = 28;
             this.txtXZZ_TEL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
@@ -529,7 +529,7 @@
             this.txtOfficePlace.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtOfficePlace.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtOfficePlace.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtOfficePlace.Size = new System.Drawing.Size(178, 19);
+            this.txtOfficePlace.Size = new System.Drawing.Size(178, 18);
             this.txtOfficePlace.TabIndex = 35;
             // 
             // labelControl19
@@ -552,7 +552,7 @@
             this.txtIDNO.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtIDNO.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtIDNO.Properties.MaxLength = 18;
-            this.txtIDNO.Size = new System.Drawing.Size(175, 19);
+            this.txtIDNO.Size = new System.Drawing.Size(175, 18);
             this.txtIDNO.TabIndex = 20;
             // 
             // labelControl18
@@ -647,7 +647,7 @@
             this.txtSocialCare.Properties.Appearance.Options.UseBackColor = true;
             this.txtSocialCare.Properties.Appearance.Options.UseFont = true;
             this.txtSocialCare.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtSocialCare.Size = new System.Drawing.Size(71, 19);
+            this.txtSocialCare.Size = new System.Drawing.Size(71, 18);
             this.txtSocialCare.TabIndex = 2;
             this.txtSocialCare.TabStop = false;
             this.txtSocialCare.Visible = false;
@@ -691,7 +691,7 @@
             this.txtName.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtName.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtName.Size = new System.Drawing.Size(59, 19);
+            this.txtName.Size = new System.Drawing.Size(59, 18);
             this.txtName.TabIndex = 4;
             // 
             // labelControl2
@@ -712,7 +712,7 @@
             this.txtPatNoOfHis.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
             this.txtPatNoOfHis.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.txtPatNoOfHis.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtPatNoOfHis.Size = new System.Drawing.Size(107, 19);
+            this.txtPatNoOfHis.Size = new System.Drawing.Size(107, 18);
             this.txtPatNoOfHis.TabIndex = 3;
             // 
             // labelControl1
@@ -736,7 +736,7 @@
             // 
             // labelHospitalName
             // 
-            this.labelHospitalName.Appearance.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelHospitalName.Appearance.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelHospitalName.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.labelHospitalName.Location = new System.Drawing.Point(266, 25);
             this.labelHospitalName.Name = "labelHospitalName";
@@ -773,7 +773,7 @@
             this.txtCardNumber.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtCardNumber.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCardNumber.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtCardNumber.Size = new System.Drawing.Size(98, 19);
+            this.txtCardNumber.Size = new System.Drawing.Size(98, 18);
             this.txtCardNumber.TabIndex = 1;
             // 
             // labelControl13
@@ -807,7 +807,7 @@
             this.txtMonthAge.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtMonthAge.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtMonthAge.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtMonthAge.Size = new System.Drawing.Size(40, 19);
+            this.txtMonthAge.Size = new System.Drawing.Size(40, 18);
             this.txtMonthAge.TabIndex = 9;
             // 
             // labelControl15
@@ -841,7 +841,7 @@
             this.txtWeight.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtWeight.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtWeight.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtWeight.Size = new System.Drawing.Size(40, 19);
+            this.txtWeight.Size = new System.Drawing.Size(40, 18);
             this.txtWeight.TabIndex = 11;
             // 
             // labelControl46
@@ -884,7 +884,7 @@
             this.txtInWeight.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtInWeight.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtInWeight.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtInWeight.Size = new System.Drawing.Size(53, 19);
+            this.txtInWeight.Size = new System.Drawing.Size(53, 18);
             this.txtInWeight.TabIndex = 12;
             // 
             // labelControl49
@@ -1012,7 +1012,7 @@
             this.txtHKDZ_Post.Name = "txtHKDZ_Post";
             this.txtHKDZ_Post.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtHKDZ_Post.Properties.MaxLength = 6;
-            this.txtHKDZ_Post.Size = new System.Drawing.Size(61, 19);
+            this.txtHKDZ_Post.Size = new System.Drawing.Size(61, 18);
             this.txtHKDZ_Post.TabIndex = 34;
             // 
             // labelControl62
@@ -1035,7 +1035,7 @@
             this.txtOfficeTEL.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtOfficeTEL.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtOfficeTEL.Properties.MaxLength = 13;
-            this.txtOfficeTEL.Size = new System.Drawing.Size(79, 19);
+            this.txtOfficeTEL.Size = new System.Drawing.Size(79, 18);
             this.txtOfficeTEL.TabIndex = 36;
             this.txtOfficeTEL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
@@ -1059,7 +1059,7 @@
             this.txtOfficePost.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtOfficePost.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtOfficePost.Properties.MaxLength = 6;
-            this.txtOfficePost.Size = new System.Drawing.Size(61, 19);
+            this.txtOfficePost.Size = new System.Drawing.Size(61, 18);
             this.txtOfficePost.TabIndex = 37;
             // 
             // labelControl64
@@ -1130,7 +1130,7 @@
             this.textEdit3.Location = new System.Drawing.Point(547, 254);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.textEdit3.Size = new System.Drawing.Size(61, 19);
+            this.textEdit3.Size = new System.Drawing.Size(61, 18);
             this.textEdit3.TabIndex = 18;
             // 
             // labelControl23
@@ -1196,7 +1196,7 @@
             this.txtCSDAddress.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtCSDAddress.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtCSDAddress.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtCSDAddress.Size = new System.Drawing.Size(289, 19);
+            this.txtCSDAddress.Size = new System.Drawing.Size(289, 18);
             this.txtCSDAddress.TabIndex = 16;
             // 
             // txtJGAddress
@@ -1209,7 +1209,7 @@
             this.txtJGAddress.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtJGAddress.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtJGAddress.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtJGAddress.Size = new System.Drawing.Size(202, 19);
+            this.txtJGAddress.Size = new System.Drawing.Size(202, 18);
             this.txtJGAddress.TabIndex = 19;
             // 
             // txtHKZZAddress
@@ -1222,7 +1222,7 @@
             this.txtHKZZAddress.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtHKZZAddress.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtHKZZAddress.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtHKZZAddress.Size = new System.Drawing.Size(289, 19);
+            this.txtHKZZAddress.Size = new System.Drawing.Size(289, 18);
             this.txtHKZZAddress.TabIndex = 33;
             // 
             // txtXZZAddress
@@ -1235,7 +1235,7 @@
             this.txtXZZAddress.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtXZZAddress.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtXZZAddress.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtXZZAddress.Size = new System.Drawing.Size(291, 19);
+            this.txtXZZAddress.Size = new System.Drawing.Size(291, 18);
             this.txtXZZAddress.TabIndex = 27;
             // 
             // chkFandB3
@@ -1661,7 +1661,7 @@
             this.lueOutHosWard.Location = new System.Drawing.Point(378, 377);
             this.lueOutHosWard.Name = "lueOutHosWard";
             this.lueOutHosWard.ShowSButton = true;
-            this.lueOutHosWard.Size = new System.Drawing.Size(74, 20);
+            this.lueOutHosWard.Size = new System.Drawing.Size(74, 18);
             this.lueOutHosWard.TabIndex = 58;
             // 
             // lueOutHosDept
@@ -1673,7 +1673,7 @@
             this.lueOutHosDept.Location = new System.Drawing.Point(266, 377);
             this.lueOutHosDept.Name = "lueOutHosDept";
             this.lueOutHosDept.ShowSButton = true;
-            this.lueOutHosDept.Size = new System.Drawing.Size(73, 20);
+            this.lueOutHosDept.Size = new System.Drawing.Size(73, 18);
             this.lueOutHosDept.TabIndex = 57;
             this.lueOutHosDept.CodeValueChanged += new System.EventHandler(this.lueAdmitDept_CodeValueChanged);
             // 
@@ -1686,7 +1686,7 @@
             this.lueTransAdmitDept.Location = new System.Drawing.Point(515, 351);
             this.lueTransAdmitDept.Name = "lueTransAdmitDept";
             this.lueTransAdmitDept.ShowSButton = true;
-            this.lueTransAdmitDept.Size = new System.Drawing.Size(77, 20);
+            this.lueTransAdmitDept.Size = new System.Drawing.Size(77, 18);
             this.lueTransAdmitDept.TabIndex = 54;
             // 
             // lueAdmitWard
@@ -1698,7 +1698,7 @@
             this.lueAdmitWard.Location = new System.Drawing.Point(378, 351);
             this.lueAdmitWard.Name = "lueAdmitWard";
             this.lueAdmitWard.ShowSButton = true;
-            this.lueAdmitWard.Size = new System.Drawing.Size(74, 20);
+            this.lueAdmitWard.Size = new System.Drawing.Size(74, 18);
             this.lueAdmitWard.TabIndex = 53;
             // 
             // lueAdmitDept
@@ -1710,7 +1710,7 @@
             this.lueAdmitDept.Location = new System.Drawing.Point(266, 351);
             this.lueAdmitDept.Name = "lueAdmitDept";
             this.lueAdmitDept.ShowSButton = true;
-            this.lueAdmitDept.Size = new System.Drawing.Size(73, 20);
+            this.lueAdmitDept.Size = new System.Drawing.Size(73, 18);
             this.lueAdmitDept.TabIndex = 52;
             this.lueAdmitDept.CodeValueChanged += new System.EventHandler(this.lueAdmitDept_CodeValueChanged);
             // 
@@ -1723,7 +1723,7 @@
             this.lueRelationship.Location = new System.Drawing.Point(232, 301);
             this.lueRelationship.Name = "lueRelationship";
             this.lueRelationship.ShowSButton = true;
-            this.lueRelationship.Size = new System.Drawing.Size(82, 20);
+            this.lueRelationship.Size = new System.Drawing.Size(82, 18);
             this.lueRelationship.TabIndex = 39;
             // 
             // lueNationality
@@ -1735,7 +1735,7 @@
             this.lueNationality.Location = new System.Drawing.Point(547, 128);
             this.lueNationality.Name = "lueNationality";
             this.lueNationality.ShowSButton = true;
-            this.lueNationality.Size = new System.Drawing.Size(61, 20);
+            this.lueNationality.Size = new System.Drawing.Size(61, 18);
             this.lueNationality.TabIndex = 8;
             // 
             // lueNation
@@ -1747,7 +1747,7 @@
             this.lueNation.Location = new System.Drawing.Point(547, 200);
             this.lueNation.Name = "lueNation";
             this.lueNation.ShowSButton = true;
-            this.lueNation.Size = new System.Drawing.Size(61, 20);
+            this.lueNation.Size = new System.Drawing.Size(61, 18);
             this.lueNation.TabIndex = 23;
             // 
             // lueCSD_ProvinceID
@@ -1759,7 +1759,7 @@
             this.lueCSD_ProvinceID.Location = new System.Drawing.Point(81, 174);
             this.lueCSD_ProvinceID.Name = "lueCSD_ProvinceID";
             this.lueCSD_ProvinceID.ShowSButton = true;
-            this.lueCSD_ProvinceID.Size = new System.Drawing.Size(58, 20);
+            this.lueCSD_ProvinceID.Size = new System.Drawing.Size(58, 18);
             this.lueCSD_ProvinceID.TabIndex = 13;
             this.lueCSD_ProvinceID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1772,7 +1772,7 @@
             this.luePayId.Location = new System.Drawing.Point(120, 68);
             this.luePayId.Name = "luePayId";
             this.luePayId.ShowSButton = true;
-            this.luePayId.Size = new System.Drawing.Size(71, 20);
+            this.luePayId.Size = new System.Drawing.Size(71, 18);
             this.luePayId.TabIndex = 0;
             // 
             // lueMarital
@@ -1784,7 +1784,7 @@
             this.lueMarital.Location = new System.Drawing.Point(433, 200);
             this.lueMarital.Name = "lueMarital";
             this.lueMarital.ShowSButton = true;
-            this.lueMarital.Size = new System.Drawing.Size(54, 20);
+            this.lueMarital.Size = new System.Drawing.Size(54, 18);
             this.lueMarital.TabIndex = 22;
             // 
             // lueJob
@@ -1796,7 +1796,7 @@
             this.lueJob.Location = new System.Drawing.Point(305, 200);
             this.lueJob.Name = "lueJob";
             this.lueJob.ShowSButton = true;
-            this.lueJob.Size = new System.Drawing.Size(82, 20);
+            this.lueJob.Size = new System.Drawing.Size(82, 18);
             this.lueJob.TabIndex = 21;
             // 
             // lueSex
@@ -1808,7 +1808,7 @@
             this.lueSex.Location = new System.Drawing.Point(156, 126);
             this.lueSex.Name = "lueSex";
             this.lueSex.ShowSButton = true;
-            this.lueSex.Size = new System.Drawing.Size(59, 20);
+            this.lueSex.Size = new System.Drawing.Size(59, 18);
             this.lueSex.TabIndex = 5;
             // 
             // lueCSD_CityID
@@ -1820,7 +1820,7 @@
             this.lueCSD_CityID.Location = new System.Drawing.Point(223, 174);
             this.lueCSD_CityID.Name = "lueCSD_CityID";
             this.lueCSD_CityID.ShowSButton = true;
-            this.lueCSD_CityID.Size = new System.Drawing.Size(45, 20);
+            this.lueCSD_CityID.Size = new System.Drawing.Size(45, 18);
             this.lueCSD_CityID.TabIndex = 14;
             this.lueCSD_CityID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1833,7 +1833,7 @@
             this.lueCSD_DistrictID.Location = new System.Drawing.Point(295, 174);
             this.lueCSD_DistrictID.Name = "lueCSD_DistrictID";
             this.lueCSD_DistrictID.ShowSButton = true;
-            this.lueCSD_DistrictID.Size = new System.Drawing.Size(45, 20);
+            this.lueCSD_DistrictID.Size = new System.Drawing.Size(45, 18);
             this.lueCSD_DistrictID.TabIndex = 15;
             this.lueCSD_DistrictID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1846,7 +1846,7 @@
             this.lueJG_ProvinceID.Location = new System.Drawing.Point(405, 174);
             this.lueJG_ProvinceID.Name = "lueJG_ProvinceID";
             this.lueJG_ProvinceID.ShowSButton = true;
-            this.lueJG_ProvinceID.Size = new System.Drawing.Size(58, 20);
+            this.lueJG_ProvinceID.Size = new System.Drawing.Size(58, 18);
             this.lueJG_ProvinceID.TabIndex = 17;
             this.lueJG_ProvinceID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1859,7 +1859,7 @@
             this.lueJG_CityID.Location = new System.Drawing.Point(547, 174);
             this.lueJG_CityID.Name = "lueJG_CityID";
             this.lueJG_CityID.ShowSButton = true;
-            this.lueJG_CityID.Size = new System.Drawing.Size(45, 20);
+            this.lueJG_CityID.Size = new System.Drawing.Size(45, 18);
             this.lueJG_CityID.TabIndex = 18;
             // 
             // lueXZZ_ProvinceID
@@ -1871,7 +1871,7 @@
             this.lueXZZ_ProvinceID.Location = new System.Drawing.Point(81, 226);
             this.lueXZZ_ProvinceID.Name = "lueXZZ_ProvinceID";
             this.lueXZZ_ProvinceID.ShowSButton = true;
-            this.lueXZZ_ProvinceID.Size = new System.Drawing.Size(58, 20);
+            this.lueXZZ_ProvinceID.Size = new System.Drawing.Size(58, 18);
             this.lueXZZ_ProvinceID.TabIndex = 24;
             this.lueXZZ_ProvinceID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1884,7 +1884,7 @@
             this.lueXZZ_CityID.Location = new System.Drawing.Point(223, 226);
             this.lueXZZ_CityID.Name = "lueXZZ_CityID";
             this.lueXZZ_CityID.ShowSButton = true;
-            this.lueXZZ_CityID.Size = new System.Drawing.Size(45, 20);
+            this.lueXZZ_CityID.Size = new System.Drawing.Size(45, 18);
             this.lueXZZ_CityID.TabIndex = 25;
             this.lueXZZ_CityID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1897,7 +1897,7 @@
             this.lueXZZ_DistrictID.Location = new System.Drawing.Point(295, 226);
             this.lueXZZ_DistrictID.Name = "lueXZZ_DistrictID";
             this.lueXZZ_DistrictID.ShowSButton = true;
-            this.lueXZZ_DistrictID.Size = new System.Drawing.Size(45, 20);
+            this.lueXZZ_DistrictID.Size = new System.Drawing.Size(45, 18);
             this.lueXZZ_DistrictID.TabIndex = 26;
             this.lueXZZ_DistrictID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1910,7 +1910,7 @@
             this.lueHKDZ_ProvinceID.Location = new System.Drawing.Point(81, 253);
             this.lueHKDZ_ProvinceID.Name = "lueHKDZ_ProvinceID";
             this.lueHKDZ_ProvinceID.ShowSButton = true;
-            this.lueHKDZ_ProvinceID.Size = new System.Drawing.Size(58, 20);
+            this.lueHKDZ_ProvinceID.Size = new System.Drawing.Size(58, 18);
             this.lueHKDZ_ProvinceID.TabIndex = 30;
             this.lueHKDZ_ProvinceID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1923,7 +1923,7 @@
             this.lueHKDZ_CityID.Location = new System.Drawing.Point(223, 253);
             this.lueHKDZ_CityID.Name = "lueHKDZ_CityID";
             this.lueHKDZ_CityID.ShowSButton = true;
-            this.lueHKDZ_CityID.Size = new System.Drawing.Size(45, 20);
+            this.lueHKDZ_CityID.Size = new System.Drawing.Size(45, 18);
             this.lueHKDZ_CityID.TabIndex = 31;
             this.lueHKDZ_CityID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1936,7 +1936,7 @@
             this.lueHKDZ_DistrictID.Location = new System.Drawing.Point(295, 253);
             this.lueHKDZ_DistrictID.Name = "lueHKDZ_DistrictID";
             this.lueHKDZ_DistrictID.ShowSButton = true;
-            this.lueHKDZ_DistrictID.Size = new System.Drawing.Size(45, 20);
+            this.lueHKDZ_DistrictID.Size = new System.Drawing.Size(45, 18);
             this.lueHKDZ_DistrictID.TabIndex = 32;
             this.lueHKDZ_DistrictID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
@@ -1952,7 +1952,7 @@
             this.txtAge.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtAge.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtAge.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtAge.Size = new System.Drawing.Size(58, 19);
+            this.txtAge.Size = new System.Drawing.Size(58, 18);
             this.txtAge.TabIndex = 7;
             // 
             // labelControl43
@@ -1978,7 +1978,7 @@
             this.textEditOrganizationCode.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.White;
             this.textEditOrganizationCode.Properties.AppearanceDisabled.Options.UseBackColor = true;
             this.textEditOrganizationCode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.textEditOrganizationCode.Size = new System.Drawing.Size(121, 19);
+            this.textEditOrganizationCode.Size = new System.Drawing.Size(121, 18);
             this.textEditOrganizationCode.TabIndex = 298;
             this.textEditOrganizationCode.TabStop = false;
             // 
@@ -2001,7 +2001,7 @@
             this.txtXseDay.Location = new System.Drawing.Point(223, 149);
             this.txtXseDay.Name = "txtXseDay";
             this.txtXseDay.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtXseDay.Size = new System.Drawing.Size(35, 19);
+            this.txtXseDay.Size = new System.Drawing.Size(35, 18);
             this.txtXseDay.TabIndex = 10;
             // 
             // labelControl44
@@ -2025,7 +2025,7 @@
             this.seActualDays.Name = "seActualDays";
             this.seActualDays.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.seActualDays.Size = new System.Drawing.Size(77, 21);
+            this.seActualDays.Size = new System.Drawing.Size(77, 20);
             this.seActualDays.TabIndex = 59;
             // 
             // deAdmitDate
@@ -2036,9 +2036,9 @@
             this.deAdmitDate.Name = "deAdmitDate";
             this.deAdmitDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deAdmitDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deAdmitDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deAdmitDate.Size = new System.Drawing.Size(74, 21);
+            this.deAdmitDate.Size = new System.Drawing.Size(74, 20);
             this.deAdmitDate.TabIndex = 50;
             this.deAdmitDate.EditValueChanged += new System.EventHandler(this.deOutWardDate_EditValueChanged);
             // 
@@ -2050,9 +2050,9 @@
             this.deOutWardDate.Name = "deOutWardDate";
             this.deOutWardDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deOutWardDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deOutWardDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deOutWardDate.Size = new System.Drawing.Size(73, 21);
+            this.deOutWardDate.Size = new System.Drawing.Size(73, 20);
             this.deOutWardDate.TabIndex = 55;
             this.deOutWardDate.EditValueChanged += new System.EventHandler(this.deOutWardDate_EditValueChanged);
             // 
@@ -2068,7 +2068,7 @@
             this.seInCount.Name = "seInCount";
             this.seInCount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.seInCount.Size = new System.Drawing.Size(39, 21);
+            this.seInCount.Size = new System.Drawing.Size(39, 20);
             this.seInCount.TabIndex = 2;
             // 
             // deBirth
@@ -2079,9 +2079,9 @@
             this.deBirth.Name = "deBirth";
             this.deBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.deBirth.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deBirth.Size = new System.Drawing.Size(100, 21);
+            this.deBirth.Size = new System.Drawing.Size(100, 20);
             this.deBirth.TabIndex = 6;
             this.deBirth.EditValueChanged += new System.EventHandler(this.deBirth_EditValueChanged);
             this.deBirth.Validating += new System.ComponentModel.CancelEventHandler(this.deBirth_Validating);
@@ -2368,12 +2368,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtXseDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seActualDays.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deAdmitDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deAdmitDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deAdmitDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deOutWardDate.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOutWardDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deOutWardDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seInCount.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

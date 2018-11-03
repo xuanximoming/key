@@ -240,13 +240,18 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         #endregion
 
         #region 键盘事件
+
+        private bool bolkOkeyPress = false;
         /// <summary>
         /// 覆写键盘字符事件（输入一个新字符）
         /// </summary>
         /// <param name="e"></param>
         protected override void OnKeyPress(System.Windows.Forms.KeyPressEventArgs e)
         {
-            if (editactions.ContainsKey((System.Windows.Forms.Keys)e.KeyChar)) return;
+            //屏蔽掉需要OnKeyDown处理的事件
+            if (bolkOkeyPress) return;
+            if ((editactions.ContainsKey((System.Windows.Forms.Keys)e.KeyChar) && e.KeyChar != '.')) return;
+
             if (bolLockingUI && !IsInActiveEditArea(this.Document.Content.CurrentElement)) return;
             LastMessageTick = System.Environment.TickCount;
             //BeforeUserMessage();
@@ -262,7 +267,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                         return;
                     WeiWenProcess.KeyPress(e);
                 }
-                //屏蔽掉需要OnKeyDown处理的事件
+
                 A_InsertChar a = new A_InsertChar();
                 a.KeyCode = (System.Windows.Forms.Keys)e.KeyChar;
                 a.OwnerDocument = this.EMRDoc;
@@ -275,7 +280,8 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
 
         protected override void OnKeyUp(KeyEventArgs e)
         {
-
+            if (bolkOkeyPress) bolkOkeyPress = false;
+            //MessageBox.Show(bolkOkeyPress.ToString() + "OnKeyUp");
         }
         /// <summary>
         /// PB 语言调用时，不触发ProcessDialogKey  方向键不触发OnKeyPress，处理ProcessDialogKey事件
@@ -283,6 +289,11 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         /// <param name="e"></param>
         protected override void OnKeyDown(KeyEventArgs e)
         {
+            if (e.Modifiers == Keys.Control || e.Modifiers == Keys.Alt)
+            {
+                if (!bolkOkeyPress) bolkOkeyPress = true;
+            }
+            //MessageBox.Show(e.KeyData.ToString() + "OnKeyUp");
             if (bolLockingUI && e.KeyData != (Keys.C | Keys.Control) && !IsInActiveEditArea(this.Document.Content.CurrentElement))
             {
                 return;
@@ -320,6 +331,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         /// </summary>
         /// <param name="keyData"></param>
         /// <returns></returns>
+
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (bolLockingUI && keyData != (Keys.C | Keys.Control) && !IsInActiveEditArea(this.Document.Content.CurrentElement))
@@ -2685,14 +2697,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         {
             get
             {
-                //if (this.bolLockingUI)
-                //{
-                //    return Color.Transparent;
-                //}
-                //else
-                //{
                 return elementBackColor;
-                //}
             }
             set { elementBackColor = value; }
         }

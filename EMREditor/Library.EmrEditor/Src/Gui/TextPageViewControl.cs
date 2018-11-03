@@ -843,16 +843,16 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
         }
 
         private static System.Windows.Forms.Keys[] myInputKeys =
-				{	
-					System.Windows.Forms.Keys.Left ,
-					System.Windows.Forms.Keys.Up ,
-					System.Windows.Forms.Keys.Right ,
-					System.Windows.Forms.Keys.Down ,
-					System.Windows.Forms.Keys.Tab ,
-					System.Windows.Forms.Keys.Enter ,
-					System.Windows.Forms.Keys.ShiftKey  ,
-					System.Windows.Forms.Keys.Control 
-				};
+                {	
+                    System.Windows.Forms.Keys.Left ,
+                    System.Windows.Forms.Keys.Up ,
+                    System.Windows.Forms.Keys.Right ,
+                    System.Windows.Forms.Keys.Down ,
+                    System.Windows.Forms.Keys.Tab ,
+                    System.Windows.Forms.Keys.Enter ,
+                    System.Windows.Forms.Keys.ShiftKey  ,
+                    System.Windows.Forms.Keys.Control 
+                };
         /// <summary>
         /// 重写键盘字符处理函数,保证控件能处理一些功能键
         /// </summary>

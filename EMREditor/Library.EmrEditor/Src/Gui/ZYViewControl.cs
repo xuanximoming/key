@@ -35,8 +35,12 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
     public class ZYViewControl : TextPageViewControl  //,System.Windows.Forms.IMessageFilter 
     {
 
-        //在只只读状态下，设置当前文档的只读区域,这个范围需要根据编辑区域的变化而变化
         public ActiveEditArea ActiveEditArea = null;
+        /// <summary>
+        /// 在只读状态下，设置当前文档的只读区域,这个范围需要根据编辑区域的变化而变化
+        /// </summary>
+        /// <param name="ele"></param>
+        /// <returns></returns>
         public bool IsInActiveEditArea(ZYTextElement ele)
         {
             if (this.Document.OwnerControl.ActiveEditArea != null)
