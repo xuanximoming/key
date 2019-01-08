@@ -29,7 +29,7 @@ namespace DrectSoft.Core.OwnBedInfo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DocCenter));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -713,9 +713,9 @@ namespace DrectSoft.Core.OwnBedInfo
             // gridControlQCTiXing
             // 
             this.gridControlQCTiXing.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridControlQCTiXing.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControlQCTiXing.Location = new System.Drawing.Point(0, 58);
             this.gridControlQCTiXing.MainView = this.gridView1;
             this.gridControlQCTiXing.Name = "gridControlQCTiXing";
@@ -1395,7 +1395,6 @@ namespace DrectSoft.Core.OwnBedInfo
             this.gridMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGridWardPat});
             this.gridMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gridMain_MouseClick);
-            this.gridMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gridMain_MouseDoubleClick);
             // 
             // gridViewGridWardPat
             // 

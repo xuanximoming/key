@@ -11,6 +11,10 @@ namespace EmrInfirce
         [DispId(2)]
         void ChangePatient(string WinHandle, string PatNoOfHis);
         [DispId(3)]
+        void ChangePatientOut(string WinHandle, string PatNoOfHis);
+        [DispId(4)]
         UserControl ChangePatient(string PatNoOfHis);
+        [DispId(5)]
+        UserControl ChangePatientout(string PatNoOfHis);
     }
 }

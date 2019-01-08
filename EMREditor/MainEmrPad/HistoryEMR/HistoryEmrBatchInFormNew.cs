@@ -30,6 +30,7 @@ namespace DrectSoft.Core.MainEmrPad.HistoryEMR
         EditorForm m_CurrentEditorForm;
 
         DrectSoft.Core.MainEmrPad.New.UCEmrInput m_CurrentUCEmrInput;
+        DrectSoft.Core.MainEmrPad.New.UCEmrInputout m_CurrentUCEmrInputout;
 
         //病历需要导入的科室和病区
         string m_DeptChangeID;
@@ -46,6 +47,24 @@ namespace DrectSoft.Core.MainEmrPad.HistoryEMR
                 m_CurrentInpatient = inpatient;
                 m_DeptChangeID = deptChangeID;
                 m_CurrentUCEmrInput = ucEmrInput;
+                InitDateEdit();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public HistoryEmrBatchInFormNew(IEmrHost app, Inpatient inpatient, string deptChangeID, DrectSoft.Core.MainEmrPad.New.UCEmrInputout ucEmrInput)
+        {
+            try
+            {
+                InitializeComponent();
+                RegisterEvent();
+                m_App = app;
+                m_CurrentInpatient = inpatient;
+                m_DeptChangeID = deptChangeID;
+                m_CurrentUCEmrInputout = ucEmrInput;
                 InitDateEdit();
             }
             catch (Exception ex)

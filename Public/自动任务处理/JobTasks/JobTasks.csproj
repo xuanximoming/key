@@ -104,20 +104,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeQc\TimeQcManager.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="BasisData\XMLFile\BasisDataSynchSetting.xml">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="BasisData\XMLFile\BasisDataSynchSetting.xsd">
-      <SubType>
-      </SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EMPI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>

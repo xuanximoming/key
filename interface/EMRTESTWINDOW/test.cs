@@ -17,10 +17,10 @@ namespace EMRTESTWINDOW
             {
                 ChangePat changepat = new ChangePat();
                 IChangePat ichangepat = changepat;
-                string patNum = "0106713_1";
-                int i = ichangepat.InitEmr("100032", "管理员", "000", "00", "00");
+                string patNum = "20181231";
+                int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
                 //uc = ichangepat.ChangePatient(patNum);
-                ichangepat.ChangePatient(this.Handle.ToString(), patNum);
+                ichangepat.ChangePatientOut(this.Handle.ToString(), patNum);
                 //if (uc == null)
                 //{
                 //    return;

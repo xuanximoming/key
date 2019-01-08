@@ -56,6 +56,7 @@ namespace DrectSoft.MainFrame
         private PluginUtil m_PublicMethod;
         private EmrDefaultSetting m_EmrDefaultSetting;
         private Inpatient _currentPat;
+        private Outpatient _currentOutPat;
         private DataSet _patientInfos;
         private WaitDialogForm m_WaitForm;
         private string m_CurrentSelectedEmrID = string.Empty;
@@ -133,6 +134,24 @@ namespace DrectSoft.MainFrame
                 if (!cancelEventArgs.Cancel)
                 {
                     this._currentPat = value;
+                    this.SetPluginForPatientChange();
+                }
+            }
+        }
+
+        public Outpatient CurrentOutPatientInfo
+        {
+            get
+            {
+                return this._currentOutPat;
+            }
+            set
+            {
+                CancelEventArgs cancelEventArgs = new CancelEventArgs();
+                this.SetPluginForPatientChanging(cancelEventArgs);
+                if (!cancelEventArgs.Cancel)
+                {
+                    this._currentOutPat = value;
                     this.SetPluginForPatientChange();
                 }
             }
@@ -334,10 +353,10 @@ namespace DrectSoft.MainFrame
                 if (this._sqlParams == null)
                 {
                     this._sqlParams = new SqlParameter[]
-					{
-						new SqlParameter("Deptids", SqlDbType.VarChar, 8),
-						new SqlParameter("Wardid", SqlDbType.VarChar, 8)
-					};
+                    {
+                        new SqlParameter("Deptids", SqlDbType.VarChar, 8),
+                        new SqlParameter("Wardid", SqlDbType.VarChar, 8)
+                    };
                 }
                 return this._sqlParams;
             }
@@ -478,9 +497,9 @@ namespace DrectSoft.MainFrame
             else
             {
                 this.m_manager.RegisterPlugins(Application.StartupPath, new string[]
-				{
-					this.m_Loadmenufile
-				});
+                {
+                    this.m_Loadmenufile
+                });
             }
             if (string.IsNullOrEmpty(this.m_account.User.MasterID))
             {
@@ -541,15 +560,15 @@ namespace DrectSoft.MainFrame
         private void RegisterStatusBar()
         {
             this.barEditItemWard.Caption = string.Concat(new string[]
-			{
-				this.m_loguser.CurrentDeptId,
-				":",
-				this.m_loguser.CurrentDeptName,
-				"/",
-				this.m_loguser.CurrentWardId,
-				":",
-				this.m_loguser.CurrentWardName
-			});
+            {
+                this.m_loguser.CurrentDeptId,
+                ":",
+                this.m_loguser.CurrentDeptName,
+                "/",
+                this.m_loguser.CurrentWardId,
+                ":",
+                this.m_loguser.CurrentWardName
+            });
             this.barButtonName.Caption = this.m_loguser.Name + "         ";
             this.barStaticItemTime.Caption = "系统时间:" + DateTime.Today.ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo) + " " + DateTime.Now.ToString("T", DateTimeFormatInfo.InvariantInfo);
             this.barStaticItemIP.Caption = "本机IP:" + this.Ip;
@@ -727,6 +746,12 @@ namespace DrectSoft.MainFrame
             }
         }
 
+        /// <summary>
+        /// 获取住院病人数据
+        /// </summary>
+        /// <param name="dept"></param>
+        /// <param name="ward"></param>
+        /// <returns></returns>
         private DataSet GetPatientInfoData(string dept, string ward)
         {
             DataSet dataSet = new DataSet();
@@ -752,6 +777,42 @@ namespace DrectSoft.MainFrame
             return dataSet;
         }
 
+        /// <summary>
+        /// 获取门诊病人数据
+        /// </summary>
+        /// <param name="dept"></param>
+        /// <param name="ward"></param>
+        /// <returns></returns>
+        private DataSet GetOutPatientInfoData(string dept, string ward)
+        {
+            DataSet dataSet = new DataSet();
+            if (string.IsNullOrEmpty(dept))
+            {
+                dept = "3225";
+                ward = "2922";
+            }
+            this.SqlParams[0].Value = dept;
+            this.SqlParams[1].Value = ward;
+            DataTable dataTable = this.SqlHelper.ExecuteDataTable(string.Format("select * from InPatient where OutHosWard ='{0}' and  Status not in (1500, 1502, 1503, 1504, 1508, 1509)", ward));
+            dataTable.TableName = "病人数据集";
+            dataSet.Tables.Add(dataTable.Copy());
+            DataTable dataTable2 = this.SqlHelper.ExecuteDataTable("usp_QueryInwardPatients", this.SqlParams, CommandType.StoredProcedure);
+            dataTable2.TableName = "床位信息";
+            dataTable2.Columns["BedID"].Caption = "床位";
+            dataTable2.Columns["PatName"].Caption = "患者姓名";
+            dataTable2.Columns["Sex"].Caption = "性别";
+            dataTable2.Columns["AgeStr"].Caption = "年龄";
+            dataTable2.Columns["PatID"].Caption = "住院号";
+            dataTable2.Columns["AdmitDate"].Caption = "入院日期";
+            dataSet.Tables.Add(dataTable2.Copy());
+            return dataSet;
+        }
+
+        /// <summary>
+        /// 获取住院病人信息
+        /// </summary>
+        /// <param name="noOfInpat"></param>
+        /// <returns></returns>
         private DataRow GetPatInfo(decimal noOfInpat)
         {
             DataTable dataTable = this.SqlHelper.ExecuteDataTable(string.Format("select * from InPatient where NOOFINPAT={0}", noOfInpat));
@@ -766,7 +827,27 @@ namespace DrectSoft.MainFrame
             }
             return result;
         }
+        /// <summary>
+        /// 获取门诊病人信息
+        /// </summary>
+        /// <param name="noOfInpat"></param>
+        /// <returns></returns>
+        private DataRow GetOutPatInfo(decimal noOfInpat)
+        {
+            DataTable dataTable = this.SqlHelper.ExecuteDataTable(string.Format("select * from InPatient_Clinic where PATNOOFHIS={0}", noOfInpat));
+            DataRow result;
+            if (dataTable.Rows.Count < 1)
+            {
+                result = null;
+            }
+            else
+            {
+                result = dataTable.Rows[0];
+            }
+            return result;
+        }
 
+        #region  住院
         public void ChoosePatient(decimal firstPageNo)
         {
             this.SetWaitDialogCaption("系统正在切换病人，请您稍候");
@@ -796,6 +877,59 @@ namespace DrectSoft.MainFrame
             HideWaitDialog();
 
         }
+
+        #endregion
+
+        #region  门诊
+        public void ChooseOutPatient(decimal firstPageNo)
+        {
+            this.SetWaitDialogCaption("系统正在切换病人，请您稍候");
+            this.SetOutPatientInfo(firstPageNo);
+            this.HideWaitDialog();
+        }
+
+        public void ChooseOutPatient(decimal firstPageNo, string floaderState)
+        {
+            SetWaitDialogCaption("系统正在切换病人，请稍候...");
+            m_FloderState = floaderState;
+            SetPatientInfo(firstPageNo);
+            HideWaitDialog();
+        }
+
+        /// <summary>
+        /// 用于整体录入界面的跳转不改变全局Inpatient
+        /// add byy ywk 2013年1月11日11:47:53 
+        /// </summary>
+        /// <param name="firstPageNo"></param>
+        public void ChooseOutPatient(string firstPageNo, out Inpatient m_Inpat)
+        {
+
+            SetWaitDialogCaption("系统正在切换病人，请稍候...");
+            m_FloderState = string.Empty;
+            SetPatientInfo(firstPageNo, out  m_Inpat);
+            HideWaitDialog();
+
+        }
+
+        private void SetOutPatientInfo(decimal firstPageNo)
+        {
+            this.xtraTabbedMdiManager1.SelectedPageChanged -= new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);
+            //DataRow[] array = this.PatientInfos.Tables[0].Select("NoOfInpat = " + firstPageNo.ToString());
+            //if (array != null && array.Length > 0)
+            //{
+            //    this.CurrentPatientInfo = new Inpatient(array[0]);
+            //}
+            //else
+            //{
+            DataRow patInfo = this.GetOutPatInfo(firstPageNo);
+            if (patInfo != null)
+            {
+                this.CurrentOutPatientInfo = new Outpatient(patInfo);
+            }
+            //}
+            this.xtraTabbedMdiManager1.SelectedPageChanged += new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);
+        }
+        #endregion
         /// <summary>
         /// 用于整体录入界面的跳转不改变全局Inpatient
         /// add byy ywk 2013年1月11日11:47:53 
@@ -945,15 +1079,15 @@ namespace DrectSoft.MainFrame
         private void m_loguser_CurrentDeptWardChanged(object sender, EventArgs e)
         {
             this.barEditItemWard.Caption = string.Concat(new string[]
-			{
-				this.m_loguser.CurrentDeptId,
-				":",
-				this.m_loguser.CurrentDeptName,
-				"/",
-				this.m_loguser.CurrentWardId,
-				":",
-				this.m_loguser.CurrentWardName
-			});
+            {
+                this.m_loguser.CurrentDeptId,
+                ":",
+                this.m_loguser.CurrentDeptName,
+                "/",
+                this.m_loguser.CurrentWardId,
+                ":",
+                this.m_loguser.CurrentWardName
+            });
             this.barButtonName.Caption = this.m_loguser.Name + "         ";
         }
 
@@ -1221,9 +1355,9 @@ namespace DrectSoft.MainFrame
             {
                 string config = new AppConfigReader().GetConfig("IsOpenMessageWindow").Config;
                 string[] array = config.Split(new char[]
-				{
-					','
-				});
+                {
+                    ','
+                });
                 if (array.Length == 3)
                 {
                     this.m_UCMessageWindow = new UCMessageWindow(array[0], array[1], array[2]);
@@ -1261,9 +1395,9 @@ namespace DrectSoft.MainFrame
         public DataTable GetConsultationInfo()
         {
             SqlParameter[] array = new SqlParameter[]
-			{
-				new SqlParameter("userid", SqlDbType.VarChar, 8)
-			};
+            {
+                new SqlParameter("userid", SqlDbType.VarChar, 8)
+            };
             array[0].Value = this.User.DoctorId;
             DataTable dataTable = this.SqlHelper.ExecuteDataTable("EMR_CONSULTATION.usp_GetMessageInfo", array, CommandType.StoredProcedure);
             this.DeleteMessage(dataTable);

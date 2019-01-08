@@ -3123,7 +3123,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                if (CurrentEmployee.Kind == EmployeeKind.Doctor || CurrentEmployee.Kind == EmployeeKind.Specialist)//当前登录人是医生
+                if (CurrentEmployee.Kind == EmployeeKind.Doctor || CurrentEmployee.Kind == EmployeeKind.Specialist || CurrentEmployee.Kind == EmployeeKind.Outdoctor)//当前登录人是医生
                 {
                     return true;
                 }

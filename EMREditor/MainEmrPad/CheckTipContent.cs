@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Common.Ctrs.FORM;
+using System;
 
 namespace DrectSoft.Core.MainEmrPad
 {
@@ -21,11 +14,12 @@ namespace DrectSoft.Core.MainEmrPad
         private string Content = string.Empty;
         private UCEmrInput m_Umr;
         private DrectSoft.Core.MainEmrPad.New.UCEmrInput m_UmrNew;
+        private DrectSoft.Core.MainEmrPad.New.UCEmrInputout m_UmrNewout;
         public string IsChecked { get; set; }
         public CheckTipContent(IEmrHost app, string cone, UCEmrInput umr)
         {
             Content = cone;
-            m_App = app; 
+            m_App = app;
             m_Umr = umr;
             InitializeComponent();
         }
@@ -37,6 +31,15 @@ namespace DrectSoft.Core.MainEmrPad
             Content = cone;
             m_App = app;
             m_UmrNew = umr;
+        }
+
+        public CheckTipContent(IEmrHost app, string cone, DrectSoft.Core.MainEmrPad.New.UCEmrInputout umr)
+        {
+            InitializeComponent();
+
+            Content = cone;
+            m_App = app;
+            m_UmrNewout = umr;
         }
 
         public void RefreshContent(string content)

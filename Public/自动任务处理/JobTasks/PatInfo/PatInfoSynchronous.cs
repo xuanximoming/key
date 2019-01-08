@@ -89,8 +89,6 @@ namespace DrectSoft.JobManager
         }
         private string _macAddress;
 
-
-        //private OrderInterfaceLogic m_OrderInterface;
         /// <summary>
         /// 同步病人时记录新入院的病人，以便发送质量监控的触发消息
         /// </summary>
@@ -372,9 +370,7 @@ namespace DrectSoft.JobManager
             InpatientState newState = (InpatientState)Enum.Parse(typeof(InpatientState)
                , sourceRow[colPatientState].ToString());
 
-            bool isRollback = false;
             OrderCeaseReason ceaseReason = OrderCeaseReason.None;
-            bool needHandle = false; // 标记是否需要处理长期医嘱的状态
 
             if (oldState == InpatientState.InWard)
             {
@@ -382,18 +378,14 @@ namespace DrectSoft.JobManager
                 {
                     case InpatientState.ShiftDept:
                         // 转科
-                        isRollback = false;
                         ceaseReason = OrderCeaseReason.ShiftDept;
-                        needHandle = true;
                         // 发送转科消息
                         SendQCMessage(targetRow, targetRow[colBedDoctor].ToString(), oldState
                            , Convert.ToDateTime(sourceRow[colTimeOfLeaveWard]));
                         break;
                     case InpatientState.OutWard:
                         // 出区
-                        isRollback = false;
                         ceaseReason = OrderCeaseReason.LeaveHospital;
-                        needHandle = true;
                         // 发送出院消息
                         SendQCMessage(targetRow, targetRow[colBedDoctor].ToString(), oldState
                            , Convert.ToDateTime(sourceRow[colTimeOfLeaveWard]));
@@ -411,9 +403,7 @@ namespace DrectSoft.JobManager
                            && (targetRow[colFinalyDept].ToString() == sourceRow[colFinalyDept].ToString()))
                         {
                             // 撤销转科
-                            isRollback = true;
                             ceaseReason = OrderCeaseReason.ShiftDept;
-                            needHandle = true;
                         }
                         else
                         {
@@ -424,9 +414,7 @@ namespace DrectSoft.JobManager
                     case InpatientState.OutWard:
                     case InpatientState.CancleBalanced:
                         // 出区召回
-                        isRollback = true;
                         ceaseReason = OrderCeaseReason.LeaveHospital;
-                        needHandle = true;
                         break;
                 }
             }
@@ -435,25 +423,8 @@ namespace DrectSoft.JobManager
                 if (oldState != InpatientState.Balanced) // 发送出院消息
                     SendQCMessage(targetRow, targetRow[colBedDoctor].ToString(), InpatientState.OutWard, DateTime.Parse(sourceRow["OutWardDate"].ToString()));
             }
-            if (needHandle)
-                AutoHandleLongOrderState(Convert.ToDecimal(targetRow[colHisFirstPageNo]), "00", ceaseReason, isRollback);
         }
 
-        private void AutoHandleLongOrderState(decimal firstpageNoOfHis, string executorCode, OrderCeaseReason ceaseReason, bool isRollback)
-        {
-            //try
-            //{
-            //    if (m_OrderInterface == null)
-            //        m_OrderInterface = new OrderInterfaceLogic(m_EmrHelper, MacAddress, firstpageNoOfHis);
-            //    else
-            //        m_OrderInterface.FirstPageNoOfHis = firstpageNoOfHis;
-            //    m_OrderInterface.AutoHandleLongOrderState(executorCode, ceaseReason, isRollback);
-            //}
-            //catch (Exception err)
-            //{
-            //    m_App.WriteLog(new JobExecuteInfoArgs(Parent, "医嘱", err));
-            //}
-        }
 
         private string MergePatientInfo(DataTable changedData, bool initialized)
         {

@@ -169,7 +169,7 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Interface\readme\readme" />
+    <None Include="readme\readme" />
     <None Include="XMLFile\DataSynchConfig.xml">
       <SubType>Designer</SubType>
     </None>

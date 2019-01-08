@@ -443,16 +443,6 @@ namespace DrectSoft.Emr.TemplateFactory
         public DataTable Get_Templet_Item(string deptId)
         {
             DataTable dt = new DataTable();
-
-            //            string sql = string.Format(@" select *
-            //                                               from emrtemplet_item
-            //                                              where (mr_class = 'BC' or mr_class = 'BA')
-            //                                                and Visibled = 1
-            //                                                and hospital_code = '42504942400'
-            //                                                and (DEPT_ID = '0401' or
-            //                                                    DEPT_ID = SUBSTR('0401', 0, LENGTH('0401') - 2) || '99' or
-            //                                                    DEPT_ID = '*')
-            //                                              order by mr_code asc");
             string sql = string.Format(@"select * from emrtemplet_item where (DEPT_ID = '{0}' or  DEPT_ID = '*') order by mr_name ", deptId);
 
             dt = m_app.SqlHelper.ExecuteDataTable(sql);

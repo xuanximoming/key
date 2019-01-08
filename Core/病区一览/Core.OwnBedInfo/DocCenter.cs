@@ -3224,11 +3224,6 @@ namespace DrectSoft.Core.OwnBedInfo
             }
         }
 
-        private void gridMain_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// µ½´¦EXCEL
         /// </summary>

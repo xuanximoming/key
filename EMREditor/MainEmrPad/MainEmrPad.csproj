@@ -294,6 +294,12 @@
     <Compile Include="New\ChooseDeptForDailyEmrPrint.Designer.cs">
       <DependentUpon>ChooseDeptForDailyEmrPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="New\UCEmrInputout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="New\UCEmrInputout.Designer.cs">
+      <DependentUpon>UCEmrInputout.cs</DependentUpon>
+    </Compile>
     <Compile Include="New\HistorEditorForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -550,6 +556,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="New\ChooseDeptForDailyEmrPrint.resx">
       <DependentUpon>ChooseDeptForDailyEmrPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\UCEmrInputout.resx">
+      <DependentUpon>UCEmrInputout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="New\HistorEditorForm.resx">
       <DependentUpon>HistorEditorForm.cs</DependentUpon>

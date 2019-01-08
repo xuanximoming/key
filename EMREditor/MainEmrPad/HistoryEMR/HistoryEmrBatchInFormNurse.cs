@@ -28,7 +28,7 @@ namespace DrectSoft.Core.MainEmrPad.HistoryEMR
         EditorForm m_CurrentEditorForm;
 
         DrectSoft.Core.MainEmrPad.New.UCEmrInput m_CurrentUCEmrInput;
-
+        DrectSoft.Core.MainEmrPad.New.UCEmrInputout m_CurrentUCEmrInputout;
         //获取焦点的勾选项
         private CheckedListBoxItem m_FocusedCheckItem;
 
@@ -41,6 +41,28 @@ namespace DrectSoft.Core.MainEmrPad.HistoryEMR
                 m_App = app;
                 m_CurrentInpatient = app.CurrentPatientInfo;
                 m_CurrentUCEmrInput = ucEmrInput;
+                InitDateEdit();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// add by ukey for out
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="ucEmrInputout"></param>
+        public HistoryEmrBatchInFormNurse(IEmrHost app, DrectSoft.Core.MainEmrPad.New.UCEmrInputout ucEmrInputout)
+        {
+            try
+            {
+                InitializeComponent();
+                RegisterEvent();
+                m_App = app;
+                m_CurrentInpatient = app.CurrentPatientInfo;
+                m_CurrentUCEmrInputout = ucEmrInputout;
                 InitDateEdit();
             }
             catch (Exception ex)

@@ -1,8 +1,8 @@
-using System.Collections.ObjectModel;
-using System.Data;
 using DrectSoft.Common.Eop;
 using DrectSoft.Core;
 using DrectSoft.FrameWork.Plugin.Manager;
+using System.Collections.ObjectModel;
+using System.Data;
 
 namespace DrectSoft.FrameWork.WinForm.Plugin
 {
@@ -37,6 +37,13 @@ namespace DrectSoft.FrameWork.WinForm.Plugin
         /// </summary>
         /// <param name="firstPageNo">病人首页序号</param>
         void ChoosePatient(decimal firstPageNo);
+
+
+        /// <summary>
+        /// 根据病人首页序号加载门诊病人信息
+        /// </summary>
+        /// <param name="firstPageNo">病人首页序号</param>
+        void ChooseOutPatient(decimal firstPageNo);
 
         /// <summary>
         /// 根据病人序号加载病人并获取信息

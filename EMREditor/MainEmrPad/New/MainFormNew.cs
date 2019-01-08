@@ -15,7 +15,11 @@ namespace DrectSoft.Core.MainEmrPad.New
         private IEmrHost m_app;
         RecordDal m_RecordDal;
         UCEmrInput m_UCEmrInput;
+        UCEmrInputout m_UCEmrInputout;
 
+        /// <summary>
+        /// 初始化住院病历文书录入
+        /// </summary>
         public MainFormNew()
         {
             try
@@ -47,9 +51,8 @@ namespace DrectSoft.Core.MainEmrPad.New
                 throw ex;
             }
         }
-
         /// <summary>
-        /// 窗体关闭事件
+        /// 住院窗体关闭事件
         /// </summary>
         /// edit by Yanqiao.Cai 2013-01-17
         /// 1、add try ... catch

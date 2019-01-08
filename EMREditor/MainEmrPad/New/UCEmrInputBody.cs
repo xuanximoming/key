@@ -46,6 +46,10 @@ namespace DrectSoft.Core.MainEmrPad.New
 
         #region 基本控制
         /// <summary>
+        /// 门诊病历标志
+        /// </summary>
+        private int m_outflag = 0;
+        /// <summary>
         /// 左侧菜单图片文件夹状态
         /// </summary>
         public FloderState floaderState = FloderState.Default;
@@ -362,6 +366,15 @@ namespace DrectSoft.Core.MainEmrPad.New
             }
         }
 
+        ///父级UCEmrInputout控件
+        private UCEmrInputout ucEmrInputout
+        {
+            get
+            {
+                return (UCEmrInputout)this.Parent.Parent;
+            }
+        }
+
         /// <summary>
         /// 预览区
         /// </summary>
@@ -447,6 +460,26 @@ namespace DrectSoft.Core.MainEmrPad.New
             try
             {
                 InitializeComponent();
+                m_CurrentInpatient = inpatient;
+                m_app = app;
+                floaderState = floadState;
+                ///添加编辑器主页面
+                AddEmrInputTabPages();
+                ///初始化基本元素
+                LoadBasicUCEmr();
+            }
+            catch (Exception ex)
+            {
+                MyMessageBox.Show(1, ex);
+            }
+        }
+
+        public UCEmrInputBody(Inpatient inpatient, IEmrHost app, FloderState floadState, int outflag)
+        {
+            try
+            {
+                InitializeComponent();
+                m_outflag = outflag;
                 m_CurrentInpatient = inpatient;
                 m_app = app;
                 floaderState = floadState;
@@ -783,15 +816,24 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 if (node.Tag is EmrModelContainer)
                 {
-                    ucEmrInput.ResetEditModeAction(node.Tag as EmrModelContainer);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(node.Tag as EmrModelContainer);
+                    else
+                        ucEmrInput.ResetEditModeAction(node.Tag as EmrModelContainer);
                 }
                 else if (node.Tag is EmrModelDeptContainer)
                 {
-                    ucEmrInput.ResetEditModeAction(node.Tag as EmrModelDeptContainer);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(node.Tag as EmrModelDeptContainer);
+                    else
+                        ucEmrInput.ResetEditModeAction(node.Tag as EmrModelDeptContainer);
                 }
                 else if (node.Tag is EmrModel)
                 {
-                    ucEmrInput.ResetEditModeAction(node.Tag as EmrModel);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(node.Tag as EmrModel);
+                    else
+                        ucEmrInput.ResetEditModeAction(node.Tag as EmrModel);
                 }
             }
             catch (Exception ex)
@@ -1053,7 +1095,8 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 else
                 {
-                    datatable = m_PatUtil.GetFolderInfo("00");
+                    datatable = m_PatUtil.GetFolderInfoNew("00");
+                    //datatable = m_PatUtil.GetFolderInfo("00");
                 }
                 if (null == datatable || datatable.Rows.Count == 0)
                 {
@@ -1554,7 +1597,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                if (DoctorEmployee.Kind == EmployeeKind.Doctor || DoctorEmployee.Kind == EmployeeKind.Specialist)//当前登录人是医生
+                if (DoctorEmployee.Kind == EmployeeKind.Doctor || DoctorEmployee.Kind == EmployeeKind.Specialist || DoctorEmployee.Kind == EmployeeKind.Outdoctor)//当前登录人是医生
                 {
                     return true;
                 }
@@ -2168,9 +2211,19 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                this.btnRight_Submit.Visibility = ucEmrInput.btnItemSubmit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
-                this.btnRight_Audit.Visibility = ucEmrInput.btnItemAudit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
-                this.btnRight_CancelAudit.Visibility = ucEmrInput.btnItemCancelAudit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                if (m_outflag == 1)
+                {
+                    this.btnRight_Submit.Visibility = ucEmrInputout.btnItemSubmit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                    this.btnRight_Audit.Visibility = ucEmrInputout.btnItemAudit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                    this.btnRight_CancelAudit.Visibility = ucEmrInputout.btnItemCancelAudit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                }
+                else
+                {
+                    this.btnRight_Submit.Visibility = ucEmrInput.btnItemSubmit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                    this.btnRight_Audit.Visibility = ucEmrInput.btnItemAudit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                    this.btnRight_CancelAudit.Visibility = ucEmrInput.btnItemCancelAudit.Enabled ? BarItemVisibility.Always : BarItemVisibility.Never;
+                }
+
             }
             catch (Exception ex)
             {
@@ -2274,7 +2327,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                 {
                     return;
                 }
-                ucEmrInput.focusedNode = node;
+                if (m_outflag == 1)
+                    ucEmrInputout.focusedNode = node;
+                else
+                    ucEmrInput.focusedNode = node;
                 string oldCatelog = MyContainerCode;
                 LoadModelFromTree(node);
                 ///刷新大纲视图
@@ -2316,9 +2372,15 @@ namespace DrectSoft.Core.MainEmrPad.New
                     {
                         if (container.Name == "入院记录")
                         {
-                            ucEmrInput.BGetHasChildren(node.HasChildren);
+                            if (m_outflag == 1)
+                                ucEmrInputout.BGetHasChildren(node.HasChildren);
+                            else
+                                ucEmrInput.BGetHasChildren(node.HasChildren);
                         }
-                        ucEmrInput.ResetEditModeAction(container);
+                        if (m_outflag == 1)
+                            ucEmrInputout.ResetEditModeAction(container);
+                        else
+                            ucEmrInput.ResetEditModeAction(container);
                     }
                     else if (container.ContainerCatalog == "23")//23表示PACS影像
                     {
@@ -2361,14 +2423,20 @@ namespace DrectSoft.Core.MainEmrPad.New
                                 CreateCommonDocument(container);
                             }
                         }
-                        ucEmrInput.ResetEditModeAction(container);
+                        if (m_outflag == 1)
+                            ucEmrInputout.ResetEditModeAction(container);
+                        else
+                            ucEmrInput.ResetEditModeAction(container);
                     }
                     containercode = container.ContainerCatalog;
                 }
                 else if (null != node.Tag && node.Tag is EmrModelDeptContainer)//如果是容器类
                 {
                     EmrModelDeptContainer container = (EmrModelDeptContainer)node.Tag;
-                    ucEmrInput.ResetEditModeAction(container);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(container);
+                    else
+                        ucEmrInput.ResetEditModeAction(container);
                     containercode = container.ContaineCatalog;
                 }
                 #endregion
@@ -2395,7 +2463,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                     {
                         CurrentForm.ResetEditModeState(theModel);
                     }
-                    ucEmrInput.ResetEditModeAction(theModel);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(theModel);
+                    else
+                        ucEmrInput.ResetEditModeAction(theModel);
 
                     if (null != node.ParentNode && null != node.ParentNode.Tag)
                     {
@@ -2773,18 +2844,27 @@ namespace DrectSoft.Core.MainEmrPad.New
                     UnRegisterEvent();
                     m_CurrentTreeListNode.Visible = true;
                     treeListEmrNodeList.FocusedNode = m_CurrentTreeListNode;
-                    ucEmrInput.focusedNode = treeListEmrNodeList.FocusedNode;
+                    if (m_outflag == 1)
+                        ucEmrInputout.focusedNode = treeListEmrNodeList.FocusedNode;
+                    else
+                        ucEmrInput.focusedNode = treeListEmrNodeList.FocusedNode;
                     treeListEmrNodeList.MakeNodeVisible(m_CurrentTreeListNode);
                     RegisterEvent();
                 }
 
                 if (m_CurrentModel != null)
                 {
-                    ucEmrInput.ResetEditModeAction(m_CurrentModel);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(m_CurrentModel);
+                    else
+                        ucEmrInput.ResetEditModeAction(m_CurrentModel);
                 }
                 else if (m_CurrentModelContainer != null)
                 {
-                    ucEmrInput.ResetEditModeAction(m_CurrentModelContainer);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(m_CurrentModelContainer);
+                    else
+                        ucEmrInput.ResetEditModeAction(m_CurrentModelContainer);
                 }
 
                 if (m_CurrentModel != null && m_CurrentModel.ModelCatalog == ContainerCatalog.BingChengJiLu)//Add by wwj 2013-04-27 增加针对病程的判断
@@ -5123,6 +5203,9 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 else if (DoctorEmployee.Kind == EmployeeKind.Nurse)
                 {
+                    //if(m_outflag == 1)
+                    //HistoryEmrBatchInFormNurse nurseForm = new HistoryEmrBatchInFormNurse(m_app, Util.GetParentUserControl<UCEmrInputout>(this));
+                    //else
                     HistoryEmrBatchInFormNurse nurseForm = new HistoryEmrBatchInFormNurse(m_app, Util.GetParentUserControl<UCEmrInput>(this));
                     nurseForm.StartPosition = FormStartPosition.CenterScreen;
                     nurseForm.ShowDialog();
@@ -5915,7 +5998,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                         }
                         //add by cyq 2012-09-29 右侧科室小模板刷新
                         MyContainerCode = catalog;
-                        ucEmrInput.ResetEditModeAction(model);
+                        if (m_outflag == 1)
+                            ucEmrInputout.ResetEditModeAction(model);
+                        else
+                            ucEmrInput.ResetEditModeAction(model);
                     }
                 }
             }
@@ -5958,7 +6044,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                         if (isOK)
                         {
                             container.AddModel(model);
-                            ucEmrInput.ResetEditModeAction(model);
+                            if (m_outflag == 1)
+                                ucEmrInputout.ResetEditModeAction(model);
+                            else
+                                ucEmrInput.ResetEditModeAction(model);
                         }
                     }
                     else
@@ -6827,7 +6916,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                 CurrentForm.CurrentEditorControl.ActiveEditArea = null;
                 CurrentForm.CurrentEditorControl.Refresh();
                 CurrentForm.CurrentEditorControl.EMRDoc.Modified = false;
-                ucEmrInput.ResetEditModeAction(model);
+                if (m_outflag == 1)
+                    ucEmrInputout.ResetEditModeAction(model);
+                else
+                    ucEmrInput.ResetEditModeAction(model);
 
                 MyMessageBox.Show(!CurrentForm.CurrentEditorControl.CanEdit() ? "病历提交成功，不可再编辑。" : "病历提交成功", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
             }
@@ -6955,7 +7047,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                 CurrentForm.CurrentEditorControl.ActiveEditArea = null;
                 CurrentForm.CurrentEditorControl.Refresh();
                 CurrentForm.CurrentEditorControl.EMRDoc.Modified = false;
-                ucEmrInput.ResetEditModeAction(m_CurrentModel);
+                if (m_outflag == 1)
+                    ucEmrInputout.ResetEditModeAction(m_CurrentModel);
+                else
+                    ucEmrInput.ResetEditModeAction(m_CurrentModel);
             }
             catch (Exception ex)
             {
@@ -7034,7 +7129,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                 SetStateImage();
                 CurrentForm.CurrentEditorControl.ActiveEditArea = null;
                 CurrentForm.CurrentEditorControl.Refresh();
-                ucEmrInput.ResetEditModeAction(m_CurrentModel);
+                if (m_outflag == 1)
+                    ucEmrInputout.ResetEditModeAction(m_CurrentModel);
+                else
+                    ucEmrInput.ResetEditModeAction(m_CurrentModel);
                 MyMessageBox.Show("取消审核病历成功", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
             }
             catch (Exception ex)
@@ -7075,7 +7173,10 @@ namespace DrectSoft.Core.MainEmrPad.New
 
                     SetStateImage();
                     CurrentForm.CurrentEditorControl.ActiveEditArea = null;
-                    ucEmrInput.ResetEditModeAction(m_CurrentModel);
+                    if (m_outflag == 1)
+                        ucEmrInputout.ResetEditModeAction(m_CurrentModel);
+                    else
+                        ucEmrInput.ResetEditModeAction(m_CurrentModel);
                     //CurrentForm.CurrentEditorControl.Refresh();
                     MyMessageBox.Show("申请开放成功，病程关闭后请重新打开！", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
                     try//add by Ukey 2016-10-30 申请开放后关闭当前申请的文档

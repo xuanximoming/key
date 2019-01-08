@@ -15,6 +15,7 @@ namespace EmrInfirce
         private decimal _noOfInpat;
         private IEmrHost _EmrHost = null;
         private UCEmrInput _UCEmrInput;
+        private UCEmrInputout _UCEmrInputout;
 
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace EmrInfirce
 
 
         /// <summary>
-        /// 加载病人信息
+        /// 加载病人信息，C#调用
         /// </summary>
         /// <param name="PatNoOfHis">患者ID</param>
         /// <returns>返回UCEmrInput实例</returns>
@@ -117,8 +118,74 @@ namespace EmrInfirce
             return _UCEmrInput;
         }
 
+
         /// <summary>
-        /// 加载病人信息
+        /// 加载门诊病人信息，C#调用
+        /// </summary>
+        /// <param name="PatNoOfHis">患者ID</param>
+        /// <returns>返回UCEmrInput实例</returns>
+        public UserControl ChangePatientout(string PatNoOfHis)
+        {
+            DataTable dt = _emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", PatNoOfHis));
+            //不存在则添加
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                MessageBox.Show("EMR中没有此患者信息，请确认！");
+                return null;
+                #region 添加示例
+                //DataTable dtHisIns = SqlDataHelper.SelectDataTable(string.Format("select a.*,b.DegreeID,c.GroupName,c.EmrID,d.BedOrder from Inp_Register as a inner join PAT_Patient as b on  a.PatientID=b.PatientID " +
+                //    " inner join SDTC_Group as c  on a.CurrentGroupID=c.GroupID left join Inp_Bed as d on a.CurrentBedID=d.BedID " +
+                //   "where  a.inid='{0}'", inid));
+                //if (dtHisIns == null || dtHisIns.Rows.Count == 0)
+                //{
+                //    SDT.Client.ControlsHelper.Show("该患者未分床(占床)或者没有病案号。");
+                //    return;
+                //}
+                //if (Convert.ToString(dtHisIns.Rows[0]["DegreeID"]).Trim() == string.Empty)
+                //{
+                //    SDT.Client.ControlsHelper.Show("该患者没有病案号。");
+                //    return;
+                //}
+                //DataTable dtHisPt = SqlDataHelper.SelectDataTable(string.Format("select *,'' as  InICO,'' as OutICO from PAT_Patient where DegreeID='{0}'", dtHisIns.Rows[0]["DegreeID"].ToString()));
+                //if (dtHisPt == null)
+                //    return;
+                //StringBuilder sb = new StringBuilder();
+                //string pt = Convert.ToString(dtHisPt.Rows[0]["DegreeID"]);
+                //if (string.IsNullOrEmpty(pt))
+                //{
+                //    SDT.Client.ControlsHelper.Show("该患者没有病案号，请录入病案号后，再试。");
+                //    return;
+                //}
+                //emrHelper.InsertPatent(dtHisPt, sb, dtHisIns.Rows[0], pt);
+                //dt = emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", dtHisIns.Rows[0]["InID"].ToString()));
+                #endregion
+            }
+            //存在更新
+            else
+            {
+                _noOfInpat = Convert.ToDecimal(dt.Rows[0]["noOfInpat"]);
+
+                #region 更新示例
+                //DataTable dtHisIns = SqlDataHelper.SelectDataTable(string.Format("select a.*,b.DegreeID,c.GroupName,c.EmrID,d.BedOrder from Inp_Register as a inner join PAT_Patient as b on  a.PatientID=b.PatientID " +
+                //    " inner join SDTC_Group as c  on a.CurrentGroupID=c.GroupID left join Inp_Bed as d on a.CurrentBedID=d.BedID " +
+                //   "where  a.inid='{0}'", inid));
+
+
+                //DataTable dtHisPt = SqlDataHelper.SelectDataTable(string.Format("select *,'' as  InICO,'' as OutICO from PAT_Patient where DegreeID='{0}'", dtHisIns.Rows[0]["DegreeID"].ToString()));
+
+                //StringBuilder sb = new StringBuilder();
+                //string pt = Convert.ToString(dtHisPt.Rows[0]["DegreeID"]);
+
+                //emrHelper.UpdatePatent(dtHisPt, sb, dtHisIns.Rows[0], pt);
+                //dt = emrHelper.SelectDataBase(string.Format("select * from InPatient where PatNoOfHis='{0}'", dtHisIns.Rows[0]["InID"].ToString()));
+                #endregion
+            }
+            CreateUCEmrInputout();
+            return _UCEmrInputout;
+        }
+
+        /// <summary>
+        /// 加载病人信息，非C#调用
         /// </summary>
         /// <param name="WinHandle">父窗口句柄</param>
         /// <param name="PatNoOfHis">患者ID</param>
@@ -140,6 +207,40 @@ namespace EmrInfirce
             CreateUCEmrInput();
             EmrSetWindow(WinHandle, _UCEmrInput);
         }
+
+        /// <summary>
+        /// 加载门诊病人信息，非C#调用
+        /// </summary>
+        /// <param name="WinHandle">父窗口句柄</param>
+        /// <param name="PatNoOfHis">患者ID</param>
+        public void ChangePatientOut(string WinHandle, string PatNoOfHis)
+        {
+            DataTable dt = _emrHelper.SelectDataBase(string.Format("select * from InPatient_Clinic where PatNoOfHis='{0}'", PatNoOfHis));
+            //不存在则添加
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                MessageBox.Show("EMR中没有此患者信息，请确认！");
+                return;
+            }
+            //存在更新
+            else
+            {
+                _noOfInpat = Convert.ToDecimal(dt.Rows[0]["PatNoofHis"]);
+            }
+
+            CreateUCEmrInputout();
+            EmrSetWindow(WinHandle, _UCEmrInputout);
+        }
+        /// <summary>
+        /// 创建UCEmrInput门诊实例
+        /// </summary>
+        private void CreateUCEmrInputout()
+        {
+            _EmrHost.ChooseOutPatient(_noOfInpat);
+            _UCEmrInputout = new UCEmrInputout(_EmrHost.CurrentPatientInfo, _EmrHost);
+            _UCEmrInputout.Dock = DockStyle.Fill;
+        }
+
         /// <summary>
         /// 创建UCEmrInput实例
         /// </summary>
@@ -162,7 +263,7 @@ namespace EmrInfirce
             {
                 if (m_UserControl == null || m_UserControl.IsDisposed)
                 {
-                    CreateUCEmrInput();
+                    result = -1;
                 }
                 if (Convert.ToInt32(WinHandle) > 0)
                 {
