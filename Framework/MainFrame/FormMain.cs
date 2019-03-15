@@ -956,6 +956,56 @@ namespace DrectSoft.MainFrame
             HideWaitDialog();
         }
 
+        #region  门诊
+        public void ChooseOutPatient(decimal firstPageNo)
+        {
+            this.SetWaitDialogCaption("系统正在切换病人，请您稍候");
+            this.SetOutPatientInfo(firstPageNo);
+            this.HideWaitDialog();
+        }
+
+        public void ChooseOutPatient(decimal firstPageNo, string floaderState)
+        {
+            SetWaitDialogCaption("系统正在切换病人，请稍候...");
+            m_FloderState = floaderState;
+            SetPatientInfo(firstPageNo);
+            HideWaitDialog();
+        }
+
+        /// <summary>
+        /// 用于整体录入界面的跳转不改变全局Inpatient
+        /// add byy ywk 2013年1月11日11:47:53 
+        /// </summary>
+        /// <param name="firstPageNo"></param>
+        public void ChooseOutPatient(string firstPageNo, out Inpatient m_Inpat)
+        {
+
+            SetWaitDialogCaption("系统正在切换病人，请稍候...");
+            m_FloderState = string.Empty;
+            SetPatientInfo(firstPageNo, out  m_Inpat);
+            HideWaitDialog();
+
+        }
+
+        private void SetOutPatientInfo(decimal firstPageNo)
+        {
+            this.xtraTabbedMdiManager1.SelectedPageChanged -= new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);
+            //DataRow[] array = this.PatientInfos.Tables[0].Select("NoOfInpat = " + firstPageNo.ToString());
+            //if (array != null && array.Length > 0)
+            //{
+            //    this.CurrentPatientInfo = new Inpatient(array[0]);
+            //}
+            //else
+            //{
+            //DataRow patInfo = this.GetOutPatInfo(firstPageNo);
+            //if (patInfo != null)
+            //{
+            //    this.CurrentOutPatientInfo = new Outpatient(patInfo);
+            //}
+            ////}
+            //this.xtraTabbedMdiManager1.SelectedPageChanged += new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);
+        }
+        #endregion
         /// <summary>
         /// 设置病人信息
         /// </summary>

@@ -1095,8 +1095,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 else
                 {
-                    datatable = m_PatUtil.GetFolderInfoNew("00");
-                    //datatable = m_PatUtil.GetFolderInfo("00");
+                    if (m_outflag == 1)
+                        datatable = m_PatUtil.GetFolderInfoNew("00");
+                    else
+                        datatable = m_PatUtil.GetFolderInfo("00");
                 }
                 if (null == datatable || datatable.Rows.Count == 0)
                 {
