@@ -171,7 +171,8 @@
     <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\DruggerySource.cs" />
     <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\Hospitalinfo.cs" />
     <Compile Include="EmrObjectPersistent\EmrObjects\Hospital\IemMainPageInfo.cs" />
-    <Compile Include="EmrObjectPersistent\EmrObjects\outpatient\outatient.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\outpatient\outpatient.cs" />
+    <Compile Include="EmrObjectPersistent\EmrObjects\outpatient\OutPatientBasicInfo.cs" />
     <Compile Include="EmrObjectPersistent\Others\EmrDefaultSetting.cs" />
     <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\ICDDiagnosis.cs" />
     <Compile Include="EmrObjectPersistent\EmrObjects\BaseCode\MedicareType.cs" />

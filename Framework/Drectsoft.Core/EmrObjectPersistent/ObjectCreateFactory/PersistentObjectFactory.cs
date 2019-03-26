@@ -1,19 +1,12 @@
+using DrectSoft.Core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Data;
 using System.Globalization;
-using System.IO;
 using System.Reflection;
-using System.Text;
-using System.Web.Configuration;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Serialization;
-using System.Configuration;
-using System.Web;
-using DrectSoft.Core;
 
 namespace DrectSoft.Common.Eop
 {
@@ -929,7 +922,7 @@ namespace DrectSoft.Common.Eop
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("SetObjectPropertyFromDataRow方法出错：" + ex.Message);
+                MessageBox.Show("SetObjectPropertyFromDataRow方法出错：" + ex.Message);
                 //throw;
             }
 

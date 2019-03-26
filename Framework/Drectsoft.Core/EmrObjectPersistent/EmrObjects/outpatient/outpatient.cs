@@ -26,28 +26,39 @@ namespace DrectSoft.Common.Eop
         public new string Name
         {
             get { return PersonalInformation.PatientName; }
-            set {_Name = value;}
+            set { _Name = value; }
         }
 
         /// <summary>
         /// 首页序号
         /// </summary>
-        public decimal NoOfFirstPage
+        public decimal NoOfInpatClinic
         {
-            get { return _noOfFirstPage; }
-            set { _noOfFirstPage = value; }
+            get { return _noOfInpatClinic; }
+            set { _noOfInpatClinic = value; }
         }
-        private decimal _noOfFirstPage;
+        private decimal _noOfInpatClinic;
 
         /// <summary>
         /// HIS首页序号
         /// </summary>
-        public string NoOfHisFirstPage
+        public string PatNoOfHis
         {
-            get { return _noOfHisFirstPage; }
-            set { _noOfHisFirstPage = value; }
+            get { return _PatNoOfHis; }
+            set { _PatNoOfHis = value; }
         }
-        private string _noOfHisFirstPage;
+        private string _PatNoOfHis;
+
+
+        /// <summary>
+        /// 当前就诊类型
+        /// </summary>
+        public decimal VisitType
+        {
+            get { return _VisitType; }
+            set { _VisitType = value; }
+        }
+        private decimal _VisitType;
 
         /// <summary>
         /// 门诊号码
@@ -268,7 +279,7 @@ namespace DrectSoft.Common.Eop
             {
                 if (_infoOfAdmission != null)
 
-                    _infoOfAdmission.EnsureLengthOfStay(NoOfHisFirstPage);
+                    _infoOfAdmission.EnsureLengthOfStay(PatNoOfHis);
                 return _infoOfAdmission;
             }
             set { _infoOfAdmission = value; }
@@ -289,7 +300,7 @@ namespace DrectSoft.Common.Eop
         /// </summary>
         public override string FilterCondition
         {
-            get { return "NoOfInpat = " + NoOfFirstPage; }
+            get { return "NoOfInpat = " + NoOfInpatClinic; }
         }
 
         private string QuerySentence
@@ -319,7 +330,7 @@ namespace DrectSoft.Common.Eop
         public Outpatient(decimal firstPageNo)
             : base(firstPageNo.ToString())
         {
-            NoOfFirstPage = firstPageNo;
+            NoOfInpatClinic = firstPageNo;
             InitBaseInfo();
         }
 
@@ -335,8 +346,8 @@ namespace DrectSoft.Common.Eop
         {
             if (null != _personalInformation)
             {
-                _personalInformation.NoOfFirstPage = NoOfFirstPage;
-                DataRow row = GetInpatient(NoOfFirstPage);
+                _personalInformation.NoOfFirstPage = NoOfInpatClinic;
+                DataRow row = GetOutpatient(NoOfInpatClinic);
                 if (null != row)
                 {
                     _personalInformation.InHosDate = string.IsNullOrEmpty(row["admitdate"].ToString().Trim()) ? DateTime.Now : DateTime.Parse(row["admitdate"].ToString());
@@ -352,7 +363,7 @@ namespace DrectSoft.Common.Eop
         /// <returns></returns>
         public override string ToString()
         {
-            return NoOfFirstPage.ToString();
+            return NoOfInpatClinic.ToString();
         }
 
         /// <summary>
@@ -378,11 +389,11 @@ namespace DrectSoft.Common.Eop
             return null;
         }
 
-        public DataRow GetInpatient(decimal noOfHisFirstPage)
+        public DataRow GetOutpatient(decimal noOfHisFirstPage)
         {
             try
             {
-                string sqlStr = " select * from inpatient where noofinpat = " + noOfHisFirstPage;
+                string sqlStr = " select * from inpatient_clinic where noofinpat = " + noOfHisFirstPage;
                 DataTable table = PersistentObjectFactory.SqlExecutor.ExecuteDataTable(sqlStr, CommandType.Text);
                 if (table != null && table.Rows.Count > 0)
                 {
@@ -451,7 +462,7 @@ namespace DrectSoft.Common.Eop
             if (newPat == null)
                 return false;
 
-            return (NoOfFirstPage == newPat.NoOfFirstPage);
+            return (NoOfInpatClinic == newPat.NoOfFirstPage);
         }
 
         /// <summary>
@@ -460,7 +471,7 @@ namespace DrectSoft.Common.Eop
         /// <returns>Hash码</returns>
         public override int GetHashCode()
         {
-            return NoOfFirstPage.GetHashCode();
+            return NoOfInpatClinic.GetHashCode();
         }
         #endregion
     }
