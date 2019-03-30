@@ -1,13 +1,11 @@
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
+using DrectSoft.Core;
+using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Windows.Forms;
-using DrectSoft.Core;
-using DrectSoft.FrameWork.WinForm.Plugin;
 
 namespace DrectSoft.MainFrame
 {

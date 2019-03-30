@@ -1,5 +1,4 @@
-﻿using DrectSoft.Common.Eop;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -17,7 +16,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// 对外PACS调用方法 
         /// </summary>
         /// <param name="currinpatient"></param>
-        public static void PacsAll(Inpatient currinpatient)
+        public static void PacsAll(string NoOfInpat)
         {
             try
             {
@@ -25,15 +24,15 @@ namespace DrectSoft.Core.MainEmrPad
                 valuestr = valuestr.ToLower();
                 if (valuestr == "dll")  //dll调用方式
                 {
-                    PacsDll(currinpatient);
+                    PacsDll(NoOfInpat);
                 }
                 else if (valuestr == "exe") //exe调用方式
                 {
-                    PacsExe(currinpatient);
+                    PacsExe(NoOfInpat);
                 }
                 else if (valuestr == "url") //url浏览方式
                 {
-                    PacsUrl(currinpatient.NoOfHisFirstPage);
+                    PacsUrl(NoOfInpat);
                 }
                 else
                 {
@@ -50,7 +49,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// <summary>
         /// exe调用
         /// </summary>
-        private static void PacsExe(Inpatient currinpatient)
+        private static void PacsExe(string NoOfInpat)
         {
             try
             {
@@ -59,7 +58,7 @@ namespace DrectSoft.Core.MainEmrPad
                 if (hasFile)
                 {
                     //xll 接口调用方式发生变化 修改2012-12-18
-                    string infostr = string.Format(@"G_study.inhospitalno='{0}'", currinpatient.NoOfHisFirstPage);
+                    string infostr = string.Format(@"G_study.inhospitalno='{0}'", NoOfInpat);
                     Process.Start(fileName, infostr);
                 }
                 else
@@ -97,11 +96,10 @@ namespace DrectSoft.Core.MainEmrPad
         /// <summary>
         /// dll调用方式
         /// </summary>
-        public static void PacsDll(Inpatient m_CurrentInpatient)
+        public static void PacsDll(string NoOfInpat)
         {
             try
             {
-                string HospitalNo = m_CurrentInpatient.RecordNoOfHospital;//住院号
                 int nPatientType = 2;//患者类型（1.门诊号 2.住院号）
                 int LookType = 1;//类型（1.图像 2.报告）
 
@@ -109,7 +107,7 @@ namespace DrectSoft.Core.MainEmrPad
                 {
                     try
                     {
-                        if (PacsView(nPatientType, m_CurrentInpatient.RecordNoOfHospital, LookType) != 1)
+                        if (PacsView(nPatientType, NoOfInpat, LookType) != 1)
                         {
                             MessageBox.Show("调用失败");
                         }

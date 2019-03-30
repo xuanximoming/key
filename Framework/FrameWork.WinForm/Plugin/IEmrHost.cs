@@ -65,6 +65,7 @@ namespace DrectSoft.FrameWork.WinForm.Plugin
         /// </summary>
         Inpatient CurrentPatientInfo { get; set; }
 
+
         /// <summary>
         /// 新的当前病人信息
         /// </summary>

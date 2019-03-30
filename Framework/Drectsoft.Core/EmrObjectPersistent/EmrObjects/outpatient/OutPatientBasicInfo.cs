@@ -7,7 +7,7 @@ namespace DrectSoft.Common.Eop
     /// <summary>
     /// 病人个人基本信息
     /// </summary>
-    public class OutPatientBasicInfo : EPBaseObject
+    public class OutPatientBasicInfo1 : EPBaseObject
     {
         #region properties
         private decimal _NoOfInpatClinic;
@@ -298,7 +298,7 @@ namespace DrectSoft.Common.Eop
         /// <summary>
         /// 
         /// </summary>
-        public OutPatientBasicInfo()
+        public OutPatientBasicInfo1()
             : base()
         { }
 
@@ -306,7 +306,7 @@ namespace DrectSoft.Common.Eop
         /// 
         /// </summary>
         /// <param name="sourceRow"></param>
-        public OutPatientBasicInfo(DataRow sourceRow)
+        public OutPatientBasicInfo1(DataRow sourceRow)
             : base(sourceRow)
         { }
 

@@ -276,7 +276,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 ///初始化字体
                 InitFont();
                 ///绑定病人基本信息
-                BindPatBasic((int)m_CurrentInpatient.NoOfFirstPage);
+                BindPatBasic((int)m_CurrentInpatient.NoOfInpatClinic);
                 ///添加主体
                 AddEmrInputBody();
 
@@ -477,7 +477,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 ///初始化字体
                 InitFont();
                 ///绑定病人基本信息
-                BindPatBasic((int)m_CurrentInpatient.NoOfFirstPage);
+                BindPatBasic((int)m_CurrentInpatient.NoOfInpatClinic);
                 ///历史病历按钮显示状态
                 if (floaderState == FloderState.All || floaderState == FloderState.Default || floaderState == FloderState.Doctor || floaderState == FloderState.NoneAudit)
                 {
@@ -1013,7 +1013,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             try
             {
                 string valuestr = DS_SqlService.GetConfigValueByKey("PACSRevision");
-                PACSOutSide.PacsAll(m_CurrentInpatient);
+                PACSOutSide.PacsAll(m_CurrentInpatient.NoOfHisFirstPage);
             }
             catch (Exception ex)
             {
@@ -1118,7 +1118,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             {
                 RefreshEMRMainPad();
 
-                DataTable dt = DS_SqlService.GetAllRecordsByNoofinpat(Int32.Parse(m_CurrentInpatient.NoOfFirstPage.ToString()));
+                DataTable dt = DS_SqlService.GetAllRecordsByNoofinpat(Int32.Parse(m_CurrentInpatient.NoOfInpatClinic.ToString()));
                 m_TreeAllNode = new List<TreeListNode>();
                 GetTreeAllNodeForReplaceItem(CurrentInputBody.CurrentTreeList.Nodes);
                 foreach (DataRow dr in dt.Rows)
@@ -1957,19 +1957,19 @@ namespace DrectSoft.Core.MainEmrPad.New
                         if (checkFlag)
                         {///出科检查通过
 
-                            DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfFirstPage, checkFlagPassValue);
+                            DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfInpatClinic, checkFlagPassValue);
                             MyMessageBox.Show("验证通过", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
                         }
                         else
                         {
                             if (CheckMessage == "")
                             {
-                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfFirstPage, checkFlagPassValue);
+                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfInpatClinic, checkFlagPassValue);
                                 MyMessageBox.Show("验证通过", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
                             }
                             else
                             {
-                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfFirstPage, !checkFlagPassValue);
+                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfInpatClinic, !checkFlagPassValue);
 
                                 CheckTipContent m_CheckT = new CheckTipContent(m_app, CheckMessage, this);
                                 m_CheckT.TopMost = true;
@@ -2001,7 +2001,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 bool checkFlagPassValue = hosCode == "1";
                 isReportVialde_to = true;
                 DS_Common.SetWaitDialogCaption(m_WaitDialog, "正在检查验证相关数据...");
-                checkFlag = CheckInpatient((int)m_CurrentInpatient.NoOfFirstPage, out showcontent);
+                checkFlag = CheckInpatient((int)m_CurrentInpatient.NoOfInpatClinic, out showcontent);
                 CheckMessage = showcontent;
                 DS_Common.HideWaitDialog(m_WaitDialog);
                 this.th.Interrupt();
@@ -3222,7 +3222,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                m_app.ChoosePatient(m_CurrentInpatient.NoOfFirstPage);
+                m_app.ChoosePatient(m_CurrentInpatient.NoOfInpatClinic);
                 m_app.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
             }
             catch (Exception ex)
@@ -3403,12 +3403,12 @@ namespace DrectSoft.Core.MainEmrPad.New
             {
                 string sql = @"update RECORDDETAIL t set t.owner = '{0}', t.auditor = decode(t.auditor, '', '', '{0}') where t.noofinpat = '{1}' and t.sortid = 'AB' and t.valid = 1;";
                 Inpatient InpatientDt = new Inpatient();
-                InpatientDt = DS_SqlService.GetPatientInfo(m_CurrentInpatient.NoOfFirstPage.ToString());
+                InpatientDt = DS_SqlService.GetPatientInfo(m_CurrentInpatient.NoOfInpatClinic.ToString());
                 if (InpatientDt.InfoOfAdmission.DischargeInfo.CurrentDepartment.Code == m_app.User.CurrentDeptId)
                 {
                     try
                     {
-                        m_app.SqlHelper.ExecuteNoneQuery(string.Format(sql, m_app.User.Id, (int)m_CurrentInpatient.NoOfFirstPage), CommandType.Text);
+                        m_app.SqlHelper.ExecuteNoneQuery(string.Format(sql, m_app.User.Id, (int)m_CurrentInpatient.NoOfInpatClinic), CommandType.Text);
                     }
                     catch (Exception ex)
                     {

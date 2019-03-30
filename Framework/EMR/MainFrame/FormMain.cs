@@ -56,7 +56,6 @@ namespace DrectSoft.MainFrame
         private PluginUtil m_PublicMethod;
         private EmrDefaultSetting m_EmrDefaultSetting;
         private Inpatient _currentPat;
-        private Outpatient _currentOutPat;
         private DataSet _patientInfos;
         private WaitDialogForm m_WaitForm;
         private string m_CurrentSelectedEmrID = string.Empty;
@@ -134,24 +133,6 @@ namespace DrectSoft.MainFrame
                 if (!cancelEventArgs.Cancel)
                 {
                     this._currentPat = value;
-                    this.SetPluginForPatientChange();
-                }
-            }
-        }
-
-        public Outpatient CurrentOutPatientInfo
-        {
-            get
-            {
-                return this._currentOutPat;
-            }
-            set
-            {
-                CancelEventArgs cancelEventArgs = new CancelEventArgs();
-                this.SetPluginForPatientChanging(cancelEventArgs);
-                if (!cancelEventArgs.Cancel)
-                {
-                    this._currentOutPat = value;
                     this.SetPluginForPatientChange();
                 }
             }
@@ -924,7 +905,7 @@ namespace DrectSoft.MainFrame
             DataRow patInfo = this.GetOutPatInfo(firstPageNo);
             if (patInfo != null)
             {
-                this.CurrentOutPatientInfo = new Outpatient(patInfo);
+                this.CurrentPatientInfo = new Inpatient(patInfo);
             }
             //}
             this.xtraTabbedMdiManager1.SelectedPageChanged += new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);

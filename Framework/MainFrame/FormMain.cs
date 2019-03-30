@@ -160,6 +160,7 @@ namespace DrectSoft.MainFrame
         }
         Inpatient _currentPat;
 
+
         /// <summary>
         /// 新的
         /// </summary>

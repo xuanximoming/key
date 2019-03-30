@@ -21,13 +21,6 @@ namespace EMRTESTWINDOW
                 int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
                 //uc = ichangepat.ChangePatient(patNum);
                 ichangepat.ChangePatientOut(this.Handle.ToString(), patNum);
-                //if (uc == null)
-                //{
-                //    return;
-                //}
-
-                // this.Controls.Clear();
-                // this.Controls.Add(uc);
             }
             catch (Exception ex)
             {

@@ -1,19 +1,15 @@
-using DevExpress.Utils;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraTab;
+using DrectSoft.Core;
+using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
-using DrectSoft.Core;
-using DrectSoft.FrameWork.WinForm.Plugin;
 
 namespace DrectSoft.MainFrame
 {

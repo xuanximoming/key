@@ -7,7 +7,7 @@ namespace DrectSoft.Common.Eop
     /// <summary>
     /// 病人首页库类(病人对象的ORM)
     /// </summary>
-    public class Outpatient : EPBaseObject
+    public class Outpatient1 : EPBaseObject
     {
 
         #region properties
@@ -260,7 +260,7 @@ namespace DrectSoft.Common.Eop
         /// <summary>
         /// 病人基本信息
         /// </summary>
-        public PatientBasicInfo PersonalInformation
+        public OutPatientBasicInfo1 PersonalInformation
         {
             get
             {
@@ -268,7 +268,7 @@ namespace DrectSoft.Common.Eop
             }
             set { _personalInformation = value; }
         }
-        private PatientBasicInfo _personalInformation;
+        private OutPatientBasicInfo1 _personalInformation;
 
         /// <summary>
         /// 住院信息
@@ -319,7 +319,7 @@ namespace DrectSoft.Common.Eop
         /// <summary>
         /// 
         /// </summary>
-        public Outpatient()
+        public Outpatient1()
             : base()
         { }
 
@@ -327,7 +327,7 @@ namespace DrectSoft.Common.Eop
         /// 用代码初始化实例
         /// </summary>
         /// <param name="firstPageNo"></param>
-        public Outpatient(decimal firstPageNo)
+        public Outpatient1(decimal firstPageNo)
             : base(firstPageNo.ToString())
         {
             NoOfInpatClinic = firstPageNo;
@@ -338,7 +338,7 @@ namespace DrectSoft.Common.Eop
         /// 用DataRow初始化实例
         /// </summary>
         /// <param name="sourceRow"></param>
-        public Outpatient(DataRow sourceRow)
+        public Outpatient1(DataRow sourceRow)
             : base(sourceRow)
         { }
 
@@ -346,7 +346,7 @@ namespace DrectSoft.Common.Eop
         {
             if (null != _personalInformation)
             {
-                _personalInformation.NoOfFirstPage = NoOfInpatClinic;
+                _personalInformation.NoOfInpatClinic = NoOfInpatClinic;
                 DataRow row = GetOutpatient(NoOfInpatClinic);
                 if (null != row)
                 {

@@ -1,10 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Globalization;
-using DrectSoft.Common.Eop;
 using System.Data;
-using System.Data.SqlClient;
 
 
 namespace DrectSoft.Common.Eop
@@ -35,13 +30,23 @@ namespace DrectSoft.Common.Eop
         /// <summary>
         /// 首页序号
         /// </summary>
+        public decimal NoOfInpatClinic
+        {
+            get { return _noOfInpatClinic; }
+            set { _noOfInpatClinic = value; }
+        }
+        private decimal _noOfInpatClinic;
+
+
+        /// <summary>
+        /// 首页序号
+        /// </summary>
         public decimal NoOfFirstPage
         {
             get { return _noOfFirstPage; }
             set { _noOfFirstPage = value; }
         }
         private decimal _noOfFirstPage;
-
         /// <summary>
         /// HIS首页序号
         /// </summary>
@@ -278,7 +283,7 @@ namespace DrectSoft.Common.Eop
         }
         private AdmissionInfo _infoOfAdmission;
 
-        
+
         /// <summary>
         /// 与实体类匹配的、读取DB中数据的SQL语句
         /// </summary>
@@ -386,7 +391,7 @@ namespace DrectSoft.Common.Eop
             try
             {
                 string sqlStr = " select * from inpatient where noofinpat = " + noOfHisFirstPage;
-                DataTable table = PersistentObjectFactory.SqlExecutor.ExecuteDataTable(sqlStr,CommandType.Text);
+                DataTable table = PersistentObjectFactory.SqlExecutor.ExecuteDataTable(sqlStr, CommandType.Text);
                 if (table != null && table.Rows.Count > 0)
                 {
                     return table.Rows[0];
