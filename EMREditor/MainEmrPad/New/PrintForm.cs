@@ -81,42 +81,6 @@ namespace DrectSoft.Core.MainEmrPad.New
             }
         }
 
-
-        /// <summary>
-        /// .ctor out
-        /// </summary>
-        /// <param name="patUtil"></param>
-        /// <param name="model"></param>
-        /// <param name="defaultPageIndex"></param>
-        /// <param name="outpatient"></param>
-        /// <param name="app"></param>
-        public PrintForm(EmrModel model, Inpatient outpatient, IEmrHost app, string deptChangeID)
-        {
-            try
-            {
-                InitializeComponent();
-                navBarGroupLeft.NavigationPaneVisible = false;
-                this.StartPosition = FormStartPosition.CenterScreen;
-                m_Model = model.Clone();
-                m_PrintDocument = new PrintDocument();
-                m_CurrentOutInpatient = outpatient;
-                m_App = app;
-                m_DeptChangeID = deptChangeID;
-                if (m_Model.ModelCatalog == "AC")
-                {
-                    this.Text = "打印预览--" + "病程记录";
-                }
-                else
-                {
-                    this.Text = "打印预览--" + m_Model.ModelName;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         /// <summary>
         /// 指定打印起始页和终止页的初始值和数值范围
         /// </summary>

@@ -221,7 +221,7 @@ namespace DrectSoft.Service
             try
             {
 
-                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null != dt && dt.Rows.Count == 1)
                 {
                     if (Tool.IsInt(dt.Rows[0]["STATUS"].ToString()) && (int.Parse(dt.Rows[0]["STATUS"].ToString()) == 1502 || int.Parse(dt.Rows[0]["STATUS"].ToString()) == 1503))
@@ -275,7 +275,7 @@ namespace DrectSoft.Service
         {
             try
             {
-                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null != dt && dt.Rows.Count > 0)
                 {
                     string config = DS_SqlService.GetConfigValueByKey("EmrInputConfig");

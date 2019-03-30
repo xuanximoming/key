@@ -377,7 +377,7 @@ namespace DrectSoft.EMR.ThreeRecordAll
                 CommonNoteBiz commonNoteBiz = new Core.CommonTableConfig.CommonNoteBiz(m_app);
                 var commonnote = commonNoteBiz.GetDetailCommonNote(MyinCommonNoteEnmtity.CommonNoteFlow);
                 int noofinpat = Convert.ToInt32(MyinCommonNoteEnmtity.NoofInpatient);
-                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (dt == null || dt.Rows.Count <= 0)
                 {
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("病人不存在");

@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraTreeList.Nodes;
-using DrectSoft.Emr.Util;
-using System.Collections;
-using DrectSoft.Library.EmrEditor.Src.Document;
+﻿using DevExpress.XtraTreeList.Nodes;
 using DrectSoft.Common;
-using DrectSoft.Service;
-using DrectSoft.DSSqlHelper;
-using DrectSoft.Common.Eop;
-using System.Data.SqlClient;
-using System.Data.Common;
 using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Emr.Util;
+using DrectSoft.Library.EmrEditor.Src.Document;
+using DrectSoft.Service;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.MainEmrPad
 {
@@ -60,7 +53,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// <param name="lastTime"></param>
         /// <param name="title"></param>
         /// <param name="isFirstDailyEmr">是否是首次病程，对于首次病程没有时间限制</param>
-        public DailyTemplateForm(DateTime lastTime, string title, bool isFirstDailyEmr,List<EmrModel> modelList,int noofinpat)
+        public DailyTemplateForm(DateTime lastTime, string title, bool isFirstDailyEmr, List<EmrModel> modelList, int noofinpat)
         {
             try
             {
@@ -108,7 +101,7 @@ namespace DrectSoft.Core.MainEmrPad
 
         public DateTime CommitDateTime
         {
-            get { return DateTime.Parse(dateEdit_Date.DateTime.Date.ToString("yyyy-MM-dd")+" "+timeEdit_Time.Time.ToString("HH:mm:ss")); }
+            get { return DateTime.Parse(dateEdit_Date.DateTime.Date.ToString("yyyy-MM-dd") + " " + timeEdit_Time.Time.ToString("HH:mm:ss")); }
         }
 
         public string CommitTitle
@@ -283,73 +276,13 @@ namespace DrectSoft.Core.MainEmrPad
         /// <returns></returns>
         private string GetDailyBeginTime(int noofinpat, List<EmrModel> modelList, bool isFirstDailyEmr)
         {
-            #region 已注释 by cyq 2013-01-17
-            /**
-            try
-            {
-                string starttime = string.Empty;
-                //获取该病人的所有病历
-                DataTable dialyDt = YD_SqlService.GetRecordsByNoofinpat(noofinpat);
-                if (null == dialyDt && dialyDt.Rows.Count == 0)
-                {
-                    return starttime;
-                }
-                //获取该病人所有首次病程
-                var firstDailyRecords = dialyDt.Select(" firstdailyflag = 1 ");
-                if (null == firstDailyRecords && firstDailyRecords.Count() == 0)
-                {//不存在首次病程
-                    return starttime;
-                }
-                //当前(科室)首次病程(最后一个)
-                DataRow theFirstDialy = firstDailyRecords.Where(p => p["departcode"].ToString().Trim() == YD_Common.currentUser.CurrentDeptId).OrderByDescending(q => DateTime.Parse(q["captiondatetime"].ToString())).FirstOrDefault();
-                if (null == theFirstDialy)
-                {
-                    DataRow preFirstRecord = firstDailyRecords.Where(p => p["departcode"].ToString() != YD_Common.currentUser.CurrentDeptId).OrderByDescending(q => DateTime.Parse(q["captiondatetime"].ToString())).FirstOrDefault();
-                    if (null == preFirstRecord)
-                    {
-                        return starttime;
-                    }
-                    else
-                    {
-                        DataRow otherDialy = dialyDt.Select(" 1=1 ").Where(p => p["departcode"].ToString() != YD_Common.currentUser.CurrentDeptId).OrderByDescending(q => q["captiondatetime"]).FirstOrDefault();
-                        if (null != otherDialy)
-                        {
-                            starttime = otherDialy["captiondatetime"].ToString();
-                        }
-                        return otherDialy["captiondatetime"].ToString();
-                    }
-                }
-                //最后一个当前科室的首程不是最后一个首程(即转回当前科室却没有添加首程)
-                if (firstDailyRecords.Any(p => DateTime.Parse(p["captiondatetime"].ToString()) > DateTime.Parse(theFirstDialy["captiondatetime"].ToString())))
-                {
-                    DataRow lastRow = dialyDt.Select(" 1=1 ").OrderByDescending(p => DateTime.Parse(p["captiondatetime"].ToString())).FirstOrDefault();
-                    if (null != lastRow)
-                    {
-                        return lastRow["captiondatetime"].ToString();
-                    }
-                }
-                string currentTime = theFirstDialy["captiondatetime"].ToString();
-                //获取当前首程之前的第一个非本科室的病历
-                DataRow preDialy = dialyDt.Select(" 1=1 ").Where(p => p["departcode"].ToString() != YD_Common.currentUser.CurrentDeptId && DateTime.Parse(p["captiondatetime"].ToString()) <= DateTime.Parse(currentTime)).OrderByDescending(q => q["captiondatetime"]).FirstOrDefault();
-                if (null != preDialy)
-                {
-                    starttime = preDialy["captiondatetime"].ToString();
-                }
-                return starttime;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            **/
-            #endregion
 
             try
             {
                 string starttime = string.Empty;
                 //该病人当前所属科室
                 string currentDeptID = string.Empty;
-                DataTable inpatientDt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable inpatientDt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null != inpatientDt && inpatientDt.Rows.Count > 0)
                 {
                     currentDeptID = null == inpatientDt.Rows[0]["outhosdept"] ? "" : inpatientDt.Rows[0]["outhosdept"].ToString();

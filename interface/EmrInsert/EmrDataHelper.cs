@@ -30,7 +30,11 @@ namespace EmrInsert
                 return _Formain;
             }
         }
-
+        /// <summary>
+        /// 登录初始化
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
         public IEmrHost thisLogin(string UserId)
         {
             if (Formain.isLG == null)
@@ -100,8 +104,9 @@ namespace EmrInsert
             }
         }
 
+        #region 住院病人档案信息
         /// <summary>
-        /// 添加病人档案信息
+        /// 添加住院病人档案信息
         /// </summary>
         /// <param name="dtHisPat"></param>
         /// <param name="sb"></param>
@@ -256,6 +261,59 @@ namespace EmrInsert
             _SqlHelper.ExecuteNoneQuery(sb.ToString());
         }
 
+        /// <summary>
+        /// 病人出院
+        /// </summary>
+        /// <param name="bedOrder"></param>
+        public void OutPat(string bedOrder)
+        {
+            string sqlStr = string.Format("Update InPatient set Status='1503' where OutBed='{0}' ", bedOrder);
+            _SqlHelper.ExecuteNoneQuery(sqlStr);
+        }
+        #endregion
+
+        #region 门诊病人档案信息
+
+        /// <summary>
+        /// 新建门诊病人档案
+        /// </summary>
+        /// <param name="dt">数据表</param>
+        public void InsertOutPat(DataTable dt)
+        {
+            StringBuilder sb = new StringBuilder();
+            DataRow dr = dt.Rows[0];
+            sb.Append("insert into InPatient_Clinic(PATNOOFHIS,PATID,VISITTYPE,NAME," +
+                               "SEXID,BIRTH,AGE,MARITALID,VISITNO,VISITTIME,ROOMCODE,ROOMNAME,DEPTID," +
+                               "CREATETIME,CREATEUSERID,VALID,NATIONALITY,COUNTRY,HEALTHCARDID," +
+                               "CONTACTADDRESS,VISITDOCTORID,JOBID,JOBNAME,BEDCODE) ");
+            sb.AppendFormat("values('{0}'", dr["PATNOOFHIS"]);
+            sb.AppendFormat(",'{0}'", dr["PATID"]);
+            sb.AppendFormat(",'{0}'", dr["VISITTYPE"]);
+            sb.AppendFormat(",'{0}'", dr["NAME"]);
+            sb.AppendFormat(",'{0}'", dr["SEXID"]);
+            sb.AppendFormat(",'{0}'", dr["BIRTH"]);
+            sb.AppendFormat(",'{0}'", dr["AGE"]);
+            sb.AppendFormat(",'{0}'", dr["MARITALID"]);
+            sb.AppendFormat(",'{0}'", dr["VISITNO"]);
+            sb.AppendFormat(",'{0}'", dr["VISITTIME"]);
+            sb.AppendFormat(",'{0}'", dr["ROOMCODE"]);
+            sb.AppendFormat(",'{0}'", dr["ROOMNAME"]);
+            sb.AppendFormat(",'{0}'", dr["DEPTID"]);
+            sb.AppendFormat(",'{0}'", dr["CREATETIME"]);
+            sb.AppendFormat(",'{0}'", dr["CREATEUSERID"]);
+            sb.AppendFormat(",'{0}'", dr["VALID"]);
+            sb.AppendFormat(",'{0}'", dr["NATIONALITY"]);
+            sb.AppendFormat(",'{0}'", dr["COUNTRY"]);
+            sb.AppendFormat(",'{0}'", dr["HEALTHCARDID"]);
+            sb.AppendFormat(",'{0}'", dr["CONTACTADDRESS"]);
+            sb.AppendFormat(",'{0}'", dr["VISITDOCTORID"]);
+            sb.AppendFormat(",'{0}'", dr["JOBID"]);
+            sb.AppendFormat(",'{0}'", dr["JOBNAME"]);
+            sb.AppendFormat(",'{0}')", dr["BEDCODE"]);
+            _SqlHelper.ExecuteNoneQuery(sb.ToString());
+        }
+
+        #endregion
         /// <summary>
         /// 统计实足年龄
         /// </summary>
@@ -436,12 +494,6 @@ namespace EmrInsert
             return Convert.ToInt32(age);
         }
 
-
-        public void OutPat(string bedOrder)
-        {
-            string sqlStr = string.Format("Update InPatient set Status='1503' where OutBed='{0}' ", bedOrder);
-            _SqlHelper.ExecuteNoneQuery(sqlStr);
-        }
         /// <summary>
         /// 改变长度
         /// </summary>

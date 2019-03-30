@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common.Eop;
 using DrectSoft.FrameWork.WinForm;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Common.Eop;
 using DrectSoft.Service;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.Consultation
 {
@@ -101,7 +96,7 @@ namespace DrectSoft.Core.Consultation
         /// <param name="e"></param>
         private void picOutHop_MouseEnter(object sender, EventArgs e)
         {
-            DataTable dtPatInfo = DrectSoft.Service.DS_SqlService.GetInpatientByID(Int32.Parse(m_Noofinpat));
+            DataTable dtPatInfo = DrectSoft.Service.DS_SqlService.GetInpatientByID(Int32.Parse(m_Noofinpat), 2);
             this.picOutHop.ToolTip = "出院时间:" + dtPatInfo.Rows[0]["OUTHOSDATE"].ToString();
         }
         /// <summary>
@@ -198,7 +193,7 @@ noofinpat='{0}' and sortid ='{1}' and valid=1 ", m_Noofinpat, sortid);
         private void InitControl()
         {
 
-            DataTable dtPatInfo = DrectSoft.Service.DS_SqlService.GetInpatientByID(Int32.Parse(m_Noofinpat));
+            DataTable dtPatInfo = DrectSoft.Service.DS_SqlService.GetInpatientByID(Int32.Parse(m_Noofinpat), 2);
             if (dtPatInfo != null && dtPatInfo.Rows.Count > 0)
             {
                 textEditName.Text = dtPatInfo.Rows[0]["name"].ToString();

@@ -341,7 +341,7 @@ namespace DrectSoft.Core.MainEmrPad.HistoryEMR
         {
             try
             {
-                DataTable inpDt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable inpDt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null == inpDt || inpDt.Rows.Count == 0)
                 {
                     return "该病人不存在，请刷新数据重试。";

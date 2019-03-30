@@ -1,8 +1,8 @@
-﻿using DrectSoft.Emr.Util;
+﻿using DrectSoft.DSSqlHelper;
+using DrectSoft.Emr.Util;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.Data;
-using DrectSoft.DSSqlHelper;
 
 namespace DrectSoft.Core.MainEmrPad.New
 {
@@ -99,12 +99,6 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                //                string sqlGetDeptChangeInfo = string.Format(
-                //                    @"select d.name deptName, w.name wardName, i.newbedid bedID
-                //                        from inpatientchangeinfo i
-                //                  left outer join department d on d.id = i.newdeptid and d.valid = 1
-                //                  left outer join ward w on w.id = i.newwardid and w.valid = 1
-                //                       where i.id = '{0}' ", deptChangeID);
                 // xll 由于无法找到转床后的床位 采取以下方式 暂时解决 但在一个科室里面多次转床 只能取到最新的转床 2013-05-15
                 string sqlGetDeptChangeInfo = string.Format(
                     "select (select department.name from department where department.id=a.newdeptid) as deptName,"

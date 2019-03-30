@@ -1,5 +1,10 @@
 ﻿//页面大小的通用配置 Add By wwj 2012-03-31 【1】
 
+using DrectSoft.Common;
+using DrectSoft.Common.Eop;
+using DrectSoft.Core;
+using DrectSoft.DSSqlHelper;
+using DrectSoft.Service;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,11 +17,6 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Xml;
-using DrectSoft.Common;
-using DrectSoft.Service;
-using DrectSoft.Common.Eop;
-using DrectSoft.Core;
-using DrectSoft.DSSqlHelper;
 #pragma warning disable 0618
 namespace DrectSoft.Emr.Util
 {
@@ -4407,7 +4407,10 @@ namespace DrectSoft.Emr.Util
                 OracleParameter param23 = new OracleParameter("changeid", OracleType.Int32);
                 if (null == model.DeptChangeID || string.IsNullOrEmpty(model.DeptChangeID.Trim()))
                 {
-                    param23.Value = DS_SqlService.GetInpChangeInfoID(noofinpat, model.DepartCode);
+                    if (model.DepartCode == null)
+                        param23.Value = -1;
+                    else
+                        param23.Value = DS_SqlService.GetInpChangeInfoID(noofinpat, model.DepartCode);
                 }
                 else
                 {

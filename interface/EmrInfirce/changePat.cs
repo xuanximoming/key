@@ -1,4 +1,5 @@
-﻿using DrectSoft.Core.MainEmrPad.New;
+﻿using DrectSoft.Core;
+using DrectSoft.Core.MainEmrPad.New;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using EmrInsert;
 using System;
@@ -219,8 +220,20 @@ namespace EmrInfirce
             //不存在则添加
             if (dt == null || dt.Rows.Count == 0)
             {
-                MessageBox.Show("EMR中没有此患者信息，请确认！");
-                return;
+                IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
+                if (sqlHelper == null)
+                {
+                    _EmrHost.CustomMessageBox.MessageShow("EMR中没有此患者信息,并且无法连接到HIS，请确认！", CustomMessageBoxKind.ErrorOk);
+                    return;
+                }
+
+                dt = sqlHelper.ExecuteDataTable(string.Format("select * from his_InPatient_Clinic where PatNoOfHis='{0}'", PatNoOfHis), CommandType.Text);
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    _EmrHost.CustomMessageBox.MessageShow("HIS中无此患者信息，请确认！", CustomMessageBoxKind.ErrorOk);
+                    return;
+                }
+                _emrHelper.InsertOutPat(dt);
             }
             //存在更新
             else

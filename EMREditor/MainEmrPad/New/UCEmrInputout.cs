@@ -276,7 +276,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 ///初始化字体
                 InitFont();
                 ///绑定病人基本信息
-                BindPatBasic((int)m_CurrentInpatient.NoOfInpatClinic);
+                BindPatBasic((int)m_CurrentInpatient.NoOfFirstPage);
                 ///添加主体
                 AddEmrInputBody();
 
@@ -357,17 +357,17 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat, 1);
                 if (null == dt || dt.Rows.Count == 0)
                 {
                     return;
                 }
                 DataRow patient = dt.Rows[0];
                 ///床号
-                barStaticItem_bedNo.Caption = "床号：" + patient["outbed"].ToString();
+                //barStaticItem_bedNo.Caption = "床号：" + patient["outbed"].ToString();
                 ///姓名
                 barStaticItem_patientName.Caption = "姓名：" + patient["name"].ToString();
-                ///病历号
+                ///病历号--是否病案首页显示大号字体及文书录入状态栏的病案号从第几位开始截取
                 string config1 = DS_SqlService.GetConfigValueByKey("IsShowBigPatNo");
                 int getVal = -1;
                 if (!string.IsNullOrEmpty(config1))
@@ -389,9 +389,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                 ///性别
                 barStaticItem_gender.Caption = "性别：" + patient["sexname"].ToString();
                 ///年龄
-                barStaticItem_age.Caption = "年龄：" + patient["agestr"].ToString();
-                ///入院日期
-                string inHosDate = string.IsNullOrEmpty(patient["inwarddate"].ToString()) ? patient["admitdate"].ToString() : patient["inwarddate"].ToString();
+                barStaticItem_age.Caption = "年龄：" + patient["age"].ToString();
+                ///就诊日期
+                string inHosDate = string.IsNullOrEmpty(patient["visittime"].ToString()) ? "0" : patient["visittime"].ToString();
+                //有关文书录入界面的配置
                 string config = DS_SqlService.GetConfigValueByKey("EmrInputConfig");
                 if (!string.IsNullOrEmpty(config))
                 {
@@ -403,19 +404,19 @@ namespace DrectSoft.Core.MainEmrPad.New
                         string cfgValue = null == nodeList[0].InnerText ? "" : nodeList[0].InnerText.Trim();
                         if (cfgValue == "0")
                         {//入院
-                            inHosDate = patient["admitdate"].ToString();
+                            inHosDate = patient["visittime"].ToString();
                         }
                         else
                         {//入科
-                            inHosDate = patient["inwarddate"].ToString();
+                            inHosDate = patient["visittime"].ToString();
                         }
                     }
                 }
-                barStaticItem_inHosDate.Caption = "入院日期：" + inHosDate;
+                barStaticItem_inHosDate.Caption = "就诊日期：" + inHosDate;
                 ///科室病区
-                barStaticItem_currentDept.Caption = "科室病区：" + patient["deptname"].ToString() + "/" + patient["wardname"].ToString();
+                barStaticItem_currentDept.Caption = "就诊科室：" + patient["deptname"].ToString();
                 ///入院次数
-                btnItem_inHosCount.Caption = "入院次数：" + DS_SqlService.GetInHosCountNew(noofinpat);
+                btnItem_inHosCount.Caption = "就诊号：" + patient["visitno"].ToString();
                 btnItem_inHosCount.Appearance.ForeColor = Color.Blue;
             }
             catch (Exception ex)
@@ -477,7 +478,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 ///初始化字体
                 InitFont();
                 ///绑定病人基本信息
-                BindPatBasic((int)m_CurrentInpatient.NoOfInpatClinic);
+                BindPatBasic((int)m_CurrentInpatient.NoOfFirstPage);
                 ///历史病历按钮显示状态
                 if (floaderState == FloderState.All || floaderState == FloderState.Default || floaderState == FloderState.Doctor || floaderState == FloderState.NoneAudit)
                 {
@@ -1013,7 +1014,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             try
             {
                 string valuestr = DS_SqlService.GetConfigValueByKey("PACSRevision");
-                PACSOutSide.PacsAll(m_CurrentInpatient.NoOfHisFirstPage);
+                PACSOutSide.PacsAll(m_CurrentInpatient);
             }
             catch (Exception ex)
             {
@@ -1118,7 +1119,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             {
                 RefreshEMRMainPad();
 
-                DataTable dt = DS_SqlService.GetAllRecordsByNoofinpat(Int32.Parse(m_CurrentInpatient.NoOfInpatClinic.ToString()));
+                DataTable dt = DS_SqlService.GetAllRecordsByNoofinpat(Int32.Parse(m_CurrentInpatient.NoOfFirstPage.ToString()));
                 m_TreeAllNode = new List<TreeListNode>();
                 GetTreeAllNodeForReplaceItem(CurrentInputBody.CurrentTreeList.Nodes);
                 foreach (DataRow dr in dt.Rows)
@@ -1957,19 +1958,19 @@ namespace DrectSoft.Core.MainEmrPad.New
                         if (checkFlag)
                         {///出科检查通过
 
-                            DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfInpatClinic, checkFlagPassValue);
+                            DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfFirstPage, checkFlagPassValue);
                             MyMessageBox.Show("验证通过", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
                         }
                         else
                         {
                             if (CheckMessage == "")
                             {
-                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfInpatClinic, checkFlagPassValue);
+                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfFirstPage, checkFlagPassValue);
                                 MyMessageBox.Show("验证通过", "提示", MyMessageBoxButtons.Ok, DrectSoft.Common.Ctrs.DLG.MessageBoxIcon.InformationIcon);
                             }
                             else
                             {
-                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfInpatClinic, !checkFlagPassValue);
+                                DS_SqlService.UpdateOutDeptCheckFlag((int)m_CurrentInpatient.NoOfFirstPage, !checkFlagPassValue);
 
                                 CheckTipContent m_CheckT = new CheckTipContent(m_app, CheckMessage, this);
                                 m_CheckT.TopMost = true;
@@ -2001,7 +2002,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 bool checkFlagPassValue = hosCode == "1";
                 isReportVialde_to = true;
                 DS_Common.SetWaitDialogCaption(m_WaitDialog, "正在检查验证相关数据...");
-                checkFlag = CheckInpatient((int)m_CurrentInpatient.NoOfInpatClinic, out showcontent);
+                checkFlag = CheckInpatient((int)m_CurrentInpatient.NoOfFirstPage, out showcontent);
                 CheckMessage = showcontent;
                 DS_Common.HideWaitDialog(m_WaitDialog);
                 this.th.Interrupt();
@@ -3222,7 +3223,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                m_app.ChoosePatient(m_CurrentInpatient.NoOfInpatClinic);
+                m_app.ChoosePatient(m_CurrentInpatient.NoOfFirstPage);
                 m_app.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
             }
             catch (Exception ex)
@@ -3403,12 +3404,12 @@ namespace DrectSoft.Core.MainEmrPad.New
             {
                 string sql = @"update RECORDDETAIL t set t.owner = '{0}', t.auditor = decode(t.auditor, '', '', '{0}') where t.noofinpat = '{1}' and t.sortid = 'AB' and t.valid = 1;";
                 Inpatient InpatientDt = new Inpatient();
-                InpatientDt = DS_SqlService.GetPatientInfo(m_CurrentInpatient.NoOfInpatClinic.ToString());
+                InpatientDt = DS_SqlService.GetPatientInfo(m_CurrentInpatient.NoOfFirstPage.ToString());
                 if (InpatientDt.InfoOfAdmission.DischargeInfo.CurrentDepartment.Code == m_app.User.CurrentDeptId)
                 {
                     try
                     {
-                        m_app.SqlHelper.ExecuteNoneQuery(string.Format(sql, m_app.User.Id, (int)m_CurrentInpatient.NoOfInpatClinic), CommandType.Text);
+                        m_app.SqlHelper.ExecuteNoneQuery(string.Format(sql, m_app.User.Id, (int)m_CurrentInpatient.NoOfFirstPage), CommandType.Text);
                     }
                     catch (Exception ex)
                     {

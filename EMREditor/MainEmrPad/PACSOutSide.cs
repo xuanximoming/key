@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DrectSoft.Common.Eop;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -16,7 +17,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// 对外PACS调用方法 
         /// </summary>
         /// <param name="currinpatient"></param>
-        public static void PacsAll(string NoOfInpat)
+        public static void PacsAll(Inpatient m_CurrentInpatient)
         {
             try
             {
@@ -24,15 +25,15 @@ namespace DrectSoft.Core.MainEmrPad
                 valuestr = valuestr.ToLower();
                 if (valuestr == "dll")  //dll调用方式
                 {
-                    PacsDll(NoOfInpat);
+                    PacsDll(m_CurrentInpatient);
                 }
                 else if (valuestr == "exe") //exe调用方式
                 {
-                    PacsExe(NoOfInpat);
+                    PacsExe(m_CurrentInpatient);
                 }
                 else if (valuestr == "url") //url浏览方式
                 {
-                    PacsUrl(NoOfInpat);
+                    PacsUrl(m_CurrentInpatient);
                 }
                 else
                 {
@@ -49,7 +50,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// <summary>
         /// exe调用
         /// </summary>
-        private static void PacsExe(string NoOfInpat)
+        private static void PacsExe(Inpatient m_CurrentInpatient)
         {
             try
             {
@@ -58,7 +59,7 @@ namespace DrectSoft.Core.MainEmrPad
                 if (hasFile)
                 {
                     //xll 接口调用方式发生变化 修改2012-12-18
-                    string infostr = string.Format(@"G_study.inhospitalno='{0}'", NoOfInpat);
+                    string infostr = string.Format(@"G_study.inhospitalno='{0}'", m_CurrentInpatient.NoOfHisFirstPage);
                     Process.Start(fileName, infostr);
                 }
                 else
@@ -75,12 +76,12 @@ namespace DrectSoft.Core.MainEmrPad
         /// url调用pacs方式
         /// </summary>
         /// <param name="noofhis"></param>
-        private static void PacsUrl(string noofhis)
+        private static void PacsUrl(Inpatient m_CurrentInpatient)
         {
             try
             {
                 string temppacsUrl = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("PacsUrl");
-                string pacsUrl = string.Format(temppacsUrl, noofhis);
+                string pacsUrl = string.Format(temppacsUrl, m_CurrentInpatient.NoOfHisFirstPage);
                 System.Diagnostics.Process.Start("IEXPLORE.EXE", pacsUrl);
             }
             catch (Exception ex)
@@ -96,7 +97,7 @@ namespace DrectSoft.Core.MainEmrPad
         /// <summary>
         /// dll调用方式
         /// </summary>
-        public static void PacsDll(string NoOfInpat)
+        public static void PacsDll(Inpatient m_CurrentInpatient)
         {
             try
             {
@@ -107,7 +108,7 @@ namespace DrectSoft.Core.MainEmrPad
                 {
                     try
                     {
-                        if (PacsView(nPatientType, NoOfInpat, LookType) != 1)
+                        if (PacsView(nPatientType, m_CurrentInpatient.NoOfHisFirstPage, LookType) != 1)
                         {
                             MessageBox.Show("调用失败");
                         }

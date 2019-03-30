@@ -80,7 +80,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 string titleName = model.IsShowFileName == "1" ? (string.IsNullOrEmpty(model.FileName.Trim()) ? model.Description.Trim() : model.FileName.Trim()) : string.Empty;
                 if (null == firstDailyTime)
                 {
-                    DataTable dt = DS_SqlService.GetInpatientByID((int)m_app.CurrentPatientInfo.NoOfFirstPage);
+                    DataTable dt = DS_SqlService.GetInpatientByID((int)m_app.CurrentPatientInfo.NoOfFirstPage, 2);
                     if (null != dt && dt.Rows.Count > 0)
                     {
                         string config = DS_SqlService.GetConfigValueByKey("EmrInputConfig");

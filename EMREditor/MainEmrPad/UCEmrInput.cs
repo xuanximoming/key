@@ -6630,52 +6630,11 @@ namespace DrectSoft.Core.MainEmrPad
         /// <returns></returns>
         private bool ExistTheFirstRecord(EmrModel model, int noofinpat)
         {
-            #region 已注释 by cyq 2013-01-22 08:58 修复A->b->A后删除B科室所有病历的bug
-            /**
-            try
-            {
-                if (null == model || string.IsNullOrEmpty(noofinpat))
-                {
-                    return false;
-                }
-                //查询该病人信息
-                string sql1 = string.Format(@"select * from inpatient where noofinpat='{0}' ", noofinpat);
-                DataTable dt1 = sqlHelper.ExecuteDataTable(sql1, CommandType.Text);
-                if (null == dt1 || dt1.Rows.Count == 0)
-                {
-                    return false;
-                }
-                //病人所在科室
-                string dept = null == dt1.Rows[0]["outhosdept"] ? "" : dt1.Rows[0]["outhosdept"].ToString();
-                //查询数据库中所有首程
-                string sql2 = string.Format(@"select * from recorddetail where noofinpat='{0}' and valid='1' and sortid='AC' and firstdailyflag='1' ", noofinpat);
-                sql2 += @" and ID != " + model.InstanceId;
-                sql2 += @" order by captiondatetime ";
-                DataTable dt2 = sqlHelper.ExecuteDataTable(sql2, CommandType.Text);
-                if (null != dt2 && dt2.Rows.Count > 0)
-                {
-                    DateTime captiondatetime = model.DisplayTime;
-                    var preFirstEmr = dt2.Select(" captiondatetime < '" + captiondatetime.ToString("yyyy-MM-dd HH:mm:ss") + "' ").OrderByDescending(p => p["captiondatetime"]).FirstOrDefault();
-                    var nextFirstEmr = dt2.Select(" captiondatetime > '" + captiondatetime.ToString("yyyy-MM-dd HH:mm:ss") + "' ").OrderBy(p => p["captiondatetime"]).FirstOrDefault();
-                    if ((null != preFirstEmr && preFirstEmr["departcode"].ToString() == dept) || (null != nextFirstEmr && nextFirstEmr["departcode"].ToString() == dept))
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            **/
-            #endregion
 
             try
             {
                 //查询该病人信息
-                DataTable dt1 = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable dt1 = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null == dt1 || dt1.Rows.Count == 0)
                 {
                     return false;
@@ -12568,7 +12527,7 @@ namespace DrectSoft.Core.MainEmrPad
         {
             try
             {
-                DataTable inpDt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable inpDt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null == inpDt || inpDt.Rows.Count == 0)
                 {
                     return "该病人不存在，请刷新数据重试。";

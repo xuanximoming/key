@@ -145,33 +145,6 @@ namespace DrectSoft.Core.DoctorTasks
             {
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(2, ex);
             }
-            /*
-            SqlParameter[] sqlParams = new SqlParameter[] { 
-                
-                  new SqlParameter("@cxlx", SqlDbType.Int ),
-                  new SqlParameter("@syxh", SqlDbType.VarChar, 10),
-                  //new SqlParameter("@DateTimeEnd",SqlDbType.VarChar, 10),
-                  };
-
-            sqlParams[0].Value = 1;
-
-            sqlParams[1].Value = NoOfHisFirstPage;
-            //sqlParams[2].Value = EndTime;
-            //访问EHRDB
-            IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
-
-            m_pageSouce = sqlHelper.ExecuteDataTable("usp_EmrDTS_GetDoctorAdvice 1 ," + NoOfHisFirstPage + ", '', '', 0, 0, 0");
-
-
-            gridMedQCAnalysis.DataSource = m_pageSouce;
-            if (m_pageSouce.Rows.Count == 0)
-            {
-                _app.CustomMessageBox.MessageShow("无数据！");
-            }
-            */
-
-
-
         }
 
 

@@ -826,8 +826,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnItem_Sub),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnItem_Collect, true),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnItem_AssessmentPlan),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_left),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_get)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_left)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.Text = "Tools2";
             // 
@@ -1099,6 +1098,7 @@
             superToolTip38.Items.Add(toolTipTitleItem37);
             superToolTip38.Items.Add(toolTipItem28);
             this.btn_get.SuperTip = superToolTip38;
+            this.btn_get.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btn_get.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_get_ItemClick);
             // 
             // bar3
@@ -1110,7 +1110,6 @@
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar3.FloatLocation = new System.Drawing.Point(315, 191);
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem_bedNo),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem_patientName),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem_patID),
             new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem_gender),
@@ -1129,6 +1128,7 @@
             this.barStaticItem_bedNo.Id = 49;
             this.barStaticItem_bedNo.Name = "barStaticItem_bedNo";
             this.barStaticItem_bedNo.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem_bedNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barStaticItem_patientName
             // 

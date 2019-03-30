@@ -815,7 +815,7 @@ namespace DrectSoft.MainFrame
         /// <returns></returns>
         private DataRow GetOutPatInfo(decimal noOfInpat)
         {
-            DataTable dataTable = this.SqlHelper.ExecuteDataTable(string.Format("select * from InPatient_Clinic where PATNOOFHIS={0}", noOfInpat));
+            DataTable dataTable = this.SqlHelper.ExecuteDataTable(string.Format("select t.*,t.noofinpatclinic NoOfInpat from InPatient_Clinic t where PATNOOFHIS={0}", noOfInpat));
             DataRow result;
             if (dataTable.Rows.Count < 1)
             {
@@ -895,13 +895,6 @@ namespace DrectSoft.MainFrame
         private void SetOutPatientInfo(decimal firstPageNo)
         {
             this.xtraTabbedMdiManager1.SelectedPageChanged -= new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);
-            //DataRow[] array = this.PatientInfos.Tables[0].Select("NoOfInpat = " + firstPageNo.ToString());
-            //if (array != null && array.Length > 0)
-            //{
-            //    this.CurrentPatientInfo = new Inpatient(array[0]);
-            //}
-            //else
-            //{
             DataRow patInfo = this.GetOutPatInfo(firstPageNo);
             if (patInfo != null)
             {

@@ -1104,7 +1104,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                 {
                     return;
                 }
-                //InsertIntoChangedDeptsNew();
                 CheckForInsertChangedDept();
 
                 //先在此处判断是否显示【检验资料】【检查资料】父节点add by ywk 二〇一三年六月六日 13:20:09 
@@ -1690,106 +1689,6 @@ namespace DrectSoft.Core.MainEmrPad.New
         }
 
         #region 插入转科记录
-        /**
-        /// <summary>
-        /// 插入转科记录
-        /// 注：缺少转科记录的时候会先插入
-        /// </summary>
-        private void InsertIntoChangedDeptsNew()
-        {
-            try
-            {
-                ///根据病历或者科室和病区
-                DataTable allDeptAndWards = YD_SqlService.GetDeptAndWardByRecords((int)m_CurrentInpatient.NoOfFirstPage);
-                DataTable changeDepts = YD_SqlService.GetInpatientChangeInfo((int)m_CurrentInpatient.NoOfFirstPage);
-
-                if (null == changeDepts || changeDepts.Rows.Count == 0 || !changeDepts.AsEnumerable().Any(p => p["newdeptid"].ToString() == YD_Common.currentUser.CurrentDeptId && p["newwardid"].ToString() == YD_Common.currentUser.CurrentWardId))
-                {///不存在转科记录时
-                    List<OracleParameter> list = new List<OracleParameter>();
-                    OracleParameter param1 = new OracleParameter("noofinpat", OracleType.Int32);
-                    param1.Value = (int)m_CurrentInpatient.NoOfFirstPage;
-                    list.Add(param1);
-                    OracleParameter param2 = new OracleParameter("newdeptid", OracleType.VarChar);
-                    param2.Value = YD_Common.currentUser.CurrentDeptId;
-                    list.Add(param2);
-                    OracleParameter param3 = new OracleParameter("newwardid", OracleType.VarChar);
-                    param3.Value = YD_Common.currentUser.CurrentWardId;
-                    list.Add(param3);
-                    OracleParameter param4 = new OracleParameter("createuser", OracleType.VarChar);
-                    param4.Value = YD_Common.currentUser.Id;
-                    list.Add(param4);
-                    OracleParameter param5 = new OracleParameter("createtime", OracleType.VarChar);
-                    param5.Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    list.Add(param5);
-                    DataTable theInpatient = YD_SqlService.GetInpatientByID((int)m_CurrentInpatient.NoOfFirstPage);
-                    if (null != theInpatient && theInpatient.Rows.Count == 1)
-                    {
-                        OracleParameter param6 = new OracleParameter("newbedid", OracleType.VarChar);
-                        param6.Value = null == theInpatient.Rows[0]["outbed"] ? string.Empty : theInpatient.Rows[0]["outbed"].ToString();
-                        list.Add(param6);
-                    }
-                    OracleParameter param7 = new OracleParameter("changestyle", OracleType.Char);
-                    param7.Value = (null == changeDepts || changeDepts.Rows.Count == 0) ? 0 : 1;
-                    list.Add(param7);
-                    OracleParameter param8 = new OracleParameter("valid", OracleType.Int32);
-                    param8.Value = 1;
-                    list.Add(param8);
-                    YD_SqlService.InsertInpChangeInfo(list);
-                }
-                if (null != allDeptAndWards && allDeptAndWards.Rows.Count > 0)
-                {///存在病程记录时
-                    foreach (DataRow deptAndWard in allDeptAndWards.Rows)
-                    {
-                        if (deptAndWard["departcode"].ToString() == YD_Common.currentUser.CurrentDeptId && deptAndWard["wardcode"].ToString() == YD_Common.currentUser.CurrentWardId)
-                        {
-                            continue;
-                        }
-                        if (!changeDepts.AsEnumerable().Any(p => p["newdeptid"].ToString() == deptAndWard["departcode"].ToString() && p["newwardid"].ToString() == deptAndWard["wardcode"].ToString()))
-                        {///转科记录中不存在时，插入转科记录
-                            List<OracleParameter> list = new List<OracleParameter>();
-                            OracleParameter param1 = new OracleParameter("noofinpat", OracleType.Int32);
-                            param1.Value = (int)m_CurrentInpatient.NoOfFirstPage;
-                            list.Add(param1);
-                            OracleParameter param2 = new OracleParameter("newdeptid", OracleType.VarChar);
-                            param2.Value = deptAndWard["departcode"].ToString();
-                            list.Add(param2);
-                            OracleParameter param3 = new OracleParameter("newwardid", OracleType.VarChar);
-                            param3.Value = deptAndWard["wardcode"].ToString();
-                            list.Add(param3);
-                            OracleParameter param4 = new OracleParameter("createuser", OracleType.VarChar);
-                            param4.Value = YD_Common.currentUser.Id;
-                            list.Add(param4);
-                            OracleParameter param5 = new OracleParameter("createtime", OracleType.VarChar);
-                            param5.Value = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                            list.Add(param5);
-                            if (deptAndWard["departcode"].ToString() == YD_Common.currentUser.CurrentDeptId)
-                            {
-                                DataTable theInpatient = YD_SqlService.GetInpatientByID((int)m_CurrentInpatient.NoOfFirstPage);
-                                if (null != theInpatient && theInpatient.Rows.Count == 1)
-                                {
-                                    OracleParameter param6 = new OracleParameter("newbedid", OracleType.VarChar);
-                                    param6.Value = null == theInpatient.Rows[0]["outbed"] ? string.Empty : theInpatient.Rows[0]["outbed"].ToString();
-                                    list.Add(param6);
-                                }
-                            }
-                            OracleParameter param7 = new OracleParameter("changestyle", OracleType.Char);
-                            param7.Value = 1;
-                            list.Add(param7);
-                            OracleParameter param8 = new OracleParameter("valid", OracleType.Int32);
-                            param8.Value = 1;
-                            list.Add(param8);
-                            YD_SqlService.InsertInpChangeInfo(list);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        **/
-
         /// <summary>
         /// 检查是否需要插入转科记录
         /// </summary>
@@ -1800,7 +1699,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 ///获取该病人的转科(病区/床)记录
                 DataTable changeDepts = DS_SqlService.GetInpatientChangeInfo((int)m_CurrentInpatient.NoOfFirstPage);
                 ///获取病人信息
-                DataTable inpatientDt = DS_SqlService.GetInpatientByID((int)m_CurrentInpatient.NoOfFirstPage);
+                DataTable inpatientDt = DS_SqlService.GetInpatientByID((int)m_CurrentInpatient.NoOfFirstPage, 2);
                 if (null == inpatientDt || inpatientDt.Rows.Count == 0)
                 {
                     return;
@@ -1820,10 +1719,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                 {///转病区
                     paras = GetNewChangeDeptParams(inpatient, "2");
                 }
-                //else if (inpatient["outbed"].ToString().Trim() != lastChanged["newbedid"].ToString().Trim())
-                //{///转床
-                //    paras = GetNewChangeDeptParams(inpatient, "3");
-                //}
                 if (null != paras && paras.Count() > 0)
                 {
                     DS_SqlService.InsertInpChangeInfo(paras);
@@ -2511,7 +2406,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                             || (this.floaderState == FloderState.Default && DoctorEmployee.Kind == EmployeeKind.Nurse)
                              || (this.floaderState == FloderState.NoneAudit && DoctorEmployee.Kind == EmployeeKind.Nurse))
                         {
-                            DataTable dt = DS_SqlService.GetInpatientByID((int)CurrentInpatient.NoOfFirstPage);
+                            DataTable dt = DS_SqlService.GetInpatientByID((int)CurrentInpatient.NoOfFirstPage, 2);
                             if (dt == null || dt.Rows.Count <= 0)
                             {
                                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("病人不存在");
@@ -5766,11 +5661,17 @@ namespace DrectSoft.Core.MainEmrPad.New
                 if (model.InstanceId == -1)
                 {//新增
                     model.CreatorXH = DS_Common.currentUser.Id;
-                    m_RecordDal.InsertModelInstanceNew(model, Convert.ToInt32(m_CurrentInpatient.NoOfFirstPage));
+                    if (m_CurrentInpatient.NoOfFirstPage != 0 && m_CurrentInpatient.NoOfFirstPage.ToString() != "")
+                        m_RecordDal.InsertModelInstanceNew(model, Convert.ToInt32(m_CurrentInpatient.NoOfFirstPage));
+                    else
+                        m_RecordDal.InsertModelInstanceNew(model, Convert.ToInt32(m_CurrentInpatient.NoOfFirstPage));
                 }
                 else
                 {//修改
-                    m_RecordDal.UpdateModelInstanceNew(model, Convert.ToInt32(m_CurrentInpatient.NoOfFirstPage));
+                    if (m_CurrentInpatient.NoOfFirstPage != 0 && m_CurrentInpatient.NoOfFirstPage.ToString() != "")
+                        m_RecordDal.UpdateModelInstanceNew(model, Convert.ToInt32(m_CurrentInpatient.NoOfFirstPage));
+                    else
+                        m_RecordDal.UpdateModelInstanceNew(model, Convert.ToInt32(m_CurrentInpatient.NoOfFirstPage));
                 }
 
                 RefreashEmrView(model, model.InstanceId == -1 ? EditState.Add : EditState.Edit);
@@ -5812,7 +5713,7 @@ namespace DrectSoft.Core.MainEmrPad.New
 
                 if (null != m_app && null != m_app.CurrentPatientInfo && null != m_app.CurrentPatientInfo.PersonalInformation && null == m_app.CurrentPatientInfo.PersonalInformation.Sex)
                 {
-                    DataTable dt = DS_SqlService.GetInpatientByID((int)m_app.CurrentPatientInfo.NoOfFirstPage);
+                    DataTable dt = DS_SqlService.GetInpatientByID((int)m_app.CurrentPatientInfo.NoOfFirstPage, 2);
                     if (null == dt || dt.Rows.Count == 0)
                     {
                         throw new Exception("该病人数据异常，请联系管理员。");

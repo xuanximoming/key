@@ -27,16 +27,6 @@ namespace DrectSoft.Common.Eop
             get { return PersonalInformation.PatientName; }
         }
 
-        /// <summary>
-        /// Ê×Ò³ÐòºÅ
-        /// </summary>
-        public decimal NoOfInpatClinic
-        {
-            get { return _noOfInpatClinic; }
-            set { _noOfInpatClinic = value; }
-        }
-        private decimal _noOfInpatClinic;
-
 
         /// <summary>
         /// Ê×Ò³ÐòºÅ

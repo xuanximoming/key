@@ -1925,28 +1925,12 @@ namespace DrectSoft.DSSqlHelper
                 }
                 if (!isHaveLob(par))
                 {
-                    //ConnectionOpen();//打开联接
-                    //IDbCommand cmd = _DbConnection.CreateCommand();
-                    //cmd.CommandType = commandtype;
-                    //cmd.CommandText = ConvertSqlToOracle(commandtext, commandtype);
                     CommonConvertParameterOracleParameter(par, cmd);
-                    //result = cmd.ExecuteScalar();
 
                 }
                 else
                 {
-                    //acn = new Oracle.DataAccess.Client.OracleConnection();
-                    //acn.ConnectionString = _DbConnection.ConnectionString;
-                    //acn.Open();
-                    //Oracle.DataAccess.Client.OracleCommand cmd = acn.CreateCommand();
-                    //ConnectionOpen();//打开联接
-                    //IDbCommand cmd = _DbConnection.CreateCommand();
-                    //cmd.CommandType = commandtype;
-                    //cmd.CommandText = ConvertSqlToOracle(commandtext, commandtype);
                     LobConvertParameterOracleParameterNew(par, cmd);
-                    //result = cmd.ExecuteScalar();
-
-
 
                 }
                 result = cmd.ExecuteScalar();
@@ -1966,10 +1950,6 @@ namespace DrectSoft.DSSqlHelper
             finally
             {
                 ConnectionClose();
-                //if (acn!=null&&acn.State == ConnectionState.Open)
-                //{
-                //    acn.Close();
-                //}
             }
 
         }

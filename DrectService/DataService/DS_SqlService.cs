@@ -150,12 +150,17 @@ namespace DrectSoft.Service
         /// <auth>Yanqiao.Cai</auth>
         /// <date>2013-01-18</date>
         /// <param name="noofinpat">首页序号</param>
+        /// <param name="flag">1、门诊，2、住院</param>
         /// <returns></returns>
-        public static DataTable GetInpatientByID(int noofinpat)
+        public static DataTable GetInpatientByID(int noofinpat, int flag)
         {
             try
             {
-                string sqlStr = "SELECT i.*,d.name deptname,w.name wardname,dd1.name sexname FROM inpatient i left outer join department d on d.id = i.outhosdept and d.valid = '1' left outer join ward w on w.id = i.outhosward and w.valid = '1' left outer join dictionary_detail dd1 on dd1.detailid = i.sexid and dd1.categoryid = '3' WHERE i.noofinpat = @noofinpat ";
+                string sqlStr = null;
+                if (flag == 2)
+                    sqlStr = "SELECT i.*,d.name deptname,w.name wardname,dd1.name sexname FROM inpatient i left outer join department d on d.id = i.outhosdept and d.valid = '1' left outer join ward w on w.id = i.outhosward and w.valid = '1' left outer join dictionary_detail dd1 on dd1.detailid = i.sexid and dd1.categoryid = '3' WHERE i.noofinpat = @noofinpat ";
+                else
+                    sqlStr = "SELECT i.*, d.name deptname, dd1.name sexname FROM inpatient_clinic i left outer join department d on d.id = i.deptid and d.valid = '1' left outer join dictionary_detail dd1 on dd1.detailid = i.sexid and dd1.categoryid = '3' WHERE i.noofinpatclinic = @noofinpat ";
                 DbParameter[] sqlParams = new DbParameter[]
                 {
                     new SqlParameter("@noofinpat",SqlDbType.Int)
@@ -537,7 +542,7 @@ namespace DrectSoft.Service
         {
             try
             {
-                DataTable inpDT = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable inpDT = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null == inpDT || inpDT.Rows.Count == 0)
                 {
                     return 0;
@@ -610,11 +615,11 @@ namespace DrectSoft.Service
         }
 
         /// <summary>
-        /// 根据科室获取转科记录ID
+        /// 根据转科记录ID获取信息
         /// </summary>
         /// <auth>Yanqiao.Cai</auth>
         /// <date>2013-04-10</date>
-        /// <param name="noofinpat"></param>
+        /// <param name="id">转科记录ID</param>
         /// <returns></returns>
         public static DataTable GetInpChangeInfoByID(int id)
         {

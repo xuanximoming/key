@@ -357,7 +357,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat);
+                DataTable dt = DS_SqlService.GetInpatientByID(noofinpat, 2);
                 if (null == dt || dt.Rows.Count == 0)
                 {
                     return;
