@@ -584,31 +584,6 @@ namespace Microsoft.Practices.EnterpriseLibrary.Data.Oracle
         /// </devdoc>        
         private string TranslatePackageSchema(string storedProcedureName)
         {
-            #region old
-            //const string allPrefix = "*";
-            //string packageName = String.Empty;
-            //string updatedStoredProcedureName = storedProcedureName;
-
-            //if (packages != null && !string.IsNullOrEmpty(storedProcedureName))
-            //{
-            //    foreach (IOraclePackage oraPackage in packages)
-            //    {
-            //        if ((oraPackage.Prefix == allPrefix) || (storedProcedureName.StartsWith(oraPackage.Prefix)))
-            //        {
-            //            //use the package name for the matching prefix
-            //            packageName = oraPackage.Name;
-            //            //prefix = oraPackage.Prefix;
-            //            break;
-            //        }
-            //    }
-            //}
-            //if (0 != packageName.Length)
-            //{
-            //    updatedStoredProcedureName = String.Format(CultureInfo.InvariantCulture, "{0}.{1}", packageName, storedProcedureName);
-            //}
-
-            //return updatedStoredProcedureName;
-            #endregion
 
             string packageName = String.Empty;
             string updatedStoredProcedureName = storedProcedureName;

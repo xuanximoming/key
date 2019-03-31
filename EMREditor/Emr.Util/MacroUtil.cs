@@ -1,9 +1,9 @@
-﻿using HuangF.Sys.Date;
+﻿using DrectSoft.Core;
+using HuangF.Sys.Date;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using DrectSoft.Core;
 namespace DrectSoft.Emr.Util
 {
     public class MacroUtil
@@ -91,9 +91,7 @@ namespace DrectSoft.Emr.Util
                         if (mac.D_Table.Equals("INPATIENT"))
                         {
                             SqlParameter para = new SqlParameter("@NoOfinpat", SqlDbType.VarChar);
-                            //SqlParameter para1 = new SqlParameter("@ReadAddress", SqlDbType.VarChar);
                             para.Value = patid;
-                            //para1.Value = ReadAddress;
 
                             m_PatID = patid;
 
@@ -115,27 +113,25 @@ namespace DrectSoft.Emr.Util
                                 DateTime dt = Convert.ToDateTime(data.Rows[0]["jieqi"].ToString());
                                 string jieqi = hf.GetSolarTermInfo(dt);
                                 data.Rows[0]["jieqi"] = jieqi;
-                                //   DateTime dt_birth = Convert.ToDateTime(table.Rows[0]["birth"].ToString());
-
-                                //int age = 0;
-                                //string ageStr = string.Empty;
-                                //CalculateAge(dt_birth, dt, out ageStr, out age);
-                                ////  table.Rows[0]["age"] = age;
-                                //table.Rows[0]["ageStr"] = ageStr;
                                 _macroSource.Add(mac.D_Table, data.Rows[0]);
                             }
+                        }
+                        else if (mac.D_Table.Equals("INPATIENT_CLINIC"))
+                        {
+                            SqlParameter para = new SqlParameter("@NoOfinpat", SqlDbType.VarChar);
+                            para.Value = patid;
 
-                            // if (data.Rows.Count > 0)
+                            m_PatID = patid;
 
-                            //_macroSource.Add(mac.D_Table, data.Rows[0]);
+                            data = DataAccessFactory.DefaultDataAccess.ExecuteDataTable("PATIENT_INFO.USP_INPATIENT_CLINIC", new SqlParameter[] { para }, CommandType.StoredProcedure);
+                            //data = DataAccessFactory.DefaultDataAccess.ExecuteDataTable("PATIENT_INFO.usp_xml_content", new SqlParameter[] { para }, CommandType.StoredProcedure);
+                            if (data.Rows.Count > 0)
+                            {
+                                _macroSource.Add(mac.D_Table, data.Rows[0]);
+                            }
                         }
                         else if (mac.D_Table.Equals("CURRENTUSER")) //得到当前用户信息的宏
                         {
-                            //                            string sqlGetUser = @"select users.id userid, users.name username, users.deptid userdeptid, users.wardid userwardid, department.name userdeptname, ward.name userwardname
-                            //                                                from users
-                            //                                                left outer join department on department.id = users.deptid and department.valid = '1'
-                            //                                                left outer join ward on ward.id = users.wardid and ward.valid = '1'
-                            //                                                where users.id = '{0}' and users.valid = '1'";
                             string sqlGetUser = @"select users.id userid, (case b.name||'/' when  '/' then users.name  else  b.name||'/'||users.name end)  username,a.masterid,b.name||'/' mastername, users.deptid userdeptid, users.wardid userwardid, department.name userdeptname, ward.name userwardname
                                                 from users
                                                 left outer join department on department.id = users.deptid and department.valid = '1'

@@ -114,23 +114,6 @@ namespace DrectSoft.Core.MainEmrPad.New
         {
             try
             {
-               
-
-                #region 采用插件形式(已废弃)
-                //AxAcroPDF acroPDF = new AxAcroPDF();
-                //((System.ComponentModel.ISupportInitialize)(acroPDF)).BeginInit();
-                //acroPDF.Location = new Point(0, 24);
-                //acroPDF.Size = new Size(300, 300);
-                //acroPDF.Dock = DockStyle.Fill;
-                //this.Controls.Add(acroPDF);
-                //((System.ComponentModel.ISupportInitialize)(acroPDF)).EndInit();
-                //acroPDF.setShowToolbar(false);
-                ////acroPDF.
-                //acroPDF.setShowScrollbars(false);
-                //acroPDF.setPageMode("pages only");//pages only, pages and thumbnails, or pages and bookmarks
-                //acroPDF.LoadFile(@"D:\扫描0028.pdf");
-                #endregion
-
                 string[] pathinfo = DS_SqlService.GetConfigValueByKey("PathologicPathInfo").Split(',');
                 string ippath = string.Empty;
                 string username = string.Empty;
@@ -172,20 +155,8 @@ namespace DrectSoft.Core.MainEmrPad.New
                         }
                         PDFFile pdfFile = PDFFile.Open(newcgpath);
                         pageImage = pdfFile.GetPageImage(0, 56 * 10);
-                        //pageImage.Save("c:\\myBitmap1.bmp");
-                        //pageImage.
-                        //picCG.Width = pageImage.Width;
-                        //picCG.Height = pageImage.Height;
-                        //picCG.Location = new Point(0, 0);
-                        //this.picCG.BackgroundImage = pageImage;
-                        //picCG.CreateGraphics().DrawImage(pageImage, new Point(0, 0));
                         this.picCG.Image = pageImage;
-                        //this.picCG.Focus();
-
-                        //picCG.CreateGraphics().DrawImage(pageImage, new Point(0, 0));
-                        //picCG.SizeMode = PictureBoxSizeMode.Zoom;
                         pdfFile.Dispose();
-                        //pageImage.Dispose();
                     }
                     catch (Exception)
                     {

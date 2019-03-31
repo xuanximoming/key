@@ -248,7 +248,7 @@ namespace DrectSoft.Core.MainEmrPad
 
         const string sql_quertFolderSimpleDoc = @"SELECT a.CCODE,a.CNAME,a.CTYPE,b.PCODE,b.SNO,b.WRITABLE,a.IMAGE_INDEX,a.SIMAGE_INDEX,a.OPEN_FLAG,a.UTYPE,a.MTYPE,a.MNAME,a.ARGS FROM DICT_CATALOG a, DICT_CATALOG_MODULE b  WHERE (b.PCODE = '{0}') AND (b.CCODE = a.CCODE) AND (b.APP = 'DOCTINFM') and a.ccode in ('11','12') order by b.SNO, a.ccode;";
 
-        const string sql_queryoutFolder = @"SELECT a.CCODE,a.CNAME,a.CTYPE,b.PCODE,b.SNO,b.WRITABLE, a.IMAGE_INDEX,a.SIMAGE_INDEX,a.OPEN_FLAG,a.UTYPE,a.MTYPE,a.MNAME, a.ARGS FROM DICT_CATALOG a inner join DICT_CATALOG_MODULE b on a.CCODE=b.CCODE and b.PCODE in({0}) AND b.APP ='OUTNURSEWS' order by b.SNO, a.ccode";
+        const string sql_queryoutFolder = @"SELECT a.CCODE,a.CNAME,a.CTYPE,b.PCODE,b.SNO,b.WRITABLE, a.IMAGE_INDEX,a.SIMAGE_INDEX,a.OPEN_FLAG,a.UTYPE,a.MTYPE,a.MNAME, a.ARGS FROM DICT_CATALOG a inner join DICT_CATALOG_MODULE b on a.CCODE=b.CCODE and b.PCODE in('{0}') AND b.APP ='OUTNURSEWS' order by b.SNO, a.ccode";
         /// <summary>
         /// 获取病历文件夹
         /// </summary>
