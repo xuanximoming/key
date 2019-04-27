@@ -1,4 +1,5 @@
-﻿using DrectSoft.Core;
+﻿using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Core;
 using HuangF.Sys.Date;
 using System;
 using System.Collections.Generic;
@@ -155,7 +156,7 @@ namespace DrectSoft.Emr.Util
             }
             catch (Exception ex)
             {
-
+                MyMessageBox.Show("MacroUtil.GetMacroSource:" + ex.Message);
             }
         }
 

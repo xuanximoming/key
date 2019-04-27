@@ -415,8 +415,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         {
             if (myOwnerDocument.isNeedDraw(this) == false)
                 return true;
-            if (System.Char.IsWhiteSpace(myChar))
-                return true;
             int x = this.RealLeft;
             int y = this.RealTop;
             bool bolSub = this.Sub;
@@ -435,7 +433,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
             if (this.IsNeedPrint())
             {
                 if (bolSub || bolSup)
-                //if (false)
                 {
                     System.Drawing.SizeF CharSize = myOwnerDocument.View.MeasureChar(myChar, myFont);
                     myOwnerDocument.View.DrawChar(myChar, myFont, this.ForeColor, x,

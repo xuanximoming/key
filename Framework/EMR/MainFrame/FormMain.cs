@@ -918,14 +918,12 @@ namespace DrectSoft.MainFrame
             if ((rows != null) && (rows.Length > 0))
             {
                 resultInp = new Inpatient(rows[0]);
-                //CurrentPatientInfo = new Inpatient(rows[0]);
             }
             else //数据库读取
             {
                 DataRow row = GetPatInfo(firstPageNo);
                 if (row != null)
                     resultInp = new Inpatient(row);
-
             }
 
             xtraTabbedMdiManager1.SelectedPageChanged += new EventHandler(xtraTabbedMdiManager1_SelectedPageChanged);

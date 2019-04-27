@@ -981,17 +981,17 @@ namespace DrectSoft.Common.Ctrs.DLG
             }
         }
         //2013-02-19,WangGuojin
-        public static DialogResult Show(int msgID, string msg)
+        public static DialogResult Show(int msgID, string exmsg)
         {
             try
             {
-                DevMessageBox aDevMessageBox = new DevMessageBox(msg);
-                aDevMessageBox.m_sSysMessage = msg;
-                aDevMessageBox.m_iMsg = msgID;
-                aDevMessageBox.GetErrorMessage(msgID);
-                aDevMessageBox.SetMessageInfo(aDevMessageBox.m_sMessage);
+                MyMessageBox yBox = new MyMessageBox();
+                string msg = yBox.GetMessageConfig(msgID);
+                MessageBoxIcon icontype = MessageBoxIcon.ErrorIcon;
+                DevMessageBox aDevMessageBox = new DevMessageBox(msg, icontype);
+                aDevMessageBox.WriteMessageLog(exmsg);
+                aDevMessageBox.m_sSysMessage = exmsg;
                 DialogResult dr = aDevMessageBox.ShowDialog();
-
                 return dr;
             }
             catch (Exception ce)

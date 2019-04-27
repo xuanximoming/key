@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.Data;
 using System.Globalization;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace DrectSoft.Common.Eop
@@ -856,30 +855,11 @@ namespace DrectSoft.Common.Eop
                 if (beginInitMethod != null)
                     beginInitMethod.Invoke(targetObj, null);
 
-                //MessageBox.Show("targetObj" + targetObj.ToString());
-
                 Dictionary<string, ColumnToColumn> colMapDic = new Dictionary<string, ColumnToColumn>(); // 原始表中列名－当前表中列名
                 if (colMaps != null)
                 {
-                    //二次修改 edit by ywk 2013年3月13日9:44:12 
-                    //foreach (ColumnToColumn colCol in colMaps)
-                    //{
-                    //    if (colMapDic.ContainsKey(colCol.TargetColumn))//先判断是否添加了相同的KEY
-                    //    {
-                    //        return;
-                    //    }
-                    //    if (!colMapDic.ContainsKey(colCol.TargetColumn))//先判断是否添加了相同的KEY
-                    //    {
-                    //        colMapDic.Add(colCol.TargetColumn, colCol);
-                    //    }
-                    //}
-
                     for (int i = 0; i < colMaps.Count; i++)
                     {
-                        //if (colMapDic.ContainsKey(colMaps[i].TargetColumn))//先判断是否添加了相同的KEY
-                        //{
-                        //    return;
-                        //}
                         if (!colMapDic.ContainsKey(colMaps[i].TargetColumn))//先判断是否添加了相同的KEY
                         {
                             colMapDic.Add(colMaps[i].TargetColumn, colMaps[i]);
@@ -922,7 +902,7 @@ namespace DrectSoft.Common.Eop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("SetObjectPropertyFromDataRow方法出错：" + ex.Message);
+                //MessageBox.Show("SetObjectPropertyFromDataRow方法出错：" + ex.Message);
                 //throw;
             }
 
