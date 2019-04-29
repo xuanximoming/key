@@ -528,6 +528,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\DevButtonQurey.ico" />
+    <Content Include="XML文档描述\描述.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

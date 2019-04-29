@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.Library.EmrEditor.Src.Document;
-using DrectSoft.Common.Ctrs.FORM;
+using System;
+using System.Data;
 
 namespace DrectSoft.Emr.TemplateFactory
 {
     public partial class TableCellSetting : DevBaseForm
     {
-        TPTextCell m_Cell;
-        public TableCellSetting(TPTextCell cell)
+        TPTextCell m_Cell, o_Cell;
+        public TPTextCell p_cell;
+        public TableCellSetting(TPTextCell cell, TPTextCell oldcell)
         {
             InitializeComponent();
             m_Cell = cell;
+            o_Cell = oldcell;
             InitBorderComboBox();
             InitBorderValue();
             InitSpaceValue();
@@ -66,10 +62,20 @@ namespace DrectSoft.Emr.TemplateFactory
 
         private void InitSpaceValue()
         {
-            spinEditSpaceTop.EditValue = m_Cell.PaddingTop;
-            spinEditSpaceBottom.EditValue = m_Cell.PaddingBottom;
-            spinEditSpaceLeft.EditValue = m_Cell.PaddingLeft;
-            spinEditSpaceRight.EditValue = m_Cell.PaddingRight;
+            if (o_Cell != null)
+            {
+                spinEditSpaceTop.EditValue = o_Cell.PaddingTop;
+                spinEditSpaceBottom.EditValue = o_Cell.PaddingBottom;
+                spinEditSpaceLeft.EditValue = o_Cell.PaddingLeft;
+                spinEditSpaceRight.EditValue = o_Cell.PaddingRight;
+            }
+            else
+            {
+                spinEditSpaceTop.EditValue = m_Cell.PaddingTop;
+                spinEditSpaceBottom.EditValue = m_Cell.PaddingBottom;
+                spinEditSpaceLeft.EditValue = m_Cell.PaddingLeft;
+                spinEditSpaceRight.EditValue = m_Cell.PaddingRight;
+            }
         }
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
@@ -96,9 +102,10 @@ namespace DrectSoft.Emr.TemplateFactory
                     cell.PaddingLeft = paddingLeft;
                 }
             }
-
+            p_cell = m_Cell;
             //重新计算界面中元素的位置，然后重绘界面中的元素
             m_Cell.OwnerDocument.Refresh2();
+            this.Close();
         }
 
         private void simpleButtonExit_Click(object sender, EventArgs e)

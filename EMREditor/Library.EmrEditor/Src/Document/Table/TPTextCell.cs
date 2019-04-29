@@ -816,6 +816,11 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                     myOwnerDocument.View.DrawLine(this.BorderColor, rect.X, rect.Y, rect.X + rect.Width, rect.Y + rect.Height / 2);
                     myOwnerDocument.View.DrawLine(this.BorderColor, rect.X, rect.Y, rect.X + rect.Width / 2, rect.Y + rect.Height);
                 }
+                else if (this.ItalicLineStyleInCell == ItalicLineStyle.LeftTop2RightBottom3)
+                {
+                    myOwnerDocument.View.DrawLine(this.BorderColor, rect.X, rect.Y + rect.Height / 2, rect.X + rect.Width, rect.Y + rect.Height);
+                    myOwnerDocument.View.DrawLine(this.BorderColor, rect.X + rect.Width / 2, rect.Y, rect.X + rect.Width, rect.Y + rect.Height);
+                }
             }
 
             return true;
@@ -1055,8 +1060,12 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         RightTop2LeftBottom = 2,
 
         /// <summary>
-        /// 左上到右下的2条斜线
+        /// 左上到右下（2条斜线）
         /// </summary>
-        LeftTop2RightBottom2 = 3
+        LeftTop2RightBottom2 = 3,
+        /// <summary>
+        /// 左上（2条斜线）到右下
+        /// </summary>
+        LeftTop2RightBottom3 = 4
     }
 }

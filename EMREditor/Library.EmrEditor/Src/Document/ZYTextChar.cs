@@ -415,6 +415,8 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         {
             if (myOwnerDocument.isNeedDraw(this) == false)
                 return true;
+            if (System.Char.IsWhiteSpace(myChar))
+                return true;
             int x = this.RealLeft;
             int y = this.RealTop;
             bool bolSub = this.Sub;
@@ -463,6 +465,11 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                     }
                     else
                     {
+                        //update by ukey zhang 20190427 下划线不再加下划线,文档中需要下划线地方，输入下划线
+                        if (myChar == '_' && myFont.Underline == true)
+                        {
+                            myFont = myOwnerDocument.View._CreateFont(myFont.Name, myFont.Size, myFont.Bold, myFont.Italic, false);
+                        }
                         myOwnerDocument.View.DrawChar(myChar, myFont, this.ForeColor, x, y);
                     }
                 }

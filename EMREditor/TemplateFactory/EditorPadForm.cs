@@ -22,6 +22,7 @@ namespace DrectSoft.Emr.TemplateFactory
 
         private IEmrHost m_app;
         RecordDal m_RecordDal;
+        private TPTextCell m_cell;
 
 
         public EditorPadForm(IEmrHost app)
@@ -30,6 +31,7 @@ namespace DrectSoft.Emr.TemplateFactory
             m_app = app;
             m_RecordDal = new RecordDal(app.SqlHelper);
             InitEditor();
+            this.zyEditorControl1.MouseDown += new MouseEventHandler(CurrentEditorControl_MouseDown);
         }
 
         private void InitEditor()
@@ -145,7 +147,24 @@ namespace DrectSoft.Emr.TemplateFactory
         }
 
 
-
+        void CurrentEditorControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (e.Button == System.Windows.Forms.MouseButtons.Right)
+                {
+                    ZYTextElement element = this.zyEditorControl1.GetElementByPos(e.X, e.Y);
+                    if (!(element is ZYTextImage))
+                    {
+                        popupMenuRightMouse.ShowPopup(new Point(Control.MousePosition.X, Control.MousePosition.Y));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex);
+            }
+        }
 
         void EMRDoc_OnSelectionChanged(object sender, EventArgs e)
         {
@@ -404,10 +423,25 @@ namespace DrectSoft.Emr.TemplateFactory
             }
         }
 
-
-
-
-
+        private void btn_CellBorderWidth_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                TPTextCell cell = this.zyEditorControl1.EMRDoc.GetCurrentCell();
+                if (cell != null)
+                {
+                    if (m_cell == null) m_cell = cell;
+                    TableCellSetting cellSetting = new TableCellSetting(cell, m_cell);
+                    cellSetting.StartPosition = FormStartPosition.CenterScreen;
+                    DialogResult DialogResult = cellSetting.ShowDialog();
+                    m_cell = cellSetting.p_cell;
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
+            }
+        }
     }
 
     public class EventOjbArgs : EventArgs

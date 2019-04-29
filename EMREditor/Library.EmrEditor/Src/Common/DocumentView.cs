@@ -634,11 +634,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Common
             int BrushIndex = this.GetBrushIndex(ForeColor);
             if (myGraph != null && myFont != null)
             {
-                //update by ukey zhang 20190427 Add Spaces to display underscores
-                if (myChar == ' ' && myFont.Underline == true)
-                    myGraph.DrawString('_'.ToString(), myFont, (System.Drawing.Brush)myGDIObjects[BrushIndex], x, y, System.Drawing.StringFormat.GenericTypographic);
-                else
-                    myGraph.DrawString(myChar.ToString(), myFont, (System.Drawing.Brush)myGDIObjects[BrushIndex], x, y, System.Drawing.StringFormat.GenericTypographic);
+                myGraph.DrawString(myChar.ToString(), myFont, (System.Drawing.Brush)myGDIObjects[BrushIndex], x, y, System.Drawing.StringFormat.GenericTypographic);
             }
         }
 

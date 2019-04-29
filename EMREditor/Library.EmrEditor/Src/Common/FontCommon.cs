@@ -34,8 +34,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Common
         static public string[] allFontSizeName = { "初号", "小初", "一号", "小一", "二号", "小二", "三号", "小三", "四号", "小四", "五号", "小五", "六号", "小六", "七号", "八号", "8", "9", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72", };
 
         //字号的磅值
-        static public float[] allFontSize =      {42, 36, 26, 24, 22, 18, 16, 15, 14, 12, 10.5F, 9, 7.5F, 6.5F, 5.5F, 5,  8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 
-                                         48, 72};
+        static public float[] allFontSize = { 42, 36, 26, 24, 22, 18, 16, 15, 14, 12, 10.5F, 9, 7.5F, 6.5F, 5.5F, 5, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
         static List<FontSizeItem> fontSizeList = new List<FontSizeItem>();
         static public List<FontSizeItem> FontSizeList

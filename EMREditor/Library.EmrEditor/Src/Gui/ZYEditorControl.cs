@@ -2812,7 +2812,6 @@ namespace DrectSoft.Library.EmrEditor.Src.Gui
                     result = "宋体";
                     break;
                 case "fontsize":
-                    //result = "五号";
                     result = DefaultFontSize;
                     break;
                 case "paperkind":

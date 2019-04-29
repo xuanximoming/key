@@ -6262,7 +6262,11 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
                         if (currentTable.AllRows[k].Cells[e].CanAccess == true)
                         {
                             TPTextCell selectedCell = currentTable.AllRows[k].Cells[e];
-                            SetItalicLineInCellInner(selectedCell, italicLineStyle);
+                            #region 设置单元格的斜线
+                            if (selectedCell != null)
+                                //0:没有线 1:左上到右下的斜线 2:右上到左下的斜线 3:左上到右下的两条斜线
+                                selectedCell.ItalicLineStyleInCell = (ItalicLineStyle)Enum.Parse(typeof(ItalicLineStyle), italicLineStyle.ToString());
+                            #endregion
                         }
                     }
                 }
@@ -6272,18 +6276,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
             this.ContentChanged();
             this.EndContentChangeLog();
             this.EndUpdate();
-
             return string.Empty;
-            #endregion
-        }
-
-        private void SetItalicLineInCellInner(TPTextCell cell, int italicLineStyle)
-        {
-            #region 设置单元格的斜线
-            if (cell == null) return;
-
-            //0:没有线 1:左上到右下的斜线 2:右上到左下的斜线 3:左上到右下的两条斜线
-            cell.ItalicLineStyleInCell = (ItalicLineStyle)Enum.Parse(typeof(ItalicLineStyle), italicLineStyle.ToString());
             #endregion
         }
 

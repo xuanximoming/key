@@ -2933,6 +2933,27 @@ namespace DrectSoft.Emr.TemplateFactory
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
             }
         }
+
+        /// <summary>
+        /// 单元格斜线（左上(两条线)->右下）
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_LeftTop2RightBottom4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                string str = this.pnlText.EMRDoc.SetItalicLineInCell(4);
+                if (str != string.Empty)
+                {
+                    m_app.CustomMessageBox.MessageShow(str);
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
+            }
+        }
         #endregion
 
         #region 单元格属性设置
@@ -2943,7 +2964,7 @@ namespace DrectSoft.Emr.TemplateFactory
                 TPTextCell cell = this.pnlText.EMRDoc.GetCurrentCell();
                 if (cell != null)
                 {
-                    TableCellSetting cellSetting = new TableCellSetting(cell);
+                    TableCellSetting cellSetting = new TableCellSetting(cell, null);
                     cellSetting.StartPosition = FormStartPosition.CenterScreen;
                     cellSetting.ShowDialog();
                 }

@@ -1,0 +1,6 @@
+RecordDoctorId   医生ID
+RecordDoctorName 医生姓名
+RecordDoctorImgbyte  图片签字
+RecordDoctorImg   图片
+Date 日期
+DateTimeShow  日期时间
