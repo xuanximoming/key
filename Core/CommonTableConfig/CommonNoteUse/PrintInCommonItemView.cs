@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
 {
@@ -117,6 +114,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         private string _Date;
         private string _Time;
         private string _DateTimeShow;
+        private int _RowNum;
 
         private string _RecordDoctorName;
         private string _RecordDoctorId;
@@ -259,6 +257,15 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 return _DateTimeShow;
             }
             set { _DateTimeShow = value; }
+        }
+
+        public int RowNum
+        {
+            get
+            {
+                return _RowNum;
+            }
+            set { _RowNum = value; }
         }
 
         public string Time

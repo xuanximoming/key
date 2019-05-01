@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common;
 using DrectSoft.Common.Ctrs.FORM;
-using System.Drawing.Printing;
-using System.Xml;
-using DrectSoft.Common;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
 {
@@ -19,7 +15,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
     /// </summary>
     public partial class PrintForm1 : DevBaseForm
     {
-       public PrintInCommonView m_printInCommonView;
+        public PrintInCommonView m_printInCommonView;
         IPrintNurse iPrintNurse;
         int printPageNowPer = 0;  //当前打印预览页  
         int printEnd = 0;
@@ -82,7 +78,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
             MySettings.Document.DefaultPageSettings.PaperSize = paperSize;
             MySettings.Document.DefaultPageSettings.Landscape = Landscape;
-            
+
             //printDocumentPre.DefaultPageSettings.PaperSize = paperSize;
 
             int PageRecordCount = iPrintNurse.PageRecordCount; //每张的行数
@@ -115,7 +111,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -150,6 +146,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 {
                     if (j < allcount)
                     {
+                        PrintInCommonItemViewList[j].RowNum = j + 1;
                         InCommonNoteBiz.ConvertForImgRec(PrintInCommonItemViewList[j]);
                         printInCommonItemViewEven.Add(PrintInCommonItemViewList[j]);
                     }
@@ -162,7 +159,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 recordPrintView.PrintInpatientView.CurrPage = (printPageNowPer + Addpage).ToString();
                 recordPrintView.PrintInCommonItemViewList = printInCommonItemViewEven;
                 iPrintNurse.GetPreview(recordPrintView, e.Graphics);
-                if (printPageNowPer < pageCount - 1 && printPageNowPer<printEnd-1)
+                if (printPageNowPer < pageCount - 1 && printPageNowPer < printEnd - 1)
                 {
                     e.HasMorePages = true;
                     printPreviewControl1.Rows += 1;
@@ -172,7 +169,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 else
                 {
                     spinEditPage.Properties.MinValue = (int)speNum.Value;
-                    spinEditPage.Properties.MaxValue = pageCount + (int)speNum.Value-1;
+                    spinEditPage.Properties.MaxValue = pageCount + (int)speNum.Value - 1;
                     printPageNowPer = 0;
                     e.HasMorePages = false;
                 }
@@ -235,10 +232,10 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 }
                 else if (MySettings.Document.DefaultPageSettings.PrinterSettings.PrintRange == PrintRange.AllPages)
                 {
-                    printPageNowPer = (int)spinEditPage.Properties.MinValue- (int)speNum.Value;
+                    printPageNowPer = (int)spinEditPage.Properties.MinValue - (int)speNum.Value;
                     printEnd = (int)spinEditPage.Properties.MaxValue - (int)speNum.Value + 1;
                 }
-                printPreviewControl1.Rows =1;
+                printPreviewControl1.Rows = 1;
                 //printDocumentPrint.DefaultPageSettings.PaperSize = paperSize;
                 //printDocumentPrint.DefaultPageSettings.Landscape = Landscape;
                 // printDocumentPrint.PrinterSettings = MySettings.PrinterSettings;
@@ -273,7 +270,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 printDocumentPrintNow.DefaultPageSettings.PaperSize = paperSize;
                 printDocumentPrintNow.DefaultPageSettings.Landscape = Landscape;
                 printDocumentPrintNow.Print();
-                AddPrintHistory(Convert.ToInt32(spinEditPage.Value),Convert.ToInt32(spinEditPage.Value), 1);
+                AddPrintHistory(Convert.ToInt32(spinEditPage.Value), Convert.ToInt32(spinEditPage.Value), 1);
 
             }
             catch (Exception ex)
@@ -289,7 +286,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         /// <param name="startpage"></param>
         /// <param name="endpage"></param>
         /// <param name="printpages"></param>
-        private void AddPrintHistory(int startpage,int endpage,int printpages)
+        private void AddPrintHistory(int startpage, int endpage, int printpages)
         {
             try
             {
@@ -299,11 +296,11 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 printHistoryEntity.EndPage = endpage;
                 printHistoryEntity.PrintPages = printpages;
                 printHistoryEntity.PrintType = "1";
-            DrectSoft.Common.PrintHistoryHistory.AddrintHistory(printHistoryEntity);
+                DrectSoft.Common.PrintHistoryHistory.AddrintHistory(printHistoryEntity);
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -329,12 +326,13 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 var PrintInCommonItemViewList = m_printInCommonView.PrintInCommonTabViewList1.PrintInCommonItemViewList;
                 int allcount = PrintInCommonItemViewList.Count;
                 int PageRecordCount = iPrintNurse.PageRecordCount; //每张的行数
-                int pageIndex = (int)spinEditPage.Value - (int)speNum.Value+1;  //实际打印页码需要重新计算
+                int pageIndex = (int)spinEditPage.Value - (int)speNum.Value + 1;  //实际打印页码需要重新计算
                 List<PrintInCommonItemView> printInCommonItemViewEven = new List<PrintInCommonItemView>();
                 for (int j = (pageIndex - 1) * PageRecordCount; j < (pageIndex * PageRecordCount); j++)
                 {
                     if (j < allcount)
                     {
+                        PrintInCommonItemViewList[j].RowNum = j + 1;
                         printInCommonItemViewEven.Add(PrintInCommonItemViewList[j]);
                     }
                 }
@@ -417,12 +415,12 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                                    };
                 sps[0].Value = m_printInCommonView.IncommonNoteflow;
                 sps[1].Value = ((int)speNum.Value).ToString();
-                DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteNonQuery("emr_commonnote.usp_AddOrModIncommPagefrom", sps,CommandType.StoredProcedure);
+                DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteNonQuery("emr_commonnote.usp_AddOrModIncommPagefrom", sps, CommandType.StoredProcedure);
 
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
@@ -445,7 +443,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         {
             try
             {
-                PrintHistoryForm printHistoryForm = new PrintHistoryForm(m_printInCommonView.IncommonNoteflow,"1");
+                PrintHistoryForm printHistoryForm = new PrintHistoryForm(m_printInCommonView.IncommonNoteflow, "1");
                 printHistoryForm.ShowDialog();
             }
             catch (Exception ex)

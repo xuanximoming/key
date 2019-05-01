@@ -252,6 +252,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 printInpatientView.InDateTime = inpatientDt.Rows[0]["INWARDDATE"].ToString().Substring(0, 10);
             }
             printInpatientView.InNo = inpatientDt.Rows[0]["PATID"].ToString();
+            printInpatientView.OutNo = inpatientDt.Rows[0]["NOOFCLINIC"].ToString();
             printInpatientView.PatId = inpatientDt.Rows[0]["PATNOOFHIS"].ToString();
             printInpatientView.InpatientAge = inpatientDt.Rows[0]["AGESTR"].ToString();
             printInpatientView.InpatientName = inpatientDt.Rows[0]["NAME"].ToString();
@@ -666,6 +667,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                                 printInCommonItemView.RecordDoctorName = printInCommonItemViewListNew[0].RecordDoctorName;
                                 printInCommonItemView.RecordDoctorImg = printInCommonItemViewListNew[0].RecordDoctorImg;
                                 printInCommonItemView.RecordDoctorImgbyte = printInCommonItemViewListNew[0].RecordDoctorImgbyte;
+                                //printInCommonItemView.RowNum = 
                                 printInCommonItemViewListNew.Add(printInCommonItemView);
                             }
 

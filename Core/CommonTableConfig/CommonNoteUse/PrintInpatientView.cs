@@ -18,6 +18,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         string _RecordName;
         string _ListCount;
         string _CurrPage;
+        string _OutNo;
 
 
         /// <summary>
@@ -143,6 +144,20 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             set
             {
                 _InNo = value;
+            }
+        }
+        /// <summary>
+        ///门诊号
+        /// </summary>
+        public virtual string OutNo
+        {
+            get
+            {
+                return _OutNo;
+            }
+            set
+            {
+                _OutNo = value;
             }
         }
 

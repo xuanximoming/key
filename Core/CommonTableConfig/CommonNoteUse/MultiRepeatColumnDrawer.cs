@@ -252,6 +252,16 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                         sf.LineAlignment = StringAlignment.Center;
                         gra.DrawString(texts[2], f, Brushes.Black, new RectangleF(x, y + h / 3 * 2, w, h / 3), sf);
                         break;
+                    case -1:
+                        gra.DrawLine(Pens.Black, x + w, y, x, y + h);
+                        sf.Alignment = StringAlignment.Near;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[0], f, Brushes.Black, new RectangleF(x, y, w, h / 2), sf);
+
+                        sf.Alignment = StringAlignment.Far;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[1], f, Brushes.Black, new RectangleF(x, y + h / 2, w, h / 2), sf);
+                        break;
                 }
                 if (node.Attributes["datafield"].Value != "" && !dic_ColumnsList.Keys.Contains(node.Attributes["datafield"].Value))
                 {
