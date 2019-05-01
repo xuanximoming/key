@@ -66,6 +66,9 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
         }
 
+        /// <summary>
+        /// Columns部分
+        /// </summary>
         public void DrawColumns()
         {
             try
@@ -106,7 +109,9 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// 画ImageSize部分
+        /// </summary>
         public void DrawLines()
         {
             try
@@ -184,20 +189,70 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         {
             try
             {
+
                 float x;
                 x = float.Parse(node.Attributes["offsetXPreCol"].Value) + preColumnLeft;
                 preColumnLeft = x;
                 float y = float.Parse(node.Attributes["y"].Value) + (PrintPageSizeHeight - totalHeight) / 2;
                 float w = float.Parse(node.Attributes["width"].Value);
                 float h = float.Parse(node.Attributes["height"].Value);
+                gra.DrawRectangle(Pens.Black, x, y, w, h);
                 string text = node.Attributes["text"].Value;
+                string[] texts = text.Split('-');
                 if (string.IsNullOrEmpty(text))
                 {
                     text = recordPrintView.PrintInCommonTabView.GetCaptionName(node.Attributes["datafield"].Value);
                 }
+                int line = int.Parse(node.Attributes["line"].Value);
                 string align = node.Attributes["align"].Value;
-                gra.DrawRectangle(Pens.Black, x, y, w, h);
-                gra.DrawString(text, f, Brushes.Black, new RectangleF(x, y, w, h), sf);
+                switch (line)
+                {
+                    case 0:
+                        switch (align)
+                        {
+                            case "-1":
+                                sf.Alignment = StringAlignment.Near;
+                                sf.LineAlignment = StringAlignment.Center;
+                                break;
+                            case "0":
+                            case "":
+                                sf.Alignment = StringAlignment.Center;
+                                sf.LineAlignment = StringAlignment.Center;
+                                break;
+                            case "1":
+                                sf.Alignment = StringAlignment.Far;
+                                sf.LineAlignment = StringAlignment.Center;
+                                break;
+                        }
+                        gra.DrawString(text, f, Brushes.Black, new RectangleF(x, y, w, h), sf);
+                        break;
+                    case 1:
+
+                        gra.DrawLine(Pens.Black, x, y, x + w, y + h);
+                        sf.Alignment = StringAlignment.Far;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[0], f, Brushes.Black, new RectangleF(x, y, w, h / 2), sf);
+
+                        sf.Alignment = StringAlignment.Near;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[1], f, Brushes.Black, new RectangleF(x, y + h / 2, w, h / 2), sf);
+                        break;
+                    case 2:
+                        gra.DrawLine(Pens.Black, x + w / 2, y, x + w, y + h);
+                        gra.DrawLine(Pens.Black, x, y + h / 2, x + w, y + h);
+                        sf.Alignment = StringAlignment.Far;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[0], f, Brushes.Black, new RectangleF(x, y, w, h / 3), sf);
+
+                        sf.Alignment = StringAlignment.Center;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[1], f, Brushes.Black, new RectangleF(x, y + h / 3, w, h / 3), sf);
+
+                        sf.Alignment = StringAlignment.Near;
+                        sf.LineAlignment = StringAlignment.Center;
+                        gra.DrawString(texts[2], f, Brushes.Black, new RectangleF(x, y + h / 3 * 2, w, h / 3), sf);
+                        break;
+                }
                 if (node.Attributes["datafield"].Value != "" && !dic_ColumnsList.Keys.Contains(node.Attributes["datafield"].Value))
                 {
                     dic_ColumnsList.Add(node.Attributes["datafield"].Value, new LogicColumn(new Rectangle((int)x, (int)y, (int)w, (int)h), align));

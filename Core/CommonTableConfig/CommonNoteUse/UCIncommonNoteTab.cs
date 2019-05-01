@@ -145,23 +145,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 SetValueToDataTable(dt);
                 InitGridControlForDateTable(dt);
                 gridControl1.DataSource = dt;
-                //if (dt == null || dt.Rows == null || dt.Rows.Count <= 0)
-                //{
-                //    btnAddColName.Visible = false;
-                //}
-                //else
-                //{
-                //    btnAddColName.Visible = false;
-                //    foreach (var item in m_commonNote_TabEntity.CommonNote_ItemList)
-                //    {
-                //        if (string.IsNullOrEmpty(item.OtherName))
-                //        {
-                //            btnAddColName.Visible = true;
-                //            break;
-                //        }
-                //    }
-
-                //}
                 waitDialog.Hide();
                 waitDialog.Close();
             }
@@ -171,40 +154,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 waitDialog.Close();
                 throw ex;
             }
-
-            //gridViewTab.MoveBy(dt.Rows.Count - 1);
-            //PrintInCommonTabView printInCommonTabView = new CommonNoteUse.PrintInCommonTabView();
-            //List<string> strNames = InCommonNoteBiz.ConvertInCommonTabToPrint(m_InCommonNoteTab, printInCommonTabView, out dicitemList, m_commonNote_TabEntity, m_app);
-            //gridViewTab.Columns.Clear();
-
-            //GridColumn gridColumnData = new DevExpress.XtraGrid.Columns.GridColumn();
-            //gridColumnData.OptionsFilter.AllowAutoFilter = false;
-            //gridColumnData.OptionsFilter.AllowFilter = false;
-            //gridColumnData.Caption = "记录时间";
-            //gridColumnData.Width = 110;
-            //gridColumnData.VisibleIndex = gridViewTab.Columns.Count;
-            //gridColumnData.FieldName = "DateTimeShow";
-            //gridViewTab.Columns.Add(gridColumnData);
-            //for (int i = 1; i <= strNames.Count; i++)
-            //{
-            //    GridColumn gridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            //    gridColumn.OptionsFilter.AllowAutoFilter = false;
-            //    gridColumn.OptionsFilter.AllowFilter = false;
-            //    gridColumn.Caption = strNames[i - 1];
-            //    gridColumn.VisibleIndex = gridViewTab.Columns.Count;
-            //    gridColumn.FieldName = "Value" + i;
-            //    gridColumn.Width = 6 + 13 * strNames[i - 1].Length;
-            //    gridViewTab.Columns.Add(gridColumn);
-            //}
-            //GridColumn gridColumnDoc = new DevExpress.XtraGrid.Columns.GridColumn();
-            //gridColumnDoc.OptionsFilter.AllowAutoFilter = false;
-            //gridColumnDoc.OptionsFilter.AllowFilter = false;
-            //gridColumnDoc.Caption = "记录人";
-            //gridColumnDoc.Width = 55;
-            //gridColumnDoc.VisibleIndex = gridViewTab.Columns.Count;
-            //gridColumnDoc.FieldName = "RecordDoctorName";
-            //gridViewTab.Columns.Add(gridColumnDoc);
-            //gridControl1.DataSource = printInCommonTabView.PrintInCommonItemViewList;
         }
 
 
@@ -260,17 +209,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                     if (dt.Columns[i].ColumnName == "jlr")
                     {
                         gridColumn.Width = 100;
-                        //int width = 0;
-                        //foreach (GridColumn item in gridViewTab.Columns)
-                        //{
-                        //    if (item.Visible == false) continue;
-                        //    width += item.Width;
-                        //}
-                        //int jlrwidth = gridControl1.Width - width - gridViewTab.IndicatorWidth;
-                        //if (jlrwidth > 75)
-                        //{
-                        //    gridColumn.Width = jlrwidth;
-                        //}
                         m_CanSign = inCommonNoteBiz.CanUsingSign(m_inCommonNote.CommonNoteFlow);
                         gridColumn.OptionsColumn.AllowEdit = !m_CanSign;
                     }
@@ -707,69 +645,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 dc.Caption = "记录人";
                 dc.DataType = typeof(string);
                 dt.Columns.Add(dc);
-                //}
-                //else
-                //{
-                //    dc = new DataColumn("xgnum");
-                //    dc.Caption = "修改次数";
-                //    dc.DataType = typeof(int);
-                //    dt.Columns.Add(dc);
-
-                //    dc = new DataColumn("groupFlow");
-                //    dc.Caption = "流水号";
-                //    dc.DataType = typeof(String);
-                //    dt.Columns.Add(dc);
-
-                //    dc = new DataColumn("jlsj");
-                //    dc.Caption = "记录时间";
-                //    dc.DataType = typeof(DateTime);
-                //    dt.Columns.Add(dc);
-                //    string groupflow = "";
-
-                //    for (int i = 0; i < m_InCommonNoteTab.InCommonNoteItemList.Count; i++)
-                //    {
-                //        var inComItem = m_InCommonNoteTab.InCommonNoteItemList[i];
-                //        if (i == 0)
-                //        {
-                //            groupflow = inComItem.GroupFlow;
-                //        }
-                //        if (m_InCommonNoteTab.InCommonNoteItemList[i].GroupFlow == groupflow)
-                //        {
-                //            dc = new DataColumn(inComItem.CommonNote_Item_Flow);
-                //            if (string.IsNullOrEmpty(inComItem.OtherName))
-                //            {
-                //                dc.Caption = "未指定列";
-                //            }
-                //            else
-                //            {
-                //                dc.Caption = inComItem.OtherName;
-                //            }
-
-                //            if (inComItem.DataElement == null)
-                //            {
-                //                inComItem.DataElement = m_DataElemntBiz.GetDataElement(inComItem.DataElementFlow);
-                //            }
-                //            dataElementList.Add(inComItem.CommonNote_Item_Flow, inComItem.DataElement);
-                //            Type type;
-                //            if (inComItem.IsValidate == "否")//如果不对数据元格式进行校验 则都是String
-                //            {
-                //                type = typeof(String);
-                //            }
-                //            else
-                //            {
-                //                type = GetDatetype(inComItem.DataElement.ElementType);
-                //            }
-                //            if (type == null) continue;
-                //            dc.DataType = type;
-                //            dt.Columns.Add(dc);
-                //        }
-                //    }
-
-                //    dc = new DataColumn("jlr");
-                //    dc.Caption = "记录人";
-                //    dc.DataType = typeof(string);
-                //    dt.Columns.Add(dc);
-                //}
                 return dt;
             }
             catch (Exception ex)
@@ -897,36 +772,10 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
 
                 DicAddIncommitem(m_InCommonNoteTab.InCommonNoteItemList);
 
-                //foreach (var item in m_InCommonNoteTab.InCommonNoteItemList)  //将同一组的数据放在一个里面
-                //{
-                //    if (!dicitemList.Keys.Contains(item.GroupFlow))
-                //    {
-                //        dicitemList.Add(item.GroupFlow, new List<InCommonNoteItemEntity>());
-                //    }
-                //    dicitemList[item.GroupFlow].Add(item);
-                //}
-
                 foreach (List<InCommonNoteItemEntity> itemList in dicitemList.Values)
                 {
                     //xll 20130319
                     AddDataTableRow(itemList, dt);
-                    //DataRow dtRow = dt.NewRow();
-                    //string dateTime = itemList[0].RecordDate + " " + itemList[0].RecordTime;
-                    //dtRow["jlsj"] = Convert.ToDateTime(dateTime);
-                    //dtRow["groupFlow"] = itemList[0].GroupFlow;
-                    //dtRow["jlr"] = itemList[0].RecordDoctorName;
-                    //for (int i = 0; i < itemList.Count; i++)
-                    //{
-                    //    if (dtRow[itemList[i].CommonNote_Item_Flow] == null) continue;
-                    //    itemList[i].DataElement = dataElementList[itemList[i].CommonNote_Item_Flow];
-                    //    SetDataTableValue(itemList[i]);
-                    //    if (itemList[i].DataTableValue != null && itemList[i].DataTableValue.ToString() != "")
-                    //    {
-                    //        dtRow[itemList[i].CommonNote_Item_Flow] = itemList[i].DataTableValue;
-                    //    }
-
-                    //}
-                    //dt.Rows.Add(dtRow);
 
                 }
             }
@@ -1005,92 +854,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             {
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex);
             }
-            //scorlInfo.Controls.Clear();
-            //PrintInCommonItemView printInCommonItemView = gridViewTab.GetFocusedRow() as PrintInCommonItemView;
-            //if (printInCommonItemView == null) return;
-            //List<InCommonNoteItemEntity> inCommonNoteItemEntityList = dicitemList[printInCommonItemView.GroupFlow];
-            //Point point = new Point(0, 0);
-            //#region 如果控件不存在
-            //if (uCRecordDateTime == null && ucLabTextList == null && uCRecordDoctor == null)
-            //{
-            //    for (int i = 0; i < inCommonNoteItemEntityList.Count; i++)
-            //    {
-            //        if (i == 0)
-            //        {
-            //            uCRecordDateTime = new UCRecordDateTime(inCommonNoteItemEntityList[i].RecordDate, inCommonNoteItemEntityList[i].RecordTime);
-            //            point = new Point(0, 0);
-            //            uCRecordDateTime.Location = point;
-            //            uCRecordDateTime.Name = "uCRecordDateTime";
-            //            scorlInfo.Controls.Add(uCRecordDateTime);
-            //        }
-
-            //        if (inCommonNoteItemEntityList[i].DataElement == null)
-            //        {
-            //            DataElemntBiz datebiz = new DataElemntBiz(m_app);
-            //            inCommonNoteItemEntityList[i].DataElement = datebiz.GetDataElement(inCommonNoteItemEntityList[i].DataElementFlow);
-            //        }
-            //        ucLabText ucLabText = new ucLabText(inCommonNoteItemEntityList[i], m_app);
-            //        ucLabText.Height = 35;
-            //        ucLabText.Width = 300;
-            //        int row = (i + 1) / 3;
-            //        int colmn = (i + 1) % 3;
-            //        point.X = ucLabText.Width * colmn;
-            //        point.Y = ucLabText.Height * row;
-            //        ucLabText.Location = point;
-            //        scorlInfo.Controls.Add(ucLabText);
-            //        if (ucLabTextList == null)
-            //        {
-            //            ucLabTextList = new Dictionary<string, ucLabText>();
-            //        }
-            //        ucLabTextList.Add(inCommonNoteItemEntityList[i].CommonNote_Item_Flow, ucLabText);
-            //        if (i == inCommonNoteItemEntityList.Count - 1)
-            //        {
-            //            if (string.IsNullOrEmpty(inCommonNoteItemEntityList[i].RecordDoctorName)
-            //                && string.IsNullOrEmpty(inCommonNoteItemEntityList[i].InCommonNote_Item_Flow))
-            //            {
-            //                inCommonNoteItemEntityList[i].RecordDoctorName = m_app.User.DoctorName;
-            //            }
-            //            uCRecordDoctor = new UCRecordDoctor(inCommonNoteItemEntityList[i].RecordDoctorName);
-            //            uCRecordDoctor.Height = 35;
-            //            uCRecordDoctor.Width = 300;
-            //            uCRecordDoctor.Name = "uCRecordDoctor";
-            //            int row1 = (i + 2) / 3;
-            //            int colmn1 = (i + 2) % 3;
-            //            point.X = uCRecordDoctor.Width * colmn1;
-            //            point.Y = uCRecordDoctor.Height * row1;
-            //            uCRecordDoctor.Location = point;
-            //            scorlInfo.Controls.Add(uCRecordDoctor);
-            //        }
-            //    }
-            //    dockPanelInfo.Height = uCRecordDoctor.Location.Y + 100; //设置容器的高度
-            //}
-            //#endregion
-            //else
-            //{
-            //    for (int i = 0; i < inCommonNoteItemEntityList.Count; i++)
-            //    {
-            //        if (i == 0)
-            //        {
-            //            uCRecordDateTime.InitData(inCommonNoteItemEntityList[i].RecordDate, inCommonNoteItemEntityList[i].RecordTime);
-            //        }
-            //        ucLabText ucLabText = ucLabTextList[inCommonNoteItemEntityList[i].CommonNote_Item_Flow];
-            //        if (ucLabText != null)
-            //        {
-            //            ucLabText.InitDate(inCommonNoteItemEntityList[i], m_app);
-            //        }
-
-            //        if (i == inCommonNoteItemEntityList.Count - 1)
-            //        {
-            //            if (string.IsNullOrEmpty(inCommonNoteItemEntityList[i].RecordDoctorName)
-            //                && string.IsNullOrEmpty(inCommonNoteItemEntityList[i].InCommonNote_Item_Flow))
-            //            {
-            //                inCommonNoteItemEntityList[i].RecordDoctorName = m_app.User.DoctorName;
-            //            }
-            //            uCRecordDoctor.InitDate(inCommonNoteItemEntityList[i].RecordDoctorName);
-
-            //        }
-            //    }
-            //}
 
         }
 
