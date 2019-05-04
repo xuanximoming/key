@@ -667,7 +667,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                                 printInCommonItemView.RecordDoctorName = printInCommonItemViewListNew[0].RecordDoctorName;
                                 printInCommonItemView.RecordDoctorImg = printInCommonItemViewListNew[0].RecordDoctorImg;
                                 printInCommonItemView.RecordDoctorImgbyte = printInCommonItemViewListNew[0].RecordDoctorImgbyte;
-                                //printInCommonItemView.RowNum = 
                                 printInCommonItemViewListNew.Add(printInCommonItemView);
                             }
 

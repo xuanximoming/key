@@ -178,12 +178,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         {
             get
             {
-                //if( myOwnerDocument.Info.Printing )
                 return intForeColor;
-                //if( myOwnerDocument.IsLock( this ))
-                //    return ZYTextConst.LockedForeColor ;
-                //else
-                //    return intForeColor ;
             }
             set
             {

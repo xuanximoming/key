@@ -112,15 +112,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
                     }
                     if (bolSet == false)
                     {
-                        //if (this.bolLandscape == false)
-                        //{
                         ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Width, myPaperSize.Height);
-                        //}
-                        //else
-                        //{
-                        //    //mfb ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Width, myPaperSize.Height);
-                        //    ps.PaperSize = new System.Drawing.Printing.PaperSize("Custom", myPaperSize.Height, myPaperSize.Width);
-                        //}
                     }
                 }
                 ps.Margins = this.myMargins;
@@ -154,6 +146,11 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
             margins.SetAttribute("right", Margins.Right.ToString());
             margins.SetAttribute("bottom", Margins.Bottom.ToString());
             myElement.AppendChild(margins);
+            //font
+            XmlElement font = myElement.OwnerDocument.CreateElement("font");
+            font.SetAttribute("fontsize", PaperSize.fontsize.ToString());
+            font.SetAttribute("fontname", "宋体");
+            myElement.AppendChild(font);
             //纵横
             XmlElement landscape = myElement.OwnerDocument.CreateElement("landscape");
             landscape.SetAttribute("value", Landscape.ToString());

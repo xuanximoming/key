@@ -236,9 +236,6 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                     printEnd = (int)spinEditPage.Properties.MaxValue - (int)speNum.Value + 1;
                 }
                 printPreviewControl1.Rows = 1;
-                //printDocumentPrint.DefaultPageSettings.PaperSize = paperSize;
-                //printDocumentPrint.DefaultPageSettings.Landscape = Landscape;
-                // printDocumentPrint.PrinterSettings = MySettings.PrinterSettings;
                 printDocumentPrint.Print();
                 int startPage = Convert.ToInt32(spinEditPage.Properties.MinValue); ;
                 int endPage = Convert.ToInt32(spinEditPage.Properties.MaxValue);

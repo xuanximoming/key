@@ -757,8 +757,6 @@ namespace DrectSoft.Emr.TemplateFactory
             try
             {
                 repositoryItemComboBoxFont.Items.AddRange(FontCommon.FontList.ToArray());
-                //this.listBox1.Items.AddRange(FontCommon.FontList.ToArray());
-
                 //添加字号
                 foreach (string fontsizename in FontCommon.allFontSizeName)
                 {
@@ -3432,39 +3430,6 @@ namespace DrectSoft.Emr.TemplateFactory
             }
         }
 
-        private void btn_FontSize_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (btn_FontSize.EditValue == null) return;
-
-                float size = FontCommon.GetFontSizeByName(btn_FontSize.EditValue.ToString());
-                this.pnlText.EMRDoc.SetSelectionFontSize(size);
-            }
-            catch (Exception ex)
-            {
-                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
-            }
-        }
-
-        private void repositoryItemComboBox_SiZe_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_FontName_EditValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (btn_FontName.EditValue == null) return;
-                this.pnlText.EMRDoc.SetSelectioinFontName(this.btn_FontName.EditValue.ToString());
-            }
-            catch (Exception ex)
-            {
-                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
-            }
-        }
-
         /// <summary>
         /// 保存模板
         /// </summary>
@@ -3745,8 +3710,34 @@ namespace DrectSoft.Emr.TemplateFactory
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
             }
         }
+        private void btn_FontName_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (btn_FontName.EditValue == null) return;
+                this.pnlText.EMRDoc.SetSelectioinFontName(this.btn_FontName.EditValue.ToString());
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
+            }
+        }
 
         private void btn_FontSize_EditValueChanged(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                if (btn_FontSize.EditValue == null) return;
+
+                float size = FontCommon.GetFontSizeByName(btn_FontSize.EditValue.ToString());
+                this.pnlText.EMRDoc.SetSelectionFontSize(size);
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(1, ex.Message);
+            }
+        }
+        private void btn_FontSize_EditValueChanged(object sender, EventArgs e)
         {
             try
             {

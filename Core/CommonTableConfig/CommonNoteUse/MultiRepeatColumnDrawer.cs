@@ -40,7 +40,10 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// 画护理单表格
+        /// </summary>
+        /// <param name="_recordPrintView">表格内容</param>
         public void Draw(RecordPrintView _recordPrintView)
         {
             try
@@ -67,7 +70,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
         }
 
         /// <summary>
-        /// Columns部分
+        /// 初始化Columns部分数据
         /// </summary>
         public void DrawColumns()
         {
@@ -75,6 +78,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             {
                 dic_ColumnsList.Clear();
                 XmlNode column = CommonMethods.GetElementByTagName("Columns", doc);
+                int align = int.Parse(CommonMethods.GetElementAttribute("ImageSize", "align", doc));
                 if (column == null || column.ChildNodes.Count == 0)
                 {
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("请检查<Columns>节点");
@@ -94,9 +98,11 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
                 {
                     for (int index = 0; index <= horRepeat; index++)
                     {
-                        preColumnLeft = (PrintPageSizeWidth - totalWidth) / 2;
+                        if (align == 1)
+                        {
+                            preColumnLeft = startX = (PrintPageSizeWidth - totalWidth) / 2;
+                        }
                         preColumnLeft += totalWidth / (horRepeat + 1) * index;
-                        startX = (PrintPageSizeWidth - totalWidth) / 2;
                         for (int i = 0; i < columns.Count; i++)
                         {
                             ScanColumn(columns[i]);
@@ -185,6 +191,10 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
         }
 
+        /// <summary>
+        /// 开始画Column部分数据
+        /// </summary>
+        /// <param name="node">XML文档Column节点</param>
         private void ScanColumn(XmlNode node)
         {
             try

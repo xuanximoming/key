@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using DrectSoft.Library.EmrEditor.Src.Gui;
+﻿using DrectSoft.Library.EmrEditor.Src.Gui;
 
 namespace DrectSoft.Library.EmrEditor.Src.Print
 {
@@ -29,6 +25,16 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
             get { return intKind; }
             set { intKind = value; }
         }
+
+        private float _fontsize;
+        /// <summary>
+        /// 字体大小
+        /// </summary>
+        public float fontsize
+        {
+            get { return _fontsize; }
+            set { _fontsize = value; }
+        }
         private int intWidth = 0;
         /// <summary>
         /// 纸张宽度 单位百分之一英寸
@@ -37,12 +43,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
         {
             get { return intWidth; }
             set
-            {
-                //if (this.intKind == System.Drawing.Printing.PaperKind.Custom)
-                    intWidth = value;
-                //else
-                //    throw new System.FieldAccessException("Width is readonly");
-            }
+            { intWidth = value; }
         }
         public static double GetRate(System.Drawing.GraphicsUnit unit)
         {
@@ -73,12 +74,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Print
         {
             get { return intHeight; }
             set
-            {
-                //if (this.intKind == System.Drawing.Printing.PaperKind.Custom)
-                intHeight = value;
-                //else
-                    //throw new System.FieldAccessException("Height is readonly");
-            }
+            { intHeight = value; }
         }
         public System.Drawing.Printing.PaperSize StdSize
         {

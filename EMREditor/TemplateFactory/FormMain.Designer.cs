@@ -1013,7 +1013,6 @@
             this.repositoryItemComboBox_SiZe.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemComboBox_SiZe.Name = "repositoryItemComboBox_SiZe";
-            this.repositoryItemComboBox_SiZe.SelectedIndexChanged += new System.EventHandler(this.repositoryItemComboBox_SiZe_SelectedIndexChanged);
             // 
             // btn_FontColor
             // 
@@ -1332,7 +1331,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_150),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_200)});
             this.barSubItem3.Name = "barSubItem3";
-            this.barSubItem3.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btn_50
             // 

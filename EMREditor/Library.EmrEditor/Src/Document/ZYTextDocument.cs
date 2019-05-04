@@ -2790,16 +2790,16 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
         }
 
         /// <summary>
-        /// 设置选中文本的文本颜色
+        /// 设置选中文本的背景颜色
         /// </summary>
-        /// <param name="NewColor">文本颜色</param>
+        /// <param name="NewColor">背景颜色</param>
         public void SetSelectionBackGroundColor(System.Drawing.Color NewColor)
         {
             SetSelectionAttribute(9, NewColor.ToArgb().ToString());
         }
 
         /// <summary>
-        /// 设置选中文本的下标属性,暂未实现
+        /// 设置选中文本的下标属性
         /// </summary>
         /// <param name="NewSub">是否是下标</param>
         public void SetSelectionSub(bool NewSub)
@@ -2808,7 +2808,7 @@ namespace DrectSoft.Library.EmrEditor.Src.Document
             SetSelectionAttribute(7, (NewSub ? "1" : "0"));
         }
         /// <summary>
-        /// 设置选中文本的上标属性,暂未实现
+        /// 设置选中文本的上标属性
         /// </summary>
         /// <param name="NewSup">是否是上标</param>
         public void SetSelectionSup(bool NewSup)

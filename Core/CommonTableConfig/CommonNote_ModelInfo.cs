@@ -1,8 +1,8 @@
 ﻿using DrectSoft.Common;
 using DrectSoft.Common.Ctrs.DLG;
 using DrectSoft.Common.Ctrs.FORM;
-using DrectSoft.FrameWork.WinForm.Plugin;
 using DrectSoft.DSSqlHelper;
+using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.Data;
 using System.Data.Common;
@@ -159,7 +159,6 @@ namespace CommonTableConfig
                     if (m_State == EditState.Add)
                     {
                         string filename = ofDialog.FileName.Substring(ofDialog.FileName.LastIndexOf("\\") + 1);
-                        //txtTempName.Text = filename.Substring(0, filename.IndexOf("."));
                         txtTempName.Text = filename;
                     }
                 }

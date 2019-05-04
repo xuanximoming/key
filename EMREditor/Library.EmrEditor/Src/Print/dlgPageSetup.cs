@@ -37,6 +37,7 @@ namespace XDesignerPrinting
         private System.Windows.Forms.NumericUpDown txtWidth;
         private System.Windows.Forms.NumericUpDown txtHeight;
         private Button btnSetDefault;
+        private GroupBox groupBox4;
         /// <summary>
         /// 必需的设计器变量。
         /// </summary>
@@ -104,6 +105,7 @@ namespace XDesignerPrinting
             this.cmdOK = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.btnSetDefault = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTopMargin)).BeginInit();
@@ -327,9 +329,16 @@ namespace XDesignerPrinting
             this.btnSetDefault.UseVisualStyleBackColor = true;
             this.btnSetDefault.Click += new System.EventHandler(this.btnSetDefault_Click);
             // 
+            // groupBox4
+            // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
+            // 
             // dlgPageSetup
             // 
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnSetDefault);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdOK);
@@ -433,6 +442,22 @@ namespace XDesignerPrinting
                 return false;
         }
 
+        private void InitFont()
+        {
+            try
+            {
+                //repositoryItemComboBoxFont.Items.AddRange(FontCommon.FontList.ToArray());
+                ////添加字号
+                //foreach (string fontsizename in FontCommon.allFontSizeName)
+                //{
+                //    repositoryItemComboBox_SiZe.Items.Add(fontsizename);
+                //}
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         private void picPreview_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
             if (RefreshPageSettings() == false)
@@ -554,6 +579,11 @@ namespace XDesignerPrinting
                 this.DialogResult = System.Windows.Forms.DialogResult.Yes;
                 this.Close();
             }
+        }
+
+        private void buttonEdit1_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
