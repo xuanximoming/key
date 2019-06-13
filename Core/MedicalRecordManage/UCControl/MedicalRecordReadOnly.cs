@@ -822,7 +822,7 @@ namespace MedicalRecordManage.UCControl
                 //    if (choosepat.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 //    {
                 //        SqlUtil.App.ChoosePatient(decimal.Parse(choosepat.NOOfINPAT));
-                //        SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", YD_BaseService.GetUCEmrInputPath());
+                //        SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
                 //        //LoadEmrContent(noofinpat);
                 //    }
                 //}
@@ -830,7 +830,7 @@ namespace MedicalRecordManage.UCControl
                 //{
                 //    SqlUtil.App.ChoosePatient(Convert.ToDecimal(noofinpat));
                 //    //LoadEmrContent(noofinpat);
-                //    SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", YD_BaseService.GetUCEmrInputPath());
+                //    SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
                 //}
 
             }
@@ -866,7 +866,7 @@ namespace MedicalRecordManage.UCControl
                     return;
                 }
                 #region 注释验证是否有病例
-                //DataTable dt = YD_SqlService.GetRecordsByNoofinpat(noofinpat);
+                //DataTable dt = DS_SqlService.GetRecordsByNoofinpat(noofinpat);
                 //if (null == dt || dt.Rows.Count == 0)
                 //{
                 //    Common.Ctrs.DLG.MessageBox.Show(foucesRow["NAME"] + " 没有病历，无法归档。");
@@ -877,7 +877,7 @@ namespace MedicalRecordManage.UCControl
                 {
                     return;
                 }
-                // YD_BaseService.CheckRecordRebacked(noofinpat.ToString())
+                // DS_BaseService.CheckRecordRebacked(noofinpat.ToString())
                 if (foucesRow["islock"].ToString() != "4701")
                 {
                     int num = DS_SqlService.SetRecordsRebacked(noofinpat.ToString());
@@ -919,7 +919,7 @@ namespace MedicalRecordManage.UCControl
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("该状态病历不能撤销归档");
                     return;
                 }
-                //DataTable dt = YD_SqlService.GetRecordsByNoofinpat(noofinpat);
+                //DataTable dt = DS_SqlService.GetRecordsByNoofinpat(noofinpat);
                 //if (null == dt || dt.Rows.Count == 0)
                 //{
                 //    Common.Ctrs.DLG.MessageBox.Show(foucesRow["NAME"] + " 没有病历，无法撤销归档。");
@@ -930,7 +930,7 @@ namespace MedicalRecordManage.UCControl
                 {
                     return;
                 }
-                //YD_BaseService.CheckRecordRebacked(noofinpat.ToString())
+                //DS_BaseService.CheckRecordRebacked(noofinpat.ToString())
                 if (foucesRow["islock"].ToString() == "4701")
                 {
                     int num = DS_SqlService.SetRecordsCancel(noofinpat.ToString());
@@ -1032,7 +1032,7 @@ namespace MedicalRecordManage.UCControl
                 }
                 int noofinpat = int.Parse(foucesRow["NOOFINPAT"].ToString().Trim());
 
-                //DataTable dt = YD_SqlService.GetRecordsByNoofinpat(noofinpat);
+                //DataTable dt = DS_SqlService.GetRecordsByNoofinpat(noofinpat);
                 //if (null == dt || dt.Rows.Count == 0)
                 //{
                 //    Common.Ctrs.DLG.MessageBox.Show(foucesRow["NAME"] + " 没有病历，无法撤销归档。");
@@ -1043,7 +1043,7 @@ namespace MedicalRecordManage.UCControl
                 {
                     return;
                 }
-                //YD_BaseService.CheckRecordRebacked(noofinpat.ToString())
+                //DS_BaseService.CheckRecordRebacked(noofinpat.ToString())
                 if (foucesRow["islock"].ToString() == "4707" || foucesRow["islock"].ToString() == "4706")
                 {
                     int num = DS_SqlService.SetRecordsCancelCommit(noofinpat.ToString());
@@ -1072,7 +1072,7 @@ namespace MedicalRecordManage.UCControl
         /// </summary>
         private void InitDoc(string deptCode)
         {
-            //  lookUpWindowDoctor.SqlHelper = SqlHelper.YD_SqlHelper;
+            //  lookUpWindowDoctor.SqlHelper = SqlHelper.DS_SqlHelper;
 
             DataTable docs = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataTable("select ID,NAME,PY,WB from users where valid != 0  and (deptid='" + deptCode + "') order by name ");
 

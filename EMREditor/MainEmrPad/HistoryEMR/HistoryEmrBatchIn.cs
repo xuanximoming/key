@@ -344,7 +344,7 @@ namespace DrectSoft.Core.MainEmrPad.HistoryEMR
                 //    {
                 //        if (!bll.CheckExistRecordDetail(Int32.Parse(dr["ID"].ToString()), dr["captiondatetime"].ToString()))
                 //        {
-                //            //YD_SqlService.UpdateRecordValid(Int32.Parse(dr["ID"].ToString()), false);
+                //            //DS_SqlService.UpdateRecordValid(Int32.Parse(dr["ID"].ToString()), false);
                          
                 //            bll.UpdateRecordValid(Int32.Parse(dr["ID"].ToString()), false);
                 //        }

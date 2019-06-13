@@ -5103,7 +5103,7 @@ namespace DrectSoft.Core.MainEmrPad
             #region "处理事务前方法"
             /**
             #region 已注释
-            //SqlConnection conn = new SqlConnection(YD_SqlHelper.ConnectionString);
+            //SqlConnection conn = new SqlConnection(DS_SqlHelper.ConnectionString);
             //conn.Open();
             //SqlTransaction tran = conn.BeginTransaction();
             //SqlCommand command = new SqlCommand();
@@ -5146,7 +5146,7 @@ namespace DrectSoft.Core.MainEmrPad
                         //根据页面首程获取该首程下所有病历
                         List<EmrModel> list = GetAllRecordModels(model);
                         //获取数据库中所有病历(包含valid=0的)
-                        DataTable allrecords = YD_SqlService.GetRecordsByNoofinpatContainDel(int.Parse(m_CurrentInpatient.NoOfFirstPage.ToString()));//edit by cyq 2013-01-11 处理事务
+                        DataTable allrecords = DS_SqlService.GetRecordsByNoofinpatContainDel(int.Parse(m_CurrentInpatient.NoOfFirstPage.ToString()));//edit by cyq 2013-01-11 处理事务
                         //页面传递过来的节点在数据库中已删除的集合
                         List<int> deleteIDList  = allrecords.Select(" valid = 0 ").Select(p => int.Parse(p["ID"].ToString())).ToList();
                         list = list.Where(p => !deleteIDList.Contains(p.InstanceId)).ToList();
@@ -5215,7 +5215,7 @@ namespace DrectSoft.Core.MainEmrPad
                 {
                     SaveDocumentInner(model);
                 }
-                //YD_SqlHelper.CommitTransaction();
+                //DS_SqlHelper.CommitTransaction();
             }
             catch(SqlException sqlEx)
             {
@@ -5337,7 +5337,7 @@ namespace DrectSoft.Core.MainEmrPad
         private void SaveInTran(EmrModel model)
         {
             #region 注释
-            //SqlConnection conn = new SqlConnection(YD_SqlHelper.ConnectionString);
+            //SqlConnection conn = new SqlConnection(DS_SqlHelper.ConnectionString);
             //conn.Open();
             //SqlTransaction tran = conn.BeginTransaction();
             //SqlCommand command = new SqlCommand();
@@ -5413,10 +5413,10 @@ namespace DrectSoft.Core.MainEmrPad
                                 isSaved = false;
                                 if (Common.Ctrs.DLG.MessageBox.Show("该病人已存在首程，不可重复创建。您是否要刷新病程记录？", "首程已存在", Common.Ctrs.DLG.MessageBoxButtons.YesNo) == DialogResult.No)
                                 {
-                                    YD_SqlHelper.CommitTransaction();
+                                    DS_SqlHelper.CommitTransaction();
                                     return;
                                 }
-                                YD_SqlHelper.CommitTransaction();
+                                DS_SqlHelper.CommitTransaction();
                                 //刷新病历树节点
                                 RemoveAllPagesExceptMain();
                                 InitPatTree();
@@ -6029,7 +6029,7 @@ namespace DrectSoft.Core.MainEmrPad
         //    try
         //    {
         //        //获取该病人该科室下所有首次病程
-        //        DataTable dt = YD_SqlService.GetFirstRecordsByDept((int)m_CurrentInpatient.NoOfFirstPage, model.DepartCode);
+        //        DataTable dt = DS_SqlService.GetFirstRecordsByDept((int)m_CurrentInpatient.NoOfFirstPage, model.DepartCode);
         //        List<EmrModel> list = new List<EmrModel>();
         //        if (m_CurrentTreeListNode.ParentNode != null && m_CurrentTreeListNode.ParentNode.Tag is EmrModelContainer)
         //        {
@@ -6083,7 +6083,7 @@ namespace DrectSoft.Core.MainEmrPad
                     return new List<EmrModel>();
                 }
                 //获取该病人该科室下所有首次病程
-                DataTable dt = YD_SqlService.GetFirstRecordsByDept((int)m_CurrentInpatient.NoOfFirstPage, model.DepartCode);
+                DataTable dt = DS_SqlService.GetFirstRecordsByDept((int)m_CurrentInpatient.NoOfFirstPage, model.DepartCode);
                 //是否存在其他首程
                 bool boo = dt.Select(" 1=1 ").Any(p => int.Parse(p["ID"].ToString()) != model.InstanceId);
                 //同科室病历的时间范围
@@ -6092,7 +6092,7 @@ namespace DrectSoft.Core.MainEmrPad
                 if (boo)
                 {
                     //查找上一个和下一个非本科室的病历
-                    var preRecords = YD_SqlService.GetRecordsByTimeDiv((int)m_CurrentInpatient.NoOfFirstPage, null, null).Select(" departcode <> '" + model.DepartCode + "' ").OrderBy(p => p["captiondatetime"]);
+                    var preRecords = DS_SqlService.GetRecordsByTimeDiv((int)m_CurrentInpatient.NoOfFirstPage, null, null).Select(" departcode <> '" + model.DepartCode + "' ").OrderBy(p => p["captiondatetime"]);
                     if (null != preRecords && preRecords.Count() > 0)
                     {
                         DataRow preOtherRecord = preRecords.Where(p => DateTime.Parse(p["captiondatetime"].ToString()) < model.DisplayTime).OrderByDescending(p => p["captiondatetime"]).FirstOrDefault();
@@ -6274,7 +6274,7 @@ namespace DrectSoft.Core.MainEmrPad
                     return new List<EmrModel>();
                 }
                 //获取该病人该科室下所有首次病程
-                DataTable dt = YD_SqlService.GetFirstRecordsByDeptInTran((int)m_CurrentInpatient.NoOfFirstPage, model.DepartCode);
+                DataTable dt = DS_SqlService.GetFirstRecordsByDeptInTran((int)m_CurrentInpatient.NoOfFirstPage, model.DepartCode);
                 //是否存在其他首程
                 bool boo = dt.Select(" 1=1 ").Any(p => int.Parse(p["ID"].ToString()) != model.InstanceId);
                 //同科室病历的时间范围
@@ -6283,7 +6283,7 @@ namespace DrectSoft.Core.MainEmrPad
                 if (boo)
                 {
                     //查找上一个和下一个非本科室的病历
-                    var preRecords = YD_SqlService.GetRecordsByTimeDivInTran((int)m_CurrentInpatient.NoOfFirstPage, null, null).Select(" departcode <> '" + model.DepartCode + "' ").OrderBy(p => p["captiondatetime"]);
+                    var preRecords = DS_SqlService.GetRecordsByTimeDivInTran((int)m_CurrentInpatient.NoOfFirstPage, null, null).Select(" departcode <> '" + model.DepartCode + "' ").OrderBy(p => p["captiondatetime"]);
                     if (null != preRecords && preRecords.Count() > 0)
                     {
                         DataRow preOtherRecord = preRecords.Where(p => DateTime.Parse(p["captiondatetime"].ToString()) < model.DisplayTime).OrderByDescending(p => p["captiondatetime"]).FirstOrDefault();
@@ -6601,7 +6601,7 @@ namespace DrectSoft.Core.MainEmrPad
         //            if (null != dt2 && dt2.Rows.Count > 0)
         //            {
         //                string captiondatetime = null == dt2.Rows[0]["captiondatetime"] ? "" : dt2.Rows[0]["captiondatetime"].ToString();
-        //                DataTable records = YD_SqlService.GetRecordsByTimeDiv(string.IsNullOrEmpty(noofinpat) ? -1 : int.Parse(noofinpat), DateTime.Parse(captiondatetime), DateTime.Now);
+        //                DataTable records = DS_SqlService.GetRecordsByTimeDiv(string.IsNullOrEmpty(noofinpat) ? -1 : int.Parse(noofinpat), DateTime.Parse(captiondatetime), DateTime.Now);
         //                var recordRows = records.Select(" 1=1 ").Where(p => null != p["departcode"] && !string.IsNullOrEmpty(p["departcode"].ToString().Trim()));
         //                if (!string.IsNullOrEmpty(dept.Trim()) && !recordRows.Any(p => p["departcode"].ToString() != dept))
         //                {
@@ -7375,7 +7375,7 @@ namespace DrectSoft.Core.MainEmrPad
                 //上面是将模板加载完毕
                 //bool isopenThreeLevelAudit;
                 //string isopenOwnerSign = string.Empty;//是否开放了个人书写留痕功能
-                //isopenOwnerSign = YD_SqlService.GetConfigValueByKey("IsOpenOwnerSign");
+                //isopenOwnerSign = DS_SqlService.GetConfigValueByKey("IsOpenOwnerSign");
                 ////UCEmrInput UC1 = new UCEmrInput();
                 //isopenThreeLevelAudit = IsOpenThreeLevelAudit();
                 //if (isopenThreeLevelAudit == true && isopenOwnerSign == "1")

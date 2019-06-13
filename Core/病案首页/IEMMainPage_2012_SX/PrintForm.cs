@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -19,12 +14,18 @@ namespace DrectSoft.Core.IEMMainPage
 
         int m_PageIndex = 1;
 
-        DrawMainPageUtil util;
+        DrawMainPageEnUtil util;
         #endregion
 
         #region .ctor
 
-        public PrintForm(DrawMainPageUtil dmpu)
+        //public PrintForm(DrawMainPageUtil dmpu)
+        //{
+        //    InitializeComponent();
+        //    util = dmpu;
+        //}
+
+        public PrintForm(DrawMainPageEnUtil dmpu)
         {
             InitializeComponent();
             util = dmpu;
@@ -238,10 +239,10 @@ namespace DrectSoft.Core.IEMMainPage
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
-          
+
         }
 
         private void panelContainer_Click(object sender, EventArgs e)
@@ -399,14 +400,14 @@ namespace DrectSoft.Core.IEMMainPage
                     rabLeftRight.Visible = false;
                     rabUpDown.Visible = false;
                 }
-        
+
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
-           
+
         }
     }
 }

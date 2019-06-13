@@ -29,42 +29,112 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip43 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem40 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem25 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem26 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem27 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem28 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem29 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem30 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem31 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem31 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem32 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem32 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem33 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip35 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem34 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem33 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip36 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem35 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem34 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip37 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem36 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem35 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip44 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip38 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem37 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem36 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip45 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem42 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip39 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem38 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem37 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip46 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem43 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip40 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem39 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem38 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip47 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem44 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip41 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem40 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem39 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip42 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem41 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem40 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip43 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem42 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip44 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem43 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip45 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem44 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip46 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem41 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip47 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem42 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip48 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem45 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem40 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipItem toolTipItem43 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip49 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem46 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem41 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipItem toolTipItem44 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip50 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem47 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem42 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipItem toolTipItem45 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip51 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem48 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem43 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipItem toolTipItem46 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip52 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem49 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem44 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip53 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem50 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem45 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip54 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem51 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem46 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip55 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem52 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem47 = new DevExpress.Utils.ToolTipItem();
@@ -80,187 +150,165 @@
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.SuperToolTip superToolTip15 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem15 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem21 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip23 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem22 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip24 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem23 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip25 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem23 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip26 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem24 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip27 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem25 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip28 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem27 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip29 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem28 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip30 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem29 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip31 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem26 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip32 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem27 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip33 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem30 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem28 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip34 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem31 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem29 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip35 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem32 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem30 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip36 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem33 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem31 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip37 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem34 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip38 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem35 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip39 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem36 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.SuperToolTip superToolTip40 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem37 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem32 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip41 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem38 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem33 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip42 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem39 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem34 = new DevExpress.Utils.ToolTipItem();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
-            this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barStatic_Bed = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticPatName = new DevExpress.XtraBars.BarStaticItem();
+            this.barStatic_Blh = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticSex = new DevExpress.XtraBars.BarStaticItem();
+            this.barStatic_Age = new DevExpress.XtraBars.BarStaticItem();
+            this.barStatic_InWardDate = new DevExpress.XtraBars.BarStaticItem();
+            this.barStatic_Dept = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem_InCount = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemChangeMacro = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.bar2 = new DevExpress.XtraBars.Bar();
+            this.btn_new = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHistoryEmrBatchIn = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_Delete = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Edit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEmrReadOnly = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_SaveAs = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSaveAll = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_Check = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_Submit = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_Audit = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemCancelAudit = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Print = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Preview = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_JumpPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemEmrPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
+            this.barButton_InsertTable = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_InsertRow = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_InsertCol = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
+            this.barButton_DeletTable = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_DeletCol = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_DeletRow = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheck_ChooseTable = new DevExpress.XtraBars.BarCheckItem();
+            this.barButton_CellInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemTableProperty = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonExportFile = new DevExpress.XtraBars.BarButtonItem();
+            this.barButton_ExportXml = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonFind = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemPerson = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemThreeLevelCheck = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemReplaceItem = new DevExpress.XtraBars.BarButtonItem();
+            this.barEditItemDefaultFontSize = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barButtonItemAddNurseTable = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCallPacs = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCheckOutDep = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.btnCopy = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPaste = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Cut = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Undo = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Redo = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem21 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem_Font = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBoxFont = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.btnSetPageBackColor = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonFontColor = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem22 = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem_FontSize = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox_SiZe = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barButtonItem_Italy = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Undline = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemBold = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemQuanZi = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Sup = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Sub = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Collect = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItemDiagnosis = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.imageCollection_Toolbars = new DevExpress.Utils.ImageCollection(this.components);
-            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem47 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem48 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem49 = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem8 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem10 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem12 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem13 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem14 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem15 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem16 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem50 = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem17 = new DevExpress.XtraBars.BarStaticItem();
-            this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem51 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem52 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem11 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem53 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem54 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem55 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem56 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
-            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
-            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem40 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem9 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem41 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem42 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem43 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem44 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem57 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem58 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem59 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem60 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem61 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem45 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem46 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCancelAuditPopup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnAddCommonRecord = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDelCommonNote = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem7 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem9 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem11 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSub_File = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSavePopup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDeletePopup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSubmitPopup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnConfirmPopup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnModulePopup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEmrOpenEdit = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem_Bold = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem18 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStatic_InCount = new DevExpress.XtraBars.BarStaticItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
+            this.barStaticItem19 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem20 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnToPDF = new DevExpress.XtraBars.BarButtonItem();
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel3 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel3_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -360,123 +408,75 @@
             this.dockPanelView = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel4_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barStatic_Bed = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticPatName = new DevExpress.XtraBars.BarStaticItem();
-            this.barStatic_Blh = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticSex = new DevExpress.XtraBars.BarStaticItem();
-            this.barStatic_Age = new DevExpress.XtraBars.BarStaticItem();
-            this.barStatic_InWardDate = new DevExpress.XtraBars.BarStaticItem();
-            this.barStatic_Dept = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem_InCount = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemChangeMacro = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnPrint = new DevExpress.XtraBars.BarButtonItem();
-            this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btn_new = new DevExpress.XtraBars.BarButtonItem();
-            this.btnHistoryEmrBatchIn = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_Delete = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Edit = new DevExpress.XtraBars.BarButtonItem();
-            this.btnEmrReadOnly = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_SaveAs = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSaveAll = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_Check = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_Submit = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_Audit = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemCancelAudit = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Print = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Preview = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_JumpPrint = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemEmrPrint = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
-            this.barButton_InsertTable = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_InsertRow = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_InsertCol = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem5 = new DevExpress.XtraBars.BarSubItem();
-            this.barButton_DeletTable = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_DeletCol = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_DeletRow = new DevExpress.XtraBars.BarButtonItem();
-            this.barCheck_ChooseTable = new DevExpress.XtraBars.BarCheckItem();
-            this.barButton_CellInfo = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemTableProperty = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem22 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem29 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonExportFile = new DevExpress.XtraBars.BarButtonItem();
-            this.barButton_ExportXml = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonFind = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemPerson = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem24 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemThreeLevelCheck = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemReplaceItem = new DevExpress.XtraBars.BarButtonItem();
-            this.barEditItemDefaultFontSize = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.barButtonItemAddNurseTable = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCallPacs = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCheckOutDep = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.btnCopy = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPaste = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Cut = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Undo = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Redo = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem21 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem_Font = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBoxFont = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.btnSetPageBackColor = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonFontColor = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem22 = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem_FontSize = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBox_SiZe = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.barButtonItem_Italy = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Undline = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemBold = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemQuanZi = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Sup = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Sub = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Collect = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemDiagnosis = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem7 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem9 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem11 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSub_File = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
-            this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSavePopup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDeletePopup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSubmitPopup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnConfirmPopup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnModulePopup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnEmrOpenEdit = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_Bold = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem18 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStatic_InCount = new DevExpress.XtraBars.BarStaticItem();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.barStaticItem19 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem20 = new DevExpress.XtraBars.BarStaticItem();
-            this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnToPDF = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem4 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem47 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem6 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem48 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem49 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem8 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem10 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem12 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem13 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem14 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem15 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem16 = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem50 = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem17 = new DevExpress.XtraBars.BarStaticItem();
+            this.barSubItem10 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem51 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem52 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem11 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem53 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem54 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem55 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem56 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem19 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem6 = new DevExpress.XtraBars.BarSubItem();
+            this.barSubItem7 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem31 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem32 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem33 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem8 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem34 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem35 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem36 = new DevExpress.XtraBars.BarButtonItem();
+            this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
+            this.barButtonItem37 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem38 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem39 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem40 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem9 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem41 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem42 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem43 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem25 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem26 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem44 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem57 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem58 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem59 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem60 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem61 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem20 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem28 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem30 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem27 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem45 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem46 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCancelAuditPopup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAddCommonRecord = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelCommonNote = new DevExpress.XtraBars.BarButtonItem();
             this.imageCollection_Tree1 = new DevExpress.Utils.ImageCollection(this.components);
             this.popupMenuInTreeList = new DevExpress.XtraBars.PopupMenu(this.components);
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -485,8 +485,12 @@
             this.popupMenuDataCollect = new DevExpress.XtraBars.PopupMenu(this.components);
             this.popupMenuDeptTemplate = new DevExpress.XtraBars.PopupMenu(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxFont)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox_SiZe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection_Toolbars)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
             this.panelContainer1.SuspendLayout();
             this.dockPanel3.SuspendLayout();
             this.dockPanel3_Container.SuspendLayout();
@@ -540,11 +544,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.dockPanelView.SuspendLayout();
             this.dockPanel4_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxFont)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox_SiZe)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection_Tree1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuInTreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -557,7 +557,7 @@
             // dockManager1
             // 
             this.dockManager1.Form = this;
-            this.dockManager1.MenuManager = this.barManager1;
+            this.dockManager1.MenuManager = this.barManager2;
             this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.panelContainer1,
             this.panelContainer2});
@@ -568,113 +568,1079 @@
             "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
             "DevExpress.XtraBars.Ribbon.RibbonControl"});
             // 
-            // barManager2
+            // barManager1
             // 
-            this.barManager2.AllowCustomization = false;
-            this.barManager2.AllowItemAnimatedHighlighting = false;
-            this.barManager2.AllowMoveBarOnToolbar = false;
-            this.barManager2.AllowQuickCustomization = false;
-            this.barManager2.DockControls.Add(this.barDockControl1);
-            this.barManager2.DockControls.Add(this.barDockControl2);
-            this.barManager2.DockControls.Add(this.barDockControl3);
-            this.barManager2.DockControls.Add(this.barDockControl4);
-            this.barManager2.DockManager = this.dockManager1;
-            this.barManager2.Form = this;
-            this.barManager2.Images = this.imageCollection_Toolbars;
-            this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barStaticItem1,
-            this.barStaticItem3,
-            this.barStaticItem4,
-            this.barButtonItem47,
-            this.barButtonItem14,
-            this.barStaticItem6,
-            this.barButtonItem48,
-            this.barButtonItem49,
-            this.barStaticItem8,
-            this.barStaticItem10,
-            this.barStaticItem12,
-            this.barStaticItem13,
-            this.barStaticItem14,
-            this.barStaticItem15,
-            this.barStaticItem16,
-            this.barButtonItem50,
-            this.barStaticItem17,
-            this.barSubItem10,
-            this.barSubItem11,
-            this.barButtonItem55,
-            this.barButtonItem56,
-            this.barButtonItem51,
-            this.barButtonItem52,
-            this.barButtonItem53,
-            this.barButtonItem54,
-            this.barButtonItem19,
-            this.barSubItem6,
-            this.barSubItem9,
-            this.barCheckItem1,
-            this.barButtonItem41,
-            this.barButtonItem42,
-            this.barButtonItem25,
-            this.barButtonItem26,
-            this.barButtonItem16,
-            this.barButtonItem43,
-            this.barButtonItem44,
-            this.barButtonItem57,
-            this.barButtonItem58,
-            this.barButtonItem59,
-            this.barButtonItem60,
-            this.barButtonItem61,
-            this.barButtonItem20,
-            this.barSubItem7,
-            this.barButtonItem31,
-            this.barButtonItem32,
-            this.barButtonItem33,
-            this.barSubItem8,
-            this.barButtonItem34,
-            this.barButtonItem35,
-            this.barButtonItem36,
-            this.barButtonItem37,
-            this.barButtonItem38,
-            this.barButtonItem39,
-            this.barButtonItem40,
-            this.barButtonItem15,
-            this.barButtonItem17,
-            this.barButtonItem28,
-            this.barButtonItem30,
-            this.barButtonItem27,
-            this.barButtonItem45,
-            this.barButtonItem46,
-            this.btnCancelAuditPopup,
-            this.btnAddCommonRecord,
-            this.btnDelCommonNote});
-            this.barManager2.MaxItemId = 73;
+            this.barManager1.AllowCustomization = false;
+            this.barManager1.AllowItemAnimatedHighlighting = false;
+            this.barManager1.AllowMoveBarOnToolbar = false;
+            this.barManager1.AllowQuickCustomization = false;
+            this.barManager1.AllowShowToolbarsPopup = false;
+            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.bar1,
+            this.bar2,
+            this.bar3});
+            this.barManager1.DockControls.Add(this.barDockControlTop);
+            this.barManager1.DockControls.Add(this.barDockControlBottom);
+            this.barManager1.DockControls.Add(this.barDockControlLeft);
+            this.barManager1.DockControls.Add(this.barDockControlRight);
+            this.barManager1.DockManager = this.dockManager1;
+            this.barManager1.Form = this;
+            this.barManager1.Images = this.imageCollection_Toolbars;
+            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barStatic_Bed,
+            this.barStaticItem2,
+            this.barStaticPatName,
+            this.barButtonItem1,
+            this.barButtonItem2,
+            this.barStatic_Blh,
+            this.barButtonItem3,
+            this.barButtonItem4,
+            this.barStaticItem5,
+            this.barStaticSex,
+            this.barStaticItem7,
+            this.barStatic_Age,
+            this.barStaticItem9,
+            this.barStatic_InWardDate,
+            this.barStaticItem11,
+            this.barButtonItem5,
+            this.barStatic_Dept,
+            this.barSub_File,
+            this.barSubItem2,
+            this.barButtonItem6,
+            this.barButtonItem7,
+            this.barButtonItem8,
+            this.barButtonItem9,
+            this.barButtonItem10,
+            this.barButtonItem11,
+            this.barButtonSave,
+            this.barSubItem1,
+            this.barSubItem3,
+            this.barCheck_ChooseTable,
+            this.barButtonExportFile,
+            this.barButton_ExportXml,
+            this.barButton_Submit,
+            this.barButton_Audit,
+            this.barButton_Delete,
+            this.barButtonFind,
+            this.barButtonItem24,
+            this.btnSavePopup,
+            this.btnDeletePopup,
+            this.btnSubmitPopup,
+            this.btnConfirmPopup,
+            this.btnModulePopup,
+            this.barButton_Check,
+            this.barSubItem4,
+            this.barButton_InsertTable,
+            this.barButton_InsertRow,
+            this.barButton_InsertCol,
+            this.barSubItem5,
+            this.barButton_DeletTable,
+            this.barButton_DeletCol,
+            this.barButton_DeletRow,
+            this.barButton_CellInfo,
+            this.barButtonItemTableProperty,
+            this.barButtonItem22,
+            this.barButtonItem29,
+            this.btn_new,
+            this.btn_Edit,
+            this.btnEmrReadOnly,
+            this.barButtonItem_Preview,
+            this.barButtonItem_JumpPrint,
+            this.barButtonItem_Print,
+            this.btnEmrOpenEdit,
+            this.btnCopy,
+            this.btnPaste,
+            this.btnSaveAll,
+            this.barButtonItem12,
+            this.barButtonItem_Cut,
+            this.barButtonItem_Undo,
+            this.barButtonItem_Redo,
+            this.barEditItem_Font,
+            this.barEditItem_FontSize,
+            this.barButtonItem_Bold,
+            this.barButtonItem_Italy,
+            this.barButtonItem_Undline,
+            this.barButtonItem_Sup,
+            this.barButtonItem_Sub,
+            this.btn_Collect,
+            this.btn_SaveAs,
+            this.barButtonItemPerson,
+            this.barButtonItemEmrPrint,
+            this.barButtonItemThreeLevelCheck,
+            this.barButtonItemCancelAudit,
+            this.barButtonItemDiagnosis,
+            this.barStaticItem18,
+            this.barStatic_InCount,
+            this.barButtonItem_InCount,
+            this.btnHistoryEmrBatchIn,
+            this.barButtonItemReplaceItem,
+            this.barEditItem1,
+            this.barStaticItem19,
+            this.barEditItemDefaultFontSize,
+            this.barStaticItem20,
+            this.barButtonItemAddNurseTable,
+            this.barButtonItemQuanZi,
+            this.barButtonFontColor,
+            this.barButtonItemBold,
+            this.barButtonItemChangeMacro,
+            this.barButtonItem13,
+            this.barStaticItem21,
+            this.barStaticItem22,
+            this.barButtonItem18,
+            this.barBtnToPDF,
+            this.btnCallPacs,
+            this.btnCheckOutDep,
+            this.barBtnPrint,
+            this.btnSetPageBackColor});
+            this.barManager1.MaxItemId = 116;
+            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemComboBoxFont,
+            this.repositoryItemComboBox_SiZe,
+            this.repositoryItemComboBox1,
+            this.repositoryItemComboBox2});
             // 
-            // barDockControl1
+            // bar1
             // 
-            this.barDockControl1.CausesValidation = false;
-            this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControl1.Location = new System.Drawing.Point(0, 93);
-            this.barDockControl1.Size = new System.Drawing.Size(1615, 0);
+            this.bar1.BarName = "Tools";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 1;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Bed),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticPatName),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Blh),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticSex),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Age),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_InWardDate),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Dept),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_InCount),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemChangeMacro, true),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.None, false, this.barButtonItem18, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnPrint, true)});
+            this.bar1.OptionsBar.AllowQuickCustomization = false;
+            this.bar1.Text = "Tools";
             // 
-            // barDockControl2
+            // barStatic_Bed
             // 
-            this.barDockControl2.CausesValidation = false;
-            this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 615);
-            this.barDockControl2.Size = new System.Drawing.Size(1615, 0);
+            this.barStatic_Bed.Id = 0;
+            this.barStatic_Bed.Name = "barStatic_Bed";
+            this.barStatic_Bed.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barDockControl3
+            // barStaticPatName
             // 
-            this.barDockControl3.CausesValidation = false;
-            this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl3.Location = new System.Drawing.Point(0, 93);
-            this.barDockControl3.Size = new System.Drawing.Size(0, 522);
+            this.barStaticPatName.Caption = "姓名：";
+            this.barStaticPatName.Id = 2;
+            this.barStaticPatName.Name = "barStaticPatName";
+            this.barStaticPatName.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barDockControl4
+            // barStatic_Blh
             // 
-            this.barDockControl4.CausesValidation = false;
-            this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1615, 93);
-            this.barDockControl4.Size = new System.Drawing.Size(0, 522);
+            this.barStatic_Blh.Caption = "病历号：";
+            this.barStatic_Blh.Id = 5;
+            this.barStatic_Blh.Name = "barStatic_Blh";
+            this.barStatic_Blh.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticSex
+            // 
+            this.barStaticSex.Caption = "性别：";
+            this.barStaticSex.Id = 9;
+            this.barStaticSex.Name = "barStaticSex";
+            this.barStaticSex.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStatic_Age
+            // 
+            this.barStatic_Age.Caption = "年龄：";
+            this.barStatic_Age.Id = 11;
+            this.barStatic_Age.Name = "barStatic_Age";
+            this.barStatic_Age.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStatic_InWardDate
+            // 
+            this.barStatic_InWardDate.Caption = "入院日期：";
+            this.barStatic_InWardDate.Id = 13;
+            this.barStatic_InWardDate.Name = "barStatic_InWardDate";
+            this.barStatic_InWardDate.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStatic_Dept
+            // 
+            this.barStatic_Dept.Caption = "当前科室：";
+            this.barStatic_Dept.Id = 16;
+            this.barStatic_Dept.Name = "barStatic_Dept";
+            this.barStatic_Dept.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem_InCount
+            // 
+            this.barButtonItem_InCount.Caption = " 入院次数：";
+            this.barButtonItem_InCount.Id = 95;
+            this.barButtonItem_InCount.Name = "barButtonItem_InCount";
+            this.barButtonItem_InCount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_InCount_ItemClick);
+            // 
+            // barButtonItemChangeMacro
+            // 
+            this.barButtonItemChangeMacro.Caption = "更改常用词";
+            this.barButtonItemChangeMacro.Id = 105;
+            this.barButtonItemChangeMacro.Name = "barButtonItemChangeMacro";
+            toolTipTitleItem16.Text = "更改界面中常用词【科室、病区】";
+            toolTipItem16.LeftIndent = 6;
+            toolTipItem16.Text = "此功能只开放给管理员";
+            superToolTip16.Items.Add(toolTipTitleItem16);
+            superToolTip16.Items.Add(toolTipItem16);
+            this.barButtonItemChangeMacro.SuperTip = superToolTip16;
+            this.barButtonItemChangeMacro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItemChangeMacro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemChangeMacro_ItemClick);
+            // 
+            // barButtonItem18
+            // 
+            this.barButtonItem18.Caption = "出科检查";
+            this.barButtonItem18.Id = 109;
+            this.barButtonItem18.Name = "barButtonItem18";
+            toolTipTitleItem17.Text = "出科检查";
+            superToolTip17.Items.Add(toolTipTitleItem17);
+            this.barButtonItem18.SuperTip = superToolTip17;
+            this.barButtonItem18.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
+            // 
+            // barBtnPrint
+            // 
+            this.barBtnPrint.Caption = "打印";
+            this.barBtnPrint.Id = 114;
+            this.barBtnPrint.ImageIndex = 12;
+            this.barBtnPrint.Name = "barBtnPrint";
+            toolTipItem17.Text = "打印";
+            superToolTip18.Items.Add(toolTipItem17);
+            this.barBtnPrint.SuperTip = superToolTip18;
+            this.barBtnPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barBtnPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemEmrPrint_ItemClick);
+            // 
+            // bar2
+            // 
+            this.bar2.BarName = "Custom 4";
+            this.bar2.DockCol = 0;
+            this.bar2.DockRow = 0;
+            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_new, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnHistoryEmrBatchIn),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Delete, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_Edit, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEmrReadOnly, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonSave, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_SaveAs, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSaveAll, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Check, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Submit, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Audit, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCancelAudit),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Print, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Preview),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_JumpPrint),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemEmrPrint, true),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem24),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemThreeLevelCheck),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemReplaceItem),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItemDefaultFontSize, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAddNurseTable),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCallPacs),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnCheckOutDep, true)});
+            this.bar2.Text = "Custom 4";
+            // 
+            // btn_new
+            // 
+            this.btn_new.Caption = "新建";
+            this.btn_new.Id = 60;
+            this.btn_new.ImageIndex = 10;
+            this.btn_new.Name = "btn_new";
+            toolTipTitleItem18.Text = "新建";
+            toolTipItem18.LeftIndent = 6;
+            toolTipItem18.Text = "新建病历文书";
+            superToolTip19.Items.Add(toolTipTitleItem18);
+            superToolTip19.Items.Add(toolTipItem18);
+            this.btn_new.SuperTip = superToolTip19;
+            this.btn_new.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_new_ItemClick);
+            // 
+            // btnHistoryEmrBatchIn
+            // 
+            this.btnHistoryEmrBatchIn.Caption = "批量导入历史病例";
+            this.btnHistoryEmrBatchIn.Enabled = false;
+            this.btnHistoryEmrBatchIn.Id = 96;
+            this.btnHistoryEmrBatchIn.ImageIndex = 4;
+            this.btnHistoryEmrBatchIn.Name = "btnHistoryEmrBatchIn";
+            toolTipTitleItem19.Text = "历史病例导入";
+            toolTipItem19.LeftIndent = 6;
+            toolTipItem19.Text = "导入前次就诊时的所有病例";
+            superToolTip20.Items.Add(toolTipTitleItem19);
+            superToolTip20.Items.Add(toolTipItem19);
+            this.btnHistoryEmrBatchIn.SuperTip = superToolTip20;
+            this.btnHistoryEmrBatchIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHistoryEmrBatchIn_ItemClick);
+            // 
+            // barButton_Delete
+            // 
+            this.barButton_Delete.Caption = "删除";
+            this.barButton_Delete.Id = 39;
+            this.barButton_Delete.ImageIndex = 17;
+            this.barButton_Delete.Name = "barButton_Delete";
+            toolTipTitleItem20.Text = "删除";
+            toolTipItem20.LeftIndent = 6;
+            toolTipItem20.Text = "删除当前病历文件";
+            superToolTip21.Items.Add(toolTipTitleItem20);
+            superToolTip21.Items.Add(toolTipItem20);
+            this.barButton_Delete.SuperTip = superToolTip21;
+            this.barButton_Delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Delete_ItemClick);
+            // 
+            // btn_Edit
+            // 
+            this.btn_Edit.Caption = "编辑";
+            this.btn_Edit.Id = 62;
+            this.btn_Edit.ImageIndex = 0;
+            this.btn_Edit.Name = "btn_Edit";
+            toolTipTitleItem21.Text = "编辑";
+            toolTipItem21.LeftIndent = 6;
+            toolTipItem21.Text = "申请编辑模式";
+            superToolTip22.Items.Add(toolTipTitleItem21);
+            superToolTip22.Items.Add(toolTipItem21);
+            this.btn_Edit.SuperTip = superToolTip22;
+            this.btn_Edit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Edit_ItemClick);
+            // 
+            // btnEmrReadOnly
+            // 
+            this.btnEmrReadOnly.Caption = "只读";
+            this.btnEmrReadOnly.Id = 68;
+            this.btnEmrReadOnly.ImageIndex = 24;
+            this.btnEmrReadOnly.Name = "btnEmrReadOnly";
+            toolTipTitleItem22.Text = "只读";
+            toolTipItem22.LeftIndent = 6;
+            toolTipItem22.Text = "当前病历不能编辑";
+            superToolTip23.Items.Add(toolTipTitleItem22);
+            superToolTip23.Items.Add(toolTipItem22);
+            this.btnEmrReadOnly.SuperTip = superToolTip23;
+            this.btnEmrReadOnly.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmrReadOnly_ItemClick);
+            // 
+            // barButtonSave
+            // 
+            this.barButtonSave.Caption = "保存(&S)";
+            this.barButtonSave.Id = 25;
+            this.barButtonSave.ImageIndex = 18;
+            this.barButtonSave.Name = "barButtonSave";
+            toolTipTitleItem23.Text = "保存";
+            toolTipItem23.LeftIndent = 6;
+            toolTipItem23.Text = "保存当前修改";
+            superToolTip24.Items.Add(toolTipTitleItem23);
+            superToolTip24.Items.Add(toolTipItem23);
+            this.barButtonSave.SuperTip = superToolTip24;
+            this.barButtonSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSave_ItemClick);
+            // 
+            // btn_SaveAs
+            // 
+            this.btn_SaveAs.Caption = "另存";
+            this.btn_SaveAs.Id = 87;
+            this.btn_SaveAs.ImageIndex = 36;
+            this.btn_SaveAs.Name = "btn_SaveAs";
+            toolTipTitleItem24.Text = "另存";
+            toolTipItem24.LeftIndent = 6;
+            toolTipItem24.Text = "另存为个人模板";
+            superToolTip25.Items.Add(toolTipTitleItem24);
+            superToolTip25.Items.Add(toolTipItem24);
+            this.btn_SaveAs.SuperTip = superToolTip25;
+            this.btn_SaveAs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_SaveAs_ItemClick);
+            // 
+            // btnSaveAll
+            // 
+            this.btnSaveAll.Caption = "全部保存";
+            this.btnSaveAll.Id = 72;
+            this.btnSaveAll.ImageIndex = 27;
+            this.btnSaveAll.Name = "btnSaveAll";
+            toolTipTitleItem25.Text = "全部保存";
+            toolTipItem25.LeftIndent = 6;
+            toolTipItem25.Text = "保存病人所有的病历";
+            superToolTip26.Items.Add(toolTipTitleItem25);
+            superToolTip26.Items.Add(toolTipItem25);
+            this.btnSaveAll.SuperTip = superToolTip26;
+            this.btnSaveAll.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnSaveAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaveAll_ItemClick);
+            // 
+            // barButton_Check
+            // 
+            this.barButton_Check.Caption = "自检";
+            this.barButton_Check.Id = 46;
+            this.barButton_Check.ImageIndex = 22;
+            this.barButton_Check.Name = "barButton_Check";
+            toolTipTitleItem26.Text = "自检";
+            toolTipItem26.LeftIndent = 6;
+            toolTipItem26.Text = "病历缺陷项检查";
+            superToolTip27.Items.Add(toolTipTitleItem26);
+            superToolTip27.Items.Add(toolTipItem26);
+            this.barButton_Check.SuperTip = superToolTip27;
+            this.barButton_Check.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Check_ItemClick);
+            // 
+            // barButton_Submit
+            // 
+            this.barButton_Submit.Caption = "提交";
+            this.barButton_Submit.Id = 37;
+            this.barButton_Submit.ImageIndex = 15;
+            this.barButton_Submit.Name = "barButton_Submit";
+            toolTipTitleItem27.Text = "提交";
+            toolTipItem27.LeftIndent = 6;
+            toolTipItem27.Text = "将当前病历提交给上级医师";
+            superToolTip28.Items.Add(toolTipTitleItem27);
+            superToolTip28.Items.Add(toolTipItem27);
+            this.barButton_Submit.SuperTip = superToolTip28;
+            this.barButton_Submit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Submit_ItemClick);
+            // 
+            // barButton_Audit
+            // 
+            this.barButton_Audit.Caption = "审核";
+            this.barButton_Audit.Id = 38;
+            this.barButton_Audit.ImageIndex = 21;
+            this.barButton_Audit.Name = "barButton_Audit";
+            toolTipTitleItem28.Text = "审核";
+            toolTipItem28.LeftIndent = 6;
+            toolTipItem28.Text = "审核下级医师提交的病历";
+            superToolTip29.Items.Add(toolTipTitleItem28);
+            superToolTip29.Items.Add(toolTipItem28);
+            this.barButton_Audit.SuperTip = superToolTip29;
+            this.barButton_Audit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Audit_ItemClick);
+            // 
+            // barButtonItemCancelAudit
+            // 
+            this.barButtonItemCancelAudit.Caption = "取消审核";
+            this.barButtonItemCancelAudit.Id = 91;
+            this.barButtonItemCancelAudit.ImageIndex = 38;
+            this.barButtonItemCancelAudit.Name = "barButtonItemCancelAudit";
+            toolTipTitleItem29.Text = "取消审核";
+            toolTipItem29.LeftIndent = 6;
+            toolTipItem29.Text = "取消审核状态，将病历退给创建人";
+            superToolTip30.Items.Add(toolTipTitleItem29);
+            superToolTip30.Items.Add(toolTipItem29);
+            this.barButtonItemCancelAudit.SuperTip = superToolTip30;
+            this.barButtonItemCancelAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCancelAudit_ItemClick);
+            // 
+            // barButtonItem_Print
+            // 
+            this.barButtonItem_Print.Caption = "打印";
+            this.barButtonItem_Print.Id = 67;
+            this.barButtonItem_Print.ImageIndex = 12;
+            this.barButtonItem_Print.Name = "barButtonItem_Print";
+            toolTipTitleItem30.Text = "打印";
+            toolTipItem30.LeftIndent = 6;
+            toolTipItem30.Text = "打印当前病历";
+            superToolTip31.Items.Add(toolTipTitleItem30);
+            superToolTip31.Items.Add(toolTipItem30);
+            this.barButtonItem_Print.SuperTip = superToolTip31;
+            this.barButtonItem_Print.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem_Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Print_ItemClick);
+            // 
+            // barButtonItem_Preview
+            // 
+            this.barButtonItem_Preview.Caption = "打印预览";
+            this.barButtonItem_Preview.Id = 64;
+            this.barButtonItem_Preview.ImageIndex = 13;
+            this.barButtonItem_Preview.Name = "barButtonItem_Preview";
+            toolTipTitleItem31.Text = "打印预览";
+            toolTipItem31.LeftIndent = 6;
+            toolTipItem31.Text = "预览当前病历";
+            superToolTip32.Items.Add(toolTipTitleItem31);
+            superToolTip32.Items.Add(toolTipItem31);
+            this.barButtonItem_Preview.SuperTip = superToolTip32;
+            this.barButtonItem_Preview.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem_Preview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Preview_ItemClick);
+            // 
+            // barButtonItem_JumpPrint
+            // 
+            this.barButtonItem_JumpPrint.AllowAllUp = true;
+            this.barButtonItem_JumpPrint.Caption = "续打";
+            this.barButtonItem_JumpPrint.Id = 66;
+            this.barButtonItem_JumpPrint.Name = "barButtonItem_JumpPrint";
+            toolTipTitleItem32.Text = "续打";
+            toolTipItem32.LeftIndent = 6;
+            toolTipItem32.Text = "打印制定的病历内容";
+            superToolTip33.Items.Add(toolTipTitleItem32);
+            superToolTip33.Items.Add(toolTipItem32);
+            this.barButtonItem_JumpPrint.SuperTip = superToolTip33;
+            this.barButtonItem_JumpPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem_JumpPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_JumpPrint_ItemClick);
+            // 
+            // barButtonItemEmrPrint
+            // 
+            this.barButtonItemEmrPrint.Caption = "barButtonItemEmrPrint";
+            this.barButtonItemEmrPrint.Id = 89;
+            this.barButtonItemEmrPrint.ImageIndex = 12;
+            this.barButtonItemEmrPrint.Name = "barButtonItemEmrPrint";
+            toolTipTitleItem33.Text = "打印";
+            superToolTip34.Items.Add(toolTipTitleItem33);
+            this.barButtonItemEmrPrint.SuperTip = superToolTip34;
+            this.barButtonItemEmrPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemEmrPrint_ItemClick);
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "表格";
+            this.barSubItem1.Id = 30;
+            this.barSubItem1.ImageIndex = 9;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem5),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barCheck_ChooseTable),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_CellInfo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemTableProperty),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem22),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem29)});
+            this.barSubItem1.Name = "barSubItem1";
+            toolTipTitleItem34.Text = "表格";
+            toolTipItem33.LeftIndent = 6;
+            toolTipItem33.Text = "表格相关操作";
+            superToolTip35.Items.Add(toolTipTitleItem34);
+            superToolTip35.Items.Add(toolTipItem33);
+            this.barSubItem1.SuperTip = superToolTip35;
+            // 
+            // barSubItem4
+            // 
+            this.barSubItem4.Caption = "插入";
+            this.barSubItem4.Id = 48;
+            this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_InsertTable),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_InsertRow),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_InsertCol)});
+            this.barSubItem4.Name = "barSubItem4";
+            // 
+            // barButton_InsertTable
+            // 
+            this.barButton_InsertTable.Caption = "插入表格";
+            this.barButton_InsertTable.Id = 49;
+            this.barButton_InsertTable.Name = "barButton_InsertTable";
+            this.barButton_InsertTable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_InsertTable_ItemClick);
+            // 
+            // barButton_InsertRow
+            // 
+            this.barButton_InsertRow.Caption = "插入行";
+            this.barButton_InsertRow.Id = 50;
+            this.barButton_InsertRow.Name = "barButton_InsertRow";
+            this.barButton_InsertRow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_InsertRow_ItemClick);
+            // 
+            // barButton_InsertCol
+            // 
+            this.barButton_InsertCol.Caption = "插入列";
+            this.barButton_InsertCol.Id = 51;
+            this.barButton_InsertCol.Name = "barButton_InsertCol";
+            this.barButton_InsertCol.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_InsertCol_ItemClick);
+            // 
+            // barSubItem5
+            // 
+            this.barSubItem5.Caption = "删除";
+            this.barSubItem5.Id = 52;
+            this.barSubItem5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_DeletTable),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_DeletCol),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_DeletRow)});
+            this.barSubItem5.Name = "barSubItem5";
+            // 
+            // barButton_DeletTable
+            // 
+            this.barButton_DeletTable.Caption = "删除表格";
+            this.barButton_DeletTable.Id = 53;
+            this.barButton_DeletTable.Name = "barButton_DeletTable";
+            this.barButton_DeletTable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_DeletTable_ItemClick);
+            // 
+            // barButton_DeletCol
+            // 
+            this.barButton_DeletCol.Caption = "删除列";
+            this.barButton_DeletCol.Id = 54;
+            this.barButton_DeletCol.Name = "barButton_DeletCol";
+            this.barButton_DeletCol.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_DeletCol_ItemClick);
+            // 
+            // barButton_DeletRow
+            // 
+            this.barButton_DeletRow.Caption = "删除行";
+            this.barButton_DeletRow.Id = 55;
+            this.barButton_DeletRow.Name = "barButton_DeletRow";
+            this.barButton_DeletRow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_DeletRow_ItemClick);
+            // 
+            // barCheck_ChooseTable
+            // 
+            this.barCheck_ChooseTable.Caption = "选中";
+            this.barCheck_ChooseTable.Id = 34;
+            this.barCheck_ChooseTable.Name = "barCheck_ChooseTable";
+            this.barCheck_ChooseTable.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheck_ChooseTable_CheckedChanged);
+            // 
+            // barButton_CellInfo
+            // 
+            this.barButton_CellInfo.Caption = "单元格属性";
+            this.barButton_CellInfo.Id = 56;
+            this.barButton_CellInfo.Name = "barButton_CellInfo";
+            this.barButton_CellInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButton_CellInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_CellInfo_ItemClick);
+            // 
+            // barButtonItemTableProperty
+            // 
+            this.barButtonItemTableProperty.Caption = "表格属性";
+            this.barButtonItemTableProperty.Id = 57;
+            this.barButtonItemTableProperty.Name = "barButtonItemTableProperty";
+            this.barButtonItemTableProperty.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemTableProperty_ItemClick);
+            // 
+            // barButtonItem22
+            // 
+            this.barButtonItem22.Caption = "拆分单元格";
+            this.barButtonItem22.Id = 58;
+            this.barButtonItem22.Name = "barButtonItem22";
+            this.barButtonItem22.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // barButtonItem29
+            // 
+            this.barButtonItem29.Caption = "合并单元格";
+            this.barButtonItem29.Id = 59;
+            this.barButtonItem29.Name = "barButtonItem29";
+            this.barButtonItem29.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // barSubItem3
+            // 
+            this.barSubItem3.Caption = "工具";
+            this.barSubItem3.Id = 31;
+            this.barSubItem3.ImageIndex = 20;
+            this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonExportFile),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_ExportXml),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonFind),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemPerson)});
+            this.barSubItem3.Name = "barSubItem3";
+            toolTipTitleItem35.Text = "工具";
+            toolTipItem34.LeftIndent = 6;
+            toolTipItem34.Text = "病历操作工作集合";
+            superToolTip36.Items.Add(toolTipTitleItem35);
+            superToolTip36.Items.Add(toolTipItem34);
+            this.barSubItem3.SuperTip = superToolTip36;
+            // 
+            // barButtonExportFile
+            // 
+            this.barButtonExportFile.Caption = "导出病历";
+            this.barButtonExportFile.Id = 35;
+            this.barButtonExportFile.Name = "barButtonExportFile";
+            this.barButtonExportFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonExportFile_ItemClick);
+            // 
+            // barButton_ExportXml
+            // 
+            this.barButton_ExportXml.Caption = "导出XML";
+            this.barButton_ExportXml.Id = 36;
+            this.barButton_ExportXml.Name = "barButton_ExportXml";
+            this.barButton_ExportXml.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_ExportXml_ItemClick);
+            // 
+            // barButtonFind
+            // 
+            this.barButtonFind.Caption = "查找";
+            this.barButtonFind.Id = 40;
+            this.barButtonFind.Name = "barButtonFind";
+            this.barButtonFind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonFind_ItemClick);
+            // 
+            // barButtonItemPerson
+            // 
+            this.barButtonItemPerson.Caption = "科室小模板";
+            this.barButtonItemPerson.Id = 88;
+            this.barButtonItemPerson.Name = "barButtonItemPerson";
+            this.barButtonItemPerson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPerson_ItemClick);
+            // 
+            // barButtonItem24
+            // 
+            this.barButtonItem24.Caption = "帮助";
+            this.barButtonItem24.Id = 41;
+            this.barButtonItem24.ImageIndex = 19;
+            this.barButtonItem24.Name = "barButtonItem24";
+            toolTipTitleItem36.Text = "帮助";
+            toolTipItem35.LeftIndent = 6;
+            toolTipItem35.Text = "帮助文件";
+            superToolTip37.Items.Add(toolTipTitleItem36);
+            superToolTip37.Items.Add(toolTipItem35);
+            this.barButtonItem24.SuperTip = superToolTip37;
+            this.barButtonItem24.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // barButtonItemThreeLevelCheck
+            // 
+            this.barButtonItemThreeLevelCheck.Caption = "三级检诊";
+            this.barButtonItemThreeLevelCheck.Id = 90;
+            this.barButtonItemThreeLevelCheck.ImageIndex = 37;
+            this.barButtonItemThreeLevelCheck.Name = "barButtonItemThreeLevelCheck";
+            toolTipTitleItem37.Text = "三级检诊";
+            toolTipItem36.LeftIndent = 6;
+            toolTipItem36.Text = "设置三级检诊的人员";
+            superToolTip38.Items.Add(toolTipTitleItem37);
+            superToolTip38.Items.Add(toolTipItem36);
+            this.barButtonItemThreeLevelCheck.SuperTip = superToolTip38;
+            this.barButtonItemThreeLevelCheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemThreeLevelCheck_ItemClick);
+            // 
+            // barButtonItemReplaceItem
+            // 
+            this.barButtonItemReplaceItem.Caption = "替换复用元素";
+            this.barButtonItemReplaceItem.Id = 97;
+            this.barButtonItemReplaceItem.ImageIndex = 40;
+            this.barButtonItemReplaceItem.Name = "barButtonItemReplaceItem";
+            toolTipTitleItem38.Text = "替换复用元素";
+            toolTipItem37.LeftIndent = 6;
+            toolTipItem37.Text = "替换此病人所有病历的复用元素";
+            superToolTip39.Items.Add(toolTipTitleItem38);
+            superToolTip39.Items.Add(toolTipItem37);
+            this.barButtonItemReplaceItem.SuperTip = superToolTip39;
+            this.barButtonItemReplaceItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReplaceItem_ItemClick);
+            // 
+            // barEditItemDefaultFontSize
+            // 
+            this.barEditItemDefaultFontSize.Caption = "默认字体:";
+            this.barEditItemDefaultFontSize.Edit = this.repositoryItemComboBox2;
+            this.barEditItemDefaultFontSize.Id = 100;
+            this.barEditItemDefaultFontSize.Name = "barEditItemDefaultFontSize";
+            this.barEditItemDefaultFontSize.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
+            toolTipTitleItem39.Text = "默认字体";
+            toolTipItem38.LeftIndent = 6;
+            toolTipItem38.Text = "更改输入元素的默认字体大小";
+            superToolTip40.Items.Add(toolTipTitleItem39);
+            superToolTip40.Items.Add(toolTipItem38);
+            this.barEditItemDefaultFontSize.SuperTip = superToolTip40;
+            this.barEditItemDefaultFontSize.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barEditItemDefaultFontSize.EditValueChanged += new System.EventHandler(this.barEditItemDefaultFontSize_EditValueChanged);
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
+            // 
+            // barButtonItemAddNurseTable
+            // 
+            this.barButtonItemAddNurseTable.Caption = "插入护理表格";
+            this.barButtonItemAddNurseTable.Id = 102;
+            this.barButtonItemAddNurseTable.ImageIndex = 2;
+            this.barButtonItemAddNurseTable.Name = "barButtonItemAddNurseTable";
+            this.barButtonItemAddNurseTable.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItemAddNurseTable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddNurseTable_ItemClick);
+            // 
+            // btnCallPacs
+            // 
+            this.btnCallPacs.Caption = "调用PACS图像";
+            this.btnCallPacs.Id = 111;
+            this.btnCallPacs.Name = "btnCallPacs";
+            this.btnCallPacs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCallPacs_ItemClick);
+            // 
+            // btnCheckOutDep
+            // 
+            this.btnCheckOutDep.Caption = "出科检查";
+            this.btnCheckOutDep.Id = 112;
+            this.btnCheckOutDep.Name = "btnCheckOutDep";
+            this.btnCheckOutDep.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCheckOutDep_ItemClick);
+            // 
+            // bar3
+            // 
+            this.bar3.BarName = "Custom 5";
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 2;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCopy, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPaste, DevExpress.XtraBars.BarItemPaintStyle.Standard),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Cut),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Undo, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Redo),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem21, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItem_Font),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSetPageBackColor, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonFontColor),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem22),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItem_FontSize),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Italy, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Undline),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemBold),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemQuanZi, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Sup, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Sub),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Collect, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemDiagnosis)});
+            this.bar3.Text = "Custom 5";
+            // 
+            // btnCopy
+            // 
+            this.btnCopy.AllowAllUp = true;
+            this.btnCopy.Caption = "复制";
+            this.btnCopy.Id = 70;
+            this.btnCopy.ImageIndex = 25;
+            this.btnCopy.Name = "btnCopy";
+            toolTipTitleItem40.Text = "复制";
+            toolTipItem39.LeftIndent = 6;
+            toolTipItem39.Text = "复制当前病历选中的内容";
+            superToolTip41.Items.Add(toolTipTitleItem40);
+            superToolTip41.Items.Add(toolTipItem39);
+            this.btnCopy.SuperTip = superToolTip41;
+            this.btnCopy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCopy_ItemClick);
+            // 
+            // btnPaste
+            // 
+            this.btnPaste.AllowAllUp = true;
+            this.btnPaste.Caption = "粘贴";
+            this.btnPaste.Id = 71;
+            this.btnPaste.ImageIndex = 26;
+            this.btnPaste.Name = "btnPaste";
+            toolTipTitleItem41.Text = "粘贴";
+            toolTipItem40.LeftIndent = 6;
+            toolTipItem40.Text = "粘贴到当前病历";
+            superToolTip42.Items.Add(toolTipTitleItem41);
+            superToolTip42.Items.Add(toolTipItem40);
+            this.btnPaste.SuperTip = superToolTip42;
+            this.btnPaste.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPaste_ItemClick);
+            // 
+            // barButtonItem_Cut
+            // 
+            this.barButtonItem_Cut.AllowAllUp = true;
+            this.barButtonItem_Cut.Caption = "剪切";
+            this.barButtonItem_Cut.Id = 75;
+            this.barButtonItem_Cut.ImageIndex = 3;
+            this.barButtonItem_Cut.Name = "barButtonItem_Cut";
+            toolTipTitleItem42.Text = "剪切";
+            superToolTip43.Items.Add(toolTipTitleItem42);
+            this.barButtonItem_Cut.SuperTip = superToolTip43;
+            this.barButtonItem_Cut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Cut_ItemClick);
+            // 
+            // barButtonItem_Undo
+            // 
+            this.barButtonItem_Undo.AllowAllUp = true;
+            this.barButtonItem_Undo.Caption = "撤销";
+            this.barButtonItem_Undo.Id = 76;
+            this.barButtonItem_Undo.ImageIndex = 34;
+            this.barButtonItem_Undo.Name = "barButtonItem_Undo";
+            toolTipTitleItem43.Text = "撤销";
+            superToolTip44.Items.Add(toolTipTitleItem43);
+            this.barButtonItem_Undo.SuperTip = superToolTip44;
+            this.barButtonItem_Undo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Undo_ItemClick);
+            // 
+            // barButtonItem_Redo
+            // 
+            this.barButtonItem_Redo.AllowAllUp = true;
+            this.barButtonItem_Redo.Caption = "还原";
+            this.barButtonItem_Redo.Id = 77;
+            this.barButtonItem_Redo.ImageIndex = 31;
+            this.barButtonItem_Redo.Name = "barButtonItem_Redo";
+            toolTipTitleItem44.Text = "还原";
+            superToolTip45.Items.Add(toolTipTitleItem44);
+            this.barButtonItem_Redo.SuperTip = superToolTip45;
+            this.barButtonItem_Redo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Redo_ItemClick);
+            // 
+            // barStaticItem21
+            // 
+            this.barStaticItem21.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.barStaticItem21.Caption = "字体:";
+            this.barStaticItem21.Id = 107;
+            this.barStaticItem21.Name = "barStaticItem21";
+            this.barStaticItem21.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem21.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // barEditItem_Font
+            // 
+            this.barEditItem_Font.Caption = "字体";
+            this.barEditItem_Font.Edit = this.repositoryItemComboBoxFont;
+            this.barEditItem_Font.Id = 79;
+            this.barEditItem_Font.Name = "barEditItem_Font";
+            this.barEditItem_Font.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barEditItem_Font.Width = 112;
+            this.barEditItem_Font.EditValueChanged += new System.EventHandler(this.barEditItem_Font_EditValueChanged);
+            this.barEditItem_Font.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem_Font_ItemClick);
+            // 
+            // repositoryItemComboBoxFont
+            // 
+            this.repositoryItemComboBoxFont.AutoHeight = false;
+            this.repositoryItemComboBoxFont.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBoxFont.Name = "repositoryItemComboBoxFont";
+            // 
+            // btnSetPageBackColor
+            // 
+            this.btnSetPageBackColor.Caption = "设置背景色";
+            this.btnSetPageBackColor.Id = 115;
+            this.btnSetPageBackColor.ImageIndex = 43;
+            this.btnSetPageBackColor.Name = "btnSetPageBackColor";
+            toolTipItem41.Text = "设置当前输入界面的背景色";
+            superToolTip46.Items.Add(toolTipItem41);
+            this.btnSetPageBackColor.SuperTip = superToolTip46;
+            this.btnSetPageBackColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSetPageBackColor_ItemClick);
+            // 
+            // barButtonFontColor
+            // 
+            this.barButtonFontColor.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonFontColor.Caption = "字体颜色";
+            this.barButtonFontColor.Description = "字体颜色";
+            this.barButtonFontColor.Id = 113;
+            this.barButtonFontColor.ImageIndex = 42;
+            this.barButtonFontColor.Name = "barButtonFontColor";
+            toolTipItem42.Text = "设置所选择字体的颜色";
+            superToolTip47.Items.Add(toolTipItem42);
+            this.barButtonFontColor.SuperTip = superToolTip47;
+            this.barButtonFontColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonFontColor_ItemClick);
+            // 
+            // barStaticItem22
+            // 
+            this.barStaticItem22.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.barStaticItem22.Caption = "字号:";
+            this.barStaticItem22.Id = 108;
+            this.barStaticItem22.Name = "barStaticItem22";
+            this.barStaticItem22.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barEditItem_FontSize
+            // 
+            this.barEditItem_FontSize.Caption = "字体大小:";
+            this.barEditItem_FontSize.Edit = this.repositoryItemComboBox_SiZe;
+            this.barEditItem_FontSize.Id = 80;
+            this.barEditItem_FontSize.Name = "barEditItem_FontSize";
+            toolTipTitleItem45.Text = "更改字体";
+            toolTipItem43.LeftIndent = 6;
+            toolTipItem43.Text = "更改当前选中元素的字体";
+            superToolTip48.Items.Add(toolTipTitleItem45);
+            superToolTip48.Items.Add(toolTipItem43);
+            this.barEditItem_FontSize.SuperTip = superToolTip48;
+            this.barEditItem_FontSize.Width = 61;
+            this.barEditItem_FontSize.EditValueChanged += new System.EventHandler(this.barEditItem_FontSize_EditValueChanged);
+            this.barEditItem_FontSize.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem_FontSize_EditValueChanged);
+            // 
+            // repositoryItemComboBox_SiZe
+            // 
+            this.repositoryItemComboBox_SiZe.AutoHeight = false;
+            this.repositoryItemComboBox_SiZe.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox_SiZe.Name = "repositoryItemComboBox_SiZe";
+            // 
+            // barButtonItem_Italy
+            // 
+            this.barButtonItem_Italy.AllowAllUp = true;
+            this.barButtonItem_Italy.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItem_Italy.Caption = "斜体";
+            this.barButtonItem_Italy.Id = 82;
+            this.barButtonItem_Italy.ImageIndex = 29;
+            this.barButtonItem_Italy.Name = "barButtonItem_Italy";
+            toolTipTitleItem46.Text = "斜体";
+            toolTipItem44.LeftIndent = 6;
+            toolTipItem44.Text = "选中文件斜体显示";
+            superToolTip49.Items.Add(toolTipTitleItem46);
+            superToolTip49.Items.Add(toolTipItem44);
+            this.barButtonItem_Italy.SuperTip = superToolTip49;
+            this.barButtonItem_Italy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Italy_ItemClick);
+            // 
+            // barButtonItem_Undline
+            // 
+            this.barButtonItem_Undline.AllowAllUp = true;
+            this.barButtonItem_Undline.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItem_Undline.Caption = "下划线";
+            this.barButtonItem_Undline.Id = 83;
+            this.barButtonItem_Undline.ImageIndex = 30;
+            this.barButtonItem_Undline.Name = "barButtonItem_Undline";
+            toolTipTitleItem47.Text = "下划线";
+            toolTipItem45.LeftIndent = 6;
+            toolTipItem45.Text = "选中文件下划线显示";
+            superToolTip50.Items.Add(toolTipTitleItem47);
+            superToolTip50.Items.Add(toolTipItem45);
+            this.barButtonItem_Undline.SuperTip = superToolTip50;
+            this.barButtonItem_Undline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Undline_ItemClick);
+            // 
+            // barButtonItemBold
+            // 
+            this.barButtonItemBold.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItemBold.Caption = "加粗";
+            this.barButtonItemBold.Id = 104;
+            this.barButtonItemBold.ImageIndex = 28;
+            this.barButtonItemBold.Name = "barButtonItemBold";
+            toolTipTitleItem48.Text = "粗体";
+            toolTipItem46.LeftIndent = 6;
+            toolTipItem46.Text = "选中文字粗体显示";
+            superToolTip51.Items.Add(toolTipTitleItem48);
+            superToolTip51.Items.Add(toolTipItem46);
+            this.barButtonItemBold.SuperTip = superToolTip51;
+            this.barButtonItemBold.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBold_ItemClick);
+            // 
+            // barButtonItemQuanZi
+            // 
+            this.barButtonItemQuanZi.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItemQuanZi.Caption = "圈字";
+            this.barButtonItemQuanZi.Id = 103;
+            this.barButtonItemQuanZi.ImageIndex = 41;
+            this.barButtonItemQuanZi.Name = "barButtonItemQuanZi";
+            toolTipTitleItem49.Text = "圈字";
+            superToolTip52.Items.Add(toolTipTitleItem49);
+            this.barButtonItemQuanZi.SuperTip = superToolTip52;
+            this.barButtonItemQuanZi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemQuanZi_ItemClick);
+            // 
+            // barButtonItem_Sup
+            // 
+            this.barButtonItem_Sup.AllowAllUp = true;
+            this.barButtonItem_Sup.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItem_Sup.Caption = "上标";
+            this.barButtonItem_Sup.Id = 84;
+            this.barButtonItem_Sup.ImageIndex = 33;
+            this.barButtonItem_Sup.Name = "barButtonItem_Sup";
+            toolTipTitleItem50.Text = "上标";
+            superToolTip53.Items.Add(toolTipTitleItem50);
+            this.barButtonItem_Sup.SuperTip = superToolTip53;
+            this.barButtonItem_Sup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Sup_ItemClick);
+            // 
+            // barButtonItem_Sub
+            // 
+            this.barButtonItem_Sub.AllowAllUp = true;
+            this.barButtonItem_Sub.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItem_Sub.Caption = "下标";
+            this.barButtonItem_Sub.Id = 85;
+            this.barButtonItem_Sub.ImageIndex = 32;
+            this.barButtonItem_Sub.Name = "barButtonItem_Sub";
+            toolTipTitleItem51.Text = "下标";
+            superToolTip54.Items.Add(toolTipTitleItem51);
+            this.barButtonItem_Sub.SuperTip = superToolTip54;
+            this.barButtonItem_Sub.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Sub_ItemClick);
+            // 
+            // btn_Collect
+            // 
+            this.btn_Collect.Caption = "病历提取";
+            this.btn_Collect.Id = 86;
+            this.btn_Collect.ImageIndex = 35;
+            this.btn_Collect.Name = "btn_Collect";
+            toolTipTitleItem52.Text = "病历提取";
+            toolTipItem47.LeftIndent = 6;
+            toolTipItem47.Text = "提取当前选中的病历内容";
+            superToolTip55.Items.Add(toolTipTitleItem52);
+            superToolTip55.Items.Add(toolTipItem47);
+            this.btn_Collect.SuperTip = superToolTip55;
+            this.btn_Collect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Collect_ItemClick);
+            // 
+            // barButtonItemDiagnosis
+            // 
+            this.barButtonItemDiagnosis.Caption = "诊疗计划";
+            this.barButtonItemDiagnosis.Id = 92;
+            this.barButtonItemDiagnosis.ImageIndex = 39;
+            this.barButtonItemDiagnosis.Name = "barButtonItemDiagnosis";
+            toolTipTitleItem53.Text = "病历书写库";
+            toolTipItem48.LeftIndent = 6;
+            toolTipItem48.Text = "包括：诊疗计划、鉴别诊断等";
+            superToolTip56.Items.Add(toolTipTitleItem53);
+            superToolTip56.Items.Add(toolTipItem48);
+            this.barButtonItemDiagnosis.SuperTip = superToolTip56;
+            this.barButtonItemDiagnosis.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDiagnosis_ItemClick);
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(1615, 93);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 615);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1615, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 93);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 522);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1615, 93);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 522);
             // 
             // imageCollection_Toolbars
             // 
@@ -724,526 +1690,243 @@
             this.imageCollection_Toolbars.Images.SetKeyName(42, "02611.ico");
             this.imageCollection_Toolbars.Images.SetKeyName(43, "03018.ico");
             // 
-            // barStaticItem1
+            // barStaticItem2
             // 
-            this.barStaticItem1.Id = 0;
-            this.barStaticItem1.Name = "barStaticItem1";
-            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem2.Caption = "姓名：";
+            this.barStaticItem2.Id = 1;
+            this.barStaticItem2.Name = "barStaticItem2";
+            this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStaticItem3
+            // barButtonItem1
             // 
-            this.barStaticItem3.Caption = "姓名:";
-            this.barStaticItem3.Id = 1;
-            this.barStaticItem3.Name = "barStaticItem3";
-            this.barStaticItem3.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 3;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // barStaticItem4
+            // barButtonItem2
             // 
-            this.barStaticItem4.Id = 2;
-            this.barStaticItem4.Name = "barStaticItem4";
-            this.barStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem2.Caption = "病历号：";
+            this.barButtonItem2.Id = 4;
+            this.barButtonItem2.Name = "barButtonItem2";
             // 
-            // barButtonItem47
+            // barButtonItem3
             // 
-            this.barButtonItem47.Id = 3;
-            this.barButtonItem47.Name = "barButtonItem47";
+            this.barButtonItem3.Caption = "barButtonItem3";
+            this.barButtonItem3.Id = 6;
+            this.barButtonItem3.Name = "barButtonItem3";
             // 
-            // barButtonItem14
+            // barButtonItem4
             // 
-            this.barButtonItem14.Caption = "病历号:";
-            this.barButtonItem14.Id = 4;
-            this.barButtonItem14.Name = "barButtonItem14";
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 7;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // barStaticItem6
+            // barStaticItem5
             // 
-            this.barStaticItem6.Id = 5;
-            this.barStaticItem6.Name = "barStaticItem6";
-            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem5.Caption = "性别：";
+            this.barStaticItem5.Id = 8;
+            this.barStaticItem5.Name = "barStaticItem5";
+            this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barButtonItem48
+            // barStaticItem7
             // 
-            this.barButtonItem48.Id = 6;
-            this.barButtonItem48.Name = "barButtonItem48";
+            this.barStaticItem7.Caption = "年龄：";
+            this.barStaticItem7.Id = 10;
+            this.barStaticItem7.Name = "barStaticItem7";
+            this.barStaticItem7.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barButtonItem49
+            // barStaticItem9
             // 
-            this.barButtonItem49.Id = 7;
-            this.barButtonItem49.Name = "barButtonItem49";
+            this.barStaticItem9.Caption = "入院日期：";
+            this.barStaticItem9.Id = 12;
+            this.barStaticItem9.Name = "barStaticItem9";
+            this.barStaticItem9.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStaticItem8
+            // barStaticItem11
             // 
-            this.barStaticItem8.Caption = "性别:";
-            this.barStaticItem8.Id = 8;
-            this.barStaticItem8.Name = "barStaticItem8";
-            this.barStaticItem8.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem11.Caption = "当前科室：";
+            this.barStaticItem11.Id = 14;
+            this.barStaticItem11.Name = "barStaticItem11";
+            this.barStaticItem11.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStaticItem10
+            // barButtonItem5
             // 
-            this.barStaticItem10.Id = 9;
-            this.barStaticItem10.Name = "barStaticItem10";
-            this.barStaticItem10.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem5.Caption = "barButtonItem5";
+            this.barButtonItem5.Id = 15;
+            this.barButtonItem5.Name = "barButtonItem5";
             // 
-            // barStaticItem12
+            // barSub_File
             // 
-            this.barStaticItem12.Caption = "年龄";
-            this.barStaticItem12.Id = 10;
-            this.barStaticItem12.Name = "barStaticItem12";
-            this.barStaticItem12.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barSub_File.Caption = "文件";
+            this.barSub_File.Id = 17;
+            this.barSub_File.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9)});
+            this.barSub_File.Name = "barSub_File";
             // 
-            // barStaticItem13
+            // barButtonItem8
             // 
-            this.barStaticItem13.Id = 11;
-            this.barStaticItem13.Name = "barStaticItem13";
-            this.barStaticItem13.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem8.Caption = "新建病历";
+            this.barButtonItem8.Id = 21;
+            this.barButtonItem8.Name = "barButtonItem8";
             // 
-            // barStaticItem14
+            // barButtonItem9
             // 
-            this.barStaticItem14.Caption = "入院日期:";
-            this.barStaticItem14.Id = 12;
-            this.barStaticItem14.Name = "barStaticItem14";
-            this.barStaticItem14.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem9.Caption = "在线知识库";
+            this.barButtonItem9.Id = 22;
+            this.barButtonItem9.Name = "barButtonItem9";
             // 
-            // barStaticItem15
+            // barSubItem2
             // 
-            this.barStaticItem15.Id = 13;
-            this.barStaticItem15.Name = "barStaticItem15";
-            this.barStaticItem15.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barSubItem2.Caption = "打印";
+            this.barSubItem2.Id = 18;
+            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11)});
+            this.barSubItem2.Name = "barSubItem2";
             // 
-            // barStaticItem16
+            // barButtonItem10
             // 
-            this.barStaticItem16.Caption = "当前科室";
-            this.barStaticItem16.Id = 14;
-            this.barStaticItem16.Name = "barStaticItem16";
-            this.barStaticItem16.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem10.Caption = "完整打印";
+            this.barButtonItem10.Id = 23;
+            this.barButtonItem10.Name = "barButtonItem10";
             // 
-            // barButtonItem50
+            // barButtonItem11
             // 
-            this.barButtonItem50.Id = 15;
-            this.barButtonItem50.Name = "barButtonItem50";
+            this.barButtonItem11.Caption = "病程续打";
+            this.barButtonItem11.Id = 24;
+            this.barButtonItem11.Name = "barButtonItem11";
             // 
-            // barStaticItem17
+            // barButtonItem6
             // 
-            this.barStaticItem17.Id = 16;
-            this.barStaticItem17.Name = "barStaticItem17";
-            this.barStaticItem17.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barSubItem10
-            // 
-            this.barSubItem10.Caption = "文件";
-            this.barSubItem10.Id = 17;
-            this.barSubItem10.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem51),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem52)});
-            this.barSubItem10.Name = "barSubItem10";
-            // 
-            // barButtonItem51
-            // 
-            this.barButtonItem51.Caption = "新建病历";
-            this.barButtonItem51.Id = 21;
-            this.barButtonItem51.Name = "barButtonItem51";
-            // 
-            // barButtonItem52
-            // 
-            this.barButtonItem52.Caption = "在线知识库";
-            this.barButtonItem52.Id = 22;
-            this.barButtonItem52.Name = "barButtonItem52";
-            // 
-            // barSubItem11
-            // 
-            this.barSubItem11.Caption = "打印";
-            this.barSubItem11.Id = 18;
-            this.barSubItem11.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem53),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem54)});
-            this.barSubItem11.Name = "barSubItem11";
-            // 
-            // barButtonItem53
-            // 
-            this.barButtonItem53.Caption = "完整打印";
-            this.barButtonItem53.Id = 23;
-            this.barButtonItem53.Name = "barButtonItem53";
-            // 
-            // barButtonItem54
-            // 
-            this.barButtonItem54.Caption = "病程续打";
-            this.barButtonItem54.Id = 24;
-            this.barButtonItem54.Name = "barButtonItem54";
+            this.barButtonItem6.Caption = "工具";
+            this.barButtonItem6.Id = 19;
+            this.barButtonItem6.Name = "barButtonItem6";
             // 
-            // barButtonItem55
-            // 
-            this.barButtonItem55.Caption = "工具";
-            this.barButtonItem55.Id = 19;
-            this.barButtonItem55.Name = "barButtonItem55";
+            // barButtonItem7
             // 
-            // barButtonItem56
+            this.barButtonItem7.Caption = "表格";
+            this.barButtonItem7.Id = 20;
+            this.barButtonItem7.Name = "barButtonItem7";
             // 
-            this.barButtonItem56.Caption = "表格";
-            this.barButtonItem56.Id = 20;
-            this.barButtonItem56.Name = "barButtonItem56";
+            // btnSavePopup
             // 
-            // barButtonItem19
+            this.btnSavePopup.Caption = "保存";
+            this.btnSavePopup.Id = 42;
+            this.btnSavePopup.Name = "btnSavePopup";
             // 
-            this.barButtonItem19.Caption = "保存";
-            this.barButtonItem19.Id = 25;
-            this.barButtonItem19.ImageIndex = 18;
-            this.barButtonItem19.Name = "barButtonItem19";
-            toolTipTitleItem40.Text = "保存";
-            toolTipItem35.LeftIndent = 6;
-            toolTipItem35.Text = "保存当前修改";
-            superToolTip43.Items.Add(toolTipTitleItem40);
-            superToolTip43.Items.Add(toolTipItem35);
-            this.barButtonItem19.SuperTip = superToolTip43;
+            // btnDeletePopup
             // 
-            // barSubItem6
+            this.btnDeletePopup.Caption = "删除";
+            this.btnDeletePopup.Id = 43;
+            this.btnDeletePopup.Name = "btnDeletePopup";
             // 
-            this.barSubItem6.Caption = "表格";
-            this.barSubItem6.Id = 30;
-            this.barSubItem6.ImageIndex = 9;
-            this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barCheckItem1),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem38),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem39),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem40)});
-            this.barSubItem6.Name = "barSubItem6";
-            toolTipTitleItem41.Text = "表格";
-            toolTipItem36.LeftIndent = 6;
-            toolTipItem36.Text = "表格相关操作";
-            superToolTip44.Items.Add(toolTipTitleItem41);
-            superToolTip44.Items.Add(toolTipItem36);
-            this.barSubItem6.SuperTip = superToolTip44;
+            // btnSubmitPopup
             // 
-            // barSubItem7
+            this.btnSubmitPopup.Caption = "提交";
+            this.btnSubmitPopup.Id = 44;
+            this.btnSubmitPopup.Name = "btnSubmitPopup";
             // 
-            this.barSubItem7.Caption = "插入";
-            this.barSubItem7.Id = 48;
-            this.barSubItem7.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem31),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33)});
-            this.barSubItem7.Name = "barSubItem7";
+            // btnConfirmPopup
             // 
-            // barButtonItem31
+            this.btnConfirmPopup.Caption = "审核";
+            this.btnConfirmPopup.Id = 45;
+            this.btnConfirmPopup.Name = "btnConfirmPopup";
             // 
-            this.barButtonItem31.Caption = "插入表格";
-            this.barButtonItem31.Id = 49;
-            this.barButtonItem31.Name = "barButtonItem31";
+            // btnModulePopup
             // 
-            // barButtonItem32
+            this.btnModulePopup.Caption = "新增";
+            this.btnModulePopup.Id = 100;
+            this.btnModulePopup.Name = "btnModulePopup";
             // 
-            this.barButtonItem32.Caption = "插入行";
-            this.barButtonItem32.Id = 50;
-            this.barButtonItem32.Name = "barButtonItem32";
+            // btnEmrOpenEdit
             // 
-            // barButtonItem33
-            // 
-            this.barButtonItem33.Caption = "插入列";
-            this.barButtonItem33.Id = 51;
-            this.barButtonItem33.Name = "barButtonItem33";
-            // 
-            // barSubItem8
-            // 
-            this.barSubItem8.Caption = "删除";
-            this.barSubItem8.Id = 52;
-            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem35),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36)});
-            this.barSubItem8.Name = "barSubItem8";
-            // 
-            // barButtonItem34
-            // 
-            this.barButtonItem34.Caption = "删除表格";
-            this.barButtonItem34.Id = 53;
-            this.barButtonItem34.Name = "barButtonItem34";
-            // 
-            // barButtonItem35
-            // 
-            this.barButtonItem35.Caption = "删除列";
-            this.barButtonItem35.Id = 54;
-            this.barButtonItem35.Name = "barButtonItem35";
-            // 
-            // barButtonItem36
-            // 
-            this.barButtonItem36.Caption = "删除行";
-            this.barButtonItem36.Id = 55;
-            this.barButtonItem36.Name = "barButtonItem36";
-            // 
-            // barCheckItem1
-            // 
-            this.barCheckItem1.Caption = "选中";
-            this.barCheckItem1.Id = 34;
-            this.barCheckItem1.Name = "barCheckItem1";
-            // 
-            // barButtonItem37
-            // 
-            this.barButtonItem37.Caption = "单元格属性";
-            this.barButtonItem37.Id = 56;
-            this.barButtonItem37.Name = "barButtonItem37";
-            // 
-            // barButtonItem38
-            // 
-            this.barButtonItem38.Caption = "表格属性";
-            this.barButtonItem38.Id = 57;
-            this.barButtonItem38.Name = "barButtonItem38";
-            // 
-            // barButtonItem39
-            // 
-            this.barButtonItem39.Caption = "拆分单元格";
-            this.barButtonItem39.Id = 58;
-            this.barButtonItem39.Name = "barButtonItem39";
-            // 
-            // barButtonItem40
-            // 
-            this.barButtonItem40.Caption = "合并单元格";
-            this.barButtonItem40.Id = 59;
-            this.barButtonItem40.Name = "barButtonItem40";
-            // 
-            // barSubItem9
-            // 
-            this.barSubItem9.Caption = "工具";
-            this.barSubItem9.Id = 31;
-            this.barSubItem9.ImageIndex = 20;
-            this.barSubItem9.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem41),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem42),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem43)});
-            this.barSubItem9.Name = "barSubItem9";
-            toolTipTitleItem42.Text = "工具";
-            toolTipItem37.LeftIndent = 6;
-            toolTipItem37.Text = "病历操作工作集合";
-            superToolTip45.Items.Add(toolTipTitleItem42);
-            superToolTip45.Items.Add(toolTipItem37);
-            this.barSubItem9.SuperTip = superToolTip45;
-            // 
-            // barButtonItem41
-            // 
-            this.barButtonItem41.Caption = "导出病历";
-            this.barButtonItem41.Id = 35;
-            this.barButtonItem41.Name = "barButtonItem41";
-            // 
-            // barButtonItem42
-            // 
-            this.barButtonItem42.Caption = "导出XML";
-            this.barButtonItem42.Id = 36;
-            this.barButtonItem42.Name = "barButtonItem42";
-            // 
-            // barButtonItem43
-            // 
-            this.barButtonItem43.Caption = "查找";
-            this.barButtonItem43.Id = 40;
-            this.barButtonItem43.Name = "barButtonItem43";
-            // 
-            // barButtonItem25
-            // 
-            this.barButtonItem25.Caption = "提交";
-            this.barButtonItem25.Id = 37;
-            this.barButtonItem25.ImageIndex = 15;
-            this.barButtonItem25.Name = "barButtonItem25";
-            toolTipTitleItem43.Text = "提交";
-            toolTipItem38.LeftIndent = 6;
-            toolTipItem38.Text = "将当前病历提交给上级医师";
-            superToolTip46.Items.Add(toolTipTitleItem43);
-            superToolTip46.Items.Add(toolTipItem38);
-            this.barButtonItem25.SuperTip = superToolTip46;
-            // 
-            // barButtonItem26
-            // 
-            this.barButtonItem26.Caption = "审核";
-            this.barButtonItem26.Id = 38;
-            this.barButtonItem26.ImageIndex = 21;
-            this.barButtonItem26.Name = "barButtonItem26";
-            toolTipTitleItem44.Text = "审核";
-            toolTipItem39.LeftIndent = 6;
-            toolTipItem39.Text = "审核下级医师提交的病历";
-            superToolTip47.Items.Add(toolTipTitleItem44);
-            superToolTip47.Items.Add(toolTipItem39);
-            this.barButtonItem26.SuperTip = superToolTip47;
-            // 
-            // barButtonItem16
-            // 
-            this.barButtonItem16.Caption = "删除";
-            this.barButtonItem16.Id = 39;
-            this.barButtonItem16.ImageIndex = 17;
-            this.barButtonItem16.Name = "barButtonItem16";
-            toolTipTitleItem45.Text = "删除";
-            toolTipItem40.LeftIndent = 6;
-            toolTipItem40.Text = "删除当前病历文件";
-            superToolTip48.Items.Add(toolTipTitleItem45);
-            superToolTip48.Items.Add(toolTipItem40);
-            this.barButtonItem16.SuperTip = superToolTip48;
-            // 
-            // barButtonItem44
-            // 
-            this.barButtonItem44.Caption = "帮助";
-            this.barButtonItem44.Id = 41;
-            this.barButtonItem44.ImageIndex = 19;
-            this.barButtonItem44.Name = "barButtonItem44";
-            toolTipTitleItem46.Text = "帮助";
-            toolTipItem41.LeftIndent = 6;
-            toolTipItem41.Text = "帮助文件";
-            superToolTip49.Items.Add(toolTipTitleItem46);
-            superToolTip49.Items.Add(toolTipItem41);
-            this.barButtonItem44.SuperTip = superToolTip49;
-            // 
-            // barButtonItem57
-            // 
-            this.barButtonItem57.Caption = "保存";
-            this.barButtonItem57.Id = 42;
-            this.barButtonItem57.Name = "barButtonItem57";
-            // 
-            // barButtonItem58
-            // 
-            this.barButtonItem58.Caption = "删除";
-            this.barButtonItem58.Id = 43;
-            this.barButtonItem58.Name = "barButtonItem58";
-            // 
-            // barButtonItem59
-            // 
-            this.barButtonItem59.Caption = "提交";
-            this.barButtonItem59.Id = 44;
-            this.barButtonItem59.Name = "barButtonItem59";
-            // 
-            // barButtonItem60
-            // 
-            this.barButtonItem60.Caption = "审核";
-            this.barButtonItem60.Id = 45;
-            this.barButtonItem60.Name = "barButtonItem60";
-            // 
-            // barButtonItem61
-            // 
-            this.barButtonItem61.Caption = "模板";
-            this.barButtonItem61.Id = 100;
-            this.barButtonItem61.Name = "barButtonItem61";
-            // 
-            // barButtonItem20
-            // 
-            this.barButtonItem20.Caption = "自检";
-            this.barButtonItem20.Id = 46;
-            this.barButtonItem20.ImageIndex = 22;
-            this.barButtonItem20.Name = "barButtonItem20";
-            toolTipTitleItem47.Text = "自检";
-            toolTipItem42.LeftIndent = 6;
-            toolTipItem42.Text = "病历缺陷项检查";
-            superToolTip50.Items.Add(toolTipTitleItem47);
-            superToolTip50.Items.Add(toolTipItem42);
-            this.barButtonItem20.SuperTip = superToolTip50;
-            // 
-            // barButtonItem15
-            // 
-            this.barButtonItem15.Caption = "新建";
-            this.barButtonItem15.Id = 60;
-            this.barButtonItem15.ImageIndex = 10;
-            this.barButtonItem15.Name = "barButtonItem15";
-            toolTipTitleItem48.Text = "新建";
-            toolTipItem43.LeftIndent = 6;
-            toolTipItem43.Text = "新建病历文书";
-            superToolTip51.Items.Add(toolTipTitleItem48);
-            superToolTip51.Items.Add(toolTipItem43);
-            this.barButtonItem15.SuperTip = superToolTip51;
-            // 
-            // barButtonItem17
-            // 
-            this.barButtonItem17.Caption = "编辑";
-            this.barButtonItem17.Id = 62;
-            this.barButtonItem17.ImageIndex = 0;
-            this.barButtonItem17.Name = "barButtonItem17";
-            toolTipTitleItem49.Text = "编辑";
-            toolTipItem44.LeftIndent = 6;
-            toolTipItem44.Text = "申请编辑模式";
-            superToolTip52.Items.Add(toolTipTitleItem49);
-            superToolTip52.Items.Add(toolTipItem44);
-            this.barButtonItem17.SuperTip = superToolTip52;
-            // 
-            // barButtonItem28
-            // 
-            this.barButtonItem28.Caption = "打印预览";
-            this.barButtonItem28.Id = 64;
-            this.barButtonItem28.ImageIndex = 13;
-            this.barButtonItem28.Name = "barButtonItem28";
-            toolTipTitleItem50.Text = "打印预览";
-            toolTipItem45.LeftIndent = 6;
-            toolTipItem45.Text = "预览当前病历";
-            superToolTip53.Items.Add(toolTipTitleItem50);
-            superToolTip53.Items.Add(toolTipItem45);
-            this.barButtonItem28.SuperTip = superToolTip53;
-            // 
-            // barButtonItem30
-            // 
-            this.barButtonItem30.AllowAllUp = true;
-            this.barButtonItem30.Caption = "续打";
-            this.barButtonItem30.Id = 66;
-            this.barButtonItem30.Name = "barButtonItem30";
-            toolTipTitleItem51.Text = "续打";
-            toolTipItem46.LeftIndent = 6;
-            toolTipItem46.Text = "打印制定的病历内容";
-            superToolTip54.Items.Add(toolTipTitleItem51);
-            superToolTip54.Items.Add(toolTipItem46);
-            this.barButtonItem30.SuperTip = superToolTip54;
-            // 
-            // barButtonItem27
-            // 
-            this.barButtonItem27.Caption = "打印";
-            this.barButtonItem27.Id = 67;
-            this.barButtonItem27.ImageIndex = 12;
-            this.barButtonItem27.Name = "barButtonItem27";
-            toolTipTitleItem52.Text = "打印";
-            toolTipItem47.LeftIndent = 6;
-            toolTipItem47.Text = "打印当前病历";
-            superToolTip55.Items.Add(toolTipTitleItem52);
-            superToolTip55.Items.Add(toolTipItem47);
-            this.barButtonItem27.SuperTip = superToolTip55;
-            // 
-            // barButtonItem45
-            // 
-            this.barButtonItem45.Caption = "btnEmrReadOnly";
-            this.barButtonItem45.Id = 68;
-            this.barButtonItem45.ImageIndex = 24;
-            this.barButtonItem45.Name = "barButtonItem45";
-            toolTipTitleItem53.Text = "只读";
-            toolTipItem48.LeftIndent = 6;
-            toolTipItem48.Text = "当前病历不能编辑";
-            superToolTip56.Items.Add(toolTipTitleItem53);
-            superToolTip56.Items.Add(toolTipItem48);
-            this.barButtonItem45.SuperTip = superToolTip56;
-            // 
-            // barButtonItem46
-            // 
-            this.barButtonItem46.Caption = "btnEmrOpenEdit";
-            this.barButtonItem46.Id = 69;
-            this.barButtonItem46.ImageIndex = 23;
-            this.barButtonItem46.Name = "barButtonItem46";
+            this.btnEmrOpenEdit.Caption = "btnEmrOpenEdit";
+            this.btnEmrOpenEdit.Id = 69;
+            this.btnEmrOpenEdit.ImageIndex = 23;
+            this.btnEmrOpenEdit.Name = "btnEmrOpenEdit";
             toolTipTitleItem54.Text = "申请编辑";
             toolTipItem49.LeftIndent = 6;
             toolTipItem49.Text = "开放当前病历编辑";
             superToolTip57.Items.Add(toolTipTitleItem54);
             superToolTip57.Items.Add(toolTipItem49);
-            this.barButtonItem46.SuperTip = superToolTip57;
+            this.btnEmrOpenEdit.SuperTip = superToolTip57;
             // 
-            // btnCancelAuditPopup
+            // barButtonItem12
             // 
-            this.btnCancelAuditPopup.Caption = "取消审核";
-            this.btnCancelAuditPopup.Id = 70;
-            this.btnCancelAuditPopup.Name = "btnCancelAuditPopup";
-            this.btnCancelAuditPopup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancelAuditPopup_ItemClick);
+            this.barButtonItem12.Caption = "barButtonItem12";
+            this.barButtonItem12.Id = 73;
+            this.barButtonItem12.Name = "barButtonItem12";
             // 
-            // btnAddCommonRecord
+            // barButtonItem_Bold
             // 
-            this.btnAddCommonRecord.Caption = "新增";
-            this.btnAddCommonRecord.Id = 71;
-            this.btnAddCommonRecord.Name = "btnAddCommonRecord";
-            this.btnAddCommonRecord.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnAddCommonRecord.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddCommonRecord_ItemClick);
+            this.barButtonItem_Bold.AllowAllUp = true;
+            this.barButtonItem_Bold.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.barButtonItem_Bold.Caption = "粗体";
+            this.barButtonItem_Bold.Id = 81;
+            this.barButtonItem_Bold.ImageIndex = 28;
+            this.barButtonItem_Bold.Name = "barButtonItem_Bold";
+            this.barButtonItem_Bold.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Bold_ItemClick);
             // 
-            // btnDelCommonNote
+            // barStaticItem18
             // 
-            this.btnDelCommonNote.Caption = "删除";
-            this.btnDelCommonNote.Id = 72;
-            this.btnDelCommonNote.Name = "btnDelCommonNote";
-            this.btnDelCommonNote.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnDelCommonNote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelCommonNote_ItemClick);
+            this.barStaticItem18.Caption = "入院次数:";
+            this.barStaticItem18.Id = 93;
+            this.barStaticItem18.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+            this.barStaticItem18.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barStaticItem18.Name = "barStaticItem18";
+            this.barStaticItem18.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStatic_InCount
+            // 
+            this.barStatic_InCount.Id = 94;
+            this.barStatic_InCount.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
+            this.barStatic_InCount.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.barStatic_InCount.Name = "barStatic_InCount";
+            this.barStatic_InCount.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemComboBox1;
+            this.barEditItem1.Id = 98;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
+            // barStaticItem19
+            // 
+            this.barStaticItem19.Caption = "默认字体";
+            this.barStaticItem19.Id = 99;
+            this.barStaticItem19.Name = "barStaticItem19";
+            this.barStaticItem19.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem20
+            // 
+            this.barStaticItem20.Caption = "默认字体";
+            this.barStaticItem20.Id = 101;
+            this.barStaticItem20.Name = "barStaticItem20";
+            this.barStaticItem20.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem13
+            // 
+            this.barButtonItem13.Caption = "调用PACS图像";
+            this.barButtonItem13.Id = 106;
+            this.barButtonItem13.Name = "barButtonItem13";
+            this.barButtonItem13.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
+            // 
+            // barBtnToPDF
+            // 
+            this.barBtnToPDF.Caption = "导出PDF";
+            this.barBtnToPDF.Id = 110;
+            this.barBtnToPDF.Name = "barBtnToPDF";
+            this.barBtnToPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnToPDF_ItemClick);
             // 
             // panelContainer1
             // 
@@ -2223,7 +2906,7 @@
             // 
             this.barDockControl5.CausesValidation = false;
             this.barDockControl5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControl5.Location = new System.Drawing.Point(0, 93);
+            this.barDockControl5.Location = new System.Drawing.Point(0, 0);
             this.barDockControl5.Size = new System.Drawing.Size(1615, 0);
             // 
             // barDockControl6
@@ -2237,15 +2920,15 @@
             // 
             this.barDockControl7.CausesValidation = false;
             this.barDockControl7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControl7.Location = new System.Drawing.Point(0, 93);
-            this.barDockControl7.Size = new System.Drawing.Size(0, 522);
+            this.barDockControl7.Location = new System.Drawing.Point(0, 0);
+            this.barDockControl7.Size = new System.Drawing.Size(0, 615);
             // 
             // barDockControl8
             // 
             this.barDockControl8.CausesValidation = false;
             this.barDockControl8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl8.Location = new System.Drawing.Point(1615, 93);
-            this.barDockControl8.Size = new System.Drawing.Size(0, 522);
+            this.barDockControl8.Location = new System.Drawing.Point(1615, 0);
+            this.barDockControl8.Size = new System.Drawing.Size(0, 615);
             // 
             // btnInsertCollect
             // 
@@ -2375,1317 +3058,634 @@
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
-            // barManager1
+            // barManager2
             // 
-            this.barManager1.AllowCustomization = false;
-            this.barManager1.AllowItemAnimatedHighlighting = false;
-            this.barManager1.AllowMoveBarOnToolbar = false;
-            this.barManager1.AllowQuickCustomization = false;
-            this.barManager1.AllowShowToolbarsPopup = false;
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar1,
-            this.bar2,
-            this.bar3});
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.DockManager = this.dockManager1;
-            this.barManager1.Form = this;
-            this.barManager1.Images = this.imageCollection_Toolbars;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barStatic_Bed,
-            this.barStaticItem2,
-            this.barStaticPatName,
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barStatic_Blh,
-            this.barButtonItem3,
-            this.barButtonItem4,
-            this.barStaticItem5,
-            this.barStaticSex,
-            this.barStaticItem7,
-            this.barStatic_Age,
-            this.barStaticItem9,
-            this.barStatic_InWardDate,
-            this.barStaticItem11,
-            this.barButtonItem5,
-            this.barStatic_Dept,
-            this.barSub_File,
-            this.barSubItem2,
-            this.barButtonItem6,
-            this.barButtonItem7,
-            this.barButtonItem8,
-            this.barButtonItem9,
-            this.barButtonItem10,
-            this.barButtonItem11,
-            this.barButtonSave,
-            this.barSubItem1,
-            this.barSubItem3,
-            this.barCheck_ChooseTable,
-            this.barButtonExportFile,
-            this.barButton_ExportXml,
-            this.barButton_Submit,
-            this.barButton_Audit,
-            this.barButton_Delete,
-            this.barButtonFind,
-            this.barButtonItem24,
-            this.btnSavePopup,
-            this.btnDeletePopup,
-            this.btnSubmitPopup,
-            this.btnConfirmPopup,
-            this.btnModulePopup,
-            this.barButton_Check,
-            this.barSubItem4,
-            this.barButton_InsertTable,
-            this.barButton_InsertRow,
-            this.barButton_InsertCol,
-            this.barSubItem5,
-            this.barButton_DeletTable,
-            this.barButton_DeletCol,
-            this.barButton_DeletRow,
-            this.barButton_CellInfo,
-            this.barButtonItemTableProperty,
-            this.barButtonItem22,
-            this.barButtonItem29,
-            this.btn_new,
-            this.btn_Edit,
-            this.btnEmrReadOnly,
-            this.barButtonItem_Preview,
-            this.barButtonItem_JumpPrint,
-            this.barButtonItem_Print,
-            this.btnEmrOpenEdit,
-            this.btnCopy,
-            this.btnPaste,
-            this.btnSaveAll,
-            this.barButtonItem12,
-            this.barButtonItem_Cut,
-            this.barButtonItem_Undo,
-            this.barButtonItem_Redo,
-            this.barEditItem_Font,
-            this.barEditItem_FontSize,
-            this.barButtonItem_Bold,
-            this.barButtonItem_Italy,
-            this.barButtonItem_Undline,
-            this.barButtonItem_Sup,
-            this.barButtonItem_Sub,
-            this.btn_Collect,
-            this.btn_SaveAs,
-            this.barButtonItemPerson,
-            this.barButtonItemEmrPrint,
-            this.barButtonItemThreeLevelCheck,
-            this.barButtonItemCancelAudit,
-            this.barButtonItemDiagnosis,
-            this.barStaticItem18,
-            this.barStatic_InCount,
-            this.barButtonItem_InCount,
-            this.btnHistoryEmrBatchIn,
-            this.barButtonItemReplaceItem,
-            this.barEditItem1,
-            this.barStaticItem19,
-            this.barEditItemDefaultFontSize,
-            this.barStaticItem20,
-            this.barButtonItemAddNurseTable,
-            this.barButtonItemQuanZi,
-            this.barButtonFontColor,
-            this.barButtonItemBold,
-            this.barButtonItemChangeMacro,
-            this.barButtonItem13,
-            this.barStaticItem21,
-            this.barStaticItem22,
-            this.barButtonItem18,
-            this.barBtnToPDF,
-            this.btnCallPacs,
-            this.btnCheckOutDep,
-            this.barBtnPrint,
-            this.btnSetPageBackColor});
-            this.barManager1.MaxItemId = 116;
-            this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemComboBoxFont,
-            this.repositoryItemComboBox_SiZe,
-            this.repositoryItemComboBox1,
-            this.repositoryItemComboBox2});
+            this.barManager2.AllowCustomization = false;
+            this.barManager2.AllowItemAnimatedHighlighting = false;
+            this.barManager2.AllowMoveBarOnToolbar = false;
+            this.barManager2.AllowQuickCustomization = false;
+            this.barManager2.DockControls.Add(this.barDockControl1);
+            this.barManager2.DockControls.Add(this.barDockControl2);
+            this.barManager2.DockControls.Add(this.barDockControl3);
+            this.barManager2.DockControls.Add(this.barDockControl4);
+            this.barManager2.DockManager = this.dockManager1;
+            this.barManager2.Form = this;
+            this.barManager2.Images = this.imageCollection_Toolbars;
+            this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barStaticItem1,
+            this.barStaticItem3,
+            this.barStaticItem4,
+            this.barButtonItem47,
+            this.barButtonItem14,
+            this.barStaticItem6,
+            this.barButtonItem48,
+            this.barButtonItem49,
+            this.barStaticItem8,
+            this.barStaticItem10,
+            this.barStaticItem12,
+            this.barStaticItem13,
+            this.barStaticItem14,
+            this.barStaticItem15,
+            this.barStaticItem16,
+            this.barButtonItem50,
+            this.barStaticItem17,
+            this.barSubItem10,
+            this.barSubItem11,
+            this.barButtonItem55,
+            this.barButtonItem56,
+            this.barButtonItem51,
+            this.barButtonItem52,
+            this.barButtonItem53,
+            this.barButtonItem54,
+            this.barButtonItem19,
+            this.barSubItem6,
+            this.barSubItem9,
+            this.barCheckItem1,
+            this.barButtonItem41,
+            this.barButtonItem42,
+            this.barButtonItem25,
+            this.barButtonItem26,
+            this.barButtonItem16,
+            this.barButtonItem43,
+            this.barButtonItem44,
+            this.barButtonItem57,
+            this.barButtonItem58,
+            this.barButtonItem59,
+            this.barButtonItem60,
+            this.barButtonItem61,
+            this.barButtonItem20,
+            this.barSubItem7,
+            this.barButtonItem31,
+            this.barButtonItem32,
+            this.barButtonItem33,
+            this.barSubItem8,
+            this.barButtonItem34,
+            this.barButtonItem35,
+            this.barButtonItem36,
+            this.barButtonItem37,
+            this.barButtonItem38,
+            this.barButtonItem39,
+            this.barButtonItem40,
+            this.barButtonItem15,
+            this.barButtonItem17,
+            this.barButtonItem28,
+            this.barButtonItem30,
+            this.barButtonItem27,
+            this.barButtonItem45,
+            this.barButtonItem46,
+            this.btnCancelAuditPopup,
+            this.btnAddCommonRecord,
+            this.btnDelCommonNote});
+            this.barManager2.MaxItemId = 73;
             // 
-            // bar1
+            // barDockControl1
             // 
-            this.bar1.BarName = "Tools";
-            this.bar1.DockCol = 0;
-            this.bar1.DockRow = 1;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Bed),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticPatName),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Blh),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticSex),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Age),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_InWardDate),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStatic_Dept),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_InCount),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemChangeMacro, true),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.None, false, this.barButtonItem18, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnPrint, true)});
-            this.bar1.OptionsBar.AllowQuickCustomization = false;
-            this.bar1.Text = "Tools";
+            this.barDockControl1.CausesValidation = false;
+            this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControl1.Location = new System.Drawing.Point(0, 0);
+            this.barDockControl1.Size = new System.Drawing.Size(1615, 0);
             // 
-            // barStatic_Bed
+            // barDockControl2
             // 
-            this.barStatic_Bed.Id = 0;
-            this.barStatic_Bed.Name = "barStatic_Bed";
-            this.barStatic_Bed.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barDockControl2.CausesValidation = false;
+            this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControl2.Location = new System.Drawing.Point(0, 615);
+            this.barDockControl2.Size = new System.Drawing.Size(1615, 0);
             // 
-            // barStaticPatName
+            // barDockControl3
             // 
-            this.barStaticPatName.Caption = "姓名：";
-            this.barStaticPatName.Id = 2;
-            this.barStaticPatName.Name = "barStaticPatName";
-            this.barStaticPatName.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barDockControl3.CausesValidation = false;
+            this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControl3.Location = new System.Drawing.Point(0, 0);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 615);
             // 
-            // barStatic_Blh
+            // barDockControl4
             // 
-            this.barStatic_Blh.Caption = "病历号：";
-            this.barStatic_Blh.Id = 5;
-            this.barStatic_Blh.Name = "barStatic_Blh";
-            this.barStatic_Blh.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barDockControl4.CausesValidation = false;
+            this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControl4.Location = new System.Drawing.Point(1615, 0);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 615);
             // 
-            // barStaticSex
+            // barStaticItem1
             // 
-            this.barStaticSex.Caption = "性别：";
-            this.barStaticSex.Id = 9;
-            this.barStaticSex.Name = "barStaticSex";
-            this.barStaticSex.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem1.Id = 0;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStatic_Age
+            // barStaticItem3
             // 
-            this.barStatic_Age.Caption = "年龄：";
-            this.barStatic_Age.Id = 11;
-            this.barStatic_Age.Name = "barStatic_Age";
-            this.barStatic_Age.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem3.Caption = "姓名:";
+            this.barStaticItem3.Id = 1;
+            this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStatic_InWardDate
+            // barStaticItem4
             // 
-            this.barStatic_InWardDate.Caption = "入院日期：";
-            this.barStatic_InWardDate.Id = 13;
-            this.barStatic_InWardDate.Name = "barStatic_InWardDate";
-            this.barStatic_InWardDate.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem4.Id = 2;
+            this.barStaticItem4.Name = "barStaticItem4";
+            this.barStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // barStatic_Dept
+            // barButtonItem47
             // 
-            this.barStatic_Dept.Caption = "当前科室：";
-            this.barStatic_Dept.Id = 16;
-            this.barStatic_Dept.Name = "barStatic_Dept";
-            this.barStatic_Dept.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barButtonItem47.Id = 3;
+            this.barButtonItem47.Name = "barButtonItem47";
             // 
-            // barButtonItem_InCount
+            // barButtonItem14
             // 
-            this.barButtonItem_InCount.Caption = " 入院次数：";
-            this.barButtonItem_InCount.Id = 95;
-            this.barButtonItem_InCount.Name = "barButtonItem_InCount";
-            this.barButtonItem_InCount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_InCount_ItemClick);
+            this.barButtonItem14.Caption = "病历号:";
+            this.barButtonItem14.Id = 4;
+            this.barButtonItem14.Name = "barButtonItem14";
             // 
-            // barButtonItemChangeMacro
+            // barStaticItem6
             // 
-            this.barButtonItemChangeMacro.Caption = "更改常用词";
-            this.barButtonItemChangeMacro.Id = 105;
-            this.barButtonItemChangeMacro.Name = "barButtonItemChangeMacro";
-            toolTipTitleItem1.Text = "更改界面中常用词【科室、病区】";
+            this.barStaticItem6.Id = 5;
+            this.barStaticItem6.Name = "barStaticItem6";
+            this.barStaticItem6.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem48
+            // 
+            this.barButtonItem48.Id = 6;
+            this.barButtonItem48.Name = "barButtonItem48";
+            // 
+            // barButtonItem49
+            // 
+            this.barButtonItem49.Id = 7;
+            this.barButtonItem49.Name = "barButtonItem49";
+            // 
+            // barStaticItem8
+            // 
+            this.barStaticItem8.Caption = "性别:";
+            this.barStaticItem8.Id = 8;
+            this.barStaticItem8.Name = "barStaticItem8";
+            this.barStaticItem8.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem10
+            // 
+            this.barStaticItem10.Id = 9;
+            this.barStaticItem10.Name = "barStaticItem10";
+            this.barStaticItem10.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem12
+            // 
+            this.barStaticItem12.Caption = "年龄";
+            this.barStaticItem12.Id = 10;
+            this.barStaticItem12.Name = "barStaticItem12";
+            this.barStaticItem12.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem13
+            // 
+            this.barStaticItem13.Id = 11;
+            this.barStaticItem13.Name = "barStaticItem13";
+            this.barStaticItem13.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem14
+            // 
+            this.barStaticItem14.Caption = "入院日期:";
+            this.barStaticItem14.Id = 12;
+            this.barStaticItem14.Name = "barStaticItem14";
+            this.barStaticItem14.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem15
+            // 
+            this.barStaticItem15.Id = 13;
+            this.barStaticItem15.Name = "barStaticItem15";
+            this.barStaticItem15.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barStaticItem16
+            // 
+            this.barStaticItem16.Caption = "当前科室";
+            this.barStaticItem16.Id = 14;
+            this.barStaticItem16.Name = "barStaticItem16";
+            this.barStaticItem16.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barButtonItem50
+            // 
+            this.barButtonItem50.Id = 15;
+            this.barButtonItem50.Name = "barButtonItem50";
+            // 
+            // barStaticItem17
+            // 
+            this.barStaticItem17.Id = 16;
+            this.barStaticItem17.Name = "barStaticItem17";
+            this.barStaticItem17.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barSubItem10
+            // 
+            this.barSubItem10.Caption = "文件";
+            this.barSubItem10.Id = 17;
+            this.barSubItem10.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem51),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem52)});
+            this.barSubItem10.Name = "barSubItem10";
+            // 
+            // barButtonItem51
+            // 
+            this.barButtonItem51.Caption = "新建病历";
+            this.barButtonItem51.Id = 21;
+            this.barButtonItem51.Name = "barButtonItem51";
+            // 
+            // barButtonItem52
+            // 
+            this.barButtonItem52.Caption = "在线知识库";
+            this.barButtonItem52.Id = 22;
+            this.barButtonItem52.Name = "barButtonItem52";
+            // 
+            // barSubItem11
+            // 
+            this.barSubItem11.Caption = "打印";
+            this.barSubItem11.Id = 18;
+            this.barSubItem11.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem53),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem54)});
+            this.barSubItem11.Name = "barSubItem11";
+            // 
+            // barButtonItem53
+            // 
+            this.barButtonItem53.Caption = "完整打印";
+            this.barButtonItem53.Id = 23;
+            this.barButtonItem53.Name = "barButtonItem53";
+            // 
+            // barButtonItem54
+            // 
+            this.barButtonItem54.Caption = "病程续打";
+            this.barButtonItem54.Id = 24;
+            this.barButtonItem54.Name = "barButtonItem54";
+            // 
+            // barButtonItem55
+            // 
+            this.barButtonItem55.Caption = "工具";
+            this.barButtonItem55.Id = 19;
+            this.barButtonItem55.Name = "barButtonItem55";
+            // 
+            // barButtonItem56
+            // 
+            this.barButtonItem56.Caption = "表格";
+            this.barButtonItem56.Id = 20;
+            this.barButtonItem56.Name = "barButtonItem56";
+            // 
+            // barButtonItem19
+            // 
+            this.barButtonItem19.Caption = "保存";
+            this.barButtonItem19.Id = 25;
+            this.barButtonItem19.ImageIndex = 18;
+            this.barButtonItem19.Name = "barButtonItem19";
+            toolTipTitleItem1.Text = "保存";
             toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "此功能只开放给管理员";
+            toolTipItem1.Text = "保存当前修改";
             superToolTip1.Items.Add(toolTipTitleItem1);
             superToolTip1.Items.Add(toolTipItem1);
-            this.barButtonItemChangeMacro.SuperTip = superToolTip1;
-            this.barButtonItemChangeMacro.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItemChangeMacro.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemChangeMacro_ItemClick);
+            this.barButtonItem19.SuperTip = superToolTip1;
             // 
-            // barButtonItem18
+            // barSubItem6
             // 
-            this.barButtonItem18.Caption = "出科检查";
-            this.barButtonItem18.Id = 109;
-            this.barButtonItem18.Name = "barButtonItem18";
-            toolTipTitleItem2.Text = "出科检查";
+            this.barSubItem6.Caption = "表格";
+            this.barSubItem6.Id = 30;
+            this.barSubItem6.ImageIndex = 9;
+            this.barSubItem6.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem7),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem8),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barCheckItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem37),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem38),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem39),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem40)});
+            this.barSubItem6.Name = "barSubItem6";
+            toolTipTitleItem2.Text = "表格";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "表格相关操作";
             superToolTip2.Items.Add(toolTipTitleItem2);
-            this.barButtonItem18.SuperTip = superToolTip2;
-            this.barButtonItem18.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItem18.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem18_ItemClick);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.barSubItem6.SuperTip = superToolTip2;
             // 
-            // barBtnPrint
+            // barSubItem7
             // 
-            this.barBtnPrint.Caption = "打印";
-            this.barBtnPrint.Id = 114;
-            this.barBtnPrint.ImageIndex = 12;
-            this.barBtnPrint.Name = "barBtnPrint";
-            toolTipItem2.Text = "打印";
-            superToolTip3.Items.Add(toolTipItem2);
-            this.barBtnPrint.SuperTip = superToolTip3;
-            this.barBtnPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barBtnPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemEmrPrint_ItemClick);
+            this.barSubItem7.Caption = "插入";
+            this.barSubItem7.Id = 48;
+            this.barSubItem7.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem31),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem32),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem33)});
+            this.barSubItem7.Name = "barSubItem7";
             // 
-            // bar2
+            // barButtonItem31
             // 
-            this.bar2.BarName = "Custom 4";
-            this.bar2.DockCol = 0;
-            this.bar2.DockRow = 0;
-            this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_new, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnHistoryEmrBatchIn),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Delete, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_Edit, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEmrReadOnly, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonSave, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btn_SaveAs, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSaveAll, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Check, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Submit, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButton_Audit, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemCancelAudit),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Print, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Preview),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_JumpPrint),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemEmrPrint, true),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem1, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barSubItem3, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem24),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemThreeLevelCheck),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemReplaceItem),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItemDefaultFontSize, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemAddNurseTable),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnCallPacs),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnCheckOutDep, true)});
-            this.bar2.Text = "Custom 4";
+            this.barButtonItem31.Caption = "插入表格";
+            this.barButtonItem31.Id = 49;
+            this.barButtonItem31.Name = "barButtonItem31";
             // 
-            // btn_new
+            // barButtonItem32
             // 
-            this.btn_new.Caption = "新建";
-            this.btn_new.Id = 60;
-            this.btn_new.ImageIndex = 10;
-            this.btn_new.Name = "btn_new";
-            toolTipTitleItem3.Text = "新建";
+            this.barButtonItem32.Caption = "插入行";
+            this.barButtonItem32.Id = 50;
+            this.barButtonItem32.Name = "barButtonItem32";
+            // 
+            // barButtonItem33
+            // 
+            this.barButtonItem33.Caption = "插入列";
+            this.barButtonItem33.Id = 51;
+            this.barButtonItem33.Name = "barButtonItem33";
+            // 
+            // barSubItem8
+            // 
+            this.barSubItem8.Caption = "删除";
+            this.barSubItem8.Id = 52;
+            this.barSubItem8.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem34),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem35),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem36)});
+            this.barSubItem8.Name = "barSubItem8";
+            // 
+            // barButtonItem34
+            // 
+            this.barButtonItem34.Caption = "删除表格";
+            this.barButtonItem34.Id = 53;
+            this.barButtonItem34.Name = "barButtonItem34";
+            // 
+            // barButtonItem35
+            // 
+            this.barButtonItem35.Caption = "删除列";
+            this.barButtonItem35.Id = 54;
+            this.barButtonItem35.Name = "barButtonItem35";
+            // 
+            // barButtonItem36
+            // 
+            this.barButtonItem36.Caption = "删除行";
+            this.barButtonItem36.Id = 55;
+            this.barButtonItem36.Name = "barButtonItem36";
+            // 
+            // barCheckItem1
+            // 
+            this.barCheckItem1.Caption = "选中";
+            this.barCheckItem1.Id = 34;
+            this.barCheckItem1.Name = "barCheckItem1";
+            // 
+            // barButtonItem37
+            // 
+            this.barButtonItem37.Caption = "单元格属性";
+            this.barButtonItem37.Id = 56;
+            this.barButtonItem37.Name = "barButtonItem37";
+            // 
+            // barButtonItem38
+            // 
+            this.barButtonItem38.Caption = "表格属性";
+            this.barButtonItem38.Id = 57;
+            this.barButtonItem38.Name = "barButtonItem38";
+            // 
+            // barButtonItem39
+            // 
+            this.barButtonItem39.Caption = "拆分单元格";
+            this.barButtonItem39.Id = 58;
+            this.barButtonItem39.Name = "barButtonItem39";
+            // 
+            // barButtonItem40
+            // 
+            this.barButtonItem40.Caption = "合并单元格";
+            this.barButtonItem40.Id = 59;
+            this.barButtonItem40.Name = "barButtonItem40";
+            // 
+            // barSubItem9
+            // 
+            this.barSubItem9.Caption = "工具";
+            this.barSubItem9.Id = 31;
+            this.barSubItem9.ImageIndex = 20;
+            this.barSubItem9.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem41),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem42),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem43)});
+            this.barSubItem9.Name = "barSubItem9";
+            toolTipTitleItem3.Text = "工具";
             toolTipItem3.LeftIndent = 6;
-            toolTipItem3.Text = "新建病历文书";
-            superToolTip4.Items.Add(toolTipTitleItem3);
-            superToolTip4.Items.Add(toolTipItem3);
-            this.btn_new.SuperTip = superToolTip4;
-            this.btn_new.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_new_ItemClick);
+            toolTipItem3.Text = "病历操作工作集合";
+            superToolTip3.Items.Add(toolTipTitleItem3);
+            superToolTip3.Items.Add(toolTipItem3);
+            this.barSubItem9.SuperTip = superToolTip3;
             // 
-            // btnHistoryEmrBatchIn
+            // barButtonItem41
             // 
-            this.btnHistoryEmrBatchIn.Caption = "批量导入历史病例";
-            this.btnHistoryEmrBatchIn.Enabled = false;
-            this.btnHistoryEmrBatchIn.Id = 96;
-            this.btnHistoryEmrBatchIn.ImageIndex = 4;
-            this.btnHistoryEmrBatchIn.Name = "btnHistoryEmrBatchIn";
-            toolTipTitleItem4.Text = "历史病例导入";
+            this.barButtonItem41.Caption = "导出病历";
+            this.barButtonItem41.Id = 35;
+            this.barButtonItem41.Name = "barButtonItem41";
+            // 
+            // barButtonItem42
+            // 
+            this.barButtonItem42.Caption = "导出XML";
+            this.barButtonItem42.Id = 36;
+            this.barButtonItem42.Name = "barButtonItem42";
+            // 
+            // barButtonItem43
+            // 
+            this.barButtonItem43.Caption = "查找";
+            this.barButtonItem43.Id = 40;
+            this.barButtonItem43.Name = "barButtonItem43";
+            // 
+            // barButtonItem25
+            // 
+            this.barButtonItem25.Caption = "提交";
+            this.barButtonItem25.Id = 37;
+            this.barButtonItem25.ImageIndex = 15;
+            this.barButtonItem25.Name = "barButtonItem25";
+            toolTipTitleItem4.Text = "提交";
             toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "导入前次就诊时的所有病例";
-            superToolTip5.Items.Add(toolTipTitleItem4);
-            superToolTip5.Items.Add(toolTipItem4);
-            this.btnHistoryEmrBatchIn.SuperTip = superToolTip5;
-            this.btnHistoryEmrBatchIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHistoryEmrBatchIn_ItemClick);
+            toolTipItem4.Text = "将当前病历提交给上级医师";
+            superToolTip4.Items.Add(toolTipTitleItem4);
+            superToolTip4.Items.Add(toolTipItem4);
+            this.barButtonItem25.SuperTip = superToolTip4;
             // 
-            // barButton_Delete
+            // barButtonItem26
             // 
-            this.barButton_Delete.Caption = "删除";
-            this.barButton_Delete.Id = 39;
-            this.barButton_Delete.ImageIndex = 17;
-            this.barButton_Delete.Name = "barButton_Delete";
-            toolTipTitleItem5.Text = "删除";
+            this.barButtonItem26.Caption = "审核";
+            this.barButtonItem26.Id = 38;
+            this.barButtonItem26.ImageIndex = 21;
+            this.barButtonItem26.Name = "barButtonItem26";
+            toolTipTitleItem5.Text = "审核";
             toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "删除当前病历文件";
-            superToolTip6.Items.Add(toolTipTitleItem5);
-            superToolTip6.Items.Add(toolTipItem5);
-            this.barButton_Delete.SuperTip = superToolTip6;
-            this.barButton_Delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Delete_ItemClick);
+            toolTipItem5.Text = "审核下级医师提交的病历";
+            superToolTip5.Items.Add(toolTipTitleItem5);
+            superToolTip5.Items.Add(toolTipItem5);
+            this.barButtonItem26.SuperTip = superToolTip5;
             // 
-            // btn_Edit
+            // barButtonItem16
             // 
-            this.btn_Edit.Caption = "编辑";
-            this.btn_Edit.Id = 62;
-            this.btn_Edit.ImageIndex = 0;
-            this.btn_Edit.Name = "btn_Edit";
-            toolTipTitleItem6.Text = "编辑";
+            this.barButtonItem16.Caption = "删除";
+            this.barButtonItem16.Id = 39;
+            this.barButtonItem16.ImageIndex = 17;
+            this.barButtonItem16.Name = "barButtonItem16";
+            toolTipTitleItem6.Text = "删除";
             toolTipItem6.LeftIndent = 6;
-            toolTipItem6.Text = "申请编辑模式";
-            superToolTip7.Items.Add(toolTipTitleItem6);
-            superToolTip7.Items.Add(toolTipItem6);
-            this.btn_Edit.SuperTip = superToolTip7;
-            this.btn_Edit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Edit_ItemClick);
+            toolTipItem6.Text = "删除当前病历文件";
+            superToolTip6.Items.Add(toolTipTitleItem6);
+            superToolTip6.Items.Add(toolTipItem6);
+            this.barButtonItem16.SuperTip = superToolTip6;
             // 
-            // btnEmrReadOnly
+            // barButtonItem44
             // 
-            this.btnEmrReadOnly.Caption = "只读";
-            this.btnEmrReadOnly.Id = 68;
-            this.btnEmrReadOnly.ImageIndex = 24;
-            this.btnEmrReadOnly.Name = "btnEmrReadOnly";
-            toolTipTitleItem7.Text = "只读";
+            this.barButtonItem44.Caption = "帮助";
+            this.barButtonItem44.Id = 41;
+            this.barButtonItem44.ImageIndex = 19;
+            this.barButtonItem44.Name = "barButtonItem44";
+            toolTipTitleItem7.Text = "帮助";
             toolTipItem7.LeftIndent = 6;
-            toolTipItem7.Text = "当前病历不能编辑";
-            superToolTip8.Items.Add(toolTipTitleItem7);
-            superToolTip8.Items.Add(toolTipItem7);
-            this.btnEmrReadOnly.SuperTip = superToolTip8;
-            this.btnEmrReadOnly.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmrReadOnly_ItemClick);
+            toolTipItem7.Text = "帮助文件";
+            superToolTip7.Items.Add(toolTipTitleItem7);
+            superToolTip7.Items.Add(toolTipItem7);
+            this.barButtonItem44.SuperTip = superToolTip7;
             // 
-            // barButtonSave
+            // barButtonItem57
             // 
-            this.barButtonSave.Caption = "保存(&S)";
-            this.barButtonSave.Id = 25;
-            this.barButtonSave.ImageIndex = 18;
-            this.barButtonSave.Name = "barButtonSave";
-            toolTipTitleItem8.Text = "保存";
+            this.barButtonItem57.Caption = "保存";
+            this.barButtonItem57.Id = 42;
+            this.barButtonItem57.Name = "barButtonItem57";
+            // 
+            // barButtonItem58
+            // 
+            this.barButtonItem58.Caption = "删除";
+            this.barButtonItem58.Id = 43;
+            this.barButtonItem58.Name = "barButtonItem58";
+            // 
+            // barButtonItem59
+            // 
+            this.barButtonItem59.Caption = "提交";
+            this.barButtonItem59.Id = 44;
+            this.barButtonItem59.Name = "barButtonItem59";
+            // 
+            // barButtonItem60
+            // 
+            this.barButtonItem60.Caption = "审核";
+            this.barButtonItem60.Id = 45;
+            this.barButtonItem60.Name = "barButtonItem60";
+            // 
+            // barButtonItem61
+            // 
+            this.barButtonItem61.Caption = "模板";
+            this.barButtonItem61.Id = 100;
+            this.barButtonItem61.Name = "barButtonItem61";
+            // 
+            // barButtonItem20
+            // 
+            this.barButtonItem20.Caption = "自检";
+            this.barButtonItem20.Id = 46;
+            this.barButtonItem20.ImageIndex = 22;
+            this.barButtonItem20.Name = "barButtonItem20";
+            toolTipTitleItem8.Text = "自检";
             toolTipItem8.LeftIndent = 6;
-            toolTipItem8.Text = "保存当前修改";
-            superToolTip9.Items.Add(toolTipTitleItem8);
-            superToolTip9.Items.Add(toolTipItem8);
-            this.barButtonSave.SuperTip = superToolTip9;
-            this.barButtonSave.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSave_ItemClick);
+            toolTipItem8.Text = "病历缺陷项检查";
+            superToolTip8.Items.Add(toolTipTitleItem8);
+            superToolTip8.Items.Add(toolTipItem8);
+            this.barButtonItem20.SuperTip = superToolTip8;
             // 
-            // btn_SaveAs
+            // barButtonItem15
             // 
-            this.btn_SaveAs.Caption = "另存";
-            this.btn_SaveAs.Id = 87;
-            this.btn_SaveAs.ImageIndex = 36;
-            this.btn_SaveAs.Name = "btn_SaveAs";
-            toolTipTitleItem9.Text = "另存";
+            this.barButtonItem15.Caption = "新建";
+            this.barButtonItem15.Id = 60;
+            this.barButtonItem15.ImageIndex = 10;
+            this.barButtonItem15.Name = "barButtonItem15";
+            toolTipTitleItem9.Text = "新建";
             toolTipItem9.LeftIndent = 6;
-            toolTipItem9.Text = "另存为个人模板";
-            superToolTip10.Items.Add(toolTipTitleItem9);
-            superToolTip10.Items.Add(toolTipItem9);
-            this.btn_SaveAs.SuperTip = superToolTip10;
-            this.btn_SaveAs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_SaveAs_ItemClick);
+            toolTipItem9.Text = "新建病历文书";
+            superToolTip9.Items.Add(toolTipTitleItem9);
+            superToolTip9.Items.Add(toolTipItem9);
+            this.barButtonItem15.SuperTip = superToolTip9;
             // 
-            // btnSaveAll
+            // barButtonItem17
             // 
-            this.btnSaveAll.Caption = "全部保存";
-            this.btnSaveAll.Id = 72;
-            this.btnSaveAll.ImageIndex = 27;
-            this.btnSaveAll.Name = "btnSaveAll";
-            toolTipTitleItem10.Text = "全部保存";
+            this.barButtonItem17.Caption = "编辑";
+            this.barButtonItem17.Id = 62;
+            this.barButtonItem17.ImageIndex = 0;
+            this.barButtonItem17.Name = "barButtonItem17";
+            toolTipTitleItem10.Text = "编辑";
             toolTipItem10.LeftIndent = 6;
-            toolTipItem10.Text = "保存病人所有的病历";
-            superToolTip11.Items.Add(toolTipTitleItem10);
-            superToolTip11.Items.Add(toolTipItem10);
-            this.btnSaveAll.SuperTip = superToolTip11;
-            this.btnSaveAll.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnSaveAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSaveAll_ItemClick);
+            toolTipItem10.Text = "申请编辑模式";
+            superToolTip10.Items.Add(toolTipTitleItem10);
+            superToolTip10.Items.Add(toolTipItem10);
+            this.barButtonItem17.SuperTip = superToolTip10;
             // 
-            // barButton_Check
+            // barButtonItem28
             // 
-            this.barButton_Check.Caption = "自检";
-            this.barButton_Check.Id = 46;
-            this.barButton_Check.ImageIndex = 22;
-            this.barButton_Check.Name = "barButton_Check";
-            toolTipTitleItem11.Text = "自检";
+            this.barButtonItem28.Caption = "打印预览";
+            this.barButtonItem28.Id = 64;
+            this.barButtonItem28.ImageIndex = 13;
+            this.barButtonItem28.Name = "barButtonItem28";
+            toolTipTitleItem11.Text = "打印预览";
             toolTipItem11.LeftIndent = 6;
-            toolTipItem11.Text = "病历缺陷项检查";
-            superToolTip12.Items.Add(toolTipTitleItem11);
-            superToolTip12.Items.Add(toolTipItem11);
-            this.barButton_Check.SuperTip = superToolTip12;
-            this.barButton_Check.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Check_ItemClick);
+            toolTipItem11.Text = "预览当前病历";
+            superToolTip11.Items.Add(toolTipTitleItem11);
+            superToolTip11.Items.Add(toolTipItem11);
+            this.barButtonItem28.SuperTip = superToolTip11;
             // 
-            // barButton_Submit
+            // barButtonItem30
             // 
-            this.barButton_Submit.Caption = "提交";
-            this.barButton_Submit.Id = 37;
-            this.barButton_Submit.ImageIndex = 15;
-            this.barButton_Submit.Name = "barButton_Submit";
-            toolTipTitleItem12.Text = "提交";
+            this.barButtonItem30.AllowAllUp = true;
+            this.barButtonItem30.Caption = "续打";
+            this.barButtonItem30.Id = 66;
+            this.barButtonItem30.Name = "barButtonItem30";
+            toolTipTitleItem12.Text = "续打";
             toolTipItem12.LeftIndent = 6;
-            toolTipItem12.Text = "将当前病历提交给上级医师";
-            superToolTip13.Items.Add(toolTipTitleItem12);
-            superToolTip13.Items.Add(toolTipItem12);
-            this.barButton_Submit.SuperTip = superToolTip13;
-            this.barButton_Submit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Submit_ItemClick);
+            toolTipItem12.Text = "打印制定的病历内容";
+            superToolTip12.Items.Add(toolTipTitleItem12);
+            superToolTip12.Items.Add(toolTipItem12);
+            this.barButtonItem30.SuperTip = superToolTip12;
             // 
-            // barButton_Audit
+            // barButtonItem27
             // 
-            this.barButton_Audit.Caption = "审核";
-            this.barButton_Audit.Id = 38;
-            this.barButton_Audit.ImageIndex = 21;
-            this.barButton_Audit.Name = "barButton_Audit";
-            toolTipTitleItem13.Text = "审核";
+            this.barButtonItem27.Caption = "打印";
+            this.barButtonItem27.Id = 67;
+            this.barButtonItem27.ImageIndex = 12;
+            this.barButtonItem27.Name = "barButtonItem27";
+            toolTipTitleItem13.Text = "打印";
             toolTipItem13.LeftIndent = 6;
-            toolTipItem13.Text = "审核下级医师提交的病历";
-            superToolTip14.Items.Add(toolTipTitleItem13);
-            superToolTip14.Items.Add(toolTipItem13);
-            this.barButton_Audit.SuperTip = superToolTip14;
-            this.barButton_Audit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_Audit_ItemClick);
+            toolTipItem13.Text = "打印当前病历";
+            superToolTip13.Items.Add(toolTipTitleItem13);
+            superToolTip13.Items.Add(toolTipItem13);
+            this.barButtonItem27.SuperTip = superToolTip13;
             // 
-            // barButtonItemCancelAudit
+            // barButtonItem45
             // 
-            this.barButtonItemCancelAudit.Caption = "取消审核";
-            this.barButtonItemCancelAudit.Id = 91;
-            this.barButtonItemCancelAudit.ImageIndex = 38;
-            this.barButtonItemCancelAudit.Name = "barButtonItemCancelAudit";
-            toolTipTitleItem14.Text = "取消审核";
+            this.barButtonItem45.Caption = "btnEmrReadOnly";
+            this.barButtonItem45.Id = 68;
+            this.barButtonItem45.ImageIndex = 24;
+            this.barButtonItem45.Name = "barButtonItem45";
+            toolTipTitleItem14.Text = "只读";
             toolTipItem14.LeftIndent = 6;
-            toolTipItem14.Text = "取消审核状态，将病历退给创建人";
-            superToolTip15.Items.Add(toolTipTitleItem14);
-            superToolTip15.Items.Add(toolTipItem14);
-            this.barButtonItemCancelAudit.SuperTip = superToolTip15;
-            this.barButtonItemCancelAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemCancelAudit_ItemClick);
+            toolTipItem14.Text = "当前病历不能编辑";
+            superToolTip14.Items.Add(toolTipTitleItem14);
+            superToolTip14.Items.Add(toolTipItem14);
+            this.barButtonItem45.SuperTip = superToolTip14;
             // 
-            // barButtonItem_Print
+            // barButtonItem46
             // 
-            this.barButtonItem_Print.Caption = "打印";
-            this.barButtonItem_Print.Id = 67;
-            this.barButtonItem_Print.ImageIndex = 12;
-            this.barButtonItem_Print.Name = "barButtonItem_Print";
-            toolTipTitleItem15.Text = "打印";
+            this.barButtonItem46.Caption = "btnEmrOpenEdit";
+            this.barButtonItem46.Id = 69;
+            this.barButtonItem46.ImageIndex = 23;
+            this.barButtonItem46.Name = "barButtonItem46";
+            toolTipTitleItem15.Text = "申请编辑";
             toolTipItem15.LeftIndent = 6;
-            toolTipItem15.Text = "打印当前病历";
-            superToolTip16.Items.Add(toolTipTitleItem15);
-            superToolTip16.Items.Add(toolTipItem15);
-            this.barButtonItem_Print.SuperTip = superToolTip16;
-            this.barButtonItem_Print.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItem_Print.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Print_ItemClick);
-            // 
-            // barButtonItem_Preview
-            // 
-            this.barButtonItem_Preview.Caption = "打印预览";
-            this.barButtonItem_Preview.Id = 64;
-            this.barButtonItem_Preview.ImageIndex = 13;
-            this.barButtonItem_Preview.Name = "barButtonItem_Preview";
-            toolTipTitleItem16.Text = "打印预览";
-            toolTipItem16.LeftIndent = 6;
-            toolTipItem16.Text = "预览当前病历";
-            superToolTip17.Items.Add(toolTipTitleItem16);
-            superToolTip17.Items.Add(toolTipItem16);
-            this.barButtonItem_Preview.SuperTip = superToolTip17;
-            this.barButtonItem_Preview.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItem_Preview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Preview_ItemClick);
-            // 
-            // barButtonItem_JumpPrint
-            // 
-            this.barButtonItem_JumpPrint.AllowAllUp = true;
-            this.barButtonItem_JumpPrint.Caption = "续打";
-            this.barButtonItem_JumpPrint.Id = 66;
-            this.barButtonItem_JumpPrint.Name = "barButtonItem_JumpPrint";
-            toolTipTitleItem17.Text = "续打";
-            toolTipItem17.LeftIndent = 6;
-            toolTipItem17.Text = "打印制定的病历内容";
-            superToolTip18.Items.Add(toolTipTitleItem17);
-            superToolTip18.Items.Add(toolTipItem17);
-            this.barButtonItem_JumpPrint.SuperTip = superToolTip18;
-            this.barButtonItem_JumpPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItem_JumpPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_JumpPrint_ItemClick);
-            // 
-            // barButtonItemEmrPrint
-            // 
-            this.barButtonItemEmrPrint.Caption = "barButtonItemEmrPrint";
-            this.barButtonItemEmrPrint.Id = 89;
-            this.barButtonItemEmrPrint.ImageIndex = 12;
-            this.barButtonItemEmrPrint.Name = "barButtonItemEmrPrint";
-            toolTipTitleItem18.Text = "打印";
-            superToolTip19.Items.Add(toolTipTitleItem18);
-            this.barButtonItemEmrPrint.SuperTip = superToolTip19;
-            this.barButtonItemEmrPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemEmrPrint_ItemClick);
-            // 
-            // barSubItem1
-            // 
-            this.barSubItem1.Caption = "表格";
-            this.barSubItem1.Id = 30;
-            this.barSubItem1.ImageIndex = 9;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem5),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barCheck_ChooseTable),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_CellInfo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemTableProperty),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem22),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem29)});
-            this.barSubItem1.Name = "barSubItem1";
-            toolTipTitleItem19.Text = "表格";
-            toolTipItem18.LeftIndent = 6;
-            toolTipItem18.Text = "表格相关操作";
-            superToolTip20.Items.Add(toolTipTitleItem19);
-            superToolTip20.Items.Add(toolTipItem18);
-            this.barSubItem1.SuperTip = superToolTip20;
-            // 
-            // barSubItem4
-            // 
-            this.barSubItem4.Caption = "插入";
-            this.barSubItem4.Id = 48;
-            this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_InsertTable),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_InsertRow),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_InsertCol)});
-            this.barSubItem4.Name = "barSubItem4";
-            // 
-            // barButton_InsertTable
-            // 
-            this.barButton_InsertTable.Caption = "插入表格";
-            this.barButton_InsertTable.Id = 49;
-            this.barButton_InsertTable.Name = "barButton_InsertTable";
-            this.barButton_InsertTable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_InsertTable_ItemClick);
-            // 
-            // barButton_InsertRow
-            // 
-            this.barButton_InsertRow.Caption = "插入行";
-            this.barButton_InsertRow.Id = 50;
-            this.barButton_InsertRow.Name = "barButton_InsertRow";
-            this.barButton_InsertRow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_InsertRow_ItemClick);
-            // 
-            // barButton_InsertCol
-            // 
-            this.barButton_InsertCol.Caption = "插入列";
-            this.barButton_InsertCol.Id = 51;
-            this.barButton_InsertCol.Name = "barButton_InsertCol";
-            this.barButton_InsertCol.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_InsertCol_ItemClick);
-            // 
-            // barSubItem5
-            // 
-            this.barSubItem5.Caption = "删除";
-            this.barSubItem5.Id = 52;
-            this.barSubItem5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_DeletTable),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_DeletCol),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_DeletRow)});
-            this.barSubItem5.Name = "barSubItem5";
-            // 
-            // barButton_DeletTable
-            // 
-            this.barButton_DeletTable.Caption = "删除表格";
-            this.barButton_DeletTable.Id = 53;
-            this.barButton_DeletTable.Name = "barButton_DeletTable";
-            this.barButton_DeletTable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_DeletTable_ItemClick);
-            // 
-            // barButton_DeletCol
-            // 
-            this.barButton_DeletCol.Caption = "删除列";
-            this.barButton_DeletCol.Id = 54;
-            this.barButton_DeletCol.Name = "barButton_DeletCol";
-            this.barButton_DeletCol.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_DeletCol_ItemClick);
-            // 
-            // barButton_DeletRow
-            // 
-            this.barButton_DeletRow.Caption = "删除行";
-            this.barButton_DeletRow.Id = 55;
-            this.barButton_DeletRow.Name = "barButton_DeletRow";
-            this.barButton_DeletRow.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_DeletRow_ItemClick);
-            // 
-            // barCheck_ChooseTable
-            // 
-            this.barCheck_ChooseTable.Caption = "选中";
-            this.barCheck_ChooseTable.Id = 34;
-            this.barCheck_ChooseTable.Name = "barCheck_ChooseTable";
-            this.barCheck_ChooseTable.CheckedChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.barCheck_ChooseTable_CheckedChanged);
-            // 
-            // barButton_CellInfo
-            // 
-            this.barButton_CellInfo.Caption = "单元格属性";
-            this.barButton_CellInfo.Id = 56;
-            this.barButton_CellInfo.Name = "barButton_CellInfo";
-            this.barButton_CellInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButton_CellInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_CellInfo_ItemClick);
-            // 
-            // barButtonItemTableProperty
-            // 
-            this.barButtonItemTableProperty.Caption = "表格属性";
-            this.barButtonItemTableProperty.Id = 57;
-            this.barButtonItemTableProperty.Name = "barButtonItemTableProperty";
-            this.barButtonItemTableProperty.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemTableProperty_ItemClick);
-            // 
-            // barButtonItem22
-            // 
-            this.barButtonItem22.Caption = "拆分单元格";
-            this.barButtonItem22.Id = 58;
-            this.barButtonItem22.Name = "barButtonItem22";
-            this.barButtonItem22.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // barButtonItem29
-            // 
-            this.barButtonItem29.Caption = "合并单元格";
-            this.barButtonItem29.Id = 59;
-            this.barButtonItem29.Name = "barButtonItem29";
-            this.barButtonItem29.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // barSubItem3
-            // 
-            this.barSubItem3.Caption = "工具";
-            this.barSubItem3.Id = 31;
-            this.barSubItem3.ImageIndex = 20;
-            this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonExportFile),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButton_ExportXml),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonFind),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemPerson)});
-            this.barSubItem3.Name = "barSubItem3";
-            toolTipTitleItem20.Text = "工具";
-            toolTipItem19.LeftIndent = 6;
-            toolTipItem19.Text = "病历操作工作集合";
-            superToolTip21.Items.Add(toolTipTitleItem20);
-            superToolTip21.Items.Add(toolTipItem19);
-            this.barSubItem3.SuperTip = superToolTip21;
-            // 
-            // barButtonExportFile
-            // 
-            this.barButtonExportFile.Caption = "导出病历";
-            this.barButtonExportFile.Id = 35;
-            this.barButtonExportFile.Name = "barButtonExportFile";
-            this.barButtonExportFile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonExportFile_ItemClick);
-            // 
-            // barButton_ExportXml
-            // 
-            this.barButton_ExportXml.Caption = "导出XML";
-            this.barButton_ExportXml.Id = 36;
-            this.barButton_ExportXml.Name = "barButton_ExportXml";
-            this.barButton_ExportXml.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_ExportXml_ItemClick);
-            // 
-            // barButtonFind
-            // 
-            this.barButtonFind.Caption = "查找";
-            this.barButtonFind.Id = 40;
-            this.barButtonFind.Name = "barButtonFind";
-            this.barButtonFind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonFind_ItemClick);
-            // 
-            // barButtonItemPerson
-            // 
-            this.barButtonItemPerson.Caption = "科室小模板";
-            this.barButtonItemPerson.Id = 88;
-            this.barButtonItemPerson.Name = "barButtonItemPerson";
-            this.barButtonItemPerson.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemPerson_ItemClick);
-            // 
-            // barButtonItem24
-            // 
-            this.barButtonItem24.Caption = "帮助";
-            this.barButtonItem24.Id = 41;
-            this.barButtonItem24.ImageIndex = 19;
-            this.barButtonItem24.Name = "barButtonItem24";
-            toolTipTitleItem21.Text = "帮助";
-            toolTipItem20.LeftIndent = 6;
-            toolTipItem20.Text = "帮助文件";
-            superToolTip22.Items.Add(toolTipTitleItem21);
-            superToolTip22.Items.Add(toolTipItem20);
-            this.barButtonItem24.SuperTip = superToolTip22;
-            this.barButtonItem24.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // barButtonItemThreeLevelCheck
-            // 
-            this.barButtonItemThreeLevelCheck.Caption = "三级检诊";
-            this.barButtonItemThreeLevelCheck.Id = 90;
-            this.barButtonItemThreeLevelCheck.ImageIndex = 37;
-            this.barButtonItemThreeLevelCheck.Name = "barButtonItemThreeLevelCheck";
-            toolTipTitleItem22.Text = "三级检诊";
-            toolTipItem21.LeftIndent = 6;
-            toolTipItem21.Text = "设置三级检诊的人员";
-            superToolTip23.Items.Add(toolTipTitleItem22);
-            superToolTip23.Items.Add(toolTipItem21);
-            this.barButtonItemThreeLevelCheck.SuperTip = superToolTip23;
-            this.barButtonItemThreeLevelCheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemThreeLevelCheck_ItemClick);
-            // 
-            // barButtonItemReplaceItem
-            // 
-            this.barButtonItemReplaceItem.Caption = "替换复用元素";
-            this.barButtonItemReplaceItem.Id = 97;
-            this.barButtonItemReplaceItem.ImageIndex = 40;
-            this.barButtonItemReplaceItem.Name = "barButtonItemReplaceItem";
-            toolTipTitleItem23.Text = "替换复用元素";
-            toolTipItem22.LeftIndent = 6;
-            toolTipItem22.Text = "替换此病人所有病历的复用元素";
-            superToolTip24.Items.Add(toolTipTitleItem23);
-            superToolTip24.Items.Add(toolTipItem22);
-            this.barButtonItemReplaceItem.SuperTip = superToolTip24;
-            this.barButtonItemReplaceItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemReplaceItem_ItemClick);
-            // 
-            // barEditItemDefaultFontSize
-            // 
-            this.barEditItemDefaultFontSize.Caption = "默认字体:";
-            this.barEditItemDefaultFontSize.Edit = this.repositoryItemComboBox2;
-            this.barEditItemDefaultFontSize.Id = 100;
-            this.barEditItemDefaultFontSize.Name = "barEditItemDefaultFontSize";
-            this.barEditItemDefaultFontSize.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.Caption;
-            toolTipTitleItem24.Text = "默认字体";
-            toolTipItem23.LeftIndent = 6;
-            toolTipItem23.Text = "更改输入元素的默认字体大小";
-            superToolTip25.Items.Add(toolTipTitleItem24);
-            superToolTip25.Items.Add(toolTipItem23);
-            this.barEditItemDefaultFontSize.SuperTip = superToolTip25;
-            this.barEditItemDefaultFontSize.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barEditItemDefaultFontSize.EditValueChanged += new System.EventHandler(this.barEditItemDefaultFontSize_EditValueChanged);
-            // 
-            // repositoryItemComboBox2
-            // 
-            this.repositoryItemComboBox2.AutoHeight = false;
-            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
-            // 
-            // barButtonItemAddNurseTable
-            // 
-            this.barButtonItemAddNurseTable.Caption = "插入护理表格";
-            this.barButtonItemAddNurseTable.Id = 102;
-            this.barButtonItemAddNurseTable.ImageIndex = 2;
-            this.barButtonItemAddNurseTable.Name = "barButtonItemAddNurseTable";
-            this.barButtonItemAddNurseTable.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItemAddNurseTable.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddNurseTable_ItemClick);
-            // 
-            // btnCallPacs
-            // 
-            this.btnCallPacs.Caption = "调用PACS图像";
-            this.btnCallPacs.Id = 111;
-            this.btnCallPacs.Name = "btnCallPacs";
-            this.btnCallPacs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCallPacs_ItemClick);
-            // 
-            // btnCheckOutDep
-            // 
-            this.btnCheckOutDep.Caption = "出科检查";
-            this.btnCheckOutDep.Id = 112;
-            this.btnCheckOutDep.Name = "btnCheckOutDep";
-            this.btnCheckOutDep.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCheckOutDep_ItemClick);
-            // 
-            // bar3
-            // 
-            this.bar3.BarName = "Custom 5";
-            this.bar3.DockCol = 0;
-            this.bar3.DockRow = 2;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCopy, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPaste, DevExpress.XtraBars.BarItemPaintStyle.Standard),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Cut),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Undo, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Redo),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem21, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItem_Font),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnSetPageBackColor, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonFontColor),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barStaticItem22),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barEditItem_FontSize),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Italy, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Undline),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemBold),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemQuanZi, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Sup, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem_Sub),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_Collect, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItemDiagnosis)});
-            this.bar3.Text = "Custom 5";
-            // 
-            // btnCopy
-            // 
-            this.btnCopy.AllowAllUp = true;
-            this.btnCopy.Caption = "复制";
-            this.btnCopy.Id = 70;
-            this.btnCopy.ImageIndex = 25;
-            this.btnCopy.Name = "btnCopy";
-            toolTipTitleItem25.Text = "复制";
-            toolTipItem24.LeftIndent = 6;
-            toolTipItem24.Text = "复制当前病历选中的内容";
-            superToolTip26.Items.Add(toolTipTitleItem25);
-            superToolTip26.Items.Add(toolTipItem24);
-            this.btnCopy.SuperTip = superToolTip26;
-            this.btnCopy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCopy_ItemClick);
-            // 
-            // btnPaste
-            // 
-            this.btnPaste.AllowAllUp = true;
-            this.btnPaste.Caption = "粘贴";
-            this.btnPaste.Id = 71;
-            this.btnPaste.ImageIndex = 26;
-            this.btnPaste.Name = "btnPaste";
-            toolTipTitleItem26.Text = "粘贴";
-            toolTipItem25.LeftIndent = 6;
-            toolTipItem25.Text = "粘贴到当前病历";
-            superToolTip27.Items.Add(toolTipTitleItem26);
-            superToolTip27.Items.Add(toolTipItem25);
-            this.btnPaste.SuperTip = superToolTip27;
-            this.btnPaste.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPaste_ItemClick);
-            // 
-            // barButtonItem_Cut
-            // 
-            this.barButtonItem_Cut.AllowAllUp = true;
-            this.barButtonItem_Cut.Caption = "剪切";
-            this.barButtonItem_Cut.Id = 75;
-            this.barButtonItem_Cut.ImageIndex = 3;
-            this.barButtonItem_Cut.Name = "barButtonItem_Cut";
-            toolTipTitleItem27.Text = "剪切";
-            superToolTip28.Items.Add(toolTipTitleItem27);
-            this.barButtonItem_Cut.SuperTip = superToolTip28;
-            this.barButtonItem_Cut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Cut_ItemClick);
-            // 
-            // barButtonItem_Undo
-            // 
-            this.barButtonItem_Undo.AllowAllUp = true;
-            this.barButtonItem_Undo.Caption = "撤销";
-            this.barButtonItem_Undo.Id = 76;
-            this.barButtonItem_Undo.ImageIndex = 34;
-            this.barButtonItem_Undo.Name = "barButtonItem_Undo";
-            toolTipTitleItem28.Text = "撤销";
-            superToolTip29.Items.Add(toolTipTitleItem28);
-            this.barButtonItem_Undo.SuperTip = superToolTip29;
-            this.barButtonItem_Undo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Undo_ItemClick);
-            // 
-            // barButtonItem_Redo
-            // 
-            this.barButtonItem_Redo.AllowAllUp = true;
-            this.barButtonItem_Redo.Caption = "还原";
-            this.barButtonItem_Redo.Id = 77;
-            this.barButtonItem_Redo.ImageIndex = 31;
-            this.barButtonItem_Redo.Name = "barButtonItem_Redo";
-            toolTipTitleItem29.Text = "还原";
-            superToolTip30.Items.Add(toolTipTitleItem29);
-            this.barButtonItem_Redo.SuperTip = superToolTip30;
-            this.barButtonItem_Redo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Redo_ItemClick);
-            // 
-            // barStaticItem21
-            // 
-            this.barStaticItem21.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.barStaticItem21.Caption = "字体:";
-            this.barStaticItem21.Id = 107;
-            this.barStaticItem21.Name = "barStaticItem21";
-            this.barStaticItem21.TextAlignment = System.Drawing.StringAlignment.Near;
-            this.barStaticItem21.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // barEditItem_Font
-            // 
-            this.barEditItem_Font.Caption = "字体";
-            this.barEditItem_Font.Edit = this.repositoryItemComboBoxFont;
-            this.barEditItem_Font.Id = 79;
-            this.barEditItem_Font.Name = "barEditItem_Font";
-            this.barEditItem_Font.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barEditItem_Font.Width = 112;
-            this.barEditItem_Font.EditValueChanged += new System.EventHandler(this.barEditItem_Font_EditValueChanged);
-            this.barEditItem_Font.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem_Font_ItemClick);
-            // 
-            // repositoryItemComboBoxFont
-            // 
-            this.repositoryItemComboBoxFont.AutoHeight = false;
-            this.repositoryItemComboBoxFont.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBoxFont.Name = "repositoryItemComboBoxFont";
-            // 
-            // btnSetPageBackColor
-            // 
-            this.btnSetPageBackColor.Caption = "设置背景色";
-            this.btnSetPageBackColor.Id = 115;
-            this.btnSetPageBackColor.ImageIndex = 43;
-            this.btnSetPageBackColor.Name = "btnSetPageBackColor";
-            toolTipItem26.Text = "设置当前输入界面的背景色";
-            superToolTip31.Items.Add(toolTipItem26);
-            this.btnSetPageBackColor.SuperTip = superToolTip31;
-            this.btnSetPageBackColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSetPageBackColor_ItemClick);
-            // 
-            // barButtonFontColor
-            // 
-            this.barButtonFontColor.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonFontColor.Caption = "字体颜色";
-            this.barButtonFontColor.Description = "字体颜色";
-            this.barButtonFontColor.Id = 113;
-            this.barButtonFontColor.ImageIndex = 42;
-            this.barButtonFontColor.Name = "barButtonFontColor";
-            toolTipItem27.Text = "设置所选择字体的颜色";
-            superToolTip32.Items.Add(toolTipItem27);
-            this.barButtonFontColor.SuperTip = superToolTip32;
-            this.barButtonFontColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonFontColor_ItemClick);
-            // 
-            // barStaticItem22
-            // 
-            this.barStaticItem22.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.barStaticItem22.Caption = "字号:";
-            this.barStaticItem22.Id = 108;
-            this.barStaticItem22.Name = "barStaticItem22";
-            this.barStaticItem22.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barEditItem_FontSize
-            // 
-            this.barEditItem_FontSize.Caption = "字体大小:";
-            this.barEditItem_FontSize.Edit = this.repositoryItemComboBox_SiZe;
-            this.barEditItem_FontSize.Id = 80;
-            this.barEditItem_FontSize.Name = "barEditItem_FontSize";
-            toolTipTitleItem30.Text = "更改字体";
-            toolTipItem28.LeftIndent = 6;
-            toolTipItem28.Text = "更改当前选中元素的字体";
-            superToolTip33.Items.Add(toolTipTitleItem30);
-            superToolTip33.Items.Add(toolTipItem28);
-            this.barEditItem_FontSize.SuperTip = superToolTip33;
-            this.barEditItem_FontSize.Width = 61;
-            this.barEditItem_FontSize.EditValueChanged += new System.EventHandler(this.barEditItem_FontSize_EditValueChanged);
-            this.barEditItem_FontSize.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem_FontSize_EditValueChanged);
-            // 
-            // repositoryItemComboBox_SiZe
-            // 
-            this.repositoryItemComboBox_SiZe.AutoHeight = false;
-            this.repositoryItemComboBox_SiZe.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox_SiZe.Name = "repositoryItemComboBox_SiZe";
-            // 
-            // barButtonItem_Italy
-            // 
-            this.barButtonItem_Italy.AllowAllUp = true;
-            this.barButtonItem_Italy.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem_Italy.Caption = "斜体";
-            this.barButtonItem_Italy.Id = 82;
-            this.barButtonItem_Italy.ImageIndex = 29;
-            this.barButtonItem_Italy.Name = "barButtonItem_Italy";
-            toolTipTitleItem31.Text = "斜体";
-            toolTipItem29.LeftIndent = 6;
-            toolTipItem29.Text = "选中文件斜体显示";
-            superToolTip34.Items.Add(toolTipTitleItem31);
-            superToolTip34.Items.Add(toolTipItem29);
-            this.barButtonItem_Italy.SuperTip = superToolTip34;
-            this.barButtonItem_Italy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Italy_ItemClick);
-            // 
-            // barButtonItem_Undline
-            // 
-            this.barButtonItem_Undline.AllowAllUp = true;
-            this.barButtonItem_Undline.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem_Undline.Caption = "下划线";
-            this.barButtonItem_Undline.Id = 83;
-            this.barButtonItem_Undline.ImageIndex = 30;
-            this.barButtonItem_Undline.Name = "barButtonItem_Undline";
-            toolTipTitleItem32.Text = "下划线";
-            toolTipItem30.LeftIndent = 6;
-            toolTipItem30.Text = "选中文件下划线显示";
-            superToolTip35.Items.Add(toolTipTitleItem32);
-            superToolTip35.Items.Add(toolTipItem30);
-            this.barButtonItem_Undline.SuperTip = superToolTip35;
-            this.barButtonItem_Undline.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Undline_ItemClick);
-            // 
-            // barButtonItemBold
-            // 
-            this.barButtonItemBold.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItemBold.Caption = "加粗";
-            this.barButtonItemBold.Id = 104;
-            this.barButtonItemBold.ImageIndex = 28;
-            this.barButtonItemBold.Name = "barButtonItemBold";
-            toolTipTitleItem33.Text = "粗体";
-            toolTipItem31.LeftIndent = 6;
-            toolTipItem31.Text = "选中文字粗体显示";
-            superToolTip36.Items.Add(toolTipTitleItem33);
-            superToolTip36.Items.Add(toolTipItem31);
-            this.barButtonItemBold.SuperTip = superToolTip36;
-            this.barButtonItemBold.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemBold_ItemClick);
-            // 
-            // barButtonItemQuanZi
-            // 
-            this.barButtonItemQuanZi.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItemQuanZi.Caption = "圈字";
-            this.barButtonItemQuanZi.Id = 103;
-            this.barButtonItemQuanZi.ImageIndex = 41;
-            this.barButtonItemQuanZi.Name = "barButtonItemQuanZi";
-            toolTipTitleItem34.Text = "圈字";
-            superToolTip37.Items.Add(toolTipTitleItem34);
-            this.barButtonItemQuanZi.SuperTip = superToolTip37;
-            this.barButtonItemQuanZi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemQuanZi_ItemClick);
-            // 
-            // barButtonItem_Sup
-            // 
-            this.barButtonItem_Sup.AllowAllUp = true;
-            this.barButtonItem_Sup.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem_Sup.Caption = "上标";
-            this.barButtonItem_Sup.Id = 84;
-            this.barButtonItem_Sup.ImageIndex = 33;
-            this.barButtonItem_Sup.Name = "barButtonItem_Sup";
-            toolTipTitleItem35.Text = "上标";
-            superToolTip38.Items.Add(toolTipTitleItem35);
-            this.barButtonItem_Sup.SuperTip = superToolTip38;
-            this.barButtonItem_Sup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Sup_ItemClick);
-            // 
-            // barButtonItem_Sub
-            // 
-            this.barButtonItem_Sub.AllowAllUp = true;
-            this.barButtonItem_Sub.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem_Sub.Caption = "下标";
-            this.barButtonItem_Sub.Id = 85;
-            this.barButtonItem_Sub.ImageIndex = 32;
-            this.barButtonItem_Sub.Name = "barButtonItem_Sub";
-            toolTipTitleItem36.Text = "下标";
-            superToolTip39.Items.Add(toolTipTitleItem36);
-            this.barButtonItem_Sub.SuperTip = superToolTip39;
-            this.barButtonItem_Sub.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Sub_ItemClick);
-            // 
-            // btn_Collect
-            // 
-            this.btn_Collect.Caption = "病历提取";
-            this.btn_Collect.Id = 86;
-            this.btn_Collect.ImageIndex = 35;
-            this.btn_Collect.Name = "btn_Collect";
-            toolTipTitleItem37.Text = "病历提取";
-            toolTipItem32.LeftIndent = 6;
-            toolTipItem32.Text = "提取当前选中的病历内容";
-            superToolTip40.Items.Add(toolTipTitleItem37);
-            superToolTip40.Items.Add(toolTipItem32);
-            this.btn_Collect.SuperTip = superToolTip40;
-            this.btn_Collect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_Collect_ItemClick);
-            // 
-            // barButtonItemDiagnosis
-            // 
-            this.barButtonItemDiagnosis.Caption = "诊疗计划";
-            this.barButtonItemDiagnosis.Id = 92;
-            this.barButtonItemDiagnosis.ImageIndex = 39;
-            this.barButtonItemDiagnosis.Name = "barButtonItemDiagnosis";
-            toolTipTitleItem38.Text = "病历书写库";
-            toolTipItem33.LeftIndent = 6;
-            toolTipItem33.Text = "包括：诊疗计划、鉴别诊断等";
-            superToolTip41.Items.Add(toolTipTitleItem38);
-            superToolTip41.Items.Add(toolTipItem33);
-            this.barButtonItemDiagnosis.SuperTip = superToolTip41;
-            this.barButtonItemDiagnosis.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemDiagnosis_ItemClick);
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1615, 93);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 615);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1615, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 93);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 522);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1615, 93);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 522);
-            // 
-            // barStaticItem2
-            // 
-            this.barStaticItem2.Caption = "姓名：";
-            this.barStaticItem2.Id = 1;
-            this.barStaticItem2.Name = "barStaticItem2";
-            this.barStaticItem2.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 3;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "病历号：";
-            this.barButtonItem2.Id = 4;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 6;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 7;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // barStaticItem5
-            // 
-            this.barStaticItem5.Caption = "性别：";
-            this.barStaticItem5.Id = 8;
-            this.barStaticItem5.Name = "barStaticItem5";
-            this.barStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barStaticItem7
-            // 
-            this.barStaticItem7.Caption = "年龄：";
-            this.barStaticItem7.Id = 10;
-            this.barStaticItem7.Name = "barStaticItem7";
-            this.barStaticItem7.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barStaticItem9
-            // 
-            this.barStaticItem9.Caption = "入院日期：";
-            this.barStaticItem9.Id = 12;
-            this.barStaticItem9.Name = "barStaticItem9";
-            this.barStaticItem9.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barStaticItem11
-            // 
-            this.barStaticItem11.Caption = "当前科室：";
-            this.barStaticItem11.Id = 14;
-            this.barStaticItem11.Name = "barStaticItem11";
-            this.barStaticItem11.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "barButtonItem5";
-            this.barButtonItem5.Id = 15;
-            this.barButtonItem5.Name = "barButtonItem5";
-            // 
-            // barSub_File
-            // 
-            this.barSub_File.Caption = "文件";
-            this.barSub_File.Id = 17;
-            this.barSub_File.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9)});
-            this.barSub_File.Name = "barSub_File";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "新建病历";
-            this.barButtonItem8.Id = 21;
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
-            // barButtonItem9
-            // 
-            this.barButtonItem9.Caption = "在线知识库";
-            this.barButtonItem9.Id = 22;
-            this.barButtonItem9.Name = "barButtonItem9";
-            // 
-            // barSubItem2
-            // 
-            this.barSubItem2.Caption = "打印";
-            this.barSubItem2.Id = 18;
-            this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem10),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem11)});
-            this.barSubItem2.Name = "barSubItem2";
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "完整打印";
-            this.barButtonItem10.Id = 23;
-            this.barButtonItem10.Name = "barButtonItem10";
-            // 
-            // barButtonItem11
-            // 
-            this.barButtonItem11.Caption = "病程续打";
-            this.barButtonItem11.Id = 24;
-            this.barButtonItem11.Name = "barButtonItem11";
-            // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "工具";
-            this.barButtonItem6.Id = 19;
-            this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // barButtonItem7
-            // 
-            this.barButtonItem7.Caption = "表格";
-            this.barButtonItem7.Id = 20;
-            this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // btnSavePopup
-            // 
-            this.btnSavePopup.Caption = "保存";
-            this.btnSavePopup.Id = 42;
-            this.btnSavePopup.Name = "btnSavePopup";
-            // 
-            // btnDeletePopup
-            // 
-            this.btnDeletePopup.Caption = "删除";
-            this.btnDeletePopup.Id = 43;
-            this.btnDeletePopup.Name = "btnDeletePopup";
-            // 
-            // btnSubmitPopup
-            // 
-            this.btnSubmitPopup.Caption = "提交";
-            this.btnSubmitPopup.Id = 44;
-            this.btnSubmitPopup.Name = "btnSubmitPopup";
-            // 
-            // btnConfirmPopup
-            // 
-            this.btnConfirmPopup.Caption = "审核";
-            this.btnConfirmPopup.Id = 45;
-            this.btnConfirmPopup.Name = "btnConfirmPopup";
-            // 
-            // btnModulePopup
-            // 
-            this.btnModulePopup.Caption = "新增";
-            this.btnModulePopup.Id = 100;
-            this.btnModulePopup.Name = "btnModulePopup";
-            // 
-            // btnEmrOpenEdit
-            // 
-            this.btnEmrOpenEdit.Caption = "btnEmrOpenEdit";
-            this.btnEmrOpenEdit.Id = 69;
-            this.btnEmrOpenEdit.ImageIndex = 23;
-            this.btnEmrOpenEdit.Name = "btnEmrOpenEdit";
-            toolTipTitleItem39.Text = "申请编辑";
-            toolTipItem34.LeftIndent = 6;
-            toolTipItem34.Text = "开放当前病历编辑";
-            superToolTip42.Items.Add(toolTipTitleItem39);
-            superToolTip42.Items.Add(toolTipItem34);
-            this.btnEmrOpenEdit.SuperTip = superToolTip42;
-            // 
-            // barButtonItem12
-            // 
-            this.barButtonItem12.Caption = "barButtonItem12";
-            this.barButtonItem12.Id = 73;
-            this.barButtonItem12.Name = "barButtonItem12";
-            // 
-            // barButtonItem_Bold
-            // 
-            this.barButtonItem_Bold.AllowAllUp = true;
-            this.barButtonItem_Bold.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem_Bold.Caption = "粗体";
-            this.barButtonItem_Bold.Id = 81;
-            this.barButtonItem_Bold.ImageIndex = 28;
-            this.barButtonItem_Bold.Name = "barButtonItem_Bold";
-            this.barButtonItem_Bold.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Bold_ItemClick);
-            // 
-            // barStaticItem18
-            // 
-            this.barStaticItem18.Caption = "入院次数:";
-            this.barStaticItem18.Id = 93;
-            this.barStaticItem18.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
-            this.barStaticItem18.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.barStaticItem18.Name = "barStaticItem18";
-            this.barStaticItem18.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barStatic_InCount
-            // 
-            this.barStatic_InCount.Id = 94;
-            this.barStatic_InCount.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Red;
-            this.barStatic_InCount.ItemAppearance.Normal.Options.UseForeColor = true;
-            this.barStatic_InCount.Name = "barStatic_InCount";
-            this.barStatic_InCount.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "barEditItem1";
-            this.barEditItem1.Edit = this.repositoryItemComboBox1;
-            this.barEditItem1.Id = 98;
-            this.barEditItem1.Name = "barEditItem1";
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // barStaticItem19
-            // 
-            this.barStaticItem19.Caption = "默认字体";
-            this.barStaticItem19.Id = 99;
-            this.barStaticItem19.Name = "barStaticItem19";
-            this.barStaticItem19.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barStaticItem20
-            // 
-            this.barStaticItem20.Caption = "默认字体";
-            this.barStaticItem20.Id = 101;
-            this.barStaticItem20.Name = "barStaticItem20";
-            this.barStaticItem20.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // barButtonItem13
-            // 
-            this.barButtonItem13.Caption = "调用PACS图像";
-            this.barButtonItem13.Id = 106;
-            this.barButtonItem13.Name = "barButtonItem13";
-            this.barButtonItem13.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.barButtonItem13.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem13_ItemClick);
-            // 
-            // barBtnToPDF
-            // 
-            this.barBtnToPDF.Caption = "导出PDF";
-            this.barBtnToPDF.Id = 110;
-            this.barBtnToPDF.Name = "barBtnToPDF";
-            this.barBtnToPDF.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnToPDF_ItemClick);
+            toolTipItem15.Text = "开放当前病历编辑";
+            superToolTip15.Items.Add(toolTipTitleItem15);
+            superToolTip15.Items.Add(toolTipItem15);
+            this.barButtonItem46.SuperTip = superToolTip15;
+            // 
+            // btnCancelAuditPopup
+            // 
+            this.btnCancelAuditPopup.Caption = "取消审核";
+            this.btnCancelAuditPopup.Id = 70;
+            this.btnCancelAuditPopup.Name = "btnCancelAuditPopup";
+            this.btnCancelAuditPopup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCancelAuditPopup_ItemClick);
+            // 
+            // btnAddCommonRecord
+            // 
+            this.btnAddCommonRecord.Caption = "新增";
+            this.btnAddCommonRecord.Id = 71;
+            this.btnAddCommonRecord.Name = "btnAddCommonRecord";
+            this.btnAddCommonRecord.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnAddCommonRecord.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddCommonRecord_ItemClick);
+            // 
+            // btnDelCommonNote
+            // 
+            this.btnDelCommonNote.Caption = "删除";
+            this.btnDelCommonNote.Id = 72;
+            this.btnDelCommonNote.Name = "btnDelCommonNote";
+            this.btnDelCommonNote.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnDelCommonNote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDelCommonNote_ItemClick);
             // 
             // imageCollection_Tree1
             // 
@@ -3768,24 +3768,28 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelContainer2);
             this.Controls.Add(this.panelContainer1);
-            this.Controls.Add(this.barDockControl3);
-            this.Controls.Add(this.barDockControl4);
-            this.Controls.Add(this.barDockControl2);
-            this.Controls.Add(this.barDockControl1);
-            this.Controls.Add(this.barDockControl7);
-            this.Controls.Add(this.barDockControl8);
-            this.Controls.Add(this.barDockControl6);
-            this.Controls.Add(this.barDockControl5);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Controls.Add(this.barDockControl7);
+            this.Controls.Add(this.barDockControl8);
+            this.Controls.Add(this.barDockControl6);
+            this.Controls.Add(this.barDockControl5);
+            this.Controls.Add(this.barDockControl3);
+            this.Controls.Add(this.barDockControl4);
+            this.Controls.Add(this.barDockControl2);
+            this.Controls.Add(this.barDockControl1);
             this.Name = "UCEmrInput";
             this.Size = new System.Drawing.Size(1615, 615);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxFont)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox_SiZe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection_Toolbars)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
             this.panelContainer1.ResumeLayout(false);
             this.dockPanel3.ResumeLayout(false);
             this.dockPanel3_Container.ResumeLayout(false);
@@ -3839,11 +3843,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.dockPanelView.ResumeLayout(false);
             this.dockPanel4_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBoxFont)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox_SiZe)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection_Tree1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenuInTreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

@@ -460,13 +460,13 @@ namespace MedicalRecordManage.UCControl
                 //    if (choosepat.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 //    {
                 //        SqlUtil.App.ChoosePatient(decimal.Parse(choosepat.NOOfINPAT));
-                //        SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", YD_BaseService.GetUCEmrInputPath());
+                //        SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
                 //    }
                 //}
                 //else
                 //{
                 //    SqlUtil.App.ChoosePatient(Convert.ToDecimal(noofinpat));
-                //    SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", YD_BaseService.GetUCEmrInputPath());
+                //    SqlUtil.App.LoadPlugIn("DrectSoft.Core.MainEmrPad.dll", DS_BaseService.GetUCEmrInputPath());
                 //}
 
             }

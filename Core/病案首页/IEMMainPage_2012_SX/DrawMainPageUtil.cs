@@ -315,7 +315,6 @@ namespace DrectSoft.Core.IEMMainPage
                 Font font2 = new Font("宋体", 25f, FontStyle.Bold, GraphicsUnit.Pixel);
 
                 g.DrawString("医疗机构：" + m_IemMainPageEntity.IemBasicInfo.HospitalName, font1, Brushes.Black, new RectangleF(0f, m_PointYTitle, 700, 30), sf);
-                //g.DrawString(DrectSoft.MainFrame.PublicClass.getHosName(), font1, Brushes.Black, new RectangleF(0f, m_PointYTitle, 700, 30), sf);
                 g.DrawString("住 院 病 案 首 页", font2, Brushes.Black, new RectangleF(0f, m_PointYTitle + 30, m_PageWidth, 50), sf);
             }
             catch (Exception ex)

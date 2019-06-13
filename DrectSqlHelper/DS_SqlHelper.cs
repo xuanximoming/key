@@ -1231,6 +1231,7 @@ namespace DrectSoft.DSSqlHelper
                 {
                     throw new Exception("DbDataAccess中_DbProviderFactory或_DbConnection为Null");
                 }
+
                 _DbConnection.Open();
             }
             catch (Exception ce)

@@ -346,7 +346,7 @@ namespace DrectSoft.Core.Consultation.NEW
                 //string sql = string.Format("select  *from users where deptid='{0}' and grade='{1}'", lookUpEditorDepartment.CodeValue,
                 //    lookUpEditorDocLevel.CodeValue);
                 //DataTable dt = new DataTable();
-                //dt = YD_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
+                //dt = DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
                 //if (dt.Rows.Count == 0)
                 //{
 

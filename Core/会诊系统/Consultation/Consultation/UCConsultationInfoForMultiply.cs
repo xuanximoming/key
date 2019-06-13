@@ -837,7 +837,7 @@ namespace DrectSoft.Core.Consultation
                         SaveConsultationApply(SaveType.Modify, m_ConsultApplySN);
                         SaveConsultationApplyDept(m_ConsultApplySN);
                         //m_App.SqlHelper.CommitTransaction();
-                        //YD_SqlHelper.CommitTransaction();
+                        //DS_SqlHelper.CommitTransaction();
                     }
                     DS_SqlHelper.CommitTransaction();
                     m_App.CustomMessageBox.MessageShow("±£´æ³É¹¦", CustomMessageBoxKind.InformationOk);

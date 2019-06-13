@@ -483,7 +483,7 @@ namespace DrectSoft.EMR.ThreeRecordAll
                 //string surveyDate = dateEdit.DateTime.ToString("yyyy-MM-dd");//dateEdit.Text.Replace('/','-');
                 //sqlParams[4].Value = surveyDate;
                 //sqlParams[5].Direction = ParameterDirection.Output;
-                //DataTable dtInpatient = YD_SqlHelper.ExecuteDataTable("EMR_NURSE_STATION.usp_GetPatientsOfDept", sqlParams, CommandType.StoredProcedure);
+                //DataTable dtInpatient = DS_SqlHelper.ExecuteDataTable("EMR_NURSE_STATION.usp_GetPatientsOfDept", sqlParams, CommandType.StoredProcedure);
                 //gridControlVitalSigns.DataSource = null;
                 //dtInpatient.DefaultView.Sort = "BED asc ";
                 //gridControlVitalSigns.DataSource = dtInpatient;

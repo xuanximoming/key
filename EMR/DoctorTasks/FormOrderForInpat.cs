@@ -452,7 +452,7 @@ namespace DrectSoft.Core.DoctorTasks
             try
             {
                 //sql无法使用一下语句 xll 2013-06-17
-                //YD_SqlHelper.ExecuteDataTable("select 1 from dual", CommandType.Text);
+                //DS_SqlHelper.ExecuteDataTable("select 1 from dual", CommandType.Text);
             }
             catch (Exception e)
             {

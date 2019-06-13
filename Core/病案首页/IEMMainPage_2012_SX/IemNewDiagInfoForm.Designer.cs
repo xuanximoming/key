@@ -28,10 +28,10 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IemNewDiagInfoForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.bwj1 = new DevTextBoxAndButton.Bwj();
-            this.chkDiagType2 = new DevExpress.XtraEditors.CheckEdit();
+            this.bwj1 = new DevTextBoxAndButton.Bwj(this.components);
             this.chkDiagType1 = new DevExpress.XtraEditors.CheckEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.chkStatus4 = new DevExpress.XtraEditors.CheckEdit();
@@ -45,7 +45,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl58 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkDiagType2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDiagType1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus3.Properties)).BeginInit();
@@ -59,7 +58,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.panelControl1.Appearance.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Controls.Add(this.bwj1);
-            this.panelControl1.Controls.Add(this.chkDiagType2);
             this.panelControl1.Controls.Add(this.chkDiagType1);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.chkStatus4);
@@ -89,17 +87,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.bwj1.TabIndex = 121;
             this.bwj1.WaterText = "请按回车键检索";
             this.bwj1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bwj1_KeyPress);
-            // 
-            // chkDiagType2
-            // 
-            this.chkDiagType2.Location = new System.Drawing.Point(200, 10);
-            this.chkDiagType2.Name = "chkDiagType2";
-            this.chkDiagType2.Properties.Caption = "2. 中医";
-            this.chkDiagType2.Properties.RadioGroupIndex = 1;
-            this.chkDiagType2.Size = new System.Drawing.Size(66, 19);
-            this.chkDiagType2.TabIndex = 120;
-            this.chkDiagType2.TabStop = false;
-            this.chkDiagType2.CheckedChanged += new System.EventHandler(this.chkDiagType1_CheckedChanged);
             // 
             // chkDiagType1
             // 
@@ -226,7 +213,6 @@ namespace DrectSoft.Core.IEMMainPage
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkDiagType2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDiagType1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus3.Properties)).EndInit();
@@ -250,7 +236,6 @@ namespace DrectSoft.Core.IEMMainPage
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnConfirm;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.CheckEdit chkDiagType2;
         private DevExpress.XtraEditors.CheckEdit chkDiagType1;
         private DevTextBoxAndButton.Bwj bwj1;
     }

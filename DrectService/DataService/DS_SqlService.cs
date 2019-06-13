@@ -572,8 +572,8 @@ namespace DrectSoft.Service
                 //    new OracleParameter("@noofinpat",OracleType.Int32)
                 //};
                 //pars[0].Value = noofinpat;
-                //YD_SqlHelper.CreateSqlHelper();
-                //object obj = YD_SqlHelper.ExecuteScalar(sqlStr, pars, CommandType.Text);
+                //DS_SqlHelper.CreateSqlHelper();
+                //object obj = DS_SqlHelper.ExecuteScalar(sqlStr, pars, CommandType.Text);
 
                 //return null == obj ? 0 : Convert.ToInt32(obj);
 

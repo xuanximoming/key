@@ -1987,6 +1987,10 @@ namespace DrectSoft.Core.MainEmrPad.New
                                 btnRight_NewEmr.Visibility = BarItemVisibility.Always;
                             }
                         }
+                        else if (container.ContainerCatalog == ContainerCatalog.BiaoGeJiLu)
+                        {
+                            btnRight_NewDoc.Visibility = BarItemVisibility.Always;
+                        }
                     }
                     else if (node.Tag is EmrModelDeptContainer)
                     {///病程科室
@@ -1994,11 +1998,11 @@ namespace DrectSoft.Core.MainEmrPad.New
                     }
                 }
                 else if (DoctorEmployee.Kind == EmployeeKind.Nurse)
-                {///护理记录表格
+                {
                     EmrModelContainer container = node.Tag as EmrModelContainer;
                     if (node.Tag is EmrModelContainer && container.EmrContainerType == ContainerType.NurseDocment)
                     {
-                        if (container.ContainerCatalog == ContainerCatalog.HuLiJiLuBiaoGe)
+                        if (container.ContainerCatalog == ContainerCatalog.HuLiJiLuBiaoGe)///护理记录表格
                         {
                             btnRight_NewDoc.Visibility = BarItemVisibility.Always;
                         }
@@ -2064,7 +2068,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                     }
 
                 }
-                else if (DoctorEmployee.Kind == EmployeeKind.Nurse && node.Tag is InCommonNoteEnmtity)
+                else if ((DoctorEmployee.Kind == EmployeeKind.Nurse || DoctorEmployee.Kind == EmployeeKind.Specialist) && node.Tag is InCommonNoteEnmtity)
                 {///护理记录表格权限不控制到人(只要无数据，任何人可以删除)
                     btnRight_DeleteDoc.Visibility = BarItemVisibility.Always;
                 }
@@ -2093,6 +2097,7 @@ namespace DrectSoft.Core.MainEmrPad.New
 
                 btnRight_NewDoc.Visibility = boo ? BarItemVisibility.Always : BarItemVisibility.Never;//新增护理单
                 btnRight_DeleteDoc.Visibility = boo ? BarItemVisibility.Always : BarItemVisibility.Never;//删除护理单
+                btnRight_Reback.Visibility = boo ? BarItemVisibility.Always : BarItemVisibility.Never;//申请开放
             }
             catch (Exception ex)
             {
@@ -2403,8 +2408,8 @@ namespace DrectSoft.Core.MainEmrPad.New
                         tabpage.Tag = inCommonNote;
                         bool canEdit = true;
                         if (this.floaderState == FloderState.Nurse
-                            || (this.floaderState == FloderState.Default && DoctorEmployee.Kind == EmployeeKind.Nurse)
-                             || (this.floaderState == FloderState.NoneAudit && DoctorEmployee.Kind == EmployeeKind.Nurse))
+                            || (this.floaderState == FloderState.Default && (DoctorEmployee.Kind == EmployeeKind.Nurse || DoctorEmployee.Kind == EmployeeKind.Specialist))
+                             || (this.floaderState == FloderState.NoneAudit && (DoctorEmployee.Kind == EmployeeKind.Nurse || DoctorEmployee.Kind == EmployeeKind.Specialist)))
                         {
                             DataTable dt = DS_SqlService.GetInpatientByID((int)CurrentInpatient.NoOfFirstPage, 2);
                             if (dt == null || dt.Rows.Count <= 0)

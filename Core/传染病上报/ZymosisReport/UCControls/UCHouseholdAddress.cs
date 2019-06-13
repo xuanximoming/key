@@ -38,7 +38,7 @@ namespace DrectSoft.Core.ZymosisReport.UCControls
                 //lab_guobiao.Text = lookUpEdit_xian.EditValue.ToString();
                 //txt_xiangxidizhi.Text = lookUpEdit_xian.Text;
                 //string sql2 = string.Format(@"select t.npccid,t.npccname from infectnpcc t where t.npccid like '{0}%0000' and t.npccid!='{0}000000'",lookUpEdit_sheng.EditValue.ToString().Substring(0,2));
-                //DataTable dt2 = DrectSoft.DSSqlHelper.YD_SqlHelper.ExecuteDataTable(sql2);
+                //DataTable dt2 = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataTable(sql2);
                 //lookUpEdit_shi.Properties.ValueMember = "npccid";
                 //lookUpEdit_shi.Properties.DisplayMember = "npccname";
                 //lookUpEdit_shi.Properties.DataSource = dt1;

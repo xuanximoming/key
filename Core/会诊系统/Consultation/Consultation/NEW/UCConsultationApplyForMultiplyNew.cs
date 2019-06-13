@@ -400,7 +400,7 @@ namespace Consultation.NEW
                     }
                 }
 
-                //return YD_SqlHelper.e
+                //return DS_SqlHelper.e
                 return DrectSoft.Core.Consultation.Dal.DataAccess.InsertConsultationApply(typeID, consultApplySN, noofinpat, urgencyTypeID, consultTypeID, abstractContent, purpose,
                     applyUser, applyTime, director, consultTime, consultLocation, stateID, createUser, createTime, m_app.User.CurrentDeptId, audituserId, auditlevel);
             }

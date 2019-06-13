@@ -287,7 +287,7 @@ namespace MedicalRecordManage.UCControl
                 {
                     return;
                 }
-                // YD_BaseService.CheckRecordRebacked(noofinpat.ToString())
+                // DS_BaseService.CheckRecordRebacked(noofinpat.ToString())
                 if (foucesRow["islock"].ToString() != "4701")
                 {
                     int num = DS_SqlService.SetRecordsRebacked(noofinpat.ToString());
@@ -335,7 +335,7 @@ namespace MedicalRecordManage.UCControl
                 {
                     return;
                 }
-                //YD_BaseService.CheckRecordRebacked(noofinpat.ToString())
+                //DS_BaseService.CheckRecordRebacked(noofinpat.ToString())
                 if (foucesRow["islock"].ToString() == "4701")
                 {
                     int num = DS_SqlService.SetRecordsCancel(noofinpat.ToString());

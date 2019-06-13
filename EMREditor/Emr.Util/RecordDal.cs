@@ -1516,8 +1516,8 @@ namespace DrectSoft.Emr.Util
                 //sqlParams[1].Value = deptCode;
                 //sqlParams[2].Value = wardCode;
                 //sqlParams[3].Value = boo ? 1 : 0;
-                //YD_SqlHelper.CreateSqlHelper();
-                //YD_SqlHelper.ExecuteNonQuery(sqlStr, sqlParams, CommandType.Text);
+                //DS_SqlHelper.CreateSqlHelper();
+                //DS_SqlHelper.ExecuteNonQuery(sqlStr, sqlParams, CommandType.Text);
             }
             catch (Exception ex)
             {

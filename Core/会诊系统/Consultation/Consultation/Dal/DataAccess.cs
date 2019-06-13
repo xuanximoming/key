@@ -471,7 +471,7 @@ namespace DrectSoft.Core.Consultation.Dal
                 sqlParam[7].Value = employeeLevelID;
                 sqlParam[8].Value = createUser;
                 sqlParam[9].Value = createTime;
-                //YD_SqlHelper.ExecuteNonQueryInTran("EMR_CONSULTATION.usp_InsertConsultationApplyD", sqlParam, CommandType.StoredProcedure);
+                //DS_SqlHelper.ExecuteNonQueryInTran("EMR_CONSULTATION.usp_InsertConsultationApplyD", sqlParam, CommandType.StoredProcedure);
                 DS_SqlHelper.ExecuteNonQuery("EMR_CONSULTATION.usp_InsertConsultationApplyD", sqlParam, CommandType.StoredProcedure);
             }
             catch (Exception)
@@ -538,7 +538,7 @@ namespace DrectSoft.Core.Consultation.Dal
                 sqlParam[8].Value = employeeLevelID;
                 sqlParam[9].Value = createUser;
                 sqlParam[10].Value = createTime;
-                //YD_SqlHelper.ExecuteNonQueryInTran("EMR_CONSULTATION.usp_InsertConsultationApplyD", sqlParam, CommandType.StoredProcedure);
+                //DS_SqlHelper.ExecuteNonQueryInTran("EMR_CONSULTATION.usp_InsertConsultationApplyD", sqlParam, CommandType.StoredProcedure);
                 DS_SqlHelper.ExecuteNonQueryInTran("EMR_CONSULTATION.usp_SaveApplyDepartOrRecord", sqlParam, CommandType.StoredProcedure);
             }
             catch (Exception  ex)

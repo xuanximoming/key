@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DrectSoft.FrameWork.WinForm.Plugin;
+﻿using DrectSoft.FrameWork.WinForm.Plugin;
+using System;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -24,7 +17,7 @@ namespace DrectSoft.Core.IEMMainPage
         }
 
         /// <summary>
-        /// 显示基础信息页面
+        /// 显示中医基础信息页面
         /// </summary>
         /// <param name="info"></param>
         public void ShowUCIemBasInfo(UCIemBasInfo info, IemMainPageInfo m_pageInfo)
@@ -41,10 +34,44 @@ namespace DrectSoft.Core.IEMMainPage
         }
 
         /// <summary>
-        /// 显示诊断信息页面
+        /// 显示西医基础信息页面
+        /// </summary>
+        /// <param name="info"></param>
+        public void ShowUCIemBasInfoEn(UCIemBasInfoEn info, IemMainPageInfo m_pageInfo)
+        {
+            //this.ResumeLayout();
+            //this.Height = info.Height + 10;
+            //this.Width = info.Width + 10;
+            this.Text = "基础信息编辑";
+            this.Controls.Clear();
+            this.Controls.Add(info);
+            //info.Dock = DockStyle.Fill;
+
+            info.FillUI(m_pageInfo, m_app);
+        }
+
+        /// <summary>
+        /// 显示中医诊断信息页面
         /// </summary>
         /// <param name="info"></param>
         public void ShowUCIemDiagnose(UCIemDiagnose info, IemMainPageInfo m_pageInfo)
+        {
+            //this.ResumeLayout();
+            //this.Height = info.Height + 10;
+            //this.Width = info.Width + 10;
+            this.Text = "诊断信息编辑";
+            this.Controls.Clear();
+            this.Controls.Add(info);
+            //info.Dock = DockStyle.Fill;
+
+            info.FillUI(m_pageInfo, m_app);
+        }
+
+        /// <summary>
+        /// 显示西医诊断信息页面
+        /// </summary>
+        /// <param name="info"></param>
+        public void ShowUCIemDiagnoseEn(UCIemDiagnoseEn info, IemMainPageInfo m_pageInfo)
         {
             //this.ResumeLayout();
             //this.Height = info.Height + 10;

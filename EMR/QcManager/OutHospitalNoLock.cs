@@ -187,8 +187,8 @@ namespace DrectSoft.Emr.QcManager
                 //new SqlParameter("@PatId",patid),
                 //p_result
                 //};
-                //SqlHelper.YD_SqlHelper.CreateSqlHelper();
-                //DataTable dt = SqlHelper.YD_SqlHelper.ExecuteDataTable("emrproc.usp_GetOutHosButNotLocks", sps, CommandType.StoredProcedure);
+                //SqlHelper.DS_SqlHelper.CreateSqlHelper();
+                //DataTable dt = SqlHelper.DS_SqlHelper.ExecuteDataTable("emrproc.usp_GetOutHosButNotLocks", sps, CommandType.StoredProcedure);
                 gridControl1.DataSource = dt;
                 labPatCount.Text = dt.Rows.Count.ToString();
             }

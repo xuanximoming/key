@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{926AD647-C573-483A-B5A4-B10F954EB848}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YidanSoft.Core.IEMMainPage</RootNamespace>
+    <AssemblyName>YidanSoft.Core.IEMMainPage</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.SpellChecker.v10.2.Core, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v10.2, Version=10.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="YidanSoft.Basic.Wordbook, Version=1.1.2.31277, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OracleRelease\YidanSoft.Basic.Wordbook.dll</HintPath>
+    </Reference>
+    <Reference Include="YidanSoft.Core, Version=1.0.4298.31679, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OracleRelease\YidanSoft.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="YidanSoft.FrameWork, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OracleRelease\YidanSoft.FrameWork.dll</HintPath>
+    </Reference>
+    <Reference Include="YidanSoft.FrameWork.WinForm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OracleRelease\YidanSoft.FrameWork.WinForm.dll</HintPath>
+    </Reference>
+    <Reference Include="YidanSoft.Library.LookUpEditor, Version=1.1.2.29927, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\OracleRelease\YidanSoft.Library.LookUpEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataHelper.cs" />
+    <Compile Include="DrawMainPageUtil.cs" />
+    <Compile Include="FormMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainPage.Designer.cs">
+      <DependentUpon>FormMainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IemMainPageManger.cs" />
+    <Compile Include="IEMMainPageStartUp.cs" />
+    <Compile Include="IemNewDiagInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IemNewDiagInfoForm.Designer.cs">
+      <DependentUpon>IemNewDiagInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IemNewOperInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IemNewOperInfo.Designer.cs">
+      <DependentUpon>IemNewOperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LineEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowUC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowUC.Designer.cs">
+      <DependentUpon>ShowUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCIemBasInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCIemBasInfo.Designer.cs">
+      <DependentUpon>UCIemBasInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCIemDiagnose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCIemDiagnose.Designer.cs">
+      <DependentUpon>UCIemDiagnose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCIemOperInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCIemOperInfo.Designer.cs">
+      <DependentUpon>UCIemOperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCMainForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCMainForm.Designer.cs">
+      <DependentUpon>UCMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCOthers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCOthers.Designer.cs">
+      <DependentUpon>UCOthers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Print_IemMainPageInfo.cs" />
+    <Compile Include="UCObstetricsBaby.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCObstetricsBaby.Designer.cs">
+      <DependentUpon>UCObstetricsBaby.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormMainPage.resx">
+      <DependentUpon>FormMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IemNewDiagInfoForm.resx">
+      <DependentUpon>IemNewDiagInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IemNewOperInfo.resx">
+      <DependentUpon>IemNewOperInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowUC.resx">
+      <DependentUpon>ShowUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCIemBasInfo.resx">
+      <DependentUpon>UCIemBasInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCIemDiagnose.resx">
+      <DependentUpon>UCIemDiagnose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCIemOperInfo.resx">
+      <DependentUpon>UCIemOperInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCMainForm.resx">
+      <DependentUpon>UCMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCOthers.resx">
+      <DependentUpon>UCOthers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCObstetricsBaby.resx">
+      <DependentUpon>UCObstetricsBaby.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)$(TargetName).*" "D:\YidanSoft.NET\OracleRelease"
+copy "$(TargetPath)" "D:\YidanSoft.NET\OracleRun"
+copy "$(TargetDir)$(TargetName).*" "D:\YidanSoft.NET\OracleRun\UIPlugins"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

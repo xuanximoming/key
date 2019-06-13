@@ -34,7 +34,7 @@ namespace DrectSoft.Emr.QcManagerNew
             {
                 //OracleParameter par1 = new OracleParameter("@result", OracleType.Cursor);
                 //par1.Direction = ParameterDirection.Output;
-                //DataSet ds = YD_SqlHelper.ExecuteDataSet("EMRQCMANAGER.usp_QcmanagerDepartmentlistout", new OracleParameter[] { par1 }, CommandType.StoredProcedure);
+                //DataSet ds = DS_SqlHelper.ExecuteDataSet("EMRQCMANAGER.usp_QcmanagerDepartmentlistout", new OracleParameter[] { par1 }, CommandType.StoredProcedure);
                 //m_pageSouce = ds.Tables[0];
 
                 //gridControldepartment.DataSource = m_pageSouce;

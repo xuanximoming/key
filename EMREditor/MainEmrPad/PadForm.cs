@@ -356,7 +356,7 @@ namespace DrectSoft.Core.MainEmrPad
 
                 //bool isopenThreeLevelAudit;
                 //string isopenOwnerSign = string.Empty;//是否开放了个人书写留痕功能
-                //isopenOwnerSign = YD_SqlService.GetConfigValueByKey("IsOpenOwnerSign");
+                //isopenOwnerSign = DS_SqlService.GetConfigValueByKey("IsOpenOwnerSign");
                 //UCEmrInput UC1 = new UCEmrInput();
                 //isopenThreeLevelAudit = UC1.IsOpenThreeLevelAudit();
                 //if (isopenThreeLevelAudit == true && isopenOwnerSign == "1")

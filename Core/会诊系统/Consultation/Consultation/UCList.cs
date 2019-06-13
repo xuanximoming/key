@@ -947,7 +947,7 @@ namespace DrectSoft.Core.Consultation
                             //    MessageBox.Show("≈‰÷√œÓ≥ˆ¥Ì");
                             //    return;
                             //}
-                            //DataTable dtGrade = YD_SqlHelper.ExecuteDataTable(string.Format("select grade from users where id={0}",m_App.User.Id));
+                            //DataTable dtGrade = DS_SqlHelper.ExecuteDataTable(string.Format("select grade from users where id={0}",m_App.User.Id));
                             //if (dtGrade.Rows.Count == 0 || dtGrade == null || string.IsNullOrEmpty(dtGrade.Rows[0][0].ToString()))
                             //{
                             //    barButtonItemCancelMyApplyInfo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;

@@ -105,8 +105,8 @@ namespace DrectSoft.Core.MainEmrPad
                 //sqlParams[0].Value = id;
                 //sqlParams[1].Value = boo ? 1 : 0;
                 ////m_
-                //YD_SqlHelper.CreateSqlHelper();
-                //YD_SqlHelper.ExecuteNonQuery(sqlStr, sqlParams, CommandType.Text);
+                //DS_SqlHelper.CreateSqlHelper();
+                //DS_SqlHelper.ExecuteNonQuery(sqlStr, sqlParams, CommandType.Text);
             }
             catch (Exception ex)
             {

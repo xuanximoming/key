@@ -42,7 +42,7 @@
             this.MinimizeBox = false;
             this.Name = "ShowUC";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShowUC";
             this.Load += new System.EventHandler(this.ShowUC_Load);
             this.ResumeLayout(false);

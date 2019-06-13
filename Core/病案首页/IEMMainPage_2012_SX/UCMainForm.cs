@@ -14,7 +14,7 @@ namespace DrectSoft.Core.IEMMainPage
     {
         #region var
         IEmrHost m_Host;
-        DrawMainPageUtil util;
+        DrawMainPageEnUtil util;
         IemMainPageManger manger;
         IemMainPageInfo info;
 
@@ -30,8 +30,8 @@ namespace DrectSoft.Core.IEMMainPage
         private ShowUC _showUcForm;
 
 
-        private UCIemBasInfo m_UCIemBasInfo;
-        private UCIemDiagnose m_UCIemDiagnose;
+        private UCIemBasInfoEn m_UCIemBasInfoEn;
+        private UCIemDiagnoseEn m_UCIemDiagnoseEn;
         private UCIemOperInfo m_UCIemOperInfo;
         private UCObstetricsBaby m_UCObstetricsBaby;
         private UCOthers m_UCOthers;
@@ -108,7 +108,7 @@ namespace DrectSoft.Core.IEMMainPage
         private void LoadForm()
         {
             DeleteMetaFile();
-            util = new DrawMainPageUtil(info);
+            util = new DrawMainPageEnUtil(info);
 
             pictureBox1.Width = GetPageWidth();
             pictureBox1.Height = GetPageHeight();
@@ -166,7 +166,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             manger = new IemMainPageManger(m_Host, CurrentInpatient);
             DeleteMetaFile();
-            util = new DrawMainPageUtil(info);
+            util = new DrawMainPageEnUtil(info);
 
             pictureBox1.Width = GetPageWidth();
             pictureBox1.Height = GetPageHeight();
@@ -197,10 +197,10 @@ namespace DrectSoft.Core.IEMMainPage
 
         #region 编辑Button
 
-        //const float percentHeight1 = 0.1334f;
+
         const float percentHeight1 = 0f;
-        const float percentHeight2 = 0.505f;
-        const float percentHeight3 = 0.495f;
+        const float percentHeight2 = 0.435f;
+        const float percentHeight3 = 0.565f;
 
         const float percentHeight4 = 0.35f;
         const float percentHeight5 = 0.154f;
@@ -384,10 +384,10 @@ namespace DrectSoft.Core.IEMMainPage
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             SetWaitDialogCaption("正在加载数据");
-            if (m_UCIemBasInfo == null)
-                m_UCIemBasInfo = new UCIemBasInfo(this);
+            if (m_UCIemBasInfoEn == null)
+                m_UCIemBasInfoEn = new UCIemBasInfoEn(this);
 
-            ShowUCForm.ShowUCIemBasInfo(m_UCIemBasInfo, info);
+            ShowUCForm.ShowUCIemBasInfoEn(m_UCIemBasInfoEn, info);
             HideWaitDialog();
             if (ShowUCForm.ShowDialog() == DialogResult.OK)
             {
@@ -405,11 +405,11 @@ namespace DrectSoft.Core.IEMMainPage
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             SetWaitDialogCaption("正在加载数据");
-            if (m_UCIemDiagnose == null)
-                m_UCIemDiagnose = new UCIemDiagnose(m_Host);
+            if (m_UCIemDiagnoseEn == null)
+                m_UCIemDiagnoseEn = new UCIemDiagnoseEn(m_Host);
 
 
-            ShowUCForm.ShowUCIemDiagnose(m_UCIemDiagnose, info);
+            ShowUCForm.ShowUCIemDiagnoseEn(m_UCIemDiagnoseEn, info);
             ShowUCForm.StartPosition = FormStartPosition.CenterScreen;
 
             HideWaitDialog();

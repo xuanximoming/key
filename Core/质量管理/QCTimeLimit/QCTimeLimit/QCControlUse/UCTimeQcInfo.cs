@@ -322,7 +322,7 @@ namespace DrectSoft.Emr.QCTimeLimit.QCControlUse
                     and i.isbaby!=1
                     order by q.noofinpat;";
                 //SqlParameter[] sps = { new SqlParameter("@doctorId", doctorId) };
-                //DataTable dtDoctorLimit = YD_SqlHelper.ExecuteDataTable(sqlDoctor, sps, CommandType.Text);
+                //DataTable dtDoctorLimit = DS_SqlHelper.ExecuteDataTable(sqlDoctor, sps, CommandType.Text);
                 if (App != null)
                 {
                     DataTable dtDoctorLimit = App.SqlHelper.ExecuteDataTable(string.Format(sqlDoctor, doctorId.ToString()), CommandType.Text);

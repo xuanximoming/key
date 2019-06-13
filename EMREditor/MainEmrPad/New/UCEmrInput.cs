@@ -2089,7 +2089,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 bool CheckInDate = false;
                 bool CheckOutDate = false;
                 //此处原来是取所有的病人，再根据首页序号筛选
-                //DataTable m_Dt = YD_SqlService.GetAllPatient();//此处数据要重新构建病人表， m_app.PatientInfos.Tables[0】取的是在院人员 
+                //DataTable m_Dt = DS_SqlService.GetAllPatient();//此处数据要重新构建病人表， m_app.PatientInfos.Tables[0】取的是在院人员 
 
                 //DataTable InpatientDt = m_Dt.Clone();//存储病人信息的表数据
                 //DataRow[] filterrow = m_Dt.Select("noofinpat=" + noofinpat + "");

@@ -215,5 +215,10 @@ namespace DrectSoft.Emr.Util
         /// 护理记录表格
         /// </summary>
         public static string HuLiJiLuBiaoGe = "AP";
+
+        /// <summary>
+        /// 护理记录表格
+        /// </summary>
+        public static string BiaoGeJiLu = "104";
     }
 }
