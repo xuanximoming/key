@@ -128,6 +128,7 @@
             this.textEdit_hkdz = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_rybg = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_cybf = new DevExpress.XtraEditors.TextEdit();
+            this.textEditotherhospital = new DevExpress.XtraEditors.TextEdit();
             this.lueOutHosWard = new DrectSoft.Common.Library.LookUpEditor();
             this.lueOutHosDept = new DrectSoft.Common.Library.LookUpEditor();
             this.lueTransAdmitDept = new DrectSoft.Common.Library.LookUpEditor();
@@ -192,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_hkdz.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_rybg.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_cybf.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditotherhospital.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOutHosWard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOutHosDept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTransAdmitDept)).BeginInit();
@@ -1149,11 +1151,11 @@
             // 
             // chkInHosType4
             // 
-            this.chkInHosType4.Location = new System.Drawing.Point(396, 266);
+            this.chkInHosType4.Location = new System.Drawing.Point(532, 265);
             this.chkInHosType4.Name = "chkInHosType4";
             this.chkInHosType4.Properties.Caption = "9.其他";
             this.chkInHosType4.Properties.RadioGroupIndex = 0;
-            this.chkInHosType4.Size = new System.Drawing.Size(85, 19);
+            this.chkInHosType4.Size = new System.Drawing.Size(60, 19);
             this.chkInHosType4.TabIndex = 114;
             this.chkInHosType4.TabStop = false;
             this.chkInHosType4.Click += new System.EventHandler(this.chkBZSH2_Click);
@@ -1247,6 +1249,15 @@
             this.textEdit_cybf.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.textEdit_cybf.Size = new System.Drawing.Size(80, 18);
             this.textEdit_cybf.TabIndex = 125;
+            // 
+            // textEditotherhospital
+            // 
+            this.textEditotherhospital.Enabled = false;
+            this.textEditotherhospital.Location = new System.Drawing.Point(381, 266);
+            this.textEditotherhospital.Name = "textEditotherhospital";
+            this.textEditotherhospital.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditotherhospital.Size = new System.Drawing.Size(129, 18);
+            this.textEditotherhospital.TabIndex = 126;
             // 
             // lueOutHosWard
             // 
@@ -1553,6 +1564,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.textEditotherhospital);
             this.Controls.Add(this.textEdit_cybf);
             this.Controls.Add(this.textEdit_rybg);
             this.Controls.Add(this.textEdit_hkdz);
@@ -1720,6 +1732,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_hkdz.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_rybg.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_cybf.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditotherhospital.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOutHosWard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOutHosDept)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTransAdmitDept)).EndInit();
@@ -1875,5 +1888,6 @@
         private DevExpress.XtraEditors.TextEdit textEdit_hkdz;
         private DevExpress.XtraEditors.TextEdit textEdit_rybg;
         private DevExpress.XtraEditors.TextEdit textEdit_cybf;
+        private DevExpress.XtraEditors.TextEdit textEditotherhospital;
     }
 }

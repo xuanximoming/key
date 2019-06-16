@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 
 namespace DrectSoft.Core.IEMMainPage
@@ -405,7 +402,7 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         public string JG_CityName { get; set; }
 
- 
+
         /// <summary>
         /// 籍贯 省
         /// </summary>
@@ -786,7 +783,7 @@ namespace DrectSoft.Core.IEMMainPage
         /// 死亡患者尸检 □ 1.是  2.否
         /// </summary>
         public string Autopsy_Flag { get; set; }
-        
+
 
         #region 2012国家卫生部表中病案首页新增内容
 
@@ -843,6 +840,22 @@ namespace DrectSoft.Core.IEMMainPage
         /// 入院途径:1.急诊  2.门诊  3.其他医疗机构转入  9.其他 
         /// </summary>
         public string InHosType
+        {
+            get
+            {
+                return _TypeHos;
+            }
+            set
+            {
+                _TypeHos = value;
+            }
+        }
+        private string _TypeHos;
+
+        /// <summary>
+        /// 其他医疗机构转入
+        /// </summary>
+        public string TypeHos
         {
             get
             {
@@ -1250,7 +1263,7 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         public string OutDiagName { get; set; }
 
- 
+
         /// <summary>
         /// 入院诊断
         /// </summary>
@@ -2157,7 +2170,7 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
         private string _BZSS;
- 
+
         /// <summary>
         /// 西药类 西药费
         /// </summary>

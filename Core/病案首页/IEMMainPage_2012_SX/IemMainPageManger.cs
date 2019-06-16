@@ -516,6 +516,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Weight = row["weight"].ToString();
                     IemInfo.IemBasicInfo.InWeight = row["inweight"].ToString();
                     IemInfo.IemBasicInfo.InHosType = row["inhostype"].ToString();
+                    IemInfo.IemBasicInfo.TypeHos = row["typehospital"].ToString();
                     IemInfo.IemBasicInfo.OutHosType = row["outhostype"].ToString();
 
                     IemInfo.IemBasicInfo.ReceiveHosPital = row["receivehospital"].ToString();
@@ -709,6 +710,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Weight = "---";
                     IemInfo.IemBasicInfo.InWeight = "---";
                     IemInfo.IemBasicInfo.InHosType = DefaultInfo.AdmitWay;//入院途径
+                    IemInfo.IemBasicInfo.TypeHos = "---";
                     IemInfo.IemBasicInfo.OutHosType = "";
 
                     IemInfo.IemBasicInfo.ReceiveHosPital = "";
@@ -734,6 +736,17 @@ namespace DrectSoft.Core.IEMMainPage
 
                     IemInfo.IemBasicInfo.Age = CurrentInpatient.PersonalInformation.CurrentDisplayAge;
 
+                    IemInfo.IemBasicInfo.CURE_TYPE = "";
+                    IemInfo.IemBasicInfo.MZZYZD_NAME = "";
+                    IemInfo.IemBasicInfo.MZZYZD_CODE = "";
+                    IemInfo.IemBasicInfo.MZXYZD_NAME = "";
+                    IemInfo.IemBasicInfo.MZXYZD_CODE = "";
+                    IemInfo.IemBasicInfo.SSLCLJ = "";
+                    IemInfo.IemBasicInfo.ZYZJ = "";
+
+                    IemInfo.IemBasicInfo.ZYZLSB = "";
+                    IemInfo.IemBasicInfo.ZYZLJS = "";
+                    IemInfo.IemBasicInfo.BZSH = "";
                     IemInfo.IemBasicInfo.HospitalName = m_DataHelper.GetHospitalName();
 
                     ///////诊断实体中
@@ -1731,6 +1744,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraINWEIGHT.Value = info.IemBasicInfo.InWeight;
             SqlParameter paraINHOSTYPE = new SqlParameter("@INHOSTYPE", SqlDbType.VarChar, 20);
             paraINHOSTYPE.Value = info.IemBasicInfo.InHosType;
+            SqlParameter paraTYPEHOS = new SqlParameter("@TYPEHOSPITAL", SqlDbType.VarChar, 50);
+            paraTYPEHOS.Value = info.IemBasicInfo.TypeHos;
             SqlParameter paraOUTHOSTYPE = new SqlParameter("@OUTHOSTYPE", SqlDbType.VarChar, 20);
             paraOUTHOSTYPE.Value = info.IemBasicInfo.OutHosType;
             SqlParameter paraRECEIVEHOSPITAL = new SqlParameter("@RECEIVEHOSPITAL", SqlDbType.VarChar, 20);
@@ -1854,7 +1869,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
                 paraCREATE_USER,paraCREATE_TIME,paraMODIFIED_USER,paraMODIFIED_TIME,paraZYMOSIS,
                 paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
-                paraINWEIGHT ,paraINHOSTYPE,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
+                paraINWEIGHT ,paraINHOSTYPE,paraTYPEHOS,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
                 paraAGAININHOSPITAL,paraAGAININHOSPITALREASON,paraBEFOREHOSCOMADAY,paraBEFOREHOSCOMAHOUR,paraBEFOREHOSCOMAMINUTE,
                 paraLATERHOSCOMADAY,paraLATERHOSCOMAHOUR,paraLATERHOSCOMAMINUTE,paraCARDNUMBER,paraALLERGIC_FLAG,
                 paraAUTOPSY_FLAG,paraCSD_PROVINCEID,paraCSD_CITYID,paraCSD_DISTRICTID,paraCSD_PROVINCENAME,

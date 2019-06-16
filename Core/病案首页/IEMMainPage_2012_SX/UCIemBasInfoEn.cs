@@ -173,6 +173,7 @@ namespace DrectSoft.Core.IEMMainPage
                 lueJG_ProvinceID.ReadOnly = false;//籍贯省
                 lueJG_CityID.ReadOnly = false;//籍贯市
                 txtOfficePlace.Properties.ReadOnly = false;//工作单位地址
+                textEditotherhospital.Properties.ReadOnly = false;//其他医疗机构转入
                 txtOfficeTEL.Properties.ReadOnly = false;//单位电话
                 txtOfficePost.Properties.ReadOnly = false;//工作单位邮编
                 txtHKDZ_Post.Properties.ReadOnly = false;//户口住址邮编
@@ -210,6 +211,7 @@ namespace DrectSoft.Core.IEMMainPage
                 lueJG_ProvinceID.ReadOnly = true;//籍贯省
                 lueJG_CityID.ReadOnly = true;//籍贯市
                 txtOfficePlace.Properties.ReadOnly = true;//工作单位地址
+                textEditotherhospital.Properties.ReadOnly = true;//其他医疗机构转入
                 txtOfficeTEL.Properties.ReadOnly = true;//单位电话
                 txtOfficePost.Properties.ReadOnly = true;//工作单位邮编
                 txtHKDZ_Post.Properties.ReadOnly = true;//户口住址邮编
@@ -1109,12 +1111,12 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第七行
             txtOfficePlace.Text = info.IemBasicInfo.OfficePlace;
+            textEditotherhospital.Text = info.IemBasicInfo.TypeHos;
             txtOfficeTEL.Text = info.IemBasicInfo.OfficeTEL;
             txtOfficePost.Text = info.IemBasicInfo.OfficePost;
 
             //第八行
             txtContactPerson.Text = info.IemBasicInfo.ContactPerson;
-
             lueRelationship.CodeValue = info.IemBasicInfo.RelationshipID;
             txtContactAddress.Text = info.IemBasicInfo.ContactAddress;
             txtContactTEL.Text = info.IemBasicInfo.ContactTEL;
@@ -1128,7 +1130,7 @@ namespace DrectSoft.Core.IEMMainPage
                 chkInHosType3.Checked = true;
             else
                 chkInHosType4.Checked = true;
-
+            textEditotherhospital.Text = info.IemBasicInfo.TypeHos;
             //第十行 治疗类别
             //if (m_IemInfo.IemBasicInfo.CURE_TYPE == "1")
             //    chkCURE_TYPE1.Checked = true;
@@ -1306,7 +1308,6 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第八行
             m_IemInfo.IemBasicInfo.ContactPerson = txtContactPerson.Text;
-
             m_IemInfo.IemBasicInfo.RelationshipID = lueRelationship.CodeValue;
             m_IemInfo.IemBasicInfo.RelationshipName = lueRelationship.Text;
             m_IemInfo.IemBasicInfo.ContactAddress = txtContactAddress.Text;
@@ -1321,6 +1322,7 @@ namespace DrectSoft.Core.IEMMainPage
                 m_IemInfo.IemBasicInfo.InHosType = "3";
             else
                 m_IemInfo.IemBasicInfo.InHosType = "9";
+            m_IemInfo.IemBasicInfo.TypeHos = textEditotherhospital.Text;
 
             //第十行 治疗类别
             //if (chkCURE_TYPE1.Checked)
@@ -1632,81 +1634,6 @@ namespace DrectSoft.Core.IEMMainPage
                 labelHospitalName.Location = new Point((this.Width - TextRenderer.MeasureText(labelHospitalName.Text, labelHospitalName.Font).Width) / 2, labelHospitalName.Location.Y);
             }
         }
-        #region 病案首页基本信息
-        /// <summary>
-        /// 病案首页基本信息
-        /// </summary>
-        /// <returns></returns>
-        public Iem_Mainpage_Basicinfo GetPrintBasicInfo()
-        {
-            Iem_Mainpage_Basicinfo _BasicInfo = new Iem_Mainpage_Basicinfo();
-
-
-            //_BasicInfo.HospitalName = labelHospitalName.Text;
-            //_BasicInfo.PayName = luePayId.Text;
-            //_BasicInfo.InCount = seInCount.Value.ToString();
-            //_BasicInfo.PatNoOfHis = txtPatNoOfHis.Text;
-            //_BasicInfo.Name = txtName.Text;
-
-            //_BasicInfo.SexID = lueSex.CodeValue;
-            //_BasicInfo.Birth = deBirth.DateTime.ToShortDateString();
-            //_BasicInfo.Age = txtAge.Text;
-            //_BasicInfo.Marital = lueMarital.CodeValue;
-            //_BasicInfo.JobName = lueJob.Text;
-
-            //_BasicInfo.CountyName = lueCounty.Text;
-            //_BasicInfo.NationName = lueNation.Text;
-            //_BasicInfo.NationalityName = lueNationality.Text;
-            //_BasicInfo.IDNO = txtIDNO.Text;
-            //_BasicInfo.OfficePlace = txtOfficePlace.Text;
-
-            //_BasicInfo.OfficeTEL = txtOfficeTEL.Text;
-            //_BasicInfo.OfficePost = txtOfficePost.Text;
-            //_BasicInfo.NativeAddress = txtNativeAddress.Text;
-            //_BasicInfo.NativeTEL = txtNativeTEL.Text;
-            //_BasicInfo.NativePost = txtNativePost.Text;
-
-            //_BasicInfo.ContactPerson = txtContactPerson.Text;
-            //_BasicInfo.Relationship = lueRelationship.Text;
-            //_BasicInfo.ContactAddress = txtContactAddress.Text;
-            //_BasicInfo.ContactTEL = txtContactTEL.Text;
-            //_BasicInfo.AdmitDate = deAdmitDate.DateTime.ToString("yyyy-MM-dd") + " " + teAdmitDate.Time.ToString("HH:mm:ss");
-
-            //_BasicInfo.AdmitDeptName = lueAdmitDept.Text;
-            //_BasicInfo.AdmitWardName = lueAdmitWard.Text;
-            //_BasicInfo.Trans_AdmitDept = lueTransAdmitDept.Text;
-            //_BasicInfo.OutWardDate = deOutWardDate.DateTime.ToString("yyyy-MM-dd") + " " + teOutWardDate.Time.ToString("HH:mm:ss");
-            //_BasicInfo.OutHosDeptName = lueOutHosDept.Text;
-
-            //_BasicInfo.OutHosWardName = lueOutHosWard.Text;
-            //_BasicInfo.ActualDays = seActualDays.Value.ToString();
-
-            return _BasicInfo;
-        }
-
-        public Iem_Mainpage_Diagnosis GetPrintDiagnosis(Iem_Mainpage_Diagnosis _Iem_Mainpage_Diagnosis)
-        {
-
-            //_Iem_Mainpage_Diagnosis.Section_Director = lueKszr.Text;
-            //_Iem_Mainpage_Diagnosis.Director = lueZrys.Text;
-            //_Iem_Mainpage_Diagnosis.Vs_Employee_Code = lueZzys.Text;
-            //_Iem_Mainpage_Diagnosis.Resident_Employee_Code = lueZyys.Text;
-            //_Iem_Mainpage_Diagnosis.Refresh_Employee_Code = lueJxys.Text;
-
-
-            //_Iem_Mainpage_Diagnosis.Master_Interne = lueYjs.Text;
-            //_Iem_Mainpage_Diagnosis.Interne = lueSxys.Text;
-            //_Iem_Mainpage_Diagnosis.Coding_User = lueBmy.Text;
-            //_Iem_Mainpage_Diagnosis.Medical_Quality_Id = m_IemInfo.IemBasicInfo.Medical_Quality_Id.ToString();
-            //_Iem_Mainpage_Diagnosis.Quality_Control_Doctor = lueZkys.Text;
-
-            //_Iem_Mainpage_Diagnosis.Quality_Control_Nurse = lueZkhs.Text;
-            //_Iem_Mainpage_Diagnosis.Quality_Control_Date = m_IemInfo.IemBasicInfo.Quality_Control_Date;
-
-            return _Iem_Mainpage_Diagnosis;
-        }
-
-        #endregion
 
         /// <summary>
         /// 得到门诊的数据库数据
@@ -1715,54 +1642,6 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                //if (!string.IsNullOrEmpty(lueMZZYZD_CODE.Text.Trim()) == true)
-                //{
-                //    //GetFormLoadData("ZHONGYI");
-                //    string filter = string.Empty;
-
-                //    string NameFilter = " name= '{0}'";
-                //    filter += string.Format(NameFilter, lueMZZYZD_CODE.Text.Trim());
-                //    dtZY.DefaultView.RowFilter = filter;
-
-                //    int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
-
-                //    if (dataResult > 0)
-                //    {
-                //        lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                //        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
-
-                //    }
-                //    if (dataResult == 0)
-                //    {
-                //        lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                //        lueMZZYZD_CODE.DiaCode = "";
-                //    }
-
-                //}
-                //if (string.IsNullOrEmpty(lueMZZYZD_CODE.Text.Trim()) == true)
-                //{
-                //    //GetFormLoadData("ZHONGYI");
-                //    string filter = string.Empty;
-
-                //    string NameFilter = " name= '{0}'";
-                //    filter += string.Format(NameFilter, lueMZZYZD_CODE.Text.Trim());
-                //    dtZY.DefaultView.RowFilter = filter;
-
-                //    int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
-
-                //    if (dataResult > 0)
-                //    {
-                //        lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                //        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
-
-                //    }
-                //    if (dataResult == 0)
-                //    {
-                //        lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                //        lueMZZYZD_CODE.DiaCode = "";
-                //    }
-
-                //}
                 if (!string.IsNullOrEmpty(lueMZXYZD_CODE.Text.Trim()) == true)
                 {
                     //GetFormLoadData("XIYI");
@@ -1909,6 +1788,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <returns></returns>
         private CheckEdit GetCheckEdit(string ControlName)
         {
+            textEditotherhospital.Enabled = false;
+            if (ControlName == "chkInHosType3")
+                textEditotherhospital.Enabled = true;
             foreach (Control control in this.Controls)
             {
                 if (control.Name == ControlName)
