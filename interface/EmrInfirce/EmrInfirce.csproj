@@ -92,12 +92,6 @@
     <Compile Include="WindowInformation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmrInsert\EmrInsert.csproj">
-      <Project>{adc3d0ce-447b-4755-91a0-c82c5413858c}</Project>
-      <Name>EmrInsert</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="reg.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
