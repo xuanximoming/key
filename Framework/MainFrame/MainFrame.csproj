@@ -133,7 +133,8 @@
     <Reference Include="DevExpress.XtraTreeList.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="log4net">
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=c03a8b2ee89b86b3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
@@ -344,17 +345,9 @@
     <Content Include="emr.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\PersonTtemTemplet\PersonTtemTemplet\PersonTtemTemplet.csproj">
-      <Project>{F1D0E65F-9158-40EB-A963-E6576F45894C}</Project>
-      <Name>PersonTtemTemplet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\权限控制\Permission\Permission.csproj">
       <Project>{9f7acdd5-a9d0-462c-ab12-9f63c44c6a40}</Project>
       <Name>Permission</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\病案首页\IemMainPageExtension\IemMainPageExtension.csproj">
-      <Project>{42904EE7-A171-4B67-8626-869293BB4905}</Project>
-      <Name>IemMainPageExtension</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
       <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>

@@ -183,9 +183,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\..\DrectCommon.Ctrs\DrectSoft.Common.Ctrs.csproj">
       <Project>{4a36778f-8fd1-482e-8d57-b06a1aa81a16}</Project>
       <Name>DrectSoft.Common.Ctrs</Name>

@@ -1,12 +1,10 @@
-using System;
-using DrectSoft.Library.EmrEditor.Src.Document;
-using DrectSoft.Library.EmrEditor.Src.Common;
-using System.Diagnostics;
-using System.Windows.Forms;
-using System.Drawing;
 using DrectSoft.Basic.Paint.NET;
+using DrectSoft.Library.EmrEditor.Src.Common;
+using DrectSoft.Library.EmrEditor.Src.Document;
+using System;
+using System.Drawing;
 using System.IO;
-//using ZYCommon ;
+using System.Windows.Forms;
 namespace ZYTextDocumentLib
 {
     /// <summary>

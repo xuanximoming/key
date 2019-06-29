@@ -120,9 +120,7 @@
     <Compile Include="DS_Common.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DA\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WinForm\PrintHistoryForm.resx">

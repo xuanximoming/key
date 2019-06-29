@@ -172,7 +172,7 @@
             // 
             // labelControlTip
             // 
-            this.labelControlTip.Appearance.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControlTip.Appearance.Font = new System.Drawing.Font("SimSun", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControlTip.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.labelControlTip.Location = new System.Drawing.Point(384, 4);
             this.labelControlTip.Name = "labelControlTip";
@@ -196,7 +196,7 @@
             // 
             // lookUpWindowDept
             // 
-            this.lookUpWindowDept.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowDept.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowDept.GenShortCode = null;
             this.lookUpWindowDept.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowDept.Owner = null;
