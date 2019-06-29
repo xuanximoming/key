@@ -2,8 +2,10 @@
 using DrectSoft.Common.Eop;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -11,6 +13,7 @@ namespace DrectSoft.Core.IEMMainPage
     {
         private IemMainPageInfo m_IemInfo;
         private Inpatient CurrentInpatient;
+        private static XmlDocument xmlDoc = new XmlDocument();
         /// <summary>
         /// 病案首页病患信息
         /// </summary>
@@ -160,9 +163,7 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="e"></param>
         private void btnFee_Click(object sender, EventArgs e)
         {
-            return;
-
-            /*this.SuspendLayout();
+            this.SuspendLayout();
             if (m_App == null || m_App.CurrentPatientInfo == null)
                 return;
             IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
@@ -174,134 +175,34 @@ namespace DrectSoft.Core.IEMMainPage
             }
             //to do  yxy 提取HIS数据库中病人费用信息
 
-            string sql = string.Format(@"SELECT     CONVERT(varchar(12), PatCode) AS PatID,FeeCode,
-                                             CONVERT(varchar(12), FeeName) AS FeeName, CONVERT(float, SUM(Amount)) AS amount
-                                            FROM  root.InnerRecipeCount WITH (nolock)
-                                            where PatCode = '{0}'
-                                            GROUP BY PatCode, FeeName,FeeCode", m_App.CurrentPatientInfo.NoOfHisFirstPage);//m_App.CurrentPatientInfo.NoOfHisFirstPage);
-            //SqlParameter[] paraColl = new SqlParameter[] { new SqlParameter("@syxh", m_App.CurrentPatientInfo.NoOfHisFirstPage ) };
-            //DataTable dataTable = sqlHelper.ExecuteDataTable("usp_bq_fymxcx", paraColl, CommandType.StoredProcedure);
+            string sql = string.Format(@"SELECT * FROM  DC_Free where PatId = '{0}'", m_App.CurrentPatientInfo.NoOfHisFirstPage);
 
             DataTable dataTable = sqlHelper.ExecuteDataTable(sql, CommandType.Text);
-            //to do 赋值
-            //to do 赋值
-            Double totalFee = 0;
-            Double OtherFee = 0;
-            foreach (DataRow row in dataTable.Rows)
+
+            if (dataTable.Rows.Count <= 0)
             {
-                totalFee = totalFee + Convert.ToDouble(row["amount"].ToString());
-                OtherFee = OtherFee + Convert.ToDouble(row["amount"].ToString());
+                m_App.CustomMessageBox.MessageShow("HIS无病人费用信息", CustomMessageBoxKind.WarningOk);
+                return;
+            }
+            xmlDoc = new XmlDocument();
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.IgnoreComments = true;
+            XmlReader reader = XmlReader.Create(".\\Sheet\\MRHPEN.xml", settings);
+            xmlDoc.Load(reader);
+            XmlNode xmlNode = xmlDoc.GetElementsByTagName("Feeinfo")[0];
+            XmlNodeList xmlNodes = xmlNode.ChildNodes;
 
-                //    //床费
-                //    if (row["FeeName"].ToString().Trim() == "床位费")
-                //    {
-                //        this.lblBed.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //护理费
-                //    else if (row["FeeName"].ToString().Trim() == "护理费")
-                //    {
-                //        this.lblCare.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //西药费
-                //    else if (row["FeeName"].ToString().Trim() == "西药费")
-                //    {
-                //        lblWMedical.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-
-                //    //中成药费
-                //    else if (row["FeeName"].ToString().Trim() == "中成药费")
-                //    {
-                //        lblCPMedical.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //中草药费
-                //    else if (row["FeeName"].ToString().Trim() == "草药费")
-                //    {
-                //        lblCMedical.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //放射费
-                //    else if (row["FeeName"].ToString().Trim() == "放射费")
-                //    {
-                //        lblRadiate.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //检验
-                //    else if (row["FeeName"].ToString().Trim() == "其它")
-                //    {
-                //        lblAssay.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //输氧费
-                //    else if (row["FeeName"].ToString().Trim() == "输氧费")
-                //    {
-                //        lblOx.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-
-                //    //输血费
-                //    else if (row["FeeName"].ToString().Trim() == "输血费")
-                //    {
-                //        lblBlood.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //诊查费
-                //    else if (row["FeeName"].ToString().Trim() == "诊查费")
-                //    {
-                //        lblMecical.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //手术费
-                //    else if (row["FeeName"].ToString().Trim() == "手术费")
-                //    {
-                //        lblOperation.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //接生费
-                //    else if (row["FeeName"].ToString().Trim() == "接生费")
-                //    {
-                //        lblAccouche.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //检查费
-                //    else if (row["FeeName"].ToString().Trim() == "检查费")
-                //    {
-                //        lblRis.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-
-                //    //麻醉费
-                //    else if (row["FeeName"].ToString().Trim() == "麻醉费")
-                //    {
-                //        lblAnaesthesia.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //治疗费
-                //    else if (row["FeeName"].ToString().Trim() == "治疗费")
-                //    {
-                //        labelZhiLiao.Text = row["amount"].ToString();
-                //        OtherFee = OtherFee - Convert.ToDouble(row["amount"].ToString());
-                //    }
-                //    //婴儿费   陪床费  药占比  检验费 未匹配
-
+            foreach (XmlNode node in xmlNodes)
+            {
+                string Mapping = node.Attributes["mapping"].Value;
+                TextEdit textedit = this.Controls.Find(node.Name, false)[0] as TextEdit;
+                DataRow[] rows = dataTable.Select("FeeName='" + Mapping + "'");
+                if (rows.Length > 0)
+                {
+                    textedit.Text = rows[0]["amount"].ToString();
+                }
 
             }
-
-            //this.lblTotal.Text = totalFee.ToString();
-
-            //lblOthers.Text = OtherFee.ToString();
-
-            this.Refresh();
-            //if (this.FindForm() == null)
-            //{
-            //    this.Refresh();
-            //}
-            //else
-            //    this.FindForm().Refresh();
-            */
         }
         #endregion
 
@@ -340,10 +241,6 @@ namespace DrectSoft.Core.IEMMainPage
                         new Point(control.Width + control.Location.X, control.Height + control.Location.Y));
                 }
             }
-
-            //e.Graphics.DrawLine(Pens.Black, new Point(0, 0), new Point(0, this.Height));
-            //e.Graphics.DrawLine(Pens.Black, new Point(this.Width - 1, 0), new Point(this.Width - 1, this.Height));
-            //e.Graphics.DrawLine(Pens.Black, new Point(0, this.Height - 1), new Point(this.Width, this.Height - 1));
         }
 
         /// <summary>

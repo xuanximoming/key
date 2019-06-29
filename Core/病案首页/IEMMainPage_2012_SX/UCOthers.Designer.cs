@@ -104,6 +104,7 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtZYZLF = new DevExpress.XtraEditors.TextEdit();
             this.txtXBYZLZPF = new DevExpress.XtraEditors.TextEdit();
+            this.btnFee = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOwnFee.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtYBYLFY.Properties)).BeginInit();
@@ -738,7 +739,7 @@
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(86, 14);
             this.labelControl2.TabIndex = 125;
-            this.labelControl2.Text = "（26）其他费：";
+            this.labelControl2.Text = "（27）其他费：";
             // 
             // labelControl3
             // 
@@ -831,11 +832,21 @@
             this.txtXBYZLZPF.Size = new System.Drawing.Size(66, 18);
             this.txtXBYZLZPF.TabIndex = 219;
             // 
+            // btnFee
+            // 
+            this.btnFee.Location = new System.Drawing.Point(263, 371);
+            this.btnFee.Name = "btnFee";
+            this.btnFee.Size = new System.Drawing.Size(83, 27);
+            this.btnFee.TabIndex = 220;
+            this.btnFee.Text = "提取";
+            this.btnFee.Click += new System.EventHandler(this.btnFee_Click);
+            // 
             // UCOthers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnFee);
             this.Controls.Add(this.txtXBYZLZPF);
             this.Controls.Add(this.txtOwnFee);
             this.Controls.Add(this.txtCare);
@@ -1028,5 +1039,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.TextEdit txtZYZLF;
         private DevExpress.XtraEditors.TextEdit txtXBYZLZPF;
+        private DevExpress.XtraEditors.SimpleButton btnFee;
     }
 }
