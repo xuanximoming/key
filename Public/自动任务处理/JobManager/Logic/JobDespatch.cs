@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-
-using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Timers;
 
@@ -65,52 +62,6 @@ namespace DrectSoft.JobManager
             PollingJob();
         }
 
-        //private void _timerMain_Tick(object sender, EventArgs e)
-        //{
-        //   if (MissionCollection != null)
-        //   {
-        //      foreach (ISynchMission synchMission in MissionCollection)
-        //      {
-        //         //达到进入队列条件，做移动入执行队列的操作,假如队列中已存在该任务，如果队列长度不超过限定，则允许重复插入，否则暂停任务插入队列
-        //         SynchMissionConfigration config = m_MissionManager.GetConfig(synchMission.MissionName);
-        //         if (config != null && config.Enable)
-        //         {//如果启用了配置才移入计划队列
-        //            if (m_Comparer.Warning(config.TimeSetting, DateTime.Now))
-        //            {
-        //               if (MissionQueue.Count <= MaxQueueLength)
-        //                  MissionQueue.Add(synchMission as IJobAction);
-        //            }
-        //         }
-        //      }
-
-        //      foreach (ISynchMission mission in MissionQueue)
-        //      {
-        //         SynchMissionConfigration synchConfig = m_MissionManager.GetConfig(mission.MissionName);
-        //         if (m_Comparer.Compare(synchConfig.TimeSetting, DateTime.Now))
-        //         {//对队列中的任务做当前点检查，符合则开线程执行，否则继续等待，线程执行完从队列中删除该任务
-        //            BackgroundWorker worker = new BackgroundWorker();
-        //            worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(worker_RunWorkerCompleted);
-        //            worker.DoWork += new DoWorkEventHandler(worker_DoWork);
-        //            bool found = false;
-        //            foreach (IJobAction action in m_ActionCollection)
-        //            {
-        //               ISynchMission miss = action as ISynchMission;
-        //               if (mission.MissionName == miss.MissionName)
-        //               {
-        //                  found = true;
-        //                  break;
-        //               }
-        //            }
-        //            if (!found)
-        //            {
-        //               m_ActionCollection.Add(mission as IJobAction);
-        //               worker.RunWorkerAsync(mission);
-        //            }
-        //         }
-        //      }
-        //   }
-        //}
-
         /// <summary>
         /// 轮询是否有需要执行的任务
         /// </summary>
@@ -148,7 +99,7 @@ namespace DrectSoft.JobManager
                         job.Action.Execute();
                         job.JobSchedule.LastExecuteTime = DateTime.Now;
                         JobLogHelper.WriteLog(new JobExecuteInfoArgs(job, "结束", TraceLevel.Info));
-                        
+
                     }
                     catch (Exception exception)
                     {

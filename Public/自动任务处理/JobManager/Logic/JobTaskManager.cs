@@ -98,10 +98,6 @@ namespace DrectSoft.JobManager
         #region private methods
         private void InitializeConfig()
         {
-            //Stream file = BasicSettings.GetConfig(m_JobtaskInfo);
-            //XmlSerializer serializer = new XmlSerializer(typeof(JobConfig));
-            //_systems = (JobConfig)serializer.Deserialize(file);
-            //file.Close();
             FileStream file = new FileStream(AppDomain.CurrentDomain.BaseDirectory + @"\" + "DataSynchConfig.xml", FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             XmlSerializer serializer = new XmlSerializer(typeof(JobConfig));
             _systems = (JobConfig)serializer.Deserialize(file);

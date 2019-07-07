@@ -94,6 +94,12 @@
   <ItemGroup>
     <None Include="reg.bat" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EmrInsert\EmrInsert.csproj">
+      <Project>{adc3d0ce-447b-4755-91a0-c82c5413858c}</Project>
+      <Name>EmrInsert</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
