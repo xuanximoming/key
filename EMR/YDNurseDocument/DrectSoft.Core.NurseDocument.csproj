@@ -353,10 +353,6 @@
       <Project>{358e23d7-7f8b-4423-bca4-a6298cf61571}</Project>
       <Name>DrectSoft.FrameWork.WinForm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Framework\MainFrame\MainFrame.csproj">
-      <Project>{BEA83F95-D8E7-4D3C-9075-DC385EA535C0}</Project>
-      <Name>MainFrame</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Library\Resources\Resources.csproj">
       <Project>{35923221-066f-4d8e-b72c-7fa5a6fd01fa}</Project>
       <Name>Resources</Name>

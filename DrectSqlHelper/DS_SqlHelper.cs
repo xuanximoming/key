@@ -1,4 +1,5 @@
-﻿using Oracle.DataAccess.Types;
+﻿using Newtonsoft.Json;
+using Oracle.DataAccess.Types;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using System.Data;
 using System.Data.Common;
 using System.Data.OracleClient;
 using System.IO;
+using System.Net;
+using System.Text;
 using System.Xml;
 #pragma warning disable 0618
 /***********************************************************************************************************************别文进插件*/
@@ -85,7 +88,7 @@ namespace DrectSoft.DSSqlHelper
             }
         }
 
-        private static bool WebServ = false;
+        //private static bool WebServ = false;
         private static DbProviderFactory _DbProviderFactory = null;
         /// <summary>
         /// 数据库工厂
@@ -645,6 +648,61 @@ namespace DrectSoft.DSSqlHelper
             {
                 throw ce;
             }
+        }
+
+        /// <summary>
+        /// 执行带参查询返回结果表
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public static DataTable HttpPostDataTable(string ServiceIp, string method, string param)
+        {
+
+            string url = "http://" + ServiceIp + "/WebService.asmx";
+            string result = string.Empty;
+            byte[] bytes = null;
+            Stream writer = null;
+            HttpWebRequest request = null;
+            HttpWebResponse response = null;
+            bytes = Encoding.UTF8.GetBytes(param);
+            request = (HttpWebRequest)HttpWebRequest.Create(url + "/" + method);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = bytes.Length;
+            try
+            {
+                writer = request.GetRequestStream();        //获取用于写入请求数据的Stream对象
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            writer.Write(bytes, 0, bytes.Length);       //把参数数据写入请求数据流
+            writer.Close();
+
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();      //获得响应
+            }
+            catch (WebException ex)
+            {
+                return null;
+            }
+
+            #region 这种方式读取到的是一个返回的结果字符串
+            Stream stream = response.GetResponseStream();        //获取响应流
+            XmlTextReader Reader = new XmlTextReader(stream);
+            Reader.MoveToContent();
+            result = Reader.ReadInnerXml();
+            #endregion
+
+            response.Close();
+            Reader.Close();
+
+            stream.Dispose();
+            stream.Close();
+            return JsonConvert.DeserializeObject<DataTable>(result);
         }
 
         public static DataTable ExecuteDataTableInTran(string commandText, DbParameter[] pars,

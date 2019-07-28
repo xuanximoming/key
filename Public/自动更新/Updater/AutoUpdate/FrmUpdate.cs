@@ -171,9 +171,9 @@ namespace AutoUpdate
             if (!File.Exists(path))
             {
                 string[] array = path.Split(new char[]
-				{
-					'\\'
-				});
+                {
+                    '\\'
+                });
                 string text = string.Empty;
                 for (int i = 0; i < array.Length - 1; i++)
                 {
@@ -196,18 +196,18 @@ namespace AutoUpdate
             for (int i = 0; i < files.Length; i++)
             {
                 string[] array = files[i].Split(new char[]
-				{
-					'\\'
-				});
+                {
+                    '\\'
+                });
                 File.Copy(files[i], objPath + "\\" + array[array.Length - 1], true);
             }
             string[] directories = Directory.GetDirectories(sourcePath);
             for (int i = 0; i < directories.Length; i++)
             {
                 string[] array2 = directories[i].Split(new char[]
-				{
-					'\\'
-				});
+                {
+                    '\\'
+                });
                 this.CopyFile(directories[i], objPath + "\\" + array2[array2.Length - 1]);
             }
         }

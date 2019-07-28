@@ -65,81 +65,90 @@ namespace DrectSoft.Core.DoctorTasks
         {
             try
             {
-                IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
+                string pra = "BeginTime=" + BeginTime + "&EndTime=" + EndTime + "&patNoOfHIS=" + patNoOfHIS;
+                string value = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ServiceIp");
+                DataTable dt = DrectSoft.DSSqlHelper.DS_SqlHelper.HttpPostDataTable(value, "HttpPostGetOrders", pra);
+                gridMedQCAnalysis.DataSource = dt;
+                //IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
 
-                if (sqlHelper == null)
-                {
-                    App.CustomMessageBox.MessageShow("无法连接到HIS！", CustomMessageBoxKind.ErrorOk);
-                    return;
-                }
+                //if (sqlHelper == null)
+                //{
+                //    App.CustomMessageBox.MessageShow("无法连接到HIS！", CustomMessageBoxKind.ErrorOk);
+                //    return;
+                //}
+                ////xll 2013-03-14 医嘱更据接口文档标准建立
+                //string value = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ISBiaoZhunMadeorder");
+                //if (value != null && value.Trim() != "")
+                //{
 
-                //xll 2013-03-14 医嘱更据接口文档标准建立
-                string value = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ISBiaoZhunMadeorder");
-                if (value != null && value.Trim() != "")
-                {
-                    string StPat = null;
-                    string StVist = null;
-                    string[] StpatNoOfHIS = patNoOfHIS.Split('_');
-                    StPat = StpatNoOfHIS[0];
-                    StVist = StpatNoOfHIS[1];
-                    value += " where patient_id = '" + StPat + "' and visit_id = " + StVist;
-                    if (BeginTime != "")
-                    {
-                        value += " and '" + BeginTime + " 00:00:00' <= DATE_BGN ";
-                    }
-                    if (EndTime != "")
-                    {
-                        value += " and DATE_BGN <= '" + EndTime + " 23:59:59' ";
-                    }
-                    value += " order by order_no";
-                    string sql = string.Format(value, patNoOfHIS, BeginTime, EndTime);
-                    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql.ToUpper(), patNoOfHIS), CommandType.Text);
-                    gridMedQCAnalysis.DataSource = dt;
-                }
-                else if (sqlHelper.GetDbConnection().ConnectionString.IndexOf("Data Source") >= 0)
-                {
-                    string sql = " select type_name, class_name, "
-                        + " case when type_name = '长期医嘱' then item_name || ' ' || dose_once || dose_unit || specs || ' ' || dfq_cexp "
-                        + "      when type_name = '临时医嘱' then item_name || ' ' || dose_once || dose_unit || specs || ' ' || dfq_cexp || ' ' || qty_tot || min_unit  "
-                        + " end content,"
-                        + " to_char(date_bgn, 'yyyy-MM-dd hh24:mi:ss') date_begin, to_char(date_end, 'yyyy-MM-dd hh24:mi:ss') date_end "
-                        + " from zc_madeorder "
-                        + " where inpatient_no = '{0}' ";
-                    if (BeginTime != "")
-                    {
-                        sql += " and '" + BeginTime + " 00:00:00' <= to_char(date_bgn, 'yyyy-MM-dd hh24:mi:ss') ";
-                    }
-                    if (EndTime != "")
-                    {
-                        sql += " and to_char(date_bgn, 'yyyy-MM-dd hh24:mi:ss') <= '" + EndTime + " 23:59:59' ";
-                    }
-                    sql += " order by type_name, class_name, drug_type, date_bgn ";
+                //    string StPat = null;
+                //    string StVist = null;
+                //    string[] StpatNoOfHIS = patNoOfHIS.Split('_');
+                //    StPat = StpatNoOfHIS[0];
+                //    StVist = "1";
+                //    if (StpatNoOfHIS.Length > 1)
+                //        StVist = StpatNoOfHIS[1];
+                //    value += " where patient_id = '" + StPat + "' and visit_id = " + StVist;
+                //    if (BeginTime != "")
+                //    {
+                //        value += " and '" + BeginTime + " 00:00:00' <= DATE_BGN ";
+                //    }
+                //    if (EndTime != "")
+                //    {
+                //        value += " and DATE_BGN <= '" + EndTime + " 23:59:59' ";
+                //    }
+                //    value += " order by order_no";
+                //    string sql = string.Format(value, patNoOfHIS, BeginTime, EndTime);
 
-                    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql, patNoOfHIS), CommandType.Text);
-                    gridMedQCAnalysis.DataSource = dt;
-                }
-                else if (sqlHelper.GetDbConnection().ConnectionString.IndexOf("Database") >= 0)
-                {
-                    string sql = " select type_name, class_name, "
-                           + " case when type_name = '长期医嘱' then item_name + ' ' + specs + ' ' + dfq_cexp "
-                           + "      when type_name = '临时医嘱' then item_name + ' ' + specs + ' ' + dfq_cexp + ' ' + qty_tot + min_unit  "
-                           + " end content,"
-                           + " BeginDate date_begin, EndDate date_end "
-                           + " from zc_madeorder "
-                           + " where inpatient_no = '{0}' ";
-                    if (BeginTime != "")
-                    {
-                        sql += " and '" + BeginTime + " 00:00:00' <= BeginDate ";
-                    }
-                    if (EndTime != "")
-                    {
-                        sql += " and BeginDate <= '" + EndTime + " 23:59:59' ";
-                    }
-                    sql += " order by type_name, class_name, drug_type, BeginDate ";
+                //    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql.ToUpper(), patNoOfHIS), CommandType.Text);
 
-                    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql.ToUpper(), patNoOfHIS), CommandType.Text);
-                    gridMedQCAnalysis.DataSource = dt;
-                }
+                //    gridMedQCAnalysis.DataSource = dt;
+                //}
+                //else if (sqlHelper.GetDbConnection().ConnectionString.IndexOf("Data Source") >= 0)
+                //{
+                //    string sql = " select type_name, class_name, "
+                //        + " case when type_name = '长期医嘱' then item_name || ' ' || dose_once || dose_unit || specs || ' ' || dfq_cexp "
+                //        + "      when type_name = '临时医嘱' then item_name || ' ' || dose_once || dose_unit || specs || ' ' || dfq_cexp || ' ' || qty_tot || min_unit  "
+                //        + " end content,"
+                //        + " to_char(date_bgn, 'yyyy-MM-dd hh24:mi:ss') date_begin, to_char(date_end, 'yyyy-MM-dd hh24:mi:ss') date_end "
+                //        + " from zc_madeorder "
+                //        + " where inpatient_no = '{0}' ";
+                //    if (BeginTime != "")
+                //    {
+                //        sql += " and '" + BeginTime + " 00:00:00' <= to_char(date_bgn, 'yyyy-MM-dd hh24:mi:ss') ";
+                //    }
+                //    if (EndTime != "")
+                //    {
+                //        sql += " and to_char(date_bgn, 'yyyy-MM-dd hh24:mi:ss') <= '" + EndTime + " 23:59:59' ";
+                //    }
+                //    sql += " order by type_name, class_name, drug_type, date_bgn ";
+
+                //    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql, patNoOfHIS), CommandType.Text);
+                //    gridMedQCAnalysis.DataSource = dt;
+                //}
+                //else if (sqlHelper.GetDbConnection().ConnectionString.IndexOf("Database") >= 0)
+                //{
+
+                //    string sql = " select type_name, class_name, "
+                //           + " case when type_name = '长期医嘱' then item_name + ' ' + specs + ' ' + dfq_cexp "
+                //           + "      when type_name = '临时医嘱' then item_name + ' ' + specs + ' ' + dfq_cexp + ' ' + qty_tot + min_unit  "
+                //           + " end content,"
+                //           + " BeginDate date_begin, EndDate date_end "
+                //           + " from zc_madeorder "
+                //           + " where inpatient_no = '{0}' ";
+                //    if (BeginTime != "")
+                //    {
+                //        sql += " and '" + BeginTime + " 00:00:00' <= BeginDate ";
+                //    }
+                //    if (EndTime != "")
+                //    {
+                //        sql += " and BeginDate <= '" + EndTime + " 23:59:59' ";
+                //    }
+                //    sql += " order by type_name, class_name, drug_type, BeginDate ";
+
+                //    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql.ToUpper(), patNoOfHIS), CommandType.Text);
+                //    gridMedQCAnalysis.DataSource = dt;
+                //}
             }
             catch (Exception ex)
             {

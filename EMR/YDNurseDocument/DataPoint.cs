@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
 using System.Collections;
 
 namespace DrectSoft.Core.NurseDocument
@@ -10,12 +6,12 @@ namespace DrectSoft.Core.NurseDocument
     public class DataPoint
     {
 
-        public string value{get;set;}//实际值
-        public string date{get;set;}
+        public string value { get; set; }//实际值
+        public string date { get; set; }
         public int temperatureType { get; set; }//0:表示不是体温值，8801表示腋温 ; 8802：表示口温 ; 8803：表示肛温
-        public string timeslot{get;set;}
+        public string timeslot { get; set; }
 
-        public DataPoint(){}
+        public DataPoint() { }
 
         /// <summary>
         /// 根据实际值和坐标获得该点的物理纵坐标
@@ -62,7 +58,10 @@ namespace DrectSoft.Core.NurseDocument
         /// <returns></returns>
         public float ToXCoordinate()
         {
-            DateTime curDatetime = Convert.ToDateTime(date+" "+timeslot+":00:00");
+            string timeslot1 = timeslot + ":00:00";
+            if (timeslot == "24")
+                timeslot1 = "23:59:59";
+            DateTime curDatetime = Convert.ToDateTime(date + " " + timeslot1);
             double hours = (curDatetime - DataLoader.m_firstDateOfCunrrentPage).TotalHours;
             return (float)((ConfigInfo.smallGridBound.Width) * hours / (24 * ConfigInfo.m_Days)) + ConfigInfo.smallGridBound.X;
         }
@@ -70,8 +69,8 @@ namespace DrectSoft.Core.NurseDocument
         //距离周首日间隔天数
         public int GetOffsetDays()
         {
-             DateTime curDate = Convert.ToDateTime(date+" 00:00:00");
-             return (int)(curDate- DataLoader.m_firstDateOfCunrrentPage).TotalDays;
+            DateTime curDate = Convert.ToDateTime(date + " 00:00:00");
+            return (int)(curDate - DataLoader.m_firstDateOfCunrrentPage).TotalDays;
         }
 
         public int GetOffsetDays_1()
@@ -89,9 +88,9 @@ namespace DrectSoft.Core.NurseDocument
             DataPoint data1 = x as DataPoint;
             DataPoint data2 = y as DataPoint;
             //if(data1.time.Hour>data2.time.Hour)
-                //return -1;
+            //return -1;
             // if(data1.time.Hour<data2.time.Hour)
-                //return 1;
+            //return 1;
             return 0;
         }
     }
@@ -106,10 +105,10 @@ namespace DrectSoft.Core.NurseDocument
         public float startY;//起始纵坐标
         public float endY;//结束纵坐标
         public string hide;//是否显示
-        
 
 
-        public VerticalCoordinate(string _name, float _maxValue, float _minValue, float _startY, float _endY,string _hide)
+
+        public VerticalCoordinate(string _name, float _maxValue, float _minValue, float _startY, float _endY, string _hide)
         {
             this.name = _name;
             this.maxValue = _maxValue;
