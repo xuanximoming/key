@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{A5E90E7A-D751-4D20-A2F1-3659FCF57B88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{4BC06040-277C-44C7-A7B3-0792E2E846D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5E90E7A-D751-4D20-A2F1-3659FCF57B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E90E7A-D751-4D20-A2F1-3659FCF57B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E90E7A-D751-4D20-A2F1-3659FCF57B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E90E7A-D751-4D20-A2F1-3659FCF57B88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC06040-277C-44C7-A7B3-0792E2E846D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC06040-277C-44C7-A7B3-0792E2E846D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC06040-277C-44C7-A7B3-0792E2E846D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC06040-277C-44C7-A7B3-0792E2E846D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
