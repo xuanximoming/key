@@ -18,7 +18,7 @@ namespace DrectSoft.Core.NurseDocument
         public static DateTime m_firstDateOfCunrrentPage = DateTime.Now;//当前页表示的周的首日日期
         public string patid = string.Empty;
         public DateTime m_currentDate;//当前查询日期
-        public static string outdate;
+        public static string outdate;//存放 出院时间
         #region 常量
         public static string DATEOFSURVEY = "DATEOFSURVEY";//日期 与表字段名一致
 
