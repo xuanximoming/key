@@ -651,7 +651,7 @@ namespace DrectSoft.DSSqlHelper
         }
 
         /// <summary>
-        /// 执行带参查询返回结果表
+        /// 使用webservice执行带参查询返回结果表
         /// </summary>
         /// <param name="method"></param>
         /// <param name="param"></param>
