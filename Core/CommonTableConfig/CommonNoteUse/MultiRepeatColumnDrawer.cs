@@ -78,7 +78,8 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             {
                 dic_ColumnsList.Clear();
                 XmlNode column = CommonMethods.GetElementByTagName("Columns", doc);
-                int align = int.Parse(CommonMethods.GetElementAttribute("ImageSize", "align", doc));
+                //获取不到节点会返回“”判断为“”则给定默认值 2019-10-03
+                int align = int.Parse(CommonMethods.GetElementAttribute("ImageSize", "align", doc) == "" ? "1" : CommonMethods.GetElementAttribute("ImageSize", "align", doc));
                 if (column == null || column.ChildNodes.Count == 0)
                 {
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("请检查<Columns>节点");
@@ -112,7 +113,7 @@ namespace DrectSoft.Core.CommonTableConfig.CommonNoteUse
             }
             catch (Exception ex)
             {
-                throw ex;
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
             }
         }
         /// <summary>

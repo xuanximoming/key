@@ -1126,7 +1126,7 @@ namespace DrectSoft.Core.OwnBedInfo
                 #endregion
                 if (null != configClinical && configClinical.Trim() == "0")
                 {///默认显示
-                    this.barLargeButtonItemClinical.Visibility = BarItemVisibility.Never;
+                    //this.barLargeButtonItemClinical.Visibility = BarItemVisibility.Never;
                     this.barButtonItem7.Visibility = BarItemVisibility.Never;
                 }
                 //刷新 - 工具栏

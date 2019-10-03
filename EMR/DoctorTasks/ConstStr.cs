@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace DrectSoft.Core.DoctorTasks {
-    internal class ConstStr {
+﻿
+namespace DrectSoft.Core.DoctorTasks
+{
+    internal class ConstStr
+    {
 
         internal const string str_Basicinfo = "Basicinfo";
         /// <summary>
@@ -72,7 +70,7 @@ namespace DrectSoft.Core.DoctorTasks {
             get
             {
                 if (string.IsNullOrEmpty(_serverURl))
-                    _serverURl = BasicSettings.GetStringConfig("YindanWebServerUrL");
+                    _serverURl = BasicSettings.GetStringConfig("DrectSoftWebServerUrL");
                 return _serverURl;
             }
         }
@@ -84,7 +82,7 @@ namespace DrectSoft.Core.DoctorTasks {
             get
             {
                 if (string.IsNullOrEmpty(_cp_ServerURl))
-                    _cp_ServerURl = BasicSettings.GetStringConfig("YindanCPServerUrL");
+                    _cp_ServerURl = BasicSettings.GetStringConfig("DrectSoftCPServerUrL");
                 return _cp_ServerURl;
             }
         }

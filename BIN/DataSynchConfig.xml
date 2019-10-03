@@ -47,7 +47,7 @@
         </Duration>
       </JobSchedule>
     </Job>
-    <Job Name="住院病人和床位数据同步" Description="从HIS读取病人和床位数据" Enable="false" Visible="true" Class="DrectSoft.JobManager.PatInfoSynchronous" Library="DrectSoft.Core.JobTasks.dll">
+    <Job Name="住院病人和床位数据同步" Description="从HIS读取病人和床位数据" Enable="true" Visible="true" Class="DrectSoft.JobManager.PatInfoSynchronous" Library="DrectSoft.Core.JobTasks.dll">
       <JobSchedule>
         <JobType>Repeat</JobType>
         <DateTimeOfExecOnce>0001-01-01 00:00:00</DateTimeOfExecOnce>
@@ -66,7 +66,7 @@
         <Duration>
           <StartDate>2010-08-01</StartDate>
           <EndDate>2017-11-14</EndDate>
-          <HasEndDate>true</HasEndDate>
+          <HasEndDate>false</HasEndDate>
         </Duration>
       </JobSchedule>
     </Job>
