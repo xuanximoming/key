@@ -69,6 +69,7 @@ namespace DrectSoft.Core.DoctorTasks
                 string value = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ServiceIp");
                 DataTable dt = DrectSoft.DSSqlHelper.DS_SqlHelper.HttpPostDataTable(value, "HttpPostGetOrders", pra);
                 gridMedQCAnalysis.DataSource = dt;
+                #region 使用webservice 现在代码注释
                 //IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
 
                 //if (sqlHelper == null)
@@ -149,6 +150,7 @@ namespace DrectSoft.Core.DoctorTasks
                 //    DataTable dt = sqlHelper.ExecuteDataTable(string.Format(sql.ToUpper(), patNoOfHIS), CommandType.Text);
                 //    gridMedQCAnalysis.DataSource = dt;
                 //}
+                #endregion 
             }
             catch (Exception ex)
             {

@@ -154,7 +154,8 @@ namespace DrectSoft.Core.IEMMainPage
                 {
                     XmlDocument doc1 = new XmlDocument();
                     doc1.LoadXml(cansee);
-                    m_OrganizationCode = doc1.GetElementsByTagName("ShowOrganizationCode")[0] == null ? "" : doc1.GetElementsByTagName("ShowOrganizationCode")[0].InnerText;//病案首页显示组织机构代码 2012/10/22 by tj
+                    //病案首页显示组织机构代码 2012/10/22 by tj
+                    m_OrganizationCode = doc1.GetElementsByTagName("ShowOrganizationCode")[0] == null ? "" : doc1.GetElementsByTagName("ShowOrganizationCode")[0].InnerText;
                 }
 
                 Bitmap bmp1 = new Bitmap(m_PageWidth, m_PageHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
@@ -371,7 +372,7 @@ namespace DrectSoft.Core.IEMMainPage
                 g.DrawString(Name, m_DefaultFont, Brushes.Black, new PointF(pointX, m_PointY));
                 string payType = m_IemMainPageEntity.IemBasicInfo.PayID; //todo
                 DrawCheckBox(g, pointX + TextRenderer.MeasureText(Name, m_DefaultFont).Width, m_PointY, payType, TextRenderer.MeasureText("高", m_DefaultFont).Height);
-
+                //组织机构代码
                 if (!string.IsNullOrEmpty(m_OrganizationCode))
                 {
                     xmlNodeChildren = xmlNode.SelectNodes("OrganizationCode")[0];

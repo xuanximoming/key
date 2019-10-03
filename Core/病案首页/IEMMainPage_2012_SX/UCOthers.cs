@@ -155,7 +155,7 @@ namespace DrectSoft.Core.IEMMainPage
 
         }
 
-        #region 从HIS提取，建立连接写接口的
+        #region 从HIS提取，建立连接
         /// <summary>
         /// 提取
         /// </summary>
@@ -166,19 +166,24 @@ namespace DrectSoft.Core.IEMMainPage
             this.SuspendLayout();
             if (m_App == null || m_App.CurrentPatientInfo == null)
                 return;
-            IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
+            #region 使用webservice 现在代码注释
+            //IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
 
-            if (sqlHelper == null)
-            {
-                m_App.CustomMessageBox.MessageShow("无法连接到HIS！", CustomMessageBoxKind.ErrorOk);
-                return;
-            }
+            //if (sqlHelper == null)
+           // {
+            //    m_App.CustomMessageBox.MessageShow("无法连接到HIS！", CustomMessageBoxKind.ErrorOk);
+            //    return;
+           // }
             //to do  yxy 提取HIS数据库中病人费用信息
 
-            string sql = string.Format(@"SELECT * FROM  DC_Free where PatId = '{0}'", m_App.CurrentPatientInfo.NoOfHisFirstPage);
+            //string sql = string.Format(@"SELECT * FROM  DC_Free where PatId = '{0}'", m_App.CurrentPatientInfo.NoOfHisFirstPage);
 
-            DataTable dataTable = sqlHelper.ExecuteDataTable(sql, CommandType.Text);
 
+            //DataTable dataTable = sqlHelper.ExecuteDataTable(sql, CommandType.Text);
+            #endregion
+            string pra = "PatId=" + m_App.CurrentPatientInfo.NoOfHisFirstPage;
+            string value = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ServiceIp");
+            DataTable dataTable = DrectSoft.DSSqlHelper.DS_SqlHelper.HttpPostDataTable(value, "HttpPostGetFree", pra);
             if (dataTable.Rows.Count <= 0)
             {
                 m_App.CustomMessageBox.MessageShow("HIS无病人费用信息", CustomMessageBoxKind.WarningOk);
