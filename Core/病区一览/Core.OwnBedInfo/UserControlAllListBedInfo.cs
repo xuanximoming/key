@@ -781,12 +781,30 @@ namespace DrectSoft.Core.OwnBedInfo
                 decimal syxh = GetCurrentPat();
                 if (syxh < 0) return;
                 App.ChoosePatient(syxh);
+                if (GetPatEhrPatid(App.CurrentPatientInfo.NoOfHisFirstPage) != 0)
+                {
+                    App.CustomMessageBox.MessageShow("与临床路径系统数据不一致");
+                    return;
+                }
                 App.LoadPlugIn("DrectSoft.Core.DoctorTasks.dll", "DrectSoft.Core.DoctorTasks.InpatientPathForm");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+        }
+        /// <summary>
+        /// 判断在临床路径中是否存在
+        /// </summary>
+        /// <param name="patid"></param>
+        /// <returns></returns>
+        private decimal GetPatEhrPatid(string patid)
+        {
+            string pra = "PatId=" + patid;
+            string value = DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ServiceIp");
+            DataTable dt = DrectSoft.DSSqlHelper.DS_SqlHelper.HttpPostDataTable(value, "HttpPostGetPatEhrPatid", pra);
+            if (dt == null) return -1;
+            return 0;
         }
 
         /// <summary>

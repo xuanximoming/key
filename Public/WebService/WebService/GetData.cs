@@ -1,16 +1,14 @@
 ﻿using DrectSoft.DSSqlHelper;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace DrectSoft
 {
     public class GetData
     {
+        IO io = new IO();
         /// <summary>
         /// 获取医嘱信息
         /// </summary>
@@ -52,6 +50,7 @@ namespace DrectSoft
             }
             catch (Exception ex)
             {
+                io.WriteLog(ex.Message);
                 return null;
             }
         }
@@ -71,12 +70,27 @@ namespace DrectSoft
                 dt = DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
                 return dt;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                io.WriteLog(ex.Message);
+                return null;
+            }
+        }
+        public DataTable GetPatEhrPatid(string patid)
+        {
+            try
+            {
+                DataTable dt = null;
+                DS_SqlHelper.CreateSqlHelperByDBName("EHRDB");
+                dt = DS_SqlHelper.ExecuteDataTable("select * from InPatient where PatID='" + patid + "'");
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                io.WriteLog(ex.Message);
                 return null;
             }
 
-            
         }
         /// <summary>
         /// 获取配置信息
@@ -84,7 +98,7 @@ namespace DrectSoft
         /// <date>2012-12-03</date>
         /// <param name="key"></param>
         /// <returns></returns>  
-        private static string GetConfigValueByKey(string key)
+        private string GetConfigValueByKey(string key)
         {
             try
             {
@@ -109,6 +123,7 @@ namespace DrectSoft
             }
             catch (Exception ex)
             {
+                io.WriteLog(ex.Message);
                 throw ex;
             }
         }

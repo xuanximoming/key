@@ -1,9 +1,6 @@
-﻿using DrectSoft.DSSqlHelper;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Data;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Web.Services;
 
 namespace DrectSoft
@@ -32,7 +29,7 @@ namespace DrectSoft
             try
             {
                 DataTable dt = null;
-                dt =  getdate.GetOrders(BeginTime, EndTime, patNoOfHIS);
+                dt = getdate.GetOrders(BeginTime, EndTime, patNoOfHIS);
                 return JsonConvert.SerializeObject(dt);
             }
             catch (Exception ex)
@@ -60,6 +57,21 @@ namespace DrectSoft
             {
                 return ex.Message;
             }
-        }  
+        }
+
+        [WebMethod]
+        public string HttpPostGetPatEhrPatid(string PatId)
+        {
+            try
+            {
+                DataTable dt = null;
+                dt = getdate.GetPatEhrPatid(PatId);
+                return JsonConvert.SerializeObject(dt);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

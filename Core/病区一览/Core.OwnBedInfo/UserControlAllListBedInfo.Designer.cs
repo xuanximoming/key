@@ -227,9 +227,9 @@
             this.gridViewGridWardPat.OptionsMenu.ShowGroupSortSummaryItems = false;
             this.gridViewGridWardPat.OptionsMenu.ShowGroupSummaryEditorItem = true;
             this.gridViewGridWardPat.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridViewGridWardPat.OptionsView.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowForFocusedRow;
             this.gridViewGridWardPat.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             this.gridViewGridWardPat.OptionsView.ShowGroupPanel = false;
-            this.gridViewGridWardPat.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowForFocusedRow;
             this.gridViewGridWardPat.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridViewGridWardPat_MouseDown);
             // 
             // gridColumn2
@@ -484,7 +484,7 @@
             this.textEditInwDia.Location = new System.Drawing.Point(777, 15);
             this.textEditInwDia.Name = "textEditInwDia";
             this.textEditInwDia.Properties.MaxLength = 32;
-            this.textEditInwDia.Size = new System.Drawing.Size(120, 21);
+            this.textEditInwDia.Size = new System.Drawing.Size(120, 20);
             this.textEditInwDia.TabIndex = 3;
             this.textEditInwDia.ToolTip = "病历号";
             this.textEditInwDia.EditValueChanged += new System.EventHandler(this.textEditInwDia_EditValueChanged);
@@ -533,7 +533,7 @@
             this.textEditPatientSN.Location = new System.Drawing.Point(572, 15);
             this.textEditPatientSN.Name = "textEditPatientSN";
             this.textEditPatientSN.Properties.MaxLength = 32;
-            this.textEditPatientSN.Size = new System.Drawing.Size(120, 21);
+            this.textEditPatientSN.Size = new System.Drawing.Size(120, 20);
             this.textEditPatientSN.TabIndex = 2;
             this.textEditPatientSN.Tag = "";
             this.textEditPatientSN.ToolTip = "病历号";
@@ -554,7 +554,7 @@
             this.textEditBedNo.Location = new System.Drawing.Point(168, 15);
             this.textEditBedNo.Name = "textEditBedNo";
             this.textEditBedNo.Properties.MaxLength = 12;
-            this.textEditBedNo.Size = new System.Drawing.Size(120, 21);
+            this.textEditBedNo.Size = new System.Drawing.Size(120, 20);
             this.textEditBedNo.TabIndex = 0;
             this.textEditBedNo.ToolTip = "床位号";
             this.textEditBedNo.EditValueChanged += new System.EventHandler(this.textEditBedNo_EditValueChanged);
@@ -574,7 +574,7 @@
             this.textEditPatientName.Location = new System.Drawing.Point(373, 15);
             this.textEditPatientName.Name = "textEditPatientName";
             this.textEditPatientName.Properties.MaxLength = 32;
-            this.textEditPatientName.Size = new System.Drawing.Size(120, 21);
+            this.textEditPatientName.Size = new System.Drawing.Size(120, 20);
             this.textEditPatientName.TabIndex = 1;
             this.textEditPatientName.ToolTip = "支持汉字、拼音、五笔检索";
             this.textEditPatientName.EditValueChanged += new System.EventHandler(this.textEditPatientName_EditValueChanged);

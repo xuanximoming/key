@@ -12,35 +12,9 @@ namespace DrectSoft.Core.DoctorTasks
 
         IEmrHost m_host;
 
-        IDataAccess m_EhrSqlhelper;
-
         public InpatientPathForm()
         {
             InitializeComponent();
-
-        }
-
-
-        private decimal GetPatEhrPatid(decimal patid)
-        {
-            if (m_EhrSqlhelper == null)
-            {
-                m_EhrSqlhelper = DataAccessFactory.GetSqlDataAccess("EHRDB");
-            }
-
-            try
-            {
-                object obj = m_EhrSqlhelper.ExecuteScalar("select syxh from CP_Inpatient where hissyxh=" + patid + "");
-
-                return Convert.ToDecimal(obj);
-
-            }
-            catch
-            {
-                m_host.CustomMessageBox.MessageShow("与临床路径系统数据不一致");
-            }
-
-            return -1;
 
         }
 
@@ -49,13 +23,13 @@ namespace DrectSoft.Core.DoctorTasks
 
             if (m_host.CurrentPatientInfo == null)
             {
-
                 webBrowser1.Navigate("http://" + ConstStr.CP_ServerURL + "/EHRDefault.aspx?SkipLogin=true&username=" + m_host.User.Id + "&viewname=/Views/UserCenterManager.xaml");
             }
             else
-                //webBrowser1.Navigate("http://" + ConstStr.CP_ServerURL + "/EHRDefault.aspx?username=" + m_host.User.Id + "&patid=" + m_host.CurrentPatientInfo.NoOfHisFirstPage + "&viewname=/Views/PathEnForce.xaml");
+            {
                 webBrowser1.Navigate("http://" + ConstStr.CP_ServerURL + "/EHRDefault.aspx?SkipLogin=true&username=" + m_host.User.Id + "&patid=" + m_host.CurrentPatientInfo.NoOfHisFirstPage + "&StartPage=/Views/InpatientList.xaml&StartPagePathExecute=/Views/PathEnForce.xaml");
-
+                address.Text = "http://" + ConstStr.CP_ServerURL + "/EHRDefault.aspx";
+            }
         }
 
         #region IStartPlugIn 成员
@@ -74,7 +48,6 @@ namespace DrectSoft.Core.DoctorTasks
 
         void plg_PatientChanged(object Sender, PatientArgs arg)
         {
-            //
             if (webBrowser1 == null)
                 webBrowser1 = new WebBrowser();
             webBrowser1.Navigate("http://localhost:3531/EHRDefault.aspx?SkipLogin=true&username=" + m_host.User.Id + "&patid=" + m_host.CurrentPatientInfo.NoOfHisFirstPage + "&StartPage=/Views/InpatientList.xaml&StartPagePathExecute=/Views/PathEnForce.xaml");
@@ -88,10 +61,21 @@ namespace DrectSoft.Core.DoctorTasks
                 arg.Cancel = false;
             }
         }
+        #endregion
 
+        #region 事件
+        private void refresh_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Refresh();
+        }
 
-
-
+        private void address_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                webBrowser1.Navigate(address.Text);
+            }
+        }
         #endregion
     }
 }

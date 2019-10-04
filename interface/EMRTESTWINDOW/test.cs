@@ -22,12 +22,12 @@ namespace EMRTESTWINDOW
             try
             {
 
-                ChangePat changepat = new ChangePat();
-                IChangePat ichangepat = changepat;
-                string patNum = "20181231";
-                int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
-                uc = ichangepat.ChangePatient(patNum);
-                ichangepat.ChangePatient(this.Handle.ToString(), patNum);
+                //ChangePat changepat = new ChangePat();
+                //IChangePat ichangepat = changepat;
+                //string patNum = "20181231";
+                //int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
+                //uc = ichangepat.ChangePatient(patNum);
+                //ichangepat.ChangePatient(this.Handle.ToString(), patNum);
             }
             catch (Exception ex)
             {
