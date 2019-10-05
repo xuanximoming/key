@@ -3,6 +3,7 @@ using DrectSoft.JobManager;
 using System;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -68,7 +69,6 @@ namespace DrectSoft.JobManager
         #region 构造
         public BasisDataSynchronous()
         {
-
             m_SqlHelperSource = DataAccessFactory.GetSqlDataAccess("HISDB");
             m_SqlHelperTarget = DataAccessFactory.DefaultDataAccess;
             m_TargetTables = new DataSet();
@@ -77,7 +77,6 @@ namespace DrectSoft.JobManager
 
         public BasisDataSynchronous(ISynchApplication ISynchApplication)
         {
-
             m_SqlHelperSource = DataAccessFactory.GetSqlDataAccess("HISDB");
             m_SqlHelperTarget = DataAccessFactory.DefaultDataAccess;
             m_TargetTables = new DataSet();
@@ -288,11 +287,8 @@ namespace DrectSoft.JobManager
                     // 保存数据，记Log
                     if (m_TargetTables.Tables[setting.TargetTable] != null)
                     {
-                        {
-                            updatedCount = m_SqlHelperTarget.UpdateTable(m_TargetTables.Tables[setting.TargetTable]
-                               , setting.TargetTable, false);
-                        }
-
+                        updatedCount = m_SqlHelperTarget.UpdateTable(m_TargetTables.Tables[setting.TargetTable]
+                           , setting.TargetTable, false);
                     }
                     if (!String.IsNullOrEmpty(setting.OtherSentence))
                         m_SqlHelperTarget.ExecuteNoneQuery(setting.OtherSentence, CommandType.Text);
@@ -301,8 +297,8 @@ namespace DrectSoft.JobManager
                 {
                     JobLogHelper.WriteLog(new JobExecuteInfoArgs(this.Parent, e.Message));
                     base.SynchState = SynchState.Stop;
-                    //throw;
                 }
+                JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, setting.TargetTable, m_TargetTables.Tables[setting.TargetTable].Rows.Count, updatedCount, DateTime.Now, true, string.Empty, TraceLevel.Info));
             }
         }
 
@@ -316,9 +312,11 @@ namespace DrectSoft.JobManager
         {
             if (!String.IsNullOrEmpty(selectSentence))
             {
-                //如果要更新的目标表还未初始化过，则先初始化一下
-                if (m_TargetTables.Tables[targetTable] == null)
-                    InitializeTargetTableDataAndSchema(targetTable);
+                if (m_TargetTables.Tables[targetTable] != null)
+                {
+                    m_TargetTables.Tables.Remove(targetTable);
+                }
+                InitializeTargetTableDataAndSchema(targetTable);
 
                 DataTable tempTable = m_SqlHelperSource.ExecuteDataTable(selectSentence, CommandType.Text);
 

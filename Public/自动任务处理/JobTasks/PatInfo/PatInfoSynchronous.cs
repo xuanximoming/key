@@ -19,9 +19,14 @@ namespace DrectSoft.JobManager
     /// </summary>
     public class PatInfoSynchronous : BaseJobAction, IDisposable
     {
-        #region const
+        #region constEMR&EHR
+        //EMR
         private const string EMRPatTable = "INPATIENT";
         private const string EMRBedTable = "BED";
+        //EHR
+        private const string EHRPatTable = "INPATIENT";
+        private const string EHRBedTable = "BED";
+
         private const string colFirstPageNo = "NOOFINPAT";
         private const string colHisFirstPageNo = "PATNOOFHIS";
         private const string colPatientState = "STATUS";
@@ -39,7 +44,6 @@ namespace DrectSoft.JobManager
         private const string colDeptCode = "DeptID";
         private const string colWardCode = "WardId";
         private const string colInsertDate = "crrq";
-
         #endregion
 
         #region new properties
@@ -63,6 +67,7 @@ namespace DrectSoft.JobManager
         private DataTable m_EmrBedTable;
         private IDataAccess m_EmrHelper;
         private IDataAccess m_HisHelper;
+        private IDataAccess m_EhrHelper;
 
         private string MacAddress
         {
@@ -109,6 +114,7 @@ namespace DrectSoft.JobManager
 
                 m_EmrHelper = DataAccessFactory.DefaultDataAccess;
                 m_HisHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
+                //m_EhrHelper = DataAccessFactory.GetSqlDataAccess("EHRDB");
                 m_NewPatients = new Dictionary<string, DataRow>();
                 m_NewBeds = new Dictionary<string, DataRow>();
                 try
@@ -123,8 +129,8 @@ namespace DrectSoft.JobManager
                 m_EmrPatientTable = m_EmrHelper.ExecuteDataTable("select * from " + EMRPatTable + " where 1=2");
                 m_EmrHelper.ResetTableSchema(m_EmrPatientTable, EMRPatTable);
 
-                // m_EmrBedTable = m_EmrHelper.ExecuteDataTable("select * from " + EMRBedTable + " where 1=2");
-                // m_EmrHelper.ResetTableSchema(m_EmrBedTable, EMRBedTable);
+                m_EmrBedTable = m_EmrHelper.ExecuteDataTable("select * from " + EMRBedTable + " where 1=2");
+                m_EmrHelper.ResetTableSchema(m_EmrBedTable, EMRBedTable);
             }
             catch
             {
@@ -622,26 +628,26 @@ namespace DrectSoft.JobManager
                 }
             }
 
-            //if ((bedTable != null) && (bedTable.Rows.Count > 0))
-            //{
-            //    try
-            //    {
-            //        // 取所有EMR的床位数据
-            //        InitEmrBedTable();
-            //        // 合并，保存
-            //        MergeBedInfo(bedTable, true);
-            //        updatedCount = SaveEmrTableData(m_EmrBedTable, EMRBedTable);
-            //        // 执行 syxh 的更新处理
-            //        //JobLogHelper.WriteSqlLog(Parent, "update " + EMRBedTable + " set syxh = b.syxh from " + EMRBedTable + " a, " + EMRPatTable + " b where a.hissyxh = b.hissyxh");
-            //        m_EmrHelper.ExecuteNoneQuery("    update bed a  set NoOfInpat = (select b.NoOfInpat from InPatient b where a.PatNoOfHis = b.PatNoOfHis) where exists (select 1 from InPatient b where a.PatNoOfHis = b.PatNoOfHis)");
-            //        JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, EMRBedTable, bedTable.Rows.Count, updatedCount, DateTime.Now, true, string.Empty, TraceLevel.Info));
-            //    }
-            //    catch (Exception err)
-            //    {
-            //        JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, EMRBedTable, err));
-            //        return;
-            //    }
-            //}
+            if ((bedTable != null) && (bedTable.Rows.Count > 0))
+            {
+                try
+                {
+                    // 取所有EMR的床位数据
+                    InitEmrBedTable();
+                    // 合并，保存
+                    MergeBedInfo(bedTable, true);
+                    updatedCount = SaveEmrTableData(m_EmrBedTable, EMRBedTable);
+                    // 执行 syxh 的更新处理
+                    //JobLogHelper.WriteSqlLog(Parent, "update " + EMRBedTable + " set syxh = b.syxh from " + EMRBedTable + " a, " + EMRPatTable + " b where a.hissyxh = b.hissyxh");
+                    m_EmrHelper.ExecuteNoneQuery("update bed  set NoOfInpat = (select b.NoOfInpat from InPatient b where bed.PatNoOfHis = b.PatNoOfHis) where exists (select 1 from InPatient b where bed.PatNoOfHis = b.PatNoOfHis)");
+                    JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, EMRBedTable, bedTable.Rows.Count, updatedCount, DateTime.Now, true, string.Empty, TraceLevel.Info));
+                }
+                catch (Exception err)
+                {
+                    JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, EMRBedTable, err));
+                    return;
+                }
+            }
         }
 
         private void SynchChangedPatientAndBedData(DataTable patientTable, DataTable bedTable)

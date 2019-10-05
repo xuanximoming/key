@@ -1,2 +1,2 @@
-%SystemRoot%\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe JobManagerService.exe
-net start "JobService"
+%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe JobManagerService.exe
+pause

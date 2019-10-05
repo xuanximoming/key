@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DrectSoft.Core
 {
@@ -30,14 +27,6 @@ namespace DrectSoft.Core
         {
             _sqlDataAccessInstance = new SqlDataAccess(dbName);
             return _sqlDataAccessInstance;
-            //if (_sqlDataAccessInstance.IsConnectDB())
-            //{
-            //    return _sqlDataAccessInstance;
-            //}
-            //else
-            //{
-            //    return null;
-            //}
         }
 
         /// <summary>
@@ -53,14 +42,17 @@ namespace DrectSoft.Core
         /// 默认的数据访问连接。
         /// 以后在自定义的控件和组件内若需要使用数据访问时用此属性。
         /// </summary>
-        public static IDataAccess DefaultDataAccess {
-            get {
+        public static IDataAccess DefaultDataAccess
+        {
+            get
+            {
                 if (_defaultDataAccess == null)
                     _defaultDataAccess = new SqlDataAccess();
 
                 return _defaultDataAccess;
             }
-            set {
+            set
+            {
                 if (value != null)
                     _defaultDataAccess = value;
             }

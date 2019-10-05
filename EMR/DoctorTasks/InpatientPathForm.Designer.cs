@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InpatientPathForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.address = new DevExpress.XtraEditors.TextEdit();
             this.refresh = new DevExpress.XtraEditors.SimpleButton();
+            this.address = new DevExpress.XtraEditors.TextEdit();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -53,15 +53,6 @@
             this.panelControl1.Size = new System.Drawing.Size(740, 30);
             this.panelControl1.TabIndex = 0;
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 30);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(740, 486);
-            this.webBrowser1.TabIndex = 1;
-            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.refresh);
@@ -71,6 +62,16 @@
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(736, 24);
             this.panelControl2.TabIndex = 0;
+            // 
+            // refresh
+            // 
+            this.refresh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.refresh.Image = ((System.Drawing.Image)(resources.GetObject("refresh.Image")));
+            this.refresh.Location = new System.Drawing.Point(443, 2);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(23, 20);
+            this.refresh.TabIndex = 1;
+            this.refresh.Click += new System.EventHandler(this.refresh_Click);
             // 
             // address
             // 
@@ -83,15 +84,14 @@
             this.address.TabIndex = 0;
             this.address.KeyDown += new System.Windows.Forms.KeyEventHandler(this.address_KeyDown);
             // 
-            // refresh
+            // webBrowser1
             // 
-            this.refresh.Dock = System.Windows.Forms.DockStyle.Left;
-            this.refresh.Image = ((System.Drawing.Image)(resources.GetObject("refresh.Image")));
-            this.refresh.Location = new System.Drawing.Point(443, 2);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(23, 20);
-            this.refresh.TabIndex = 1;
-            this.refresh.Click += new System.EventHandler(this.refresh_Click);
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 30);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(740, 486);
+            this.webBrowser1.TabIndex = 1;
             // 
             // InpatientPathForm
             // 
