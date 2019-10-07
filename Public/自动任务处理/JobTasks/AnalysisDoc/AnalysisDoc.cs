@@ -18,6 +18,10 @@ namespace DrectSoft.JobTasks
         {
             m_EmrHelper = DataAccessFactory.DefaultDataAccess;
         }
+
+        /// <summary>
+        /// 执行方法
+        /// </summary>
         public override void Execute()
         {
             base.SynchState = SynchState.Busy;
@@ -72,6 +76,10 @@ namespace DrectSoft.JobTasks
                 base.SynchState = SynchState.Stop;
             }
         }
+
+        /// <summary>
+        /// 初始化数据
+        /// </summary>
         public override void ExecuteDataInitialize()
         {
             base.SynchState = SynchState.Busy;

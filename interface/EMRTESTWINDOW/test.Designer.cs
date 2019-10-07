@@ -33,12 +33,11 @@
             // 
             // testbt
             // 
-            this.testbt.Location = new System.Drawing.Point(2, 376);
+            this.testbt.Location = new System.Drawing.Point(338, 189);
             this.testbt.Name = "testbt";
             this.testbt.Size = new System.Drawing.Size(75, 23);
             this.testbt.TabIndex = 1;
             this.testbt.Text = "testbt";
-            this.testbt.Visible = false;
             this.testbt.Click += new System.EventHandler(this.testbt_Click);
             // 
             // test
