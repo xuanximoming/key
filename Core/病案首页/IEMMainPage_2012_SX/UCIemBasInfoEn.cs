@@ -415,6 +415,43 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
 
+
+        private void lueRYZD_CODE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                Button btn = new Button();
+                if (e.KeyChar == 13)//lueMZXYZD_CODE.Text.Trim() != null &&
+                {
+                    GoType = "RYZDIAG";
+                    MZDiagType = "XIYI";
+                    inputText = lueMZXYZD_CODE.Text.Trim();
+
+                    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtXY, GoType, MZDiagType, inputText);
+                    if (diagInfo.GetFormResult())
+                    {
+                        diagInfo.ShowDialog();
+                        if (diagInfo.IsClosed)
+                        {
+                            lueRYZD_CODE.Text = diagInfo.inText;
+                            lueRYZD_CODE.DiaCode = diagInfo.inCode;
+                            lueRYZD_CODE.DiaValue = diagInfo.inText;
+                        }
+                    }
+                    else
+                    {
+                        lueRYZD_CODE.DiaCode = diagInfo.inCode;
+                        lueRYZD_CODE.DiaValue = diagInfo.inText;
+                        lueRYZD_CODE.Multiline = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
+            }
+        }
+
         public void mzdiagInfo_FormClosed(object sender, EventArgs e)
         {
             try
@@ -491,6 +528,7 @@ namespace DrectSoft.Core.IEMMainPage
             InitLuePayId();
             InitLueSex();
             InitMarital();
+            InitInHosInfo();
             InitJob();
             InitNation();
             InitNationality();
@@ -527,6 +565,12 @@ namespace DrectSoft.Core.IEMMainPage
         {
             if (lueMarital.SqlWordbook == null)
                 BindLueData(lueMarital, 3);
+        }
+
+        private void InitInHosInfo()
+        {
+            if (lueINHOSINFO.SqlWordbook == null)
+                BindLueData(lueINHOSINFO, 34);
         }
 
         /// <summary>
@@ -1131,6 +1175,7 @@ namespace DrectSoft.Core.IEMMainPage
             else
                 chkInHosType4.Checked = true;
             textEditotherhospital.Text = info.IemBasicInfo.TypeHos;
+            lueINHOSINFO.CodeValue = info.IemBasicInfo.InHosInfo;
             //第十行 治疗类别
             //if (m_IemInfo.IemBasicInfo.CURE_TYPE == "1")
             //    chkCURE_TYPE1.Checked = true;
@@ -1324,6 +1369,7 @@ namespace DrectSoft.Core.IEMMainPage
                 m_IemInfo.IemBasicInfo.InHosType = "9";
             m_IemInfo.IemBasicInfo.TypeHos = textEditotherhospital.Text;
 
+            m_IemInfo.IemBasicInfo.InHosInfo = lueINHOSINFO.CodeValue;
             //第十行 治疗类别
             //if (chkCURE_TYPE1.Checked)
             //    m_IemInfo.IemBasicInfo.CURE_TYPE = "1";
@@ -1361,12 +1407,13 @@ namespace DrectSoft.Core.IEMMainPage
             //lueOutHosWard.Text;
             m_IemInfo.IemBasicInfo.ActualDays = seActualDays.Value.ToString();
 
-            //m_IemInfo.IemBasicInfo.MZZYZD_CODE = lueMZZYZD_CODE.DiaCode;//.CodeValue;
-            //m_IemInfo.IemBasicInfo.MZZYZD_NAME = lueMZZYZD_CODE.DiaValue;//.Text;
-            //m_IemInfo.IemBasicInfo.MZXYZD_NAME
-
+            //门诊诊断
             m_IemInfo.IemBasicInfo.MZXYZD_CODE = lueMZXYZD_CODE.DiaCode;//.CodeValue;
             m_IemInfo.IemBasicInfo.MZXYZD_NAME = lueMZXYZD_CODE.DiaValue;//.Text;
+
+            //入院诊断
+            m_IemInfo.IemBasicInfo.RYXYZD_CODE = lueRYZD_CODE.DiaCode;
+            m_IemInfo.IemBasicInfo.RYXYZD_NAME = lueRYZD_CODE.DiaValue;
 
             //第十三行 实施临床路径
             //if (chkSSLCLJ1.Checked)
@@ -1657,7 +1704,6 @@ namespace DrectSoft.Core.IEMMainPage
                     {
                         lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
                         lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                        //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
 
                     }
                     if (dataResult == 0)
@@ -1681,7 +1727,6 @@ namespace DrectSoft.Core.IEMMainPage
                     {
                         lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
                         lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                        //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
 
                     }
                     if (dataResult == 0)

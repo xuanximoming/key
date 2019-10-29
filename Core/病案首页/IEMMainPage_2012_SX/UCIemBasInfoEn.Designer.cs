@@ -33,7 +33,6 @@
             this.deBirth = new DevExpress.XtraEditors.DateEdit();
             this.seActualDays = new DevExpress.XtraEditors.SpinEdit();
             this.seInCount = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl38 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl39 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
@@ -129,12 +128,14 @@
             this.textEdit_rybg = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_cybf = new DevExpress.XtraEditors.TextEdit();
             this.textEditotherhospital = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.lueRYZD_CODE = new DevTextBoxAndButton.Bwj(this.components);
+            this.hLineEx1 = new DrectSoft.Core.IEMMainPage.HLineEx();
             this.lueOutHosWard = new DrectSoft.Common.Library.LookUpEditor();
             this.lueOutHosDept = new DrectSoft.Common.Library.LookUpEditor();
             this.lueTransAdmitDept = new DrectSoft.Common.Library.LookUpEditor();
             this.lueAdmitWard = new DrectSoft.Common.Library.LookUpEditor();
             this.lueAdmitDept = new DrectSoft.Common.Library.LookUpEditor();
-            this.lueMZXYZD_CODE1 = new DrectSoft.Common.Library.LookUpEditor();
             this.lueRelationship = new DrectSoft.Common.Library.LookUpEditor();
             this.lueNationality = new DrectSoft.Common.Library.LookUpEditor();
             this.lueNation = new DrectSoft.Common.Library.LookUpEditor();
@@ -143,7 +144,6 @@
             this.lueMarital = new DrectSoft.Common.Library.LookUpEditor();
             this.lueJob = new DrectSoft.Common.Library.LookUpEditor();
             this.lueSex = new DrectSoft.Common.Library.LookUpEditor();
-            this.hLineEx1 = new DrectSoft.Core.IEMMainPage.HLineEx();
             this.lueCSD_CityID = new DrectSoft.Common.Library.LookUpEditor();
             this.lueCSD_DistrictID = new DrectSoft.Common.Library.LookUpEditor();
             this.lueJG_ProvinceID = new DrectSoft.Common.Library.LookUpEditor();
@@ -154,6 +154,9 @@
             this.lueHKDZ_ProvinceID = new DrectSoft.Common.Library.LookUpEditor();
             this.lueHKDZ_CityID = new DrectSoft.Common.Library.LookUpEditor();
             this.lueHKDZ_DistrictID = new DrectSoft.Common.Library.LookUpEditor();
+            this.lueMZXYZD_CODE1 = new DrectSoft.Common.Library.LookUpEditor();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.lueINHOSINFO = new DrectSoft.Common.Library.LookUpEditor();
             ((System.ComponentModel.ISupportInitialize)(this.txtAge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deBirth.Properties)).BeginInit();
@@ -199,7 +202,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueTransAdmitDept)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAdmitWard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAdmitDept)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueMZXYZD_CODE1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRelationship)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueNationality)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueNation)).BeginInit();
@@ -218,6 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueHKDZ_ProvinceID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueHKDZ_CityID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueHKDZ_DistrictID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueMZXYZD_CODE1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueINHOSINFO)).BeginInit();
             this.SuspendLayout();
             // 
             // txtAge
@@ -254,7 +258,7 @@
             0,
             0,
             0});
-            this.seActualDays.Location = new System.Drawing.Point(515, 320);
+            this.seActualDays.Location = new System.Drawing.Point(521, 320);
             this.seActualDays.Name = "seActualDays";
             this.seActualDays.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.seActualDays.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -290,15 +294,6 @@
             0});
             this.seInCount.Size = new System.Drawing.Size(40, 18);
             this.seInCount.TabIndex = 3;
-            // 
-            // labelControl38
-            // 
-            this.labelControl38.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl38.Location = new System.Drawing.Point(598, 344);
-            this.labelControl38.Name = "labelControl38";
-            this.labelControl38.Size = new System.Drawing.Size(12, 14);
-            this.labelControl38.TabIndex = 80;
-            this.labelControl38.Text = "天";
             // 
             // labelControl39
             // 
@@ -772,7 +767,7 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(420, 375);
+            this.btn_OK.Location = new System.Drawing.Point(420, 445);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(75, 27);
             this.btn_OK.TabIndex = 109;
@@ -781,7 +776,7 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(524, 375);
+            this.btn_Close.Location = new System.Drawing.Point(524, 445);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(75, 27);
             this.btn_Close.TabIndex = 109;
@@ -1183,7 +1178,7 @@
             this.lueMZXYZD_CODE.BackColor = System.Drawing.Color.White;
             this.lueMZXYZD_CODE.DiaCode = "";
             this.lueMZXYZD_CODE.DiaValue = "";
-            this.lueMZXYZD_CODE.Location = new System.Drawing.Point(189, 346);
+            this.lueMZXYZD_CODE.Location = new System.Drawing.Point(151, 346);
             this.lueMZXYZD_CODE.Name = "lueMZXYZD_CODE";
             this.lueMZXYZD_CODE.Size = new System.Drawing.Size(291, 21);
             this.lueMZXYZD_CODE.TabIndex = 118;
@@ -1259,6 +1254,37 @@
             this.textEditotherhospital.Size = new System.Drawing.Size(129, 18);
             this.textEditotherhospital.TabIndex = 126;
             // 
+            // labelControl23
+            // 
+            this.labelControl23.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl23.Location = new System.Drawing.Point(27, 387);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(48, 14);
+            this.labelControl23.TabIndex = 127;
+            this.labelControl23.Text = "入院诊断";
+            // 
+            // lueRYZD_CODE
+            // 
+            this.lueRYZD_CODE.BackColor = System.Drawing.Color.White;
+            this.lueRYZD_CODE.DiaCode = "";
+            this.lueRYZD_CODE.DiaValue = "";
+            this.lueRYZD_CODE.Location = new System.Drawing.Point(151, 386);
+            this.lueRYZD_CODE.Name = "lueRYZD_CODE";
+            this.lueRYZD_CODE.Size = new System.Drawing.Size(291, 21);
+            this.lueRYZD_CODE.TabIndex = 128;
+            this.lueRYZD_CODE.WaterText = "请按回车键检索";
+            this.lueRYZD_CODE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lueRYZD_CODE_KeyPress);
+            // 
+            // hLineEx1
+            // 
+            this.hLineEx1.BackColor = System.Drawing.Color.White;
+            this.hLineEx1.IsBold = true;
+            this.hLineEx1.Location = new System.Drawing.Point(7, 53);
+            this.hLineEx1.Name = "hLineEx1";
+            this.hLineEx1.Size = new System.Drawing.Size(610, 2);
+            this.hLineEx1.TabIndex = 110;
+            this.hLineEx1.Text = "hLineEx1";
+            // 
             // lueOutHosWard
             // 
             this.lueOutHosWard.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
@@ -1287,7 +1313,7 @@
             // 
             this.lueTransAdmitDept.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueTransAdmitDept.ListWindow = null;
-            this.lueTransAdmitDept.Location = new System.Drawing.Point(512, 293);
+            this.lueTransAdmitDept.Location = new System.Drawing.Point(518, 293);
             this.lueTransAdmitDept.Name = "lueTransAdmitDept";
             this.lueTransAdmitDept.ShowFormImmediately = true;
             this.lueTransAdmitDept.ShowSButton = true;
@@ -1317,18 +1343,6 @@
             this.lueAdmitDept.Size = new System.Drawing.Size(79, 18);
             this.lueAdmitDept.TabIndex = 28;
             this.lueAdmitDept.CodeValueChanged += new System.EventHandler(this.lueAdmitDept_CodeValueChanged);
-            // 
-            // lueMZXYZD_CODE1
-            // 
-            this.lueMZXYZD_CODE1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
-            this.lueMZXYZD_CODE1.ListWindow = null;
-            this.lueMZXYZD_CODE1.Location = new System.Drawing.Point(524, 345);
-            this.lueMZXYZD_CODE1.Name = "lueMZXYZD_CODE1";
-            this.lueMZXYZD_CODE1.ShowFormImmediately = true;
-            this.lueMZXYZD_CODE1.ShowSButton = true;
-            this.lueMZXYZD_CODE1.Size = new System.Drawing.Size(67, 18);
-            this.lueMZXYZD_CODE1.TabIndex = 23;
-            this.lueMZXYZD_CODE1.Visible = false;
             // 
             // lueRelationship
             // 
@@ -1419,16 +1433,6 @@
             this.lueSex.ShowSButton = true;
             this.lueSex.Size = new System.Drawing.Size(59, 18);
             this.lueSex.TabIndex = 6;
-            // 
-            // hLineEx1
-            // 
-            this.hLineEx1.BackColor = System.Drawing.Color.White;
-            this.hLineEx1.IsBold = true;
-            this.hLineEx1.Location = new System.Drawing.Point(7, 53);
-            this.hLineEx1.Name = "hLineEx1";
-            this.hLineEx1.Size = new System.Drawing.Size(610, 2);
-            this.hLineEx1.TabIndex = 110;
-            this.hLineEx1.Text = "hLineEx1";
             // 
             // lueCSD_CityID
             // 
@@ -1559,11 +1563,47 @@
             this.lueHKDZ_DistrictID.Visible = false;
             this.lueHKDZ_DistrictID.CodeValueChanged += new System.EventHandler(this.lueProvice_CodeValueChanged);
             // 
+            // lueMZXYZD_CODE1
+            // 
+            this.lueMZXYZD_CODE1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lueMZXYZD_CODE1.ListWindow = null;
+            this.lueMZXYZD_CODE1.Location = new System.Drawing.Point(372, 347);
+            this.lueMZXYZD_CODE1.Name = "lueMZXYZD_CODE1";
+            this.lueMZXYZD_CODE1.ShowFormImmediately = true;
+            this.lueMZXYZD_CODE1.ShowSButton = true;
+            this.lueMZXYZD_CODE1.Size = new System.Drawing.Size(67, 18);
+            this.lueMZXYZD_CODE1.TabIndex = 23;
+            this.lueMZXYZD_CODE1.Visible = false;
+            // 
+            // labelControl24
+            // 
+            this.labelControl24.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl24.Location = new System.Drawing.Point(463, 348);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(48, 14);
+            this.labelControl24.TabIndex = 129;
+            this.labelControl24.Text = "入院情况";
+            // 
+            // lueINHOSINFO
+            // 
+            this.lueINHOSINFO.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lueINHOSINFO.ListWindow = null;
+            this.lueINHOSINFO.Location = new System.Drawing.Point(518, 346);
+            this.lueINHOSINFO.Name = "lueINHOSINFO";
+            this.lueINHOSINFO.ShowFormImmediately = true;
+            this.lueINHOSINFO.ShowSButton = true;
+            this.lueINHOSINFO.Size = new System.Drawing.Size(79, 18);
+            this.lueINHOSINFO.TabIndex = 130;
+            // 
             // UCIemBasInfoEn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lueINHOSINFO);
+            this.Controls.Add(this.labelControl24);
+            this.Controls.Add(this.lueRYZD_CODE);
+            this.Controls.Add(this.labelControl23);
             this.Controls.Add(this.textEditotherhospital);
             this.Controls.Add(this.textEdit_cybf);
             this.Controls.Add(this.textEdit_rybg);
@@ -1573,7 +1613,6 @@
             this.Controls.Add(this.textEdit_csd);
             this.Controls.Add(this.lueMZXYZD_CODE);
             this.Controls.Add(this.labelControl43);
-            this.Controls.Add(this.labelControl38);
             this.Controls.Add(this.labelControl39);
             this.Controls.Add(this.lueOutHosWard);
             this.Controls.Add(this.labelControl40);
@@ -1690,7 +1729,7 @@
             this.Controls.Add(this.chkInHosType4);
             this.Controls.Add(this.textEdit3);
             this.Name = "UCIemBasInfoEn";
-            this.Size = new System.Drawing.Size(625, 408);
+            this.Size = new System.Drawing.Size(625, 482);
             this.Load += new System.EventHandler(this.UCIemBasInfoEn_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCIemBasInfoEn_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.txtAge.Properties)).EndInit();
@@ -1738,7 +1777,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueTransAdmitDept)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAdmitWard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAdmitDept)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueMZXYZD_CODE1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRelationship)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueNationality)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueNation)).EndInit();
@@ -1757,6 +1795,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueHKDZ_ProvinceID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueHKDZ_CityID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueHKDZ_DistrictID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueMZXYZD_CODE1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueINHOSINFO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1764,7 +1804,6 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.LabelControl labelControl38;
         private DevExpress.XtraEditors.LabelControl labelControl39;
         private DrectSoft.Common.Library.LookUpEditor lueOutHosWard;
         private DevExpress.XtraEditors.LabelControl labelControl40;
@@ -1879,7 +1918,6 @@
         private DevExpress.XtraEditors.CheckEdit chkInHosType3;
         private DevExpress.XtraEditors.CheckEdit chkInHosType4;
         private DevExpress.XtraEditors.TextEdit textEdit3;
-        private Common.Library.LookUpEditor lueMZXYZD_CODE1;
         private DevExpress.XtraEditors.LabelControl labelControl43;
         private DevTextBoxAndButton.Bwj lueMZXYZD_CODE;
         private DevExpress.XtraEditors.TextEdit textEdit_csd;
@@ -1889,5 +1927,10 @@
         private DevExpress.XtraEditors.TextEdit textEdit_rybg;
         private DevExpress.XtraEditors.TextEdit textEdit_cybf;
         private DevExpress.XtraEditors.TextEdit textEditotherhospital;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevTextBoxAndButton.Bwj lueRYZD_CODE;
+        private Common.Library.LookUpEditor lueMZXYZD_CODE1;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private Common.Library.LookUpEditor lueINHOSINFO;
     }
 }

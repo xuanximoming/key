@@ -1,48 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Data.SqlClient;
-using DrectSoft.Wordbook;
-using DrectSoft.Common.Library;
+﻿using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using System.Xml;
-
-using DevExpress.XtraTreeList.Nodes;
-using DrectSoft.Common.Ctrs.FORM;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.IEMMainPage
 {
-    public partial class IemNewDiagInfo : DevBaseForm 
+    public partial class IemNewDiagInfo : DevBaseForm
     {
         #region field && Property
-        /// <summary>
-        ///  西医所有诊断
-        /// </summary>
-        //private const string SqlAllDiag = @"select markid, icd , mapid, shandardcode, name, py, wb" +
-        //    " tumorid, statist, innercategory, categroy, othercategroy, valid, memo" +
-        //    " from diagnosis where valid='1'";
-        //private const string SqlAllDiag = @"select markid, icd , mapid, name, py, wb," +
-        //   "  valid, memo" +
-        //   " from diagnosis where valid='1'";
-        //private const string SqlAllDiag = @"select py, wb, name, icd from diagnosis where valid='1'";
-        //private const string SqlAllOper = @"select py, wb, name, id icd from operation where valid='1'";
-        //private const string SqlAllDiagMZXIYI = @"select  py, wb, name, icd from diagnosis where valid='1'";
-
-        //private const string SqlInsertDiag = @"insert into diagnosis(name,icd) values ({0},null)  where valid='1'";
-
-        //private const string SqlPatDiagType = " SELECT code, diagname, typeid FROM patdiagtype ";
-
-        //private const string SqlAllDiagChinese = @"select id icd, name, py, wb from diagnosisofchinese where valid='1'";
-        //private const string SqlAllDaigMZChinese = @"select id icd , name, py, wb from diagnosisofchinese where valid='1'";
-
-        //private const string SqlAllDoctor = @"SELECT py,wb, NAME,ID icd FROM users WHERE valid = 1 ORDER BY icd";
 
         private const string PYFilter = " py like '%{0}%'";
         private const string WBFilter = " wb like '%{0}%'";
@@ -159,7 +125,7 @@ namespace DrectSoft.Core.IEMMainPage
             InitializeComponent();
         }
 
-        public IemNewDiagInfo(IEmrHost app,DataTable foreTable,string gotype, string diagTypeName, string inputText)
+        public IemNewDiagInfo(IEmrHost app, DataTable foreTable, string gotype, string diagTypeName, string inputText)
             : this()
         {
             m_App = app;
@@ -168,13 +134,6 @@ namespace DrectSoft.Core.IEMMainPage
             inText = inputText;//m_inputText
             INDData = foreTable;
         }
-
-        //UCIemBasInfo ucibaseInfo= new UCIemBasInfo(
-
-        //    public IemNewDiagInfo(IEmrHost app, string gotype, string diaType, string inputText)
-        //        : this()
-        //    {
-        //}
 
         #endregion
 
@@ -203,13 +162,6 @@ namespace DrectSoft.Core.IEMMainPage
                                 gridControlDiag.EndUpdate();
                                 m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
                                 textEditInput.Text = inText;
-                                //m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
-
-
-                                //m_App.CustomMessageBox.MessageShow("XIYI");
-                                //ProcLoadData();
-                                // GetData(m_DiagTypeName, m_GoType);
-                                //m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
                                 break;
                             case "ZHONGYI":
                                 gridControlDiag.BeginUpdate();
@@ -217,7 +169,6 @@ namespace DrectSoft.Core.IEMMainPage
                                 gridControlDiag.EndUpdate();
                                 m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
                                 textEditInput.Text = inText;
-                                //m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDiagChinese, CommandType.Text);
                                 break;
                             default:
                                 break;
@@ -226,7 +177,7 @@ namespace DrectSoft.Core.IEMMainPage
                     //ProcLoadData();
                 }
                 else
-                    if (m_GoType == "MZDIAG")
+                    if (m_GoType == "MZDIAG" || m_GoType == "RYZDIAG")
                     {
                         switch (m_DiagTypeName)
                         {
@@ -273,106 +224,13 @@ namespace DrectSoft.Core.IEMMainPage
                             }
                             // ProcLoadData();
                         }
-               
+
             }
             catch (Exception)
             {
                 throw;
             }
         }
-        /// <summary>
-        /// 获得搜索结果  王冀 2013 1 12
-        /// </summary>
-        /// <param name="m_DiagTypeName"></param>
-        /// <param name="m_GoType"></param>
-        //private void GetData(string m_DiagTypeName, string m_GoType)
-        //{
-        //    try
-        //    {
-        //        if (m_GoType == "OUTHOSDIAG")
-        //        {
-        //            if (m_DiagTypeName == "XIYI")
-        //            {
-        //                // gridControlDiag.BeginUpdate();
-        //                DataTable dt = new DataTable();
-        //                m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
-        //                //this.gridControlDiag.DataSource = 
-        //                //gridControlDiag.EndUpdate();
-        //                //m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
-        //                //DevExpress.Data.CurrencyDataController.DisableThreadingProblemsDetection = false;//解决第三方控件异步报错的问题
-        //            }
-        //            if (m_DiagTypeName == "ZHONGYI")
-        //            {
-        //                DataTable dt = new DataTable();
-        //                m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDiagChinese, CommandType.Text);
-        //            }
-        //        }
-        //        else
-        //            if (m_GoType == "MZDIAG")
-        //            {
-        //                if (m_DiagTypeName == "XIYI")
-        //                {
-        //                    DataTable dt = new DataTable();
-        //                    m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
-        //                }
-        //                if (m_DiagTypeName == "ZHONGYI")
-        //                {
-        //                    DataTable dt = new DataTable();
-        //                    m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDiagChinese, CommandType.Text);
-        //                }
-        //            }
-        //            else
-        //                if (m_GoType == "operate")
-        //                {
-        //                    if (m_DiagTypeName == "operate")
-        //                    {
-        //                        DataTable dt = new DataTable();
-        //                        m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllOper, CommandType.Text);
-        //                    }
-        //                    if (m_DiagTypeName == "anaesthetist")
-        //                    {
-        //                        DataTable dt = new DataTable();
-        //                        m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlAllDoctor, CommandType.Text);
-        //                    }
-        //                }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
-        /// <summary>
-        /// 取数据
-        /// </summary>
-        /// <param name="lueInfo"></param>
-        /// <param name="table"></param>
-        //private DataTable GetData(Decimal queryType)
-        //{
-        //    SqlParameter paraType = new SqlParameter("@QueryType", SqlDbType.Decimal);
-        //    paraType.Value = queryType;
-        //    SqlParameter[] paramCollection = new SqlParameter[] { paraType };
-        //    DataTable dataTable= AddTableColumn(m_App.SqlHelper.ExecuteDataTable(""))
-        //}
-
-        //private void ProcLoadData()
-        //{
-
-        //    try
-        //    {
-        //        m_DiagName = "";
-        //        m_DiagICD = "";
-        //        gridControlDiag.BeginUpdate();
-        //        gridControlDiag.DataSource = m_DiagDataSource;// 绑定数据
-        //        gridControlDiag.EndUpdate();
-        //        m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
-        //        textEditInput.Text = inText;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Common.Ctrs.DLG.MessageBox.Show(ex.Message);
-        //    }
-        //}
-
         #endregion
 
         #region EnventHandler
@@ -386,7 +244,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-               
+
                 if (INDData == null)
                 {
                     LoadData();
@@ -403,11 +261,14 @@ namespace DrectSoft.Core.IEMMainPage
                     {
                         this.Text = "门诊诊断";
                     }
+                    else if (m_GoType == "RYZDIAG")
+                    {
+                        this.Text = "入院诊断";
+                    }
                     else if (m_GoType == "operate")
                     {
                         this.Text = "手术诊断";
                     }
-                   // ProcLoadData();
                 }
 
                 checkEditPY_CheckedChanged(sender, e);
@@ -463,8 +324,6 @@ namespace DrectSoft.Core.IEMMainPage
                     {
                         //MessageBox.Show("nihao");
                     }
-                    //textEditInput.Text = inText;// m_inputText;
-                    //m_DiagDataSource = m_App.SqlHelper.ExecuteDataTable(SqlInsertDiag, CommandType.Text);
                 }
                 else//(m_DiagDataSource != null)
                 {
@@ -474,15 +333,9 @@ namespace DrectSoft.Core.IEMMainPage
                         inText = m_DiagName;//m_inputText
                         m_isClosed = true;
                     }
-                    //if (m_DiagName != null)
-                    //{
-                    //    inText = m_DiagName;//m_inputText
-                    //    m_isClosed = true;
-                    //}
                     else
                     {
-                        inText = string.Empty;//m_inputText
-                        //m_isClosed = true;
+                        inText = string.Empty;
                     }
                 }
 
@@ -566,7 +419,7 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 if (e.KeyCode == Keys.Down)
                 {
-                   gridControlDiag.Focus();
+                    gridControlDiag.Focus();
                     gridViewDiag.FocusedRowHandle = 0;
                 }
             }

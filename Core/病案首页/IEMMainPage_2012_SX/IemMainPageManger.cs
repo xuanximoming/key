@@ -516,6 +516,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Weight = row["weight"].ToString();
                     IemInfo.IemBasicInfo.InWeight = row["inweight"].ToString();
                     IemInfo.IemBasicInfo.InHosType = row["inhostype"].ToString();
+                    IemInfo.IemBasicInfo.InHosInfo = row["inhosinfo"].ToString();
                     IemInfo.IemBasicInfo.TypeHos = row["typehospital"].ToString();
                     IemInfo.IemBasicInfo.OutHosType = row["outhostype"].ToString();
 
@@ -541,6 +542,8 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.MZZYZD_CODE = row["mzzyzd_code"].ToString();
                     IemInfo.IemBasicInfo.MZXYZD_NAME = row["mzxyzd_name"].ToString();
                     IemInfo.IemBasicInfo.MZXYZD_CODE = row["mzxyzd_code"].ToString();
+                    IemInfo.IemBasicInfo.RYXYZD_NAME = row["ryxyzd_name"].ToString();
+                    IemInfo.IemBasicInfo.RYXYZD_CODE = row["ryxyzd_code"].ToString();
                     IemInfo.IemBasicInfo.SSLCLJ = row["sslclj"].ToString();
                     IemInfo.IemBasicInfo.ZYZJ = row["zyzj"].ToString();
 
@@ -710,6 +713,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Weight = "---";
                     IemInfo.IemBasicInfo.InWeight = "---";
                     IemInfo.IemBasicInfo.InHosType = DefaultInfo.AdmitWay;//入院途径
+                    IemInfo.IemBasicInfo.InHosInfo = DefaultInfo.AdmitInfo;//入院情况
                     IemInfo.IemBasicInfo.TypeHos = "---";
                     IemInfo.IemBasicInfo.OutHosType = "";
 
@@ -741,6 +745,8 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.MZZYZD_CODE = "";
                     IemInfo.IemBasicInfo.MZXYZD_NAME = "";
                     IemInfo.IemBasicInfo.MZXYZD_CODE = "";
+                    IemInfo.IemBasicInfo.RYXYZD_NAME = "";
+                    IemInfo.IemBasicInfo.RYXYZD_CODE = "";
                     IemInfo.IemBasicInfo.SSLCLJ = "";
                     IemInfo.IemBasicInfo.ZYZJ = "";
 
@@ -1744,6 +1750,10 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraINWEIGHT.Value = info.IemBasicInfo.InWeight;
             SqlParameter paraINHOSTYPE = new SqlParameter("@INHOSTYPE", SqlDbType.VarChar, 20);
             paraINHOSTYPE.Value = info.IemBasicInfo.InHosType;
+
+            SqlParameter paraINHOSINFO = new SqlParameter("@INHOSINFO", SqlDbType.VarChar, 20);
+            paraINHOSINFO.Value = info.IemBasicInfo.InHosInfo;
+
             SqlParameter paraTYPEHOS = new SqlParameter("@TYPEHOSPITAL", SqlDbType.VarChar, 50);
             paraTYPEHOS.Value = info.IemBasicInfo.TypeHos;
             SqlParameter paraOUTHOSTYPE = new SqlParameter("@OUTHOSTYPE", SqlDbType.VarChar, 20);
@@ -1840,10 +1850,17 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraMZZYZD_NAME.Value = info.IemBasicInfo.MZZYZD_NAME;
             SqlParameter paraMZZYZD_CODE = new SqlParameter("@MZZYZD_CODE", SqlDbType.VarChar, 20);
             paraMZZYZD_CODE.Value = info.IemBasicInfo.MZZYZD_CODE;
+
             SqlParameter paraMZXYZD_NAME = new SqlParameter("@MZXYZD_NAME", SqlDbType.VarChar, 20);
             paraMZXYZD_NAME.Value = info.IemBasicInfo.MZXYZD_NAME;
             SqlParameter paraMZXYZD_CODE = new SqlParameter("@MZXYZD_CODE", SqlDbType.VarChar, 20);
             paraMZXYZD_CODE.Value = info.IemBasicInfo.MZXYZD_CODE;
+
+            SqlParameter paraRYXYZD_NAME = new SqlParameter("@RYXYZD_NAME", SqlDbType.VarChar, 20);
+            paraRYXYZD_NAME.Value = info.IemBasicInfo.RYXYZD_NAME;
+            SqlParameter paraRYXYZD_CODE = new SqlParameter("@RYXYZD_CODE", SqlDbType.VarChar, 20);
+            paraRYXYZD_CODE.Value = info.IemBasicInfo.RYXYZD_CODE;
+
             SqlParameter paraSSLCLJ = new SqlParameter("@SSLCLJ", SqlDbType.VarChar, 20);
             paraSSLCLJ.Value = info.IemBasicInfo.SSLCLJ;
             SqlParameter paraZYZJ = new SqlParameter("@ZYZJ", SqlDbType.VarChar, 20);
@@ -1869,7 +1886,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
                 paraCREATE_USER,paraCREATE_TIME,paraMODIFIED_USER,paraMODIFIED_TIME,paraZYMOSIS,
                 paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
-                paraINWEIGHT ,paraINHOSTYPE,paraTYPEHOS,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
+                paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraTYPEHOS,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
                 paraAGAININHOSPITAL,paraAGAININHOSPITALREASON,paraBEFOREHOSCOMADAY,paraBEFOREHOSCOMAHOUR,paraBEFOREHOSCOMAMINUTE,
                 paraLATERHOSCOMADAY,paraLATERHOSCOMAHOUR,paraLATERHOSCOMAMINUTE,paraCARDNUMBER,paraALLERGIC_FLAG,
                 paraAUTOPSY_FLAG,paraCSD_PROVINCEID,paraCSD_CITYID,paraCSD_DISTRICTID,paraCSD_PROVINCENAME,
@@ -1877,7 +1894,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraXZZ_PROVINCENAME,paraXZZ_CITYNAME,paraXZZ_DISTRICTNAME,paraXZZ_TEL,paraXZZ_POST,
                 paraHKDZ_PROVINCEID,paraHKDZ_CITYID,paraHKDZ_DISTRICTID,paraHKDZ_PROVINCENAME,paraHKDZ_CITYNAME,
                 paraHKDZ_DISTRICTNAME,paraHKDZ_POST,paraJG_PROVINCEID,paraJG_CITYID,paraJG_PROVINCENAME,paraJG_CITYNAME,paraAge,
-                paraCURE_TYPE,paraMZZYZD_NAME,paraMZZYZD_CODE,paraMZXYZD_NAME,paraMZXYZD_CODE,paraSSLCLJ,paraZYZJ,
+                paraCURE_TYPE,paraMZZYZD_NAME,paraMZZYZD_CODE,paraMZXYZD_NAME,paraMZXYZD_CODE,paraRYXYZD_NAME,paraRYXYZD_CODE,paraSSLCLJ,paraZYZJ,
                 paraZYZLSB,paraZYZLJS,paraBZSH
         };
 

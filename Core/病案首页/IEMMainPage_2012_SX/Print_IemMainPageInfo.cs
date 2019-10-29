@@ -853,6 +853,21 @@ namespace DrectSoft.Core.IEMMainPage
         private string _TypeHos;
 
         /// <summary>
+        /// 入院情况 □ 1. 危 2. 急 3. 一般
+        /// </summary>
+        public string InHosInfo
+        {
+            get
+            {
+                return _InfoHos;
+            }
+            set
+            {
+                _InfoHos = value;
+            }
+        }
+        private string _InfoHos;
+        /// <summary>
         /// 其他医疗机构转入
         /// </summary>
         public string TypeHos
@@ -1161,7 +1176,39 @@ namespace DrectSoft.Core.IEMMainPage
         }
         private string _MZXYZD_CODE;
 
+        /// <summary>
+        /// 入院诊断名称
+        /// </summary>
+        public string RYXYZD_NAME
+        {
+            get
+            {
+                return this._RYXYZD_NAME;
+            }
+            set
+            {
+                _RYXYZD_NAME = value;
+            }
+        }
+        private string _RYXYZD_NAME;
 
+
+        /// <summary>
+        /// 入院西医诊断代码
+        /// </summary>
+        public string RYXYZD_CODE
+        {
+            get
+            {
+                return this._RYXYZD_CODE;
+            }
+            set
+            {
+                _RYXYZD_CODE = value;
+            }
+        }
+
+        private string _RYXYZD_CODE;
         /// <summary>
         /// 实施临床路径：□ 1. 中医  2. 西医  3 否 
         /// </summary>

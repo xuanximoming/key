@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -102,7 +99,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             get { return dintname; }
             set { dintname = value; }
-        } 
+        }
         private string dintid = string.Empty;
         /// <summary>
         /// 县编号
@@ -1294,6 +1291,10 @@ namespace DrectSoft.Core.IEMMainPage
         /// 入院途径
         /// </summary>
         public string AdmitWay { get; set; }
+        /// <summary>
+        /// 入院情况
+        /// </summary>
+        public string AdmitInfo { get; set; }
         /// <summary>
         /// 门诊诊断
         /// </summary>

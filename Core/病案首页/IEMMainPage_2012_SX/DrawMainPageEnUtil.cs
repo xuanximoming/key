@@ -897,12 +897,14 @@ namespace DrectSoft.Core.IEMMainPage
                             pointYTableBodyStart += rowHeight;
                         }
                         //【入院病情说明】
-                        g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
+                        if (!string.IsNullOrEmpty(Node.Attributes["inStatus"].Value))
+                        {
+                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
                             new Size((int)firstColumnWidth + (int)secondColumnWidth + (int)thirdColumnWidth, (int)rowHeight)));
-                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
-                        g.DrawString(Node.Attributes["inStatus"].Value, m_DefaultFont, Brushes.Black,
-                            new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth, rowHeight), sf);
-
+                            g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                            g.DrawString(Node.Attributes["inStatus"].Value, m_DefaultFont, Brushes.Black,
+                                new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth, rowHeight), sf);
+                        }
                         pointX = m_PointX + firstColumnWidth + secondColumnWidth + thirdColumnWidth;
                         pointYTableBodyStart = pointY;
                     }
@@ -924,31 +926,44 @@ namespace DrectSoft.Core.IEMMainPage
                                         pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
                                 }
                             }
-                            //右侧剩余其他诊断value
-                            if (i > rightColumn && outDiagTableWest.Rows.Count > i)//todo
+                            if (!string.IsNullOrEmpty(Node.Attributes["inStatus"].Value) && i == rightColumn + leftColumn - 1)
                             {
-                                DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
-                                    pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
+                                    new Size((int)firstColumnWidth + (int)secondColumnWidth + (int)thirdColumnWidth, (int)rowHeight)));
+                                g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                                g.DrawString(Node.Attributes["inStatus"].Value, m_DefaultFont, Brushes.Black,
+                                    new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth, rowHeight), sf);
+                                pointX += firstColumnWidth + secondColumnWidth;
                             }
-                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)rowHeight)));
-                            pointX += firstColumnWidth;
+                            else
+                            {
+                                //右侧剩余其他诊断value
+                                if (i > rightColumn && outDiagTableWest.Rows.Count > i)//todo
+                                {
+                                    DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                                        pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                                }
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)rowHeight)));
+                                pointX += firstColumnWidth;
 
 
-                            //疾病编码
-                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)rowHeight)));
-                            //疾病编码value
-                            if (outDiagTableWest.Rows.Count > i)
-                                DrawStringInCell2(g, outDiagTableWest.Rows[i]["Diagnosis_Code"].ToString(), pointX,
-                                    pointYTableBodyStart + 2, (int)secondColumnWidth, (int)rowHeight, m_DefaultFont);
-                            pointX += secondColumnWidth;
+                                //疾病编码
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)rowHeight)));
+                                //疾病编码value
+                                if (outDiagTableWest.Rows.Count > i)
+                                    DrawStringInCell2(g, outDiagTableWest.Rows[i]["Diagnosis_Code"].ToString(), pointX,
+                                        pointYTableBodyStart + 2, (int)secondColumnWidth, (int)rowHeight, m_DefaultFont);
+                                pointX += secondColumnWidth;
 
 
-                            //入院病情
-                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
-                            //入院病情value
-                            if (outDiagTableWest.Rows.Count > i)
-                                DrawStringInCell2(g, outDiagTableWest.Rows[i]["Status_Id"].ToString(), pointX,
-                                    pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)rowHeight, m_DefaultFont);
+                                //入院病情
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                                //入院病情value
+                                if (outDiagTableWest.Rows.Count > i)
+                                    DrawStringInCell2(g, outDiagTableWest.Rows[i]["Status_Id"].ToString(), pointX,
+                                        pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)rowHeight, m_DefaultFont);
+
+                            }
 
                             g.DrawLine(Pens.White, new Point((int)pointX + (int)thirdColumnWidth, (int)pointYTableBodyStart), new Point((int)pointX + (int)thirdColumnWidth, (int)pointYTableBodyStart + (int)rowHeight));
                             pointX = m_PointX + firstColumnWidth + secondColumnWidth + thirdColumnWidth;
