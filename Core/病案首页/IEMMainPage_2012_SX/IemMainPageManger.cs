@@ -79,21 +79,6 @@ namespace DrectSoft.Core.IEMMainPage
             try
             {
                 #region 取得首页默认空值的实体数据
-                //PaintDefaultInfo paintDefInfo = new PaintDefaultInfo();
-                //paintDefInfo.P_TypeNum = "1";//赋给默认值1
-                //string sqldefa = string.Format(@" select t.typenum,t.tname,t.tvalue from iem_mainpage_Default t where t.typenum='{0}' ", paintDefInfo.P_TypeNum);
-                //DataTable dtDefault = m_app.SqlHelper.ExecuteDataTable(sqldefa, CommandType.Text);
-
-                //DataRow[] dtrowpro = dtDefault.Select("  tname='ProviceID' ");
-
-                //DataRow[] dtrowcity = dtDefault.Select("  tname='CityID' ");
-
-                //DataRow[] dtrowdins = dtDefault.Select("  tname='DistrictID' ");
-
-                //DataRow[] dtrowpost = dtDefault.Select("  tname='PostNum' ");
-                //DataRow[] dtrowturndeptid = dtDefault.Select("  tname='TurnInDeptID' ");//新增转入科别编号 默认值 add  by ywk 2012年3月27日10:36:26
-
-                //DataRow[] dtrowturndeptname = dtDefault.Select("  tname='TurnInDeptName' ");//新增转入科别名称 默认值 add  by ywk 2012年3月27日10:46:11
                 #region 现在的取默认值
                 //取默认值从inpatient_default表中取得
                 //edit by ywk 2012年5月16日 14:35:14
@@ -250,6 +235,7 @@ namespace DrectSoft.Core.IEMMainPage
                     DefaultInfo.ContactAddress = "";
                     DefaultInfo.ContactTEL = "";
                     DefaultInfo.AdmitDate = "";
+                    DefaultInfo.MainDiagDate = "";
 
                     DefaultInfo.AdmitDeptID = "";
                     DefaultInfo.AdmitWardID = "";
@@ -369,47 +355,6 @@ namespace DrectSoft.Core.IEMMainPage
                     DefaultInfo.IsBaby = PatData.Rows[0]["isbaby"].ToString();
                     DefaultInfo.Mother = PatData.Rows[0]["mother"].ToString();
                 }
-                #region 原来的取默认值
-                //省
-                //if (dtrowpro.Length > 0)
-                //{
-                //string sqlpro = string.Format(@" select a.provinceid,a.provincename from s_province  a where a.provinceid='{0}' ", dtrowpro[0]["Tvalue"]);
-                //DataTable dtProvice = m_app.SqlHelper.ExecuteDataTable(sqlpro, CommandType.Text);
-                //paintDefInfo.ProviceID = dtProvice.Rows[0]["provinceid"].ToString();//省份ID
-                //paintDefInfo.Provicename = dtProvice.Rows[0]["provincename"].ToString();//省份名称
-                //}
-                //市
-                //if (dtrowcity.Length > 0)
-                //{
-                //string sqlcity = string.Format(@" select b.cityid,b.cityname from s_city  b where b.cityid='{0}' ", dtrowcity[0]["Tvalue"]);
-                //DataTable dtCity = m_app.SqlHelper.ExecuteDataTable(sqlcity, CommandType.Text);
-                //paintDefInfo.CityID = dtCity.Rows[0]["cityid"].ToString();//城市ID
-                //paintDefInfo.Cityname = dtCity.Rows[0]["cityname"].ToString();//城市名称
-                //}
-                ////县
-                //if (dtrowdins.Length > 0)
-                //{
-                //string sqldis = string.Format(@" select c.districtid,c.districtname from s_district  c where c.districtid='{0}' ", dtrowdins[0]["Tvalue"]);
-                //DataTable dtDist = m_app.SqlHelper.ExecuteDataTable(sqldis, CommandType.Text);
-                //paintDefInfo.DintID = dtDist.Rows[0]["districtid"].ToString();//县ID
-                //paintDefInfo.Dintname = dtDist.Rows[0]["districtname"].ToString();//县名称
-                //}
-
-                //if (dtrowpost.Length > 0)
-                //{
-                //    paintDefInfo.PostID = dtrowpost[0]["Tvalue"].ToString();//邮编 
-                //}
-                //转入科别编号
-                //if (dtrowturndeptid.Length > 0)
-                //{
-                //    paintDefInfo.TurnInDeptID = dtrowturndeptid[0]["Tvalue"].ToString();//转入科别编号
-                //}
-                ////转入科别名称
-                //if (dtrowturndeptname.Length > 0)
-                //{
-                //    paintDefInfo.TurnInDeptName = dtrowturndeptname[0]["Tvalue"].ToString();//转入科别名称 
-                //}
-                #endregion
                 #endregion
 
                 foreach (DataRow row in dataTable.Rows)
@@ -483,6 +428,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.ContactAddress = row["ContactAddress"].ToString();
                     IemInfo.IemBasicInfo.ContactTEL = row["ContactTEL"].ToString();
                     IemInfo.IemBasicInfo.AdmitDate = row["AdmitDate"].ToString();
+                    IemInfo.IemBasicInfo.MainDiagDate = row["MainDiagDate"].ToString();
 
                     IemInfo.IemBasicInfo.AdmitDeptID = row["AdmitDept"].ToString();
                     IemInfo.IemBasicInfo.AdmitDeptName = row["AdmitDeptName"].ToString();
@@ -517,6 +463,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.InWeight = row["inweight"].ToString();
                     IemInfo.IemBasicInfo.InHosType = row["inhostype"].ToString();
                     IemInfo.IemBasicInfo.InHosInfo = row["inhosinfo"].ToString();
+                    IemInfo.IemBasicInfo.InHosCall = row["inhoscall"].ToString();
                     IemInfo.IemBasicInfo.TypeHos = row["typehospital"].ToString();
                     IemInfo.IemBasicInfo.OutHosType = row["outhostype"].ToString();
 
@@ -678,6 +625,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.ContactAddress = DefaultInfo.ContactAddress;
                     IemInfo.IemBasicInfo.ContactTEL = DefaultInfo.ContactTEL;
                     IemInfo.IemBasicInfo.AdmitDate = "";
+                    IemInfo.IemBasicInfo.MainDiagDate = "";
 
                     IemInfo.IemBasicInfo.AdmitDeptID = "";
                     IemInfo.IemBasicInfo.AdmitDeptName = "";
@@ -714,6 +662,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.InWeight = "---";
                     IemInfo.IemBasicInfo.InHosType = DefaultInfo.AdmitWay;//入院途径
                     IemInfo.IemBasicInfo.InHosInfo = DefaultInfo.AdmitInfo;//入院情况
+                    IemInfo.IemBasicInfo.InHosCall = DefaultInfo.DeInHosCall;//住院期间是否告病危或病重
                     IemInfo.IemBasicInfo.TypeHos = "---";
                     IemInfo.IemBasicInfo.OutHosType = "";
 
@@ -1663,6 +1612,10 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraContactTEL.Value = info.IemBasicInfo.ContactTEL;
             SqlParameter paraAdmitDate = new SqlParameter("@AdmitDate", SqlDbType.VarChar, 19);
             paraAdmitDate.Value = info.IemBasicInfo.AdmitDate;
+
+            SqlParameter paraMainDiagDate = new SqlParameter("@MainDiagDate", SqlDbType.VarChar, 19);
+            paraMainDiagDate.Value = info.IemBasicInfo.MainDiagDate;
+
             SqlParameter paraAdmitDept = new SqlParameter("@AdmitDept", SqlDbType.VarChar, 12);
             paraAdmitDept.Value = info.IemBasicInfo.AdmitDeptID;
             SqlParameter paraAdmitWard = new SqlParameter("@AdmitWard", SqlDbType.VarChar, 12);
@@ -1753,6 +1706,9 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
 
             SqlParameter paraINHOSINFO = new SqlParameter("@INHOSINFO", SqlDbType.VarChar, 20);
             paraINHOSINFO.Value = info.IemBasicInfo.InHosInfo;
+
+            SqlParameter paraINHOSCALL = new SqlParameter("@INHOSCALL", SqlDbType.VarChar, 20);
+            paraINHOSCALL.Value = info.IemBasicInfo.InHosCall;
 
             SqlParameter paraTYPEHOS = new SqlParameter("@TYPEHOSPITAL", SqlDbType.VarChar, 50);
             paraTYPEHOS.Value = info.IemBasicInfo.TypeHos;
@@ -1877,7 +1833,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraInCount,paraName ,paraSexID,paraBirth,paraMarital,
                 paraJobID,paraNationalityID,paraNationID,paraIDNO,paraOrganization,paraOfficePlace,
                 paraOfficeTEL,paraOfficePost,paraContactPerson,paraRelationship,paraContactAddress,
-                paraContactTEL,paraAdmitDate,paraAdmitDept,paraAdmitWard,
+                paraContactTEL,paraAdmitDate,paraMainDiagDate,paraAdmitDept,paraAdmitWard,
                 paraTrans_AdmitDept,paraOutWardDate,paraOutHosDept,paraOutHosWard,
                 paraActual_Days,paraPATHOLOGY_DIAGNOSIS_NAME,paraPATHOLOGY_OBSERVATION_SN,paraALLERGIC_DRUG,paraSection_Director,
                 paraDirector,paraVs_Employee_Code,paraResident_Employee_Code,paraRefresh_Employee_Code,paraDUTY_NURSE ,
@@ -1886,7 +1842,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
                 paraCREATE_USER,paraCREATE_TIME,paraMODIFIED_USER,paraMODIFIED_TIME,paraZYMOSIS,
                 paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
-                paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraTYPEHOS,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
+                paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraINHOSCALL,paraTYPEHOS,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
                 paraAGAININHOSPITAL,paraAGAININHOSPITALREASON,paraBEFOREHOSCOMADAY,paraBEFOREHOSCOMAHOUR,paraBEFOREHOSCOMAMINUTE,
                 paraLATERHOSCOMADAY,paraLATERHOSCOMAHOUR,paraLATERHOSCOMAMINUTE,paraCARDNUMBER,paraALLERGIC_FLAG,
                 paraAUTOPSY_FLAG,paraCSD_PROVINCEID,paraCSD_CITYID,paraCSD_DISTRICTID,paraCSD_PROVINCENAME,
@@ -2300,29 +2256,6 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraHKDistrictid.Value = info.IemBasicInfo.HKDZ_DistrictID;//户口住址（县
             SqlParameter paraXZZPost = new SqlParameter("@xzzpost", SqlDbType.VarChar, 32);
             paraXZZPost.Value = info.IemBasicInfo.XZZ_Post;//现住址（邮编
-
-            //SqlParameter paraCSDProviceName = new SqlParameter("@csdprovicename", SqlDbType.VarChar, 50);
-            //paraCSDProviceName.Value = info.IemBasicInfo.CSD_ProvinceName;//出生地省名称
-            //SqlParameter paraCSDCityName = new SqlParameter("@csdcityname", SqlDbType.VarChar, 50);
-            //paraCSDCityName.Value = info.IemBasicInfo.CSD_CityName;//出生地市名称
-            //SqlParameter paraCSDDistrictName = new SqlParameter("@csddistrictname", SqlDbType.VarChar, 50);
-            //paraCSDDistrictName.Value = info.IemBasicInfo.CSD_DistrictName;//出生地县名称
-            //SqlParameter paraJGProviceName = new SqlParameter("@jgprovicename", SqlDbType.VarChar, 50);
-            //paraJGProviceName.Value = info.IemBasicInfo.JG_ProvinceName;//籍贯省名称
-            //SqlParameter paraJGCityName = new SqlParameter("@jgcityname", SqlDbType.VarChar, 50);
-            //paraJGCityName.Value = info.IemBasicInfo.JG_CityName;//籍贯市名称
-            //SqlParameter paraXZZProviceName = new SqlParameter("@xzzprovicename", SqlDbType.VarChar, 50);
-            //paraXZZProviceName.Value = info.IemBasicInfo.XZZ_ProvinceName;//现住址省名称D:\DrectSoft.Net\EMRNew\Core\病案首页\IEMMainPage_2012\IemMainPageManger.cs
-            //SqlParameter paraXZZCityName = new SqlParameter("@xzzcityname", SqlDbType.VarChar, 50);
-            //paraXZZCityName.Value = info.IemBasicInfo.XZZ_CityName;//现住址市名称
-            //SqlParameter paraXZZDistrictName = new SqlParameter("@xzzdistrictname", SqlDbType.VarChar, 50);
-            //paraXZZDistrictName.Value = info.IemBasicInfo.XZZ_DistrictName;//现住址县名称
-            //SqlParameter paraHKZZProviceName = new SqlParameter("@hkzzprovicename", SqlDbType.VarChar, 50);
-            //paraHKZZProviceName.Value = info.IemBasicInfo.HKDZ_ProvinceName;//户口住址省名称
-            //SqlParameter paraHKZZCityName = new SqlParameter("@hkzzcityname", SqlDbType.VarChar, 50);
-            //paraHKZZCityName.Value = info.IemBasicInfo.HKDZ_CityName;//户口住址市名称
-            //SqlParameter paraHKZZDistrictName = new SqlParameter("@hkzzdistrictname", SqlDbType.VarChar, 50);
-            //paraHKZZDistrictName.Value = info.IemBasicInfo.HKDZ_DistrictName;//户口住址县名称
             SqlParameter paraIsUpdateIDNO = new SqlParameter("@isupdate", SqlDbType.VarChar, 5);
             paraIsUpdateIDNO.Value = isupdateIdNO;//新增一个字段用于判断是否将身份证号字段更新到noofclinic字段
 

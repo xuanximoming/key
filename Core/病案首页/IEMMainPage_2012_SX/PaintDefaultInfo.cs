@@ -679,6 +679,11 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         public string AdmitDate { get { return _AdmitDate; } set { _AdmitDate = value; } }
 
+        private string _MainDiagDate;
+        /// <summary>
+        /// 主要诊断确诊日期
+        /// </summary>
+        public string MainDiagDate { get { return _MainDiagDate; } set { _MainDiagDate = value; } }
         /// <summary>
         /// 入院科室Name
         /// </summary>
@@ -1295,6 +1300,11 @@ namespace DrectSoft.Core.IEMMainPage
         /// 入院情况
         /// </summary>
         public string AdmitInfo { get; set; }
+
+        /// <summary>
+        /// 入院情况
+        /// </summary>
+        public string DeInHosCall { get; set; }
         /// <summary>
         /// 门诊诊断
         /// </summary>

@@ -32,7 +32,7 @@ namespace DrectSoft.JobTasks
                 int rowAnalysis = 0;
                 foreach (DataRow row in data.Rows)
                 {
-                    
+
                 }
                 JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, "AnalysisDoc", data.Rows.Count, rowAnalysis, DateTime.Now, true, String.Empty, TraceLevel.Info));
             }
@@ -60,9 +60,9 @@ namespace DrectSoft.JobTasks
                 int rowAnalysis = 0;
                 foreach (DataRow row in data.Rows)
                 {
-                   xmlDoc = new XmlDocument();
-                   xmlDoc.LoadXml(row["content"].ToString()); 
-                    
+                    xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml(row["content"].ToString());
+
                 }
                 JobLogHelper.WriteLog(new JobExecuteInfoArgs(Parent, "AnalysisDoc", data.Rows.Count, rowAnalysis, DateTime.Now, true, String.Empty, TraceLevel.Info));
             }
@@ -76,6 +76,5 @@ namespace DrectSoft.JobTasks
                 base.SynchState = SynchState.Stop;
             }
         }
-    }
     }
 }

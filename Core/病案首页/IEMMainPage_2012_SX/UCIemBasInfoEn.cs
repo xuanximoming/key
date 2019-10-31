@@ -421,11 +421,11 @@ namespace DrectSoft.Core.IEMMainPage
             try
             {
                 Button btn = new Button();
-                if (e.KeyChar == 13)//lueMZXYZD_CODE.Text.Trim() != null &&
+                if (e.KeyChar == 13)
                 {
                     GoType = "RYZDIAG";
                     MZDiagType = "XIYI";
-                    inputText = lueMZXYZD_CODE.Text.Trim();
+                    inputText = lueRYZD_CODE.Text.Trim();
 
                     IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtXY, GoType, MZDiagType, inputText);
                     if (diagInfo.GetFormResult())
@@ -529,6 +529,7 @@ namespace DrectSoft.Core.IEMMainPage
             InitLueSex();
             InitMarital();
             InitInHosInfo();
+            InitInHosCall();
             InitJob();
             InitNation();
             InitNationality();
@@ -566,12 +567,23 @@ namespace DrectSoft.Core.IEMMainPage
             if (lueMarital.SqlWordbook == null)
                 BindLueData(lueMarital, 3);
         }
-
+        /// <summary>
+        /// 初始化入院情况
+        /// </summary>
         private void InitInHosInfo()
         {
             if (lueINHOSINFO.SqlWordbook == null)
                 BindLueData(lueINHOSINFO, 34);
         }
+        /// <summary>
+        /// 初始化住院期间是否告病危或病重
+        /// </summary>
+        private void InitInHosCall()
+        {
+            if (lueINHOSCALL.SqlWordbook == null)
+                BindLueData(lueINHOSCALL, 35);
+        }
+
 
         /// <summary>
         /// 职业代码
@@ -1176,6 +1188,7 @@ namespace DrectSoft.Core.IEMMainPage
                 chkInHosType4.Checked = true;
             textEditotherhospital.Text = info.IemBasicInfo.TypeHos;
             lueINHOSINFO.CodeValue = info.IemBasicInfo.InHosInfo;
+            lueINHOSCALL.CodeValue = info.IemBasicInfo.InHosCall;
             //第十行 治疗类别
             //if (m_IemInfo.IemBasicInfo.CURE_TYPE == "1")
             //    chkCURE_TYPE1.Checked = true;
@@ -1189,10 +1202,18 @@ namespace DrectSoft.Core.IEMMainPage
             //    chkCURE_TYPE5.Checked = true;
 
             //入院信息
+
+            //入院日期
             if (!String.IsNullOrEmpty(info.IemBasicInfo.AdmitDate))
             {
                 deAdmitDate.DateTime = Convert.ToDateTime(info.IemBasicInfo.AdmitDate);
                 teAdmitDate.Time = Convert.ToDateTime(info.IemBasicInfo.AdmitDate);
+            }
+            //主要诊断确诊日期
+            if (!String.IsNullOrEmpty(info.IemBasicInfo.MainDiagDate))
+            {
+                deMAINDIAGDATE.DateTime = Convert.ToDateTime(info.IemBasicInfo.MainDiagDate);
+                teMAINDIAGDATE.Time = Convert.ToDateTime(info.IemBasicInfo.MainDiagDate);
             }
 
             lueAdmitDept.CodeValue = info.IemBasicInfo.AdmitDeptID;
@@ -1237,6 +1258,9 @@ namespace DrectSoft.Core.IEMMainPage
             lueMZXYZD_CODE.Text = m_IemInfo.IemBasicInfo.MZXYZD_NAME;
             //lueMZXYZD_CODE1.CodeValue = m_IemInfo.IemBasicInfo.MZXYZD_CODE;
 
+            lueRYZD_CODE.DiaCode = m_IemInfo.IemBasicInfo.RYXYZD_CODE;
+            lueRYZD_CODE.DiaValue = m_IemInfo.IemBasicInfo.RYXYZD_NAME;
+            lueRYZD_CODE.Text = m_IemInfo.IemBasicInfo.RYXYZD_NAME;
 
             //第十三行 实施临床路径
             //if (m_IemInfo.IemBasicInfo.SSLCLJ == "1")
@@ -1370,6 +1394,7 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemBasicInfo.TypeHos = textEditotherhospital.Text;
 
             m_IemInfo.IemBasicInfo.InHosInfo = lueINHOSINFO.CodeValue;
+            m_IemInfo.IemBasicInfo.InHosCall = lueINHOSCALL.CodeValue;
             //第十行 治疗类别
             //if (chkCURE_TYPE1.Checked)
             //    m_IemInfo.IemBasicInfo.CURE_TYPE = "1";
@@ -1386,6 +1411,9 @@ namespace DrectSoft.Core.IEMMainPage
 
             if (!(deAdmitDate.DateTime.CompareTo(DateTime.MinValue) == 0))
                 m_IemInfo.IemBasicInfo.AdmitDate = deAdmitDate.DateTime.ToString("yyyy-MM-dd") + " " + teAdmitDate.Time.ToString("HH:mm:ss");
+
+            if (!(deMAINDIAGDATE.DateTime.CompareTo(DateTime.MinValue) == 0))
+                m_IemInfo.IemBasicInfo.MainDiagDate = deMAINDIAGDATE.DateTime.ToString("yyyy-MM-dd") + " " + teMAINDIAGDATE.Time.ToString("HH:mm:ss");
 
             m_IemInfo.IemBasicInfo.AdmitDeptID = lueAdmitDept.CodeValue;
             m_IemInfo.IemBasicInfo.AdmitDeptName = lueAdmitDept.Text;

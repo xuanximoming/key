@@ -600,8 +600,22 @@ namespace DrectSoft.Core.IEMMainPage
         /// <summary>
         /// 入院时间
         /// </summary>
-        public string AdmitDate { get { return _AdmitDate; } set { _AdmitDate = value; } }
+        public string AdmitDate
+        {
+            get { return _AdmitDate; }
+            set { _AdmitDate = value; }
+        }
 
+
+        private string _MainDiagDate;
+        /// <summary>
+        /// 主要诊断确诊日期
+        /// </summary>
+        public string MainDiagDate
+        {
+            get { return _MainDiagDate; }
+            set { _MainDiagDate = value; }
+        }
         /// <summary>
         /// 入院科室Name
         /// </summary>
@@ -867,6 +881,24 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
         private string _InfoHos;
+
+
+        /// <summary>
+        /// 住院期间是否告病危或病重 □ 1. 是 2. 否
+        /// </summary>
+        public string InHosCall
+        {
+            get
+            {
+                return _InHosCall;
+            }
+            set
+            {
+                _InHosCall = value;
+            }
+        }
+        private string _InHosCall;
+
         /// <summary>
         /// 其他医疗机构转入
         /// </summary>
