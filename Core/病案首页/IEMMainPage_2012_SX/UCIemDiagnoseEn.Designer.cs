@@ -51,6 +51,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -107,6 +108,10 @@
             this.txtPathologyName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.btnEditOutDiag = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtPathologyFq = new DevExpress.XtraEditors.TextEdit();
+            this.lueZzhenys = new DrectSoft.Common.Library.LookUpEditor();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood2.Properties)).BeginInit();
@@ -146,6 +151,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueHurt_Toxicosis_Ele)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPathologyFq.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueZzhenys)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewOutDiag
@@ -274,16 +281,16 @@
             // txtPathologySn
             // 
             this.txtPathologySn.EditValue = "";
-            this.txtPathologySn.Location = new System.Drawing.Point(389, 247);
+            this.txtPathologySn.Location = new System.Drawing.Point(286, 247);
             this.txtPathologySn.Name = "txtPathologySn";
             this.txtPathologySn.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtPathologySn.Size = new System.Drawing.Size(174, 18);
+            this.txtPathologySn.Size = new System.Drawing.Size(115, 18);
             this.txtPathologySn.TabIndex = 12;
             // 
             // labelControl119
             // 
             this.labelControl119.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl119.Location = new System.Drawing.Point(323, 249);
+            this.labelControl119.Location = new System.Drawing.Point(235, 249);
             this.labelControl119.Name = "labelControl119";
             this.labelControl119.Size = new System.Drawing.Size(48, 14);
             this.labelControl119.TabIndex = 110;
@@ -328,7 +335,8 @@
             this.gridColumn5,
             this.gridColumn3,
             this.gridColumn2,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn6});
             this.gridViewDiagnose.GridControl = this.gridControl1;
             this.gridViewDiagnose.Name = "gridViewDiagnose";
             this.gridViewDiagnose.OptionsBehavior.AutoExpandAllGroups = true;
@@ -384,9 +392,18 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "是否主诊断";
+            this.gridColumn4.Caption = "出院情况id";
+            this.gridColumn4.FieldName = "Outstatus_id";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "出院情况";
+            this.gridColumn6.FieldName = "Outstatus_Name";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 3;
             // 
             // gridView2
             // 
@@ -899,7 +916,7 @@
             this.txtPathologyID.Location = new System.Drawing.Point(89, 247);
             this.txtPathologyID.Name = "txtPathologyID";
             this.txtPathologyID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtPathologyID.Size = new System.Drawing.Size(191, 18);
+            this.txtPathologyID.Size = new System.Drawing.Size(126, 18);
             this.txtPathologyID.TabIndex = 12;
             // 
             // labelControl1
@@ -938,11 +955,52 @@
             this.btnEditOutDiag.Text = "编辑";
             this.btnEditOutDiag.Click += new System.EventHandler(this.btnEditOutDiag_Click);
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl4.Location = new System.Drawing.Point(417, 249);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(24, 14);
+            this.labelControl4.TabIndex = 208;
+            this.labelControl4.Text = "分期";
+            // 
+            // txtPathologyFq
+            // 
+            this.txtPathologyFq.EditValue = "";
+            this.txtPathologyFq.Location = new System.Drawing.Point(454, 247);
+            this.txtPathologyFq.Name = "txtPathologyFq";
+            this.txtPathologyFq.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtPathologyFq.Size = new System.Drawing.Size(115, 18);
+            this.txtPathologyFq.TabIndex = 209;
+            // 
+            // lueZzhenys
+            // 
+            this.lueZzhenys.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lueZzhenys.ListWindow = null;
+            this.lueZzhenys.Location = new System.Drawing.Point(519, 343);
+            this.lueZzhenys.Name = "lueZzhenys";
+            this.lueZzhenys.ShowSButton = true;
+            this.lueZzhenys.Size = new System.Drawing.Size(82, 18);
+            this.lueZzhenys.TabIndex = 214;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl5.Location = new System.Drawing.Point(468, 346);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(48, 14);
+            this.labelControl5.TabIndex = 215;
+            this.labelControl5.Text = "主诊医师";
+            // 
             // UCIemDiagnoseEn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lueZzhenys);
+            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.txtPathologyFq);
+            this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.btnEditOutDiag);
             this.Controls.Add(this.lueHurt_Toxicosis_Ele);
             this.Controls.Add(this.btn_del);
@@ -1054,6 +1112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueHurt_Toxicosis_Ele)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPathologyFq.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueZzhenys)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1139,5 +1199,10 @@
         private DevExpress.XtraEditors.TextEdit txtPathologyName;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btnEditOutDiag;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.TextEdit txtPathologyFq;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private Common.Library.LookUpEditor lueZzhenys;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

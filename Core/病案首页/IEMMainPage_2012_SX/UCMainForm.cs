@@ -199,8 +199,8 @@ namespace DrectSoft.Core.IEMMainPage
 
 
         const float percentHeight1 = 0f;
-        const float percentHeight2 = 0.435f;
-        const float percentHeight3 = 0.565f;
+        const float percentHeight2 = 0.45f;
+        const float percentHeight3 = 0.55f;
 
         const float percentHeight4 = 0.35f;
         const float percentHeight5 = 0.154f;

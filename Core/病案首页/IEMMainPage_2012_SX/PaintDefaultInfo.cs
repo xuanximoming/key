@@ -1342,6 +1342,14 @@ namespace DrectSoft.Core.IEMMainPage
         /// 住院医师
         /// </summary>
         public string Resident_EmployeeName { get; set; }
+        /// <summary>
+        /// 主诊医师
+        /// </summary>
+        public string Attending_EmployeeID { get; set; }
+        /// <summary>
+        /// 主诊医师
+        /// </summary>
+        public string Attending_EmployeeName { get; set; }
         #endregion
         /// <summary>
         /// 是否婴儿

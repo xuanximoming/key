@@ -73,13 +73,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCIemDiagnoseEn(UCIemDiagnoseEn info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "诊断信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }

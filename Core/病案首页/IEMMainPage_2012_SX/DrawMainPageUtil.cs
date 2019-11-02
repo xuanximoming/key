@@ -1108,7 +1108,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 //死亡患者尸检
                 g.DrawString("死亡患者尸检", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
-                string isCheckDeadBody = m_IemMainPageEntity.IemBasicInfo.Autopsy_Flag; //todo
+                string isCheckDeadBody = m_IemMainPageEntity.IemDiagInfo.Autopsy_Flag; //todo
                 pointX = pointX + TextRenderer.MeasureText("死亡患者尸检", font).Width + 5;
                 pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, isCheckDeadBody, lineHeight);
                 pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.是  2.否");

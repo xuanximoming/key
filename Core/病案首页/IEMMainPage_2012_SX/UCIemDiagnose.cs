@@ -199,32 +199,6 @@ namespace DrectSoft.Core.IEMMainPage
         private void FillUIInner()
         {
             #region
-            //if (m_IemInfo.IemBasicInfo.Iem_Mainpage_NO == "")
-            //{
-            //    //to do 病患基本信息
-            //}
-            //else
-            //{
-            //出院诊断
-            //DataTable dataTableOper = new DataTable();
-            //foreach (Iem_Mainpage_Diagnosis im in m_IemInfo.IemDiagInfo)
-            //{
-            //    if (m_DiagInfoForm == null)
-            //        m_DiagInfoForm = new IemNewDiagInfoForm(m_App);
-            //    if (im.Diagnosis_Type_Id == 7 || im.Diagnosis_Type_Id == 8)
-            //    {
-            //        m_DiagInfoForm.IemOperInfo = im;
-            //        DataTable dataTable = m_DiagInfoForm.DataOper;
-            //        if (dataTableOper.Rows.Count == 0)
-            //            dataTableOper = dataTable.Clone();
-            //        foreach (DataRow row in dataTable.Rows)
-            //        {
-            //            dataTableOper.ImportRow(row);
-            //        }
-            //        //dataTableOper.AcceptChanges();
-            //    }
-
-            //}
             DataTable dataTableOper = m_IemInfo.IemDiagInfo.OutDiagTable;
             this.gridControl1.DataSource = null;
             this.gridControl1.BeginUpdate();
@@ -253,9 +227,9 @@ namespace DrectSoft.Core.IEMMainPage
             else if (m_IemInfo.IemDiagInfo.Allergic_Flag == "2")
                 chkAllergic2.Checked = true;//有过敏药物
 
-            if (m_IemInfo.IemBasicInfo.Autopsy_Flag == "1")
+            if (m_IemInfo.IemDiagInfo.Autopsy_Flag == "1")
                 chkAutopsy1.Checked = true;
-            else if (m_IemInfo.IemBasicInfo.Autopsy_Flag == "2")
+            else if (m_IemInfo.IemDiagInfo.Autopsy_Flag == "2")
                 chkAutopsy2.Checked = true;
 
             if (m_IemInfo.IemDiagInfo.BloodType == "1")
@@ -342,12 +316,12 @@ namespace DrectSoft.Core.IEMMainPage
             }
 
             if (chkAutopsy1.Checked)
-                m_IemInfo.IemBasicInfo.Autopsy_Flag = "1";
+                m_IemInfo.IemDiagInfo.Autopsy_Flag = "1";
             else if (chkAutopsy2.Checked)
-                m_IemInfo.IemBasicInfo.Autopsy_Flag = "2";
+                m_IemInfo.IemDiagInfo.Autopsy_Flag = "2";
             else
             {
-                m_IemInfo.IemBasicInfo.Autopsy_Flag = "";
+                m_IemInfo.IemDiagInfo.Autopsy_Flag = "";
             }
 
             if (chkBlood1.Checked)
@@ -554,7 +528,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "add", "", "", "", "");
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "add", "", "", "", "", "");
                 m_DiagInfoForm.ShowDialog();
                 if (m_DiagInfoForm.DialogResult == DialogResult.OK)
                 {
@@ -619,8 +593,9 @@ namespace DrectSoft.Core.IEMMainPage
                 string diagcode = dataRow["Diagnosis_Code"].ToString();//诊断的ICD编码
                 string diagname = dataRow["Diagnosis_Name"].ToString();
                 string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
+                string outstatus = dataRow["Outstatus_id"].ToString(); //出院情况
                 string diagtype = "xiyi";
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, diagtype);
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
                 if (m_DiagInfoForm.ShowDialog() == DialogResult.OK)
                 {
                     m_DiagInfoForm.IemOperInfo = null;
@@ -672,8 +647,9 @@ namespace DrectSoft.Core.IEMMainPage
                 string diagcode = dataRow["Diagnosis_Code"].ToString();//诊断的ICD编码
                 string diagname = dataRow["Diagnosis_Name"].ToString();
                 string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
+                string outstatus = dataRow["Outstatus_id"].ToString(); //出院情况
                 string diagtype = "zhongyi";
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, diagtype);
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
                 m_DiagInfoForm.ShowDialog();
                 if (m_DiagInfoForm.DialogResult == DialogResult.OK)
                 {

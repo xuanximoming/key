@@ -793,11 +793,6 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         public string Modified_Time { get; set; }
 
-        /// <summary>
-        /// 死亡患者尸检 □ 1.是  2.否
-        /// </summary>
-        public string Autopsy_Flag { get; set; }
-
 
         #region 2012国家卫生部表中病案首页新增内容
 
@@ -1342,6 +1337,10 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         public string OutDiagName { get; set; }
 
+        /// <summary>
+        /// 死亡患者尸检 □ 1.是  2.否
+        /// </summary>
+        public string Autopsy_Flag { get; set; }
 
         /// <summary>
         /// 入院诊断
@@ -1367,7 +1366,9 @@ namespace DrectSoft.Core.IEMMainPage
                     _OutDiagTable = new DataTable();
                     DataColumn dcDiagnosis_Name = new DataColumn("Diagnosis_Name", Type.GetType("System.String"));
                     DataColumn dcStatus_Id = new DataColumn("Status_Id", Type.GetType("System.String"));
+                    DataColumn dcOutStatus_Id = new DataColumn("OutStatus_Id", Type.GetType("System.String"));
                     DataColumn dcStatus_Name = new DataColumn("Status_Name", Type.GetType("System.String"));
+                    DataColumn dcOutStatus_Name = new DataColumn("OutStatus_Name", Type.GetType("System.String"));
                     DataColumn dcDiagnosis_Code = new DataColumn("Diagnosis_Code", Type.GetType("System.String"));
                     DataColumn dcDiagnosis_Type_Id = new DataColumn("Diagnosis_Type_Id", Type.GetType("System.String"));
                     DataColumn dcOrder_Value = new DataColumn("Order_Value", Type.GetType("System.String"));
@@ -1376,7 +1377,9 @@ namespace DrectSoft.Core.IEMMainPage
 
                     _OutDiagTable.Columns.Add(dcDiagnosis_Name);
                     _OutDiagTable.Columns.Add(dcStatus_Id);
+                    _OutDiagTable.Columns.Add(dcOutStatus_Id);
                     _OutDiagTable.Columns.Add(dcStatus_Name);
+                    _OutDiagTable.Columns.Add(dcOutStatus_Name);
                     _OutDiagTable.Columns.Add(dcDiagnosis_Code);
                     _OutDiagTable.Columns.Add(dcDiagnosis_Type_Id);
                     _OutDiagTable.Columns.Add(dcOrder_Value);
@@ -1428,6 +1431,11 @@ namespace DrectSoft.Core.IEMMainPage
         /// 病理诊断SN
         /// </summary>
         public string Pathology_Observation_Sn { get; set; }
+
+        /// <summary>
+        /// 病理诊断分期
+        /// </summary>
+        public string Pathology_Observation_Fq { get; set; }
 
         /// <summary>
         /// 损伤、中毒的外部因素 编号
@@ -1543,6 +1551,16 @@ namespace DrectSoft.Core.IEMMainPage
         /// 住院医师
         /// </summary>
         public string Resident_EmployeeName { get; set; }
+
+        /// <summary>
+        /// 主诊医师
+        /// </summary>
+        public string Attending_EmployeeID { get; set; }
+
+        /// <summary>
+        /// 主诊医师
+        /// </summary>
+        public string Attending_EmployeeName { get; set; }
 
         /// <summary>
         /// 进修医师

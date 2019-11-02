@@ -351,6 +351,8 @@ namespace DrectSoft.Core.IEMMainPage
                     DefaultInfo.Vs_EmployeeName = PatData.Rows[0]["ATTENDNAME"].ToString();
                     DefaultInfo.Resident_EmployeeID = PatData.Rows[0]["RESIDENT"].ToString();
                     DefaultInfo.Resident_EmployeeName = PatData.Rows[0]["RESIDENTNAME"].ToString();
+                    DefaultInfo.Attending_EmployeeID = PatData.Rows[0]["ATTENDING"].ToString();
+                    DefaultInfo.Attending_EmployeeName = PatData.Rows[0]["ATTENDINGNAME"].ToString();
 
                     DefaultInfo.IsBaby = PatData.Rows[0]["isbaby"].ToString();
                     DefaultInfo.Mother = PatData.Rows[0]["mother"].ToString();
@@ -455,7 +457,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Modified_User = row["Modified_User"].ToString();
                     IemInfo.IemBasicInfo.Modified_Time = row["Modified_Time"].ToString();
 
-                    IemInfo.IemBasicInfo.Autopsy_Flag = row["autopsy_flag"].ToString();
+                    IemInfo.IemDiagInfo.Autopsy_Flag = row["autopsy_flag"].ToString();
 
                     //--2012国家卫生部表中病案首页新增内容
                     IemInfo.IemBasicInfo.MonthAge = row["monthage"].ToString();
@@ -510,6 +512,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = row["pathology_diagnosis_id"].ToString();
                     IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = row["pathology_diagnosis_name"].ToString();
                     IemInfo.IemDiagInfo.Pathology_Observation_Sn = row["pathology_observation_sn"].ToString();
+                    IemInfo.IemDiagInfo.Pathology_Observation_Fq = row["pathology_observation_fq"].ToString();
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = row["hurt_toxicosis_ele_id"].ToString();
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = row["hurt_toxicosis_ele_name"].ToString();
 
@@ -527,6 +530,8 @@ namespace DrectSoft.Core.IEMMainPage
 
                     IemInfo.IemDiagInfo.Resident_EmployeeID = row["resident_employeeID"].ToString();
                     IemInfo.IemDiagInfo.Resident_EmployeeName = row["resident_employeeName"].ToString();
+                    IemInfo.IemDiagInfo.Attending_EmployeeID = row["attending_employeeID"].ToString();
+                    IemInfo.IemDiagInfo.Attending_EmployeeName = row["attending_employeeName"].ToString();
                     IemInfo.IemDiagInfo.Refresh_EmployeeID = row["refresh_employeeID"].ToString();
                     IemInfo.IemDiagInfo.Refresh_EmployeeName = row["refresh_employeeName"].ToString();
                     IemInfo.IemDiagInfo.Duty_NurseID = row["duty_nurse"].ToString();
@@ -651,7 +656,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Modified_User = "";
                     IemInfo.IemBasicInfo.Modified_Time = "";
 
-                    IemInfo.IemBasicInfo.Autopsy_Flag = "";
+                    IemInfo.IemDiagInfo.Autopsy_Flag = "";
 
                     //--2012国家卫生部表中病案首页新增内容
                     //IemInfo.IemBasicInfo.MonthAge = "";
@@ -714,6 +719,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = "";
                     IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = "";
                     IemInfo.IemDiagInfo.Pathology_Observation_Sn = "";
+                    IemInfo.IemDiagInfo.Pathology_Observation_Fq = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = "";
 
@@ -739,6 +745,8 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Vs_EmployeeName = DefaultInfo.Vs_EmployeeName;
                     IemInfo.IemDiagInfo.Resident_EmployeeID = DefaultInfo.Resident_EmployeeID;
                     IemInfo.IemDiagInfo.Resident_EmployeeName = DefaultInfo.Resident_EmployeeName;
+                    IemInfo.IemDiagInfo.Attending_EmployeeID = DefaultInfo.Attending_EmployeeID;
+                    IemInfo.IemDiagInfo.Attending_EmployeeName = DefaultInfo.Attending_EmployeeName;
 
 
                     IemInfo.IemDiagInfo.Refresh_EmployeeID = "";
@@ -905,6 +913,7 @@ namespace DrectSoft.Core.IEMMainPage
                         IemInfo.IemBasicInfo.OutHosWardName = "";
                         //DtInfoOfAdmission.Rows[0]["OutWardName"].ToString();
                         IemInfo.IemDiagInfo.Resident_EmployeeID = DtInfoOfAdmission.Rows[0]["RESIDENT"].ToString();//住院医师
+                        //IemInfo.IemDiagInfo.Attending_EmployeeID = DtInfoOfAdmission.Rows[0]["ATTENDING"].ToString();//主诊医师
                         IemInfo.IemDiagInfo.Section_DirectorID = DtInfoOfAdmission.Rows[0]["CHIEF"].ToString();//科主任
                     }
                     if (CurrentInpatient.InfoOfAdmission != null)
@@ -1175,8 +1184,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 dr["Diagnosis_Code"] = row["Diagnosis_Code"].ToString();
                 dr["Type"] = row["Type"].ToString();
                 dr["TypeName"] = row["TypeName"].ToString();
-
-                //xll  2013-08-27 未添加排序码赋值 导致顺序错乱
+                dr["OutStatus_Id"] = row["OutStatus_Id"].ToString();
+                dr["OutStatus_Name"] = row["OutStatus_Name"].ToString();
                 dr["Order_Value"] = row["Order_Value"].ToString();
                 dt.Rows.Add(dr);
 
@@ -1636,6 +1645,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraPATHOLOGY_DIAGNOSIS_NAME.Value = info.IemDiagInfo.Pathology_Diagnosis_Name;
             SqlParameter paraPATHOLOGY_OBSERVATION_SN = new SqlParameter("@PATHOLOGY_OBSERVATION_SN", SqlDbType.VarChar, 300);
             paraPATHOLOGY_OBSERVATION_SN.Value = info.IemDiagInfo.Pathology_Observation_Sn;
+            SqlParameter paraPATHOLOGY_OBSERVATION_FQ = new SqlParameter("@PATHOLOGY_OBSERVATION_FQ", SqlDbType.VarChar, 300);
+            paraPATHOLOGY_OBSERVATION_FQ.Value = info.IemDiagInfo.Pathology_Observation_Fq;
             SqlParameter paraALLERGIC_DRUG = new SqlParameter("@ALLERGIC_DRUG", SqlDbType.VarChar, 19);
             paraALLERGIC_DRUG.Value = info.IemDiagInfo.Allergic_Drug;
             SqlParameter paraSection_Director = new SqlParameter("@SECTION_DIRECTOR", SqlDbType.VarChar, 20);
@@ -1647,8 +1658,11 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraVs_Employee_Code.Value = info.IemDiagInfo.Vs_EmployeeID;
             SqlParameter paraResident_Employee_Code = new SqlParameter("@Resident_Employee_Code", SqlDbType.VarChar, 20);
             paraResident_Employee_Code.Value = info.IemDiagInfo.Resident_EmployeeID;
+            SqlParameter paraAttending_Physician_Code = new SqlParameter("@Attending_Physician_Code", SqlDbType.VarChar, 20);
+            paraAttending_Physician_Code.Value = info.IemDiagInfo.Attending_EmployeeID;
             SqlParameter paraRefresh_Employee_Code = new SqlParameter("@Refresh_Employee_Code", SqlDbType.VarChar, 20);
             paraRefresh_Employee_Code.Value = info.IemDiagInfo.Refresh_EmployeeID;
+
             SqlParameter paraDUTY_NURSE = new SqlParameter("@DUTY_NURSE", SqlDbType.VarChar, 20);
             paraDUTY_NURSE.Value = info.IemDiagInfo.Duty_NurseID;
 
@@ -1742,7 +1756,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraALLERGIC_FLAG.Value = info.IemDiagInfo.Allergic_Flag;
 
             SqlParameter paraAUTOPSY_FLAG = new SqlParameter("@AUTOPSY_FLAG", SqlDbType.VarChar, 20);
-            paraAUTOPSY_FLAG.Value = info.IemBasicInfo.Autopsy_Flag;
+            paraAUTOPSY_FLAG.Value = info.IemDiagInfo.Autopsy_Flag;
             SqlParameter paraCSD_PROVINCEID = new SqlParameter("@CSD_PROVINCEID", SqlDbType.VarChar, 20);
             paraCSD_PROVINCEID.Value = info.IemBasicInfo.CSD_ProvinceID;
             SqlParameter paraCSD_CITYID = new SqlParameter("@CSD_CITYID", SqlDbType.VarChar, 20);
@@ -1835,8 +1849,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraOfficeTEL,paraOfficePost,paraContactPerson,paraRelationship,paraContactAddress,
                 paraContactTEL,paraAdmitDate,paraMainDiagDate,paraAdmitDept,paraAdmitWard,
                 paraTrans_AdmitDept,paraOutWardDate,paraOutHosDept,paraOutHosWard,
-                paraActual_Days,paraPATHOLOGY_DIAGNOSIS_NAME,paraPATHOLOGY_OBSERVATION_SN,paraALLERGIC_DRUG,paraSection_Director,
-                paraDirector,paraVs_Employee_Code,paraResident_Employee_Code,paraRefresh_Employee_Code,paraDUTY_NURSE ,
+                paraActual_Days,paraPATHOLOGY_DIAGNOSIS_NAME,paraPATHOLOGY_OBSERVATION_SN,paraPATHOLOGY_OBSERVATION_FQ,paraALLERGIC_DRUG,paraSection_Director,
+                paraDirector,paraVs_Employee_Code,paraResident_Employee_Code,paraAttending_Physician_Code,paraRefresh_Employee_Code,paraDUTY_NURSE ,
                 paraInterne,paraCoding_User,paraMedical_Quality_Id,paraQuality_Control_Doctor,paraQuality_Control_Nurse,
                 paraQuality_Control_Date,
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
@@ -1877,6 +1891,9 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             SqlParameter paraStatus_Id = new SqlParameter("@Status_Id", SqlDbType.VarChar, 12);
             paraStatus_Id.Value = info["Status_Id"];
 
+            SqlParameter paraOutStatus_Id = new SqlParameter("@OutStatus_Id", SqlDbType.VarChar, 12);
+            paraOutStatus_Id.Value = info["OutStatus_Id"];
+
             SqlParameter paraOrder_Value = new SqlParameter("@Order_Value", SqlDbType.VarChar, 3);
             paraOrder_Value.Value = info["Order_Value"].ToString() == "" ? "0" : info["Order_Value"].ToString();
             SqlParameter paraCreate_User = new SqlParameter("@Create_User", SqlDbType.VarChar, 10);
@@ -1889,7 +1906,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
 
             SqlParameter[] paraColl = new SqlParameter[] 
             { 
-                paraIem_Mainpage_NO, paraDiagnosis_Type_Id, paraDiagnosis_Code, paraDiagnosis_Name, paraStatus_Id, 
+                paraIem_Mainpage_NO, paraDiagnosis_Type_Id, paraDiagnosis_Code, paraDiagnosis_Name, paraStatus_Id,paraOutStatus_Id, 
                 paraOrder_Value, paraCreate_User ,paraType,paraTypeName};
 
             sqlHelper.ExecuteNoneQuery("IEM_MAIN_PAGE_SX.usp_edif_iem_mainpage_diag_sx", paraColl, CommandType.StoredProcedure);

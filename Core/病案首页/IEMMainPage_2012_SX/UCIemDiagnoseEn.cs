@@ -115,6 +115,9 @@ namespace DrectSoft.Core.IEMMainPage
             lueZyys.SqlWordbook = sqlWordBook2;
             lueZyys.ListWindow = lupInfo2;
 
+            lueZzhenys.SqlWordbook = sqlWordBook2;
+            lueZzhenys.ListWindow = lupInfo2;
+
             lueDuty_Nurse.SqlWordbook = sqlWordBook1;
             lueDuty_Nurse.ListWindow = lupInfo1;
 
@@ -199,32 +202,6 @@ namespace DrectSoft.Core.IEMMainPage
         private void FillUIInner()
         {
             #region
-            //if (m_IemInfo.IemBasicInfo.Iem_Mainpage_NO == "")
-            //{
-            //    //to do 病患基本信息
-            //}
-            //else
-            //{
-            //出院诊断
-            //DataTable dataTableOper = new DataTable();
-            //foreach (Iem_Mainpage_Diagnosis im in m_IemInfo.IemDiagInfo)
-            //{
-            //    if (m_DiagInfoForm == null)
-            //        m_DiagInfoForm = new IemNewDiagInfoForm(m_App);
-            //    if (im.Diagnosis_Type_Id == 7 || im.Diagnosis_Type_Id == 8)
-            //    {
-            //        m_DiagInfoForm.IemOperInfo = im;
-            //        DataTable dataTable = m_DiagInfoForm.DataOper;
-            //        if (dataTableOper.Rows.Count == 0)
-            //            dataTableOper = dataTable.Clone();
-            //        foreach (DataRow row in dataTable.Rows)
-            //        {
-            //            dataTableOper.ImportRow(row);
-            //        }
-            //        //dataTableOper.AcceptChanges();
-            //    }
-
-            //}
             DataTable dataTableOper = m_IemInfo.IemDiagInfo.OutDiagTable;
             this.gridControl1.DataSource = null;
             this.gridControl1.BeginUpdate();
@@ -232,20 +209,14 @@ namespace DrectSoft.Core.IEMMainPage
                 this.gridControl1.DataSource = dataTableOper.Select("(Diagnosis_Type_Id = '7' or Diagnosis_Type_Id = '8') and Type = '1'").CopyToDataTable();
             this.gridControl1.EndUpdate();
 
-            //this.gridControl2.DataSource = null;
-            //this.gridControl2.BeginUpdate();
-            //if (dataTableOper.Select("(Diagnosis_Type_Id = '7' or Diagnosis_Type_Id = '8') and Type = '2'").Length != 0)
-            //    this.gridControl2.DataSource = dataTableOper.Select("(Diagnosis_Type_Id = '7' or Diagnosis_Type_Id = '8') and Type = '2'").CopyToDataTable();
-            //this.gridControl2.EndUpdate();
             m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiagnose);
-            //m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiagnose2);
 
             lueHurt_Toxicosis_Ele.CodeValue = m_IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID;
 
             txtPathologyName.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_Name;
             txtPathologyID.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID;
             txtPathologySn.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Sn;
-
+            txtPathologyFq.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Fq;
 
             txtAllergicDrug.Text = m_IemInfo.IemDiagInfo.Allergic_Drug;
             if (m_IemInfo.IemDiagInfo.Allergic_Flag == "1")
@@ -253,9 +224,9 @@ namespace DrectSoft.Core.IEMMainPage
             else if (m_IemInfo.IemDiagInfo.Allergic_Flag == "2")
                 chkAllergic2.Checked = true;//有过敏药物
 
-            if (m_IemInfo.IemBasicInfo.Autopsy_Flag == "1")
+            if (m_IemInfo.IemDiagInfo.Autopsy_Flag == "1")
                 chkAutopsy1.Checked = true;
-            else if (m_IemInfo.IemBasicInfo.Autopsy_Flag == "2")
+            else if (m_IemInfo.IemDiagInfo.Autopsy_Flag == "2")
                 chkAutopsy2.Checked = true;
 
             if (m_IemInfo.IemDiagInfo.BloodType == "1")
@@ -295,6 +266,7 @@ namespace DrectSoft.Core.IEMMainPage
             lueZrys.CodeValue = m_IemInfo.IemDiagInfo.DirectorID;
             lueZzys.CodeValue = m_IemInfo.IemDiagInfo.Vs_EmployeeID;
             lueZyys.CodeValue = m_IemInfo.IemDiagInfo.Resident_EmployeeID;
+            lueZzhenys.CodeValue = m_IemInfo.IemDiagInfo.Attending_EmployeeID;
             lueDuty_Nurse.CodeValue = m_IemInfo.IemDiagInfo.Duty_NurseID;
             luejxys.CodeValue = m_IemInfo.IemDiagInfo.Refresh_EmployeeID;
             lueSxys.CodeValue = m_IemInfo.IemDiagInfo.InterneID;
@@ -329,7 +301,7 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = txtPathologyName.Text;
             m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = txtPathologyID.Text;
             m_IemInfo.IemDiagInfo.Pathology_Observation_Sn = txtPathologySn.Text;
-
+            m_IemInfo.IemDiagInfo.Pathology_Observation_Fq = txtPathologyFq.Text;
 
             m_IemInfo.IemDiagInfo.Allergic_Drug = txtAllergicDrug.Text;
             if (chkAllergic1.Checked)
@@ -342,12 +314,12 @@ namespace DrectSoft.Core.IEMMainPage
             }
 
             if (chkAutopsy1.Checked)
-                m_IemInfo.IemBasicInfo.Autopsy_Flag = "1";
+                m_IemInfo.IemDiagInfo.Autopsy_Flag = "1";
             else if (chkAutopsy2.Checked)
-                m_IemInfo.IemBasicInfo.Autopsy_Flag = "2";
+                m_IemInfo.IemDiagInfo.Autopsy_Flag = "2";
             else
             {
-                m_IemInfo.IemBasicInfo.Autopsy_Flag = "";
+                m_IemInfo.IemDiagInfo.Autopsy_Flag = "";
             }
 
             if (chkBlood1.Checked)
@@ -383,20 +355,6 @@ namespace DrectSoft.Core.IEMMainPage
 
             DataTable dt = m_IemInfo.IemDiagInfo.OutDiagTable;
             dt.Rows.Clear();
-            //门(急)诊诊断
-            //m_IemInfo.IemDiagInfo = new List<Iem_Mainpage_Diagnosis>();
-            //if (!String.IsNullOrEmpty(this.lueOutDiag.CodeValue))
-            //{
-            //    DataRow imOut = dt.NewRow();
-            //    //Iem_Mainpage_Diagnosis imOut = new Iem_Mainpage_Diagnosis();
-            //    imOut["Diagnosis_Code"] = this.lueOutDiag.CodeValue;
-            //    imOut["Diagnosis_Name"] = this.lueOutDiag.DisplayValue;
-            //    imOut["Diagnosis_Type_Id"] = 13;
-            //    //m_IemInfo.IemDiagInfo.Add(imOut);
-            //    dt.Rows.Add(imOut);
-            //    m_IemInfo.IemDiagInfo.OutDiagID = this.lueOutDiag.CodeValue;
-            //    m_IemInfo.IemDiagInfo.OutDiagName = this.lueOutDiag.DisplayValue;
-            //}
             #region 已修改  by xlb 2013-07-15 解决保存时表数据窜位置现象
 
             if (this.gridControl1.DataSource != null)
@@ -476,6 +434,8 @@ namespace DrectSoft.Core.IEMMainPage
                     //}
                     imOut["Status_Id"] = Convertmy.ToDecimal(row["Status_Id"]);
                     imOut["Status_Name"] = row["Status_Name"];
+                    imOut["OutStatus_Id"] = Convertmy.ToDecimal(row["OutStatus_Id"]);
+                    imOut["OutStatus_Name"] = row["OutStatus_Name"];
                     imOut["Order_Value"] = i + 1;
                     imOut["Type"] = row["Type"];
                     imOut["TypeName"] = row["TypeName"];
@@ -492,6 +452,8 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemDiagInfo.Vs_EmployeeName = lueZzys.Text;
             m_IemInfo.IemDiagInfo.Resident_EmployeeID = lueZyys.CodeValue;
             m_IemInfo.IemDiagInfo.Resident_EmployeeName = lueZyys.Text;
+            m_IemInfo.IemDiagInfo.Attending_EmployeeID = lueZzhenys.CodeValue;
+            m_IemInfo.IemDiagInfo.Attending_EmployeeName = lueZzhenys.Text;
             m_IemInfo.IemDiagInfo.Duty_NurseID = lueDuty_Nurse.CodeValue;
             m_IemInfo.IemDiagInfo.Duty_NurseName = lueDuty_Nurse.Text;
             m_IemInfo.IemDiagInfo.Refresh_EmployeeID = luejxys.CodeValue;
@@ -554,7 +516,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "add", "", "", "", "");
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "add", "", "", "", "", "");
                 m_DiagInfoForm.ShowDialog();
                 if (m_DiagInfoForm.DialogResult == DialogResult.OK)
                 {
@@ -619,8 +581,9 @@ namespace DrectSoft.Core.IEMMainPage
                 string diagcode = dataRow["Diagnosis_Code"].ToString();//诊断的ICD编码
                 string diagname = dataRow["Diagnosis_Name"].ToString();
                 string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
+                string outstatus = dataRow["Outstatus_id"].ToString(); //出院情况
                 string diagtype = "xiyi";
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, diagtype);
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
                 if (m_DiagInfoForm.ShowDialog() == DialogResult.OK)
                 {
                     m_DiagInfoForm.IemOperInfo = null;
