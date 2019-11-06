@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DrectSoft.Common.Library;
-using DrectSoft.Wordbook;
-using System.Data.SqlClient;
+﻿using DevExpress.XtraEditors;
+using DrectSoft.Common.Eop;
 //
 
-using Convertmy = DrectSoft.Core.UtilsForExtension;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DevExpress.XtraEditors;
-using DrectSoft.Common.Eop;
-using DrectSoft.Common.Ctrs.DLG;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -131,6 +122,53 @@ namespace DrectSoft.Core.IEMMainPage
                     else if (m_IemInfo.IemBasicInfo.OutHosType == "9")
                         chkOutHosType9.Checked = true;
 
+                    if (m_IemInfo.IemBasicInfo.Antibacterial_Drugs == "1")
+                        chkANTIBACTERIAL1.Checked = true;
+                    else if (m_IemInfo.IemBasicInfo.Antibacterial_Drugs == "2")
+                        chkANTIBACTERIAL2.Checked = true;
+
+                    if (m_IemInfo.IemBasicInfo.Combined_Medication == "1")
+                        chkCOMBINED1.Checked = true;
+                    else if (m_IemInfo.IemBasicInfo.Combined_Medication == "2")
+                        chkCOMBINED2.Checked = true;
+                    txtDURATIONDATE.Text = m_IemInfo.IemBasicInfo.Durationdate;
+                    /// <summary>
+                    /// 是否实施临床路径管理
+                    /// </summary>
+                    if (m_IemInfo.IemBasicInfo.Pathway_Flag == "1")
+                        chkPATHWAY_FLAG1.Checked = true;
+                    else if (m_IemInfo.IemBasicInfo.Pathway_Flag == "2")
+                        chkPATHWAY_FLAG2.Checked = true;
+
+                    /// <summary>
+                    /// 是否完成临床路径
+                    /// </summary>
+                    if (m_IemInfo.IemBasicInfo.Pathway_Over == "1")
+                        chkPATHWAY_OVER1.Checked = true;
+                    else if (m_IemInfo.IemBasicInfo.Pathway_Over == "2")
+                        chkPATHWAY_OVER2.Checked = true;
+
+                    /// <summary>
+                    /// 是否变异
+                    /// </summary>
+                    if (m_IemInfo.IemBasicInfo.Variation_Flag == "1")
+                        chkVARIATION_FLAG1.Checked = true;
+                    else if (m_IemInfo.IemBasicInfo.Variation_Flag == "2")
+                        chkVARIATION_FLAG2.Checked = true;
+
+                    /// <summary>
+                    /// 是否因同一病种再入院
+                    /// </summary>
+                    if (m_IemInfo.IemBasicInfo.Rehospitalization == "1")
+                        chkREHOSPITALIZATION1.Checked = true;
+                    else if (m_IemInfo.IemBasicInfo.Rehospitalization == "2")
+                        chkREHOSPITALIZATION2.Checked = true;
+
+
+                    txtpath_out.Text = m_IemInfo.IemBasicInfo.Path_Out_Reason;
+                    txtvariation.Text = m_IemInfo.IemBasicInfo.Variation_Reason;
+                    txtintervaldate.Text = m_IemInfo.IemBasicInfo.Intervaldate;
+
                     txtReceiveHosPital.Text = m_IemInfo.IemBasicInfo.ReceiveHosPital;
                     txtReceiveHosPital2.Text = m_IemInfo.IemBasicInfo.ReceiveHosPital2;
 
@@ -223,6 +261,59 @@ namespace DrectSoft.Core.IEMMainPage
                     m_IemInfo.IemBasicInfo.OutHosType = "9";
                 else
                     m_IemInfo.IemBasicInfo.OutHosType = "";
+                //Ⅰ类手术切口预防性应用抗菌药物
+                if (chkANTIBACTERIAL1.Checked)
+                    m_IemInfo.IemBasicInfo.Antibacterial_Drugs = "1";
+                else if (chkANTIBACTERIAL2.Checked)
+                    m_IemInfo.IemBasicInfo.Antibacterial_Drugs = "2";
+                else
+                    m_IemInfo.IemBasicInfo.Antibacterial_Drugs = "";
+                //联合用药
+                if (chkCOMBINED1.Checked)
+                    m_IemInfo.IemBasicInfo.Combined_Medication = "1";
+                else if (chkCOMBINED2.Checked)
+                    m_IemInfo.IemBasicInfo.Combined_Medication = "2";
+                else
+                    m_IemInfo.IemBasicInfo.Combined_Medication = "";
+                //使用持续时间
+                m_IemInfo.IemBasicInfo.Durationdate = txtDURATIONDATE.Text;
+
+                if (chkPATHWAY_FLAG1.Checked)
+                    m_IemInfo.IemBasicInfo.Pathway_Flag = "1";
+                else if (chkPATHWAY_FLAG2.Checked)
+                    m_IemInfo.IemBasicInfo.Pathway_Flag = "2";
+                else
+                    m_IemInfo.IemBasicInfo.Pathway_Flag = "";
+
+
+                if (chkPATHWAY_OVER1.Checked)
+                    m_IemInfo.IemBasicInfo.Pathway_Over = "1";
+                else if (chkPATHWAY_OVER2.Checked)
+                    m_IemInfo.IemBasicInfo.Pathway_Over = "2";
+                else
+                    m_IemInfo.IemBasicInfo.Pathway_Over = "";
+
+
+                if (chkVARIATION_FLAG1.Checked)
+                    m_IemInfo.IemBasicInfo.Variation_Flag = "1";
+                else if (chkVARIATION_FLAG2.Checked)
+                    m_IemInfo.IemBasicInfo.Variation_Flag = "2";
+                else
+                    m_IemInfo.IemBasicInfo.Variation_Flag = "";
+
+
+                if (chkREHOSPITALIZATION1.Checked)
+                    m_IemInfo.IemBasicInfo.Rehospitalization = "1";
+                else if (chkREHOSPITALIZATION2.Checked)
+                    m_IemInfo.IemBasicInfo.Rehospitalization = "2";
+                else
+                    m_IemInfo.IemBasicInfo.Rehospitalization = "";
+
+
+                m_IemInfo.IemBasicInfo.Path_Out_Reason = txtpath_out.Text;
+                m_IemInfo.IemBasicInfo.Variation_Reason = txtvariation.Text;
+                m_IemInfo.IemBasicInfo.Intervaldate = txtintervaldate.Text;
+
 
                 m_IemInfo.IemBasicInfo.ReceiveHosPital = txtReceiveHosPital.Text;
                 m_IemInfo.IemBasicInfo.ReceiveHosPital2 = txtReceiveHosPital2.Text;
@@ -287,7 +378,7 @@ namespace DrectSoft.Core.IEMMainPage
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -336,7 +427,7 @@ namespace DrectSoft.Core.IEMMainPage
             }
             catch (Exception ex)
             {
-               MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -448,7 +539,7 @@ namespace DrectSoft.Core.IEMMainPage
             try
             {
                 GetUI();
-               //((ShowUC)this.Parent).Close(true, m_IemInfo);
+                //((ShowUC)this.Parent).Close(true, m_IemInfo);
 
                 //点击确认按钮就将数据更新到数据库
                 CurrentInpatient = m_App.CurrentPatientInfo;

@@ -925,7 +925,118 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
         private string _OutHosType;
+        /// <summary>
+        /// Ⅰ类手术切口预防性应用抗菌药物 □ 1. 是 2. 否
+        /// </summary>
+        public string Antibacterial_Drugs
+        {
+            get
+            {
+                return _Antibacterial_Drugs;
+            }
+            set
+            {
+                _Antibacterial_Drugs = value;
+            }
+        }
 
+        private string _Antibacterial_Drugs;
+
+        /// <summary>
+        /// 使用持续时间
+        /// </summary>
+        public string Durationdate
+        {
+            get;
+            set;
+
+        }
+
+
+        /// <summary>
+        /// 联合用药□ 1. 是 2. 否
+        /// </summary>
+        public string Combined_Medication
+        {
+            get
+            {
+                return _Combined_Medication;
+            }
+            set
+            {
+                _Combined_Medication = value;
+            }
+        }
+
+        private string _Combined_Medication;
+        /// <summary>
+        /// 是否实施临床路径管理
+        /// </summary>
+        public string Pathway_Flag
+        {
+            get { return _Pathway_Flag; }
+            set { _Pathway_Flag = value; }
+        }
+        private string _Pathway_Flag;
+        /// <summary>
+        /// 是否完成临床路径
+        /// </summary>
+        public string Pathway_Over
+        {
+            get { return _Pathway_Over; }
+            set { _Pathway_Over = value; }
+        }
+        private string _Pathway_Over;
+
+        /// <summary>
+        /// 退出原因：
+        /// </summary>
+        public string Path_Out_Reason
+        {
+            get { return _Path_Out_Reason; }
+            set { _Path_Out_Reason = value; }
+        }
+        private string _Path_Out_Reason;
+
+        /// <summary>
+        /// 是否变异
+        /// </summary>
+        public string Variation_Flag
+        {
+            get { return _Variation_Flag; }
+            set { _Variation_Flag = value; }
+        }
+        private string _Variation_Flag;
+
+        /// <summary>
+        /// 变异原因：
+        /// </summary>
+        public string Variation_Reason
+        {
+            get { return _Variation_Reason; }
+            set { _Variation_Reason = value; }
+        }
+        private string _Variation_Reason;
+
+        /// <summary>
+        /// 是否因同一病种再入院
+        /// </summary>
+        public string Rehospitalization
+        {
+            get { return _Rehospitalization; }
+            set { _Rehospitalization = value; }
+        }
+        private string _Rehospitalization;
+
+        /// <summary>
+        /// 与上次出院日期间隔天数
+        /// </summary>
+        public string Intervaldate
+        {
+            get { return _Intervaldate; }
+            set { _Intervaldate = value; }
+        }
+        private string _Intervaldate;
         /// <summary>
         /// 2.医嘱转院，拟接收医疗机构名称：RECEIVEHOSPITAL
         /// </summary>
@@ -941,7 +1052,6 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
         private string _ReceiveHosPital;
-
         /// <summary>
         /// 3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称：
         /// </summary>
@@ -1341,6 +1451,10 @@ namespace DrectSoft.Core.IEMMainPage
         /// 死亡患者尸检 □ 1.是  2.否
         /// </summary>
         public string Autopsy_Flag { get; set; }
+        /// <summary>
+        /// 随诊 □ 1. 是 2. 否
+        /// </summary>
+        public string Follow_Up { get; set; }
 
         /// <summary>
         /// 入院诊断
@@ -1436,7 +1550,12 @@ namespace DrectSoft.Core.IEMMainPage
         /// 病理诊断分期
         /// </summary>
         public string Pathology_Observation_Fq { get; set; }
+        //follow_up_cycle
 
+        /// <summary>
+        /// 随诊期限
+        /// </summary>
+        public string Follow_Up_Cycle { get; set; }
         /// <summary>
         /// 损伤、中毒的外部因素 编号
         /// </summary>

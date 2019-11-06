@@ -865,7 +865,10 @@ namespace DrectSoft.Core.IEMMainPage
         /// 死亡患者尸检 □ 1.是  2.否
         /// </summary>
         public string Autopsy_Flag { get; set; }
-
+        /// <summary>
+        /// 随诊 □ 1. 是 2. 否
+        /// </summary>
+        public string Follow_Up { get; set; }
 
         #region 2012国家卫生部表中病案首页新增内容
 

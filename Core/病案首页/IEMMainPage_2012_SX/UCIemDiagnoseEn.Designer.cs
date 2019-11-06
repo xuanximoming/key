@@ -112,6 +112,11 @@
             this.txtPathologyFq = new DevExpress.XtraEditors.TextEdit();
             this.lueZzhenys = new DrectSoft.Common.Library.LookUpEditor();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.chkFollowup2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkFollowup1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txtFOLLOWUPCYCLE = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood2.Properties)).BeginInit();
@@ -153,6 +158,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyFq.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueZzhenys)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFollowup2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFollowup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFOLLOWUPCYCLE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNewOutDiag
@@ -992,11 +1000,67 @@
             this.labelControl5.TabIndex = 215;
             this.labelControl5.Text = "主诊医师";
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl6.Location = new System.Drawing.Point(235, 299);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(24, 14);
+            this.labelControl6.TabIndex = 220;
+            this.labelControl6.Text = "随诊";
+            // 
+            // chkFollowup2
+            // 
+            this.chkFollowup2.Location = new System.Drawing.Point(333, 297);
+            this.chkFollowup2.Name = "chkFollowup2";
+            this.chkFollowup2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkFollowup2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkFollowup2.Properties.Caption = "2.否";
+            this.chkFollowup2.Properties.RadioGroupIndex = 5;
+            this.chkFollowup2.Size = new System.Drawing.Size(57, 19);
+            this.chkFollowup2.TabIndex = 222;
+            this.chkFollowup2.TabStop = false;
+            // 
+            // chkFollowup1
+            // 
+            this.chkFollowup1.Location = new System.Drawing.Point(265, 296);
+            this.chkFollowup1.Name = "chkFollowup1";
+            this.chkFollowup1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkFollowup1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkFollowup1.Properties.Caption = "1.是";
+            this.chkFollowup1.Properties.RadioGroupIndex = 5;
+            this.chkFollowup1.Size = new System.Drawing.Size(63, 19);
+            this.chkFollowup1.TabIndex = 221;
+            this.chkFollowup1.TabStop = false;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl7.Location = new System.Drawing.Point(390, 299);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(48, 14);
+            this.labelControl7.TabIndex = 227;
+            this.labelControl7.Text = "随诊期限";
+            // 
+            // txtFOLLOWUPCYCLE
+            // 
+            this.txtFOLLOWUPCYCLE.EditValue = "";
+            this.txtFOLLOWUPCYCLE.Location = new System.Drawing.Point(444, 298);
+            this.txtFOLLOWUPCYCLE.Name = "txtFOLLOWUPCYCLE";
+            this.txtFOLLOWUPCYCLE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtFOLLOWUPCYCLE.Size = new System.Drawing.Size(115, 18);
+            this.txtFOLLOWUPCYCLE.TabIndex = 228;
+            // 
             // UCIemDiagnoseEn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.txtFOLLOWUPCYCLE);
+            this.Controls.Add(this.labelControl7);
+            this.Controls.Add(this.chkFollowup2);
+            this.Controls.Add(this.chkFollowup1);
+            this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.lueZzhenys);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.txtPathologyFq);
@@ -1114,6 +1178,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPathologyFq.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueZzhenys)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFollowup2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkFollowup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFOLLOWUPCYCLE.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1204,5 +1271,10 @@
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private Common.Library.LookUpEditor lueZzhenys;
         private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.CheckEdit chkFollowup2;
+        private DevExpress.XtraEditors.CheckEdit chkFollowup1;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit txtFOLLOWUPCYCLE;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
     }
 }

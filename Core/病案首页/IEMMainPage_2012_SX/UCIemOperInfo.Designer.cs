@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAddOperation = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridViewOper = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -48,7 +49,7 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -57,7 +58,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.btn_del_operbefore_diag = new DevExpress.XtraBars.BarButtonItem();
             this.btn_operafter_diag = new DevExpress.XtraBars.BarButtonItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btn_Close = new DevExpress.XtraEditors.SimpleButton();
             this.btn_OK = new DevExpress.XtraEditors.SimpleButton();
             this.txtLaterHosComaMinute = new DevExpress.XtraEditors.TextEdit();
@@ -89,6 +90,34 @@
             this.chkOutHosType1 = new DevExpress.XtraEditors.CheckEdit();
             this.hLineEx1 = new DrectSoft.Core.IEMMainPage.HLineEx();
             this.btnEditOperation = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.chkANTIBACTERIAL1 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkANTIBACTERIAL2 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDURATIONDATE = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.chkCOMBINED2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkCOMBINED1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.chkPATHWAY_FLAG2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkPATHWAY_FLAG1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.chkPATHWAY_OVER2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkPATHWAY_OVER1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.chkVARIATION_FLAG2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkVARIATION_FLAG1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.txtpath_out = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.txtvariation = new DevExpress.XtraEditors.TextEdit();
+            this.chkREHOSPITALIZATION2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkREHOSPITALIZATION1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.txtintervaldate = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -110,6 +139,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkOutHosType4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAgainInHospital1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOutHosType1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkANTIBACTERIAL1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkANTIBACTERIAL2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDURATIONDATE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCOMBINED2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCOMBINED1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_FLAG2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_FLAG1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_OVER2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_OVER1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVARIATION_FLAG2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVARIATION_FLAG1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtpath_out.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvariation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtintervaldate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddOperation
@@ -342,7 +387,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 342);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 454);
             this.barDockControlBottom.Size = new System.Drawing.Size(620, 0);
             // 
             // barDockControlLeft
@@ -350,14 +395,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 342);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 454);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(620, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 342);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 454);
             // 
             // btn_del_Operinfo
             // 
@@ -393,7 +438,7 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(520, 309);
+            this.btn_Close.Location = new System.Drawing.Point(523, 413);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(75, 27);
             this.btn_Close.TabIndex = 182;
@@ -402,7 +447,7 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(416, 309);
+            this.btn_OK.Location = new System.Drawing.Point(419, 413);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(75, 27);
             this.btn_OK.TabIndex = 181;
@@ -411,7 +456,7 @@
             // 
             // txtLaterHosComaMinute
             // 
-            this.txtLaterHosComaMinute.Location = new System.Drawing.Point(541, 271);
+            this.txtLaterHosComaMinute.Location = new System.Drawing.Point(546, 350);
             this.txtLaterHosComaMinute.Name = "txtLaterHosComaMinute";
             this.txtLaterHosComaMinute.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtLaterHosComaMinute.Size = new System.Drawing.Size(26, 18);
@@ -419,7 +464,7 @@
             // 
             // txtBeforeHosComaMinute
             // 
-            this.txtBeforeHosComaMinute.Location = new System.Drawing.Point(317, 271);
+            this.txtBeforeHosComaMinute.Location = new System.Drawing.Point(322, 350);
             this.txtBeforeHosComaMinute.Name = "txtBeforeHosComaMinute";
             this.txtBeforeHosComaMinute.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtBeforeHosComaMinute.Size = new System.Drawing.Size(26, 18);
@@ -427,7 +472,7 @@
             // 
             // txtLaterHosComaHour
             // 
-            this.txtLaterHosComaHour.Location = new System.Drawing.Point(481, 271);
+            this.txtLaterHosComaHour.Location = new System.Drawing.Point(486, 350);
             this.txtLaterHosComaHour.Name = "txtLaterHosComaHour";
             this.txtLaterHosComaHour.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtLaterHosComaHour.Size = new System.Drawing.Size(26, 18);
@@ -435,7 +480,7 @@
             // 
             // txtBeforeHosComaHour
             // 
-            this.txtBeforeHosComaHour.Location = new System.Drawing.Point(257, 271);
+            this.txtBeforeHosComaHour.Location = new System.Drawing.Point(262, 350);
             this.txtBeforeHosComaHour.Name = "txtBeforeHosComaHour";
             this.txtBeforeHosComaHour.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtBeforeHosComaHour.Size = new System.Drawing.Size(26, 18);
@@ -443,7 +488,7 @@
             // 
             // txtLaterHosComaDay
             // 
-            this.txtLaterHosComaDay.Location = new System.Drawing.Point(429, 271);
+            this.txtLaterHosComaDay.Location = new System.Drawing.Point(434, 350);
             this.txtLaterHosComaDay.Name = "txtLaterHosComaDay";
             this.txtLaterHosComaDay.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtLaterHosComaDay.Size = new System.Drawing.Size(26, 18);
@@ -451,7 +496,7 @@
             // 
             // txtBeforeHosComaDay
             // 
-            this.txtBeforeHosComaDay.Location = new System.Drawing.Point(205, 271);
+            this.txtBeforeHosComaDay.Location = new System.Drawing.Point(210, 350);
             this.txtBeforeHosComaDay.Name = "txtBeforeHosComaDay";
             this.txtBeforeHosComaDay.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtBeforeHosComaDay.Size = new System.Drawing.Size(26, 18);
@@ -460,7 +505,7 @@
             // txtAgainInHospitalReason
             // 
             this.txtAgainInHospitalReason.EditValue = "";
-            this.txtAgainInHospitalReason.Location = new System.Drawing.Point(341, 247);
+            this.txtAgainInHospitalReason.Location = new System.Drawing.Point(346, 326);
             this.txtAgainInHospitalReason.Name = "txtAgainInHospitalReason";
             this.txtAgainInHospitalReason.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtAgainInHospitalReason.Size = new System.Drawing.Size(234, 18);
@@ -469,7 +514,7 @@
             // txtReceiveHosPital2
             // 
             this.txtReceiveHosPital2.EditValue = "";
-            this.txtReceiveHosPital2.Location = new System.Drawing.Point(401, 199);
+            this.txtReceiveHosPital2.Location = new System.Drawing.Point(406, 278);
             this.txtReceiveHosPital2.Name = "txtReceiveHosPital2";
             this.txtReceiveHosPital2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtReceiveHosPital2.Size = new System.Drawing.Size(174, 18);
@@ -478,7 +523,7 @@
             // txtReceiveHosPital
             // 
             this.txtReceiveHosPital.EditValue = "";
-            this.txtReceiveHosPital.Location = new System.Drawing.Point(385, 174);
+            this.txtReceiveHosPital.Location = new System.Drawing.Point(390, 253);
             this.txtReceiveHosPital.Name = "txtReceiveHosPital";
             this.txtReceiveHosPital.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtReceiveHosPital.Size = new System.Drawing.Size(190, 18);
@@ -487,7 +532,7 @@
             // labelControl24
             // 
             this.labelControl24.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl24.Location = new System.Drawing.Point(25, 273);
+            this.labelControl24.Location = new System.Drawing.Point(30, 352);
             this.labelControl24.Name = "labelControl24";
             this.labelControl24.Size = new System.Drawing.Size(172, 14);
             this.labelControl24.TabIndex = 232;
@@ -496,7 +541,7 @@
             // labelControl23
             // 
             this.labelControl23.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl23.Location = new System.Drawing.Point(25, 249);
+            this.labelControl23.Location = new System.Drawing.Point(30, 328);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(158, 14);
             this.labelControl23.TabIndex = 231;
@@ -505,7 +550,7 @@
             // labelControl38
             // 
             this.labelControl38.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl38.Location = new System.Drawing.Point(569, 273);
+            this.labelControl38.Location = new System.Drawing.Point(574, 352);
             this.labelControl38.Name = "labelControl38";
             this.labelControl38.Size = new System.Drawing.Size(24, 14);
             this.labelControl38.TabIndex = 234;
@@ -514,7 +559,7 @@
             // labelControl32
             // 
             this.labelControl32.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl32.Location = new System.Drawing.Point(383, 273);
+            this.labelControl32.Location = new System.Drawing.Point(388, 352);
             this.labelControl32.Name = "labelControl32";
             this.labelControl32.Size = new System.Drawing.Size(36, 14);
             this.labelControl32.TabIndex = 233;
@@ -523,7 +568,7 @@
             // labelControl36
             // 
             this.labelControl36.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl36.Location = new System.Drawing.Point(511, 273);
+            this.labelControl36.Location = new System.Drawing.Point(516, 352);
             this.labelControl36.Name = "labelControl36";
             this.labelControl36.Size = new System.Drawing.Size(24, 14);
             this.labelControl36.TabIndex = 230;
@@ -532,7 +577,7 @@
             // labelControl30
             // 
             this.labelControl30.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl30.Location = new System.Drawing.Point(345, 273);
+            this.labelControl30.Location = new System.Drawing.Point(350, 352);
             this.labelControl30.Name = "labelControl30";
             this.labelControl30.Size = new System.Drawing.Size(24, 14);
             this.labelControl30.TabIndex = 226;
@@ -541,7 +586,7 @@
             // labelControl34
             // 
             this.labelControl34.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl34.Location = new System.Drawing.Point(463, 273);
+            this.labelControl34.Location = new System.Drawing.Point(468, 352);
             this.labelControl34.Name = "labelControl34";
             this.labelControl34.Size = new System.Drawing.Size(12, 14);
             this.labelControl34.TabIndex = 225;
@@ -550,7 +595,7 @@
             // labelControl27
             // 
             this.labelControl27.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl27.Location = new System.Drawing.Point(287, 273);
+            this.labelControl27.Location = new System.Drawing.Point(292, 352);
             this.labelControl27.Name = "labelControl27";
             this.labelControl27.Size = new System.Drawing.Size(24, 14);
             this.labelControl27.TabIndex = 227;
@@ -559,7 +604,7 @@
             // labelControl25
             // 
             this.labelControl25.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl25.Location = new System.Drawing.Point(239, 273);
+            this.labelControl25.Location = new System.Drawing.Point(244, 352);
             this.labelControl25.Name = "labelControl25";
             this.labelControl25.Size = new System.Drawing.Size(12, 14);
             this.labelControl25.TabIndex = 229;
@@ -568,7 +613,7 @@
             // labelControl22
             // 
             this.labelControl22.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelControl22.Location = new System.Drawing.Point(25, 175);
+            this.labelControl22.Location = new System.Drawing.Point(30, 254);
             this.labelControl22.Name = "labelControl22";
             this.labelControl22.Size = new System.Drawing.Size(48, 14);
             this.labelControl22.TabIndex = 228;
@@ -576,7 +621,7 @@
             // 
             // chkAgainInHospital2
             // 
-            this.chkAgainInHospital2.Location = new System.Drawing.Point(245, 246);
+            this.chkAgainInHospital2.Location = new System.Drawing.Point(250, 325);
             this.chkAgainInHospital2.Name = "chkAgainInHospital2";
             this.chkAgainInHospital2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkAgainInHospital2.Properties.Appearance.Options.UseForeColor = true;
@@ -589,7 +634,7 @@
             // 
             // chkOutHosType2
             // 
-            this.chkOutHosType2.Location = new System.Drawing.Point(179, 173);
+            this.chkOutHosType2.Location = new System.Drawing.Point(184, 252);
             this.chkOutHosType2.Name = "chkOutHosType2";
             this.chkOutHosType2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkOutHosType2.Properties.Appearance.Options.UseForeColor = true;
@@ -602,7 +647,7 @@
             // 
             // chkOutHosType3
             // 
-            this.chkOutHosType3.Location = new System.Drawing.Point(34, 199);
+            this.chkOutHosType3.Location = new System.Drawing.Point(39, 277);
             this.chkOutHosType3.Name = "chkOutHosType3";
             this.chkOutHosType3.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkOutHosType3.Properties.Appearance.Options.UseForeColor = true;
@@ -615,7 +660,7 @@
             // 
             // chkOutHosType9
             // 
-            this.chkOutHosType9.Location = new System.Drawing.Point(209, 224);
+            this.chkOutHosType9.Location = new System.Drawing.Point(214, 303);
             this.chkOutHosType9.Name = "chkOutHosType9";
             this.chkOutHosType9.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkOutHosType9.Properties.Appearance.Options.UseForeColor = true;
@@ -628,7 +673,7 @@
             // 
             // chkOutHosType5
             // 
-            this.chkOutHosType5.Location = new System.Drawing.Point(144, 224);
+            this.chkOutHosType5.Location = new System.Drawing.Point(149, 303);
             this.chkOutHosType5.Name = "chkOutHosType5";
             this.chkOutHosType5.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkOutHosType5.Properties.Appearance.Options.UseForeColor = true;
@@ -641,7 +686,7 @@
             // 
             // chkOutHosType4
             // 
-            this.chkOutHosType4.Location = new System.Drawing.Point(34, 224);
+            this.chkOutHosType4.Location = new System.Drawing.Point(39, 303);
             this.chkOutHosType4.Name = "chkOutHosType4";
             this.chkOutHosType4.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkOutHosType4.Properties.Appearance.Options.UseForeColor = true;
@@ -654,7 +699,7 @@
             // 
             // chkAgainInHospital1
             // 
-            this.chkAgainInHospital1.Location = new System.Drawing.Point(196, 246);
+            this.chkAgainInHospital1.Location = new System.Drawing.Point(201, 325);
             this.chkAgainInHospital1.Name = "chkAgainInHospital1";
             this.chkAgainInHospital1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkAgainInHospital1.Properties.Appearance.Options.UseForeColor = true;
@@ -667,7 +712,7 @@
             // 
             // chkOutHosType1
             // 
-            this.chkOutHosType1.Location = new System.Drawing.Point(85, 173);
+            this.chkOutHosType1.Location = new System.Drawing.Point(90, 252);
             this.chkOutHosType1.Name = "chkOutHosType1";
             this.chkOutHosType1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkOutHosType1.Properties.Appearance.Options.UseForeColor = true;
@@ -697,11 +742,327 @@
             this.btnEditOperation.Text = "编辑手术信息";
             this.btnEditOperation.Click += new System.EventHandler(this.btnEditOperation_Click);
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl1.Location = new System.Drawing.Point(30, 178);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(172, 14);
+            this.labelControl1.TabIndex = 255;
+            this.labelControl1.Text = "Ⅰ类手术切口预防性应用抗菌药物";
+            // 
+            // chkANTIBACTERIAL1
+            // 
+            this.chkANTIBACTERIAL1.Location = new System.Drawing.Point(214, 175);
+            this.chkANTIBACTERIAL1.Name = "chkANTIBACTERIAL1";
+            this.chkANTIBACTERIAL1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkANTIBACTERIAL1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkANTIBACTERIAL1.Properties.Caption = "1.是";
+            this.chkANTIBACTERIAL1.Properties.RadioGroupIndex = 5;
+            this.chkANTIBACTERIAL1.Size = new System.Drawing.Size(42, 19);
+            this.chkANTIBACTERIAL1.TabIndex = 256;
+            this.chkANTIBACTERIAL1.TabStop = false;
+            // 
+            // chkANTIBACTERIAL2
+            // 
+            this.chkANTIBACTERIAL2.Location = new System.Drawing.Point(264, 175);
+            this.chkANTIBACTERIAL2.Name = "chkANTIBACTERIAL2";
+            this.chkANTIBACTERIAL2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkANTIBACTERIAL2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkANTIBACTERIAL2.Properties.Caption = "2.否";
+            this.chkANTIBACTERIAL2.Properties.RadioGroupIndex = 5;
+            this.chkANTIBACTERIAL2.Size = new System.Drawing.Size(41, 19);
+            this.chkANTIBACTERIAL2.TabIndex = 257;
+            this.chkANTIBACTERIAL2.TabStop = false;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl2.Location = new System.Drawing.Point(311, 178);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(72, 14);
+            this.labelControl2.TabIndex = 258;
+            this.labelControl2.Text = "使用持续时间";
+            // 
+            // txtDURATIONDATE
+            // 
+            this.txtDURATIONDATE.EditValue = "";
+            this.txtDURATIONDATE.Location = new System.Drawing.Point(390, 176);
+            this.txtDURATIONDATE.Name = "txtDURATIONDATE";
+            this.txtDURATIONDATE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtDURATIONDATE.Size = new System.Drawing.Size(41, 18);
+            this.txtDURATIONDATE.TabIndex = 259;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl3.Location = new System.Drawing.Point(434, 178);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(24, 14);
+            this.labelControl3.TabIndex = 260;
+            this.labelControl3.Text = "小时";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl4.Location = new System.Drawing.Point(464, 178);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(48, 14);
+            this.labelControl4.TabIndex = 261;
+            this.labelControl4.Text = "联合用药";
+            // 
+            // chkCOMBINED2
+            // 
+            this.chkCOMBINED2.Location = new System.Drawing.Point(566, 175);
+            this.chkCOMBINED2.Name = "chkCOMBINED2";
+            this.chkCOMBINED2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkCOMBINED2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkCOMBINED2.Properties.Caption = "2.否";
+            this.chkCOMBINED2.Properties.RadioGroupIndex = 0;
+            this.chkCOMBINED2.Size = new System.Drawing.Size(41, 19);
+            this.chkCOMBINED2.TabIndex = 263;
+            this.chkCOMBINED2.TabStop = false;
+            // 
+            // chkCOMBINED1
+            // 
+            this.chkCOMBINED1.Location = new System.Drawing.Point(516, 175);
+            this.chkCOMBINED1.Name = "chkCOMBINED1";
+            this.chkCOMBINED1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkCOMBINED1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkCOMBINED1.Properties.Caption = "1.是";
+            this.chkCOMBINED1.Properties.RadioGroupIndex = 0;
+            this.chkCOMBINED1.Size = new System.Drawing.Size(42, 19);
+            this.chkCOMBINED1.TabIndex = 262;
+            this.chkCOMBINED1.TabStop = false;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl5.Location = new System.Drawing.Point(30, 205);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(120, 14);
+            this.labelControl5.TabIndex = 268;
+            this.labelControl5.Text = "是否实施临床路径管理";
+            // 
+            // chkPATHWAY_FLAG2
+            // 
+            this.chkPATHWAY_FLAG2.Location = new System.Drawing.Point(210, 203);
+            this.chkPATHWAY_FLAG2.Name = "chkPATHWAY_FLAG2";
+            this.chkPATHWAY_FLAG2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkPATHWAY_FLAG2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkPATHWAY_FLAG2.Properties.Caption = "2.否";
+            this.chkPATHWAY_FLAG2.Properties.RadioGroupIndex = 7;
+            this.chkPATHWAY_FLAG2.Size = new System.Drawing.Size(41, 19);
+            this.chkPATHWAY_FLAG2.TabIndex = 270;
+            this.chkPATHWAY_FLAG2.TabStop = false;
+            // 
+            // chkPATHWAY_FLAG1
+            // 
+            this.chkPATHWAY_FLAG1.Location = new System.Drawing.Point(160, 203);
+            this.chkPATHWAY_FLAG1.Name = "chkPATHWAY_FLAG1";
+            this.chkPATHWAY_FLAG1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkPATHWAY_FLAG1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkPATHWAY_FLAG1.Properties.Caption = "1.是";
+            this.chkPATHWAY_FLAG1.Properties.RadioGroupIndex = 7;
+            this.chkPATHWAY_FLAG1.Size = new System.Drawing.Size(42, 19);
+            this.chkPATHWAY_FLAG1.TabIndex = 269;
+            this.chkPATHWAY_FLAG1.TabStop = false;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl6.Location = new System.Drawing.Point(263, 207);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(96, 14);
+            this.labelControl6.TabIndex = 271;
+            this.labelControl6.Text = "是否完成临床路径";
+            // 
+            // chkPATHWAY_OVER2
+            // 
+            this.chkPATHWAY_OVER2.Location = new System.Drawing.Point(417, 205);
+            this.chkPATHWAY_OVER2.Name = "chkPATHWAY_OVER2";
+            this.chkPATHWAY_OVER2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkPATHWAY_OVER2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkPATHWAY_OVER2.Properties.Caption = "2.否";
+            this.chkPATHWAY_OVER2.Properties.RadioGroupIndex = 8;
+            this.chkPATHWAY_OVER2.Size = new System.Drawing.Size(41, 19);
+            this.chkPATHWAY_OVER2.TabIndex = 273;
+            this.chkPATHWAY_OVER2.TabStop = false;
+            // 
+            // chkPATHWAY_OVER1
+            // 
+            this.chkPATHWAY_OVER1.Location = new System.Drawing.Point(367, 205);
+            this.chkPATHWAY_OVER1.Name = "chkPATHWAY_OVER1";
+            this.chkPATHWAY_OVER1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkPATHWAY_OVER1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkPATHWAY_OVER1.Properties.Caption = "1.是";
+            this.chkPATHWAY_OVER1.Properties.RadioGroupIndex = 8;
+            this.chkPATHWAY_OVER1.Size = new System.Drawing.Size(42, 19);
+            this.chkPATHWAY_OVER1.TabIndex = 272;
+            this.chkPATHWAY_OVER1.TabStop = false;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl7.Location = new System.Drawing.Point(464, 208);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(48, 14);
+            this.labelControl7.TabIndex = 274;
+            this.labelControl7.Text = "是否变异";
+            // 
+            // chkVARIATION_FLAG2
+            // 
+            this.chkVARIATION_FLAG2.Location = new System.Drawing.Point(566, 206);
+            this.chkVARIATION_FLAG2.Name = "chkVARIATION_FLAG2";
+            this.chkVARIATION_FLAG2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkVARIATION_FLAG2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkVARIATION_FLAG2.Properties.Caption = "2.否";
+            this.chkVARIATION_FLAG2.Properties.RadioGroupIndex = 9;
+            this.chkVARIATION_FLAG2.Size = new System.Drawing.Size(41, 19);
+            this.chkVARIATION_FLAG2.TabIndex = 276;
+            this.chkVARIATION_FLAG2.TabStop = false;
+            // 
+            // chkVARIATION_FLAG1
+            // 
+            this.chkVARIATION_FLAG1.Location = new System.Drawing.Point(516, 206);
+            this.chkVARIATION_FLAG1.Name = "chkVARIATION_FLAG1";
+            this.chkVARIATION_FLAG1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkVARIATION_FLAG1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkVARIATION_FLAG1.Properties.Caption = "1.是";
+            this.chkVARIATION_FLAG1.Properties.RadioGroupIndex = 9;
+            this.chkVARIATION_FLAG1.Size = new System.Drawing.Size(42, 19);
+            this.chkVARIATION_FLAG1.TabIndex = 275;
+            this.chkVARIATION_FLAG1.TabStop = false;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl8.Location = new System.Drawing.Point(30, 232);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(60, 14);
+            this.labelControl8.TabIndex = 277;
+            this.labelControl8.Text = "退出原因：";
+            // 
+            // txtpath_out
+            // 
+            this.txtpath_out.EditValue = "";
+            this.txtpath_out.Location = new System.Drawing.Point(96, 230);
+            this.txtpath_out.Name = "txtpath_out";
+            this.txtpath_out.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtpath_out.Size = new System.Drawing.Size(190, 18);
+            this.txtpath_out.TabIndex = 278;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl9.Location = new System.Drawing.Point(299, 232);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(60, 14);
+            this.labelControl9.TabIndex = 279;
+            this.labelControl9.Text = "变异原因：";
+            // 
+            // txtvariation
+            // 
+            this.txtvariation.EditValue = "";
+            this.txtvariation.Location = new System.Drawing.Point(365, 231);
+            this.txtvariation.Name = "txtvariation";
+            this.txtvariation.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtvariation.Size = new System.Drawing.Size(190, 18);
+            this.txtvariation.TabIndex = 280;
+            // 
+            // chkREHOSPITALIZATION2
+            // 
+            this.chkREHOSPITALIZATION2.Location = new System.Drawing.Point(210, 374);
+            this.chkREHOSPITALIZATION2.Name = "chkREHOSPITALIZATION2";
+            this.chkREHOSPITALIZATION2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkREHOSPITALIZATION2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkREHOSPITALIZATION2.Properties.Caption = "2.否";
+            this.chkREHOSPITALIZATION2.Properties.RadioGroupIndex = 10;
+            this.chkREHOSPITALIZATION2.Size = new System.Drawing.Size(41, 19);
+            this.chkREHOSPITALIZATION2.TabIndex = 283;
+            this.chkREHOSPITALIZATION2.TabStop = false;
+            // 
+            // chkREHOSPITALIZATION1
+            // 
+            this.chkREHOSPITALIZATION1.Location = new System.Drawing.Point(160, 374);
+            this.chkREHOSPITALIZATION1.Name = "chkREHOSPITALIZATION1";
+            this.chkREHOSPITALIZATION1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkREHOSPITALIZATION1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkREHOSPITALIZATION1.Properties.Caption = "1.是";
+            this.chkREHOSPITALIZATION1.Properties.RadioGroupIndex = 10;
+            this.chkREHOSPITALIZATION1.Size = new System.Drawing.Size(42, 19);
+            this.chkREHOSPITALIZATION1.TabIndex = 282;
+            this.chkREHOSPITALIZATION1.TabStop = false;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl10.Location = new System.Drawing.Point(30, 377);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(120, 14);
+            this.labelControl10.TabIndex = 281;
+            this.labelControl10.Text = "是否因同一病种再入院";
+            // 
+            // txtintervaldate
+            // 
+            this.txtintervaldate.EditValue = "";
+            this.txtintervaldate.Location = new System.Drawing.Point(434, 375);
+            this.txtintervaldate.Name = "txtintervaldate";
+            this.txtintervaldate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtintervaldate.Size = new System.Drawing.Size(61, 18);
+            this.txtintervaldate.TabIndex = 285;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl11.Location = new System.Drawing.Point(292, 377);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(132, 14);
+            this.labelControl11.TabIndex = 284;
+            this.labelControl11.Text = "与上次出院日期间隔天数";
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl12.Location = new System.Drawing.Point(501, 377);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(12, 14);
+            this.labelControl12.TabIndex = 286;
+            this.labelControl12.Text = "天";
+            // 
             // UCIemOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.labelControl12);
+            this.Controls.Add(this.txtintervaldate);
+            this.Controls.Add(this.labelControl11);
+            this.Controls.Add(this.chkREHOSPITALIZATION2);
+            this.Controls.Add(this.chkREHOSPITALIZATION1);
+            this.Controls.Add(this.labelControl10);
+            this.Controls.Add(this.txtvariation);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.txtpath_out);
+            this.Controls.Add(this.labelControl8);
+            this.Controls.Add(this.chkVARIATION_FLAG2);
+            this.Controls.Add(this.chkVARIATION_FLAG1);
+            this.Controls.Add(this.labelControl7);
+            this.Controls.Add(this.chkPATHWAY_OVER2);
+            this.Controls.Add(this.chkPATHWAY_OVER1);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.chkPATHWAY_FLAG2);
+            this.Controls.Add(this.chkPATHWAY_FLAG1);
+            this.Controls.Add(this.labelControl5);
+            this.Controls.Add(this.chkCOMBINED2);
+            this.Controls.Add(this.chkCOMBINED1);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.labelControl3);
+            this.Controls.Add(this.txtDURATIONDATE);
+            this.Controls.Add(this.labelControl2);
+            this.Controls.Add(this.chkANTIBACTERIAL2);
+            this.Controls.Add(this.chkANTIBACTERIAL1);
+            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnEditOperation);
             this.Controls.Add(this.hLineEx1);
             this.Controls.Add(this.txtLaterHosComaMinute);
@@ -740,7 +1101,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "UCIemOperInfo";
-            this.Size = new System.Drawing.Size(620, 342);
+            this.Size = new System.Drawing.Size(620, 454);
             this.Load += new System.EventHandler(this.UCIemOperInfo_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCIemOperInfo_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -764,6 +1125,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkOutHosType4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAgainInHospital1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkOutHosType1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkANTIBACTERIAL1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkANTIBACTERIAL2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDURATIONDATE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCOMBINED2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCOMBINED1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_FLAG2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_FLAG1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_OVER2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPATHWAY_OVER1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVARIATION_FLAG2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkVARIATION_FLAG1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtpath_out.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtvariation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtintervaldate.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -832,5 +1209,33 @@
         private DevExpress.XtraEditors.CheckEdit chkOutHosType1;
         private HLineEx hLineEx1;
         private DevExpress.XtraEditors.SimpleButton btnEditOperation;
+        private DevExpress.XtraEditors.CheckEdit chkANTIBACTERIAL2;
+        private DevExpress.XtraEditors.CheckEdit chkANTIBACTERIAL1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.CheckEdit chkCOMBINED2;
+        private DevExpress.XtraEditors.CheckEdit chkCOMBINED1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit txtDURATIONDATE;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.CheckEdit chkPATHWAY_FLAG2;
+        private DevExpress.XtraEditors.CheckEdit chkPATHWAY_FLAG1;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.CheckEdit chkPATHWAY_OVER2;
+        private DevExpress.XtraEditors.CheckEdit chkPATHWAY_OVER1;
+        private DevExpress.XtraEditors.CheckEdit chkVARIATION_FLAG2;
+        private DevExpress.XtraEditors.CheckEdit chkVARIATION_FLAG1;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.TextEdit txtvariation;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit txtpath_out;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.CheckEdit chkREHOSPITALIZATION2;
+        private DevExpress.XtraEditors.CheckEdit chkREHOSPITALIZATION1;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.TextEdit txtintervaldate;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
     }
 }

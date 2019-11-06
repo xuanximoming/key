@@ -28,10 +28,11 @@ namespace DrectSoft.Core.IEMMainPage
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IemNewOperInfo));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.lueAnaesthesiaUser = new DevTextBoxAndButton.Bwj();
-            this.lueOperCode = new DevTextBoxAndButton.Bwj();
+            this.lueAnaesthesiaUser = new DevTextBoxAndButton.Bwj(this.components);
+            this.lueOperCode = new DevTextBoxAndButton.Bwj(this.components);
             this.teOperDate = new DevExpress.XtraEditors.TimeEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.deOperDate = new DevExpress.XtraEditors.DateEdit();
@@ -101,7 +102,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // lueAnaesthesiaUser
             // 
-            this.lueAnaesthesiaUser.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lueAnaesthesiaUser.BackColor = System.Drawing.SystemColors.HighlightText;
             this.lueAnaesthesiaUser.DiaCode = "";
             this.lueAnaesthesiaUser.DiaValue = "";
             this.lueAnaesthesiaUser.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -114,7 +115,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // lueOperCode
             // 
-            this.lueOperCode.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lueOperCode.BackColor = System.Drawing.SystemColors.HighlightText;
             this.lueOperCode.DiaCode = "";
             this.lueOperCode.DiaValue = "";
             this.lueOperCode.ForeColor = System.Drawing.SystemColors.WindowText;

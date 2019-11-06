@@ -458,7 +458,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Modified_Time = row["Modified_Time"].ToString();
 
                     IemInfo.IemDiagInfo.Autopsy_Flag = row["autopsy_flag"].ToString();
-
+                    IemInfo.IemDiagInfo.Follow_Up = row["follow_up"].ToString();
                     //--2012国家卫生部表中病案首页新增内容
                     IemInfo.IemBasicInfo.MonthAge = row["monthage"].ToString();
                     IemInfo.IemBasicInfo.Weight = row["weight"].ToString();
@@ -468,6 +468,20 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.InHosCall = row["inhoscall"].ToString();
                     IemInfo.IemBasicInfo.TypeHos = row["typehospital"].ToString();
                     IemInfo.IemBasicInfo.OutHosType = row["outhostype"].ToString();
+
+                    IemInfo.IemBasicInfo.Antibacterial_Drugs = row["Antibacterial_Drugs"].ToString();
+                    IemInfo.IemBasicInfo.Combined_Medication = row["Combined_Medication"].ToString();
+                    IemInfo.IemBasicInfo.Durationdate = row["Durationdate"].ToString();
+
+
+                    IemInfo.IemBasicInfo.Pathway_Flag = row["Pathway_Flag"].ToString();
+                    IemInfo.IemBasicInfo.Pathway_Over = row["Pathway_Over"].ToString();
+                    IemInfo.IemBasicInfo.Variation_Flag = row["Variation_Flag"].ToString();
+                    IemInfo.IemBasicInfo.Rehospitalization = row["Rehospitalization"].ToString();
+                    IemInfo.IemBasicInfo.Path_Out_Reason = row["Path_Out_Reason"].ToString();
+                    IemInfo.IemBasicInfo.Variation_Reason = row["Variation_Reason"].ToString();
+                    IemInfo.IemBasicInfo.Intervaldate = row["Intervaldate"].ToString();
+
 
                     IemInfo.IemBasicInfo.ReceiveHosPital = row["receivehospital"].ToString();
                     IemInfo.IemBasicInfo.ReceiveHosPital2 = row["receivehospital2"].ToString();
@@ -513,6 +527,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = row["pathology_diagnosis_name"].ToString();
                     IemInfo.IemDiagInfo.Pathology_Observation_Sn = row["pathology_observation_sn"].ToString();
                     IemInfo.IemDiagInfo.Pathology_Observation_Fq = row["pathology_observation_fq"].ToString();
+                    IemInfo.IemDiagInfo.Follow_Up_Cycle = row["follow_up_cycle"].ToString();
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = row["hurt_toxicosis_ele_id"].ToString();
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = row["hurt_toxicosis_ele_name"].ToString();
 
@@ -657,7 +672,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Modified_Time = "";
 
                     IemInfo.IemDiagInfo.Autopsy_Flag = "";
-
+                    IemInfo.IemDiagInfo.Follow_Up = "";
                     //--2012国家卫生部表中病案首页新增内容
                     //IemInfo.IemBasicInfo.MonthAge = "";
                     //IemInfo.IemBasicInfo.Weight = "";
@@ -666,10 +681,25 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemBasicInfo.Weight = "---";
                     IemInfo.IemBasicInfo.InWeight = "---";
                     IemInfo.IemBasicInfo.InHosType = DefaultInfo.AdmitWay;//入院途径
-                    IemInfo.IemBasicInfo.InHosInfo = DefaultInfo.AdmitInfo;//入院情况
-                    IemInfo.IemBasicInfo.InHosCall = DefaultInfo.DeInHosCall;//住院期间是否告病危或病重
+                    IemInfo.IemBasicInfo.InHosInfo = "";//入院情况
+                    IemInfo.IemBasicInfo.InHosCall = "";//住院期间是否告病危或病重
                     IemInfo.IemBasicInfo.TypeHos = "---";
                     IemInfo.IemBasicInfo.OutHosType = "";
+
+                    IemInfo.IemBasicInfo.Antibacterial_Drugs = "";
+                    IemInfo.IemBasicInfo.Combined_Medication = "";
+                    IemInfo.IemBasicInfo.Durationdate = "";
+
+
+                    IemInfo.IemBasicInfo.Pathway_Flag = "";
+                    IemInfo.IemBasicInfo.Pathway_Over = "";
+                    IemInfo.IemBasicInfo.Variation_Flag = "";
+                    IemInfo.IemBasicInfo.Rehospitalization = "";
+                    IemInfo.IemBasicInfo.Path_Out_Reason = "";
+                    IemInfo.IemBasicInfo.Variation_Reason = "";
+                    IemInfo.IemBasicInfo.Intervaldate = "";
+
+
 
                     IemInfo.IemBasicInfo.ReceiveHosPital = "";
                     IemInfo.IemBasicInfo.ReceiveHosPital2 = "";
@@ -720,6 +750,7 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = "";
                     IemInfo.IemDiagInfo.Pathology_Observation_Sn = "";
                     IemInfo.IemDiagInfo.Pathology_Observation_Fq = "";
+                    IemInfo.IemDiagInfo.Follow_Up_Cycle = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = "";
 
@@ -1647,6 +1678,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraPATHOLOGY_OBSERVATION_SN.Value = info.IemDiagInfo.Pathology_Observation_Sn;
             SqlParameter paraPATHOLOGY_OBSERVATION_FQ = new SqlParameter("@PATHOLOGY_OBSERVATION_FQ", SqlDbType.VarChar, 300);
             paraPATHOLOGY_OBSERVATION_FQ.Value = info.IemDiagInfo.Pathology_Observation_Fq;
+            SqlParameter paraFOLLOW_UP_CYCLE = new SqlParameter("@FOLLOW_UP_CYCLE", SqlDbType.VarChar, 300);
+            paraFOLLOW_UP_CYCLE.Value = info.IemDiagInfo.Follow_Up_Cycle;
             SqlParameter paraALLERGIC_DRUG = new SqlParameter("@ALLERGIC_DRUG", SqlDbType.VarChar, 19);
             paraALLERGIC_DRUG.Value = info.IemDiagInfo.Allergic_Drug;
             SqlParameter paraSection_Director = new SqlParameter("@SECTION_DIRECTOR", SqlDbType.VarChar, 20);
@@ -1728,6 +1761,46 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraTYPEHOS.Value = info.IemBasicInfo.TypeHos;
             SqlParameter paraOUTHOSTYPE = new SqlParameter("@OUTHOSTYPE", SqlDbType.VarChar, 20);
             paraOUTHOSTYPE.Value = info.IemBasicInfo.OutHosType;
+
+
+
+            SqlParameter paraANTIBACTERIAL_DRUGS = new SqlParameter("@ANTIBACTERIAL_DRUGS", SqlDbType.VarChar, 20);
+            paraANTIBACTERIAL_DRUGS.Value = info.IemBasicInfo.Antibacterial_Drugs;
+            SqlParameter paraDURATIONDATE = new SqlParameter("@DURATIONDATE", SqlDbType.VarChar, 20);
+            paraDURATIONDATE.Value = info.IemBasicInfo.Durationdate;
+            SqlParameter paraCOMBINED_MEDICATION = new SqlParameter("@COMBINED_MEDICATION", SqlDbType.VarChar, 20);
+            paraCOMBINED_MEDICATION.Value = info.IemBasicInfo.Combined_Medication;
+
+
+            //IemInfo.IemBasicInfo.Pathway_Flag = "";
+            //IemInfo.IemBasicInfo.Pathway_Over = "";
+            //IemInfo.IemBasicInfo.Variation_Flag = "";
+            //IemInfo.IemBasicInfo.Rehospitalization = "";
+            //IemInfo.IemBasicInfo.Path_Out_Reason = "";
+            //IemInfo.IemBasicInfo.Variation_Reason = "";
+            //IemInfo.IemBasicInfo.Intervaldate = "";
+
+            SqlParameter paraPATHWAY_FLAG = new SqlParameter("@PATHWAY_FLAG", SqlDbType.VarChar, 20);
+            paraPATHWAY_FLAG.Value = info.IemBasicInfo.Pathway_Flag;
+
+            SqlParameter paraPATHWAY_OVER = new SqlParameter("@PATHWAY_OVER", SqlDbType.VarChar, 20);
+            paraPATHWAY_OVER.Value = info.IemBasicInfo.Pathway_Over;
+
+            SqlParameter paraPATH_OUT_REASON = new SqlParameter("@PATH_OUT_REASON", SqlDbType.VarChar, 20);
+            paraPATH_OUT_REASON.Value = info.IemBasicInfo.Path_Out_Reason;
+
+            SqlParameter paraVARIATION_FLAG = new SqlParameter("@VARIATION_FLAG", SqlDbType.VarChar, 20);
+            paraVARIATION_FLAG.Value = info.IemBasicInfo.Variation_Flag;
+
+            SqlParameter paraVARIATION_REASON = new SqlParameter("@VARIATION_REASON", SqlDbType.VarChar, 20);
+            paraVARIATION_REASON.Value = info.IemBasicInfo.Rehospitalization;
+
+            SqlParameter paraREHOSPITALIZATION = new SqlParameter("@REHOSPITALIZATION", SqlDbType.VarChar, 20);
+            paraREHOSPITALIZATION.Value = info.IemBasicInfo.Rehospitalization;
+
+            SqlParameter paraINTERVALDATE = new SqlParameter("@INTERVALDATE", SqlDbType.VarChar, 20);
+            paraINTERVALDATE.Value = info.IemBasicInfo.Intervaldate;
+
             SqlParameter paraRECEIVEHOSPITAL = new SqlParameter("@RECEIVEHOSPITAL", SqlDbType.VarChar, 20);
             paraRECEIVEHOSPITAL.Value = info.IemBasicInfo.ReceiveHosPital;
             SqlParameter paraRECEIVEHOSPITAL2 = new SqlParameter("@RECEIVEHOSPITAL2", SqlDbType.VarChar, 20);
@@ -1757,6 +1830,10 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
 
             SqlParameter paraAUTOPSY_FLAG = new SqlParameter("@AUTOPSY_FLAG", SqlDbType.VarChar, 20);
             paraAUTOPSY_FLAG.Value = info.IemDiagInfo.Autopsy_Flag;
+
+            SqlParameter paraFOLLOW_UP = new SqlParameter("@FOLLOW_UP", SqlDbType.VarChar, 20);
+            paraFOLLOW_UP.Value = info.IemDiagInfo.Follow_Up;
+
             SqlParameter paraCSD_PROVINCEID = new SqlParameter("@CSD_PROVINCEID", SqlDbType.VarChar, 20);
             paraCSD_PROVINCEID.Value = info.IemBasicInfo.CSD_ProvinceID;
             SqlParameter paraCSD_CITYID = new SqlParameter("@CSD_CITYID", SqlDbType.VarChar, 20);
@@ -1849,17 +1926,21 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraOfficeTEL,paraOfficePost,paraContactPerson,paraRelationship,paraContactAddress,
                 paraContactTEL,paraAdmitDate,paraMainDiagDate,paraAdmitDept,paraAdmitWard,
                 paraTrans_AdmitDept,paraOutWardDate,paraOutHosDept,paraOutHosWard,
-                paraActual_Days,paraPATHOLOGY_DIAGNOSIS_NAME,paraPATHOLOGY_OBSERVATION_SN,paraPATHOLOGY_OBSERVATION_FQ,paraALLERGIC_DRUG,paraSection_Director,
+                paraActual_Days,paraPATHOLOGY_DIAGNOSIS_NAME,paraPATHOLOGY_OBSERVATION_SN,paraPATHOLOGY_OBSERVATION_FQ,paraFOLLOW_UP_CYCLE,paraALLERGIC_DRUG,paraSection_Director,
                 paraDirector,paraVs_Employee_Code,paraResident_Employee_Code,paraAttending_Physician_Code,paraRefresh_Employee_Code,paraDUTY_NURSE ,
                 paraInterne,paraCoding_User,paraMedical_Quality_Id,paraQuality_Control_Doctor,paraQuality_Control_Nurse,
                 paraQuality_Control_Date,
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
                 paraCREATE_USER,paraCREATE_TIME,paraMODIFIED_USER,paraMODIFIED_TIME,paraZYMOSIS,
                 paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
-                paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraINHOSCALL,paraTYPEHOS,paraOUTHOSTYPE,paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
+                paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraINHOSCALL,paraTYPEHOS,paraOUTHOSTYPE,
+                paraANTIBACTERIAL_DRUGS,paraDURATIONDATE,paraCOMBINED_MEDICATION,paraPATHWAY_FLAG,
+                paraPATHWAY_OVER,paraPATH_OUT_REASON,paraVARIATION_FLAG,paraVARIATION_REASON,
+                paraREHOSPITALIZATION,paraINTERVALDATE,
+                paraRECEIVEHOSPITAL,paraRECEIVEHOSPITAL2,
                 paraAGAININHOSPITAL,paraAGAININHOSPITALREASON,paraBEFOREHOSCOMADAY,paraBEFOREHOSCOMAHOUR,paraBEFOREHOSCOMAMINUTE,
                 paraLATERHOSCOMADAY,paraLATERHOSCOMAHOUR,paraLATERHOSCOMAMINUTE,paraCARDNUMBER,paraALLERGIC_FLAG,
-                paraAUTOPSY_FLAG,paraCSD_PROVINCEID,paraCSD_CITYID,paraCSD_DISTRICTID,paraCSD_PROVINCENAME,
+                paraAUTOPSY_FLAG,paraFOLLOW_UP,paraCSD_PROVINCEID,paraCSD_CITYID,paraCSD_DISTRICTID,paraCSD_PROVINCENAME,
                 paraCSD_CITYNAME,paraCSD_DISTRICTNAME,paraXZZ_PROVINCEID,paraXZZ_CITYID,paraXZZ_DISTRICTID,
                 paraXZZ_PROVINCENAME,paraXZZ_CITYNAME,paraXZZ_DISTRICTNAME,paraXZZ_TEL,paraXZZ_POST,
                 paraHKDZ_PROVINCEID,paraHKDZ_CITYID,paraHKDZ_DISTRICTID,paraHKDZ_PROVINCENAME,paraHKDZ_CITYNAME,

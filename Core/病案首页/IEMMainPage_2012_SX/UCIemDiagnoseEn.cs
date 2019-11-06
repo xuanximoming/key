@@ -217,6 +217,7 @@ namespace DrectSoft.Core.IEMMainPage
             txtPathologyID.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID;
             txtPathologySn.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Sn;
             txtPathologyFq.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Fq;
+            txtFOLLOWUPCYCLE.Text = m_IemInfo.IemDiagInfo.Follow_Up_Cycle;
 
             txtAllergicDrug.Text = m_IemInfo.IemDiagInfo.Allergic_Drug;
             if (m_IemInfo.IemDiagInfo.Allergic_Flag == "1")
@@ -228,6 +229,11 @@ namespace DrectSoft.Core.IEMMainPage
                 chkAutopsy1.Checked = true;
             else if (m_IemInfo.IemDiagInfo.Autopsy_Flag == "2")
                 chkAutopsy2.Checked = true;
+            //随诊
+            if (m_IemInfo.IemDiagInfo.Follow_Up == "1")
+                chkFollowup1.Checked = true;
+            else if (m_IemInfo.IemDiagInfo.Follow_Up == "2")
+                chkFollowup2.Checked = true;
 
             if (m_IemInfo.IemDiagInfo.BloodType == "1")
                 chkBlood1.Checked = true;
@@ -302,6 +308,7 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = txtPathologyID.Text;
             m_IemInfo.IemDiagInfo.Pathology_Observation_Sn = txtPathologySn.Text;
             m_IemInfo.IemDiagInfo.Pathology_Observation_Fq = txtPathologyFq.Text;
+            m_IemInfo.IemDiagInfo.Follow_Up_Cycle = txtFOLLOWUPCYCLE.Text;
 
             m_IemInfo.IemDiagInfo.Allergic_Drug = txtAllergicDrug.Text;
             if (chkAllergic1.Checked)
@@ -320,6 +327,16 @@ namespace DrectSoft.Core.IEMMainPage
             else
             {
                 m_IemInfo.IemDiagInfo.Autopsy_Flag = "";
+            }
+
+            //随诊
+            if (chkFollowup1.Checked)
+                m_IemInfo.IemDiagInfo.Follow_Up = "1";
+            else if (chkFollowup2.Checked)
+                m_IemInfo.IemDiagInfo.Follow_Up = "2";
+            else
+            {
+                m_IemInfo.IemDiagInfo.Follow_Up = "";
             }
 
             if (chkBlood1.Checked)

@@ -285,6 +285,213 @@ namespace DrectSoft.Core.IEMMainPage
         }
         #region ******************************************************* 绘制病案首页 **************************************************************
 
+        #region 【绘制界面元素】
+
+        /// <summary>
+        /// 绘制带下划线的元素
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="pointX"></param>
+        /// <param name="pointY"></param>
+        /// <param name="lineHeight"></param>
+        /// <param name="charWidth"></param>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        /// <param name="underLineWidth"></param>
+        /// <param name="endName"></param>
+        /// <returns></returns>
+        private float DrawNameAndValueAndUnderLine(Graphics g, float pointX, float pointY, int lineHeight, int charWidth,
+            string name, string value, int underLineWidth, string endName)
+        {
+            try
+            {
+                g.DrawString(name, m_DefaultFont, Brushes.Black, new PointF(pointX, pointY));
+                int widthName = TextRenderer.MeasureText(name, m_DefaultFont).Width;
+                int widthValue = underLineWidth;
+                pointX = pointX + widthName;
+
+                int valueLength = TextRenderer.MeasureText(value, m_DefaultValueFont).Width;
+                if (valueLength >= underLineWidth)
+                {
+                    if (TextRenderer.MeasureText(value, m_SmallFont1).Width >= underLineWidth)
+                    {
+                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY - 10, widthValue, lineHeight + 16), sfVertical);
+                    }
+                    else
+                    {
+                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, widthValue, lineHeight + 4), sf);
+                    }
+                }
+                else
+                {
+                    g.DrawString(value, m_DefaultValueFont, Brushes.Black, new RectangleF(pointX, pointY, widthValue, lineHeight + 4), sf);
+                }
+                g.DrawLine(Pens.Black, new PointF(pointX, pointY + lineHeight), new PointF(pointX + widthValue, pointY + lineHeight));
+
+                pointX = pointX + widthValue;
+
+                if (endName != "")
+                {
+                    g.DrawString(endName, m_DefaultFont, Brushes.Black, new PointF(pointX, pointY));
+                    int widthEndName = TextRenderer.MeasureText(endName, m_DefaultFont).Width;
+                    pointX = pointX + widthEndName + 2;
+                }
+                else
+                {
+                    pointX = pointX + 2;
+                }
+                return pointX;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 绘制方框和方框中的值
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="pointX"></param>
+        /// <param name="pointY"></param>
+        /// <param name="value"></param>
+        /// <param name="lineHeight"></param>
+        /// <returns></returns>
+        private float DrawCheckBox(Graphics g, float pointX, float pointY, string value, int lineHeight)
+        {
+            try
+            {
+                Rectangle rect = new Rectangle((int)pointX, (int)pointY + 1, lineHeight - 2, lineHeight - 2);
+                g.DrawRectangle(Pens.Black, rect);
+                RectangleF rectF = new RectangleF(pointX - 0.5f, pointY + 1 - 0.5f, lineHeight, lineHeight + 0.5f);
+                if (string.IsNullOrEmpty(value))
+                {
+                    g.DrawString("/", m_DefaultFont, Brushes.Black, rectF, sf);
+                }
+                else
+                {
+                    g.DrawString(value, m_DefaultFont, Brushes.Black, rectF, sf);
+                }
+
+                return pointX + lineHeight + 5;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 绘制选项
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="pointX"></param>
+        /// <param name="pointY"></param>
+        /// <param name="itemList"></param>
+        /// <param name="interval"></param>
+        /// <returns></returns>
+        private float DrawSelectItem(Graphics g, float pointX, float pointY, string allSelectItem/*所有选项,用空格隔开*/)
+        {
+            try
+            {
+                g.DrawString(allSelectItem, m_DefaultFont, Brushes.Black, new PointF(pointX, pointY));
+                return pointX + TextRenderer.MeasureText(allSelectItem, m_DefaultFont).Width;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        /// <summary>
+        /// 绘制单元格中的字符串，如果指定的宽度不够则缩小字体，如果缩小后还不够则换行显示，对于超过2行的数据则不显示
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="value"></param>
+        /// <param name="pointX"></param>
+        /// <param name="pointY"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="font"></param>
+        private void DrawStringInCell(Graphics g, string value, float pointX, float pointY, int width, int height, Font font)
+        {
+            try
+            {
+                int textWidth = TextRenderer.MeasureText(value, font).Width;
+                if (textWidth < width)//显示一行
+                {
+                    g.DrawString(value, font, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfVertical);
+                }
+                else//一行显示有可能不够
+                {
+                    if (TextRenderer.MeasureText(value, m_SmallFont1).Width >= width)
+                    {
+                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfTop);
+                    }
+                    else
+                    {
+                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfVertical);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        /// <summary>
+        /// 绘制单元格中的字符串，如果指定的宽度不够则缩小字体，如果缩小后还不够则换行显示，对于超过2行的数据则不显示
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="value"></param>
+        /// <param name="pointX"></param>
+        /// <param name="pointY"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        /// <param name="font"></param>
+        private void DrawStringInCell2(Graphics g, string value, float pointX, float pointY, int width, int height, Font font)
+        {
+            try
+            {
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Center;
+                sf.LineAlignment = StringAlignment.Center;
+
+                width += 4;
+
+                int textWidth = TextRenderer.MeasureText(value, font).Width;
+                if (textWidth < width)//显示一行
+                {
+                    g.DrawString(value, font, Brushes.Black, new RectangleF(pointX, pointY, width, height), sf);
+                }
+                else//一行显示有可能不够
+                {
+                    if (TextRenderer.MeasureText(value, m_SmallFont1).Width >= width)
+                    {
+                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfTop);
+                    }
+                    else
+                    {
+                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sf);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        #endregion
+
         #region 【打印第一页】
 
         void PrintFirstPage(Graphics g)
@@ -406,6 +613,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+
                 XmlNode xmlNode = xmlDoc.GetElementsByTagName("PatientBaseInfo")[0];
                 XmlNodeList xmlNodes = xmlNode.ChildNodes;
                 Font font = m_DefaultFont;
@@ -1148,10 +1356,6 @@ namespace DrectSoft.Core.IEMMainPage
                 sf.Alignment = StringAlignment.Center;
                 sf.LineAlignment = StringAlignment.Center;
 
-
-
-
-
                 float pointX = pointStartX + xOffset;
                 foreach (XmlNode Node in xmlNodes)
                 {
@@ -1396,213 +1600,6 @@ namespace DrectSoft.Core.IEMMainPage
 
         #endregion 【打印第一页】
 
-        #region 【绘制界面元素】
-
-        /// <summary>
-        /// 绘制带下划线的元素
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="pointX"></param>
-        /// <param name="pointY"></param>
-        /// <param name="lineHeight"></param>
-        /// <param name="charWidth"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <param name="underLineWidth"></param>
-        /// <param name="endName"></param>
-        /// <returns></returns>
-        private float DrawNameAndValueAndUnderLine(Graphics g, float pointX, float pointY, int lineHeight, int charWidth,
-            string name, string value, int underLineWidth, string endName)
-        {
-            try
-            {
-                g.DrawString(name, m_DefaultFont, Brushes.Black, new PointF(pointX, pointY));
-                int widthName = TextRenderer.MeasureText(name, m_DefaultFont).Width;
-                int widthValue = underLineWidth;
-                pointX = pointX + widthName;
-
-                int valueLength = TextRenderer.MeasureText(value, m_DefaultValueFont).Width;
-                if (valueLength >= underLineWidth)
-                {
-                    if (TextRenderer.MeasureText(value, m_SmallFont1).Width >= underLineWidth)
-                    {
-                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY - 10, widthValue, lineHeight + 16), sfVertical);
-                    }
-                    else
-                    {
-                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, widthValue, lineHeight + 4), sf);
-                    }
-                }
-                else
-                {
-                    g.DrawString(value, m_DefaultValueFont, Brushes.Black, new RectangleF(pointX, pointY, widthValue, lineHeight + 4), sf);
-                }
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY + lineHeight), new PointF(pointX + widthValue, pointY + lineHeight));
-
-                pointX = pointX + widthValue;
-
-                if (endName != "")
-                {
-                    g.DrawString(endName, m_DefaultFont, Brushes.Black, new PointF(pointX, pointY));
-                    int widthEndName = TextRenderer.MeasureText(endName, m_DefaultFont).Width;
-                    pointX = pointX + widthEndName + 2;
-                }
-                else
-                {
-                    pointX = pointX + 2;
-                }
-                return pointX;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// 绘制方框和方框中的值
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="pointX"></param>
-        /// <param name="pointY"></param>
-        /// <param name="value"></param>
-        /// <param name="lineHeight"></param>
-        /// <returns></returns>
-        private float DrawCheckBox(Graphics g, float pointX, float pointY, string value, int lineHeight)
-        {
-            try
-            {
-                Rectangle rect = new Rectangle((int)pointX, (int)pointY + 1, lineHeight - 2, lineHeight - 2);
-                g.DrawRectangle(Pens.Black, rect);
-                RectangleF rectF = new RectangleF(pointX - 0.5f, pointY + 1 - 0.5f, lineHeight, lineHeight + 0.5f);
-                if (string.IsNullOrEmpty(value))
-                {
-                    g.DrawString("/", m_DefaultFont, Brushes.Black, rectF, sf);
-                }
-                else
-                {
-                    g.DrawString(value, m_DefaultFont, Brushes.Black, rectF, sf);
-                }
-
-                return pointX + lineHeight + 5;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
-        /// <summary>
-        /// 绘制选项
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="pointX"></param>
-        /// <param name="pointY"></param>
-        /// <param name="itemList"></param>
-        /// <param name="interval"></param>
-        /// <returns></returns>
-        private float DrawSelectItem(Graphics g, float pointX, float pointY, string allSelectItem/*所有选项,用空格隔开*/)
-        {
-            try
-            {
-                g.DrawString(allSelectItem, m_DefaultFont, Brushes.Black, new PointF(pointX, pointY));
-                return pointX + TextRenderer.MeasureText(allSelectItem, m_DefaultFont).Width;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-
-        /// <summary>
-        /// 绘制单元格中的字符串，如果指定的宽度不够则缩小字体，如果缩小后还不够则换行显示，对于超过2行的数据则不显示
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="value"></param>
-        /// <param name="pointX"></param>
-        /// <param name="pointY"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="font"></param>
-        private void DrawStringInCell(Graphics g, string value, float pointX, float pointY, int width, int height, Font font)
-        {
-            try
-            {
-                int textWidth = TextRenderer.MeasureText(value, font).Width;
-                if (textWidth < width)//显示一行
-                {
-                    g.DrawString(value, font, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfVertical);
-                }
-                else//一行显示有可能不够
-                {
-                    if (TextRenderer.MeasureText(value, m_SmallFont1).Width >= width)
-                    {
-                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfTop);
-                    }
-                    else
-                    {
-                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfVertical);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-
-        /// <summary>
-        /// 绘制单元格中的字符串，如果指定的宽度不够则缩小字体，如果缩小后还不够则换行显示，对于超过2行的数据则不显示
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="value"></param>
-        /// <param name="pointX"></param>
-        /// <param name="pointY"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="font"></param>
-        private void DrawStringInCell2(Graphics g, string value, float pointX, float pointY, int width, int height, Font font)
-        {
-            try
-            {
-                StringFormat sf = new StringFormat();
-                sf.Alignment = StringAlignment.Center;
-                sf.LineAlignment = StringAlignment.Center;
-
-                width += 4;
-
-                int textWidth = TextRenderer.MeasureText(value, font).Width;
-                if (textWidth < width)//显示一行
-                {
-                    g.DrawString(value, font, Brushes.Black, new RectangleF(pointX, pointY, width, height), sf);
-                }
-                else//一行显示有可能不够
-                {
-                    if (TextRenderer.MeasureText(value, m_SmallFont1).Width >= width)
-                    {
-                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sfTop);
-                    }
-                    else
-                    {
-                        g.DrawString(value, m_SmallFont1, Brushes.Black, new RectangleF(pointX, pointY, width, height), sf);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-
-        #endregion
-
         #region 【打印第二页】
 
         void PrintSecondPage(Graphics g)
@@ -1642,7 +1639,8 @@ namespace DrectSoft.Core.IEMMainPage
                 Font font = m_DefaultFont;
                 sf.Alignment = StringAlignment.Center;
                 sf.LineAlignment = StringAlignment.Center;
-
+                int charHeight = TextRenderer.MeasureText("高", font).Height;
+                int charWidth = TextRenderer.MeasureText("宽", font).Height;
 
                 //宽度调整 edit by ywk 2012年4月18日13:32:46
                 int columnWidth1 = 75;//手术及操作编码
@@ -1660,7 +1658,29 @@ namespace DrectSoft.Core.IEMMainPage
                 Pen solidPen = new Pen(Brushes.Black, 2);
                 g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
 
+                //Ⅰ类手术切口预防性应用抗菌药物
+                g.DrawString("Ⅰ类手术切口预防性应用抗菌药物", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
+                string Antibacterial_Drugs = m_IemMainPageEntity.IemBasicInfo.Antibacterial_Drugs; //todo
+                pointX = pointX + TextRenderer.MeasureText("Ⅰ类手术切口预防性应用抗菌药物", font).Width + 5;
+                pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Antibacterial_Drugs, charHeight);
+                pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否") + 15;
+
+                //使用持续时间：
+                string Durationdate = m_IemMainPageEntity.IemBasicInfo.Durationdate;//todo
+                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (lineHeight - charHeight) / 2, lineHeight, charWidth, "使用持续时间：", Durationdate, 50, "小时") + 25;
+
+                //联合用药
+                g.DrawString("联合用药", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
+                string Combined_Medication = m_IemMainPageEntity.IemBasicInfo.Combined_Medication; //todo
+                pointX = pointX + TextRenderer.MeasureText("联合用药", font).Width + 5;
+                pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Combined_Medication, charHeight);
+                pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否");
+
                 #region Table Header
+                pointX = m_PointX;
+                pointY += lineHeight;
+                g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
                 g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, firstLineHieght));
                 g.DrawString("手术及", font, Brushes.Black, new RectangleF(pointX, pointY + 3, columnWidth1, firstLineHieght / 2), sf);
                 g.DrawString("操作编码", font, Brushes.Black, new RectangleF(pointX, pointY + firstLineHieght / 2 + 2, columnWidth1, firstLineHieght / 2), sf);
@@ -2093,6 +2113,44 @@ namespace DrectSoft.Core.IEMMainPage
 
                 float pointX = m_PointX + offsetX;
 
+
+                //是否实施临床路径管理
+                g.DrawString("是否实施临床路径管理", font, Brushes.Black, new PointF(pointX, pointY));
+                string Pathway_Flag = m_IemMainPageEntity.IemBasicInfo.Pathway_Flag; //todo
+                pointX = pointX + TextRenderer.MeasureText("是否实施临床路径管理", font).Width + 5;
+                pointX = DrawCheckBox(g, pointX, pointY, Pathway_Flag, lineHeight);
+                pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+
+                //是否完成临床路径
+                g.DrawString("是否完成临床路径", font, Brushes.Black, new PointF(pointX, pointY));
+                string Pathway_Over = m_IemMainPageEntity.IemBasicInfo.Pathway_Over; //todo
+                pointX = pointX + TextRenderer.MeasureText("是否完成临床路径", font).Width + 5;
+                pointX = DrawCheckBox(g, pointX, pointY, Pathway_Over, lineHeight);
+                pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+
+                //退出原因
+                string Path_Out_Reason = m_IemMainPageEntity.IemBasicInfo.Path_Out_Reason;//todo
+                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "退出原因：", Path_Out_Reason, 300, "") + 25;
+
+                pointY += rowHeight;
+                pointX = m_PointX + offsetX;
+
+                //是否变异
+                g.DrawString("是否变异", font, Brushes.Black, new PointF(pointX, pointY));
+                string Variation_Flag = m_IemMainPageEntity.IemBasicInfo.Variation_Flag; //todo
+                pointX = pointX + TextRenderer.MeasureText("是否变异", font).Width + 5;
+                pointX = DrawCheckBox(g, pointX, pointY, Variation_Flag, lineHeight);
+                pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+
+
+                //变异原因：
+                string Variation_Reason = m_IemMainPageEntity.IemBasicInfo.Variation_Reason;//todo
+                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "变异原因：", Variation_Reason, 300, "") + 25;
+
+                pointY += rowHeight;
+                pointX = m_PointX + offsetX;
+                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
                 //离院方式
                 g.DrawString("离院方式", font, Brushes.Black, new PointF(pointX, pointY));
                 string leaveType = m_IemMainPageEntity.IemBasicInfo.OutHosType; //todo
@@ -2155,10 +2213,26 @@ namespace DrectSoft.Core.IEMMainPage
                 string sleepMinuteAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaMinute;//todo
                 pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinuteAfter, 40, "分钟");
 
+                pointY += rowHeight;
+                pointX = m_PointX;
+
+                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+
+                pointX += offsetX;
+                //是否因同一病种再入院
+                g.DrawString("是否因同一病种再入院", font, Brushes.Black, new PointF(pointX, pointY));
+                string Rehospitalization = m_IemMainPageEntity.IemBasicInfo.Rehospitalization; //todo
+                pointX = pointX + TextRenderer.MeasureText("是否因同一病种再入院", font).Width + 5;
+                pointX = DrawCheckBox(g, pointX, pointY, Rehospitalization, lineHeight);
+                pointX = DrawSelectItem(g, pointX, pointY, " 1. 是 2. 否");
+
+                string Intervaldate = m_IemMainPageEntity.IemBasicInfo.Intervaldate;//todo
+                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "与上次出院日期间隔天数", Intervaldate, 40, "天");
                 pointY += rowHeight / 2 + 8;
                 pointX = m_PointX;
 
-                g.DrawLine(solidPen, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+                //g.DrawLine(solidPen, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
 
                 return pointY;
             }
@@ -2619,10 +2693,12 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("Note")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
                 Font font = m_DefaultFont;
                 int lineHeight = TextRenderer.MeasureText("高", font).Height;
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
-                float rowHeight = 25; //行间距
+                float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
                 Pen solidPen = new Pen(Brushes.Black, 2);
                 int lineWidth = 770;
                 int offsetX = 12;
