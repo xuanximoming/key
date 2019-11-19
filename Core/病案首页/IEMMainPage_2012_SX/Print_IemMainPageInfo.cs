@@ -1963,7 +1963,7 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 if (_YBZLFY == null || _YBZLFY.Trim() == "")
                     _YBZLFY = "-";
-                return _YBYLFY;
+                return _YBZLFY;
             }
             set
             {
