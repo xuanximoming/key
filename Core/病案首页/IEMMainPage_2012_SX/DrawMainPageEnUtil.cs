@@ -2102,137 +2102,179 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                int rowHeight = 24;
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("SecondPageOther")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
+
                 Font font = m_DefaultFont;
-                Pen solidPen = new Pen(Brushes.Black, 2);
                 int lineHeight = TextRenderer.MeasureText("高", font).Height;
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
+                float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
 
-                int lineWidth = 770;
-                int offsetX = 12;
 
-                float pointX = m_PointX + offsetX;
+                float pointStartX = m_PointX;
+                float pointX = pointStartX + 12;
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    Type t = m_IemMainPageEntity.IemBasicInfo.GetType();
+                    PropertyInfo info = t.GetProperty(Node.Name);
+                    string Value = info.GetValue(m_IemMainPageEntity.IemBasicInfo, null).ToString();
+                    int intSpace = int.Parse(Node.Attributes["space"].Value);
+                    string unit = Node.Attributes["unit"].Value;
+                    switch (Node.Attributes["type"].Value)
+                    {
+                        case "UnderLine":
+                            if (Value.Trim() == "")
+                            {
+                                Value = "---";
+                            }
+                            pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (interval - lineHeight) / 2, lineHeight, charWidth, Node.InnerText, Value, int.Parse(Node.Attributes["underLineWidth"].Value), unit) + intSpace;
+                            break;
+                        case "CheckBox":
+                            g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY + (interval - lineHeight) / 2));
+                            pointX = pointX + TextRenderer.MeasureText(Node.InnerText, font).Width + 5;
+                            pointX = DrawCheckBox(g, pointX, pointY + (interval - lineHeight) / 2, Value, lineHeight);
+                            pointX = DrawSelectItem(g, pointX, pointY + (interval - lineHeight) / 2, Node.Attributes["SelectItem"].Value) + intSpace;
+                            break;
+                        default:
+                            break;
+                    }
+                    if (Node.Attributes["nextLine"].Value == "1")
+                    {
+                        pointY += interval;
+                        pointX = pointStartX;
+                        g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + 770, pointY));
+                        pointX += 12;
+                    }
+
+                }
+
+
+                #region 屏蔽内容
+                //int rowHeight = 24;
+                //int lineWidth = 770;
+                //int offsetX = 12;
 
 
                 //是否实施临床路径管理
-                g.DrawString("是否实施临床路径管理", font, Brushes.Black, new PointF(pointX, pointY));
-                string Pathway_Flag = m_IemMainPageEntity.IemBasicInfo.Pathway_Flag; //todo
-                pointX = pointX + TextRenderer.MeasureText("是否实施临床路径管理", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, Pathway_Flag, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+                //g.DrawString("是否实施临床路径管理", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Pathway_Flag = m_IemMainPageEntity.IemBasicInfo.Pathway_Flag; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否实施临床路径管理", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Pathway_Flag, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
 
-                //是否完成临床路径
-                g.DrawString("是否完成临床路径", font, Brushes.Black, new PointF(pointX, pointY));
-                string Pathway_Over = m_IemMainPageEntity.IemBasicInfo.Pathway_Over; //todo
-                pointX = pointX + TextRenderer.MeasureText("是否完成临床路径", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, Pathway_Over, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+                ////是否完成临床路径
+                //g.DrawString("是否完成临床路径", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Pathway_Over = m_IemMainPageEntity.IemBasicInfo.Pathway_Over; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否完成临床路径", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Pathway_Over, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
 
-                //退出原因
-                string Path_Out_Reason = m_IemMainPageEntity.IemBasicInfo.Path_Out_Reason;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "退出原因：", Path_Out_Reason, 300, "") + 25;
+                ////退出原因
+                //string Path_Out_Reason = m_IemMainPageEntity.IemBasicInfo.Path_Out_Reason;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "退出原因：", Path_Out_Reason, 300, "") + 25;
 
-                pointY += rowHeight;
-                pointX = m_PointX + offsetX;
+                //pointY += rowHeight;
+                //pointX = m_PointX + offsetX;
 
-                //是否变异
-                g.DrawString("是否变异", font, Brushes.Black, new PointF(pointX, pointY));
-                string Variation_Flag = m_IemMainPageEntity.IemBasicInfo.Variation_Flag; //todo
-                pointX = pointX + TextRenderer.MeasureText("是否变异", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, Variation_Flag, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
-
-
-                //变异原因：
-                string Variation_Reason = m_IemMainPageEntity.IemBasicInfo.Variation_Reason;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "变异原因：", Variation_Reason, 300, "") + 25;
-
-                pointY += rowHeight;
-                pointX = m_PointX + offsetX;
-                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
-
-                //离院方式
-                g.DrawString("离院方式", font, Brushes.Black, new PointF(pointX, pointY));
-                string leaveType = m_IemMainPageEntity.IemBasicInfo.OutHosType; //todo
-                pointX = pointX + TextRenderer.MeasureText("离院方式", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, leaveType, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1.医嘱离院  2.医嘱转院,");
-
-                //拟接收医疗机构名称
-                string medicalName = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "拟接收医疗机构名称", medicalName, 300, "") + 25;
-
-                pointY += rowHeight;
-                pointX = m_PointX + offsetX;
-
-                //医嘱转社区卫生服务机构/乡镇卫生院
-                string healthOrganizations = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital2;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称:", healthOrganizations, 145, " 4.非医嘱离院 5.死亡 9.其他");
-
-                pointY += rowHeight / 2 + 8;
-                pointX = m_PointX;
-
-                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
-
-                pointY += rowHeight / 2 - 4;
-                pointX += offsetX;
-
-                //是否有出院31天内再住院计划
-                g.DrawString("是否有出院31天内再住院计划", font, Brushes.Black, new PointF(pointX, pointY));
-                string inHospitalAgain = m_IemMainPageEntity.IemBasicInfo.AgainInHospital; //todo
-                pointX = pointX + TextRenderer.MeasureText("是否有出院31天内再住院计划", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, inHospitalAgain, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1.无  2.有，");
-
-                //目的
-                string purpose = m_IemMainPageEntity.IemBasicInfo.AgainInHospitalReason;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "目的:", purpose, 200, "");
-
-                pointY += rowHeight / 2 + 8;
-                pointX = m_PointX;
-
-                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
-
-                pointY += rowHeight / 2 - 4;
-                pointX += offsetX;
-
-                //颅脑损伤患者昏迷时间
-                string sleepDayPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaDay;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "颅脑损伤患者昏迷时间： 入院前", sleepDayPre, 40, "天");
-                string sleepHourPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaHour;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourPre, 40, "小时");
-                string sleepMinutePre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaMinute;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinutePre, 40, "分钟") + 40;
+                ////是否变异
+                //g.DrawString("是否变异", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Variation_Flag = m_IemMainPageEntity.IemBasicInfo.Variation_Flag; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否变异", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Variation_Flag, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
 
 
-                //颅脑损伤患者昏迷时间
-                string sleepDayAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaDay;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院后", sleepDayAfter, 40, "天");
-                string sleepHourAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaHour;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourAfter, 40, "小时");
-                string sleepMinuteAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaMinute;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinuteAfter, 40, "分钟");
+                ////变异原因：
+                //string Variation_Reason = m_IemMainPageEntity.IemBasicInfo.Variation_Reason;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "变异原因：", Variation_Reason, 300, "") + 25;
 
-                pointY += rowHeight;
-                pointX = m_PointX;
+                //pointY += rowHeight;
+                //pointX = m_PointX + offsetX;
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
 
-                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+                ////离院方式
+                //g.DrawString("离院方式", font, Brushes.Black, new PointF(pointX, pointY));
+                //string leaveType = m_IemMainPageEntity.IemBasicInfo.OutHosType; //todo
+                //pointX = pointX + TextRenderer.MeasureText("离院方式", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, leaveType, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.医嘱离院  2.医嘱转院,");
+
+                ////拟接收医疗机构名称
+                //string medicalName = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "拟接收医疗机构名称", medicalName, 300, "") + 25;
+
+                //pointY += rowHeight;
+                //pointX = m_PointX + offsetX;
+
+                ////医嘱转社区卫生服务机构/乡镇卫生院
+                //string healthOrganizations = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital2;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称:", healthOrganizations, 145, " 4.非医嘱离院 5.死亡 9.其他");
+
+                //pointY += rowHeight / 2 + 8;
+                //pointX = m_PointX;
+
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+                //pointY += rowHeight / 2 - 4;
+                //pointX += offsetX;
+
+                ////是否有出院31天内再住院计划
+                //g.DrawString("是否有出院31天内再住院计划", font, Brushes.Black, new PointF(pointX, pointY));
+                //string inHospitalAgain = m_IemMainPageEntity.IemBasicInfo.AgainInHospital; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否有出院31天内再住院计划", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, inHospitalAgain, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.无  2.有，");
+
+                ////目的
+                //string purpose = m_IemMainPageEntity.IemBasicInfo.AgainInHospitalReason;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "目的:", purpose, 200, "");
+
+                //pointY += rowHeight / 2 + 8;
+                //pointX = m_PointX;
+
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+                //pointY += rowHeight / 2 - 4;
+                //pointX += offsetX;
+
+                ////颅脑损伤患者昏迷时间
+                //string sleepDayPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaDay;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "颅脑损伤患者昏迷时间： 入院前", sleepDayPre, 40, "天");
+                //string sleepHourPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaHour;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourPre, 40, "小时");
+                //string sleepMinutePre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaMinute;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinutePre, 40, "分钟") + 40;
 
 
-                pointX += offsetX;
-                //是否因同一病种再入院
-                g.DrawString("是否因同一病种再入院", font, Brushes.Black, new PointF(pointX, pointY));
-                string Rehospitalization = m_IemMainPageEntity.IemBasicInfo.Rehospitalization; //todo
-                pointX = pointX + TextRenderer.MeasureText("是否因同一病种再入院", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, Rehospitalization, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, " 1. 是 2. 否");
+                ////颅脑损伤患者昏迷时间
+                //string sleepDayAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaDay;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院后", sleepDayAfter, 40, "天");
+                //string sleepHourAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaHour;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourAfter, 40, "小时");
+                //string sleepMinuteAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaMinute;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinuteAfter, 40, "分钟");
 
-                string Intervaldate = m_IemMainPageEntity.IemBasicInfo.Intervaldate;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "与上次出院日期间隔天数", Intervaldate, 40, "天");
-                pointY += rowHeight / 2 + 8;
-                pointX = m_PointX;
+                //pointY += rowHeight;
+                //pointX = m_PointX;
 
-                //g.DrawLine(solidPen, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+
+                //pointX += offsetX;
+                ////是否因同一病种再入院
+                //g.DrawString("是否因同一病种再入院", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Rehospitalization = m_IemMainPageEntity.IemBasicInfo.Rehospitalization; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否因同一病种再入院", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Rehospitalization, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, " 1. 是 2. 否");
+
+                //string Intervaldate = m_IemMainPageEntity.IemBasicInfo.Intervaldate;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "与上次出院日期间隔天数", Intervaldate, 40, "天");
+                //pointY += rowHeight / 2 + 8;
+                //pointX = m_PointX;
+
+                #endregion
+
 
                 return pointY;
             }
