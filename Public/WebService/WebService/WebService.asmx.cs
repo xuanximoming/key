@@ -73,5 +73,21 @@ namespace DrectSoft
                 return ex.Message;
             }
         }
+
+        [WebMethod]
+        public string HttpPostGetImage(string id, string picid)
+        {
+            try
+            {
+                string path = null;
+                path = getdate.GetImage(id, picid);
+
+                return path;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

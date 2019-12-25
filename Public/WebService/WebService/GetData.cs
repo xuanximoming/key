@@ -92,6 +92,26 @@ namespace DrectSoft
             }
 
         }
+        public string GetImage(string id, string PicID)
+        {
+            try
+            {
+                DataTable dt = null;
+                string sql = string.Format(@"SELECT PicData FROM PicTable where ID='{0}' and PicID='{1}'", id, PicID);
+                DS_SqlHelper.CreateSqlHelperByDBName("EHRDB");
+                dt = DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
+                byte[] bytes = (byte[])dt.Rows[0]["PicData"];
+                if (bytes.Length == 0)
+                    return "";
+                io.WriteImage(bytes);
+                return "Images\\image.jpg";
+            }
+            catch (Exception ex)
+            {
+                io.WriteLog(ex.Message);
+                return null;
+            }
+        }
         /// <summary>
         /// 获取配置信息
         /// <auth>Yanqiao.Cai</auth>
