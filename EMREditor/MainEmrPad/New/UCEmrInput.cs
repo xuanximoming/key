@@ -960,7 +960,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                         {
                             string sql = string.Format(@"select d.diagnosis_name from iem_mainpage_diagnosis_sx d join iem_mainpage_basicinfo_sx b on d.iem_mainpage_no=b.iem_mainpage_no  and b.noofinpat={0} and d.diagnosis_type_id in(7,8) and d.valide='1'", CurrentInputBody.CurrentEmrEditor.CurrentNoofinpat);
                             DataTable dt = m_app.SqlHelper.ExecuteDataTable(sql);
-                            if (dt != null && dt.Rows.Count > 0)
+                            if (dt != null && dt.Rows.Count > 0 || DS_SqlService.GetConfigValueByKey("PrintNoDiag") == "1")
                             {
                                 CurrentInputBody.CurrentEmrEditor.Print();
                             }
