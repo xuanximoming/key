@@ -576,9 +576,9 @@ namespace DrectSoft.Core.IEMMainPage
                 //医疗付款方式
                 xmlNodeChildren = xmlNode.SelectNodes("Pay")[0];
                 Name = xmlNodeChildren.InnerText;
-                g.DrawString(Name, m_DefaultFont, Brushes.Black, new PointF(pointX, m_PointY));
+                g.DrawString(Name, m_DefaultFont, Brushes.Black, new PointF(float.Parse(xmlNodeChildren.Attributes["PointX"].Value), float.Parse(xmlNodeChildren.Attributes["PointY"].Value)));
                 string payType = m_IemMainPageEntity.IemBasicInfo.PayID; //todo
-                DrawCheckBox(g, pointX + TextRenderer.MeasureText(Name, m_DefaultFont).Width, m_PointY, payType, TextRenderer.MeasureText("高", m_DefaultFont).Height);
+                DrawCheckBox(g, float.Parse(xmlNodeChildren.Attributes["PointX"].Value) + TextRenderer.MeasureText(Name, m_DefaultFont).Width, float.Parse(xmlNodeChildren.Attributes["PointY"].Value), payType, TextRenderer.MeasureText("高", m_DefaultFont).Height);
                 //组织机构代码
                 if (!string.IsNullOrEmpty(m_OrganizationCode))
                 {
@@ -1655,30 +1655,39 @@ namespace DrectSoft.Core.IEMMainPage
                 int lineWidth = 770; //ColumnWidth1 + ColumnWidth2 + ...... = lineWidth
                 int xOffset = 12;
 
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("PrintOperation")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
                 Pen solidPen = new Pen(Brushes.Black, 2);
-                g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+                if (xmlNodes.Count > 0)
+                {
 
-                //Ⅰ类手术切口预防性应用抗菌药物
-                g.DrawString("Ⅰ类手术切口预防性应用抗菌药物", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
-                string Antibacterial_Drugs = m_IemMainPageEntity.IemBasicInfo.Antibacterial_Drugs; //todo
-                pointX = pointX + TextRenderer.MeasureText("Ⅰ类手术切口预防性应用抗菌药物", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Antibacterial_Drugs, charHeight);
-                pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否") + 15;
+                    g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
 
-                //使用持续时间：
-                string Durationdate = m_IemMainPageEntity.IemBasicInfo.Durationdate;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (lineHeight - charHeight) / 2, lineHeight, charWidth, "使用持续时间：", Durationdate, 50, "小时") + 25;
+                    //Ⅰ类手术切口预防性应用抗菌药物
+                    g.DrawString("Ⅰ类手术切口预防性应用抗菌药物", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
+                    string Antibacterial_Drugs = m_IemMainPageEntity.IemBasicInfo.Antibacterial_Drugs; //todo
+                    pointX = pointX + TextRenderer.MeasureText("Ⅰ类手术切口预防性应用抗菌药物", font).Width + 5;
+                    pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Antibacterial_Drugs, charHeight);
+                    pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否") + 15;
 
-                //联合用药
-                g.DrawString("联合用药", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
-                string Combined_Medication = m_IemMainPageEntity.IemBasicInfo.Combined_Medication; //todo
-                pointX = pointX + TextRenderer.MeasureText("联合用药", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Combined_Medication, charHeight);
-                pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否");
+                    //使用持续时间：
+                    string Durationdate = m_IemMainPageEntity.IemBasicInfo.Durationdate;//todo
+                    pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (lineHeight - charHeight) / 2, lineHeight, charWidth, "使用持续时间：", Durationdate, 50, "小时") + 25;
+
+                    //联合用药
+                    g.DrawString("联合用药", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
+                    string Combined_Medication = m_IemMainPageEntity.IemBasicInfo.Combined_Medication; //todo
+                    pointX = pointX + TextRenderer.MeasureText("联合用药", font).Width + 5;
+                    pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Combined_Medication, charHeight);
+                    pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否");
+
+                    pointX = m_PointX;
+                    pointY += lineHeight;
+                }
+
 
                 #region Table Header
-                pointX = m_PointX;
-                pointY += lineHeight;
+
                 g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
 
                 g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, firstLineHieght));

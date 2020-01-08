@@ -80,7 +80,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="antlr.runtime, Version=2.7.3.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="antlr.runtime, Version=2.7.3.3, Culture=neutral, PublicKeyToken=be154fad2eeaf84e">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\DLL\antlr.runtime.dll</HintPath>
     </Reference>
