@@ -1,4 +1,9 @@
-﻿using MedicalRecordManage.Object;
+﻿using DrectSoft.Common;
+using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Emr.QcManager;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
+using MedicalRecordManage.Object;
 using MedicalRecordManage.UI;
 using System;
 using System.Collections;
@@ -7,11 +12,6 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using DrectSoft.Common;
-using DrectSoft.Common.Ctrs.DLG;
-using DrectSoft.Service;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Emr.QcManager;
 namespace MedicalRecordManage.UCControl
 {
     public partial class MyMedicalRecordList : DevExpress.XtraEditors.XtraUserControl//, IEMREditor
@@ -1203,7 +1203,7 @@ namespace MedicalRecordManage.UCControl
                 }
                 if (state == "1500")//add by Ukey 2016-11-12 Add to cancel discharge from hospital
                 {
-                    string StrSelectPat = @"select ZC_INPAT.* from ZC_INPAT,inpatient where ZC_INPAT.patnoofhis = inpatient.patnoofhis and inpatient.noofinpat = '{0}';";
+                    string StrSelectPat = @"select * from inpatient where inpatient.noofinpat = '{0}';";
                     string strStatus = m_app.SqlHelper.ExecuteDataTable(string.Format(StrSelectPat, noofinpat), CommandType.Text).Rows[0]["status"].ToString().Trim();
                     if (strStatus.Equals("1500"))
                     {
@@ -1215,7 +1215,7 @@ namespace MedicalRecordManage.UCControl
                     }
                     else
                     {
-                        DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(message + "失败，HIS中病人不是在院状态！");
+                        DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(message + "失败，病人不是在院状态！");
                         return;
                     }
                 }
