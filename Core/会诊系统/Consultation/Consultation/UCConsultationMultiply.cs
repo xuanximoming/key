@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DrectSoft.Common;
+using DrectSoft.Common.Eop;
+using DrectSoft.Common.Library;
+using DrectSoft.Core.Consultation.Dal;
 using DrectSoft.FrameWork.WinForm;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Core.Consultation.Dal;
 using DrectSoft.Wordbook;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using DrectSoft.Common.Library;
-using DrectSoft.Common.Eop;
-using DrectSoft.Common;
-using System.Reflection;
-using System.Drawing.Imaging;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.Consultation
 {
@@ -152,7 +148,7 @@ namespace DrectSoft.Core.Consultation
                 txtWard.Text = m_ConsultationEntity.WardName;
 
                 txtBed.Text = m_ConsultationEntity.Bed;
-                txtPatNoOfHis.Text = m_ConsultationEntity.PatNoOfHIS.Substring(4);//去除前4个0
+                txtPatNoOfHis.Text = m_ConsultationEntity.PatNoOfHIS;//.Substring(4);//去除前4个0
 
                 memoAbstract.Text = m_ConsultationEntity.Abstract;
                 memoPurpose.Text = m_ConsultationEntity.Purpose;
@@ -184,7 +180,7 @@ namespace DrectSoft.Core.Consultation
                         lookUpEditorDepartment.Enabled = false;
                         lookUpEditorEmployee.Enabled = false;
                         lookUpEditorLevel.Enabled = false;
-                        
+
                         DeleteButton.Visible = false;
                         simpleButtonNew.Visible = false;
                         simpleButtonEdit.Visible = false;
@@ -757,7 +753,7 @@ namespace DrectSoft.Core.Consultation
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                if ( dt.Rows[i]["EmployeeCode"].Equals(lookUpEditorEmployee.CodeValue))
+                if (dt.Rows[i]["EmployeeCode"].Equals(lookUpEditorEmployee.CodeValue))
                 {
                     m_app.CustomMessageBox.MessageShow("该记录已经存在!", CustomMessageBoxKind.WarningOk);
                     gridViewDept.FocusedRowHandle = i;
@@ -1188,7 +1184,7 @@ namespace DrectSoft.Core.Consultation
             if (m_ConsultationID == "")
                 return;
             //会诊完成后，可以再次修改
-            if (m_ConsultationEntity.StateID == Convert.ToString((int)ConsultStatus.WaitConsultation) || m_ConsultationEntity.StateID == Convert.ToString((int)ConsultStatus.RecordeSave)  || m_ConsultationEntity.StateID==Convert.ToString((int)ConsultStatus.RecordeComplete))
+            if (m_ConsultationEntity.StateID == Convert.ToString((int)ConsultStatus.WaitConsultation) || m_ConsultationEntity.StateID == Convert.ToString((int)ConsultStatus.RecordeSave) || m_ConsultationEntity.StateID == Convert.ToString((int)ConsultStatus.RecordeComplete))
                 Save(ConsultStatus.RecordeComplete);
         }
 
