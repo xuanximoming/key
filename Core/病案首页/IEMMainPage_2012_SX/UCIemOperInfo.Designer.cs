@@ -619,18 +619,18 @@
             this.labelControl22.TabIndex = 228;
             this.labelControl22.Text = "离院方式";
             // 
-            // chkAgainInHospital2
+            // chkOutHosType1
             // 
-            this.chkAgainInHospital2.Location = new System.Drawing.Point(250, 325);
-            this.chkAgainInHospital2.Name = "chkAgainInHospital2";
-            this.chkAgainInHospital2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkAgainInHospital2.Properties.Appearance.Options.UseForeColor = true;
-            this.chkAgainInHospital2.Properties.Caption = "2.有，目的:";
-            this.chkAgainInHospital2.Properties.RadioGroupIndex = 1;
-            this.chkAgainInHospital2.Size = new System.Drawing.Size(90, 19);
-            this.chkAgainInHospital2.TabIndex = 223;
-            this.chkAgainInHospital2.TabStop = false;
-            this.chkAgainInHospital2.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkOutHosType1.Location = new System.Drawing.Point(90, 252);
+            this.chkOutHosType1.Name = "chkOutHosType1";
+            this.chkOutHosType1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkOutHosType1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkOutHosType1.Properties.Caption = "1.医嘱离院";
+            this.chkOutHosType1.Properties.RadioGroupIndex = 0;
+            this.chkOutHosType1.Size = new System.Drawing.Size(84, 19);
+            this.chkOutHosType1.TabIndex = 220;
+            this.chkOutHosType1.TabStop = false;
+            this.chkOutHosType1.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // chkOutHosType2
             // 
@@ -658,18 +658,18 @@
             this.chkOutHosType3.TabStop = false;
             this.chkOutHosType3.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
-            // chkOutHosType9
+            // chkOutHosType4
             // 
-            this.chkOutHosType9.Location = new System.Drawing.Point(214, 303);
-            this.chkOutHosType9.Name = "chkOutHosType9";
-            this.chkOutHosType9.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkOutHosType9.Properties.Appearance.Options.UseForeColor = true;
-            this.chkOutHosType9.Properties.Caption = "9.其他";
-            this.chkOutHosType9.Properties.RadioGroupIndex = 0;
-            this.chkOutHosType9.Size = new System.Drawing.Size(59, 19);
-            this.chkOutHosType9.TabIndex = 218;
-            this.chkOutHosType9.TabStop = false;
-            this.chkOutHosType9.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkOutHosType4.Location = new System.Drawing.Point(39, 303);
+            this.chkOutHosType4.Name = "chkOutHosType4";
+            this.chkOutHosType4.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkOutHosType4.Properties.Appearance.Options.UseForeColor = true;
+            this.chkOutHosType4.Properties.Caption = "4.非医嘱离院";
+            this.chkOutHosType4.Properties.RadioGroupIndex = 0;
+            this.chkOutHosType4.Size = new System.Drawing.Size(104, 19);
+            this.chkOutHosType4.TabIndex = 222;
+            this.chkOutHosType4.TabStop = false;
+            this.chkOutHosType4.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // chkOutHosType5
             // 
@@ -684,18 +684,18 @@
             this.chkOutHosType5.TabStop = false;
             this.chkOutHosType5.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
-            // chkOutHosType4
+            // chkOutHosType9
             // 
-            this.chkOutHosType4.Location = new System.Drawing.Point(39, 303);
-            this.chkOutHosType4.Name = "chkOutHosType4";
-            this.chkOutHosType4.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkOutHosType4.Properties.Appearance.Options.UseForeColor = true;
-            this.chkOutHosType4.Properties.Caption = "4.非医嘱离院";
-            this.chkOutHosType4.Properties.RadioGroupIndex = 0;
-            this.chkOutHosType4.Size = new System.Drawing.Size(104, 19);
-            this.chkOutHosType4.TabIndex = 222;
-            this.chkOutHosType4.TabStop = false;
-            this.chkOutHosType4.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkOutHosType9.Location = new System.Drawing.Point(214, 303);
+            this.chkOutHosType9.Name = "chkOutHosType9";
+            this.chkOutHosType9.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkOutHosType9.Properties.Appearance.Options.UseForeColor = true;
+            this.chkOutHosType9.Properties.Caption = "9.其他";
+            this.chkOutHosType9.Properties.RadioGroupIndex = 0;
+            this.chkOutHosType9.Size = new System.Drawing.Size(59, 19);
+            this.chkOutHosType9.TabIndex = 218;
+            this.chkOutHosType9.TabStop = false;
+            this.chkOutHosType9.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // chkAgainInHospital1
             // 
@@ -710,18 +710,18 @@
             this.chkAgainInHospital1.TabStop = false;
             this.chkAgainInHospital1.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
-            // chkOutHosType1
+            // chkAgainInHospital2
             // 
-            this.chkOutHosType1.Location = new System.Drawing.Point(90, 252);
-            this.chkOutHosType1.Name = "chkOutHosType1";
-            this.chkOutHosType1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkOutHosType1.Properties.Appearance.Options.UseForeColor = true;
-            this.chkOutHosType1.Properties.Caption = "1.医嘱离院";
-            this.chkOutHosType1.Properties.RadioGroupIndex = 0;
-            this.chkOutHosType1.Size = new System.Drawing.Size(84, 19);
-            this.chkOutHosType1.TabIndex = 220;
-            this.chkOutHosType1.TabStop = false;
-            this.chkOutHosType1.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkAgainInHospital2.Location = new System.Drawing.Point(250, 325);
+            this.chkAgainInHospital2.Name = "chkAgainInHospital2";
+            this.chkAgainInHospital2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkAgainInHospital2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkAgainInHospital2.Properties.Caption = "2.有，目的:";
+            this.chkAgainInHospital2.Properties.RadioGroupIndex = 1;
+            this.chkAgainInHospital2.Size = new System.Drawing.Size(90, 19);
+            this.chkAgainInHospital2.TabIndex = 223;
+            this.chkAgainInHospital2.TabStop = false;
+            this.chkAgainInHospital2.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // hLineEx1
             // 
@@ -818,7 +818,7 @@
             this.chkCOMBINED2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkCOMBINED2.Properties.Appearance.Options.UseForeColor = true;
             this.chkCOMBINED2.Properties.Caption = "2.否";
-            this.chkCOMBINED2.Properties.RadioGroupIndex = 0;
+            this.chkCOMBINED2.Properties.RadioGroupIndex = 2;
             this.chkCOMBINED2.Size = new System.Drawing.Size(41, 19);
             this.chkCOMBINED2.TabIndex = 263;
             this.chkCOMBINED2.TabStop = false;
@@ -830,7 +830,7 @@
             this.chkCOMBINED1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
             this.chkCOMBINED1.Properties.Appearance.Options.UseForeColor = true;
             this.chkCOMBINED1.Properties.Caption = "1.是";
-            this.chkCOMBINED1.Properties.RadioGroupIndex = 0;
+            this.chkCOMBINED1.Properties.RadioGroupIndex = 2;
             this.chkCOMBINED1.Size = new System.Drawing.Size(42, 19);
             this.chkCOMBINED1.TabIndex = 262;
             this.chkCOMBINED1.TabStop = false;

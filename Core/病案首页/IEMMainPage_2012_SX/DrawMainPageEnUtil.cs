@@ -2751,18 +2751,23 @@ namespace DrectSoft.Core.IEMMainPage
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
                 float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
                 Pen solidPen = new Pen(Brushes.Black, 2);
-                int lineWidth = 770;
                 int offsetX = 12;
                 float pointX = m_PointX + offsetX;
-
-                g.DrawString("说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助", font, Brushes.Black, new PointF(pointX, pointY));
-                pointY += 20;
-                g.DrawString("5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他", font, Brushes.Black, new PointF(pointX, pointY));
-                pointY += 20;
-
                 int width = TextRenderer.MeasureText("说明：", font).Width;
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY));
+                    pointY += interval;
+                }
 
-                g.DrawString("（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”。", font, Brushes.Black, new PointF(pointX + width - 7, pointY));
+                //g.DrawString("说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助", font, Brushes.Black, new PointF(pointX, pointY));
+                //pointY += 20;
+                //g.DrawString("5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他", font, Brushes.Black, new PointF(pointX, pointY));
+                //pointY += 20;
+
+                ////int width = TextRenderer.MeasureText("说明：", font).Width;
+
+                //g.DrawString("（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”。", font, Brushes.Black, new PointF(pointX + width - 7, pointY));
 
 
 

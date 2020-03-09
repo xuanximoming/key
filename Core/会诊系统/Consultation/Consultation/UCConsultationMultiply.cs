@@ -148,7 +148,7 @@ namespace DrectSoft.Core.Consultation
                 txtWard.Text = m_ConsultationEntity.WardName;
 
                 txtBed.Text = m_ConsultationEntity.Bed;
-                txtPatNoOfHis.Text = m_ConsultationEntity.PatNoOfHIS;//.Substring(4);//去除前4个0
+                txtPatNoOfHis.Text = m_ConsultationEntity.PatNoOfHIS;
 
                 memoAbstract.Text = m_ConsultationEntity.Abstract;
                 memoPurpose.Text = m_ConsultationEntity.Purpose;
