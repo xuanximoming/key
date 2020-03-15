@@ -202,6 +202,12 @@
     <Compile Include="Lock\FormLock.Designer.cs">
       <DependentUpon>FormLock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login\ConnectionConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\ConnectionConfig.Designer.cs">
+      <DependentUpon>ConnectionConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\FormReg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\ConnectionConfig.resx">
+      <DependentUpon>ConnectionConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

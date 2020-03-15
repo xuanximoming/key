@@ -18,7 +18,9 @@ Thumbs.db
 *.ilk
 *.log
 *.wmf
-[Bb]in
+bin
+BIN/*.dll
+BIN/*.exe
 [Dd]ebug*/
 *.lib
 *.sbr

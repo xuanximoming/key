@@ -6,3 +6,6 @@ FormMain.cs
  FormItemFunction.cs
 
  string getAllDeptWards  修改语句
+
+
+ 添加连接配置信息

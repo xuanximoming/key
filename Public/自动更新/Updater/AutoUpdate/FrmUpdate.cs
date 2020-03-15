@@ -16,18 +16,17 @@ namespace AutoUpdate
         private int availableUpdate = 0;
         private bool isRun = false;
         private string mainAppExe = "";
+        private string _IP = "0.0.0.0";
         public FrmUpdate()
         {
             InitializeComponent();
         }
 
-
-        [STAThread]
-        private static void Main()
+        public FrmUpdate(string IP)
         {
-            Application.Run(new FrmUpdate());
+            _IP = IP;
+            InitializeComponent();
         }
-
         private void FrmUpdate_Load(object sender, EventArgs e)
         {
             this.panel2.Visible = false;
@@ -44,7 +43,7 @@ namespace AutoUpdate
                 base.Close();
                 return;
             }
-            this.updateUrl = this.updaterXmlFiles.GetNodeValue("//Url");
+            this.updateUrl = string.Format(this.updaterXmlFiles.GetNodeValue("//Url"), _IP);
             AppUpdater appUpdater = new AppUpdater();
             appUpdater.UpdaterUrl = this.updateUrl + "/UpdateList.xml";
             try

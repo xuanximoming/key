@@ -20,6 +20,11 @@ namespace DrectSoft.Core.IEMMainPage
         public int m_PageWidth = 800;//用于设定PictureBox的宽度
         public int m_PageHeight = 1120;//用于设定PictureBox的高度
 
+        private float m_BasePointX = 0;
+        private float m_BasePointY = 0;
+        private int m_Basewidth = 0;
+        private int m_Baseheight = 0;
+
         float m_PointYTitle = 40; //“首页”标题Y轴方向的值
         Font m_DefaultFont = new Font("宋体", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
         Font m_DefaultValueFont = new Font("宋体", 13f, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -96,6 +101,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+
                 m_IemMainPageEntity = iemMainPageEntity;
                 InitVariable();
                 InitMetaFile();
@@ -129,6 +135,10 @@ namespace DrectSoft.Core.IEMMainPage
                 m_PageHeight = int.Parse(xmlNode.Attributes["height"].Value);
                 m_PointX = float.Parse(xmlNode.Attributes["PointX"].Value);
                 m_PointY = float.Parse(xmlNode.Attributes["PointY"].Value);
+                m_BasePointX = float.Parse(xmlNode.Attributes["BasePointX"].Value);
+                m_BasePointY = float.Parse(xmlNode.Attributes["BasePointY"].Value);
+                m_Basewidth = int.Parse(xmlNode.Attributes["Basewidth"].Value);
+                m_Baseheight = int.Parse(xmlNode.Attributes["Baseheight"].Value);
                 xmlNode = xmlDoc.GetElementsByTagName("DefaultStyle")[0];
                 m_DefaultFont = GetFont(xmlNode);
 
@@ -521,7 +531,6 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-
                 StringFormat sf = new StringFormat();
                 sf.Alignment = StringAlignment.Center;
                 sf.LineAlignment = StringAlignment.Center;
@@ -530,6 +539,7 @@ namespace DrectSoft.Core.IEMMainPage
                 string Name = null;
                 float Width = 0f;
                 float pointX = m_PointX;
+
                 //医院名称
                 xmlNodeChildren = xmlNode.SelectNodes("Hospital")[0];
                 m_PointYTitle = float.Parse(xmlNodeChildren.Attributes["fontsize"].Value);
@@ -1586,7 +1596,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 //绘制页数
                 //g.DrawString("第 1 页", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, lineWidth, rowHeight), sf);
-
+                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)(m_PointX - m_BasePointX), (int)(m_PointY - m_BasePointY)), new Size((int)(m_PageWidth - m_Basewidth), (int)(m_PageHeight - m_Baseheight))));
                 return pointY;
             }
             catch (Exception ex)
@@ -2759,18 +2769,7 @@ namespace DrectSoft.Core.IEMMainPage
                     g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY));
                     pointY += interval;
                 }
-
-                //g.DrawString("说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助", font, Brushes.Black, new PointF(pointX, pointY));
-                //pointY += 20;
-                //g.DrawString("5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他", font, Brushes.Black, new PointF(pointX, pointY));
-                //pointY += 20;
-
-                ////int width = TextRenderer.MeasureText("说明：", font).Width;
-
-                //g.DrawString("（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”。", font, Brushes.Black, new PointF(pointX + width - 7, pointY));
-
-
-
+                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)(m_PointX - m_BasePointX), (int)(m_PointY - m_BasePointY)), new Size((int)(m_PageWidth - m_Basewidth), (int)(m_PageHeight - m_Baseheight))));
                 return pointY;
             }
             catch (Exception ex)

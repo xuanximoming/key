@@ -451,21 +451,6 @@ namespace DrectSoft.MainFrame
             svrTime.Set2LocalSystemTime();
         }
 
-        //private string GetIPStr()
-        //{
-
-        //    string strHostName = Dns.GetHostName();     //得到本机的主机名   
-        //    IPHostEntry ipEntry = Dns.GetHostByName(strHostName);   //取得本机IP  
-        //    if (ipEntry != null && ipEntry.AddressList != null && ipEntry.AddressList.Length > 0)
-        //    {
-        //        string strAddr = ipEntry.AddressList[0].ToString();
-        //        return (strAddr);
-        //    }
-        //    else
-        //        return "0.0.0.0";
-
-        //}
-
         private void InitializePlugins()
         {
 
@@ -821,7 +806,7 @@ namespace DrectSoft.MainFrame
 
                 this.Show();
 
-                //m_FormLogin.Hide();
+                m_FormLogin.Hide();
 
                 //ShowConsultationInfo();
                 InitTimerMessageWindow();

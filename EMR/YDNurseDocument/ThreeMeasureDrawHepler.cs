@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Xml;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Drawing.Drawing2D;
-using System.IO;
-using System.Data;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using System.Threading;
-using DrectSoft.Common.Eop;
 
 namespace DrectSoft.Core.NurseDocument
 {
@@ -1285,7 +1280,7 @@ namespace DrectSoft.Core.NurseDocument
                             {
                                 showcontent1 = sb.ToString().Split('|')[0];
                             }
-                            gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(showcontent1), recf, sf); 
+                            gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(showcontent1), recf, sf);
                             //gph.DrawString(sb.ToString(), fontText, ConfigInfo.m_patientStateTextColor, recf, sf);
                             //gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(dp.value), recf, sf); 
                             #endregion
@@ -1341,7 +1336,7 @@ namespace DrectSoft.Core.NurseDocument
 
                         //add byy ywk 2013年7月24日 15:04:02 传入状态名称获取颜色
                         gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(dp.value), recf, sf);
-                        
+
                         return specialPatientStateDataPoints;
                     }
                     recf.Offset(-(dp.GetOffsetDays_1() * (ConfigInfo.m_columnList[1].width) + ConfigInfo.smallGridWidth * hourDuringIndex), 0);
@@ -1473,7 +1468,7 @@ namespace DrectSoft.Core.NurseDocument
             }
         }
 
-        
+
 
         /// <summary>
         /// 解决桑植医院特殊状态断开时不连线录入值画点需求
@@ -1589,7 +1584,7 @@ namespace DrectSoft.Core.NurseDocument
                     {
                         FormatePulseHeartRateDataPointsAndLink(VitalSignsDataPointsPULSE, VitalSignsDataPointsHEARTRATE);
                     }
-                    
+
                 }
                 else
                 {

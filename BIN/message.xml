@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<messages>
-  <message msgid="1" value="出现异常，可能是网络延时造成, 请联系管理员"></message>
-  <message msgid="2" value="调用HIS系统错误, 请联系工程师处理"></message>
-  <message msgid="3" value="调用PACS系统错误, 请联系工程师处理"></message>
-  <message msgid="4" value="调用LIS系统错误, 请联系工程师处理"></message>
-  <message msgid="5" value="调用EMR系统错误, 请联系工程师处理"></message>
-</messages>

@@ -86,6 +86,64 @@ namespace DrectSoft.MainFrame
                 return "0.0.0.0";
 
         }
+
+
+        #region Ping方法
+        public static bool Ping(string ip)
+        {
+            try
+            {
+                System.Net.NetworkInformation.Ping p = new System.Net.NetworkInformation.Ping();
+                System.Net.NetworkInformation.PingOptions options = new System.Net.NetworkInformation.PingOptions();
+                options.DontFragment = true;
+                string data = "Test Data!";
+                byte[] buffer = System.Text.Encoding.ASCII.GetBytes(data);
+                int timeout = 1000;//Timeout时间，单位：毫秒。
+                System.Net.NetworkInformation.PingReply reply = p.Send(ip, timeout, buffer, options);
+                if (reply.Status == System.Net.NetworkInformation.IPStatus.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        #endregion
+
+        public static void ConnectionStringsAdd(string name, string ConString, string providerName)
+        {
+            //指定config文件读取
+            string file = System.Windows.Forms.Application.ExecutablePath;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(file);
+
+            bool exist = false; //记录该连接串是否已经存在  
+            //如果要更改的连接串已经存在  
+            if (config.ConnectionStrings.ConnectionStrings[name] != null)
+            {
+                exist = true;
+            }
+            // 如果连接串已存在，首先删除它  
+            if (exist)
+            {
+                config.ConnectionStrings.ConnectionStrings.Remove(name);
+            }
+            //新建一个连接字符串实例  
+            ConnectionStringSettings mySettings =
+                new ConnectionStringSettings(name, ConString, providerName);
+            // 将新的连接串添加到配置文件中.  
+            config.ConnectionStrings.ConnectionStrings.Add(mySettings);
+            // 保存对配置文件所作的更改  
+            config.Save(ConfigurationSaveMode.Modified);
+            // 强制重新载入配置文件的ConnectionStrings配置节  
+            ConfigurationManager.RefreshSection("connectionStrings");
+        }
+
     }
 
 }

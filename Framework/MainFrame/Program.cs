@@ -9,8 +9,6 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 namespace MainFrame
@@ -57,6 +55,11 @@ namespace MainFrame
             // Application.SetCompatibleTextRenderingDefault(false);
             try
             {
+                if (!PingServer())
+                {
+                    ConnectionConfig conconfig = new ConnectionConfig();
+                    conconfig.ShowDialog();
+                }
                 GoSetDataAccess();//先行设定数据源
                 DrectSoft.DSSqlHelper.DS_SqlHelper.CreateSqlHelper();
                 if (!CkeckRegInfo())
@@ -86,9 +89,20 @@ namespace MainFrame
             }
         }
 
+        /// <summary>
+        /// Ping 数据库地址
+        /// </summary>
+        /// <returns></returns>
+        private static bool PingServer()
+        {
+            ConfigurationSection obj = ConfigurationManager.GetSection("dataConfiguration") as ConfigurationSection;
+            string connectionStringsSection = obj.ElementInformation.Properties["defaultDatabase"].Value.ToString();
+            string ConnectionString = ConfigurationManager.ConnectionStrings[connectionStringsSection].ConnectionString;
+            string IP = ConnectionString.Substring(ConnectionString.IndexOf("HOST=") + 5, ConnectionString.Substring(ConnectionString.IndexOf("HOST=") + 5).IndexOf(")"));
+            return PublicClass.Ping(IP);
+        }
         public static void GoLogin()
         {
-            DrectSoft.DSSqlHelper.DS_SqlHelper.CreateSqlHelper();
             string exeAssembly = Assembly.GetEntryAssembly().FullName;
             AppDomain ad = GetCustomAppDomain();
 
@@ -108,7 +122,7 @@ namespace MainFrame
                 //add by ywk 2013年4月22日11:10:40 
                 string currentsoftpath = System.AppDomain.CurrentDomain.BaseDirectory;
                 ChooseConection choose = new ChooseConection(currentsoftpath);
-                if (File.Exists(currentsoftpath + "\\ConnectServer.xml"))//如果不存在的话就不弹出选择窗体
+                if (File.Exists(currentsoftpath + "\\Sheet\\ConnectServer.xml"))//如果不存在的话就不弹出选择窗体
                 {
 
                     choose.StartPosition = FormStartPosition.CenterParent;
@@ -120,7 +134,7 @@ namespace MainFrame
                     {
                         //MessageBox.Show("选择了连接" + choose.SelectedSource);
                         XmlDocument XmldataSource = new XmlDocument();
-                        XmldataSource.Load(currentsoftpath + "ConnectServer.xml");
+                        XmldataSource.Load(currentsoftpath + "\\Sheet\\ConnectServer.xml");
                         XmlNodeList xnodeList = XmldataSource.SelectNodes("/Connection/" + choose.SelectedSource);
                         ArrayList DatasourceList = new ArrayList();
                         if (xnodeList.Count > 0)
@@ -269,7 +283,7 @@ namespace MainFrame
 
                             if (dt.Rows[i]["configkey"].ToString().ToLower() == "checkversion")
                             {
-                                if (dt.Rows[i]["value"].ToString().Trim() != EncryptDES(hpname.Trim(), secretkey))
+                                if (dt.Rows[i]["value"].ToString().Trim() != PublicClass.EncryptDES(hpname.Trim(), secretkey))
                                 {
                                     MessageBox.Show("注册版本信息不符合！");
                                     rvalue = false;
@@ -278,7 +292,7 @@ namespace MainFrame
                             }
                             if (dt.Rows[i]["configkey"].ToString().ToLower() == "checktime")
                             {
-                                if (datetime > DateTime.Parse(DecryptDES(dt.Rows[i]["value"].ToString().Trim(), secretkey)))
+                                if (datetime > DateTime.Parse(PublicClass.DecryptDES(dt.Rows[i]["value"].ToString().Trim(), secretkey)))
                                 {
                                     MessageBox.Show("软件已超过使用时间，请重新注册！");
                                     rvalue = false;
@@ -286,7 +300,7 @@ namespace MainFrame
 
                             }
                         }
-                        if (dt_client_ip.Rows.Count <= 0 || dt_client_ip.Rows[0]["ip_code"].ToString().Trim() != EncryptDES(PublicClass.GetIPStr().Trim(), "ip__code"))
+                        if (dt_client_ip.Rows.Count <= 0 || dt_client_ip.Rows[0]["ip_code"].ToString().Trim() != PublicClass.EncryptDES(PublicClass.GetIPStr().Trim(), "ip__code"))
                         {
                             DataTable DtCount = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataTable("select * from CLIENT_LOG", CommandType.Text);
                             string RegNum = PublicClass.DecryptDES(ConfigurationManager.AppSettings["RegNum"], "hospname");
@@ -326,62 +340,6 @@ namespace MainFrame
             }
 
         }
-
-        #region 加密算法
-        //默认密钥向量
-        private static byte[] Keys = { 0x12, 0x34, 0x56, 0x78, 0x90, 0xAB, 0xCD, 0xEF };
-
-        /// <summary>
-        /// DES加密字符串
-        /// </summary>
-        /// <param name="encryptString">待加密的字符串</param>
-        /// <param name="encryptKey">加密密钥,要求为8位</param>
-        /// <returns>加密成功返回加密后的字符串，失败返回源串</returns>
-        public static string EncryptDES(string encryptString, string encryptKey)
-        {
-            try
-            {
-                byte[] rgbKey = Encoding.UTF8.GetBytes(encryptKey);
-                byte[] rgbIV = Keys;
-                byte[] inputByteArray = Encoding.UTF8.GetBytes(encryptString);
-                DESCryptoServiceProvider dCSP = new DESCryptoServiceProvider();
-                MemoryStream mStream = new MemoryStream();
-                CryptoStream cStream = new CryptoStream(mStream, dCSP.CreateEncryptor(rgbKey, rgbIV), CryptoStreamMode.Write);
-                cStream.Write(inputByteArray, 0, inputByteArray.Length);
-                cStream.FlushFinalBlock();
-                return Convert.ToBase64String(mStream.ToArray());
-            }
-            catch
-            {
-                return encryptString;
-            }
-        }
-        /// <summary>
-        /// DES解密字符串
-        /// </summary>
-        /// <param name="decryptString">待解密的字符串</param>
-        /// <param name="decryptKey">解密密钥</param>
-        /// <returns>解密成功后返回解密后的字符串，失败返回源串</returns>
-        public static string DecryptDES(string decryptString, string decryptKey)
-        {
-            try
-            {
-                byte[] rgbKey = Encoding.UTF8.GetBytes(decryptKey);
-                byte[] rgbIV = Keys;
-                byte[] inputByteArray = Convert.FromBase64String(decryptString);
-                DESCryptoServiceProvider DCSP = new DESCryptoServiceProvider();
-                MemoryStream mStream = new MemoryStream();
-                CryptoStream cStream = new CryptoStream(mStream, DCSP.CreateDecryptor(rgbKey, rgbIV), CryptoStreamMode.Write);
-                cStream.Write(inputByteArray, 0, inputByteArray.Length);
-                cStream.FlushFinalBlock();
-                return Encoding.UTF8.GetString(mStream.ToArray());
-            }
-            catch
-            {
-                return decryptString;
-            }
-        }
-        #endregion
     }
 
 

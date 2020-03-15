@@ -16,6 +16,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+
 #endregion
 
 namespace DrectSoft.MainFrame
@@ -357,6 +358,9 @@ namespace DrectSoft.MainFrame
         bool isloging = false;
 
         string m_TempUserID = string.Empty;
+        /// <summary>
+        /// 登录进程
+        /// </summary>
         void ProcessLogin()
         {
             try
@@ -557,27 +561,6 @@ namespace DrectSoft.MainFrame
                 Application.DoEvents();
             }
         }
-
-        /*
-        private void CallBackMethod(IAsyncResult ar)
-        {
-            //从异步状态ar.AsyncState中，获取委托对象
-            AsyncEventHandler dn = (AsyncEventHandler)ar.AsyncState;
-
-            //一定要EndInvoke，否则你的下场很惨
-            dn.EndInvoke(ar);
-        }
-
-        public delegate void AsyncEventHandler(int fromValue, int toValue);
-
-        private void AsynChangeProgressBar(int fromValue, int toValue)
-        {
-            AsyncEventHandler asy = new AsyncEventHandler(ChangeProgressBar);
-            AsyncCallback acb = new AsyncCallback(CallBackMethod);
-            IAsyncResult iar = asy.BeginInvoke(fromValue, toValue, acb, asy);
-
-        }
-        */
         #endregion
 
         bool CheckNeedVerify()
@@ -649,10 +632,6 @@ namespace DrectSoft.MainFrame
             }
             catch (Exception ex)
             {
-                //textBoxUserID.Focus();
-                //textBoxUserID.Text = ex.Message;
-                //textBoxUserID.SelectAll();
-                //progressBarControlWait.Position = 0;
                 return false;
             }
 
@@ -675,33 +654,7 @@ namespace DrectSoft.MainFrame
         private string tempUpdatePath = string.Empty;
         XmlFiles updaterXmlFiles = null;
         private int availableUpdate = 0;
-        #region Ping方法
-        public bool Ping(string ip)
-        {
-            try
-            {
-                System.Net.NetworkInformation.Ping p = new System.Net.NetworkInformation.Ping();
-                System.Net.NetworkInformation.PingOptions options = new System.Net.NetworkInformation.PingOptions();
-                options.DontFragment = true;
-                string data = "Test Data!";
-                byte[] buffer = System.Text.Encoding.ASCII.GetBytes(data);
-                int timeout = 1000;//Timeout时间，单位：毫秒。
-                System.Net.NetworkInformation.PingReply reply = p.Send(ip, timeout, buffer, options);
-                if (reply.Status == System.Net.NetworkInformation.IPStatus.Success)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-        #endregion
+
         bool ISIp(string ipStr)
         {
 
@@ -737,7 +690,7 @@ namespace DrectSoft.MainFrame
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("配置的自动更新服务器IP地址不是有效的ip地址!");
                     return;
                 }
-                if (Ping(ip))//这里填写自动更新服务器IP
+                if (PublicClass.Ping(ip))//这里填写自动更新服务器IP
                 {
                     #region 自动启动AutoUpdate
                     string localXmlFile = Application.StartupPath + "\\UpdateList.xml";
@@ -756,7 +709,8 @@ namespace DrectSoft.MainFrame
                         return;
                     }
                     //获取服务器地址
-                    updateUrl = updaterXmlFiles.GetNodeValue("//Url");
+                    updateUrl = string.Format(updaterXmlFiles.GetNodeValue("//Url"), ip);
+                    updaterXmlFiles.GetElementsByTagName("Url")[0].InnerXml = updateUrl;
                     AppUpdater appUpdater = new AppUpdater();
                     appUpdater.UpdaterURL = updateUrl + "/UpdateList.xml";
 
@@ -790,7 +744,7 @@ namespace DrectSoft.MainFrame
                         //this.Hide();
                         Application.Exit();
 
-                        System.Diagnostics.Process.Start("AutoUpdate.exe");
+                        System.Diagnostics.Process.Start("AutoUpdate.exe", ip);
                         System.Threading.Thread.Sleep(1000);//延时1秒
 
                         return;
@@ -816,16 +770,6 @@ namespace DrectSoft.MainFrame
             }
         }
 
-
-        private void textBoxUserID_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// 登录
