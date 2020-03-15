@@ -1,0 +1,78 @@
+﻿<reports>
+	<!--表格中一些特殊处理 如大列 和大文本的换行-->
+	<report name="YKHLJLD">
+		<column name="Value11" maxpix="220" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ICUYCPGB">
+		<column name="Value2" maxpix="310" fontfamily="宋体" fontsize="10" />
+		<column name="Value3" maxpix="290" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="EKHLJLD">
+		<column name="Value27" maxpix="90" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="XSEHLJLD">
+		<column name="Value26" maxpix="70" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ICUHLJLD">
+		<column name="Value38" maxpix="70" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="SSKSHLJLD">
+		<column name="Value23" maxpix="130" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="FSSKSHLJLD">
+		<column name="Value24" maxpix="125" fontfamily="宋体" fontsize="10" />
+	</report>
+
+	<report name="YKHLJLDIMG">
+		<column name="Value11" maxpix="220" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ICUYCPGBIMG">
+		<column name="Value2" maxpix="310" fontfamily="宋体" fontsize="10" />
+		<column name="Value3" maxpix="290" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="EKHLJLDIMG">
+		<column name="Value27" maxpix="90" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="XSEHLJLDIMG">
+		<column name="Value26" maxpix="75" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ICUHLJLDIMG">
+		<column name="Value38" maxpix="215" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="SSKSHLJLDIMG">
+		<column name="Value23" maxpix="130" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="FSSKSHLJLDIMG">
+		<column name="Value24" maxpix="165" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="CKZKHLJLDIMG">
+		<column name="Value20" maxpix="180" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="FKSSHLJLDIMG">
+		<column name="Value19" maxpix="290" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ZX_SWSSKSHLJLD">
+		<column name="Value25" maxpix="135" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ZX_EKHLJLD">
+		<column name="Value21" maxpix="190" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ZX_XSEKHLJLD">
+		<column name="Value21" maxpix="190" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ZX_SIMPLEFSSKSHLJLD">
+		<column name="Value18" maxpix="340" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ZX_SSKSHLJLD">
+		<column name="Value23" maxpix="230" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="ZX_KQSSKSHLJLD">
+		<column name="Value20" maxpix="240" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="FY_YBHLJLD">
+		<column name="Value7" maxpix="270" fontfamily="宋体" fontsize="10" />
+	</report>
+	<report name="FY_ZZHLJLD">
+		<column name="Value10" maxpix="200" fontfamily="宋体" fontsize="10" />
+	</report>
+</reports>

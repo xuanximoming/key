@@ -18,13 +18,14 @@ Thumbs.db
 *.ilk
 *.log
 *.wmf
-bin
-BIN/*.dll
-BIN/*.exe
+*[Bb]in/*.dll
 [Dd]ebug*/
 *.lib
 *.sbr
 obj/
+en
+zh
+[Rr]esources
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*

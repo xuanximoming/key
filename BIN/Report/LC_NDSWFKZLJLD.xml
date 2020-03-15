@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- 凡是 datafield 有值的情况下，值形如Value@的中@必须要按序排列 从1开始；时间和签名列除外 -->
+	<Columns horRepeat="0">
+		<Column line="0" offsetXPreCol="0" y="70" width="80" height="20" text="日期" fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="0" offsetXPreCol="0" y="90" width="80" height="20" text="年月日" fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="0" offsetXPreCol="0" y="110" width="80" height="40" text=" " fontsize="" bold="0" align="0" datafield="Date"/>
+		<Column line="0" offsetXPreCol="80" y="70" width="260" height="40" text="电疗" fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="0" offsetXPreCol="0" y="110" width="50" height="40" text="模式" fontsize="" bold="0" align="0" datafield="Value1"/>
+		<Column line="0" offsetXPreCol="50" y="110" width="50" height="40" text="比率" fontsize="" bold="0" align="0" datafield="Value2"/>
+		<Column line="0" offsetXPreCol="50" y="110" width="50" height="40" text="强度" fontsize="" bold="0" align="0" datafield="Value3"/>
+		<Column line="0" offsetXPreCol="50" y="110" width="50" height="40" text="频率" fontsize="" bold="0" align="0" datafield="Value4"/>
+		<Column line="0" offsetXPreCol="50" y="110" width="60" height="40" text="时间" fontsize="" bold="0" align="0" datafield="Value5"/>
+		<Column line="0" offsetXPreCol="60" y="70" width="110" height="40" text="磁疗" fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="0" offsetXPreCol="0" y="110" width="50" height="40" text="强度" fontsize="" bold="0" align="0" datafield="Value6"/>
+		<Column line="0" offsetXPreCol="50" y="110" width="60" height="40" text="时间" fontsize="" bold="0" align="0" datafield="Value7"/>
+		<Column line="-1" offsetXPreCol="60" y="70" width="80" height="40" text="头部-颈部" fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="0" offsetXPreCol="0" y="110" width="80" height="40" text=" " fontsize="" bold="0" align="0" datafield="Value8"/>
+		<Column line="0" offsetXPreCol="80" y="70" width="130" height="40" text=" " fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="1" offsetXPreCol="0" y="110" width="80" height="40" text="合作-不合作" fontsize="" bold="0" align="0" datafield="Value9"/>
+		<Column line="0" offsetXPreCol="80" y="110" width="50" height="40" text="操作者" fontsize="" bold="0" align="0" datafield="RecordDoctorName"/>
+	</Columns>
+	<StaticText>
+		<item x="40" y="0" width="740" height="0" text="脑电生物反馈治疗记录单" fontsize="20" bold="1" align=""/>
+		<item x="0" y="1020" width="827" height="40" text="第      页" fontsize="11" bold="0" align=""/>
+	</StaticText>
+
+	<PatientInfo>
+		<item x="40" y="20" width="740" height="40" align="0" fontsize="18" bold="1" datafield="HospitalName"   text="@"/>
+		<item x="65" y="90" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InpatientName"  text="姓名：@"/>
+		<item x="180" y="90" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="Sex"  text="性别：@"/>
+		<item x="280" y="90" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InpatientAge"  text="年龄：@"/>
+		<item x="390" y="90" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InNo"   text="住院号：@"/>
+		<item x="550" y="90" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="OutNo"  text="门诊号：@"/>
+		<item x="65" y="115" width="220" height="32" align="-1" fontsize="11" bold="0" datafield="AdmitDiagnosis"  text="诊断：@"/>
+		<item x="0" y="1092" width="827" height="40" align="0" fontsize="11" bold="0" datafield="CurrPage"   text="@"/>
+	</PatientInfo>
+
+	<OtherInfo>
+	</OtherInfo>
+
+	<SpecialLines>
+	</SpecialLines>
+
+	<PrintPageSize width="800" height="1169" type="A4" Landscape="false"/>
+	<ImageSize width="800" height="1020" rowCount="31" tableRowcount="31" rowHeight="28" dataRegionStartY="150"/>
+	<DataValueStyle fontName="宋体" fontSize="9"/>
+</root>

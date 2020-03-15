@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<reports>
+	<report id="1" name="死亡信息统计" groupname="常用报表" repeatTitle="0" dataTableTop="">
+		<sql procedure="EMRQCREPORT.usp_GetQCDieInfo">
+			<item name="deptid" controltype="MyComboBoxDept" controlcaption="科室：" break="0"></item>
+			<item name="timebegin" controltype="MyDateEditBegin" controlcaption="开始时间：" break="0"></item>
+			<item name="timeend" controltype="MyDateEdit" controlcaption="结束时间：" break="0"></item>
+		</sql>
+		<!--描述打印数据表格是各列的宽度和显示名称-->
+		<datacolomns>     
+			<Column caption="住院号" datafield="PATID" width="180" size="10"/>
+			<Column caption="姓名" datafield="PATNAME" width="120" size="10"/> 
+			<Column caption="性别" datafield="SEX" width="120" size="10"/> 
+			<Column caption="诊断" datafield="DIAG" width="120" size="10"/> 
+			<Column caption="入院时间" datafield="ADMITDATE" width="120" size="10"/> 
+			<Column caption="死亡天数" datafield="DIESUM" width="120" size="10"/> 
+			<Column caption="医生名称" datafield="DOCNAME" width="120" size="10"/> 
+		</datacolomns>
+		<PrintSetting filename="死亡信息统计.xml" rowcount="20"></PrintSetting>
+
+	</report>
+	<report id="1" name="入院人数" groupname="常用报表" repeatTitle="0" dataTableTop="">
+		<sql procedure="EMRQCREPORT.usp_GetQCDieInfo">
+			<item name="deptid" controltype="MyComboBoxDept" controlcaption="科室：" break="0"></item>
+			<item name="timebegin" controltype="MyDateEditBegin" controlcaption="开始时间：" break="0"></item>
+			<item name="timeend" controltype="MyDateEdit" controlcaption="结束时间：" break="0"></item>
+		</sql>
+		<!--描述打印数据表格是各列的宽度和显示名称-->
+		<datacolomns>     
+			<Column caption="住院号" datafield="PATID" width="180" size="10"/>
+			<Column caption="姓名" datafield="PATNAME" width="120" size="10"/> 
+			<Column caption="性别" datafield="SEX" width="120" size="10"/> 
+			<Column caption="诊断" datafield="DIAG" width="120" size="10"/> 
+			<Column caption="入院时间" datafield="ADMITDATE" width="120" size="10"/> 
+			<Column caption="死亡天数" datafield="DIESUM" width="120" size="10"/> 
+			<Column caption="医生名称" datafield="DOCNAME" width="120" size="10"/> 
+		</datacolomns>
+		<PrintSetting filename="死亡信息统计.xml" rowcount="20"></PrintSetting>
+
+	</report>
+
+</reports>

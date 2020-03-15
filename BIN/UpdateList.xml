@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<AutoUpdater>
+	<Description>EXE autoUpdate</Description>
+	<Updater>
+		<Url>http://{0}/AutoUpdate/</Url>
+		<LastUpdateTime>2014-03-16</LastUpdateTime>
+	</Updater>
+	<Application applicationId = "201508071304">
+		<EntryPoint>adcemr.exe</EntryPoint>
+		<Location>./</Location>
+		<Version>1.1.0.5</Version>
+	</Application>
+	<Files>
+	<File Ver="1.0.0.5" Name= "program.zip" />
+	</Files>
+</AutoUpdater>
