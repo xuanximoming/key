@@ -429,7 +429,6 @@ namespace DrectSoft.Core.NurseDocument
                 Size size = ConfigInfo.GetImagePageBound();
                 Bitmap _dataImage = new Bitmap(size.Width, size.Height, System.Drawing.Imaging.PixelFormat.Format32bppArgb); //用于绘制数据表单
                 Graphics g = Graphics.FromImage(_dataImage);
-
                 threeMeasureDrawHepler.DrawDataImage(g);
                 ConfigInfo.dataIamgeSize = size;
                 uC_ImageBoard1.DataImage = _dataImage;

@@ -8,9 +8,9 @@
 	<Application applicationId = "201508071304">
 		<EntryPoint>adcemr.exe</EntryPoint>
 		<Location>./</Location>
-		<Version>1.1.0.5</Version>
+		<Version>1.2.0.5</Version>
 	</Application>
 	<Files>
-	<File Ver="1.0.0.5" Name= "program.zip" />
+          <File Ver="1.1.0.5" Name= "adcemr.exe" />
 	</Files>
 </AutoUpdater>

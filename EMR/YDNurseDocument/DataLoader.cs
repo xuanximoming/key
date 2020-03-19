@@ -388,7 +388,7 @@ namespace DrectSoft.Core.NurseDocument
                 {
                     return new DataTable();
                 }
-                string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THERE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and dotime like '{1}%' order by dotime ", patid, ((DateTime)theTime).ToString("yyyy-MM-dd"));
+                string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and dotime like '{1}%' order by dotime ", patid, ((DateTime)theTime).ToString("yyyy-MM-dd"));
                 return DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
             }
             catch (Exception ex)
@@ -410,8 +410,8 @@ namespace DrectSoft.Core.NurseDocument
         {
             try
             {
-                string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THERE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and a.dotime >='{1}' and a.dotime <'{2}' order by dotime ", NOOFINPAT, startdate.ToString("yyyy-MM-dd 00:00"), enddate.ToString("yyyy-MM-dd 00:00"));
-                //string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THERE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}'  order by dotime ", NOOFINPAT);
+                string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and a.dotime >='{1}' and a.dotime <'{2}' order by dotime ", NOOFINPAT, startdate.ToString("yyyy-MM-dd 00:00"), enddate.ToString("yyyy-MM-dd 00:00"));
+                //string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}'  order by dotime ", NOOFINPAT);
                 return DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
             }
             catch (Exception ex)
@@ -457,7 +457,7 @@ namespace DrectSoft.Core.NurseDocument
         {
             try
             {
-                return DS_SqlHelper.ExecuteDataTable(@"select a.dotime,b.name,b.id from PatientStatus a join THERE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat=@nOofinpat", new SqlParameter[] { new SqlParameter("@nOofinpat", noofinpat) }, CommandType.Text);
+                return DS_SqlHelper.ExecuteDataTable(@"select a.dotime,b.name,b.id from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat=@nOofinpat", new SqlParameter[] { new SqlParameter("@nOofinpat", noofinpat) }, CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -579,7 +579,7 @@ namespace DrectSoft.Core.NurseDocument
         /// <returns></returns>
         private bool CheckISExistStatus(string NOOFINPAT, string ccode)
         {
-            string sql = string.Format("select * from PatientStatus a join THERE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and  a.ccode='{1}'  ", NOOFINPAT, ccode);
+            string sql = string.Format("select * from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and  a.ccode='{1}'  ", NOOFINPAT, ccode);
             DataTable dt = DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
             bool isExist = false;
             if (dt != null && dt.Rows.Count > 0)
@@ -666,7 +666,7 @@ namespace DrectSoft.Core.NurseDocument
             //DateOfSurvey 当前录入的日期时间 
             //string serachsql = string.Format(@"select * from patientstatus where noofinpat='{0}' and trunc(to_date(patientstatus.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 and dotime<'{1}'  and ccode='7000' order by dotime asc", patid, inputdate + " 23:59:59");
             string serachsql = string.Format
-                (@"    select * from patientstatus  p left join THERE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
+                (@"    select * from patientstatus  p left join THREE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
 and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
 and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime asc", patid, inputdate + " 23:59:59");
             DataTable AllSurgeryData = MethodSet.App.SqlHelper.ExecuteDataTable(serachsql, CommandType.Text);

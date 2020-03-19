@@ -20,9 +20,6 @@ namespace DrectSoft.Core.NurseDocument
         public static string m_xmlFilePath = "";
         public static XmlDocument xmlDoc = new XmlDocument();
 
-        //public static Brush m_patientStateTextColor = null;//绘制病人状态事件的文本颜色
-        //public static Brush m_specialPatientStateTextColor = null;//绘制特殊病人状态事件的文本颜色
-
         //针对事件的状态颜色，普通做一组，特殊做一组  add by ywk 2013年4月17日9:36:07 
         //所有状态对应各自的颜色 
         public static Brush m_patientStateTextColor = null;//绘制病人普通状态事件的文本颜色
@@ -42,8 +39,8 @@ namespace DrectSoft.Core.NurseDocument
         public static int heartRatePulse = 0;//心率之间有心率脉搏，心率是否断开
         public static int temperatureAndHotting = 0;//体温点有升温 
         public static string breakLinkLine = "0";//当遇到特殊病人状态(如外出，手术，请假等)，体征数据线是否断开 0：不断开 1：断开
+        public static string Intercept = "0";//当遇到特殊病人状态(如外出，手术，请假等)，体征数据线是否断开 0：不断开 1：断开
 
-        //public static string inUsed = "0";//当遇到特殊病人状态(如外出，手术，请假等)，是否需要在其他区域绘制这些数据点
         public static string configName = string.Empty;//add zxy 配置文件名 2012-12-28 
         public static int subMoveX = -3;//x轴水平微调量 正数表示向右平移，反之向左平移，0表示不微调
         public static int lineMoveX = 0;//连线平移
@@ -70,6 +67,7 @@ namespace DrectSoft.Core.NurseDocument
         public static List<Row> m_rowList = new List<Row>();
         public static Dictionary<int, string[]> dic_HourOfDay = new Dictionary<int, string[]>();//存储时段配置信息
         public static Dictionary<int, string> dic_Timelot = new Dictionary<int, string>();//存储时段名称
+        public static Dictionary<int, string> dic_HourOfTime = new Dictionary<int, string>();//存储时段拆分配置信息
         public static List<FilterState> StateValueTextList = new List<FilterState>();//特殊状态集合，对应XMl中的<patientstatefilter>节点
         public static XmlNode temperatureChangedNode = null;//保存温度变化一些配置节点数据
 
@@ -152,9 +150,6 @@ namespace DrectSoft.Core.NurseDocument
                 {
                     m_specialEventYStart = float.Parse((nodeElement.Attributes["startY"] == null || string.IsNullOrEmpty(nodeElement.Attributes["startY"].Value)) ? "0" : nodeElement.Attributes["startY"].Value);
                     m_specialEventYEnd = float.Parse((nodeElement.Attributes["endY"] == null || string.IsNullOrEmpty(nodeElement.Attributes["endY"].Value)) ? "0" : nodeElement.Attributes["endY"].Value);
-                    //add by ywk 2013年4月17日9:40:21 注释
-                    //m_specialPatientStateTextColor = GetColorBrush((nodeElement.Attributes["color"] == null || string.IsNullOrEmpty(nodeElement.Attributes["color"].Value)) ? "红" : nodeElement.Attributes["color"].Value);
-                    //inUsed = (nodeElement.Attributes["used"] == null || string.IsNullOrEmpty(nodeElement.Attributes["used"].Value)) ? "0" : nodeElement.Attributes["used"].Value;
                 }
                 else
                 {
@@ -197,6 +192,7 @@ namespace DrectSoft.Core.NurseDocument
                 nodeList = nodeElement.ChildNodes;
                 dic_HourOfDay.Clear();
                 dic_Timelot.Clear();
+                dic_HourOfTime.Clear();
                 int tempIndex = -1;
                 foreach (XmlNode node in nodeList)
                 {
@@ -204,6 +200,7 @@ namespace DrectSoft.Core.NurseDocument
                     string[] hourPoints = node.Attributes["hourpoint"].Value.Split(',');
                     dic_HourOfDay.Add(tempIndex, hourPoints);
                     dic_Timelot.Add(tempIndex, node.Attributes["timeslotvalue"].Value);
+                    dic_HourOfTime.Add(tempIndex, node.Attributes["timesspilt"].Value);
                 }
                 //-----------------------------字段数据的特殊显示设置------------------------------
                 dicSpecialRowCellDisplay.Clear();
@@ -244,22 +241,25 @@ namespace DrectSoft.Core.NurseDocument
                 nodeElement = xmlDoc.GetElementsByTagName("patientstatefilter")[0];
                 if (nodeElement != null)
                 {
-                    // breakLinkLine = (nodeElement.Attributes["breakLinkLine"] == null || string.IsNullOrEmpty(nodeElement.Attributes["breakLinkLine"].Value)) ? "1" : nodeElement.Attributes["breakLinkLine"].Value;
+
                     nodeList = nodeElement.ChildNodes;
                     foreach (XmlNode node in nodeList)
                     {
                         string caption = node.Attributes["valueText"] == null ? "" : node.Attributes["valueText"].Value;
+
                         string breakLine = node.Attributes["breakLinkLine"] == null || string.IsNullOrEmpty(node.Attributes["breakLinkLine"].Value) ? "0" : node.Attributes["breakLinkLine"].Value;
                         if (breakLine.Equals("1"))
                         {
                             breakLinkLine = "1";
                         }
+
                         string position = node.Attributes["position"] == null || string.IsNullOrEmpty(node.Attributes["position"].Value) ? "0" : node.Attributes["position"].Value;
                         string showtime = node.Attributes["showtime"] == null || string.IsNullOrEmpty(node.Attributes["showtime"].Value) ? "1" : node.Attributes["showtime"].Value;
 
                         //新增的对于各个状态的显示颜色的定义取值实现， add by ywk 2013年4月17日9:44:31 
                         string showcolor = node.Attributes["color"] == null || string.IsNullOrEmpty(node.Attributes["color"].Value) ? "红" : node.Attributes["color"].Value;
-                        StateValueTextList.Add(new FilterState(caption, position, breakLine, showtime, showcolor));
+                        string intercept = node.Attributes["intercept"] == null || string.IsNullOrEmpty(node.Attributes["intercept"].Value) ? "0" : node.Attributes["intercept"].Value;
+                        StateValueTextList.Add(new FilterState(caption, position, breakLine, showtime, showcolor, intercept));
                         //在循环各个状态时将颜色相应的加进去
                     }
                 }
@@ -477,7 +477,13 @@ namespace DrectSoft.Core.NurseDocument
                 foreach (KeyValuePair<int, string[]> pair in dic_HourOfDay)
                 {
                     if (pair.Value.Contains(hour))
+                    {
+                        int i = int.Parse(dic_HourOfTime[pair.Key]);
+                        string mi = _datetime.Minute.ToString();
+                        if (int.Parse(dic_HourOfTime[pair.Key]) > int.Parse(hour) || (dic_HourOfTime[pair.Key] == hour && _datetime.Minute.ToString() == "0"))
+                            return pair.Key - 1;
                         return pair.Key;
+                    }
                 }
             }
             catch (Exception ex) { throw ex; }
@@ -666,6 +672,7 @@ namespace DrectSoft.Core.NurseDocument
                 m_columnList.Clear();
                 m_rowList.Clear();
                 dic_HourOfDay.Clear();
+                dic_HourOfTime.Clear();
                 dic_Timelot.Clear();
                 StateValueTextList.Clear();
                 temperatureChangedNode = null;
@@ -691,8 +698,7 @@ namespace DrectSoft.Core.NurseDocument
                 xmlDoc.Load(GetXMLPath(null));
             }
 
-            XmlNode nodeElement = xmlDoc.GetElementsByTagName("columns")[0];
-            nodeElement = xmlDoc.GetElementsByTagName("patientstatefilter")[0];
+            XmlNode nodeElement = xmlDoc.GetElementsByTagName("patientstatefilter")[0];
             XmlNodeList nodeList = nodeElement.ChildNodes;
 
             foreach (XmlNode node in nodeList)
@@ -745,14 +751,19 @@ namespace DrectSoft.Core.NurseDocument
         ///状态显示颜色  add by ywk 2013年4月17日9:42:38 增加颜色
         /// <summary>
         public string ShowColor;
+        /// <summary>
+        /// 显示位置，根据时间点
+        /// </summary>
+        public string Intercept;
 
-        public FilterState(string _stateName, string _position, string _breakLine, string _showTime, string _showcolor)
+        public FilterState(string _stateName, string _position, string _breakLine, string _showTime, string _showcolor, string _intercept)
         {
             this.stateName = _stateName;
             this.position = _position;
             this.BreakLine = _breakLine;
             this.ShowTime = _showTime;
             this.ShowColor = _showcolor;//add by ywk 2013年4月17日9:43:38  
+            this.Intercept = _intercept;
         }
     }
 }

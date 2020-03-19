@@ -1,20 +1,15 @@
+using DevExpress.XtraEditors;
+using DrectSoft.Common.Ctrs.DLG;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using System.Data.SqlClient;
-using DrectSoft.Common.Library;
-using DrectSoft.Wordbook;
-using DrectSoft.Core.NurseDocument;
-using DrectSoft.Common.Ctrs.DLG;
-using System.Collections;
 using System.Xml;
-using System.IO;
-using DrectSoft.Common.Eop;
 
 namespace DrectSoft.Core.NurseDocument.Controls
 {
@@ -162,7 +157,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             newRow.HeaderCell.Value = "心率(次/分)";
             dgvVitalSigns.Rows.Add(newRow);
 
-           
+
 
             newRow = new DataGridViewRow();
             newRow.HeaderCell.Value = "物理降温(℃)";
@@ -359,13 +354,13 @@ namespace DrectSoft.Core.NurseDocument.Controls
                         foreach (KeyValuePair<string, VitalSignInfoEntity> kv in m_VitalSignsCaption)
                         {
 
-                                keyValues.Append(kv.Key.ToLower() + "=" + "'" + GetDataFieldValue(kv.Key, i).Replace("[", "[[ ")
-                                     .Replace("]", " ]]")
-                                     .Replace("*", "[*]")
-                                     .Replace("%", "[%]")
-                                     .Replace("[[ ", "[[]")
-                                     .Replace(" ]]", "[]]")
-                                     .Replace("\'", "''") + "',");
+                            keyValues.Append(kv.Key.ToLower() + "=" + "'" + GetDataFieldValue(kv.Key, i).Replace("[", "[[ ")
+                                 .Replace("]", " ]]")
+                                 .Replace("*", "[*]")
+                                 .Replace("%", "[%]")
+                                 .Replace("[[ ", "[[]")
+                                 .Replace(" ]]", "[]]")
+                                 .Replace("\'", "''") + "',");
                         }
 
                         sqlStr.Append(keyValues);
@@ -700,7 +695,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
                         dgvVitalSigns[index, 1].Value = dt.Rows[i]["Pulse"].ToString();
                         dgvVitalSigns[index, 2].Value = dt.Rows[i]["Breathe"].ToString();
                         dgvVitalSigns[index, 3].Value = dt.Rows[i]["HeartRate"].ToString();
-                      
+
                         dgvVitalSigns[index, 4].Value = dt.Rows[i]["PhysicalCooling"].ToString();
                         dgvVitalSigns[index, 5].Value = dt.Rows[i]["PhysicalHotting"].ToString();
                         //---------------------------以下是时段数据------------------------------------------
@@ -727,56 +722,56 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
             //住院天数
             //if (txtDayOfHospital1.Text.Trim() == "" && Convert.ToDateTime(DateOfSurvey) == Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")))
-           // {
-                DateTime AdmitDate;
-                if (ConfigInfo.isAdminDate)
-                {
-                    AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.adminDate).Date.ToString("yyyy-MM-dd 00:00:01"));
-                }
-                else 
-                {
-                    AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.m_InTime).Date.ToString("yyyy-MM-dd 00:00:01"));
-                }
-                DateTime CurrDate = Convert.ToDateTime(DateTime.Parse(DateOfSurvey).ToString("yyyy-MM-dd 00:00:01"));
-                if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["DAYOFHOSPITAL"].ToString().Trim() != "")
-                {
-                    txtDayOfHospital1.Text = dt.Rows[0]["DAYOFHOSPITAL"].ToString().Trim();
-                }
-                else 
-                {
-                    txtDayOfHospital1.Text = (CurrDate.Subtract(AdmitDate).Days + 1).ToString();
-                }
-          //  }
+            // {
+            DateTime AdmitDate;
+            if (ConfigInfo.isAdminDate)
+            {
+                AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.adminDate).Date.ToString("yyyy-MM-dd 00:00:01"));
+            }
+            else
+            {
+                AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.m_InTime).Date.ToString("yyyy-MM-dd 00:00:01"));
+            }
+            DateTime CurrDate = Convert.ToDateTime(DateTime.Parse(DateOfSurvey).ToString("yyyy-MM-dd 00:00:01"));
+            if (dt != null && dt.Rows.Count > 0 && dt.Rows[0]["DAYOFHOSPITAL"].ToString().Trim() != "")
+            {
+                txtDayOfHospital1.Text = dt.Rows[0]["DAYOFHOSPITAL"].ToString().Trim();
+            }
+            else
+            {
+                txtDayOfHospital1.Text = (CurrDate.Subtract(AdmitDate).Days + 1).ToString();
+            }
+            //  }
             //手术后日数
             //if (txtDaysAfterSurgery1.Text.Trim() == "" && Convert.ToDateTime(DateOfSurvey) == Convert.ToDateTime(DateTime.Now.Date.ToString("yyyy-MM-dd")))
             //   if (ConfigInfo.editable == 1)
-                    {
-                    //    ucNursingRecordTable1.SetDaysAfterSurgery(dateEdit.Text, NoOfInpat);//zyx 解决手术后天数不显示问题
-                    //}
-                    //else 
-                    //{
-                    //    ucNursingRecordTable1.GetDaysAfterSurgery(dateEdit.DateTime.Date.ToString("yyyy-MM-dd"), NoOfInpat);
-                    }
-                //if (ConfigInfo.editable == 1)
-                //{
-                //    //SetDaysAfterSurgery(MethodSet.DaysAfterSurgery);
-                //    SetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
+            {
+                //    ucNursingRecordTable1.SetDaysAfterSurgery(dateEdit.Text, NoOfInpat);//zyx 解决手术后天数不显示问题
                 //}
-                //else
+                //else 
                 //{
-                //    if (dt != null && dt.Rows != null && dt.Rows.Count > 0) 
-                //    {
-                //        txtDaysAfterSurgery1.Text = dt.Rows[0]["DAYSAFTERSURGERY"] == null ? "" : dt.Rows[0]["DAYSAFTERSURGERY"].ToString();
-                //    }else
-                //    {
-                //        SetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
-                //    }
-                //}
-                    GetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
-           // }
+                //    ucNursingRecordTable1.GetDaysAfterSurgery(dateEdit.DateTime.Date.ToString("yyyy-MM-dd"), NoOfInpat);
+            }
+            //if (ConfigInfo.editable == 1)
+            //{
+            //    //SetDaysAfterSurgery(MethodSet.DaysAfterSurgery);
+            //    SetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
+            //}
+            //else
+            //{
+            //    if (dt != null && dt.Rows != null && dt.Rows.Count > 0) 
+            //    {
+            //        txtDaysAfterSurgery1.Text = dt.Rows[0]["DAYSAFTERSURGERY"] == null ? "" : dt.Rows[0]["DAYSAFTERSURGERY"].ToString();
+            //    }else
+            //    {
+            //        SetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
+            //    }
+            //}
+            GetDaysAfterSurgery(DateOfSurvey, m_oofinpat);
+            // }
         }
 
-        public void GetDaysAfterSurgery(string dateOfSurvey, string _noofinpat) 
+        public void GetDaysAfterSurgery(string dateOfSurvey, string _noofinpat)
         {
             try
             {
@@ -798,11 +793,11 @@ namespace DrectSoft.Core.NurseDocument.Controls
                 sqlParam[1].Value = dateOfSurvey;
 
                 DataTable dt = MethodSet.App.SqlHelper.ExecuteDataTable("usp_GetNotesOnNursingInfo", sqlParam, CommandType.StoredProcedure);
-                if (dt != null && dt.Rows != null && dt.Rows.Count > 0 && dt.Rows[0]["DAYSAFTERSURGERY"].ToString().Trim()!="")
+                if (dt != null && dt.Rows != null && dt.Rows.Count > 0 && dt.Rows[0]["DAYSAFTERSURGERY"].ToString().Trim() != "")
                 {
-                    txtDaysAfterSurgery1.Text= dt.Rows[0]["DAYSAFTERSURGERY"] == null ? "" : dt.Rows[0]["DAYSAFTERSURGERY"].ToString();
+                    txtDaysAfterSurgery1.Text = dt.Rows[0]["DAYSAFTERSURGERY"] == null ? "" : dt.Rows[0]["DAYSAFTERSURGERY"].ToString();
                 }
-                else 
+                else
                 {
                     SetDaysAfterSurgery(dateOfSurvey, _noofinpat);
                 }
@@ -900,12 +895,12 @@ namespace DrectSoft.Core.NurseDocument.Controls
             DateTime AdmitDate;
             if (ConfigInfo.isAdminDate)
             {
-                 AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.adminDate).Date.ToString("yyyy-MM-dd 00:00:01"));
+                AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.adminDate).Date.ToString("yyyy-MM-dd 00:00:01"));
             }
-            else 
+            else
             {
                 AdmitDate = Convert.ToDateTime(Convert.ToDateTime(DataLoader.m_InTime).Date.ToString("yyyy-MM-dd 00:00:01"));
- 
+
             }
             DateTime CurrDate = Convert.ToDateTime(inputdate + "  00:00:01");
 
@@ -921,14 +916,14 @@ namespace DrectSoft.Core.NurseDocument.Controls
             //DateOfSurvey 当前录入的日期时间 
             //string serachsql = string.Format(@"    select * from patientstatus where noofinpat='{0}' and trunc(to_date(patientstatus.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 and dotime<'{1}'  and ccode='7000' order by dotime asc", patid, inputdate + " 23:59:59");
             //泗縣需求 分娩手術走同樣邏輯 add by ywk 2013年6月14日 11:41:27
-//            string serachsql = string.Format
-//                (@"    select * from patientstatus  p left join THERE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
-//and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
-//and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime asc", patid, inputdate + " 23:59:59");
+            //            string serachsql = string.Format
+            //                (@"    select * from patientstatus  p left join THREE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
+            //and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
+            //and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime asc", patid, inputdate + " 23:59:59");
 
             //xll 2013-08-08 
             string serachsql = string.Format
-               (@"    select * from patientstatus  p left join THERE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
+               (@"    select * from patientstatus  p left join THREE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
 and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
 and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdate + " 23:59:59");
 
@@ -1082,7 +1077,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
         {
             try
             {
-                string path = ConfigInfo.GetXMLPath( curPat);
+                string path = ConfigInfo.GetXMLPath(curPat);
                 if (!File.Exists(path))
                 {
                     MessageBox.Show("Config配置文件不存在");
@@ -1135,7 +1130,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
             }
         }
 
-        private void InitTextBox() 
+        private void InitTextBox()
         {
             try
             {
@@ -1143,7 +1138,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
                 {
                     txtDaysAfterSurgery1.Enabled = false;
                 }
-                else 
+                else
                 {
                     txtDaysAfterSurgery1.Enabled = true;
                 }
@@ -1152,7 +1147,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
                 {
                     txtDayOfHospital1.Enabled = false;
                 }
-                else 
+                else
                 {
                     txtDayOfHospital1.Enabled = true;
                 }
@@ -1170,7 +1165,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
 
             dgvVitalSigns.CurrentCell = dgvVitalSigns.Rows[1].Cells[0];
             //dgvVitalSigns.EditMode = DataGridViewEditMode.EditProgrammatically;//.EditOnKeystroke;//.EditOnEnter;
-            dgvVitalSigns.BeginEdit(true); 
+            dgvVitalSigns.BeginEdit(true);
         }
 
         private void ucTemperatureEditor1_Enter(object sender, EventArgs e)
@@ -1178,13 +1173,13 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
             //dgvVitalSigns.CurrentCell = dgvVitalSigns.Rows[1].Cells[0];
             ////dgvVitalSigns.EditMode = DataGridViewEditMode.EditProgrammatically;//.EditOnKeystroke;//.EditOnEnter;
             //dgvVitalSigns.BeginEdit(true); 
-            
+
         }
 
         private void ucTemperatureEditor_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-            
+
             try
             {
                 if (e.KeyChar == 13)
@@ -1220,18 +1215,18 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
         }
 
         private void ucTemperatureEditor1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 dgvVitalSigns.CurrentCell = dgvVitalSigns.Rows[1].Cells[0];
                 //dgvVitalSigns.EditMode = DataGridViewEditMode.EditProgrammatically;//.EditOnKeystroke;//.EditOnEnter;
-                dgvVitalSigns.BeginEdit(true); 
+                dgvVitalSigns.BeginEdit(true);
             }
         }
 
@@ -1268,7 +1263,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
             if (e.KeyChar == 13)
@@ -1325,7 +1320,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
                         }
                         index++;
                     }
-                    else 
+                    else
                     {
                         index = 0;
                     }
@@ -1338,18 +1333,18 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
         {
             try
             {
-               // dgvVitalSigns1.CurrentCell = dgvVitalSigns1.Rows[0].Cells[0];
+                // dgvVitalSigns1.CurrentCell = dgvVitalSigns1.Rows[0].Cells[0];
                 //dgvVitalSigns.EditMode = DataGridViewEditMode.EditProgrammatically;//.EditOnKeystroke;//.EditOnEnter;
-               
-               // dgvVitalSigns1.BeginEdit(true);
+
+                // dgvVitalSigns1.BeginEdit(true);
                 //dgvVitalSigns.EditMode = DataGridViewEditMode.EditOnEnter;
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
-           
+
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1362,30 +1357,30 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
                     {
                         if (dgvVitalSigns[0, 5].Selected)
                         {
-                                dgvVitalSigns.ClearSelection();
-                                ucTemperatureEditor2.Focus();
+                            dgvVitalSigns.ClearSelection();
+                            ucTemperatureEditor2.Focus();
 
                         }
                         else if (dgvVitalSigns[1, 5].Selected)
                         {
-                          
-                                dgvVitalSigns.ClearSelection();
-                                ucTemperatureEditor3.Focus();
+
+                            dgvVitalSigns.ClearSelection();
+                            ucTemperatureEditor3.Focus();
                         }
                         else if (dgvVitalSigns[2, 5].Selected)
                         {
-                                dgvVitalSigns.ClearSelection();
-                                ucTemperatureEditor4.Focus();
+                            dgvVitalSigns.ClearSelection();
+                            ucTemperatureEditor4.Focus();
                         }
                         else if (dgvVitalSigns[3, 5].Selected)
                         {
-                                dgvVitalSigns.ClearSelection();
-                                ucTemperatureEditor5.Focus();
+                            dgvVitalSigns.ClearSelection();
+                            ucTemperatureEditor5.Focus();
                         }
                         else if (dgvVitalSigns[4, 5].Selected)
                         {
-                                dgvVitalSigns.ClearSelection();
-                                ucTemperatureEditor6.Focus();
+                            dgvVitalSigns.ClearSelection();
+                            ucTemperatureEditor6.Focus();
                         }
                         else
                         {
@@ -1481,7 +1476,7 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
                     dgvVitalSigns.EditMode = DataGridViewEditMode.EditOnEnter;
                     return true;
                 }
-                else if (keyData == Keys.Tab && dgvVitalSigns[5, 5].Selected) 
+                else if (keyData == Keys.Tab && dgvVitalSigns[5, 5].Selected)
                 {
                     dgvVitalSigns.ClearSelection();
                     dgvVitalSigns1.CurrentCell = dgvVitalSigns1.Rows[0].Cells[0];
@@ -1492,15 +1487,15 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
                 {
                     return base.ProcessCmdKey(ref msg, keyData);
                 }
-                 
+
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
 
-           
+
 
         }
 
@@ -1535,15 +1530,15 @@ and dotime<'{1}'  and t.name like '%手术%' order by dotime asc", patid, inputdat
             }
             catch (Exception ex)
             {
-                
+
                 throw ex;
             }
-           
+
 
         }
 
- 
-        
+
+
 
     }
 

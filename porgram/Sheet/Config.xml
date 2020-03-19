@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<defaultprint>A4</defaultprint>
+	<!--此处字段关联的数据列名需和表原始的字段名称相同,字段代替使用时 需要天数据保存还配置天数据字段，需要时段数据保存还配置时段数据 切记！！！！-->
+
+	<!--曲线图 点图标 大小-->
+	<fonticonsize width="7" height="7"/>
+	<!--表格中文本（填充天数据）字号-->
+	<fontsize size="9"/>
+	<!--图片大小-->
+	<size width="709" height="1100"/>
+	<!--体温变化图标 value 0:表示圆圈 1：表示x; linkNextTemperature : 是否连接下一个体温点 0：不连接 1：连接-->
+	<TemperatureChanged icon="0" lineColorUp="蓝" lineColorDown="红" linkNextTemperature="1"/>
+	<!--绘制一些非数据表格中文本-->
+	<ThemeText>
+		<item startX="0" startY="10" width="728" height="25" text="医院" blod="0" size="16" align=""/>
+		<item startX="0" startY="40" width="728" height="43" text="体  温  单" blod="1" size="27" align=""/>
+		<item startX="60" startY="172" width="60" height="20" text="体温" blod="0" size="9" align=""/>
+		<item startX="60" startY="190" width="60" height="20" text="(℃)" blod="0" size="9" align=""/>
+		<item startX="0" startY="200" width="60" height="20" text="180" blod="0" size="9" align=""/>
+		<item startX="0" startY="172" width="60" height="20" text="脉搏" blod="0" size="9" align=""/>
+		<item startX="0" startY="190" width="60" height="20" text="(次/分)" blod="0" size="9" align=""/>
+		<item startX="60" startY="200" width="60" height="20" text="42" blod="0" size="9" align=""/>
+		<item startX="0" startY="1033" width="728" height="20" text="第     页" blod="0" size="9" align=""/>
+	</ThemeText>
+	<!--表示列-->
+	<columns>
+		<td index="1" width="120"/>
+		<td index="2" width="84"/>
+		<td index="3" width="84"/>
+		<td index="4" width="84"/>
+		<td index="5" width="84"/>
+		<td index="6" width="84"/>
+		<td index="7" width="84"/>
+		<td index="8" width="84"/>
+	</columns>
+	<!--表示行 showType :0:表示是时段显示 1：表示是天显示  visualType:1 文本显示显示 0：数据点显示 -->
+	<rows>
+		<tr index="1" height="18" x="0" y="100" width="120" text="日   期" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="DATEOFSURVEY"/>
+		<tr index="2" height="18" x="0" y="118"  width="120" text="住院天数" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="DAYOFHOSPITAL"/>
+		<tr index="3" height="18" x="0" y="136"  width="120" text="手术后天数" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield="DAYSAFTERSURGERY"/>
+		<tr index="4" height="18" x="0" y="154"  width="120" text="时   间" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="5" height="18" x="0" y="172"  width="120" text="" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="6" height="560" x="0" y="190"  width="120" text="" textColor=""  visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="7" height="20" x="0" y="750" width="120" text="呼吸" textColor="" visualType="1" verAlign="1" size="7" showType="0"  updown="1" datafield="BREATHE"/>
+		<tr index="8" height="20" x="0" y="770" width="120" text="血压(mmHg)" textColor="" visualType="1" verAlign="0" size="7" showType="1" datafield="BLOODPRESSURE"/>
+		<tr index="9" height="20" x="0" y="790" width="120" text="入量(ml)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="COUNTIN"/>
+		<tr index="10" height="20" x="0" y="810" width="120" text="出量(ml)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="COUNTOUT"/>
+		<tr index="11" height="20" x="0" y="830" width="120" text="引流量(ml)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="DRAINAGE"/>
+		<tr index="12" height="20" x="0" y="850" width="120" text="大便(次/日)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="TIMEOFSHIT"/>
+		<tr index="13" height="20" x="0" y="870" width="120"  text="体重(kg)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="WEIGHT"/>
+		<tr index="14" height="20" x="0" y="890" width="120"  text="身高(cm)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="HEIGHT"/>
+		<tr index="15" height="20" x="0" y="910" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="16" height="20" x="0" y="930" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="16" height="20" x="0" y="950" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="16" height="20" x="0" y="970" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+
+	</rows>
+	<!-- <tr index="15" height="20" x="0" y="910" width="120"  text="过敏药物" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield="PARAM1"/> -->
+	<!--非体征数据的特殊显示要求-->
+	<rowSpecilaDispalySet>
+	</rowSpecilaDispalySet>
+	<!--体征数据特殊连线法则 脉搏与心率    脉搏,心率 脉搏空值互补  0:不互补 1：互补-->
+	<specialLinkline pulseHeartRate="1" heartRatePulse="1"/>
+	<!--病人基本信息-->
+	<Vocate>
+		<item  startX="0" startY="80" width="110" height="20" datafield="PATIENT_NAME">姓名: @</item>
+		<item  startX="100" startY="80" width="70" height="20" datafield="AGESTR">年龄: @</item>
+		<item  startX="180" startY="80" width="60" height="20" datafield="GENDER">性别: @</item>
+		<item  startX="240" startY="80" width="100" height="20" datafield="DEPT_NAME">科别: @</item>
+		<item  startX="360" startY="80" width="100" height="20" datafield="OUTBED">床号: @</item>
+		<item  startX="460" startY="80" width="130" height="16" datafield="INWARDDATE">入科日期: @</item>
+		<item  startX="600" startY="80" width="150" height="20" datafield="PATID">病历号: @</item>
+	</Vocate>
+	<!--页号-->
+	<page startX="0" startY="1035" width="728" height="20">
+	</page>
+	<specialLineColor>
+		<line x1="0" y1="100" x2="708" y2="100" size="2" color="黑"/>
+		<line x1="0" y1="100" x2="0" y2="990" size="2" color="黑"/>
+		<line x1="0" y1="990" x2="708" y2="990" size="2" color="黑"/>
+		<line x1="60" y1="172" x2="60" y2="750" size="1" color="黑"/>
+		<line x1="708" y1="100" x2="708" y2="990" size="2" color="黑"/>
+		<line x1="120" y1="172" x2="708" y2="172" size="1" color="黑"/>
+		<line x1="120" y1="190" x2="708" y2="190" size="1" color="黑"/>
+		<line x1="120" y1="260" x2="708" y2="260" size="2" color="黑"/>
+		<line x1="120" y1="330" x2="708" y2="330" size="2" color="黑"/>
+		<line x1="120" y1="400" x2="708" y2="400" size="2" color="黑"/>
+		<line x1="120" y1="470" x2="708" y2="470" size="2" color="黑"/>
+		<line x1="120" y1="540" x2="708" y2="540" size="2" color="黑"/>
+		<line x1="120" y1="610" x2="708" y2="610" size="2" color="黑"/>
+		<line x1="120" y1="680" x2="708" y2="680" size="2" color="黑"/>
+		<line x1="120" y1="750" x2="708" y2="750" size="2" color="黑"/>
+		<line x1="120" y1="172" x2="120" y2="750" size="1" color="黑"/>
+		<line x1="204" y1="172" x2="204" y2="750" size="2" color="红"/>
+		<line x1="288" y1="172" x2="288" y2="750" size="2" color="红"/>
+		<line x1="372" y1="172" x2="372" y2="750" size="2" color="红"/>
+		<line x1="456" y1="172" x2="456" y2="750" size="2" color="红"/>
+		<line x1="540" y1="172" x2="540" y2="750" size="2" color="红"/>
+		<line x1="624" y1="172" x2="624" y2="750" size="2" color="红"/>
+	</specialLineColor>
+	<!---->
+	<!--时段-->
+	<HourOfday subColumnCount="6" columnRepeatCount="7" startX="120" startY="154" startColumn="2" startRow="4">
+		<item numberColor="黑" index="1" timeslotvalue="2" timesspilt="0" hourpoint="23,0,1,2">2</item>
+		<item numberColor="黑" index="2" timeslotvalue="6" timesspilt="4" hourpoint="3,4,5,6">6</item>
+		<item numberColor="黑" index="3" timeslotvalue="10" timesspilt="8" hourpoint="7,8,9,10">10</item>
+		<item numberColor="黑" index="4" timeslotvalue="14" timesspilt="12" hourpoint="11,12,13,14">14</item>
+		<item numberColor="黑" index="5" timeslotvalue="18" timesspilt="16" hourpoint="15,16,17,18">18</item>
+		<item numberColor="黑" index="6" timeslotvalue="22" timesspilt="20" hourpoint="19,20,21,22">22</item>
+	</HourOfday>
+	<!-- hide 0:显示 1：隐藏-->
+	<zuobiao interval="-70">   
+		<item datafield="TEMPERATURE,PHYSICALCOOLING,PHYSICALHOTTING" hide="0" labelColor="黑" numberColor="黑" startX="60" width="60" startY="750" endY="190" max="42" min="34" text="">,41,40,39,38,37,36,35,</item>
+		<item datafield="PULSE,HEARTRATE" hide="0" labelColor="红" numberColor="黑" startX="0" width="60" startY="750" endY="190" max="180" min="20" text="">,160,140,120,100,80,60,40,</item>
+		<item datafield="BREATHE" hide="1" labelColor="黑" numberColor="黑" startX="80" width="40" startY="750" endY="190" max="96" min="10" text="">80,70,60,50,40,30,20,10,</item>
+	</zuobiao>
+	<smalldatagrid colCount="42" rowCount="40" xInterval="14" yInterval="14" startX="120" startY="190" color="LightBlue"/>
+	<!--合并单元格-->
+	<GridClear>
+	</GridClear>
+	<!--单元格拆分-->
+	<gridDisassembly>
+		<item startX="120" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="204" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="288" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="372" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="456" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="540" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="624" startY="172" width="84" height="18" colsCount="6"/>
+		<item startX="120" startY="750" width="84" height="20" colsCount="6"/>
+		<item startX="204" startY="750" width="84" height="20" colsCount="6"/>
+		<item startX="288" startY="750" width="84" height="20" colsCount="6"/>
+		<item startX="372" startY="750" width="84" height="20" colsCount="6"/>
+		<item startX="456" startY="750" width="84" height="20" colsCount="6"/>
+		<item startX="540" startY="750" width="84" height="20" colsCount="6"/>
+		<item startX="624" startY="750" width="84" height="20" colsCount="6"/>
+	</gridDisassembly>
+	<!---->
+	<!--图例 show=0:不在图例区显示该项；否则显示-->
+	<legend>
+		<item text="口表" datafield="TEMPERATURE" linecolor="蓝" show="1" startX="75" startY="1005" height="22" width="40" lineType="solid"/>
+		<item text="腋表" datafield="TEMPERATURE" linecolor="蓝" show="1" startX="175" startY="1009" height="18" width="40" lineType="solid"/>
+		<item text="肛表" datafield="TEMPERATURE" linecolor="蓝" show="1" startX="275" startY="1009" height="18" width="40" lineType="solid"/>
+		<item text="脉搏" datafield="PULSE" linecolor="红" show="1" startX="375" startY="1009" height="18" width="40" lineType="solid"/>
+		<item text="心率" datafield="HEARTRATE" linecolor="红" show="1" startX="475" startY="1009" height="18" width="40" lineType="solid"/>
+		<item text="呼吸" datafield="BREATHE" linecolor="蓝" show="1" startX="575" startY="1009" height="18" width="40" lineType="solid"/>
+		<item text="物理降温" datafield="PHYSICALCOOLING" linecolor="蓝" show="0" startX="985" startY="1007" height="20" width="40" lineType="solid"/>
+		<item text="物理升温" datafield="PHYSICALHOTTING" linecolor="蓝" show="0" startX="985" startY="1007" height="20" width="40" lineType="solid"/>
+	</legend>
+	<!--需要过滤体征数据的病人状态值，即 如果该时段病人为此状态之一，则此时段数据点不绘制，color可配置各个状态的颜色 -->
+	<patientstatefilter>
+		<item valueText="入院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="外出" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="请假" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="不升" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="手术" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="出院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="分娩" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+	</patientstatefilter>
+	<!--绘制事件的起点纵坐标-->
+	<EventYStart startY="190" endY="750"/>
+	<SpecialEventYStart startY="600" endY="750"/>
+
+	<!--以下是三测单护理数据批量录入        
+        ComboBox=0, //下拉列表
+        Normal=1, //普通文本框
+        ShowDlg=2， //弹框编辑 
+        Other=3  其他   
+        
+        showtype="0":时段数据
+        showtype="1":天(日)数据
+        -->
+	<!--datafield 的值一定要和查询结果中表字段相等-->
+	<dataColumns>
+		<item name="colBLOODPRESSURE" datafield="BLOODPRESSURE" showtype="1" isShow="1" cellControl="2" showDlg="DrectSoft.EMR.ThreeRecordAll.Controls.DlgBloodPressure1">血压</item>
+		<item name="colCOUNTIN" datafield="COUNTIN" showtype="1" isShow="1" cellControl="1">总入量(ml)</item>
+		<item name="colCOUNTOUT" datafield="COUNTOUT" showtype="1" isShow="1" cellControl="1">总出量(ml)</item>
+		<item name="colDRAINAGE" datafield="DRAINAGE" showtype="1" isShow="1" cellControl="1">引流量(ml)</item>
+		<item name="colTIMESOFSHIT" datafield="TIMEOFSHIT" showtype="1" isShow="1" cellControl="2" showDlg="DrectSoft.EMR.ThreeRecordAll.Controls.DLG">大便次数</item>
+		<item name="colWEIGHT" datafield="WEIGHT" showtype="1" isShow="1" cellControl="1">体重(kg)</item>
+		<item name="colHEIGHT" datafield="HEIGHT" showtype="1" isShow="1" cellControl="1">身高(cm)</item>
+	</dataColumns>
+	<!--<item name="colALLERGY" datafield="PARAM1" showtype="1" isShow="1" cellControl="1">过敏药物</item>-->
+	<!--字段的默认值-->  
+	<FieldDeFaultValue>
+	</FieldDeFaultValue>
+	<!--数据合法性效验-->
+	<dataCheck>
+		<item datafield="TEMPERATURE" maxValue="43" minValue="34">体温</item>
+		<item datafield="BREATHE" maxValue="96" minValue="10">呼吸</item>
+		<item datafield="PULSE" maxValue="200" minValue="20">脉搏</item>
+		<item datafield="HEARTRATE" maxValue="200" minValue="20">心率</item>
+		<item datafield="PHYSICALCOOLING" maxValue="43" minValue="34">物理降温</item>
+		<item datafield="PHYSICALHOTTING" maxValue="43" minValue="34">物理升温</item>
+	</dataCheck>
+
+	<!--以下是三测单护理数据录入界面配置 
+       ComboBox=0, //下拉列表
+        Normal=1, //普通文本框
+        ShowDlg=2 //弹框编辑 
+        
+        showtype="0":时段数据
+        showtype="1":天(日)数据
+        -->
+	<DataRowEdit>
+		<item name="colBloodPressure" datafield="BLOODPRESSURE" showtype="1" cellControl="2" showDlg="DrectSoft.Core.NurseDocument.Controls.DlgBloodPressure1">血压</item>
+		<item name="colIn" datafield="COUNTIN" showtype="1" cellControl="1">总入量(ml)</item>
+		<item name="colnaioLing" datafield="COUNTOUT" showtype="1" cellControl="1">总出量(ml)</item>
+		<item name="colOtherOut" datafield="DRAINAGE" showtype="1" cellControl="1">出入量(ml)</item>
+		<item name="colTimesOfShit" datafield="TIMEOFSHIT" showtype="1" cellControl="2" showDlg="DrectSoft.Core.NurseDocument.Controls.DLGSigns">大便次数</item>
+		<item name="colOther" datafield="HEIGHT" showtype="1" cellControl="1">身高(cm)</item>
+		<item name="colWeight" datafield="WEIGHT" showtype="1" cellControl="1">体重(kg)</item>
+	</DataRowEdit>
+	<!--<item name="colSleep" datafield="PARAM1" showtype="1" cellControl="1">过敏药物</item>-->
+	<!--最新体征录入界面配置文件 src指向界面现有NursingRecordNew和NursingRecord两个界面 isBreak表示是否换行 showDlg弹出框地址-->
+	<NurseMeasure src="DrectSoft.Core.NurseDocument.Controls.NursingRecordNew">
+		<item itemName="BLOODPRESSURE" lblCaption="血压" width="200" controlStyle="DrectSoft.Common.Ctrs.OTHER.DSTextBoxSelFile" isBreak="false" showDlg="DrectSoft.Core.NurseDocument.Controls.DlgBloodPressure1"/>
+		<item itemName="COUNTIN" lblCaption="总入量(ml)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+		<item itemName="COUNTOUT" lblCaption="总出量(ml)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+		<item itemName="DRAINAGE" lblCaption="引流量(ml)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+		<item itemName="TIMEOFSHIT" lblCaption="大便次数" width="200" controlStyle="DrectSoft.Common.Ctrs.OTHER.DSTextBoxSelFile" isBreak="false" showDlg="DrectSoft.Core.NurseDocument.Controls.DLG"/>
+		<item itemName="HEIGHT" lblCaption="身高(cm)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="true" >e</item>
+		<item itemName="WEIGHT" lblCaption="体重(kg)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+		<item itemName="PARAM1" lblCaption="" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+		<item itemName="PARAM2" lblCaption="" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+	</NurseMeasure>
+	<!--<item itemName="PARAM1" lblCaption="过敏药物" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />-->
+	<!--手术后天数计算方式-->
+	<DateEditable editable="1"/>
+	<!--住院后天上计算方式-->
+	<DateHospitalEdit editable="1"/>
+	<!--第一列是否自动显示入院状态-->
+	<ShowHospital isShow="1" inHospitalCode="7008"/>
+</root>

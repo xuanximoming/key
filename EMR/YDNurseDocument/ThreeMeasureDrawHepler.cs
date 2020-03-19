@@ -1255,7 +1255,6 @@ namespace DrectSoft.Core.NurseDocument
                     //收集特殊病人状态事件点 add by tj 2012-12-24 15:46
                     index++;
                     specialState = CheckSpecialPatientState(dp);
-                    //if (ConfigInfo.inUsed == "1" && specialState)
                     if (specialState)
                     {
                         specialPatientStateDataPoints.Add(dp);
@@ -1266,6 +1265,23 @@ namespace DrectSoft.Core.NurseDocument
                     }
                     //---------------------------------------------------
                     hourDuringIndex = ConfigInfo.GetHourDuringIndex(dp.date) - 1;//一天中时段序号  ;减1的目的是为了绘图
+                    bool isShowtime = true, isIntercept = true;
+                    foreach (FilterState item in ConfigInfo.StateValueTextList)
+                    {
+                        if (item.stateName == dp.value)
+                        {
+                            if (item.ShowTime.Equals("0"))
+                            {
+                                isShowtime = false;
+                            }
+                            if (item.Intercept.Equals("1"))
+                            {
+                                isIntercept = false;
+                            }
+                        }
+                    }
+                    if (isIntercept)
+                        hourDuringIndex += 1;
                     if (preEventDataPoint != null)
                     {
                         //与上一个的数据点比较 如果不是同时段 或者 不是同一天 清空暂存数据
@@ -1281,8 +1297,6 @@ namespace DrectSoft.Core.NurseDocument
                                 showcontent1 = sb.ToString().Split('|')[0];
                             }
                             gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(showcontent1), recf, sf);
-                            //gph.DrawString(sb.ToString(), fontText, ConfigInfo.m_patientStateTextColor, recf, sf);
-                            //gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(dp.value), recf, sf); 
                             #endregion
 
                             recf.Offset(-(preEventDataPoint.GetOffsetDays_1() * (ConfigInfo.m_columnList[1].width) + ConfigInfo.smallGridWidth * temphourDuringIndex), 0);
@@ -1297,11 +1311,10 @@ namespace DrectSoft.Core.NurseDocument
                     //保存当前值
                     preEventDataPoint = dp;
                     temphourDuringIndex = hourDuringIndex;
-                    bool isShowtime = true;
+
                     string showcontent = string.Empty;
                     if (index == dataList.Count && specialState)
                     {
-                        //gph.DrawString(sb.ToString(), fontText, ConfigInfo.m_patientStateTextColor, recf, sf);
                         showcontent = sb.ToString();
                         //画颜色根据状态进行查询，add by ywk 2013年7月29日 11:10:50
                         if (sb.ToString().Contains('|'))
@@ -1311,16 +1324,7 @@ namespace DrectSoft.Core.NurseDocument
                         gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(showcontent), recf, sf);
                         return specialPatientStateDataPoints;
                     }
-                    foreach (FilterState item in ConfigInfo.StateValueTextList)
-                    {
-                        if (item.stateName == dp.value)
-                        {
-                            if (item.ShowTime.Equals("0"))
-                            {
-                                isShowtime = false;
-                            }
-                        }
-                    }
+
                     if (isShowtime)
                     {
                         sb.Append(dp.value + "|" + MethodSet.NumerricTimeToString(dp.date) + "\0");
@@ -1332,7 +1336,6 @@ namespace DrectSoft.Core.NurseDocument
 
                     if (index == dataList.Count)
                     {
-                        //gph.DrawString(sb.ToString(), fontText, ConfigInfo.m_patientStateTextColor, recf, sf);
 
                         //add byy ywk 2013年7月24日 15:04:02 传入状态名称获取颜色
                         gph.DrawString(sb.ToString(), fontText, ConfigInfo.GetColorByStateName(dp.value), recf, sf);
@@ -1431,9 +1434,6 @@ namespace DrectSoft.Core.NurseDocument
 
                     if (index == dataList.Count)
                     {
-                        //gph.DrawString(sb.ToString(), fontText, ConfigInfo.m_patientStateTextColor, recf, sf);
-                        //edit by  ywk 2013年4月17日9:32:19   此处应该用m_specialPatientStateTextColor
-                        //gph.DrawString(sb.ToString(), fontText, ConfigInfo.m_specialPatientStateTextColor, recf, sf);
                         //add by ywk 2013年4月17日9:53:42  
                         foreach (FilterState item in ConfigInfo.StateValueTextList)
                         {
@@ -1504,7 +1504,6 @@ namespace DrectSoft.Core.NurseDocument
                     }
                 }
                 DataCollection dataList = FillEventData(patientState);
-                //if (ConfigInfo.inUsed == "1" && dataList.Count > 0)
                 if (dataList.Count > 0)
                 {
                     FillSpecialEventData(dataList);

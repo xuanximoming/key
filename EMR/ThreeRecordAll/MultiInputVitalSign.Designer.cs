@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MultiInputVitalSign));
             this.groupControlHours = new DevExpress.XtraEditors.GroupControl();
             this.radio6 = new DevExpress.XtraEditors.CheckEdit();
-            this.DevButtonQurey1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonQurey();
+            this.DevButtonQurey1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonQurey(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.radio4 = new DevExpress.XtraEditors.CheckEdit();
             this.radio3 = new DevExpress.XtraEditors.CheckEdit();
@@ -44,7 +45,7 @@
             this.txtPName = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.DevButtonSave1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonSave();
+            this.DevButtonSave1 = new DrectSoft.Common.Ctrs.OTHER.DevButtonSave(this.components);
             this.gridControlVitalSigns = new DevExpress.XtraGrid.GridControl();
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.基本数据 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -262,7 +263,7 @@
             this.txtPName.EnterMoveNextControl = true;
             this.txtPName.Location = new System.Drawing.Point(81, 17);
             this.txtPName.Name = "txtPName";
-            this.txtPName.Properties.Appearance.Font = new System.Drawing.Font("宋体", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPName.Properties.Appearance.Font = new System.Drawing.Font("SimSun", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtPName.Properties.Appearance.Options.UseFont = true;
             this.txtPName.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.White;
             this.txtPName.Properties.AppearanceDisabled.ForeColor = System.Drawing.Color.Black;

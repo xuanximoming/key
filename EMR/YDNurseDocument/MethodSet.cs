@@ -354,7 +354,7 @@ namespace DrectSoft.Core.NurseDocument
         /// <returns></returns>
         public static DataTable GetStates()
         {
-            string serchsql = string.Format(@" select * from THERE_CHECK_EVENT where valid = '1' order by id ");
+            string serchsql = string.Format(@" select * from THREE_CHECK_EVENT where valid = '1' order by id ");
             return sql_Helper.ExecuteDataTable(serchsql, CommandType.Text);
         }
         /// <summary>
@@ -367,7 +367,7 @@ namespace DrectSoft.Core.NurseDocument
         {
             string serchsql = string.Format(@" select distinct a.noofinpat,a.id,a.dotime,a.ccode,c.name,b.name as patname 
                                                 from PatientStatus a join inpatient b 
-                                                on a.noofinpat=to_char(b.noofinpat) join THERE_CHECK_EVENT c
+                                                on a.noofinpat=to_char(b.noofinpat) join THREE_CHECK_EVENT c
                                                 on a.ccode=c.id
                                                 where a.noofinpat='{0}' order by dotime desc ", noofinpat);//categoryid要是id的前两位
             return sql_Helper.ExecuteDataTable(serchsql, CommandType.Text);
@@ -385,7 +385,7 @@ namespace DrectSoft.Core.NurseDocument
             {
                 string serchsql = string.Format(@" select distinct a.noofinpat,a.id,a.dotime,a.ccode,c.name,b.name as patname 
                                                 from PatientStatus a join inpatient b 
-                                                on a.noofinpat=b.patid join THERE_CHECK_EVENT c
+                                                on a.noofinpat=b.patid join THREE_CHECK_EVENT c
                                                 on a.ccode=c.id
                                                 where a.noofinpat='{0}' order by dotime desc ", NoPatID);//categoryid要是id的前两位
                 return sql_Helper.ExecuteDataTable(serchsql, CommandType.Text);
@@ -423,7 +423,7 @@ namespace DrectSoft.Core.NurseDocument
                 StringBuilder str = new StringBuilder();
                 string serchsql = string.Format(@"select distinct  a.noofinpat,a.id,a.dotime,a.ccode,c.name,b.name as patname ,b.noofinpat 
                                                 from PatientStatus a  join inpatient b 
-                                                on a.noofinpat=b.patid  join THERE_CHECK_EVENT c
+                                                on a.noofinpat=b.patid  join THREE_CHECK_EVENT c
                                                 on a.ccode=c.id
                                                 where b.noofinpat='{0}' and a.noofinpat='{1}' and a.dotime>='{2}' ",
                                                   noofinpat, NoPatID, startTime);
@@ -550,7 +550,8 @@ namespace DrectSoft.Core.NurseDocument
             if (timeStr[1][0] == '0')
             {
                 if (timeStr[1][1] == '0')
-                    stringBuilder.Append("整");
+                    //stringBuilder.Append("整");
+                    stringBuilder.Append("");
                 else
                     stringBuilder.Append("零" + ToCharacter(timeStr[1][1]) + "分");
             }
@@ -564,6 +565,8 @@ namespace DrectSoft.Core.NurseDocument
                 {
                     if (Int32.Parse(timeStr[1]) == 20)
                         stringBuilder.Append("二十分");
+                    else if (Int32.Parse(timeStr[1][1].ToString()) == 0)
+                        stringBuilder.Append(ToCharacter(timeStr[1][0]) + "十分");
                     else
                         stringBuilder.Append(ToCharacter(timeStr[1][0]) + "十" + ToCharacter(timeStr[1][1]) + "分");
                 }

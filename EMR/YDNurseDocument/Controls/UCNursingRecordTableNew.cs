@@ -1016,7 +1016,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             //string serachsql = string.Format(@"    select * from patientstatus where noofinpat='{0}' and trunc(to_date(patientstatus.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 and dotime<'{1}'  and ccode='7000' order by dotime asc", MethodSet.CurrentInPatient.Code, inputdate + " 23:59:59");
             //泗縣需求 分娩手術走同樣邏輯 add by ywk2013年6月14日 15:11:13
             string serachsql = string.Format
-                (@"    select * from patientstatus  p left join THERE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
+                (@"    select * from patientstatus  p left join THREE_CHECK_EVENT t on p.ccode=t.id  where noofinpat='{0}' 
                         and trunc(to_date(p.dotime,'yyyy-mm-dd hh24:mi:ss'))>=trunc(to_date('{1}','yyyy-mm-dd hh24:mi:ss'))-14 
                         and dotime<'{1}'  and (p.ccode='7000' or t.name ='分娩·手术') order by dotime asc", patid, inputdate + " 23:59:59");
 
