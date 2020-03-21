@@ -1281,8 +1281,10 @@ namespace DrectSoft.Common
                         {
                             if (BiaoDianList.Contains(allStr[i + 1]))
                             {
-                                duanStr += allStr[i + 1];
-                                i++;
+                                //20200321 ukey zhang 重新处理行尾是标点符号的换行问题
+                                duanStr = duanStr.Substring(0, i);
+                                //duanStr += allStr[i + 1];
+                                i--;
                             }
                         }
 

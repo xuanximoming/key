@@ -309,8 +309,15 @@ namespace DrectSoft.Core.NurseDocument
         {
             try
             {
-                string sql = string.Format(@"select * from inpatient where noofinpat='{0}' ", m_noofinpat);
-                DataTable dt = DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
+                //string sql = string.Format(@"select * from inpatient where noofinpat='{0}' ", m_noofinpat);
+                SqlParameter[] sqlParam = new SqlParameter[] 
+                {
+                    new SqlParameter("@NoOfInpat", SqlDbType.Decimal),
+                    new SqlParameter("@result", SqlDbType.Structured)
+                };
+                sqlParam[0].Value = m_noofinpat;
+                sqlParam[1].Direction = ParameterDirection.Output;
+                DataTable dt = DS_SqlHelper.ExecuteDataTable("EMRPROC.usp_GetPatientInfoForThreeMeas", sqlParam, CommandType.StoredProcedure);
                 if (dt.Rows[0]["inwarddate"].ToString() != "" && dt.Rows[0]["inwarddate"].ToString() != null)
                 {
                     m_InTime = dt.Rows[0]["inwarddate"].ToString();
@@ -359,7 +366,6 @@ namespace DrectSoft.Core.NurseDocument
 
             SqlParameter[] sqlParam = new SqlParameter[] 
             {
-
                 new SqlParameter("@NoOfInpat", SqlDbType.Decimal),
                 new SqlParameter("@result", SqlDbType.Structured)
             };
