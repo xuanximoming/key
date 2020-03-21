@@ -30,6 +30,7 @@
         {
             this.testbt = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +51,20 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(32, 32);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(624, 181);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "";
+            // 
             // test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 398);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.testbt);
             this.IsMdiContainer = true;
@@ -71,6 +81,7 @@
 
         private DevExpress.XtraEditors.SimpleButton testbt;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
 
 
 

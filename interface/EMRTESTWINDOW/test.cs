@@ -1,4 +1,5 @@
-﻿using DrectSoft.Core;
+﻿using DrectSoft.AnalysisXML;
+using DrectSoft.Core;
 using System;
 using System.Data;
 using System.Drawing;
@@ -22,6 +23,9 @@ namespace EMRTESTWINDOW
             try
             {
 
+                AnalysisXML xml = new AnalysisXML();
+                string ss = xml.GetMedicalInsurance("AC,AB", "006425", "主诉,现病史,既往史");
+                richTextBox1.Text = ss;
                 //ChangePat changepat = new ChangePat();
                 //IChangePat ichangepat = changepat;
                 //string patNum = "20181231";

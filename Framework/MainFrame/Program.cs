@@ -62,10 +62,10 @@ namespace MainFrame
                 }
                 GoSetDataAccess();//先行设定数据源
                 DrectSoft.DSSqlHelper.DS_SqlHelper.CreateSqlHelper();
-                //if (!CkeckRegInfo())
-                //{
-                //    return;
-                //}
+                if (!CkeckRegInfo())
+                {
+                    return;
+                }
 
                 if (IsJumpCheck)//应该跳过验证,直接登陆
                 {
