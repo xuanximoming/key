@@ -102,12 +102,12 @@
 	<!---->
 	<!--时段-->
 	<HourOfday subColumnCount="6" columnRepeatCount="7" startX="120" startY="154" startColumn="2" startRow="4">
-		<item numberColor="黑" index="1" timeslotvalue="2" timesspilt="0" hourpoint="23,0,1,2">2</item>
-		<item numberColor="黑" index="2" timeslotvalue="6" timesspilt="4" hourpoint="3,4,5,6">6</item>
-		<item numberColor="黑" index="3" timeslotvalue="10" timesspilt="8" hourpoint="7,8,9,10">10</item>
-		<item numberColor="黑" index="4" timeslotvalue="14" timesspilt="12" hourpoint="11,12,13,14">14</item>
-		<item numberColor="黑" index="5" timeslotvalue="18" timesspilt="16" hourpoint="15,16,17,18">18</item>
-		<item numberColor="黑" index="6" timeslotvalue="22" timesspilt="20" hourpoint="19,20,21,22">22</item>
+		<item numberColor="黑" index="1" timeslotvalue="2" timesspilt="0" hourpoint="0,1,2,3">2</item>
+		<item numberColor="黑" index="2" timeslotvalue="6" timesspilt="4" hourpoint="4,5,6,7">6</item>
+		<item numberColor="黑" index="3" timeslotvalue="10" timesspilt="8" hourpoint="8,9,10,11">10</item>
+		<item numberColor="黑" index="4" timeslotvalue="14" timesspilt="12" hourpoint="12,13,14,15">14</item>
+		<item numberColor="黑" index="5" timeslotvalue="18" timesspilt="16" hourpoint="16,17,18,19">18</item>
+		<item numberColor="黑" index="6" timeslotvalue="22" timesspilt="20" hourpoint="20,21,22,23">22</item>
 	</HourOfday>
 	<!-- hide 0:显示 1：隐藏-->
 	<zuobiao interval="-70">   
@@ -150,7 +150,7 @@
 	</legend>
 	<!--需要过滤体征数据的病人状态值，即 如果该时段病人为此状态之一，则此时段数据点不绘制，color可配置各个状态的颜色 -->
 	<patientstatefilter>
-		<item valueText="入院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="入院" breakLinkLine="1" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="外出" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="请假" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="不升" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>

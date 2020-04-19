@@ -1159,7 +1159,7 @@ namespace DrectSoft.MainFrame
                 this.DoubleBuffered = true;
                 GOLogin();
 
-                if (Appinfo.Count > 0)
+                if (Appinfo.Count > 1)
                 {
                     SetPatientInfo(Appinfo[1].ToString());
                     if (this.CurrentPatientInfo != null && Appinfo.Count > 0)

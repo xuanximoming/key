@@ -8,7 +8,7 @@ namespace DrectSoft.AnalysisXML
     public class AnalysisXML
     {
         private XmlDocument xmlDoc = new XmlDocument();
-        public string GetMedicalInsurance(string sortids, string patNum, string NodeNames)
+        public DataTable GetMedicalInsurance(string sortids, string patNum, string NodeNames)
         {
             try
             {
@@ -16,10 +16,11 @@ namespace DrectSoft.AnalysisXML
                 if (!PingServer())
                 {
                     MessageBox.Show("连接配置错误！");
-                    return "";
+                    //return "";
+                    return null;
                 }
                 DrectSoft.DSSqlHelper.DS_SqlHelper.CreateSqlHelper();
-
+                DataTable dtdate = new DataTable();
                 string[] _sortids = sortids.Split(',');
 
                 string sortid = "";
@@ -38,7 +39,8 @@ namespace DrectSoft.AnalysisXML
                     XmlDocument RexmlDoc = new XmlDocument();
                     XmlDeclaration dec = RexmlDoc.CreateXmlDeclaration("1.0", "utf-8", null);
                     RexmlDoc.AppendChild(dec);
-
+                    dtdate.Columns.Add("Columnname", Type.GetType("System.String"));
+                    dtdate.Columns.Add("Columntext", Type.GetType("System.String"));
                     //  创建根结点
                     XmlElement XMLroot = RexmlDoc.CreateElement("root");
                     RexmlDoc.AppendChild(XMLroot);
@@ -50,6 +52,7 @@ namespace DrectSoft.AnalysisXML
                         XmlNodeList xmlNodes = xmlDoc.GetElementsByTagName("roelement");
                         foreach (XmlNode xmlNode in xmlNodes)
                         {
+                            DataRow datarow = dtdate.NewRow();
                             if (_NodeName.Contains(xmlNode.InnerText.Trim()) && xmlNode.InnerText.Trim() != "")
                             {
                                 _NodeName = _NodeName.Replace(xmlNode.InnerText.Trim(), "");
@@ -73,6 +76,9 @@ namespace DrectSoft.AnalysisXML
                                         stopflag = false;
                                     newxmlNodex = newxmlNodex.NextSibling;
                                 }
+                                datarow["Columnname"] = name;
+                                datarow["Columntext"] = nodetext;
+                                dtdate.Rows.Add(datarow);
                                 //创建数据节点
                                 XmlElement NodeName = RexmlDoc.CreateElement(name);
                                 NodeName.InnerText = nodetext;
@@ -80,13 +86,16 @@ namespace DrectSoft.AnalysisXML
                             }
                         }
                     }
-                    return RexmlDoc.OuterXml;
+                    //return RexmlDoc.OuterXml;
+                    return dtdate;
                 }
-                return "";
+                //return "";
+                return null;
             }
             catch (Exception ex)
             {
-                return "";
+                //return "";
+                return null;
             }
         }
 

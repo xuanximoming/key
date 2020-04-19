@@ -1,9 +1,5 @@
-﻿using DrectSoft.AnalysisXML;
-using DrectSoft.Core;
+﻿using DrectSoft.Core;
 using System;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -22,10 +18,9 @@ namespace EMRTESTWINDOW
         {
             try
             {
-
-                AnalysisXML xml = new AnalysisXML();
-                string ss = xml.GetMedicalInsurance("AC,AB", "006425", "主诉,现病史,既往史");
-                richTextBox1.Text = ss;
+                //AnalysisXML xml = new AnalysisXML();
+                //DataTable dtdate = xml.GetMedicalInsurance("AC,AB", "006425", "主诉,现病史,既往史");
+                //richTextBox1.Text = "";
                 //ChangePat changepat = new ChangePat();
                 //IChangePat ichangepat = changepat;
                 //string patNum = "20181231";
@@ -44,14 +39,15 @@ namespace EMRTESTWINDOW
         {
             try
             {
-                m_EmrHelper = DataAccessFactory.DefaultDataAccess;
-                string getImgStr = @"SELECT PicData FROM PicTable where ID='1' and PicID='1'";
-                DataTable data = m_EmrHelper.ExecuteDataTable(getImgStr, CommandType.Text);
-                byte[] bytes = (byte[])data.Rows[0]["PicData"];
-                //byte[] bytes = System.Text.Encoding.Default.GetBytes(imgStr);
-                MemoryStream ms = new System.IO.MemoryStream(bytes);
-                Image img = System.Drawing.Image.FromStream(ms);
-                pictureBox1.Image = img;
+                System.Diagnostics.Process.Start(".\\app\\adcemr.exe", "00");
+                //m_EmrHelper = DataAccessFactory.DefaultDataAccess;
+                //string getImgStr = @"SELECT PicData FROM PicTable where ID='1' and PicID='1'";
+                //DataTable data = m_EmrHelper.ExecuteDataTable(getImgStr, CommandType.Text);
+                //byte[] bytes = (byte[])data.Rows[0]["PicData"];
+                ////byte[] bytes = System.Text.Encoding.Default.GetBytes(imgStr);
+                //MemoryStream ms = new System.IO.MemoryStream(bytes);
+                //Image img = System.Drawing.Image.FromStream(ms);
+                //pictureBox1.Image = img;
                 //foreach (DataRow row in data.Rows)
                 //{
                 //    xmlDoc = new XmlDocument();

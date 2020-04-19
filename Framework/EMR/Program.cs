@@ -18,15 +18,15 @@ namespace MainFrame
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                DateTime dateTime = DateTime.Parse("2013-8-15");
+                //DateTime dateTime = DateTime.Parse("2013-8-15");
                 string fullName = Assembly.GetEntryAssembly().FullName;
                 AppDomain customAppDomain = GetCustomAppDomain();
                 customAppDomain.UnhandledException += new UnhandledExceptionEventHandler(Program.CurrentDomain_UnhandledException);
                 customAppDomain.CreateInstanceAndUnwrap(fullName, typeof(StartupClass).FullName, false, BindingFlags.Instance | BindingFlags.Public, null, new object[]
-				{
-					false,
-					"file.menu"
-				}, null, null, null);
+                {
+                    false,
+                    "file.menu"
+                }, null, null, null);
             }
             catch (Exception ex)
             {

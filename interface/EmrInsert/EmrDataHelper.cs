@@ -3,7 +3,6 @@ using DrectSoft.Core;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -50,7 +49,7 @@ namespace EmrInsert
                 Formain.otherUser = true;
                 Formain.m_FormLogin.textBoxUserID_Leave(null, null);
                 Formain.m_FormLogin.textBoxPassword.Text = "";
-                Formain.Size = new Size(0, 0);
+                //Formain.Size = new Size(0, 0);
                 Formain.isLG = null;
                 try
                 {
@@ -65,6 +64,43 @@ namespace EmrInsert
                 DS_Common.currentUser = _EmrHost.User;
             }
             return _EmrHost;
+        }
+
+        /// <summary>
+        /// 登录初始化
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public DrectSoft.MainFrame.FormMain thisLoginForm(string UserId)
+        {
+            if (Formain.isLG == null)
+            {
+                if (UserId == null || UserId == "")
+                    UserId = "00";
+                if (!Formain.GetUser(UserId))
+                {
+                    AddUser();
+                    return null;
+                }
+                Formain.m_FormLogin.textBoxUserID.Text = UserId;
+                Formain.otherUser = true;
+                Formain.m_FormLogin.textBoxUserID_Leave(null, null);
+                Formain.m_FormLogin.textBoxPassword.Text = "";
+                //Formain.Size = new Size(0, 0);
+                Formain.isLG = null;
+                try
+                {
+                    isLoginResult = Formain.Login();
+                    _SqlHelper = Formain.SqlHelper;
+                }
+                catch (Exception ex)
+                {
+                    DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(5, ex.Message);
+                }
+                _EmrHost = this.Formain;
+                DS_Common.currentUser = _EmrHost.User;
+            }
+            return this.Formain;
         }
 
         /// <summary>

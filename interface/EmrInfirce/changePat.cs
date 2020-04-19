@@ -18,7 +18,6 @@ namespace EmrInfirce
         private UCEmrInput _UCEmrInput;
         private UCEmrInputout _UCEmrInputout;
 
-
         /// <summary>
         /// 初始化EMR
         /// </summary>
@@ -52,7 +51,6 @@ namespace EmrInfirce
                 return 0;
             }
         }
-
 
         /// <summary>
         /// 加载病人信息，C#调用
