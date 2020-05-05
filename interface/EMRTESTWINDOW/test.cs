@@ -39,7 +39,7 @@ namespace EMRTESTWINDOW
         {
             try
             {
-                System.Diagnostics.Process.Start(".\\app\\adcemr.exe", "00");
+                System.Diagnostics.Process.Start("adcemr.exe", "00");
                 //m_EmrHelper = DataAccessFactory.DefaultDataAccess;
                 //string getImgStr = @"SELECT PicData FROM PicTable where ID='1' and PicID='1'";
                 //DataTable data = m_EmrHelper.ExecuteDataTable(getImgStr, CommandType.Text);

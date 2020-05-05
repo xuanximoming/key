@@ -170,10 +170,10 @@ namespace DrectSoft.Core.IEMMainPage
             //IDataAccess sqlHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
 
             //if (sqlHelper == null)
-           // {
+            // {
             //    m_App.CustomMessageBox.MessageShow("无法连接到HIS！", CustomMessageBoxKind.ErrorOk);
             //    return;
-           // }
+            // }
             //to do  yxy 提取HIS数据库中病人费用信息
 
             //string sql = string.Format(@"SELECT * FROM  DC_Free where PatId = '{0}'", m_App.CurrentPatientInfo.NoOfHisFirstPage);
@@ -192,7 +192,7 @@ namespace DrectSoft.Core.IEMMainPage
             xmlDoc = new XmlDocument();
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.IgnoreComments = true;
-            XmlReader reader = XmlReader.Create(".\\Sheet\\MRHPEN.xml", settings);
+            XmlReader reader = XmlReader.Create(AppDomain.CurrentDomain.BaseDirectory + @"\Sheet\MRHPEN.xml", settings);
             xmlDoc.Load(reader);
             XmlNode xmlNode = xmlDoc.GetElementsByTagName("Feeinfo")[0];
             XmlNodeList xmlNodes = xmlNode.ChildNodes;

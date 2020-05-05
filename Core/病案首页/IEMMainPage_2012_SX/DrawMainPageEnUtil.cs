@@ -128,7 +128,7 @@ namespace DrectSoft.Core.IEMMainPage
                 xmlDoc = new XmlDocument();
                 XmlReaderSettings settings = new XmlReaderSettings();
                 settings.IgnoreComments = true;
-                XmlReader reader = XmlReader.Create(".\\Sheet\\MRHPEN.xml", settings);
+                XmlReader reader = XmlReader.Create(AppDomain.CurrentDomain.BaseDirectory + @"\Sheet\MRHPEN.xml", settings);
                 xmlDoc.Load(reader);
                 XmlNode xmlNode = xmlDoc.GetElementsByTagName("PageSize")[0];
                 m_PageWidth = int.Parse(xmlNode.Attributes["width"].Value);

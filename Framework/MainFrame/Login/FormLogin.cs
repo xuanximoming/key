@@ -671,8 +671,14 @@ namespace DrectSoft.MainFrame
         }
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            ForUpdate();
+        }
 
-
+        /// <summary>
+        /// AutoUpdate
+        /// </summary>
+        public void ForUpdate()
+        {
             try
             {
                 #region 自动更新
@@ -693,7 +699,7 @@ namespace DrectSoft.MainFrame
                 if (PublicClass.Ping(ip))//这里填写自动更新服务器IP
                 {
                     #region 自动启动AutoUpdate
-                    string localXmlFile = Application.StartupPath + "\\UpdateList.xml";
+                    string localXmlFile = AppDomain.CurrentDomain.BaseDirectory + @"UpdateList.xml";
                     string serverXmlFile = string.Empty;
 
 
@@ -712,7 +718,7 @@ namespace DrectSoft.MainFrame
                     updateUrl = string.Format(updaterXmlFiles.GetNodeValue("//Url"), ip);
                     updaterXmlFiles.GetElementsByTagName("Url")[0].InnerXml = updateUrl;
                     AppUpdater appUpdater = new AppUpdater();
-                    appUpdater.UpdaterURL = updateUrl + "/UpdateList.xml";
+                    appUpdater.UpdaterURL = updateUrl + "UpdateList.xml";
 
                     //与服务器连接，下载更新配置文件。
                     try
@@ -726,25 +732,21 @@ namespace DrectSoft.MainFrame
                         this.Close();
                         return;
                     }
-
                     //获取更新文件列表
                     Hashtable htUpdateFile = new Hashtable();
-
-                    serverXmlFile = tempUpdatePath + "\\UpdateList.xml";
+                    serverXmlFile = tempUpdatePath + "UpdateList.xml";
                     if (!File.Exists(serverXmlFile))
                     {
                         MessageBox.Show("没有发现服务器更新文件列表！");
                         return;
                     }
-
                     availableUpdate = appUpdater.CheckForUpdate(serverXmlFile, localXmlFile, out htUpdateFile);
                     if (availableUpdate > 0)
                     {
                         //this.Close();
                         //this.Hide();
+                        System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + "AutoUpdate.exe", ip);
                         Application.Exit();
-
-                        System.Diagnostics.Process.Start("AutoUpdate.exe", ip);
                         System.Threading.Thread.Sleep(1000);//延时1秒
 
                         return;
@@ -769,7 +771,6 @@ namespace DrectSoft.MainFrame
                 Application.Exit();
             }
         }
-
 
         /// <summary>
         /// 登录

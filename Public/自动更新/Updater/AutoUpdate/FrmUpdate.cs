@@ -31,7 +31,7 @@ namespace AutoUpdate
         {
             this.panel2.Visible = false;
             this.btnFinish.Visible = false;
-            string text = Application.StartupPath + "\\UpdateList.xml";
+            string text = AppDomain.CurrentDomain.BaseDirectory + @"UpdateList.xml";
             string text2 = string.Empty;
             try
             {
@@ -45,7 +45,7 @@ namespace AutoUpdate
             }
             this.updateUrl = string.Format(this.updaterXmlFiles.GetNodeValue("//Url"), _IP);
             AppUpdater appUpdater = new AppUpdater();
-            appUpdater.UpdaterUrl = this.updateUrl + "/UpdateList.xml";
+            appUpdater.UpdaterUrl = this.updateUrl + "UpdateList.xml";
             try
             {
                 this.tempUpdatePath = Environment.GetEnvironmentVariable("Temp") + "\\_" + this.updaterXmlFiles.FindNode("//Application").Attributes["applicationId"].Value + "_y_x_m_\\";
@@ -58,7 +58,7 @@ namespace AutoUpdate
                 return;
             }
             Hashtable hashtable = new Hashtable();
-            text2 = this.tempUpdatePath + "\\UpdateList.xml";
+            text2 = this.tempUpdatePath + "UpdateList.xml";
             if (File.Exists(text2))
             {
                 this.availableUpdate = appUpdater.CheckForUpdate(text2, text, out hashtable);
@@ -221,7 +221,7 @@ namespace AutoUpdate
             base.Dispose();
             try
             {
-                this.CopyFile(this.tempUpdatePath, Directory.GetCurrentDirectory());
+                this.CopyFile(this.tempUpdatePath, AppDomain.CurrentDomain.BaseDirectory);
                 Directory.Delete(this.tempUpdatePath, true);
             }
             catch (Exception ex)

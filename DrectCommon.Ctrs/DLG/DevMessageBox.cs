@@ -288,7 +288,7 @@ namespace DrectSoft.Common.Ctrs.DLG
         {
             string LogName = "Emr_" + DateTime.Now.ToString("yyyyMMdd") + ".log";
             ///指定日志文件的目录
-            string fname = Directory.GetCurrentDirectory() + "\\log\\" + LogName;
+            string fname = AppDomain.CurrentDomain.BaseDirectory + @"\log\" + LogName;
 
             ///定义文件信息对象
             FileInfo finfo = new FileInfo(fname);

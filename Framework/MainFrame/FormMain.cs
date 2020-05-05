@@ -707,6 +707,7 @@ namespace DrectSoft.MainFrame
             if (Appinfo.Count > 0)
             {
                 string username = "";
+                m_FormLogin.ForUpdate();
                 m_FormLogin.userid_check(Appinfo[0].ToString(), ref username);
                 if (username.Trim().Length <= 0)
                 {
