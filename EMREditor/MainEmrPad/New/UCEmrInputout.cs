@@ -694,7 +694,7 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 else
                 {
-                    btnItem_Pacs.Visibility = BarItemVisibility.Always;
+                    btnItem_Pacs.Visibility = BarItemVisibility.Never;
                 }
                 ///出科检查按钮
                 if (doc.GetElementsByTagName("IsShowCheckBtn")[0].InnerText == "0")
@@ -703,14 +703,14 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 else
                 {
-                    btnItem_CheckOutDept.Visibility = BarItemVisibility.Always;
+                    btnItem_CheckOutDept.Visibility = BarItemVisibility.Never;
                 }
 
                 //调用病理检查结果按钮 add by ywk 2013年8月9日 16:18:08
                 string isshowpath = DS_SqlService.GetConfigValueByKey("IsShowPathologic");
                 if (isshowpath == "1")
                 {
-                    btnCallPathologic.Visibility = BarItemVisibility.Always;
+                    btnCallPathologic.Visibility = BarItemVisibility.Never;
                 }
                 else
                 {

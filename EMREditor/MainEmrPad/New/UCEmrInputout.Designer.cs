@@ -198,9 +198,7 @@
             this.btnItem_Collect = new DevExpress.XtraBars.BarButtonItem();
             this.btnItem_AssessmentPlan = new DevExpress.XtraBars.BarButtonItem();
             this.btn_left = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_get = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
-            this.barStaticItem_bedNo = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem_patientName = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem_patID = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem_gender = new DevExpress.XtraBars.BarStaticItem();
@@ -215,7 +213,9 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.imageCollection_Toolbars = new DevExpress.Utils.ImageCollection(this.components);
+            this.barStaticItem_bedNo = new DevExpress.XtraBars.BarStaticItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_get = new DevExpress.XtraBars.BarButtonItem();
             this.panelControlBody = new DevExpress.XtraEditors.PanelControl();
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -474,6 +474,7 @@
             toolTipTitleItem9.Text = "病历自检";
             superToolTip9.Items.Add(toolTipTitleItem9);
             this.btnItem_CheckSelf.SuperTip = superToolTip9;
+            this.btnItem_CheckSelf.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_CheckSelf.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_CheckSelf_ItemClick);
             // 
             // btnItem_Submit
@@ -488,6 +489,7 @@
             superToolTip10.Items.Add(toolTipTitleItem10);
             superToolTip10.Items.Add(toolTipItem9);
             this.btnItem_Submit.SuperTip = superToolTip10;
+            this.btnItem_Submit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_Submit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Submit_ItemClick);
             // 
             // btnItem_Audit
@@ -502,6 +504,7 @@
             superToolTip11.Items.Add(toolTipTitleItem11);
             superToolTip11.Items.Add(toolTipItem10);
             this.btnItem_Audit.SuperTip = superToolTip11;
+            this.btnItem_Audit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_Audit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Audit_ItemClick);
             // 
             // btnItem_CancelAudit
@@ -516,6 +519,7 @@
             superToolTip12.Items.Add(toolTipTitleItem12);
             superToolTip12.Items.Add(toolTipItem11);
             this.btnItem_CancelAudit.SuperTip = superToolTip12;
+            this.btnItem_CancelAudit.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_CancelAudit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_CancelAudit_ItemClick);
             // 
             // btnItem_Print
@@ -720,6 +724,7 @@
             superToolTip16.Items.Add(toolTipTitleItem16);
             superToolTip16.Items.Add(toolTipItem15);
             this.btnItem_ThreeLevelCheck.SuperTip = superToolTip16;
+            this.btnItem_ThreeLevelCheck.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_ThreeLevelCheck.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_ThreeLevelCheck_ItemClick);
             // 
             // btnItem_ReplaceItem
@@ -734,6 +739,7 @@
             superToolTip17.Items.Add(toolTipTitleItem17);
             superToolTip17.Items.Add(toolTipItem16);
             this.btnItem_ReplaceItem.SuperTip = superToolTip17;
+            this.btnItem_ReplaceItem.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_ReplaceItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_ReplaceItem_ItemClick);
             // 
             // btnItem_Pacs
@@ -748,6 +754,7 @@
             superToolTip18.Items.Add(toolTipTitleItem18);
             superToolTip18.Items.Add(toolTipItem17);
             this.btnItem_Pacs.SuperTip = superToolTip18;
+            this.btnItem_Pacs.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_Pacs.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Pacs_ItemClick);
             // 
             // btnItem_CheckOutDept
@@ -762,6 +769,7 @@
             superToolTip19.Items.Add(toolTipTitleItem19);
             superToolTip19.Items.Add(toolTipItem18);
             this.btnItem_CheckOutDept.SuperTip = superToolTip19;
+            this.btnItem_CheckOutDept.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_CheckOutDept.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_CheckOutDept_ItemClick);
             // 
             // btnCallMedRecord
@@ -776,6 +784,7 @@
             superToolTip20.Items.Add(toolTipTitleItem20);
             superToolTip20.Items.Add(toolTipItem19);
             this.btnCallMedRecord.SuperTip = superToolTip20;
+            this.btnCallMedRecord.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnCallMedRecord.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCallMedRecord_ItemClick);
             // 
             // btnCallPathologic
@@ -783,6 +792,7 @@
             this.btnCallPathologic.Caption = "调阅病理结果";
             this.btnCallPathologic.Id = 70;
             this.btnCallPathologic.Name = "btnCallPathologic";
+            this.btnCallPathologic.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnCallPathologic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCallPathologic_ItemClick);
             // 
             // btnChangeWord
@@ -916,6 +926,7 @@
             toolTipTitleItem26.Text = "设置当前输入界面的背景色";
             superToolTip26.Items.Add(toolTipTitleItem26);
             this.btnItem_BackColor.SuperTip = superToolTip26;
+            this.btnItem_BackColor.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_BackColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_BackColor_ItemClick);
             // 
             // barItem_InsertPic
@@ -930,6 +941,7 @@
             superToolTip27.Items.Add(toolTipTitleItem27);
             superToolTip27.Items.Add(toolTipItem22);
             this.barItem_InsertPic.SuperTip = superToolTip27;
+            this.barItem_InsertPic.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barItem_InsertPic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barItem_InsertPic_ItemClick);
             // 
             // btnItem_FontColor
@@ -941,6 +953,7 @@
             toolTipTitleItem28.Text = "设置所选择字体的颜色";
             superToolTip28.Items.Add(toolTipTitleItem28);
             this.btnItem_FontColor.SuperTip = superToolTip28;
+            this.btnItem_FontColor.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_FontColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_FontColor_ItemClick);
             // 
             // barEditItem_FontSize
@@ -974,6 +987,7 @@
             superToolTip29.Items.Add(toolTipTitleItem29);
             superToolTip29.Items.Add(toolTipItem23);
             this.btnItem_Italy.SuperTip = superToolTip29;
+            this.btnItem_Italy.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_Italy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Italy_ItemClick);
             // 
             // btnItem_UnderLine
@@ -990,6 +1004,7 @@
             superToolTip30.Items.Add(toolTipTitleItem30);
             superToolTip30.Items.Add(toolTipItem24);
             this.btnItem_UnderLine.SuperTip = superToolTip30;
+            this.btnItem_UnderLine.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_UnderLine.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_UnderLine_ItemClick);
             // 
             // btnItem_Bold
@@ -1017,6 +1032,7 @@
             toolTipTitleItem32.Text = "圈字";
             superToolTip32.Items.Add(toolTipTitleItem32);
             this.btnItem_QZ.SuperTip = superToolTip32;
+            this.btnItem_QZ.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_QZ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_QZ_ItemClick);
             // 
             // btnItem_Sup
@@ -1057,6 +1073,7 @@
             superToolTip35.Items.Add(toolTipTitleItem35);
             superToolTip35.Items.Add(toolTipItem26);
             this.btnItem_Collect.SuperTip = superToolTip35;
+            this.btnItem_Collect.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnItem_Collect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnItem_Collect_ItemClick);
             // 
             // btnItem_AssessmentPlan
@@ -1085,22 +1102,6 @@
             this.btn_left.SuperTip = superToolTip37;
             this.btn_left.DownChanged += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_left_DownChanged);
             // 
-            // btn_get
-            // 
-            this.btn_get.Caption = "转换病历";
-            this.btn_get.Glyph = ((System.Drawing.Image)(resources.GetObject("btn_get.Glyph")));
-            this.btn_get.Id = 75;
-            this.btn_get.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btn_get.LargeGlyph")));
-            this.btn_get.Name = "btn_get";
-            toolTipTitleItem37.Text = "住院记录";
-            toolTipItem28.LeftIndent = 6;
-            toolTipItem28.Text = "转科住院记录转到自己名下";
-            superToolTip38.Items.Add(toolTipTitleItem37);
-            superToolTip38.Items.Add(toolTipItem28);
-            this.btn_get.SuperTip = superToolTip38;
-            this.btn_get.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btn_get.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_get_ItemClick);
-            // 
             // bar3
             // 
             this.bar3.BarName = "Custom 4";
@@ -1121,14 +1122,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnItem_Copy2, true)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.Text = "Tools3";
-            // 
-            // barStaticItem_bedNo
-            // 
-            this.barStaticItem_bedNo.Caption = "床号：";
-            this.barStaticItem_bedNo.Id = 49;
-            this.barStaticItem_bedNo.Name = "barStaticItem_bedNo";
-            this.barStaticItem_bedNo.TextAlignment = System.Drawing.StringAlignment.Near;
-            this.barStaticItem_bedNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barStaticItem_patientName
             // 
@@ -1278,11 +1271,35 @@
             this.imageCollection_Toolbars.Images.SetKeyName(48, "01365.ico");
             this.imageCollection_Toolbars.Images.SetKeyName(49, "03891.ico");
             // 
+            // barStaticItem_bedNo
+            // 
+            this.barStaticItem_bedNo.Caption = "床号：";
+            this.barStaticItem_bedNo.Id = 49;
+            this.barStaticItem_bedNo.Name = "barStaticItem_bedNo";
+            this.barStaticItem_bedNo.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.barStaticItem_bedNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "barButtonItem1";
             this.barButtonItem1.Id = 67;
             this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btn_get
+            // 
+            this.btn_get.Caption = "转换病历";
+            this.btn_get.Glyph = ((System.Drawing.Image)(resources.GetObject("btn_get.Glyph")));
+            this.btn_get.Id = 75;
+            this.btn_get.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btn_get.LargeGlyph")));
+            this.btn_get.Name = "btn_get";
+            toolTipTitleItem37.Text = "住院记录";
+            toolTipItem28.LeftIndent = 6;
+            toolTipItem28.Text = "转科住院记录转到自己名下";
+            superToolTip38.Items.Add(toolTipTitleItem37);
+            superToolTip38.Items.Add(toolTipItem28);
+            this.btn_get.SuperTip = superToolTip38;
+            this.btn_get.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btn_get.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_get_ItemClick);
             // 
             // panelControlBody
             // 

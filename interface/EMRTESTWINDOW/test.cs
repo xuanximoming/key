@@ -1,4 +1,5 @@
 ﻿using DrectSoft.Core;
+using EmrInfirce;
 using System;
 using System.Windows.Forms;
 using System.Xml;
@@ -21,12 +22,12 @@ namespace EMRTESTWINDOW
                 //AnalysisXML xml = new AnalysisXML();
                 //DataTable dtdate = xml.GetMedicalInsurance("AC,AB", "006425", "主诉,现病史,既往史");
                 //richTextBox1.Text = "";
-                //ChangePat changepat = new ChangePat();
-                //IChangePat ichangepat = changepat;
-                //string patNum = "20181231";
-                //int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
+                ChangePat changepat = new ChangePat();
+                IChangePat ichangepat = changepat;
+                string patNum = "20181231";
+                int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
                 //uc = ichangepat.ChangePatient(patNum);
-                //ichangepat.ChangePatient(this.Handle.ToString(), patNum);
+                ichangepat.ChangePatientOut(this.Handle.ToString(), patNum);
             }
             catch (Exception ex)
             {
