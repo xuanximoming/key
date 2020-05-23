@@ -1,5 +1,4 @@
-﻿using DrectSoft.Core;
-using EmrInfirce;
+﻿using EmrInfirce;
 using System;
 using System.Windows.Forms;
 using System.Xml;
@@ -8,7 +7,7 @@ namespace EMRTESTWINDOW
 {
     public partial class test : DevExpress.XtraEditors.XtraForm
     {
-        private IDataAccess m_EmrHelper;
+        //private IDataAccess m_EmrHelper;
         private static XmlDocument xmlDoc = new XmlDocument();
         public test()
         {
@@ -19,6 +18,7 @@ namespace EMRTESTWINDOW
         {
             try
             {
+                Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory + "app\\";
                 //AnalysisXML xml = new AnalysisXML();
                 //DataTable dtdate = xml.GetMedicalInsurance("AC,AB", "006425", "主诉,现病史,既往史");
                 //richTextBox1.Text = "";

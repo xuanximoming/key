@@ -343,10 +343,23 @@ namespace DrectSoft.Core.OwnBedInfo
             cols.Add("NAME", 70);
 
             SqlWordbook nameWordBook = new SqlWordbook("queryname", Name, "ID", "NAME", cols, "ID//NAME//PY//WB");
-            this.lookUpEditorUser1.SqlWordbook = nameWordBook;
+            //住院医生为本科室医生
             this.lookUpEditorUser2.SqlWordbook = nameWordBook;
             this.lookUpEditorUser3.SqlWordbook = nameWordBook;
             this.lookUpEditorUser4.SqlWordbook = nameWordBook;
+
+            sql = "select ID,NAME,PY,WB from users where valid = 1 and CATEGORY='401'";
+            Name = m_app.SqlHelper.ExecuteDataTable(sql);
+            Name.Columns["ID"].Caption = "编号";
+            Name.Columns["NAME"].Caption = "医师姓名";
+            cols = new Dictionary<string, int>();
+
+            cols.Add("ID", 50);
+            cols.Add("NAME", 70);
+
+            nameWordBook = new SqlWordbook("queryname", Name, "ID", "NAME", cols, "ID//NAME//PY//WB");
+            //门诊医生为全院医生
+            this.lookUpEditorUser1.SqlWordbook = nameWordBook;
         }
 
         private void InitData()

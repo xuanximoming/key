@@ -116,11 +116,11 @@
 		<Follow_Up type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="30" unit="">随诊</Follow_Up>
 		<Follow_Up_Cycle type="UnderLine" underLineWidth="291" nextLine="1" space="0" unit="">随诊期限</Follow_Up_Cycle>
 		<!--第六行-->
-		<Section_DirectorName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">科主任</Section_DirectorName>
-		<DirectorName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主任（副主任）医师</DirectorName>
-		<Attending_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主诊医师</Attending_EmployeeName>
-		<Vs_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主治医师</Vs_EmployeeName>
-		<Resident_EmployeeName type="UnderLine" underLineWidth="70" nextLine="1" space="0" unit="">住院医师</Resident_EmployeeName>
+		<Section_DirectorName type="UnderLine" underLineWidth="95" nextLine="0" space="5" unit="">科主任</Section_DirectorName>
+		<DirectorName type="UnderLine" underLineWidth="95" nextLine="0" space="5" unit="">主任（副主任）医师</DirectorName>
+		<!--<Attending_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主诊医师</Attending_EmployeeName>-->
+		<Vs_EmployeeName type="UnderLine" underLineWidth="95" nextLine="0" space="5" unit="">主治医师</Vs_EmployeeName>
+		<Resident_EmployeeName type="UnderLine" underLineWidth="95" nextLine="1" space="0" unit="">住院医师</Resident_EmployeeName>
 		<!--第七行-->
 		<Duty_NurseName type="UnderLine" underLineWidth="95" nextLine="0" space="43" unit="">责任护士</Duty_NurseName>
 		<Refresh_EmployeeName type="UnderLine" underLineWidth="95" nextLine="0" space="43" unit="">进修医师</Refresh_EmployeeName>
@@ -134,12 +134,12 @@
 	</FristPageOther>
 	<SecondPageOther interval="31">
 		<!--第一行-->
-		<Pathway_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否实施临床路径管理</Pathway_Flag>
-		<Pathway_Over type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否完成临床路径</Pathway_Over>
-		<Path_Out_Reason type="UnderLine" underLineWidth="160" nextLine="1" space="0" unit="">退出原因</Path_Out_Reason>
+		<!--<Pathway_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否实施临床路径管理</Pathway_Flag>-->
+		<!--<Pathway_Over type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否完成临床路径</Pathway_Over>-->
+		<!--<Path_Out_Reason type="UnderLine" underLineWidth="160" nextLine="1" space="0" unit="">退出原因</Path_Out_Reason>-->
 		<!--第二行-->
-		<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>
-		<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>
+		<!--<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>-->
+		<!--<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>-->
 		<!--第三行-->
 		<OutHosType type="CheckBox" SelectItem="1.医嘱离院  2.医嘱转院," nextLine="0" space="15" unit="">离院方式</OutHosType>
 		<ReceiveHosPital type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">拟接收医疗机构名称</ReceiveHosPital>
