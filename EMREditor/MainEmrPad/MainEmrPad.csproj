@@ -295,6 +295,12 @@
     <Compile Include="New\ChooseDeptForDailyEmrPrint.Designer.cs">
       <DependentUpon>ChooseDeptForDailyEmrPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="New\Namerec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\Namerec.Designer.cs">
+      <DependentUpon>Namerec.cs</DependentUpon>
+    </Compile>
     <Compile Include="New\UCEmrInputout.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -557,6 +563,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="New\ChooseDeptForDailyEmrPrint.resx">
       <DependentUpon>ChooseDeptForDailyEmrPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\Namerec.resx">
+      <DependentUpon>Namerec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="New\UCEmrInputout.resx">
       <DependentUpon>UCEmrInputout.cs</DependentUpon>
