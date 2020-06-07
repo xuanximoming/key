@@ -635,60 +635,6 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
 
-        /// <summary>
-        /// 编辑中医出院诊断
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void btnEditOutDiagCHn_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (gridViewDiagnose2.FocusedRowHandle < 0)
-        //            return;
-        //        DataRow dataRow = gridViewDiagnose2.GetDataRow(gridViewDiagnose2.FocusedRowHandle);
-        //        if (dataRow == null)
-        //            return;
-        //        string diagcode = dataRow["Diagnosis_Code"].ToString();//诊断的ICD编码
-        //        string diagname = dataRow["Diagnosis_Name"].ToString();
-        //        string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
-        //        string diagtype = "zhongyi";
-        //        m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, diagtype);
-        //        m_DiagInfoForm.ShowDialog();
-        //        if (m_DiagInfoForm.DialogResult == DialogResult.OK)
-        //        {
-        //            m_DiagInfoForm.IemOperInfo = null;
-        //            DataTable dataTable = m_DiagInfoForm.DataOper;
-        //            DataTable dataTableOper = new DataTable();
-        //            if (this.gridControl2.DataSource != null)
-        //            {
-        //                dataTableOper = this.gridControl2.DataSource as DataTable;
-        //            }
-        //            if (dataTableOper.Rows.Count == 0)
-        //            {
-        //                dataTableOper = dataTable.Clone();
-        //            }
-        //            //遍历选中行所在表的列若返回表中有该行则更新选中行的该列
-        //            foreach (DataColumn item in dataRow.Table.Columns)
-        //            {
-        //                DataRow rowOper = dataTable.Rows[0];
-        //                if (dataTable.Columns.Contains(item.ColumnName))
-        //                {
-        //                    dataRow[item.ColumnName] = rowOper[item.ColumnName].ToString();
-        //                }
-        //            }
-        //            this.gridControl2.BeginUpdate();
-        //            this.gridControl2.DataSource = dataTableOper;
-        //            m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiagnose2);
-        //            this.gridControl2.EndUpdate();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
-
         private void UCIemDiagnoseEn_Paint(object sender, PaintEventArgs e)
         {
             foreach (Control control in this.Controls)

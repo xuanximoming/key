@@ -1481,8 +1481,10 @@ namespace DrectSoft.Core.IEMMainPage
                     DataColumn dcDiagnosis_Name = new DataColumn("Diagnosis_Name", Type.GetType("System.String"));
                     DataColumn dcStatus_Id = new DataColumn("Status_Id", Type.GetType("System.String"));
                     DataColumn dcOutStatus_Id = new DataColumn("OutStatus_Id", Type.GetType("System.String"));
+                    DataColumn dcOrien_Id = new DataColumn("Orien_Id", Type.GetType("System.String"));
                     DataColumn dcStatus_Name = new DataColumn("Status_Name", Type.GetType("System.String"));
                     DataColumn dcOutStatus_Name = new DataColumn("OutStatus_Name", Type.GetType("System.String"));
+                    DataColumn dcOrien_Name = new DataColumn("Orien_Name", Type.GetType("System.String"));
                     DataColumn dcDiagnosis_Code = new DataColumn("Diagnosis_Code", Type.GetType("System.String"));
                     DataColumn dcDiagnosis_Type_Id = new DataColumn("Diagnosis_Type_Id", Type.GetType("System.String"));
                     DataColumn dcOrder_Value = new DataColumn("Order_Value", Type.GetType("System.String"));
@@ -1492,8 +1494,10 @@ namespace DrectSoft.Core.IEMMainPage
                     _OutDiagTable.Columns.Add(dcDiagnosis_Name);
                     _OutDiagTable.Columns.Add(dcStatus_Id);
                     _OutDiagTable.Columns.Add(dcOutStatus_Id);
+                    _OutDiagTable.Columns.Add(dcOrien_Id);
                     _OutDiagTable.Columns.Add(dcStatus_Name);
                     _OutDiagTable.Columns.Add(dcOutStatus_Name);
+                    _OutDiagTable.Columns.Add(dcOrien_Name);
                     _OutDiagTable.Columns.Add(dcDiagnosis_Code);
                     _OutDiagTable.Columns.Add(dcDiagnosis_Type_Id);
                     _OutDiagTable.Columns.Add(dcOrder_Value);

@@ -47,10 +47,11 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridViewDiagnose = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -116,6 +117,7 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnEditOutDiag = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditOutDiagCHn = new DevExpress.XtraEditors.SimpleButton();
@@ -325,6 +327,7 @@
             // gridControl1
             // 
             this.gridControl1.AllowDrop = true;
+            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.Location = new System.Drawing.Point(11, 40);
             this.gridControl1.MainView = this.gridViewDiagnose;
             this.gridControl1.Name = "gridControl1";
@@ -339,10 +342,11 @@
             // 
             this.gridViewDiagnose.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
-            this.gridColumn5,
             this.gridColumn3,
             this.gridColumn2,
-            this.gridColumn4});
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6});
             this.gridViewDiagnose.GridControl = this.gridControl1;
             this.gridViewDiagnose.Name = "gridViewDiagnose";
             this.gridViewDiagnose.OptionsBehavior.AutoExpandAllGroups = true;
@@ -372,12 +376,6 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "诊断结果ID";
-            this.gridColumn5.FieldName = "Status_Id";
-            this.gridColumn5.Name = "gridColumn5";
-            // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "ICD-10编码";
@@ -398,9 +396,25 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "是否主诊断";
+            this.gridColumn4.Caption = "诊断方位";
+            this.gridColumn4.FieldName = "Orien_Name";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "诊断结果ID";
+            this.gridColumn5.FieldName = "Status_Id";
+            this.gridColumn5.Name = "gridColumn5";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "诊断方位id";
+            this.gridColumn6.FieldName = "Orien_Id";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             // 
             // gridView2
             // 
@@ -973,6 +987,7 @@
             // gridControl2
             // 
             this.gridControl2.AllowDrop = true;
+            this.gridControl2.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl2.Location = new System.Drawing.Point(11, 147);
             this.gridControl2.MainView = this.gridViewDiagnose2;
             this.gridControl2.Name = "gridControl2";
@@ -989,7 +1004,8 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
-            this.gridColumn13});
+            this.gridColumn13,
+            this.gridColumn7});
             this.gridViewDiagnose2.GridControl = this.gridControl2;
             this.gridViewDiagnose2.Name = "gridViewDiagnose2";
             this.gridViewDiagnose2.OptionsBehavior.AutoExpandAllGroups = true;
@@ -1045,9 +1061,19 @@
             // 
             // gridColumn13
             // 
-            this.gridColumn13.Caption = "是否主诊断";
+            this.gridColumn13.Caption = "诊断方位";
+            this.gridColumn13.FieldName = "Orien_Name";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 3;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "诊断方位id";
+            this.gridColumn7.FieldName = "Orien_Id";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             // 
             // gridView3
             // 
@@ -1293,5 +1319,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraEditors.SimpleButton btnEditOutDiag;
         private DevExpress.XtraEditors.SimpleButton btnEditOutDiagCHn;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }

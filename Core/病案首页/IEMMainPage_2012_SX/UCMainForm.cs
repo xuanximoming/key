@@ -14,7 +14,7 @@ namespace DrectSoft.Core.IEMMainPage
     {
         #region var
         IEmrHost m_Host;
-        DrawMainPageEnUtil util;
+        DrawMainPageUtil util;
         IemMainPageManger manger;
         IemMainPageInfo info;
 
@@ -31,7 +31,9 @@ namespace DrectSoft.Core.IEMMainPage
 
 
         private UCIemBasInfoEn m_UCIemBasInfoEn;
+        private UCIemBasInfo m_UCIemBasInfo;
         private UCIemDiagnoseEn m_UCIemDiagnoseEn;
+        private UCIemDiagnose m_UCIemDiagnose;
         private UCIemOperInfo m_UCIemOperInfo;
         private UCObstetricsBaby m_UCObstetricsBaby;
         private UCOthers m_UCOthers;
@@ -108,7 +110,7 @@ namespace DrectSoft.Core.IEMMainPage
         private void LoadForm()
         {
             DeleteMetaFile();
-            util = new DrawMainPageEnUtil(info);
+            util = new DrawMainPageUtil(info);
 
             pictureBox1.Width = GetPageWidth();
             pictureBox1.Height = GetPageHeight();
@@ -166,7 +168,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             manger = new IemMainPageManger(m_Host, CurrentInpatient);
             DeleteMetaFile();
-            util = new DrawMainPageEnUtil(info);
+            util = new DrawMainPageUtil(info);
 
             pictureBox1.Width = GetPageWidth();
             pictureBox1.Height = GetPageHeight();
@@ -384,10 +386,21 @@ namespace DrectSoft.Core.IEMMainPage
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             SetWaitDialogCaption("正在加载数据");
-            if (m_UCIemBasInfoEn == null)
-                m_UCIemBasInfoEn = new UCIemBasInfoEn(this);
 
-            ShowUCForm.ShowUCIemBasInfoEn(m_UCIemBasInfoEn, info);
+            string emrSetting = BasicSettings.GetStringConfig("isCnMaiPage");//取得配置表中的配置信息
+            if (emrSetting == "1")
+            {
+                if (m_UCIemBasInfo == null)
+                    m_UCIemBasInfo = new UCIemBasInfo(this);
+                ShowUCForm.ShowUCIemBasInfo(m_UCIemBasInfo, info);
+            }
+            else
+            {
+                if (m_UCIemBasInfoEn == null)
+                    m_UCIemBasInfoEn = new UCIemBasInfoEn(this);
+                ShowUCForm.ShowUCIemBasInfoEn(m_UCIemBasInfoEn, info);
+            }
+
             HideWaitDialog();
             if (ShowUCForm.ShowDialog() == DialogResult.OK)
             {
@@ -405,11 +418,21 @@ namespace DrectSoft.Core.IEMMainPage
         private void simpleButton3_Click(object sender, EventArgs e)
         {
             SetWaitDialogCaption("正在加载数据");
-            if (m_UCIemDiagnoseEn == null)
-                m_UCIemDiagnoseEn = new UCIemDiagnoseEn(m_Host);
 
+            string emrSetting = BasicSettings.GetStringConfig("isCnMaiPage");//取得配置表中的配置信息
+            if (emrSetting == "1")
+            {
+                if (m_UCIemDiagnose == null)
+                    m_UCIemDiagnose = new UCIemDiagnose(m_Host);
+                ShowUCForm.ShowUCIemDiagnose(m_UCIemDiagnose, info);
+            }
+            else
+            {
+                if (m_UCIemDiagnoseEn == null)
+                    m_UCIemDiagnoseEn = new UCIemDiagnoseEn(m_Host);
+                ShowUCForm.ShowUCIemDiagnoseEn(m_UCIemDiagnoseEn, info);
+            }
 
-            ShowUCForm.ShowUCIemDiagnoseEn(m_UCIemDiagnoseEn, info);
             ShowUCForm.StartPosition = FormStartPosition.CenterScreen;
 
             HideWaitDialog();

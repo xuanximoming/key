@@ -1217,6 +1217,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 dr["TypeName"] = row["TypeName"].ToString();
                 dr["OutStatus_Id"] = row["OutStatus_Id"].ToString();
                 dr["OutStatus_Name"] = row["OutStatus_Name"].ToString();
+                dr["Orien_Id"] = row["Orien_Id"].ToString();
+                dr["Orien_Name"] = row["Orien_Name"].ToString();
                 dr["Order_Value"] = row["Order_Value"].ToString();
                 dt.Rows.Add(dr);
 
@@ -1975,6 +1977,9 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             SqlParameter paraOutStatus_Id = new SqlParameter("@OutStatus_Id", SqlDbType.VarChar, 12);
             paraOutStatus_Id.Value = info["OutStatus_Id"];
 
+            SqlParameter paraOrien_Id = new SqlParameter("@Orien_Id", SqlDbType.VarChar, 12);
+            paraOrien_Id.Value = info["Orien_Id"];
+
             SqlParameter paraOrder_Value = new SqlParameter("@Order_Value", SqlDbType.VarChar, 3);
             paraOrder_Value.Value = info["Order_Value"].ToString() == "" ? "0" : info["Order_Value"].ToString();
             SqlParameter paraCreate_User = new SqlParameter("@Create_User", SqlDbType.VarChar, 10);
@@ -1988,7 +1993,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             SqlParameter[] paraColl = new SqlParameter[] 
             { 
                 paraIem_Mainpage_NO, paraDiagnosis_Type_Id, paraDiagnosis_Code, paraDiagnosis_Name, paraStatus_Id,paraOutStatus_Id, 
-                paraOrder_Value, paraCreate_User ,paraType,paraTypeName};
+                paraOrder_Value, paraCreate_User ,paraType,paraTypeName,paraOrien_Id};
 
             sqlHelper.ExecuteNoneQuery("IEM_MAIN_PAGE_SX.usp_edif_iem_mainpage_diag_sx", paraColl, CommandType.StoredProcedure);
         }

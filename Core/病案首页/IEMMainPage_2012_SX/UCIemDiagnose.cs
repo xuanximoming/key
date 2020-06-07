@@ -440,16 +440,10 @@ namespace DrectSoft.Core.IEMMainPage
                         }
                         ZYindex++;
                     }
-                    //if (i == 0)
-                    //{
-                    //    imOut["Diagnosis_Type_Id"] = 7;//7表示主要诊断
-                    //}
-                    //else
-                    //{
-                    //    imOut["Diagnosis_Type_Id"] = 8;//8表示其他诊断
-                    //}
                     imOut["Status_Id"] = Convertmy.ToDecimal(row["Status_Id"]);
                     imOut["Status_Name"] = row["Status_Name"];
+                    imOut["Orien_Id"] = Convertmy.ToDecimal(row["Orien_Id"]);
+                    imOut["Orien_Name"] = row["Orien_Name"];
                     imOut["Order_Value"] = i + 1;
                     imOut["Type"] = row["Type"];
                     imOut["TypeName"] = row["TypeName"];
@@ -593,9 +587,9 @@ namespace DrectSoft.Core.IEMMainPage
                 string diagcode = dataRow["Diagnosis_Code"].ToString();//诊断的ICD编码
                 string diagname = dataRow["Diagnosis_Name"].ToString();
                 string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
-                string outstatus = dataRow["Outstatus_id"].ToString(); //出院情况
+                string orienid = dataRow["Orien_Id"].ToString();//诊断方位
                 string diagtype = "xiyi";
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, orienid, diagtype);
                 if (m_DiagInfoForm.ShowDialog() == DialogResult.OK)
                 {
                     m_DiagInfoForm.IemOperInfo = null;
@@ -647,9 +641,9 @@ namespace DrectSoft.Core.IEMMainPage
                 string diagcode = dataRow["Diagnosis_Code"].ToString();//诊断的ICD编码
                 string diagname = dataRow["Diagnosis_Name"].ToString();
                 string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
-                string outstatus = dataRow["Outstatus_id"].ToString(); //出院情况
+                string orienid = dataRow["Orien_Id"].ToString();//诊断方位
                 string diagtype = "zhongyi";
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
+                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, orienid, diagtype);
                 m_DiagInfoForm.ShowDialog();
                 if (m_DiagInfoForm.DialogResult == DialogResult.OK)
                 {

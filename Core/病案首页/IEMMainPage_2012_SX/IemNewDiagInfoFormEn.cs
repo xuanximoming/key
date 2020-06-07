@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace DrectSoft.Core.IEMMainPage
 {
-    public partial class IemNewDiagInfoForm : DevBaseForm
+    public partial class IemNewDiagInfoFormEn : DevBaseForm
     {
         private IEmrHost m_App;
 
@@ -24,7 +24,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             get
             {
-                GetUI();
+                //GetUI();
                 return m_IemDiagInfo;
             }
             set
@@ -95,26 +95,26 @@ namespace DrectSoft.Core.IEMMainPage
         private string m_DIAGNAME;
         private string m_STATUSID;//传来的入院病情
         private string m_DIAGTYPE;//传来的中西医的标志
-        private string m_ORIEN;//传来的诊断方位
-        public IemNewDiagInfoForm()
+        private string m_OUTSTATUS;//出院情况
+        public IemNewDiagInfoFormEn()
         {
             InitializeComponent();
         }
-        public IemNewDiagInfoForm(IEmrHost app, string operatetype, string diagcode, string dianame, string status, string orien, string diagtype)
+        public IemNewDiagInfoFormEn(IEmrHost app, string operatetype, string diagcode, string dianame, string status, string outstatus, string diagtype)
             : this()
         {
             try
             {
                 m_App = app;
-                InitLookUpEditor();
+                //InitLookUpEditor();
                 m_OPETYPE = operatetype;
                 m_DIAGCODE = diagcode;
                 m_STATUSID = status;
                 m_DIAGTYPE = diagtype;
                 m_DIAGNAME = dianame;
-                m_ORIEN = orien;
                 bwj1.Text = dianame;
-                BridFormValue(m_OPETYPE, m_DIAGCODE, m_DIAGNAME, m_STATUSID, m_DIAGTYPE, m_ORIEN);
+                m_OUTSTATUS = outstatus;
+                BridFormValue(m_OPETYPE, m_DIAGCODE, m_DIAGNAME, m_STATUSID, m_DIAGTYPE, m_OUTSTATUS);
             }
             catch (Exception)
             {
@@ -130,7 +130,7 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="m_DIAGCODE"></param>
         /// <param name="m_STATUSID"></param>
         /// <param name="m_DIAGTYPE"></param>
-        private void BridFormValue(string m_OPETYPE, string m_DIAGCODE, string m_DIAGNAME, string m_STATUSID, string m_DIAGTYPE, string m_ORIEN)
+        private void BridFormValue(string m_OPETYPE, string m_DIAGCODE, string m_DIAGNAME, string m_STATUSID, string m_DIAGTYPE, string m_OUTSTATUS)
         {
             try
             {
@@ -142,10 +142,6 @@ namespace DrectSoft.Core.IEMMainPage
                     if (m_DIAGTYPE == "xiyi")
                     {
                         chkDiagType1.Checked = true;
-                    }
-                    if (m_DIAGTYPE == "zhongyi")
-                    {
-                        chkDiagType2.Checked = true;
                     }
                     if (!string.IsNullOrEmpty(m_STATUSID))
                     {
@@ -167,27 +163,30 @@ namespace DrectSoft.Core.IEMMainPage
                                 break;
                         }
                     }
-                    if (!string.IsNullOrEmpty(m_ORIEN))
+
+                    if (!string.IsNullOrEmpty(m_OUTSTATUS))
                     {
-                        switch (m_ORIEN)//控制入院病情的选中情况
+                        switch (m_OUTSTATUS)//控制入院病情的选中情况
                         {
                             case "1":
-                                chkOrien1.Checked = true;
+                                chkOutStatus1.Checked = true;
                                 break;
                             case "2":
-                                chkOrien2.Checked = true;
+                                chkOutStatus2.Checked = true;
                                 break;
                             case "3":
-                                chkOrien3.Checked = true;
+                                chkOutStatus3.Checked = true;
                                 break;
                             case "4":
-                                chkOrien4.Checked = true;
+                                chkOutStatus4.Checked = true;
+                                break;
+                            case "5":
+                                chkOutStatus5.Checked = true;
                                 break;
                             default:
                                 break;
                         }
                     }
-
                     this.bwj1.DiaCode = m_DIAGCODE;
                     this.bwj1.DiaValue = m_DIAGNAME;
                 }
@@ -232,30 +231,32 @@ namespace DrectSoft.Core.IEMMainPage
                             bwj1.Multiline = false;
                         }
                     }
-                    if (chkDiagType2.Checked)//中医
-                    {
-                        DiagType = "ZHONGYI";
-                        inputText = bwj1.Text.ToString().Trim();
-                        GoType = "OUTHOSDIAG";
-                        IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtZY, GoType, DiagType, inputText);
-                        //inputText = string.Empty;
-                        if (diagInfo.GetFormResult())
-                        {
-                            diagInfo.ShowDialog();
-                            if (diagInfo.IsClosed)
-                            {
-                                bwj1.Text = diagInfo.inText;
-                                bwj1.DiaCode = diagInfo.inCode;
-                                bwj1.DiaValue = diagInfo.inText;
-                            }
-                        }
-                        else
-                        {
-                            bwj1.DiaCode = diagInfo.inCode;
-                            bwj1.DiaValue = diagInfo.inText;
-                            bwj1.Multiline = false;
-                        }
-                    }
+
+                    #region 屏蔽中医信息
+                    //if (chkDiagType2.Checked)//中医
+                    //{
+                    //    DiagType = "ZHONGYI";
+                    //    inputText = bwj1.Text.ToString().Trim();
+                    //    GoType = "OUTHOSDIAG";
+                    //    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtZY, GoType, DiagType, inputText);
+                    //    //inputText = string.Empty;
+                    //    if (diagInfo.GetFormResult())
+                    //    {
+                    //        diagInfo.ShowDialog();
+                    //        if (diagInfo.IsClosed)
+                    //        {
+                    //            bwj1.Text = diagInfo.inText;
+                    //            bwj1.DiaCode = diagInfo.inCode;
+                    //            bwj1.DiaValue = diagInfo.inText;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        bwj1.DiaCode = diagInfo.inCode;
+                    //        bwj1.DiaValue = diagInfo.inText;
+                    //        bwj1.Multiline = false;
+                    //    }
+                    //}
                     //GoType = "OUTHOSDIAG";
                     //IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtZY, GoType, DiagType, inputText); 
                     ////inputText = string.Empty;
@@ -275,6 +276,7 @@ namespace DrectSoft.Core.IEMMainPage
                     //    bwj1.DiaValue = diagInfo.inText;
                     //    bwj1.Multiline = false;
                     //}
+                    #endregion
                 }
             }
             catch (Exception ex)
@@ -288,7 +290,6 @@ namespace DrectSoft.Core.IEMMainPage
         private void IemNewDiagInfoForm_Load(object sender, EventArgs e)
         {
             GetFormLoadData();
-            // this.bwj1.obj.Click += new EventHandler(obj_Click);
 #if DEBUG
 #else
             HideSbutton();
@@ -321,34 +322,37 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
         {
             try
             {
-                if (chkDiagType2.Checked)//中医
-                {
-                    DiagnosisType = "2";
-                    if (!string.IsNullOrEmpty(bwj1.Text.Trim()) == true)
-                    {
-                        //GetFormLoadData("ZHONGYI");
-                        string filter = string.Empty;
+                #region 屏蔽中医信息
+                //if (chkDiagType2.Checked)//中医
+                //{
+                //    DiagnosisType = "2";
+                //    if (!string.IsNullOrEmpty(bwj1.Text.Trim()) == true)
+                //    {
+                //        //GetFormLoadData("ZHONGYI");
+                //        string filter = string.Empty;
 
-                        string NameFilter = " NAME= '{0}'";
-                        filter += string.Format(NameFilter, bwj1.Text.Trim());
-                        dtZY.DefaultView.RowFilter = filter;
+                //        string NameFilter = " NAME= '{0}'";
+                //        filter += string.Format(NameFilter, bwj1.Text.Trim());
+                //        dtZY.DefaultView.RowFilter = filter;
 
-                        int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
+                //        int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
 
-                        if (dataResult > 0)
-                        {
-                            bwj1.DiaValue = bwj1.Text.Trim();
-                            bwj1.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
+                //        if (dataResult > 0)
+                //        {
+                //            bwj1.DiaValue = bwj1.Text.Trim();
+                //            bwj1.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
 
-                        }
-                        if (dataResult == 0)
-                        {
-                            bwj1.DiaValue = bwj1.Text.Trim();
-                            bwj1.DiaCode = "";
-                        }
+                //        }
+                //        if (dataResult == 0)
+                //        {
+                //            bwj1.DiaValue = bwj1.Text.Trim();
+                //            bwj1.DiaCode = "";
+                //        }
 
-                    }
-                }
+                //    }
+                //}
+                #endregion
+
                 if (chkDiagType1.Checked)//西医
                 {
                     DiagnosisType = "1";
@@ -389,27 +393,22 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
         /// <summary>
         /// 判断是中医还是西医 绑定数据源
         /// </summary>
-        private void InitLookUpEditor()
-        {
-            try
-            {
-                if (chkDiagType1.Checked)
-                {
-                    BindLueData(lueOutDiag, Diagnosis);
-                    DiagnosisType = "1";
-                }
-                else if (chkDiagType2.Checked)
-                {
-                    BindLueData(lueOutDiag, DiagnosisOfChinese);
-                    DiagnosisType = "2";
-                }
-                lueOutDiag.CodeValue = "";
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
+        //private void InitLookUpEditor()
+        //{
+        //    try
+        //    {
+        //        if (chkDiagType1.Checked)
+        //        {
+        //            BindLueData(lueOutDiag, Diagnosis);
+        //            DiagnosisType = "1";
+        //        }
+        //        lueOutDiag.CodeValue = "";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+        //}
         #region 绑定LUE
         private void BindLueData(LookUpEditor lueInfo, DataTable table)
         {
@@ -456,14 +455,15 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
         }
         #endregion
 
-        private void GetUI()
-        {
+        //private void GetUI()
+        //{
 
-        }
+        //}
 
         private void GetDataOper()
         {
             m_DataOper = new DataTable();
+
             #region
             if (!m_DataOper.Columns.Contains("Diagnosis_Code"))
                 m_DataOper.Columns.Add("Diagnosis_Code");
@@ -473,18 +473,19 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
                 m_DataOper.Columns.Add("Status_Id");
             if (!m_DataOper.Columns.Contains("Status_Name"))
                 m_DataOper.Columns.Add("Status_Name");
-            if (!m_DataOper.Columns.Contains("Orien_Id"))
-                m_DataOper.Columns.Add("Orien_Id");
-            if (!m_DataOper.Columns.Contains("Orien_Name"))
-                m_DataOper.Columns.Add("Orien_Name");
+            if (!m_DataOper.Columns.Contains("OutStatus_Id"))
+                m_DataOper.Columns.Add("OutStatus_Id");
+            if (!m_DataOper.Columns.Contains("OutStatus_Name"))
+                m_DataOper.Columns.Add("OutStatus_Name");
             if (!m_DataOper.Columns.Contains("Type"))
                 m_DataOper.Columns.Add("Type");
             if (!m_DataOper.Columns.Contains("TypeName"))
                 m_DataOper.Columns.Add("TypeName");
             #endregion
+
             DataRow row = m_DataOper.NewRow();
-            row["Diagnosis_Code"] = bwj1.DiaCode; //lueOutDiag.CodeValue;
-            row["Diagnosis_Name"] = bwj1.DiaValue;//lueOutDiag.DisplayValue;
+            row["Diagnosis_Code"] = bwj1.DiaCode;
+            row["Diagnosis_Name"] = bwj1.DiaValue;
 
             //状态
             if (chkStatus1.Checked)
@@ -508,26 +509,31 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
                 row["Status_Name"] = chkStatus4.Tag.ToString();
             }
 
-            //方位
-            if (chkOrien1.Checked)
+            //出院情况
+            if (chkOutStatus1.Checked)
             {
-                row["Orien_Id"] = 1;
-                row["Orien_Name"] = chkOrien1.Tag.ToString();
+                row["OutStatus_Id"] = 1;
+                row["OutStatus_Name"] = chkOutStatus1.Tag.ToString();
             }
-            else if (chkOrien2.Checked)
+            else if (chkOutStatus2.Checked)
             {
-                row["Orien_Id"] = 2;
-                row["Orien_Name"] = chkOrien2.Tag.ToString();
+                row["OutStatus_Id"] = 2;
+                row["OutStatus_Name"] = chkOutStatus2.Tag.ToString();
             }
-            else if (chkOrien3.Checked)
+            else if (chkOutStatus3.Checked)
             {
-                row["Orien_Id"] = 3;
-                row["Orien_Name"] = chkOrien3.Tag.ToString();
+                row["OutStatus_Id"] = 3;
+                row["OutStatus_Name"] = chkOutStatus3.Tag.ToString();
             }
-            else if (chkOrien4.Checked)
+            else if (chkOutStatus4.Checked)
             {
-                row["Orien_Id"] = 4;
-                row["Orien_Name"] = chkOrien4.Tag.ToString();
+                row["OutStatus_Id"] = 4;
+                row["OutStatus_Name"] = chkOutStatus4.Tag.ToString();
+            }
+            else if (chkOutStatus5.Checked)
+            {
+                row["OutStatus_Id"] = 5;
+                row["OutStatus_Name"] = chkOutStatus5.Tag.ToString();
             }
 
             if (chkDiagType1.Checked)
@@ -535,16 +541,11 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
                 row["Type"] = "1";
                 row["TypeName"] = "西医诊断";
             }
-            else if (chkDiagType2.Checked)
-            {
-                row["Type"] = "2";
-                row["TypeName"] = "中医诊断";
-            }
 
             m_DataOper.Rows.Add(row);
-            //m_DataOper.AcceptChanges();
 
         }
+
 
         private void HideSbutton()
         {
@@ -608,7 +609,7 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
         {
             try
             {
-                InitLookUpEditor();
+                //InitLookUpEditor();
             }
             catch (Exception ex)
             {
@@ -662,38 +663,38 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
                             //bwj1.Multiline = false;
                         }
                     }
-                    if (chkDiagType2.Checked)//中医
-                    {
-                        DiagType = "ZHONGYI";
-                        inputText = bwj1.Text.Trim();
-                        GoType = "OUTHOSDIAG";
-                        IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtZY, GoType, DiagType, inputText);
-                        //inputText = string.Empty;
-                        if (diagInfo.GetFormResult())
-                        {
-                            diagInfo.ShowDialog();
-                            if (diagInfo.IsClosed)
-                            {
+                    //if (chkDiagType2.Checked)//中医
+                    //{
+                    //    DiagType = "ZHONGYI";
+                    //    inputText = bwj1.Text.Trim();
+                    //    GoType = "OUTHOSDIAG";
+                    //    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtZY, GoType, DiagType, inputText);
+                    //    //inputText = string.Empty;
+                    //    if (diagInfo.GetFormResult())
+                    //    {
+                    //        diagInfo.ShowDialog();
+                    //        if (diagInfo.IsClosed)
+                    //        {
 
-                                bwj1.Text = diagInfo.inText;
+                    //            bwj1.Text = diagInfo.inText;
 
-                                //bwj1.Enabled = true;
+                    //            //bwj1.Enabled = true;
 
-                                bwj1.DiaCode = diagInfo.inCode;
-                                bwj1.DiaValue = diagInfo.inText;
-                                bwj1.Focus();
-                                bwj1.Enabled = true;
+                    //            bwj1.DiaCode = diagInfo.inCode;
+                    //            bwj1.DiaValue = diagInfo.inText;
+                    //            bwj1.Focus();
+                    //            bwj1.Enabled = true;
 
-                                //bwj1.Focused = true;
-                            }
-                        }
-                        else
-                        {
-                            bwj1.DiaCode = diagInfo.inCode;
-                            bwj1.DiaValue = diagInfo.inText;
-                            //bwj1.Multiline = false;
-                        }
-                    }
+                    //            //bwj1.Focused = true;
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        bwj1.DiaCode = diagInfo.inCode;
+                    //        bwj1.DiaValue = diagInfo.inText;
+                    //        //bwj1.Multiline = false;
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)

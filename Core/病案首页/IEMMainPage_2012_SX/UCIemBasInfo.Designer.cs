@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtAge = new DevExpress.XtraEditors.TextEdit();
             this.deBirth = new DevExpress.XtraEditors.DateEdit();
             this.seActualDays = new DevExpress.XtraEditors.SpinEdit();
@@ -143,8 +144,8 @@
             this.chkBZSH2 = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl37 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
-            this.lueMZZYZD_CODE = new DevTextBoxAndButton.Bwj();
-            this.lueMZXYZD_CODE = new DevTextBoxAndButton.Bwj();
+            this.lueMZZYZD_CODE = new DevTextBoxAndButton.Bwj(this.components);
+            this.lueMZXYZD_CODE = new DevTextBoxAndButton.Bwj(this.components);
             this.textEdit_csd = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_jg = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_xzz = new DevExpress.XtraEditors.TextEdit();
@@ -1544,7 +1545,7 @@
             // 
             this.lueMZXYZD_CODE1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueMZXYZD_CODE1.ListWindow = null;
-            this.lueMZXYZD_CODE1.Location = new System.Drawing.Point(524, 394);
+            this.lueMZXYZD_CODE1.Location = new System.Drawing.Point(416, 395);
             this.lueMZXYZD_CODE1.Name = "lueMZXYZD_CODE1";
             this.lueMZXYZD_CODE1.ShowFormImmediately = true;
             this.lueMZXYZD_CODE1.ShowSButton = true;
@@ -1615,7 +1616,7 @@
             // 
             this.lueMZZYZD_CODE1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueMZZYZD_CODE1.ListWindow = null;
-            this.lueMZZYZD_CODE1.Location = new System.Drawing.Point(524, 367);
+            this.lueMZZYZD_CODE1.Location = new System.Drawing.Point(417, 370);
             this.lueMZZYZD_CODE1.Name = "lueMZZYZD_CODE1";
             this.lueMZZYZD_CODE1.ShowFormImmediately = true;
             this.lueMZZYZD_CODE1.ShowSButton = true;

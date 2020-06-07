@@ -57,7 +57,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QCTimeLimit", "..\Core\质�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MajorDiagnoseDoctor", "..\Core\MajorDiagnoseDoctor\MajorDiagnoseDoctor.csproj", "{9B7D509E-6BF4-4739-B13F-BE5131C68F1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEMMainPage_2012", "..\Core\病案首页\IEMMainPage_2012_SX\IEMMainPage_2012.csproj", "{BEF7BCB7-C8CE-41FE-B3AC-495A295413DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEMMainPageNew", "..\Core\病案首页\IEMMainPage_2012_SX\IEMMainPageNew.csproj", "{BEF7BCB7-C8CE-41FE-B3AC-495A295413DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QcManagerNew", "..\EMR\QcManagerNew\QcManagerNew.csproj", "{031AC037-F2F9-4BDE-86A0-94D8266800DA}"
 EndProject

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -15,8 +16,14 @@ namespace DrectSoft.Core.IEMMainPage
 
         PrintDocument m_PrintDocument;
 
+
         public int m_PageWidth = 800;//用于设定PictureBox的宽度
         public int m_PageHeight = 1120;//用于设定PictureBox的高度
+
+        private float m_BasePointX = 0;
+        private float m_BasePointY = 0;
+        private int m_Basewidth = 0;
+        private int m_Baseheight = 0;
 
         float m_PointYTitle = 40; //“首页”标题Y轴方向的值
         Font m_DefaultFont = new Font("宋体", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -24,16 +31,14 @@ namespace DrectSoft.Core.IEMMainPage
         Font m_SmallFont = new Font("宋体", 10f, FontStyle.Regular, GraphicsUnit.Pixel);
         Font m_SmallFont1 = new Font("宋体", 11f, FontStyle.Regular, GraphicsUnit.Pixel);
 
-        float m_PointXPayType = 15; //“医疗付款方式”左上角点的X轴方向的值
-        float m_PointYPayType = 120; //“医疗付款方式”左上角点的Y轴方向的值
-
+        float m_PointX = 15; //X轴方向起点的值
+        float m_PointY = 120; //Y轴方向起点的值
         StringFormat sf = new StringFormat();
         StringFormat sfVertical = new StringFormat();
         StringFormat sfTop = new StringFormat();
 
         private string m_OrganizationCode = string.Empty;//“组织机构代码”
-        float m_PointXOrganizationCode = 550; //“组织机构代码”在右角点的X轴方向的值
-        float m_PointYOrganizationCode = 40; //“组织机构代码”在右上角的Y轴方向的值
+        private static XmlDocument xmlDoc = new XmlDocument();
 
         int m_PageIndex = 1;
 
@@ -96,6 +101,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+
                 m_IemMainPageEntity = iemMainPageEntity;
                 InitVariable();
                 InitMetaFile();
@@ -119,6 +125,23 @@ namespace DrectSoft.Core.IEMMainPage
                 sf.LineAlignment = StringAlignment.Center;
                 sfVertical.LineAlignment = StringAlignment.Center;
                 sfTop.LineAlignment = StringAlignment.Near;
+                xmlDoc = new XmlDocument();
+                XmlReaderSettings settings = new XmlReaderSettings();
+                settings.IgnoreComments = true;
+                XmlReader reader = XmlReader.Create(AppDomain.CurrentDomain.BaseDirectory + @"\Sheet\MRHPEN.xml", settings);
+                xmlDoc.Load(reader);
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("PageSize")[0];
+                m_PageWidth = int.Parse(xmlNode.Attributes["width"].Value);
+                m_PageHeight = int.Parse(xmlNode.Attributes["height"].Value);
+                m_PointX = float.Parse(xmlNode.Attributes["PointX"].Value);
+                m_PointY = float.Parse(xmlNode.Attributes["PointY"].Value);
+                m_BasePointX = float.Parse(xmlNode.Attributes["BasePointX"].Value);
+                m_BasePointY = float.Parse(xmlNode.Attributes["BasePointY"].Value);
+                m_Basewidth = int.Parse(xmlNode.Attributes["Basewidth"].Value);
+                m_Baseheight = int.Parse(xmlNode.Attributes["Baseheight"].Value);
+                xmlNode = xmlDoc.GetElementsByTagName("DefaultStyle")[0];
+                m_DefaultFont = GetFont(xmlNode);
+
             }
             catch (Exception ex)
             {
@@ -127,6 +150,8 @@ namespace DrectSoft.Core.IEMMainPage
             }
 
         }
+
+
 
         private void InitMetaFile()
         {
@@ -139,7 +164,8 @@ namespace DrectSoft.Core.IEMMainPage
                 {
                     XmlDocument doc1 = new XmlDocument();
                     doc1.LoadXml(cansee);
-                    m_OrganizationCode = doc1.GetElementsByTagName("ShowOrganizationCode")[0] == null ? "" : doc1.GetElementsByTagName("ShowOrganizationCode")[0].InnerText;//病案首页显示组织机构代码 2012/10/22 by tj
+                    //病案首页显示组织机构代码 2012/10/22 by tj
+                    m_OrganizationCode = doc1.GetElementsByTagName("ShowOrganizationCode")[0] == null ? "" : doc1.GetElementsByTagName("ShowOrganizationCode")[0].InnerText;
                 }
 
                 Bitmap bmp1 = new Bitmap(m_PageWidth, m_PageHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
@@ -171,20 +197,6 @@ namespace DrectSoft.Core.IEMMainPage
                 throw ex;
             }
 
-        }
-
-
-        /// <summary>
-        /// 绘制组织机构代码 2013/4/18 by xll
-        /// </summary>
-        /// <param name="g"></param>
-        private void DrawOrganaqzaitionCode(Graphics g)
-        {
-            if (string.IsNullOrEmpty(m_OrganizationCode)) return;
-            Font font1 = new Font("宋体", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
-            Font font2 = new Font("宋体", 20f, FontStyle.Regular, GraphicsUnit.Pixel);
-            g.DrawString("组织机构代码:", font1, Brushes.Black, new PointF(m_PointXOrganizationCode, m_PointYOrganizationCode));
-            g.DrawString(m_OrganizationCode, font2, Brushes.Black, new PointF(m_PointXOrganizationCode + 90, m_PointYOrganizationCode - 4));
         }
 
         /// <summary>
@@ -274,977 +286,14 @@ namespace DrectSoft.Core.IEMMainPage
             }
 
         }
-
+        private Font GetFont(XmlNode xmlNode)
+        {
+            return new Font(xmlNode.Attributes["fontname"].Value,
+                                            float.Parse(xmlNode.Attributes["fontsize"].Value),
+                                            (FontStyle)Enum.Parse(typeof(FontStyle), xmlNode.Attributes["FontStyle"].Value),
+                                            GraphicsUnit.Pixel);
+        }
         #region ******************************************************* 绘制病案首页 **************************************************************
-
-        #region 【打印第一页】
-
-        void PrintFirstPage(Graphics g)
-        {
-            try
-            {
-                float pointY;
-                DrawTitle(g);
-                DrawOrganaqzaitionCode(g);
-                pointY = PrintPayType(g);
-                pointY = PrintPatientBaseInfo(g, pointY + 15);
-                pointY = PrintOutHospitalDiaglosis(g, pointY + 18);
-                pointY = PrintFristPageOther(g, pointY);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-
-        #region 绘制标题
-        /// <summary>
-        /// 绘制标题
-        /// </summary>
-        /// <param name="g"></param>
-        private void DrawTitle(Graphics g)
-        {
-            try
-            {
-                StringFormat sf = new StringFormat();
-                sf.Alignment = StringAlignment.Center;
-                sf.LineAlignment = StringAlignment.Center;
-                Font font1 = new Font("宋体", 20f, FontStyle.Regular, GraphicsUnit.Pixel);
-                Font font2 = new Font("宋体", 25f, FontStyle.Bold, GraphicsUnit.Pixel);
-
-                g.DrawString("医疗机构：" + m_IemMainPageEntity.IemBasicInfo.HospitalName, font1, Brushes.Black, new RectangleF(0f, m_PointYTitle, 700, 30), sf);
-                g.DrawString("住 院 病 案 首 页", font2, Brushes.Black, new RectangleF(0f, m_PointYTitle + 30, m_PageWidth, 50), sf);
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
-        }
-        #endregion
-
-        #region 绘制医疗付款方式一行
-        /// <summary>
-        /// 绘制医疗付款方式一行
-        /// </summary>
-        /// <param name="g"></param>
-        private float PrintPayType(Graphics g)
-        {
-            try
-            {
-                Font font = m_DefaultFont;
-                Font font1 = new Font("宋体", 14f, FontStyle.Regular, GraphicsUnit.Pixel);
-                int lineHeight = TextRenderer.MeasureText("高", font).Height;
-
-                float pointX = m_PointXPayType;
-
-                //医疗付款方式
-                g.DrawString("医疗付费方式:", font1, Brushes.Black, new PointF(pointX, m_PointYPayType - 25));
-                string payType = m_IemMainPageEntity.IemBasicInfo.PayID; //todo
-                pointX = pointX + TextRenderer.MeasureText("医疗付款方式:", font1).Width;
-                pointX = DrawCheckBox(g, pointX, m_PointYPayType - 25, payType, lineHeight);
-                pointX = DrawSelectItem(g, pointX, m_PointYPayType - 25, "") + 20;
-
-                //健康卡号
-                string healthCarCode = m_IemMainPageEntity.IemBasicInfo.CardNumber;//todo
-                g.DrawString("健康卡号:" + healthCarCode, font1, Brushes.Red, new PointF(m_PointXPayType, m_PointYPayType));
-
-                //入院次数
-                string inTime = m_IemMainPageEntity.IemBasicInfo.InCount;//todo
-                g.DrawString("第 " + inTime + " 次住院", font1, Brushes.Black, new PointF(355, m_PointYPayType));
-
-                //病案号
-                //string recordNo = m_IemMainPageEntity.IemBasicInfo.PatNoOfHis;//todo
-                //病案号
-                string recordNo = string.Empty;
-                if (m_IemMainPageEntity.IemBasicInfo.IsBaby == "1")//是婴儿
-                {
-                    recordNo = m_IemMainPageEntity.IemBasicInfo.MotherPatOfHis;
-                }
-                else
-                {
-                    recordNo = m_IemMainPageEntity.IemBasicInfo.NOOFRECORD;
-                    //   recordNo = m_IemMainPageEntity.IemBasicInfo.PatNoOfHis;//todo
-                }
-                g.DrawString("病案号:" + recordNo, font1, Brushes.Black, new PointF(620, m_PointYPayType));
-
-                Pen pen = new Pen(Brushes.Black, 2);
-                g.DrawLine(pen, new PointF(m_PointXPayType, m_PointYPayType + 20), new PointF(m_PointXPayType + 770, m_PointYPayType + 20));
-
-                return m_PointYPayType + 21;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        #endregion
-
-        #region 绘制病人基本信息
-        /// <summary>
-        /// 绘制病人基本信息
-        /// </summary>
-        /// <param name="g"></param>
-        private float PrintPatientBaseInfo(Graphics g, float pointY)
-        {
-            try
-            {
-                Font font = m_DefaultFont;
-                int lineHeight = TextRenderer.MeasureText("高", font).Height;
-                int charWidth = TextRenderer.MeasureText("宽", font).Height;
-                float interval = 26; //行间距
-
-                float pointStartX = m_PointXPayType + 12;
-                float pointX = pointStartX;
-
-                #region 1
-                //姓名
-                string patientName = m_IemMainPageEntity.IemBasicInfo.Name;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "姓名", patientName, 90, "") + 25;
-
-                //性别
-                g.DrawString("性别", font, Brushes.Black, new PointF(pointX, pointY));
-                string gender = m_IemMainPageEntity.IemBasicInfo.SexID; //todo
-                pointX = pointX + TextRenderer.MeasureText("年龄", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, gender, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1.男  2.女") + 20;
-
-                //出生
-                string birth = m_IemMainPageEntity.IemBasicInfo.BirthPrint;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出生日期", birth, 120, "") + 25;
-
-                //年龄
-                string age = m_IemMainPageEntity.IemBasicInfo.Age;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "年龄", age, 65, "") + 25;
-
-                //国籍
-                string nationality = m_IemMainPageEntity.IemBasicInfo.NationalityName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "国籍", nationality, 65, "") + 15;
-
-                #endregion
-
-                #region 2
-                pointY += interval;
-                pointX = pointStartX;
-
-                //（年龄不足1周岁的） 年龄
-                string babyMonth = m_IemMainPageEntity.IemBasicInfo.MonthAge;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "（年龄不足1周岁的） 年龄", babyMonth, 60, "月") + 50;
-
-                //新生儿出生体重
-                string babyBirthWeight = m_IemMainPageEntity.IemBasicInfo.Weight;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "新生儿出生体重", babyBirthWeight, 60, "克") + 50;
-
-                //新生儿入院体重
-                string babyInHospitalWeight = m_IemMainPageEntity.IemBasicInfo.InWeight;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "新生儿入院体重", babyInHospitalWeight, 60, "克") + 30;
-                #endregion
-
-                #region 3
-                pointY += interval;
-                pointX = pointStartX;
-
-                //出生地
-                string birthPlaceProvince = m_IemMainPageEntity.IemBasicInfo.CSD_ProvinceName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出生地", birthPlaceProvince, 250, "");
-                //string birthPlaceProvince = m_IemMainPageEntity.IemBasicInfo.CSD_ProvinceName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出生地", birthPlaceProvince, 65, "省(区、市)");
-                //string birthPlaceCity = m_IemMainPageEntity.IemBasicInfo.CSD_CityName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", birthPlaceCity, 65, "市");
-                //string birthPlaceCounty = m_IemMainPageEntity.IemBasicInfo.CSD_DistrictName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", birthPlaceCounty, 65, "县") + 10;
-
-                //籍贯
-                string jiGuanProvince = m_IemMainPageEntity.IemBasicInfo.JG_ProvinceName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "籍贯", jiGuanProvince, 250, "");
-                //string jiGuanProvince = m_IemMainPageEntity.IemBasicInfo.JG_ProvinceName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "籍贯", jiGuanProvince, 65, "省(区、市)");
-                //string jiGuanCity = m_IemMainPageEntity.IemBasicInfo.JG_CityName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", jiGuanCity, 65, "市") + 15;
-                //民族
-                string mingZu = m_IemMainPageEntity.IemBasicInfo.NationName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "民族", mingZu, 65, "") + 10;
-                #endregion
-
-                #region 4
-                pointY += interval;
-                pointX = pointStartX;
-
-                //身份证号
-                string patientID = m_IemMainPageEntity.IemBasicInfo.IDNO;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "身份证号", patientID, 200, "") + 10;
-
-                //职业
-                string jobName = m_IemMainPageEntity.IemBasicInfo.JobName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "职业", jobName, 120, "") + 10;
-
-                //婚姻
-                g.DrawString("婚姻", font, Brushes.Black, new PointF(pointX, pointY));
-                string marriage = m_IemMainPageEntity.IemBasicInfo.Marital; //todo
-                pointX = pointX + TextRenderer.MeasureText("婚姻", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, marriage, lineHeight);
-                //pointX = DrawSelectItem(g, pointX, pointY, "1.未婚 2.已婚 3.丧偶 4.离婚 9.其他") + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.未婚 2.已婚 3.丧偶 4.离婚 9.其他") + 10;
-
-                #endregion
-
-                #region 5
-                pointY += interval;
-                pointX = pointStartX;
-
-                //现住址
-                #region 0604修改
-                string addressProvince = m_IemMainPageEntity.IemBasicInfo.XZZ_ProvinceName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "现在住址", addressProvince, 270, "");
-                //string addressProvince = m_IemMainPageEntity.IemBasicInfo.XZZ_ProvinceName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "现在住址", addressProvince, 70, "省(区、市)");
-                //string addressCity = m_IemMainPageEntity.IemBasicInfo.XZZ_CityName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", addressCity, 70, "市");
-                //string addressCounty = m_IemMainPageEntity.IemBasicInfo.XZZ_DistrictName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", addressCounty, 70, "县") + 18;
-                #endregion
-                //电话
-                string addressTelNumber = m_IemMainPageEntity.IemBasicInfo.XZZ_TEL;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "电话", addressTelNumber, 120, "") + 28;
-
-                //编码
-                string addressPostCode = m_IemMainPageEntity.IemBasicInfo.XZZ_Post;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "邮编", addressPostCode, 120, "") + 10;
-
-                #endregion
-
-                #region 6
-                pointY += interval;
-                pointX = pointStartX;
-
-                //户口地址
-                #region 0604修改
-                string hukouProvince = m_IemMainPageEntity.IemBasicInfo.HKDZ_ProvinceName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "户口地址", hukouProvince, 270, "");
-                //string hukouProvince = m_IemMainPageEntity.IemBasicInfo.HKDZ_ProvinceName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "户口地址", hukouProvince, 70, "省(区、市)");
-                //string hukouCity = m_IemMainPageEntity.IemBasicInfo.HKDZ_CityName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", hukouCity, 70, "市");
-                //string hukouCounty = m_IemMainPageEntity.IemBasicInfo.HKDZ_DistrictName;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", hukouCounty, 70, "县") + 203;
-                #endregion
-                //邮编
-                string hukouPostCode = m_IemMainPageEntity.IemBasicInfo.HKDZ_Post;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "邮编", hukouPostCode, 120, "") + 10;
-
-                #endregion
-
-                #region 7
-                pointY += interval;
-                pointX = pointStartX;
-
-                //工作单位及地址
-                string jobAddress = m_IemMainPageEntity.IemBasicInfo.OfficePlace;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "工作单位及地址", jobAddress, 255, "") + 16;
-
-                //单位电话
-                string jobTelNumber = m_IemMainPageEntity.IemBasicInfo.OfficeTEL;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "单位电话", jobTelNumber, 120, "") + 28;
-
-                //邮编
-                string jobPostCode = m_IemMainPageEntity.IemBasicInfo.OfficePost;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "邮编", jobPostCode, 120, "") + 10;
-
-                #endregion
-
-                #region 8
-                pointY += interval;
-                pointX = pointStartX;
-
-                //联系人姓名
-                string contactName = m_IemMainPageEntity.IemBasicInfo.ContactPerson;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "联系人姓名", contactName, 80, "") + 15;
-
-                //关系
-                string relation = m_IemMainPageEntity.IemBasicInfo.RelationshipName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "关系", relation, 80, "") + 15;
-
-                //地址
-                string contactAddress = m_IemMainPageEntity.IemBasicInfo.ContactAddress;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "地址", contactAddress, 233, "") + 15;
-
-                //电话
-                string contactTel = m_IemMainPageEntity.IemBasicInfo.ContactTEL;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "电话", contactTel, 120, "") + 10;
-
-                #endregion
-
-                #region 9
-                pointY += interval;
-                pointX = pointStartX;
-
-                //入院途径
-                g.DrawString("入院途径", font, Brushes.Black, new PointF(pointX, pointY));
-                string inType = m_IemMainPageEntity.IemBasicInfo.InHosType; //todo
-                pointX = pointX + TextRenderer.MeasureText("入院途径", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, inType, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.急诊   2.门诊   3.其他医疗机构转入   9.其他") + 20;
-                #endregion
-
-                #region 10
-                pointY += interval;
-                pointX = pointStartX;
-
-                //治疗类别
-                g.DrawString("治疗类别", font, Brushes.Black, new PointF(pointX, pointY));
-                string cureType = m_IemMainPageEntity.IemBasicInfo.CURE_TYPE; //todo
-                pointX = pointX + TextRenderer.MeasureText("治疗类别", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, cureType, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.中医（1.1 中医   1.2 民族医）    2.中西医     3.西医") + 20;
-                #endregion
-
-                #region 11
-                pointY += interval;
-                pointX = pointStartX;
-
-                //入院时间
-                string inTime = m_IemMainPageEntity.IemBasicInfo.AdmitDatePrint;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院时间", inTime, 150, "") + 20;
-
-                //入院科别
-                string inSection = m_IemMainPageEntity.IemBasicInfo.AdmitDeptName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院科别", inSection, 115, "") + 20;
-
-                //病区
-                string inNurseWard = m_IemMainPageEntity.IemBasicInfo.AdmitWardName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "病房", inNurseWard, 71, "") + 20;
-
-                //转科科别
-                string shiftSection = m_IemMainPageEntity.IemBasicInfo.Trans_AdmitDeptName;//todo
-                if (shiftSection.Trim() == "")
-                {
-                    shiftSection = "无";
-                }
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "转科科别", shiftSection, 120, "") + 10;
-
-                #endregion
-
-                #region 12
-                pointY += interval;
-                pointX = pointStartX;
-
-                //出院日期
-                string outTime = m_IemMainPageEntity.IemBasicInfo.OutWardDatePrint;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出院日期", outTime, 150, "") + 20;
-
-                //出院科别
-                string outSection = m_IemMainPageEntity.IemBasicInfo.OutHosDeptName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出院科别", outSection, 115, "") + 20;
-
-                //病区
-                string outNurseWard = m_IemMainPageEntity.IemBasicInfo.OutHosWardName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "病房", outNurseWard, 71, "") + 20;
-
-                //实际住院天数
-                string InDay = m_IemMainPageEntity.IemBasicInfo.ActualDays;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "实际住院", InDay, 100, "天") + 10;
-
-                #endregion
-
-                #region 13
-                pointY += interval;
-                pointX = pointStartX;
-
-                //门（急）诊诊断（中医诊断）
-                string menJiZhenDiaglosisChinese = m_IemMainPageEntity.IemBasicInfo.MZZYZD_NAME;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "门（急）诊诊断（中医诊断）", menJiZhenDiaglosisChinese, 200, "") + 25;
-
-                //疾病编码
-                string deseaseCodeChinese = m_IemMainPageEntity.IemBasicInfo.MZZYZD_CODE;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "疾病编码", deseaseCodeChinese, 120, "") + 10;
-
-                #endregion
-
-                #region 14
-                pointY += interval;
-                pointX = pointStartX;
-
-                //门（急）诊诊断（西医诊断）
-                string menJiZhenDiaglosisWest = m_IemMainPageEntity.IemBasicInfo.MZXYZD_NAME;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "门（急）诊诊断（西医诊断）", menJiZhenDiaglosisWest, 200, "") + 25;
-
-                //疾病编码
-                string deseaseCodeWest = m_IemMainPageEntity.IemBasicInfo.MZXYZD_CODE;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "疾病编码", deseaseCodeWest, 120, "") + 10;
-
-                ////入院时情况
-                //g.DrawString("入院时情况", font, Brushes.Black, new PointF(pointX, pointY));
-                //string inState = "8"; //todo
-                //pointX = pointX + TextRenderer.MeasureText("入院时情况", font).Width + 5;
-                //pointX = DrawCheckBox(g, pointX, pointY, inState, lineHeight);
-                //pointX = DrawSelectItem(g, pointX, pointY, "1.危  2.急  3.一般") + 10;
-                #endregion
-
-                #region 15
-                pointY += interval;
-                pointX = pointStartX;
-
-                //实施临床路径
-                g.DrawString("实施临床路径：", font, Brushes.Black, new PointF(pointX, pointY));
-                string useClinicPath = m_IemMainPageEntity.IemBasicInfo.SSLCLJ; //todo
-                pointX = pointX + TextRenderer.MeasureText("实施临床路径：", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, useClinicPath, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1. 中医  2. 西医  3 否") + 30;
-
-                //使用医疗机构中药制剂
-                g.DrawString("使用医疗机构中药制剂：", font, Brushes.Black, new PointF(pointX, pointY));
-                string useyzj = m_IemMainPageEntity.IemBasicInfo.ZYZJ; //todo
-                pointX = pointX + TextRenderer.MeasureText("使用医疗机构中药制剂：", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, useyzj, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.是  2. 否");
-
-                #endregion
-
-                #region 16
-                pointY += interval;
-                pointX = pointStartX;
-
-                //使用中医诊疗设备
-                g.DrawString("使用中医诊疗设备：", font, Brushes.Black, new PointF(pointX, pointY));
-                string useDevice = m_IemMainPageEntity.IemBasicInfo.ZYZLSB; //todo
-                pointX = pointX + TextRenderer.MeasureText("使用中医诊疗设备：", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, useDevice, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.是 2. 否") + 30;
-
-                //使用中医诊疗技术：
-                g.DrawString("使用中医诊疗技术：", font, Brushes.Black, new PointF(pointX, pointY));
-                string useChineseJS = m_IemMainPageEntity.IemBasicInfo.ZYZLJS; //todo
-                pointX = pointX + TextRenderer.MeasureText("使用中医诊疗技术：", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, useChineseJS, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.是 2. 否") + 30;
-
-                //辨证施护：
-                g.DrawString("辨证施护：", font, Brushes.Black, new PointF(pointX, pointY));
-                string bzsh = m_IemMainPageEntity.IemBasicInfo.BZSH; //todo
-                pointX = pointX + TextRenderer.MeasureText("辨证施护：", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, bzsh, lineHeight) + 10;
-                pointX = DrawSelectItem(g, pointX, pointY, "1.是 2. 否") + 30;
-
-                #endregion
-
-                return pointY + 2;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        #endregion
-
-        #region 出院诊断
-        /// <summary>
-        /// 出院诊断
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="pointY"></param>
-        /// <returns></returns>
-        private float PrintOutHospitalDiaglosis(Graphics g, float pointY)
-        {
-            try
-            {
-                //表格的行高
-                float lineHeight = 28f;
-                float pointX = m_PointXPayType;
-                float firstColumnWidth = 240f;//第一列宽度
-                float secondColumnWidth = 100f;//第二列宽度
-                float thirdColumnWidth = 45f;//第三列宽度
-
-                float firstLineHeight = 34f;
-
-                Font font = m_SmallFont;
-                float offsetX = 12f;
-                int lineWidth = 770;//需要保证 (firstColumnWidth + secondColumnWidth + thirdColumnWidth) == lineWidth
-
-                #region TableHead
-
-                //第一列
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)firstColumnWidth, (int)firstLineHeight)));
-                g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + (int)firstLineHeight));
-                g.DrawString("出院中医诊断", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, firstColumnWidth, firstLineHeight), sf);
-
-                pointX += firstColumnWidth;
-
-                //第二列
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)secondColumnWidth, (int)firstLineHeight)));
-                g.DrawString("疾病编码", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, secondColumnWidth, firstLineHeight), sf);
-
-                pointX += secondColumnWidth;
-
-                //第三列
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)thirdColumnWidth, (int)firstLineHeight)));
-                g.DrawString("入院病情", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY + 2, thirdColumnWidth, firstLineHeight), sf);
-
-                pointX += thirdColumnWidth;
-
-                //第四列
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)firstColumnWidth, (int)firstLineHeight)));
-                g.DrawString("出院西医诊断", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, firstColumnWidth, firstLineHeight), sf);
-
-                pointX += firstColumnWidth;
-
-                //第五列
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)secondColumnWidth, (int)firstLineHeight)));
-                g.DrawString("疾病编码", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, secondColumnWidth, firstLineHeight), sf);
-
-                pointX += secondColumnWidth;
-
-                //第六列
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)thirdColumnWidth, (int)firstLineHeight)));
-                g.DrawLine(Pens.White, new Point((int)pointX + (int)thirdColumnWidth, (int)pointY), new Point((int)pointX + (int)thirdColumnWidth, (int)pointY + (int)firstLineHeight));
-                g.DrawString("入院病情", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY + 2, thirdColumnWidth, firstLineHeight), sf);
-
-                pointX = m_PointXPayType;
-                pointY = pointY + firstLineHeight;
-                #endregion
-
-                #region TableBody
-
-                float pointYTableBodyStart = pointY;
-                sf.Alignment = StringAlignment.Near;
-                sf.LineAlignment = StringAlignment.Center;
-
-                //西医出院诊断
-                DataTable outDiagTableWest = m_IemMainPageEntity.IemDiagInfo.OutDiagTable.Copy();
-                //中医出院诊断
-                DataTable outDiagTableChinese = m_IemMainPageEntity.IemDiagInfo.OutDiagTable.Copy();
-
-                for (int i = outDiagTableWest.Rows.Count - 1; i >= 0; i--)
-                {
-                    if (outDiagTableWest.Rows[i]["Type"].ToString() != "1")
-                    {
-                        outDiagTableWest.Rows.RemoveAt(i);
-                    }
-                }
-                for (int i = outDiagTableChinese.Rows.Count - 1; i >= 0; i--)
-                {
-                    if (outDiagTableChinese.Rows[i]["Type"].ToString() != "2")
-                    {
-                        outDiagTableChinese.Rows.RemoveAt(i);
-                    }
-                }
-                outDiagTableWest.AcceptChanges();
-                outDiagTableChinese.AcceptChanges();
-
-                //【出院中医诊断 主病】
-                //主病
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)lineHeight)));
-                g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)lineHeight));
-                g.DrawString("主病:", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, lineHeight), sf);
-                //主病value
-                if (outDiagTableChinese.Rows.Count > 0)//todo
-                {
-                    int stringWidth = TextRenderer.MeasureText("主病:", m_DefaultFont).Width;
-                    DrawStringInCell(g, outDiagTableChinese.Rows[0]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
-                        pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)lineHeight, m_DefaultFont);
-                }
-
-                pointX += firstColumnWidth;
-
-                //疾病编码
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)lineHeight)));
-                //疾病编码value
-                if (outDiagTableChinese.Rows.Count > 0)//todo
-                {
-                    DrawStringInCell2(g, outDiagTableChinese.Rows[0]["Diagnosis_Code"].ToString(), pointX,
-                        pointYTableBodyStart + 2, (int)secondColumnWidth, (int)lineHeight, m_DefaultFont);
-                }
-
-                pointX += secondColumnWidth;
-
-                //入院病情
-                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)lineHeight)));
-                //入院病情value
-                if (outDiagTableChinese.Rows.Count > 0)//todo
-                {
-                    DrawStringInCell2(g, outDiagTableChinese.Rows[0]["Status_Id"].ToString(), pointX,
-                        pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)lineHeight, m_DefaultFont);
-                }
-
-                pointX += thirdColumnWidth;
-
-                //【主证】
-                for (int i = 0; i <= 8; i++)
-                {
-                    //【主证 1-8】
-                    if (i <= 7)
-                    {
-                        if (i == 0)
-                        {
-                            pointX = m_PointXPayType;
-                            pointYTableBodyStart = pointYTableBodyStart + lineHeight;
-                            g.DrawString("主证:", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth, lineHeight), sf);
-
-                            //主证
-                            if (outDiagTableChinese.Rows.Count > 1)
-                            {
-                                int stringWidth = TextRenderer.MeasureText("主证:", m_DefaultFont).Width;
-                                DrawStringInCell(g, outDiagTableChinese.Rows[1]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
-                                    pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)lineHeight, m_DefaultFont);
-                            }
-                        }
-
-                        //其他主证
-                        if (i > 0 && outDiagTableChinese.Rows.Count > i + 1)
-                        {
-                            DrawStringInCell(g, outDiagTableChinese.Rows[i + 1]["Diagnosis_Name"].ToString(), pointX + offsetX,
-                                pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)lineHeight, m_DefaultFont);
-                        }
-
-                        g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)lineHeight)));
-                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)lineHeight));
-
-                        pointX += firstColumnWidth;
-                        //疾病编码
-                        g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)lineHeight)));
-                        //疾病编码value
-                        if (outDiagTableChinese.Rows.Count > i + 1)//todo
-                        {
-                            DrawStringInCell2(g, outDiagTableChinese.Rows[i + 1]["Diagnosis_Code"].ToString(), pointX,
-                                pointYTableBodyStart + 2, (int)secondColumnWidth, (int)lineHeight, m_DefaultFont);
-                        }
-
-                        pointX += secondColumnWidth;
-                        //入院病情
-                        g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)lineHeight)));
-                        //入院病情value
-                        if (outDiagTableChinese.Rows.Count > i + 1)//todo
-                        {
-                            DrawStringInCell2(g, outDiagTableChinese.Rows[i + 1]["Status_Id"].ToString(), pointX,
-                                pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)lineHeight, m_DefaultFont);
-                        }
-
-                        pointX = m_PointXPayType;
-                        pointYTableBodyStart += lineHeight;
-                    }
-                    else if (i == 8)
-                    {
-                        //【入院病情说明】
-                        g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
-                            new Size((int)firstColumnWidth + (int)secondColumnWidth + (int)thirdColumnWidth, (int)lineHeight)));
-                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)lineHeight));
-                        g.DrawString("入院病情: 1.有  2.临床未确定  3.情况不明  4.无 ", m_DefaultFont, Brushes.Black,
-                            new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth, lineHeight), sf);
-                    }
-                }
-
-                //出院西医诊断
-                for (int i = 0; i <= 9; i++)
-                {
-                    if (i == 0)
-                    {
-                        pointX = m_PointXPayType + firstColumnWidth + secondColumnWidth + thirdColumnWidth;
-                        pointYTableBodyStart = pointY;
-                        g.DrawString("主要诊断:", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth, lineHeight), sf);
-
-                        //主要诊断value
-                        if (outDiagTableWest.Rows.Count > i)
-                        {
-                            int stringWidth = TextRenderer.MeasureText("主要诊断:", m_DefaultFont).Width;
-                            DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
-                                pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)lineHeight, m_DefaultFont);
-                        }
-                    }
-                    else if (i == 1)
-                    {
-                        g.DrawString("其他诊断:", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth, lineHeight), sf);
-
-                        //其他诊断value
-                        if (outDiagTableWest.Rows.Count > i)
-                        {
-                            int stringWidth = TextRenderer.MeasureText("其他诊断:", m_DefaultFont).Width;
-                            DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
-                                pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)lineHeight, m_DefaultFont);
-                        }
-                    }
-                    //其他诊断value
-                    else if (i > 1 && outDiagTableWest.Rows.Count > i)
-                    {
-                        DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
-                            pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)lineHeight, m_DefaultFont);
-                    }
-
-                    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)lineHeight)));
-
-                    pointX += firstColumnWidth;
-                    //疾病编码
-                    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)lineHeight)));
-                    //疾病编码value
-                    if (outDiagTableWest.Rows.Count > i)//todo
-                    {
-                        DrawStringInCell2(g, outDiagTableWest.Rows[i]["Diagnosis_Code"].ToString(), pointX,
-                            pointYTableBodyStart + 2, (int)secondColumnWidth, (int)lineHeight, m_DefaultFont);
-                    }
-
-                    pointX += secondColumnWidth;
-                    //入院病情
-                    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)lineHeight)));
-                    //入院病情value
-                    if (outDiagTableWest.Rows.Count > i)//todo
-                    {
-                        DrawStringInCell2(g, outDiagTableWest.Rows[i]["Status_Id"].ToString(), pointX,
-                            pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)lineHeight, m_DefaultFont);
-                    }
-
-                    g.DrawLine(Pens.White, new Point((int)pointX + (int)thirdColumnWidth, (int)pointYTableBodyStart),
-                        new Point((int)pointX + (int)thirdColumnWidth, (int)pointYTableBodyStart + (int)lineHeight));
-
-                    pointX = m_PointXPayType + firstColumnWidth + secondColumnWidth + thirdColumnWidth;
-                    pointYTableBodyStart += lineHeight;
-
-                }
-                #endregion
-
-                return pointYTableBodyStart;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        #endregion
-
-        #region  第一页中出院诊断下面的部分
-        /// <summary>
-        /// 第一页中出院诊断下面的部分
-        /// </summary>
-        /// <param name="g"></param>
-        /// <param name="pointY"></param>
-        /// <returns></returns>
-        private float PrintFristPageOther(Graphics g, float pointY)
-        {
-            try
-            {
-                //表格的行高
-                float rowHeight = 24f;
-                float pointStartX = m_PointXPayType;
-                Font font = m_DefaultFont;
-                int lineHeight = TextRenderer.MeasureText("高", font).Height;
-                int charWidth = TextRenderer.MeasureText("宽", font).Height;
-
-                sf.Alignment = StringAlignment.Center;
-                sf.LineAlignment = StringAlignment.Center;
-
-                int lineWidth = 770;
-                int xOffset = 12;
-
-                #region 1
-                float pointX = pointStartX + xOffset;
-                //损伤、中毒的外部原因
-                string outsideReason = m_IemMainPageEntity.IemDiagInfo.Hurt_Toxicosis_Element;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "损伤、中毒的外部原因", outsideReason, 385, "") + 30;
-
-                //疾病编码
-                string outsideReasondeseaseCode = m_IemMainPageEntity.IemDiagInfo.Hurt_Toxicosis_ElementID;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "疾病编码", outsideReasondeseaseCode, 120, "");
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-                #endregion
-
-                #region 2
-                pointX += xOffset;
-
-                //病理诊断
-                string pathologyDiagnisis = m_IemMainPageEntity.IemDiagInfo.Pathology_Diagnosis_Name;//todo
-                string path1 = string.Empty;
-                string path2 = string.Empty;
-                if (pathologyDiagnisis.Length > 36)
-                {
-                    path1 = pathologyDiagnisis.Substring(0, 36);
-                    path2 = pathologyDiagnisis.Substring(36);
-                }
-                else
-                {
-                    path1 = pathologyDiagnisis;
-
-                }
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "病理诊断:", path1, 480, "") + 15;
-
-                //疾病编码
-                string pathologyDiagnisisDeseaseCode = m_IemMainPageEntity.IemDiagInfo.Pathology_Diagnosis_ID;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "疾病编码", pathologyDiagnisisDeseaseCode, 120, "");
-
-                ////string bingliNo = m_IemMainPageEntity.IemDiagInfo.Pathology_Observation_Sn;
-                ////pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "病理号", bingliNo, 120, "");
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, " ", path2, 540, "") + 15;
-
-                string bingliNo = m_IemMainPageEntity.IemDiagInfo.Pathology_Observation_Sn;
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "病理号", bingliNo, 120, "");
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-
-                #endregion
-
-                #region 3
-                pointX += xOffset;
-
-                //药物过敏
-                g.DrawString("药物过敏", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
-                //string drugAllergy = string.IsNullOrEmpty(m_IemMainPageEntity.IemDiagInfo.Allergic_Drug.Trim()) ? "2" : "1"; //todo
-                string drugAllergy = m_IemMainPageEntity.IemDiagInfo.Allergic_Flag.Trim(); //by ywk 2012年3月6日14:36:31
-                pointX = pointX + TextRenderer.MeasureText("药物过敏", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, drugAllergy, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.无 2.有");
-
-                string drugAllergyName = m_IemMainPageEntity.IemDiagInfo.Allergic_Drug; //todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, " 过敏药物：", drugAllergyName, 291, "") + 30;
-
-                //死亡患者尸检
-                g.DrawString("死亡患者尸检", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
-                string isCheckDeadBody = m_IemMainPageEntity.IemDiagInfo.Autopsy_Flag; //todo
-                pointX = pointX + TextRenderer.MeasureText("死亡患者尸检", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, isCheckDeadBody, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.是  2.否");
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-
-                #endregion
-
-                #region 4
-                pointX += xOffset;
-
-                //血型
-                g.DrawString("血型", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
-                string blood = m_IemMainPageEntity.IemDiagInfo.BloodType; //todo
-                pointX = pointX + TextRenderer.MeasureText("血型", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, blood, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.A  2.B  3.O  4.AB  5.不详  6.未查") + 40;
-
-                //Rh
-                g.DrawString("Rh", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
-                string bloodRh = m_IemMainPageEntity.IemDiagInfo.Rh; //todo
-                pointX = pointX + TextRenderer.MeasureText("Rh", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, bloodRh, lineHeight);
-                //pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.A  2.B  3.O  4.AB  5.不详  6.未查");
-                pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.阴  2.阳  3.不详  4.未查");
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-
-                #endregion
-
-                #region 5
-                pointX += xOffset;
-
-                //科主任
-                string deptDirecter = m_IemMainPageEntity.IemDiagInfo.Section_DirectorName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "科主任", deptDirecter, 95, "") + 20;
-
-                //主任（副主任）医师
-                string archiater = "";
-                // m_IemMainPageEntity.IemDiagInfo.DirectorName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "主任（副主任）医师", archiater, 95, "") + 20;
-
-                //主治医师
-                string attend = "";
-                //m_IemMainPageEntity.IemDiagInfo.Vs_EmployeeName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "主治医师", attend, 95, "") + 20;
-
-                //住院医师
-                string resident = "";
-                //m_IemMainPageEntity.IemDiagInfo.Resident_EmployeeName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "住院医师", resident, 95, "") + 20;
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-
-                #endregion
-
-                #region 6
-
-                pointX += xOffset;
-
-                //责任护士
-                string dutyNurse = m_IemMainPageEntity.IemDiagInfo.Duty_NurseName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "责任护士", dutyNurse, 95, "") + 43;
-
-                //进修医师
-                string furtherStudyDoctor = m_IemMainPageEntity.IemDiagInfo.Refresh_EmployeeName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "进修医师", furtherStudyDoctor, 95, "") + 43;
-
-                //实习医师
-                string practiceDoctor = m_IemMainPageEntity.IemDiagInfo.InterneName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "实习医师", practiceDoctor, 95, "") + 44;
-
-                //编码员
-                string coder = m_IemMainPageEntity.IemDiagInfo.Coding_UserName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "编码员", coder, 95, "");
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-
-                #endregion
-
-                #region 7
-
-                pointX += xOffset;
-
-                //病案质量
-                g.DrawString("病案质量", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
-                string medicalRecordQuality = m_IemMainPageEntity.IemDiagInfo.Medical_Quality_Id; //todo
-                if (medicalRecordQuality == "")                 // wangji   edit 2013 1 12 去掉占位符
-                {
-                    medicalRecordQuality = " ";
-                }
-                pointX = pointX + TextRenderer.MeasureText("病案质量", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, medicalRecordQuality, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.甲  2.乙  3.丙") + 15;
-
-                //质控医师
-                string qualityDoctor = m_IemMainPageEntity.IemDiagInfo.Quality_Control_DoctorName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "质控医师", qualityDoctor, 95, "") + 15;
-
-                //质控护士
-                string qualityNurse = m_IemMainPageEntity.IemDiagInfo.Quality_Control_NurseName;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "质控护士", qualityNurse, 95, "") + 15;
-
-                //质控日期
-                string qualityDateTime = m_IemMainPageEntity.IemDiagInfo.Quality_Control_DatePrint;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "质控日期", qualityDateTime, 120, "") + 15;
-
-                pointY += rowHeight;
-                pointX = pointStartX;
-                g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
-
-
-                #endregion
-
-                pointY += rowHeight;
-
-                //绘制页数
-                //g.DrawString("第 1 页", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, lineWidth, rowHeight), sf);
-
-                return pointY;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
-        #endregion
-        #endregion
 
         #region 【绘制界面元素】
 
@@ -1323,9 +372,17 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+                int stringWidth = TextRenderer.MeasureText(value, m_DefaultFont).Width;
                 Rectangle rect = new Rectangle((int)pointX, (int)pointY + 1, lineHeight - 2, lineHeight - 2);
-                g.DrawRectangle(Pens.Black, rect);
                 RectangleF rectF = new RectangleF(pointX - 0.5f, pointY + 1 - 0.5f, lineHeight, lineHeight + 0.5f);
+                if (stringWidth > lineHeight)
+                {
+                    rect = new Rectangle((int)pointX, (int)pointY + 1, stringWidth, lineHeight - 2);
+                    rectF = new RectangleF(pointX - 0.5f, pointY + 1 - 0.5f, stringWidth, lineHeight + 0.5f);
+                }
+                else
+                    stringWidth = lineHeight;
+                g.DrawRectangle(Pens.Black, rect);
                 if (string.IsNullOrEmpty(value))
                 {
                     g.DrawString("/", m_DefaultFont, Brushes.Black, rectF, sf);
@@ -1335,7 +392,7 @@ namespace DrectSoft.Core.IEMMainPage
                     g.DrawString(value, m_DefaultFont, Brushes.Black, rectF, sf);
                 }
 
-                return pointX + lineHeight + 5;
+                return pointX + stringWidth + 5;
             }
             catch (Exception ex)
             {
@@ -1453,6 +510,1159 @@ namespace DrectSoft.Core.IEMMainPage
 
         #endregion
 
+        #region 【打印第一页】
+
+        void PrintFirstPage(Graphics g)
+        {
+            try
+            {
+                float pointY;
+                pointY = DrawTitle(g);
+                pointY = PrintPatientBaseInfo(g, pointY + 15);
+                pointY = PrintOutHospitalDiaglosis(g, pointY + 18);
+                pointY = PrintFristPageOther(g, pointY);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        #region 绘制标题
+        /// <summary>
+        /// 绘制标题
+        /// </summary>
+        /// <param name="g"></param>
+        private float DrawTitle(Graphics g)
+        {
+            try
+            {
+                StringFormat sf = new StringFormat();
+                sf.Alignment = StringAlignment.Center;
+                sf.LineAlignment = StringAlignment.Center;
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("Title")[0];
+                XmlNode xmlNodeChildren = null;
+                string Name = null;
+                float Width = 0f;
+                float pointX = m_PointX;
+
+                //医院名称
+                xmlNodeChildren = xmlNode.SelectNodes("Hospital")[0];
+                m_PointYTitle = float.Parse(xmlNodeChildren.Attributes["fontsize"].Value);
+                Font font = GetFont(xmlNodeChildren);
+                Name = xmlNodeChildren.InnerText + m_IemMainPageEntity.IemBasicInfo.HospitalName;
+                float lineHight = TextRenderer.MeasureText("高", font).Height;
+                g.DrawString(Name, font, Brushes.Black, new RectangleF(0f, m_PointYTitle, m_PageWidth, lineHight + 10), sf);
+
+                //住 院 病 案 首 页
+                xmlNodeChildren = xmlNode.SelectNodes("HomePage")[0];
+                font = GetFont(xmlNodeChildren);
+                Name = xmlNodeChildren.InnerText;
+                g.DrawString(Name, font, Brushes.Black, new RectangleF(0f, m_PointYTitle + lineHight + float.Parse(xmlNodeChildren.Attributes["top"].Value), m_PageWidth, TextRenderer.MeasureText("高", font).Height + 10), sf);
+
+                //健康卡号
+                xmlNodeChildren = xmlNode.SelectNodes("CardNumber")[0];
+                Width = float.Parse(xmlNodeChildren.Attributes["Width"].Value);
+                Name = xmlNodeChildren.InnerText + m_IemMainPageEntity.IemBasicInfo.CardNumber;//todo
+                g.DrawString(Name, m_DefaultFont, Brushes.Black, new PointF(pointX, m_PointY));
+                pointX += Width;
+
+                //入院次数
+                xmlNodeChildren = xmlNode.SelectNodes("inTime")[0];
+                Width = float.Parse(xmlNodeChildren.Attributes["Width"].Value);
+                string inTime = m_IemMainPageEntity.IemBasicInfo.InCount;//todo
+                g.DrawString("第 " + inTime + " 次住院", m_DefaultFont, Brushes.Black, new PointF(pointX, m_PointY));
+                pointX += Width;
+
+                //病案号
+                xmlNodeChildren = xmlNode.SelectNodes("recordNo")[0];
+                Width = float.Parse(xmlNodeChildren.Attributes["Width"].Value);
+                string recordNo = string.Empty;
+                if (m_IemMainPageEntity.IemBasicInfo.IsBaby == "1")//是婴儿
+                {
+                    recordNo = m_IemMainPageEntity.IemBasicInfo.MotherPatOfHis;
+                }
+                else
+                {
+                    recordNo = m_IemMainPageEntity.IemBasicInfo.NOOFRECORD;
+                }
+                g.DrawString("病案号:" + recordNo, m_DefaultFont, Brushes.Black, new PointF(pointX, m_PointY));
+                pointX += Width;
+
+                //医疗付款方式
+                xmlNodeChildren = xmlNode.SelectNodes("Pay")[0];
+                Name = xmlNodeChildren.InnerText;
+                g.DrawString(Name, m_DefaultFont, Brushes.Black, new PointF(float.Parse(xmlNodeChildren.Attributes["PointX"].Value), float.Parse(xmlNodeChildren.Attributes["PointY"].Value)));
+                string payType = m_IemMainPageEntity.IemBasicInfo.PayID; //todo
+                DrawCheckBox(g, float.Parse(xmlNodeChildren.Attributes["PointX"].Value) + TextRenderer.MeasureText(Name, m_DefaultFont).Width, float.Parse(xmlNodeChildren.Attributes["PointY"].Value), payType, TextRenderer.MeasureText("高", m_DefaultFont).Height);
+                //组织机构代码
+                if (!string.IsNullOrEmpty(m_OrganizationCode))
+                {
+                    xmlNodeChildren = xmlNode.SelectNodes("OrganizationCode")[0];
+                    font = GetFont(xmlNodeChildren);
+                    Name = xmlNodeChildren.InnerText;
+                    g.DrawString(Name, m_DefaultFont, Brushes.Black, new PointF(float.Parse(xmlNodeChildren.Attributes["PointX"].Value), float.Parse(xmlNodeChildren.Attributes["PointY"].Value)));
+                    g.DrawString(m_OrganizationCode, font, Brushes.Black, new PointF(float.Parse(xmlNodeChildren.Attributes["PointX"].Value) + 90, float.Parse(xmlNodeChildren.Attributes["PointY"].Value) - 4));
+
+                }
+
+                Pen pen = new Pen(Brushes.Black, 2);
+                g.DrawLine(pen, new PointF(m_PointX, m_PointY + 20), new PointF(m_PointX + 770, m_PointY + 20));
+
+                return m_PointY + 21;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        #endregion
+
+        #region 绘制病人基本信息
+        /// <summary>
+        /// 绘制病人基本信息
+        /// </summary>
+        /// <param name="g"></param>
+        private float PrintPatientBaseInfo(Graphics g, float pointY)
+        {
+            try
+            {
+
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("PatientBaseInfo")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
+                Font font = m_DefaultFont;
+                int lineHeight = TextRenderer.MeasureText("高", font).Height;
+                int charWidth = TextRenderer.MeasureText("宽", font).Height;
+                float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
+
+                float pointStartX = m_PointX + 12;
+                float pointX = pointStartX;
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    Type t = m_IemMainPageEntity.IemBasicInfo.GetType();
+                    PropertyInfo info = t.GetProperty(Node.Name);
+                    string Value = info.GetValue(m_IemMainPageEntity.IemBasicInfo, null).ToString();
+                    int intSpace = int.Parse(Node.Attributes["space"].Value);
+                    string unit = Node.Attributes["unit"].Value;
+                    switch (Node.Attributes["type"].Value)
+                    {
+                        case "UnderLine":
+                            if (Value.Trim() == "")
+                            {
+                                Value = "---";
+                            }
+                            pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, Node.InnerText, Value, int.Parse(Node.Attributes["underLineWidth"].Value), unit) + intSpace;
+                            break;
+                        case "CheckBox":
+                            g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY));
+                            pointX = pointX + TextRenderer.MeasureText(Node.InnerText, font).Width + 5;
+                            pointX = DrawCheckBox(g, pointX, pointY, Value, lineHeight);
+                            pointX = DrawSelectItem(g, pointX, pointY, Node.Attributes["SelectItem"].Value) + intSpace;
+                            break;
+                        default:
+                            break;
+                    }
+                    if (Node.Attributes["nextLine"].Value == "1")
+                    {
+                        pointY += interval;
+                        pointX = pointStartX;
+                    }
+
+                }
+                #region 1
+                //姓名
+                //string patientName = m_IemMainPageEntity.IemBasicInfo.Name;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "姓名", patientName, 90, "") + 25;
+
+                //性别
+                //g.DrawString("性别", font, Brushes.Black, new PointF(pointX, pointY));
+                //string gender = m_IemMainPageEntity.IemBasicInfo.SexID; //todo
+                //pointX = pointX + TextRenderer.MeasureText("年龄", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, gender, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.男  2.女") + 20;
+
+                //出生
+                //string birth = m_IemMainPageEntity.IemBasicInfo.BirthPrint;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出生日期", birth, 120, "") + 25;
+
+                //年龄
+                //string age = m_IemMainPageEntity.IemBasicInfo.Age;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "年龄", age, 65, "") + 25;
+
+                //国籍
+                //string nationality = m_IemMainPageEntity.IemBasicInfo.NationalityName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "国籍", nationality, 65, "") + 15;
+
+                #endregion
+
+                #region 2
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////（年龄不足1周岁的） 年龄
+                //string babyMonth = m_IemMainPageEntity.IemBasicInfo.MonthAge;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "（年龄不足1周岁的） 年龄", babyMonth, 60, "月") + 50;
+
+                //新生儿出生体重
+                //string babyBirthWeight = m_IemMainPageEntity.IemBasicInfo.Weight;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "新生儿出生体重", babyBirthWeight, 60, "克") + 50;
+
+                //新生儿入院体重
+                //string babyInHospitalWeight = m_IemMainPageEntity.IemBasicInfo.InWeight;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "新生儿入院体重", babyInHospitalWeight, 60, "克") + 30;
+                #endregion
+
+                #region 3
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                //出生地
+                //string birthPlaceProvince = m_IemMainPageEntity.IemBasicInfo.CSD_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出生地", birthPlaceProvince, 250, "");
+                //string birthPlaceProvince = m_IemMainPageEntity.IemBasicInfo.CSD_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出生地", birthPlaceProvince, 65, "省(区、市)");
+                //string birthPlaceCity = m_IemMainPageEntity.IemBasicInfo.CSD_CityName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", birthPlaceCity, 65, "市");
+                //string birthPlaceCounty = m_IemMainPageEntity.IemBasicInfo.CSD_DistrictName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", birthPlaceCounty, 65, "县") + 10;
+
+                //籍贯
+                //string jiGuanProvince = m_IemMainPageEntity.IemBasicInfo.JG_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "籍贯", jiGuanProvince, 250, "");
+                //string jiGuanProvince = m_IemMainPageEntity.IemBasicInfo.JG_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "籍贯", jiGuanProvince, 65, "省(区、市)");
+                //string jiGuanCity = m_IemMainPageEntity.IemBasicInfo.JG_CityName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", jiGuanCity, 65, "市") + 15;
+                //民族
+                //string mingZu = m_IemMainPageEntity.IemBasicInfo.NationName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "民族", mingZu, 65, "") + 10;
+                #endregion
+
+                #region 4
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                //身份证号
+                //string patientID = m_IemMainPageEntity.IemBasicInfo.IDNO;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "身份证号", patientID, 200, "") + 10;
+
+                //职业
+                //string jobName = m_IemMainPageEntity.IemBasicInfo.JobName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "职业", jobName, 120, "") + 10;
+
+                //婚姻
+                //g.DrawString("婚姻", font, Brushes.Black, new PointF(pointX, pointY));
+                //string marriage = m_IemMainPageEntity.IemBasicInfo.Marital; //todo
+                //pointX = pointX + TextRenderer.MeasureText("婚姻", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, marriage, lineHeight);
+                ////pointX = DrawSelectItem(g, pointX, pointY, "1.未婚 2.已婚 3.丧偶 4.离婚 9.其他") + 10;
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.未婚 2.已婚 3.丧偶 4.离婚 9.其他") + 10;
+
+                #endregion
+
+                #region 5
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                //现住址
+                #region 0604修改
+                //string addressProvince = m_IemMainPageEntity.IemBasicInfo.XZZ_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "现在住址", addressProvince, 270, "");
+                //string addressProvince = m_IemMainPageEntity.IemBasicInfo.XZZ_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "现在住址", addressProvince, 70, "省(区、市)");
+                //string addressCity = m_IemMainPageEntity.IemBasicInfo.XZZ_CityName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", addressCity, 70, "市");
+                //string addressCounty = m_IemMainPageEntity.IemBasicInfo.XZZ_DistrictName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", addressCounty, 70, "县") + 18;
+                #endregion
+                //电话
+                //string addressTelNumber = m_IemMainPageEntity.IemBasicInfo.XZZ_TEL;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "电话", addressTelNumber, 120, "") + 28;
+
+                //编码
+                //string addressPostCode = m_IemMainPageEntity.IemBasicInfo.XZZ_Post;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "邮编", addressPostCode, 120, "") + 10;
+
+                #endregion
+
+                #region 6
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                //户口地址
+                #region 0604修改
+                //string hukouProvince = m_IemMainPageEntity.IemBasicInfo.HKDZ_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "户口地址", hukouProvince, 270, "");
+                //string hukouProvince = m_IemMainPageEntity.IemBasicInfo.HKDZ_ProvinceName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "户口地址", hukouProvince, 70, "省(区、市)");
+                //string hukouCity = m_IemMainPageEntity.IemBasicInfo.HKDZ_CityName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", hukouCity, 70, "市");
+                //string hukouCounty = m_IemMainPageEntity.IemBasicInfo.HKDZ_DistrictName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX - 5, pointY, lineHeight, charWidth, "", hukouCounty, 70, "县") + 203;
+                #endregion
+                //邮编
+                //string hukouPostCode = m_IemMainPageEntity.IemBasicInfo.HKDZ_Post;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "邮编", hukouPostCode, 120, "") + 10;
+
+                #endregion
+
+                #region 7
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////工作单位及地址
+                //string jobAddress = m_IemMainPageEntity.IemBasicInfo.OfficePlace;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "工作单位及地址", jobAddress, 255, "") + 16;
+
+                ////单位电话
+                //string jobTelNumber = m_IemMainPageEntity.IemBasicInfo.OfficeTEL;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "单位电话", jobTelNumber, 120, "") + 28;
+
+                ////邮编
+                //string jobPostCode = m_IemMainPageEntity.IemBasicInfo.OfficePost;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "邮编", jobPostCode, 120, "") + 10;
+
+                #endregion
+
+                #region 8
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////联系人姓名
+                //string contactName = m_IemMainPageEntity.IemBasicInfo.ContactPerson;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "联系人姓名", contactName, 80, "") + 15;
+
+                ////关系
+                //string relation = m_IemMainPageEntity.IemBasicInfo.RelationshipName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "关系", relation, 80, "") + 15;
+
+                ////地址
+                //string contactAddress = m_IemMainPageEntity.IemBasicInfo.ContactAddress;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "地址", contactAddress, 233, "") + 15;
+
+                ////电话
+                //string contactTel = m_IemMainPageEntity.IemBasicInfo.ContactTEL;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "电话", contactTel, 120, "") + 10;
+
+                #endregion
+
+                #region 9
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////入院途径
+                //g.DrawString("入院途径", font, Brushes.Black, new PointF(pointX, pointY));
+                //string inType = m_IemMainPageEntity.IemBasicInfo.InHosType; //todo
+                //pointX = pointX + TextRenderer.MeasureText("入院途径", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, inType, lineHeight) + 10;
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.急诊   2.门诊   3.其他医疗机构转入   9.其他") + 20;
+                #endregion
+
+                #region 10
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////入院时间
+                //string inTime = m_IemMainPageEntity.IemBasicInfo.AdmitDatePrint;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院时间", inTime, 150, "") + 20;
+
+                ////入院科别
+                //string inSection = m_IemMainPageEntity.IemBasicInfo.AdmitDeptName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院科别", inSection, 115, "") + 20;
+
+                ////病区
+                //string inNurseWard = m_IemMainPageEntity.IemBasicInfo.AdmitWardName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "病房", inNurseWard, 71, "") + 20;
+
+                ////转科科别
+                //string shiftSection = m_IemMainPageEntity.IemBasicInfo.Trans_AdmitDeptName;//todo
+                //if (shiftSection.Trim() == "")
+                //{
+                //    shiftSection = "无";
+                //}
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "转科科别", shiftSection, 120, "") + 10;
+
+                #endregion
+
+                #region 11
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////出院日期
+                //string outTime = m_IemMainPageEntity.IemBasicInfo.OutWardDatePrint;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出院日期", outTime, 150, "") + 20;
+
+                ////出院科别
+                //string outSection = m_IemMainPageEntity.IemBasicInfo.OutHosDeptName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "出院科别", outSection, 115, "") + 20;
+
+                ////病区
+                //string outNurseWard = m_IemMainPageEntity.IemBasicInfo.OutHosWardName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "病房", outNurseWard, 71, "") + 20;
+
+                ////实际住院天数
+                //string InDay = m_IemMainPageEntity.IemBasicInfo.ActualDays;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "实际住院", InDay, 100, "天") + 10;
+
+                #endregion
+
+                #region 12
+                //pointY += interval;
+                //pointX = pointStartX;
+
+                ////门（急）诊诊断（西医诊断）
+                //string menJiZhenDiaglosisWest = m_IemMainPageEntity.IemBasicInfo.MZXYZD_NAME;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "门（急）诊诊断", menJiZhenDiaglosisWest, 200, "") + 25;
+
+                ////疾病编码
+                //string deseaseCodeWest = m_IemMainPageEntity.IemBasicInfo.MZXYZD_CODE;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "疾病编码", deseaseCodeWest, 120, "") + 10;
+
+                ////入院时情况
+                //g.DrawString("入院时情况", font, Brushes.Black, new PointF(pointX, pointY));
+                //string inState = "8"; //todo
+                //pointX = pointX + TextRenderer.MeasureText("入院时情况", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, inState, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.危  2.急  3.一般") + 10;
+                #endregion
+
+
+
+
+                return pointY + 2;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region 出院诊断
+        /// <summary>
+        /// 出院诊断
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="pointY"></param>
+        /// <returns></returns>
+        private float PrintOutHospitalDiaglosis(Graphics g, float pointY)
+        {
+            try
+            {
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("OutHospitalDiaglosis")[0];
+                XmlNodeList xmlNodes = xmlNode.SelectNodes("Head")[0].ChildNodes;
+                //表格的行高
+                string[] ColumnWidthAll = xmlNode.Attributes["ColumnWidth"].Value.Split(';');
+
+                float rowHeight = float.Parse(xmlNode.Attributes["rowheight"].Value);
+                float firstColumnWidth = float.Parse(ColumnWidthAll[1].Split(',')[0]);//第一列宽度
+                float secondColumnWidth = float.Parse(ColumnWidthAll[1].Split(',')[1]);//第二列宽度
+                float thirdColumnWidth = float.Parse(ColumnWidthAll[1].Split(',')[2]);//第三列宽度
+                float fourthColumnWidth = float.Parse(ColumnWidthAll[1].Split(',')[3]);//第四列宽度
+                float titleRowHeight = float.Parse(xmlNode.Attributes["titleRowHeight"].Value);
+
+                Font font = m_SmallFont;
+                float offsetX = 12f;
+                float pointX = m_PointX;
+                #region TableHead
+
+                //绘制表头
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    float ColumnWidth = float.Parse(Node.Attributes["Width"].Value);
+                    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)ColumnWidth, (int)titleRowHeight)));
+                    g.DrawString(Node.InnerText, m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, ColumnWidth, titleRowHeight), sf);
+                    if (Node == xmlNode.SelectNodes("Head")[0].FirstChild)
+                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + (int)titleRowHeight));
+                    if (Node == xmlNode.SelectNodes("Head")[0].LastChild)
+                        g.DrawLine(Pens.White, new Point((int)pointX + (int)ColumnWidth, (int)pointY), new Point((int)pointX + (int)ColumnWidth, (int)pointY + (int)titleRowHeight));
+                    pointX += ColumnWidth;
+                }
+                pointX = m_PointX;
+                pointY = pointY + titleRowHeight;
+
+                #region 20190616注释
+                //第一列
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)firstColumnWidth, (int)titleRowHeight)));
+                //g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + (int)titleRowHeight));
+                //g.DrawString("出院诊断", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, firstColumnWidth, titleRowHeight), sf);
+
+                //pointX += firstColumnWidth;
+
+                //第二列
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)secondColumnWidth, (int)titleRowHeight)));
+                //g.DrawString("疾病编码", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, secondColumnWidth, titleRowHeight), sf);
+
+                //pointX += secondColumnWidth;
+
+                //第三列
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)thirdColumnWidth, (int)titleRowHeight)));
+                //g.DrawString("入院病情", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY + 2, thirdColumnWidth, titleRowHeight), sf);
+
+                //pointX += thirdColumnWidth;
+
+                //第四列
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)firstColumnWidth, (int)titleRowHeight)));
+                //g.DrawString("出院诊断", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, firstColumnWidth, titleRowHeight), sf);
+
+                //pointX += firstColumnWidth;
+
+                //第五列
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)secondColumnWidth, (int)titleRowHeight)));
+                //g.DrawString("疾病编码", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, secondColumnWidth, titleRowHeight), sf);
+
+                //pointX += secondColumnWidth;
+
+                //第六列
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointY), new Size((int)thirdColumnWidth, (int)titleRowHeight)));
+                //g.DrawLine(Pens.White, new Point((int)pointX + (int)thirdColumnWidth, (int)pointY), new Point((int)pointX + (int)thirdColumnWidth, (int)pointY + (int)titleRowHeight));
+                //g.DrawString("入院病情", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY + 2, thirdColumnWidth, titleRowHeight), sf);
+
+                //pointX = m_PointX;
+                //pointY = pointY + titleRowHeight;
+                #endregion
+
+                #endregion
+
+                #region TableBody
+
+                float pointYTableBodyStart = pointY;
+                sf.Alignment = StringAlignment.Near;
+                sf.LineAlignment = StringAlignment.Center;
+
+                //西医出院诊断
+                DataTable outDiagTableWest = m_IemMainPageEntity.IemDiagInfo.OutDiagTable.Copy();
+                //中医出院诊断
+                DataTable outDiagTableChinese = m_IemMainPageEntity.IemDiagInfo.OutDiagTable.Copy();
+
+
+
+                for (int i = outDiagTableWest.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (outDiagTableWest.Rows[i]["Type"].ToString() != "1")
+                    {
+                        outDiagTableWest.Rows.RemoveAt(i);
+                    }
+                }
+                for (int i = outDiagTableChinese.Rows.Count - 1; i >= 0; i--)
+                {
+                    if (outDiagTableChinese.Rows[i]["Type"].ToString() != "2")
+                    {
+                        outDiagTableChinese.Rows.RemoveAt(i);
+                    }
+                }
+                outDiagTableWest.AcceptChanges();
+                outDiagTableChinese.AcceptChanges();
+
+                xmlNodes = xmlNode.SelectNodes("Body")[0].ChildNodes;
+
+                DataTable outDiagTable = outDiagTableWest;
+
+                string emrSetting = BasicSettings.GetStringConfig("isCnMaiPage");//取得配置表中的配置信息
+
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    if (Node.Name == "rightDiaglosis")
+                    {
+                        if (emrSetting == "1")
+                            outDiagTable = outDiagTableChinese;
+                        int MainColumn = int.Parse(Node.Attributes["MainColumn"].Value);
+                        int OtherColumn = int.Parse(Node.Attributes["OtherColumn"].Value);
+                        string[] NameArray = Node.InnerText.Split(';');
+                        for (int i = 0; i < MainColumn + OtherColumn; i++)
+                        {
+                            if (i < MainColumn)
+                            {
+                                if (i == 0)
+                                {
+                                    //【出院诊断 主要诊断 主病】
+                                    g.DrawString(NameArray[0], m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                                    //主要诊断value
+                                    if (outDiagTable.Rows.Count > i)//todo
+                                    {
+                                        int stringWidth = TextRenderer.MeasureText(NameArray[0], m_DefaultFont).Width;
+                                        DrawStringInCell(g, outDiagTable.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                                            pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                                    }
+                                }
+                                if (i > 0 && outDiagTable.Rows.Count > i)//todo
+                                {
+                                    DrawStringInCell(g, outDiagTable.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                                        pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                                }
+                            }
+                            if (i == MainColumn)
+                            {
+                                //【出院诊断 其他诊断 主证】
+                                g.DrawString(NameArray[1], m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                                //主要诊断value
+                                if (outDiagTable.Rows.Count > i)//todo
+                                {
+                                    int stringWidth = TextRenderer.MeasureText(NameArray[1], m_DefaultFont).Width;
+                                    DrawStringInCell(g, outDiagTable.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                                        pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                                }
+                            }
+                            //左列剩余其他诊断 主证value
+                            if (i > MainColumn && outDiagTable.Rows.Count > i)//todo
+                            {
+                                DrawStringInCell(g, outDiagTable.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                                    pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                            }
+                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)rowHeight)));
+                            g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                            pointX += firstColumnWidth;
+
+
+                            //疾病编码
+                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)rowHeight)));
+                            //疾病编码value
+                            if (outDiagTable.Rows.Count > i)
+                                DrawStringInCell2(g, outDiagTable.Rows[i]["Diagnosis_Code"].ToString(), pointX,
+                                    pointYTableBodyStart + 2, (int)secondColumnWidth, (int)rowHeight, m_DefaultFont);
+                            pointX += secondColumnWidth;
+
+
+                            //入院病情
+                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                            //入院病情value
+                            if (outDiagTable.Rows.Count > i)
+                                DrawStringInCell2(g, outDiagTable.Rows[i]["Status_Id"].ToString(), pointX,
+                                    pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)rowHeight, m_DefaultFont);
+
+                            if (int.Parse(ColumnWidthAll[0]) == 4)
+                            {
+                                pointX += thirdColumnWidth;
+                                //出院情况
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                                //出院情况value
+                                if (outDiagTable.Rows.Count > i)
+                                    DrawStringInCell2(g, outDiagTable.Rows[i]["OutStatus_Id"].ToString(), pointX,
+                                        pointYTableBodyStart + 2, (int)fourthColumnWidth, (int)rowHeight, m_DefaultFont);
+                            }
+                            pointX = m_PointX;
+                            pointYTableBodyStart += rowHeight;
+                        }
+                        //【入院病情说明】
+                        if (!string.IsNullOrEmpty(Node.Attributes["inStatus"].Value))
+                        {
+                            g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
+                            new Size((int)firstColumnWidth + (int)secondColumnWidth + (int)thirdColumnWidth + (int)fourthColumnWidth, (int)rowHeight)));
+                            g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                            g.DrawString(Node.Attributes["inStatus"].Value, m_DefaultFont, Brushes.Black,
+                                new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth + fourthColumnWidth, rowHeight), sf);
+                        }
+                        pointX = m_PointX + firstColumnWidth + secondColumnWidth + thirdColumnWidth + fourthColumnWidth;
+                        pointYTableBodyStart = pointY;
+                    }
+                    if (Node.Name == "LeftDiaglosis")
+                    {
+                        if (emrSetting == "1")
+                            outDiagTable = outDiagTableWest;
+                        int rightColumn = int.Parse(Node.Attributes["rightColumn"].Value);
+                        int leftColumn = int.Parse(Node.Attributes["leftColumn"].Value);
+                        int MainColumn = int.Parse(Node.Attributes["MainColumn"].Value);
+                        string[] NameArray = Node.InnerText.Split(';');
+                        int count = 0;
+                        for (int i = rightColumn; i < rightColumn + leftColumn; i++)
+                        {
+                            count = i;
+                            if (emrSetting == "1")
+                                count = i - rightColumn;
+                            if (i < rightColumn + MainColumn)
+                            {
+                                if (i == rightColumn)
+                                {
+                                    //【出院诊断 其他诊断 || 主要诊断】
+                                    g.DrawString(NameArray[0], m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                                    //主要诊断value
+                                    if (outDiagTable.Rows.Count > count)//todo
+                                    {
+                                        int stringWidth = TextRenderer.MeasureText(NameArray[0], m_DefaultFont).Width;
+                                        DrawStringInCell(g, outDiagTable.Rows[count]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                                            pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                                    }
+                                }
+                                if (i > rightColumn && outDiagTable.Rows.Count > count)//todo
+                                {
+                                    DrawStringInCell(g, outDiagTable.Rows[count]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                                        pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                                }
+                            }
+                            if (i == rightColumn + MainColumn)
+                            {
+                                //【出院诊断 其他诊断 主证】
+                                g.DrawString(NameArray[1], m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                                //主要诊断value
+                                if (outDiagTable.Rows.Count > count)//todo
+                                {
+                                    int stringWidth = TextRenderer.MeasureText(NameArray[1], m_DefaultFont).Width;
+                                    DrawStringInCell(g, outDiagTable.Rows[count]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                                        pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                                }
+                            }
+                            if (!string.IsNullOrEmpty(Node.Attributes["inStatus"].Value) && i == rightColumn + leftColumn - 1)
+                            {
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
+                                    new Size((int)firstColumnWidth + (int)secondColumnWidth + (int)thirdColumnWidth + (int)fourthColumnWidth, (int)rowHeight)));
+                                //g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                                g.DrawString(Node.Attributes["inStatus"].Value, m_DefaultFont, Brushes.Black,
+                                    new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth + fourthColumnWidth, rowHeight), sf);
+                                pointX += firstColumnWidth + secondColumnWidth;
+                            }
+                            else
+                            {
+                                //右侧剩余其他诊断value
+                                if (i > rightColumn + MainColumn && outDiagTable.Rows.Count > count)//todo
+                                {
+                                    DrawStringInCell(g, outDiagTable.Rows[count]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                                        pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                                }
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)rowHeight)));
+                                pointX += firstColumnWidth;
+
+
+                                //疾病编码
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)rowHeight)));
+                                //疾病编码value
+                                if (outDiagTable.Rows.Count > count)
+                                    DrawStringInCell2(g, outDiagTable.Rows[count]["Diagnosis_Code"].ToString(), pointX,
+                                        pointYTableBodyStart + 2, (int)secondColumnWidth, (int)rowHeight, m_DefaultFont);
+                                pointX += secondColumnWidth;
+
+
+                                //入院病情
+                                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                                //入院病情value
+                                if (outDiagTable.Rows.Count > count)
+                                    DrawStringInCell2(g, outDiagTable.Rows[count]["Status_Id"].ToString(), pointX,
+                                        pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)rowHeight, m_DefaultFont);
+
+                                pointX += thirdColumnWidth;
+                                if (int.Parse(ColumnWidthAll[0]) == 4)
+                                {
+                                    //出院情况
+                                    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                                    //出院情况value
+                                    if (outDiagTable.Rows.Count > count)
+                                        DrawStringInCell2(g, outDiagTable.Rows[count]["OutStatus_Id"].ToString(), pointX,
+                                            pointYTableBodyStart + 2, (int)fourthColumnWidth, (int)rowHeight, m_DefaultFont);
+                                }
+
+                            }
+
+                            g.DrawLine(Pens.White, new Point((int)pointX + (int)fourthColumnWidth, (int)pointYTableBodyStart), new Point((int)pointX + (int)fourthColumnWidth, (int)pointYTableBodyStart + (int)rowHeight));
+                            pointX = m_PointX + firstColumnWidth + secondColumnWidth + thirdColumnWidth + fourthColumnWidth;
+                            pointYTableBodyStart += rowHeight;
+                        }
+                    }
+                }
+
+                #region 左侧诊断
+                //for (int i = 0; i < 11; i++)
+                //{
+                //    if (i == 0)
+                //    {
+                //        //【出院诊断 主要诊断】
+                //        g.DrawString("主要诊断：", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                //        //主要诊断value
+                //        if (outDiagTableWest.Rows.Count > i)//todo
+                //        {
+                //            int stringWidth = TextRenderer.MeasureText("主要诊断：", m_DefaultFont).Width;
+                //            DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                //                pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                //        }
+                //    }
+                //    if (i == 1)
+                //    {
+                //        //【出院诊断 其他诊断】
+                //        g.DrawString("其他诊断：", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                //        //主要诊断value
+                //        if (outDiagTableWest.Rows.Count > i)//todo
+                //        {
+                //            int stringWidth = TextRenderer.MeasureText("其他诊断：", m_DefaultFont).Width;
+                //            DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                //                pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                //        }
+                //    }
+                //    //左列剩余其他诊断value
+                //    if (i > 1 && outDiagTableWest.Rows.Count > i)//todo
+                //    {
+                //        DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                //            pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                //    }
+                //    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)rowHeight)));
+                //    g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                //    pointX += firstColumnWidth;
+
+
+                //    //疾病编码
+                //    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)rowHeight)));
+                //    //疾病编码value
+                //    if (outDiagTableWest.Rows.Count > i)
+                //        DrawStringInCell2(g, outDiagTableWest.Rows[i]["Diagnosis_Code"].ToString(), pointX,
+                //            pointYTableBodyStart + 2, (int)secondColumnWidth, (int)rowHeight, m_DefaultFont);
+                //    pointX += secondColumnWidth;
+
+
+                //    //入院病情
+                //    g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                //    //入院病情value
+                //    if (outDiagTableWest.Rows.Count > i)
+                //        DrawStringInCell2(g, outDiagTableWest.Rows[i]["Status_Id"].ToString(), pointX,
+                //            pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)rowHeight, m_DefaultFont);
+
+
+                //    pointX = m_PointX;
+                //    pointYTableBodyStart += rowHeight;
+                //}
+
+                //【入院病情说明】
+                //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart),
+                //    new Size((int)firstColumnWidth + (int)secondColumnWidth + (int)thirdColumnWidth, (int)rowHeight)));
+                //g.DrawLine(Pens.White, new Point((int)pointX, (int)pointYTableBodyStart), new Point((int)pointX, (int)pointYTableBodyStart + (int)rowHeight));
+                //g.DrawString("入院病情: 1.有  2.临床未确定  3.情况不明  4.无 ", m_DefaultFont, Brushes.Black,
+                //    new RectangleF(pointX + offsetX, pointYTableBodyStart, firstColumnWidth + secondColumnWidth + thirdColumnWidth, rowHeight), sf);
+
+                //pointX = m_PointX + firstColumnWidth + secondColumnWidth + thirdColumnWidth;
+                //pointYTableBodyStart = pointY;
+                #endregion
+
+                #region 右侧诊断
+                for (int i = 11; i < 23; i++)
+                {
+                    //if (i == 11)
+                    //{
+                    //    //【出院诊断 其他诊断】
+                    //    g.DrawString("其他诊断：", m_DefaultFont, Brushes.Black, new RectangleF(pointX + offsetX, pointYTableBodyStart + 2, firstColumnWidth, rowHeight), sf);
+                    //    //主要诊断value
+                    //    if (outDiagTableWest.Rows.Count > i)//todo
+                    //    {
+                    //        int stringWidth = TextRenderer.MeasureText("其他诊断：", m_DefaultFont).Width;
+                    //        DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX + stringWidth,
+                    //            pointYTableBodyStart + 2, (int)(firstColumnWidth - (offsetX + stringWidth)), (int)rowHeight, m_DefaultFont);
+                    //    }
+                    //}
+                    ////右侧剩余其他诊断value
+                    //if (i > 11 && outDiagTableWest.Rows.Count > i)//todo
+                    //{
+                    //    DrawStringInCell(g, outDiagTableWest.Rows[i]["Diagnosis_Name"].ToString(), pointX + offsetX,
+                    //        pointYTableBodyStart + 2, (int)(firstColumnWidth - offsetX), (int)rowHeight, m_DefaultFont);
+                    //}
+                    //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)firstColumnWidth, (int)rowHeight)));
+                    //pointX += firstColumnWidth;
+
+
+                    ////疾病编码
+                    //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)secondColumnWidth, (int)rowHeight)));
+                    ////疾病编码value
+                    //if (outDiagTableWest.Rows.Count > i)
+                    //    DrawStringInCell2(g, outDiagTableWest.Rows[i]["Diagnosis_Code"].ToString(), pointX,
+                    //        pointYTableBodyStart + 2, (int)secondColumnWidth, (int)rowHeight, m_DefaultFont);
+                    //pointX += secondColumnWidth;
+
+
+                    ////入院病情
+                    //g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)pointX, (int)pointYTableBodyStart), new Size((int)thirdColumnWidth, (int)rowHeight)));
+                    ////入院病情value
+                    //if (outDiagTableWest.Rows.Count > i)
+                    //    DrawStringInCell2(g, outDiagTableWest.Rows[i]["Status_Id"].ToString(), pointX,
+                    //        pointYTableBodyStart + 2, (int)thirdColumnWidth, (int)rowHeight, m_DefaultFont);
+
+                    //g.DrawLine(Pens.White, new Point((int)pointX + (int)thirdColumnWidth, (int)pointYTableBodyStart), new Point((int)pointX + (int)thirdColumnWidth, (int)pointYTableBodyStart + (int)rowHeight));
+                    //pointX = m_PointX + firstColumnWidth + secondColumnWidth + thirdColumnWidth;
+                    //pointYTableBodyStart += rowHeight;
+
+                }
+                #endregion
+                #endregion
+
+                return pointYTableBodyStart;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region  第一页中出院诊断下面的部分
+        /// <summary>
+        /// 第一页中出院诊断下面的部分
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="pointY"></param>
+        /// <returns></returns>
+        private float PrintFristPageOther(Graphics g, float pointY)
+        {
+            try
+            {
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("FristPageOther")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
+                Font font = m_DefaultFont;
+                int lineHeight = TextRenderer.MeasureText("高", font).Height;
+                int charWidth = TextRenderer.MeasureText("宽", font).Height;
+                float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
+                int xOffset = 12;
+
+                //行高
+                //float rowHeight = 26f;
+                //int lineWidth = 770;
+                float pointStartX = m_PointX;
+
+                sf.Alignment = StringAlignment.Center;
+                sf.LineAlignment = StringAlignment.Center;
+
+                float pointX = pointStartX + xOffset;
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    Type t = m_IemMainPageEntity.IemDiagInfo.GetType();
+                    PropertyInfo info = t.GetProperty(Node.Name);
+                    string Value = info.GetValue(m_IemMainPageEntity.IemDiagInfo, null).ToString();
+                    int intSpace = int.Parse(Node.Attributes["space"].Value);
+                    string unit = Node.Attributes["unit"].Value;
+
+                    switch (Node.Attributes["type"].Value)
+                    {
+                        case "UnderLine":
+                            if (Value.Trim() == "")
+                            {
+                                Value = "---";
+                            }
+                            pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (interval - lineHeight) / 2, lineHeight, charWidth, Node.InnerText, Value, int.Parse(Node.Attributes["underLineWidth"].Value), unit) + intSpace;
+                            break;
+                        case "CheckBox":
+                            g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY + (interval - lineHeight) / 2));
+                            pointX = pointX + TextRenderer.MeasureText(Node.InnerText, font).Width + 5;
+                            pointX = DrawCheckBox(g, pointX, pointY + (interval - lineHeight) / 2, Value, lineHeight);
+                            pointX = DrawSelectItem(g, pointX, pointY + (interval - lineHeight) / 2, Node.Attributes["SelectItem"].Value) + intSpace;
+
+                            break;
+                        default:
+                            break;
+                    }
+                    if (Node.Attributes["nextLine"].Value == "1")
+                    {
+                        pointY += interval;
+                        pointX = pointStartX;
+                        g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + 770, pointY));
+                        pointX += xOffset;
+                    }
+                }
+
+
+                #region 1
+                //float pointX = pointStartX + xOffset;
+                ////损伤、中毒的外部原因
+                //string outsideReason = m_IemMainPageEntity.IemDiagInfo.Hurt_Toxicosis_Element;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "损伤、中毒的外部原因", outsideReason, 385, "") + 30;
+
+                //疾病编码
+                //string outsideReasondeseaseCode = m_IemMainPageEntity.IemDiagInfo.Hurt_Toxicosis_ElementID;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "疾病编码", outsideReasondeseaseCode, 120, "");
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                //g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+                #endregion
+
+                #region 2
+                //pointX += xOffset;
+
+                //病理诊断
+                //string pathologyDiagnisis = m_IemMainPageEntity.IemDiagInfo.Pathology_Diagnosis_Name;//todo
+                //string path1 = string.Empty;
+                //string path2 = string.Empty;
+                //if (pathologyDiagnisis.Length > 36)
+                //{
+                //    path1 = pathologyDiagnisis.Substring(0, 36);
+                //    path2 = pathologyDiagnisis.Substring(36);
+                //}
+                //else
+                //{
+                //    path1 = pathologyDiagnisis;
+
+                //}
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "病理诊断:", path1, 480, "") + 15;
+
+                //疾病编码
+                //string pathologyDiagnisisDeseaseCode = m_IemMainPageEntity.IemDiagInfo.Pathology_Diagnosis_ID;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "疾病编码", pathologyDiagnisisDeseaseCode, 120, "");
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                ////g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, " ", path2, 540, "") + 15;
+
+                //string bingliNo = m_IemMainPageEntity.IemDiagInfo.Pathology_Observation_Sn;
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "病理号", bingliNo, 120, "");
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                //g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
+                #endregion
+
+                #region 3
+                //pointX += xOffset;
+
+                ////药物过敏
+                //g.DrawString("药物过敏", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
+                //string drugAllergy = string.IsNullOrEmpty(m_IemMainPageEntity.IemDiagInfo.Allergic_Drug.Trim()) ? "2" : "1"; //todo
+                //string drugAllergy = m_IemMainPageEntity.IemDiagInfo.Allergic_Flag.Trim(); //by ywk 2012年3月6日14:36:31
+                //pointX = pointX + TextRenderer.MeasureText("药物过敏", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, drugAllergy, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.无 2.有");
+
+                //string drugAllergyName = m_IemMainPageEntity.IemDiagInfo.Allergic_Drug; //todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, " 过敏药物：", drugAllergyName, 291, "") + 30;
+
+                //死亡患者尸检
+                //g.DrawString("死亡患者尸检", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
+                //string isCheckDeadBody = m_IemMainPageEntity.IemDiagInfo.Autopsy_Flag; //todo
+                //pointX = pointX + TextRenderer.MeasureText("死亡患者尸检", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, isCheckDeadBody, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.是  2.否");
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                //g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
+                #endregion
+
+                #region 4
+                //pointX += xOffset;
+
+                //血型
+                //g.DrawString("血型", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
+                //string blood = m_IemMainPageEntity.IemDiagInfo.BloodType; //todo
+                //pointX = pointX + TextRenderer.MeasureText("血型", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, blood, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.A  2.B  3.O  4.AB  5.不详  6.未查") + 40;
+
+                //Rh
+                //g.DrawString("Rh", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
+                //string bloodRh = m_IemMainPageEntity.IemDiagInfo.Rh; //todo
+                //pointX = pointX + TextRenderer.MeasureText("Rh", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, bloodRh, lineHeight);
+                ////pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.A  2.B  3.O  4.AB  5.不详  6.未查");
+                //pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.阴  2.阳  3.不详  4.未查");
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                //g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
+                #endregion
+
+                #region 5
+                //pointX += xOffset;
+
+                //科主任
+                //string deptDirecter = m_IemMainPageEntity.IemDiagInfo.Section_DirectorName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "科主任", deptDirecter, 95, "") + 20;
+
+                ////主任（副主任）医师
+                //string archiater = m_IemMainPageEntity.IemDiagInfo.DirectorName;
+                //// m_IemMainPageEntity.IemDiagInfo.DirectorName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "主任（副主任）医师", archiater, 95, "") + 20;
+
+                ////主治医师
+                //string attend = m_IemMainPageEntity.IemDiagInfo.Vs_EmployeeName;
+                ////m_IemMainPageEntity.IemDiagInfo.Vs_EmployeeName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "主治医师", attend, 95, "") + 20;
+
+                ////住院医师
+                //string resident = m_IemMainPageEntity.IemDiagInfo.Resident_EmployeeName;
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "住院医师", resident, 95, "") + 20;
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+
+                #endregion
+
+                #region 6
+
+                //pointX += xOffset;
+
+                ////责任护士
+                //string dutyNurse = m_IemMainPageEntity.IemDiagInfo.Duty_NurseName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "责任护士", dutyNurse, 95, "") + 43;
+
+                ////进修医师
+                //string furtherStudyDoctor = m_IemMainPageEntity.IemDiagInfo.Refresh_EmployeeName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "进修医师", furtherStudyDoctor, 95, "") + 43;
+
+                ////实习医师
+                //string practiceDoctor = m_IemMainPageEntity.IemDiagInfo.InterneName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "实习医师", practiceDoctor, 95, "") + 44;
+
+                ////编码员
+                //string coder = m_IemMainPageEntity.IemDiagInfo.Coding_UserName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "编码员", coder, 95, "");
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                //g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
+                #endregion
+
+                #region 7
+
+                //pointX += xOffset;
+
+                ////病案质量
+                //g.DrawString("病案质量", font, Brushes.Black, new PointF(pointX, pointY + (rowHeight - lineHeight) / 2));
+                //string medicalRecordQuality = m_IemMainPageEntity.IemDiagInfo.Medical_Quality_Id; //todo
+                //if (medicalRecordQuality == "")                 // wangji   edit 2013 1 12 去掉占位符
+                //{
+                //    medicalRecordQuality = " ";
+                //}
+                //pointX = pointX + TextRenderer.MeasureText("病案质量", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY + (rowHeight - lineHeight) / 2, medicalRecordQuality, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY + (rowHeight - lineHeight) / 2, "1.甲  2.乙  3.丙") + 15;
+
+                //质控医师
+                //string qualityDoctor = m_IemMainPageEntity.IemDiagInfo.Quality_Control_DoctorName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "质控医师", qualityDoctor, 95, "") + 15;
+
+                ////质控护士
+                //string qualityNurse = m_IemMainPageEntity.IemDiagInfo.Quality_Control_NurseName;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "质控护士", qualityNurse, 95, "") + 15;
+
+                ////质控日期
+                //string qualityDateTime = m_IemMainPageEntity.IemDiagInfo.Quality_Control_DatePrint;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (rowHeight - lineHeight) / 2, lineHeight, charWidth, "质控日期", qualityDateTime, 120, "") + 15;
+
+                //pointY += rowHeight;
+                //pointX = pointStartX;
+                //g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
+
+                #endregion
+
+                pointY += interval;
+
+                //绘制页数
+                //g.DrawString("第 1 页", m_DefaultFont, Brushes.Black, new RectangleF(pointX, pointY, lineWidth, rowHeight), sf);
+                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)(m_PointX - m_BasePointX), (int)(m_PointY - m_BasePointY)), new Size((int)(m_PageWidth - m_Basewidth), (int)(m_PageHeight - m_Baseheight))));
+                return pointY;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
+
+        #endregion 【打印第一页】
+
         #region 【打印第二页】
 
         void PrintSecondPage(Graphics g)
@@ -1488,11 +1698,12 @@ namespace DrectSoft.Core.IEMMainPage
                 //表格的行高
                 int firstLineHieght = 38;
                 int lineHeight = 26;
-                float pointX = m_PointXPayType;
+                float pointX = m_PointX;
                 Font font = m_DefaultFont;
                 sf.Alignment = StringAlignment.Center;
                 sf.LineAlignment = StringAlignment.Center;
-
+                int charHeight = TextRenderer.MeasureText("高", font).Height;
+                int charWidth = TextRenderer.MeasureText("宽", font).Height;
 
                 //宽度调整 edit by ywk 2012年4月18日13:32:46
                 int columnWidth1 = 75;//手术及操作编码
@@ -1507,10 +1718,41 @@ namespace DrectSoft.Core.IEMMainPage
                 int lineWidth = 770; //ColumnWidth1 + ColumnWidth2 + ...... = lineWidth
                 int xOffset = 12;
 
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("PrintOperation")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
                 Pen solidPen = new Pen(Brushes.Black, 2);
-                g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+                if (xmlNodes.Count > 0)
+                {
+
+                    g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
+                    //Ⅰ类手术切口预防性应用抗菌药物
+                    g.DrawString("Ⅰ类手术切口预防性应用抗菌药物", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
+                    string Antibacterial_Drugs = m_IemMainPageEntity.IemBasicInfo.Antibacterial_Drugs; //todo
+                    pointX = pointX + TextRenderer.MeasureText("Ⅰ类手术切口预防性应用抗菌药物", font).Width + 5;
+                    pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Antibacterial_Drugs, charHeight);
+                    pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否") + 15;
+
+                    //使用持续时间：
+                    string Durationdate = m_IemMainPageEntity.IemBasicInfo.Durationdate;//todo
+                    pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (lineHeight - charHeight) / 2, lineHeight, charWidth, "使用持续时间：", Durationdate, 50, "小时") + 25;
+
+                    //联合用药
+                    g.DrawString("联合用药", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
+                    string Combined_Medication = m_IemMainPageEntity.IemBasicInfo.Combined_Medication; //todo
+                    pointX = pointX + TextRenderer.MeasureText("联合用药", font).Width + 5;
+                    pointX = DrawCheckBox(g, pointX, pointY + (lineHeight - charHeight) / 2, Combined_Medication, charHeight);
+                    pointX = DrawSelectItem(g, pointX, pointY + (lineHeight - charHeight) / 2, "1. 是 2. 否");
+
+                    pointX = m_PointX;
+                    pointY += lineHeight;
+                }
+
 
                 #region Table Header
+
+                g.DrawLine(solidPen, new PointF(pointX, pointY), new PointF(pointX + lineWidth, pointY));
+
                 g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, firstLineHieght));
                 g.DrawString("手术及", font, Brushes.Black, new RectangleF(pointX, pointY + 3, columnWidth1, firstLineHieght / 2), sf);
                 g.DrawString("操作编码", font, Brushes.Black, new RectangleF(pointX, pointY + firstLineHieght / 2 + 2, columnWidth1, firstLineHieght / 2), sf);
@@ -1570,7 +1812,7 @@ namespace DrectSoft.Core.IEMMainPage
                 #endregion
 
                 #region Table Body
-                pointX = m_PointXPayType;
+                pointX = m_PointX;
                 pointY += firstLineHieght;
                 DataTable operationTable = m_IemMainPageEntity.IemOperInfo.Operation_Table;
 
@@ -1728,7 +1970,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                         g.DrawLine(Pens.White, new Point((int)pointX + columnWidth8, (int)pointY), new Point((int)pointX + columnWidth8, (int)pointY + lineHeight));
 
-                        pointX = m_PointXPayType;
+                        pointX = m_PointX;
                         if (i == 7)
                         {
                             g.DrawLine(solidPen, new Point((int)pointX, (int)pointY + lineHeight), new Point((int)pointX + lineWidth, (int)pointY + lineHeight));
@@ -1895,7 +2137,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                         g.DrawLine(Pens.White, new Point((int)pointX + columnWidth8, (int)pointY), new Point((int)pointX + columnWidth8, (int)pointY + lineHeight));
 
-                        pointX = m_PointXPayType;
+                        pointX = m_PointX;
                         if (i == 7)
                         {
                             g.DrawLine(solidPen, new Point((int)pointX, (int)pointY + lineHeight), new Point((int)pointX + lineWidth, (int)pointY + lineHeight));
@@ -1932,83 +2174,179 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                int rowHeight = 24;
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("SecondPageOther")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
+
                 Font font = m_DefaultFont;
-                Pen solidPen = new Pen(Brushes.Black, 2);
                 int lineHeight = TextRenderer.MeasureText("高", font).Height;
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
-
-                int lineWidth = 770;
-                int offsetX = 12;
-
-                float pointX = m_PointXPayType + offsetX;
-
-                //离院方式
-                g.DrawString("离院方式", font, Brushes.Black, new PointF(pointX, pointY));
-                string leaveType = m_IemMainPageEntity.IemBasicInfo.OutHosType; //todo
-                pointX = pointX + TextRenderer.MeasureText("离院方式", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, leaveType, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1.医嘱离院  2.医嘱转院,");
-
-                //拟接收医疗机构名称
-                string medicalName = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "拟接收医疗机构名称", medicalName, 300, "") + 25;
-
-                pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
-
-                //医嘱转社区卫生服务机构/乡镇卫生院
-                string healthOrganizations = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital2;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称:", healthOrganizations, 145, " 4.非医嘱离院 5.死亡 9.其他");
-
-                pointY += rowHeight / 2 + 8;
-                pointX = m_PointXPayType;
-
-                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
-
-                pointY += rowHeight / 2 - 4;
-                pointX += offsetX;
-
-                //是否有出院31天内再住院计划
-                g.DrawString("是否有出院31天内再住院计划", font, Brushes.Black, new PointF(pointX, pointY));
-                string inHospitalAgain = m_IemMainPageEntity.IemBasicInfo.AgainInHospital; //todo
-                pointX = pointX + TextRenderer.MeasureText("是否有出院31天内再住院计划", font).Width + 5;
-                pointX = DrawCheckBox(g, pointX, pointY, inHospitalAgain, lineHeight);
-                pointX = DrawSelectItem(g, pointX, pointY, "1.无  2.有，");
-
-                //目的
-                string purpose = m_IemMainPageEntity.IemBasicInfo.AgainInHospitalReason;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "目的:", purpose, 200, "");
-
-                pointY += rowHeight / 2 + 8;
-                pointX = m_PointXPayType;
-
-                g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
-
-                pointY += rowHeight / 2 - 4;
-                pointX += offsetX;
-
-                //颅脑损伤患者昏迷时间
-                string sleepDayPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaDay;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "颅脑损伤患者昏迷时间： 入院前", sleepDayPre, 40, "天");
-                string sleepHourPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaHour;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourPre, 40, "小时");
-                string sleepMinutePre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaMinute;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinutePre, 40, "分钟") + 40;
+                float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
 
 
-                //颅脑损伤患者昏迷时间
-                string sleepDayAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaDay;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院后", sleepDayAfter, 40, "天");
-                string sleepHourAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaHour;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourAfter, 40, "小时");
-                string sleepMinuteAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaMinute;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinuteAfter, 40, "分钟");
+                float pointStartX = m_PointX;
+                float pointX = pointStartX + 12;
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    Type t = m_IemMainPageEntity.IemBasicInfo.GetType();
+                    PropertyInfo info = t.GetProperty(Node.Name);
+                    string Value = info.GetValue(m_IemMainPageEntity.IemBasicInfo, null).ToString();
+                    int intSpace = int.Parse(Node.Attributes["space"].Value);
+                    string unit = Node.Attributes["unit"].Value;
+                    switch (Node.Attributes["type"].Value)
+                    {
+                        case "UnderLine":
+                            if (Value.Trim() == "")
+                            {
+                                Value = "---";
+                            }
+                            pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (interval - lineHeight) / 2, lineHeight, charWidth, Node.InnerText, Value, int.Parse(Node.Attributes["underLineWidth"].Value), unit) + intSpace;
+                            break;
+                        case "CheckBox":
+                            g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY + (interval - lineHeight) / 2));
+                            pointX = pointX + TextRenderer.MeasureText(Node.InnerText, font).Width + 5;
+                            pointX = DrawCheckBox(g, pointX, pointY + (interval - lineHeight) / 2, Value, lineHeight);
+                            pointX = DrawSelectItem(g, pointX, pointY + (interval - lineHeight) / 2, Node.Attributes["SelectItem"].Value) + intSpace;
+                            break;
+                        default:
+                            break;
+                    }
+                    if (Node.Attributes["nextLine"].Value == "1")
+                    {
+                        pointY += interval;
+                        pointX = pointStartX;
+                        g.DrawLine(Pens.Black, new PointF(pointX, pointY), new PointF(pointX + 770, pointY));
+                        pointX += 12;
+                    }
 
-                pointY += rowHeight / 2 + 8;
-                pointX = m_PointXPayType;
+                }
 
-                g.DrawLine(solidPen, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+                #region 屏蔽内容
+                //int rowHeight = 24;
+                //int lineWidth = 770;
+                //int offsetX = 12;
+
+
+                //是否实施临床路径管理
+                //g.DrawString("是否实施临床路径管理", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Pathway_Flag = m_IemMainPageEntity.IemBasicInfo.Pathway_Flag; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否实施临床路径管理", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Pathway_Flag, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+
+                ////是否完成临床路径
+                //g.DrawString("是否完成临床路径", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Pathway_Over = m_IemMainPageEntity.IemBasicInfo.Pathway_Over; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否完成临床路径", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Pathway_Over, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+
+                ////退出原因
+                //string Path_Out_Reason = m_IemMainPageEntity.IemBasicInfo.Path_Out_Reason;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "退出原因：", Path_Out_Reason, 300, "") + 25;
+
+                //pointY += rowHeight;
+                //pointX = m_PointX + offsetX;
+
+                ////是否变异
+                //g.DrawString("是否变异", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Variation_Flag = m_IemMainPageEntity.IemBasicInfo.Variation_Flag; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否变异", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Variation_Flag, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1. 是 2. 否");
+
+
+                ////变异原因：
+                //string Variation_Reason = m_IemMainPageEntity.IemBasicInfo.Variation_Reason;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "变异原因：", Variation_Reason, 300, "") + 25;
+
+                //pointY += rowHeight;
+                //pointX = m_PointX + offsetX;
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+                ////离院方式
+                //g.DrawString("离院方式", font, Brushes.Black, new PointF(pointX, pointY));
+                //string leaveType = m_IemMainPageEntity.IemBasicInfo.OutHosType; //todo
+                //pointX = pointX + TextRenderer.MeasureText("离院方式", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, leaveType, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.医嘱离院  2.医嘱转院,");
+
+                ////拟接收医疗机构名称
+                //string medicalName = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "拟接收医疗机构名称", medicalName, 300, "") + 25;
+
+                //pointY += rowHeight;
+                //pointX = m_PointX + offsetX;
+
+                ////医嘱转社区卫生服务机构/乡镇卫生院
+                //string healthOrganizations = m_IemMainPageEntity.IemBasicInfo.ReceiveHosPital2;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称:", healthOrganizations, 145, " 4.非医嘱离院 5.死亡 9.其他");
+
+                //pointY += rowHeight / 2 + 8;
+                //pointX = m_PointX;
+
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+                //pointY += rowHeight / 2 - 4;
+                //pointX += offsetX;
+
+                ////是否有出院31天内再住院计划
+                //g.DrawString("是否有出院31天内再住院计划", font, Brushes.Black, new PointF(pointX, pointY));
+                //string inHospitalAgain = m_IemMainPageEntity.IemBasicInfo.AgainInHospital; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否有出院31天内再住院计划", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, inHospitalAgain, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, "1.无  2.有，");
+
+                ////目的
+                //string purpose = m_IemMainPageEntity.IemBasicInfo.AgainInHospitalReason;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "目的:", purpose, 200, "");
+
+                //pointY += rowHeight / 2 + 8;
+                //pointX = m_PointX;
+
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+                //pointY += rowHeight / 2 - 4;
+                //pointX += offsetX;
+
+                ////颅脑损伤患者昏迷时间
+                //string sleepDayPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaDay;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "颅脑损伤患者昏迷时间： 入院前", sleepDayPre, 40, "天");
+                //string sleepHourPre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaHour;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourPre, 40, "小时");
+                //string sleepMinutePre = m_IemMainPageEntity.IemBasicInfo.BeforeHosComaMinute;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinutePre, 40, "分钟") + 40;
+
+
+                ////颅脑损伤患者昏迷时间
+                //string sleepDayAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaDay;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "入院后", sleepDayAfter, 40, "天");
+                //string sleepHourAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaHour;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepHourAfter, 40, "小时");
+                //string sleepMinuteAfter = m_IemMainPageEntity.IemBasicInfo.LaterHosComaMinute;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "", sleepMinuteAfter, 40, "分钟");
+
+                //pointY += rowHeight;
+                //pointX = m_PointX;
+
+                //g.DrawLine(Pens.Black, new Point((int)pointX, (int)pointY), new Point((int)pointX + lineWidth, (int)pointY));
+
+
+                //pointX += offsetX;
+                ////是否因同一病种再入院
+                //g.DrawString("是否因同一病种再入院", font, Brushes.Black, new PointF(pointX, pointY));
+                //string Rehospitalization = m_IemMainPageEntity.IemBasicInfo.Rehospitalization; //todo
+                //pointX = pointX + TextRenderer.MeasureText("是否因同一病种再入院", font).Width + 5;
+                //pointX = DrawCheckBox(g, pointX, pointY, Rehospitalization, lineHeight);
+                //pointX = DrawSelectItem(g, pointX, pointY, " 1. 是 2. 否");
+
+                //string Intervaldate = m_IemMainPageEntity.IemBasicInfo.Intervaldate;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "与上次出院日期间隔天数", Intervaldate, 40, "天");
+                //pointY += rowHeight / 2 + 8;
+                //pointX = m_PointX;
+
+                #endregion
+
 
                 return pointY;
             }
@@ -2038,15 +2376,15 @@ namespace DrectSoft.Core.IEMMainPage
                 int lineHeight = TextRenderer.MeasureText("高", font).Height;
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
 
-                float pointStartX = m_PointXPayType + 12;
+                float pointStartX = m_PointX + 12;
                 float pointX = pointStartX;
 
                 int lineWidth = 770;
                 int offsetX = 12;
 
-                g.DrawString("产 科 产 妇 婴 儿 情 况", font2, Brushes.Black, new RectangleF(m_PointXPayType, pointY, lineWidth, 30), sf);
+                g.DrawString("产 科 产 妇 婴 儿 情 况", font2, Brushes.Black, new RectangleF(m_PointX, pointY, lineWidth, 30), sf);
                 pointY = pointY + 40;
-                g.DrawLine(solidPen, new PointF(m_PointXPayType, pointY), new PointF(m_PointXPayType + lineWidth, pointY));
+                g.DrawLine(solidPen, new PointF(m_PointX, pointY), new PointF(m_PointX + lineWidth, pointY));
                 pointY = pointY + 10;
 
                 #region 1
@@ -2157,7 +2495,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 pointX = pointStartX;
                 pointY = pointY + 25;
-                g.DrawLine(solidPen, new PointF(m_PointXPayType, pointY), new PointF(m_PointXPayType + lineWidth, pointY));
+                g.DrawLine(solidPen, new PointF(m_PointX, pointY), new PointF(m_PointX + lineWidth, pointY));
 
                 return pointY;
             }
@@ -2185,16 +2523,16 @@ namespace DrectSoft.Core.IEMMainPage
                 int lineHeight = TextRenderer.MeasureText("高", font).Height;
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
                 float rowHeight = 25; //行间距
-                float pointX = m_PointXPayType;
+                float pointX = m_PointX;
                 Pen solidPen = new Pen(Brushes.Black, 2);
                 int lineWidth = 770;
                 int offsetX = 12;
 
-                g.DrawLine(solidPen, new PointF(m_PointXPayType, pointY), new PointF(m_PointXPayType + lineWidth, pointY));
+                g.DrawLine(solidPen, new PointF(m_PointX, pointY), new PointF(m_PointX + lineWidth, pointY));
                 pointY = pointY + 10;
 
                 #region 1
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //住院费用（元）：总费用
                 string totalFee = m_IemMainPageEntity.IemFeeInfo.Total;//todo
@@ -2208,7 +2546,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 2
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //一般医疗服务费
                 string normalMedicalServices = m_IemMainPageEntity.IemFeeInfo.YBYLFY;//todo
@@ -2225,7 +2563,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 3
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //其他费用
                 string otherServices = m_IemMainPageEntity.IemFeeInfo.ZHQTFY;//todo
@@ -2234,7 +2572,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 4
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //病理诊断费
                 string pathologyDiagnisis = m_IemMainPageEntity.IemFeeInfo.BLZDF;//todo
@@ -2251,7 +2589,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 5
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //临床诊断项目费
                 string clinicDiagnisis = m_IemMainPageEntity.IemFeeInfo.LCZDF;//todo
@@ -2260,7 +2598,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 6
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //非手术治疗项目费
                 string unOperationFee = m_IemMainPageEntity.IemFeeInfo.FSSZLF;//todo
@@ -2273,7 +2611,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 7
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //手术治疗费
                 string operationTreatFee = m_IemMainPageEntity.IemFeeInfo.SSZLF;//todo
@@ -2291,7 +2629,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 8
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //康复费
                 string recoveryFee = m_IemMainPageEntity.IemFeeInfo.KFF;//todo
@@ -2300,7 +2638,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 9
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //中医治疗费
                 string zyzdf = m_IemMainPageEntity.IemFeeInfo.ZYZDF;//todo
@@ -2357,7 +2695,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 10
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //西药费
                 string westDrug = m_IemMainPageEntity.IemFeeInfo.XYF;//todo
@@ -2370,7 +2708,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 11
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //中成药费
                 string zhongChenDrug = m_IemMainPageEntity.IemFeeInfo.CPMedical;//todo
@@ -2384,7 +2722,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 12
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //血费
                 string bloodFee = m_IemMainPageEntity.IemFeeInfo.BloodFee;//todo
@@ -2402,7 +2740,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 13
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //凝血因子类制品费
                 string ninXueFee = m_IemMainPageEntity.IemFeeInfo.NXYZLZPF;//todo
@@ -2416,7 +2754,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 14
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //检查用一次性医用材料费
                 string checkOnceFee = m_IemMainPageEntity.IemFeeInfo.JCYYCXCLF;//todo
@@ -2429,7 +2767,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 15
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 //手术用一次性医用材料费
                 string operateOnceFee = m_IemMainPageEntity.IemFeeInfo.SSYYCXCLF;//todo
@@ -2438,14 +2776,14 @@ namespace DrectSoft.Core.IEMMainPage
 
                 #region 16
                 pointY += rowHeight;
-                pointX = m_PointXPayType + offsetX;
+                pointX = m_PointX + offsetX;
 
                 string otherFee = m_IemMainPageEntity.IemFeeInfo.OtherFee;//todo
                 pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "10.其他类:（24）其他费:", otherFee, 100, "");
                 #endregion
 
                 pointY = pointY + 22;
-                g.DrawLine(solidPen, new PointF(m_PointXPayType, pointY), new PointF(m_PointXPayType + lineWidth, pointY));
+                g.DrawLine(solidPen, new PointF(m_PointX, pointY), new PointF(m_PointX + lineWidth, pointY));
 
                 return pointY;
             }
@@ -2469,26 +2807,22 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+                XmlNode xmlNode = xmlDoc.GetElementsByTagName("Note")[0];
+                XmlNodeList xmlNodes = xmlNode.ChildNodes;
                 Font font = m_DefaultFont;
                 int lineHeight = TextRenderer.MeasureText("高", font).Height;
                 int charWidth = TextRenderer.MeasureText("宽", font).Height;
-                float rowHeight = 25; //行间距
+                float interval = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
                 Pen solidPen = new Pen(Brushes.Black, 2);
-                int lineWidth = 770;
                 int offsetX = 12;
-                float pointX = m_PointXPayType + offsetX;
-
-                g.DrawString("说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助", font, Brushes.Black, new PointF(pointX, pointY));
-                pointY += 20;
-                g.DrawString("5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他", font, Brushes.Black, new PointF(pointX, pointY));
-                pointY += 20;
-
+                float pointX = m_PointX + offsetX;
                 int width = TextRenderer.MeasureText("说明：", font).Width;
-
-                g.DrawString("（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”。", font, Brushes.Black, new PointF(pointX + width - 7, pointY));
-
-
-
+                foreach (XmlNode Node in xmlNodes)
+                {
+                    g.DrawString(Node.InnerText, font, Brushes.Black, new PointF(pointX, pointY));
+                    pointY += interval;
+                }
+                g.DrawRectangle(Pens.Black, new Rectangle(new Point((int)(m_PointX - m_BasePointX), (int)(m_PointY - m_BasePointY)), new Size((int)(m_PageWidth - m_Basewidth), (int)(m_PageHeight - m_Baseheight))));
                 return pointY;
             }
             catch (Exception ex)
@@ -2501,6 +2835,7 @@ namespace DrectSoft.Core.IEMMainPage
         #endregion
 
         #endregion
-        #endregion
+
+        #endregion 绘制病案首页
     }
 }

@@ -14,7 +14,7 @@ namespace DrectSoft.Core.IEMMainPage
 
         int m_PageIndex = 1;
 
-        DrawMainPageEnUtil util;
+        DrawMainPageUtil util;
         #endregion
 
         #region .ctor
@@ -25,7 +25,7 @@ namespace DrectSoft.Core.IEMMainPage
         //    util = dmpu;
         //}
 
-        public PrintForm(DrawMainPageEnUtil dmpu)
+        public PrintForm(DrawMainPageUtil dmpu)
         {
             InitializeComponent();
             util = dmpu;

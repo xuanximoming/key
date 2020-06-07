@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
-	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="70"/>
+	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="70" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
 	<DefaultStyle fontsize="14" fontname="宋体" FontStyle="Regular"/>
 	<!-- 表头 -->
 	<Title>
 		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="40">医疗机构：</Hospital>
 		<HomePage fontsize="18" fontname="宋体" FontStyle="Bold" top="10">住 院 病 案 首 页</HomePage>
-		<CardNumber Width="200">健康卡号:</CardNumber>
-		<inTime Width="200"></inTime>
+		<CardNumber Width="300">健康卡号:</CardNumber>
+		<inTime Width="300"></inTime>
 		<recordNo Width="200"></recordNo>
-		<Pay Width="1">医疗付款方式:</Pay>
+		<Pay Width="1" PointX="15" PointY="40">医疗付款方式:</Pay>
 		<OrganizationCode fontsize="14" fontname="宋体" FontStyle="Regular" PointX="550" PointY="40">组织机构代码:</OrganizationCode>
 	</Title>
 	<!-- 病人信息 -->
@@ -93,6 +93,9 @@
 			<LeftDiaglosis rightColumn="11" leftColumn="12" inStatus="出院情况： 1. 治愈 2. 好转 3. 未愈 4. 死亡 5. 其他">其他诊断：</LeftDiaglosis>
 		</Body>
 	</OutHospitalDiaglosis>
+	<PrintOperation>
+		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
+	</PrintOperation>
 	<FristPageOther interval="31">
 		<!--第一行-->
 		<Hurt_Toxicosis_Element type="UnderLine" underLineWidth="385" nextLine="0" space="20" unit="">损伤、中毒的外部原因</Hurt_Toxicosis_Element>
@@ -129,6 +132,33 @@
 		<Quality_Control_NurseName type="UnderLine" underLineWidth="95" nextLine="0" space="15" unit="">质控护士</Quality_Control_NurseName>
 		<Quality_Control_DatePrint type="UnderLine" underLineWidth="120" nextLine="0" space="0" unit="">质控日期</Quality_Control_DatePrint>
 	</FristPageOther>
+	<SecondPageOther interval="31">
+		<!--第一行-->
+		<Pathway_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否实施临床路径管理</Pathway_Flag>
+		<Pathway_Over type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否完成临床路径</Pathway_Over>
+		<Path_Out_Reason type="UnderLine" underLineWidth="160" nextLine="1" space="0" unit="">退出原因</Path_Out_Reason>
+		<!--第二行-->
+		<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>
+		<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>
+		<!--第三行-->
+		<OutHosType type="CheckBox" SelectItem="1.医嘱离院  2.医嘱转院," nextLine="0" space="15" unit="">离院方式</OutHosType>
+		<ReceiveHosPital type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">拟接收医疗机构名称</ReceiveHosPital>
+		<!--第四行-->
+		<ReceiveHosPital2 type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称:</ReceiveHosPital2>
+		<!--第五行-->
+		<AgainInHospital type="CheckBox" SelectItem="1.无  2.有，" nextLine="0" space="15" unit="">是否有出院31天内再住院计划</AgainInHospital>
+		<AgainInHospitalReason type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">目的:</AgainInHospitalReason>
+		<!--第六行-->
+		<BeforeHosComaDay type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="天">颅脑损伤患者昏迷时间： 入院前</BeforeHosComaDay>
+		<BeforeHosComaHour type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="小时"> </BeforeHosComaHour>
+		<BeforeHosComaMinute type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="分钟"> </BeforeHosComaMinute>
+		<LaterHosComaDay type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="天">入院后</LaterHosComaDay>
+		<LaterHosComaHour type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="小时"> </LaterHosComaHour>
+		<LaterHosComaMinute type="UnderLine" underLineWidth="40" nextLine="1" space="0" unit="分钟"> </LaterHosComaMinute>
+		<!--第七行-->
+		<Rehospitalization type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否因同一病种再入院</Rehospitalization>
+		<Intervaldate type="UnderLine" underLineWidth="40" nextLine="1" space="40" unit="天">与上次出院日期间隔天数</Intervaldate>
+	</SecondPageOther>
 	<Feeinfo>
 		<txtTotal mapping="zfy"></txtTotal> <!-- 总费用 -->
 		<txtOwnFee mapping="OwnFee"></txtOwnFee><!-- 自负金额 -->
@@ -162,9 +192,10 @@
 		<txtOtherFee mapping=""></txtOtherFee><!-- 其他费 -->
 	</Feeinfo>
 	<Note interval="28">
+		<!--根据展现情况调整每行字数，需要更多行，在下面继续添加即可-->
 		<line1>说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助</line1>
 		<line2>5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他</line2>
 		<line3>（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用</line3>
-		<line4></line4>
+		<line4>我看行</line4>
 	</Note>
 </root>

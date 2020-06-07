@@ -383,6 +383,14 @@ namespace DrectSoft.Core.OwnBedInfo
         }
 
         /// <summary>
+        /// 医保支付方式
+        /// </summary>
+        private void InitLuePayWay()
+        {
+            if (luePayId.SqlWordbook == null)
+                BindLueData(luePayId, 1);
+        }
+        /// <summary>
         /// 病人性别
         /// </summary>
         private void InitLueSex()
@@ -801,30 +809,6 @@ namespace DrectSoft.Core.OwnBedInfo
             try
             {
                 DS_SqlHelper.CreateSqlHelper();
-                #region "弃用 by cyq 2012-10-15"
-                //foreach (TextEdit te in m_TextEditControlList)
-                //{
-                //    if (te.Text.Trim() == "")
-                //    {
-                //        m_app.CustomMessageBox.MessageShow("输入值不能有空！");
-                //        return;
-                //    }
-                //}
-                //if (lueCSD_CityID.CodeValue == "" || lueCSD_DistrictID.CodeValue == "" ||
-                //    this.lueCSD_ProvinceID.CodeValue == "" ||
-                //    this.lueJob.CodeValue == "" ||
-                //    this.lueMarital.CodeValue == "" ||
-                //    this.lueNation.CodeValue == "" ||
-                //    this.lueNationality.CodeValue == "" ||
-                //    this.luePatientSource.CodeValue == "" ||
-                //    this.luePayId.CodeValue == "" ||
-                //    this.lueRelationship.CodeValue == "" ||
-                //    this.lueSex.CodeValue == "")
-                //{
-                //    m_app.CustomMessageBox.MessageShow("输入值不能有空！");
-                //    return;
-                //}
-                #endregion
                 //画面输入项验证 add by cyq 2012-10-15
                 string errorStr = checkItems();
                 if (!string.IsNullOrEmpty(errorStr))
@@ -861,14 +845,7 @@ namespace DrectSoft.Core.OwnBedInfo
                 patEntity.SexID = this.lueSex.CodeValue;
                 patEntity.Marital = this.lueMarital.CodeValue;
                 patEntity.ADMITDIAGNOSIS = textEdit_admitdiagnosis.Text.Trim();
-                //if (this.checkEditMarry1.Checked)
-                //{
-                //    patEntity.Marital = "1";
-                //}
-                //else
-                //{
-                //    patEntity.Marital = "0";
-                //}
+
                 if (patEntity.Age > 1) //儿科如果接收小于一岁的 edit by ukey zhang 2017-10-17
                 {
                     patEntity.AgeStr = DrectSoft.Common.Eop.PatientBasicInfo.CalcDisplayAge(dateBirthDay.DateTime, Convert.ToDateTime(patEntity.AdmitDate));
@@ -890,9 +867,6 @@ namespace DrectSoft.Core.OwnBedInfo
                 }
 
                 patEntity.NoOfRecord = textEditNoOfRecord.Text;
-                //  patEntity.NoOfcClinic = Guid.NewGuid().ToString().Substring(1, 14);
-                //patEntity.NoOfRecord = Guid.NewGuid().ToString().Substring(1, 14);
-                //patEntity.PatID = Guid.NewGuid().ToString().Substring(1, 14);
                 patEntity.NoOfRecord = noOfRecord;
                 patEntity.PatID = patid;
 
