@@ -108,6 +108,8 @@
             this.textEdit_admitdiagnosis = new DevExpress.XtraEditors.TextEdit();
             this.tmE_PlaTime = new DevExpress.XtraEditors.DateEdit();
             this.lbc_PlaTime = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.luePayWay = new DrectSoft.Common.Library.LookUpEditor();
             this.lueAdmitDiag = new DrectSoft.Common.Library.LookUpEditor();
             this.luePatientSource = new DrectSoft.Common.Library.LookUpEditor();
             this.lueSex = new DrectSoft.Common.Library.LookUpEditor();
@@ -128,6 +130,8 @@
             this.lookUpWindowUser3 = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.lookUpEditorUser1 = new DrectSoft.Common.Library.LookUpEditor();
             this.lookUpWindowUser1 = new DrectSoft.Common.Library.LookUpWindow(this.components);
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.lueSpeCas = new DrectSoft.Common.Library.LookUpEditor();
             ((System.ComponentModel.ISupportInitialize)(this.dateBirthDay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateBirthDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditContactTEL.Properties)).BeginInit();
@@ -160,6 +164,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_admitdiagnosis.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmE_PlaTime.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmE_PlaTime.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePayWay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAdmitDiag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePatientSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueSex)).BeginInit();
@@ -180,6 +185,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowUser3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorUser1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowUser1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueSpeCas)).BeginInit();
             this.SuspendLayout();
             // 
             // dateBirthDay
@@ -341,7 +347,7 @@
             // 
             this.txtPostalCode.EditValue = "";
             this.txtPostalCode.EnterMoveNextControl = true;
-            this.txtPostalCode.Location = new System.Drawing.Point(741, 202);
+            this.txtPostalCode.Location = new System.Drawing.Point(741, 234);
             this.txtPostalCode.Name = "txtPostalCode";
             this.txtPostalCode.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtPostalCode.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -359,7 +365,7 @@
             // txtTel
             // 
             this.txtTel.EnterMoveNextControl = true;
-            this.txtTel.Location = new System.Drawing.Point(534, 202);
+            this.txtTel.Location = new System.Drawing.Point(534, 234);
             this.txtTel.Name = "txtTel";
             this.txtTel.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtTel.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -388,13 +394,13 @@
             this.txtAddress.Properties.AppearanceDisabled.Options.UseForeColor = true;
             this.txtAddress.Properties.ContextMenuStrip = this.contextMenuStrip1;
             this.txtAddress.Properties.MaxLength = 255;
-            this.txtAddress.Size = new System.Drawing.Size(774, 20);
+            this.txtAddress.Size = new System.Drawing.Size(331, 20);
             this.txtAddress.TabIndex = 21;
             this.txtAddress.ToolTip = "当前地址";
             // 
             // labelCtrl17
             // 
-            this.labelCtrl17.Location = new System.Drawing.Point(706, 205);
+            this.labelCtrl17.Location = new System.Drawing.Point(706, 237);
             this.labelCtrl17.Name = "labelCtrl17";
             this.labelCtrl17.Size = new System.Drawing.Size(36, 14);
             this.labelCtrl17.TabIndex = 84;
@@ -402,7 +408,7 @@
             // 
             // labelCtrl16
             // 
-            this.labelCtrl16.Location = new System.Drawing.Point(474, 205);
+            this.labelCtrl16.Location = new System.Drawing.Point(474, 237);
             this.labelCtrl16.Name = "labelCtrl16";
             this.labelCtrl16.Size = new System.Drawing.Size(60, 14);
             this.labelCtrl16.TabIndex = 82;
@@ -445,7 +451,7 @@
             // txtOfficePostalCode
             // 
             this.txtOfficePostalCode.EnterMoveNextControl = true;
-            this.txtOfficePostalCode.Location = new System.Drawing.Point(741, 171);
+            this.txtOfficePostalCode.Location = new System.Drawing.Point(741, 203);
             this.txtOfficePostalCode.Name = "txtOfficePostalCode";
             this.txtOfficePostalCode.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtOfficePostalCode.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -463,7 +469,7 @@
             // txtOfficeTel
             // 
             this.txtOfficeTel.EnterMoveNextControl = true;
-            this.txtOfficeTel.Location = new System.Drawing.Point(534, 171);
+            this.txtOfficeTel.Location = new System.Drawing.Point(534, 203);
             this.txtOfficeTel.Name = "txtOfficeTel";
             this.txtOfficeTel.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtOfficeTel.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -498,7 +504,7 @@
             // 
             // labelCtrl14
             // 
-            this.labelCtrl14.Location = new System.Drawing.Point(706, 174);
+            this.labelCtrl14.Location = new System.Drawing.Point(706, 206);
             this.labelCtrl14.Name = "labelCtrl14";
             this.labelCtrl14.Size = new System.Drawing.Size(36, 14);
             this.labelCtrl14.TabIndex = 78;
@@ -506,7 +512,7 @@
             // 
             // labelCtrl13
             // 
-            this.labelCtrl13.Location = new System.Drawing.Point(474, 174);
+            this.labelCtrl13.Location = new System.Drawing.Point(474, 206);
             this.labelCtrl13.Name = "labelCtrl13";
             this.labelCtrl13.Size = new System.Drawing.Size(60, 14);
             this.labelCtrl13.TabIndex = 76;
@@ -523,7 +529,7 @@
             // labelCtrl11
             // 
             this.labelCtrl11.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.labelCtrl11.Location = new System.Drawing.Point(498, 142);
+            this.labelCtrl11.Location = new System.Drawing.Point(498, 174);
             this.labelCtrl11.Name = "labelCtrl11";
             this.labelCtrl11.Size = new System.Drawing.Size(36, 14);
             this.labelCtrl11.TabIndex = 72;
@@ -534,7 +540,7 @@
             this.txtAge.EditValue = "1";
             this.txtAge.Enabled = false;
             this.txtAge.EnterMoveNextControl = true;
-            this.txtAge.Location = new System.Drawing.Point(741, 43);
+            this.txtAge.Location = new System.Drawing.Point(746, 42);
             this.txtAge.Name = "txtAge";
             this.txtAge.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtAge.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -592,7 +598,7 @@
             // 
             // labelCtrl4
             // 
-            this.labelCtrl4.Location = new System.Drawing.Point(706, 46);
+            this.labelCtrl4.Location = new System.Drawing.Point(710, 45);
             this.labelCtrl4.Name = "labelCtrl4";
             this.labelCtrl4.Size = new System.Drawing.Size(36, 14);
             this.labelCtrl4.TabIndex = 56;
@@ -600,7 +606,7 @@
             // 
             // labelCtrl7
             // 
-            this.labelCtrl7.Location = new System.Drawing.Point(474, 79);
+            this.labelCtrl7.Location = new System.Drawing.Point(497, 143);
             this.labelCtrl7.Name = "labelCtrl7";
             this.labelCtrl7.Size = new System.Drawing.Size(36, 14);
             this.labelCtrl7.TabIndex = 62;
@@ -608,7 +614,7 @@
             // 
             // labelCtrl5
             // 
-            this.labelCtrl5.Location = new System.Drawing.Point(475, 110);
+            this.labelCtrl5.Location = new System.Drawing.Point(475, 79);
             this.labelCtrl5.Name = "labelCtrl5";
             this.labelCtrl5.Size = new System.Drawing.Size(60, 14);
             this.labelCtrl5.TabIndex = 64;
@@ -1015,7 +1021,7 @@
             // textEdit_JG
             // 
             this.textEdit_JG.EnterMoveNextControl = true;
-            this.textEdit_JG.Location = new System.Drawing.Point(534, 73);
+            this.textEdit_JG.Location = new System.Drawing.Point(534, 137);
             this.textEdit_JG.Name = "textEdit_JG";
             this.textEdit_JG.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.textEdit_JG.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1051,7 +1057,7 @@
             // tmE_PlaTime
             // 
             this.tmE_PlaTime.EditValue = new System.DateTime(2016, 11, 15, 0, 0, 0, 0);
-            this.tmE_PlaTime.Location = new System.Drawing.Point(741, 12);
+            this.tmE_PlaTime.Location = new System.Drawing.Point(746, 73);
             this.tmE_PlaTime.Name = "tmE_PlaTime";
             this.tmE_PlaTime.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1066,12 +1072,32 @@
             // 
             // lbc_PlaTime
             // 
-            this.lbc_PlaTime.Location = new System.Drawing.Point(657, 15);
+            this.lbc_PlaTime.Location = new System.Drawing.Point(662, 76);
             this.lbc_PlaTime.Name = "lbc_PlaTime";
             this.lbc_PlaTime.Size = new System.Drawing.Size(84, 14);
             this.lbc_PlaTime.TabIndex = 116;
             this.lbc_PlaTime.Text = "婴儿入院时间：";
             this.lbc_PlaTime.Visible = false;
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl13.Location = new System.Drawing.Point(662, 17);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(84, 14);
+            this.labelControl13.TabIndex = 118;
+            this.labelControl13.Text = "医保支付方式：";
+            // 
+            // luePayWay
+            // 
+            this.luePayWay.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.luePayWay.ListWindow = null;
+            this.luePayWay.Location = new System.Drawing.Point(746, 14);
+            this.luePayWay.Name = "luePayWay";
+            this.luePayWay.ShowSButton = true;
+            this.luePayWay.Size = new System.Drawing.Size(120, 18);
+            this.luePayWay.TabIndex = 117;
+            this.luePayWay.ToolTip = "医疗付款方式";
             // 
             // lueAdmitDiag
             // 
@@ -1130,7 +1156,7 @@
             this.lueCSD_DistrictID.EnterMoveNextControl = true;
             this.lueCSD_DistrictID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueCSD_DistrictID.ListWindow = null;
-            this.lueCSD_DistrictID.Location = new System.Drawing.Point(534, 76);
+            this.lueCSD_DistrictID.Location = new System.Drawing.Point(534, 137);
             this.lueCSD_DistrictID.Name = "lueCSD_DistrictID";
             this.lueCSD_DistrictID.ShowFormImmediately = true;
             this.lueCSD_DistrictID.ShowSButton = true;
@@ -1144,7 +1170,7 @@
             this.lueCSD_CityID.EnterMoveNextControl = true;
             this.lueCSD_CityID.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueCSD_CityID.ListWindow = null;
-            this.lueCSD_CityID.Location = new System.Drawing.Point(298, 77);
+            this.lueCSD_CityID.Location = new System.Drawing.Point(298, 79);
             this.lueCSD_CityID.Name = "lueCSD_CityID";
             this.lueCSD_CityID.ShowFormImmediately = true;
             this.lueCSD_CityID.ShowSButton = true;
@@ -1159,7 +1185,7 @@
             this.lueMarital.EnterMoveNextControl = true;
             this.lueMarital.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueMarital.ListWindow = null;
-            this.lueMarital.Location = new System.Drawing.Point(534, 107);
+            this.lueMarital.Location = new System.Drawing.Point(534, 76);
             this.lueMarital.Name = "lueMarital";
             this.lueMarital.ShowFormImmediately = true;
             this.lueMarital.ShowSButton = true;
@@ -1211,7 +1237,7 @@
             this.lueJob.EnterMoveNextControl = true;
             this.lueJob.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueJob.ListWindow = null;
-            this.lueJob.Location = new System.Drawing.Point(534, 139);
+            this.lueJob.Location = new System.Drawing.Point(534, 171);
             this.lueJob.Name = "lueJob";
             this.lueJob.ShowFormImmediately = true;
             this.lueJob.ShowSButton = true;
@@ -1246,7 +1272,7 @@
             // 
             // lookUpWindowUser2
             // 
-            this.lookUpWindowUser2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowUser2.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowUser2.GenShortCode = null;
             this.lookUpWindowUser2.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowUser2.Owner = null;
@@ -1266,7 +1292,7 @@
             // 
             // lookUpWindowUser4
             // 
-            this.lookUpWindowUser4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowUser4.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowUser4.GenShortCode = null;
             this.lookUpWindowUser4.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowUser4.Owner = null;
@@ -1286,7 +1312,7 @@
             // 
             // lookUpWindowUser3
             // 
-            this.lookUpWindowUser3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowUser3.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowUser3.GenShortCode = null;
             this.lookUpWindowUser3.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowUser3.Owner = null;
@@ -1306,17 +1332,41 @@
             // 
             // lookUpWindowUser1
             // 
-            this.lookUpWindowUser1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowUser1.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowUser1.GenShortCode = null;
             this.lookUpWindowUser1.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowUser1.Owner = null;
             this.lookUpWindowUser1.SqlHelper = null;
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.labelControl14.Location = new System.Drawing.Point(473, 111);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(60, 14);
+            this.labelControl14.TabIndex = 120;
+            this.labelControl14.Text = "特殊病例：";
+            // 
+            // lueSpeCas
+            // 
+            this.lueSpeCas.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
+            this.lueSpeCas.ListWindow = null;
+            this.lueSpeCas.Location = new System.Drawing.Point(534, 108);
+            this.lueSpeCas.Name = "lueSpeCas";
+            this.lueSpeCas.ShowSButton = true;
+            this.lueSpeCas.Size = new System.Drawing.Size(120, 18);
+            this.lueSpeCas.TabIndex = 119;
+            this.lueSpeCas.ToolTip = "特殊病例";
             // 
             // XtraFormInHosLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 440);
+            this.Controls.Add(this.labelControl14);
+            this.Controls.Add(this.lueSpeCas);
+            this.Controls.Add(this.labelControl13);
+            this.Controls.Add(this.luePayWay);
             this.Controls.Add(this.lbc_PlaTime);
             this.Controls.Add(this.textEdit_admitdiagnosis);
             this.Controls.Add(this.textEdit_JG);
@@ -1450,6 +1500,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_admitdiagnosis.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmE_PlaTime.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmE_PlaTime.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luePayWay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAdmitDiag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.luePatientSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueSex)).EndInit();
@@ -1470,6 +1521,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowUser3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditorUser1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpWindowUser1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueSpeCas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1575,5 +1627,9 @@
         private Common.Library.LookUpEditor lookUpEditorUser3;
         private DevExpress.XtraEditors.LabelControl lbc_PlaTime;
         private DevExpress.XtraEditors.DateEdit tmE_PlaTime;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private Common.Library.LookUpEditor luePayWay;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private Common.Library.LookUpEditor lueSpeCas;
     }
 }

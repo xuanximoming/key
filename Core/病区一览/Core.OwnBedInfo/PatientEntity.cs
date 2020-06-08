@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace DrectSoft.Core.OwnBedInfo
 {
     /// <summary>
@@ -116,6 +112,20 @@ namespace DrectSoft.Core.OwnBedInfo
             set { _wb = value; }
         }
         /// <summary>
+        /// 医保支付方式ID
+        /// </summary>
+        public string PayWay { get; set; }
+        private string _PayWayName;
+        /// <summary>
+        /// 医保支付方式Name
+        /// </summary>
+        public string PayWayName
+        {
+            get { return _PayWayName; }
+            set { _PayWayName = value; }
+        }
+
+        /// <summary>
         /// 医疗付款方式ID
         /// </summary>
         public string PayID { get; set; }
@@ -127,6 +137,21 @@ namespace DrectSoft.Core.OwnBedInfo
         {
             get { return _PayName; }
             set { _PayName = value; }
+        }
+
+
+        /// <summary>
+        /// 特殊病例ID
+        /// </summary>
+        public string SpeCas { get; set; }
+        private string _SpeCasName;
+        /// <summary>
+        /// 特殊病例Name
+        /// </summary>
+        public string SpeCasName
+        {
+            get { return _SpeCasName; }
+            set { _SpeCasName = value; }
         }
         /// <summary>
         /// 病人来源(Dictionary_detail,CategoryID= '2')
@@ -299,7 +324,7 @@ namespace DrectSoft.Core.OwnBedInfo
         /// 籍贯 市
         /// </summary>
         public string JG_CityID { get; set; }
-        
+
         /// <summary>
         /// 工作单位
         /// </summary>

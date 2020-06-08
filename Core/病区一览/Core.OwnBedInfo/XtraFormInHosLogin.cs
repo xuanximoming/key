@@ -65,6 +65,7 @@ namespace DrectSoft.Core.OwnBedInfo
         {
             InitData();
             InitLuePayId();
+            InitLuePayWay();
             InitLueSex();
             InitMarital();
             InitJob();
@@ -137,6 +138,8 @@ namespace DrectSoft.Core.OwnBedInfo
                 txtBedID.Text = patEntity.OutBed;
 
                 luePayId.CodeValue = patEntity.PayID;
+                luePayWay.CodeValue = patEntity.PayWay;
+                lueSpeCas.CodeValue = patEntity.SpeCas;
                 txtName.Text = patEntity.Name;
                 lueSex.CodeValue = patEntity.SexID;
                 dateBirthDay.Text = patEntity.Birth;
@@ -301,6 +304,8 @@ namespace DrectSoft.Core.OwnBedInfo
             patEntity.PatID = dtrow["PATID"].ToString();
             patEntity.PatNoOfHis = dtrow["PATNOOFHIS"].ToString();
             patEntity.PayID = dtrow["PAYID"].ToString();
+            patEntity.PayWay = dtrow["PAYWAY"].ToString();
+            patEntity.SpeCas = dtrow["SPECAS"].ToString();
             //patEntity.PayName = dtrow[""].ToString();
             patEntity.PY = dtrow["PY"].ToString();
             patEntity.RelationshipID = dtrow["RELATIONSHIP"].ToString();
@@ -374,7 +379,7 @@ namespace DrectSoft.Core.OwnBedInfo
 
         #region UI上lue的数据源赋值
         /// <summary>
-        /// 医疗付款方式
+        /// 医疗付款方式  
         /// </summary>
         private void InitLuePayId()
         {
@@ -383,12 +388,14 @@ namespace DrectSoft.Core.OwnBedInfo
         }
 
         /// <summary>
-        /// 医保支付方式
+        /// 医保支付方式 特殊病例
         /// </summary>
         private void InitLuePayWay()
         {
-            if (luePayId.SqlWordbook == null)
-                BindLueData(luePayId, 1);
+            if (luePayWay.SqlWordbook == null)
+                BindLueData(luePayWay, 36);
+            if (lueSpeCas.SqlWordbook == null)
+                BindLueData(lueSpeCas, 37);
         }
         /// <summary>
         /// 病人性别
@@ -912,6 +919,8 @@ namespace DrectSoft.Core.OwnBedInfo
                 //patEntity.ATTENDLEVEL = this.textEditAttendLevel.Text;
                 //patEntity.PayID = this.textEditPay.Text;
                 patEntity.PayID = this.luePayId.CodeValue;
+                patEntity.SpeCas = this.lueSpeCas.CodeValue;
+                patEntity.PayWay = this.luePayWay.CodeValue;
                 patEntity.ORIGIN = this.luePatientSource.CodeValue;
                 //patEntity.ORIGIN = this.textEditOrigin.Text;
                 //patEntity.ADMITWAY = this.textEditAdmitWay.Text;
@@ -994,6 +1003,10 @@ namespace DrectSoft.Core.OwnBedInfo
             parwb.Value = pat.WB;
             SqlParameter parPayid = new SqlParameter("@payid", SqlDbType.VarChar, 4);
             parPayid.Value = pat.PayID;
+            SqlParameter parPayWay = new SqlParameter("@payway", SqlDbType.VarChar, 4);
+            parPayWay.Value = pat.PayWay;
+            SqlParameter parSpeCas = new SqlParameter("@specas", SqlDbType.VarChar, 4);
+            parSpeCas.Value = pat.SpeCas;
             SqlParameter parORIGIN = new SqlParameter("@ORIGIN", SqlDbType.VarChar, 4);
             parORIGIN.Value = pat.ORIGIN;
             SqlParameter parInCount = new SqlParameter("@InCount", SqlDbType.Int);
@@ -1159,7 +1172,7 @@ namespace DrectSoft.Core.OwnBedInfo
             parXZZPost.Value = pat.XZZ_Post;
 
             SqlParameter[] paraColl = new SqlParameter[] {parNoofinpat, parPatNoOfHis,parNoofclinic,parNoofrecord,parpatid,
-                 parInnerpix, paroutpix ,parName,  parpy,  parwb,  parPayid,  parORIGIN , parInCount ,parSexID , parBirth , 
+                 parInnerpix, paroutpix ,parName,  parpy,  parwb,  parPayid,  parPayWay,parSpeCas, parORIGIN , parInCount ,parSexID , parBirth , 
                  parAge , parAgeStr,  parIDNO , parMarital, parJobID,  parCSDProvinceID,  parCSDCityID,  parCSDDistrictID , 
                  parNationID,   parNationalityID,  parJGProvinceID,  parJGCityID , parOrganization , parOfficePlace, parOfficeTEL,  
                  parOfficePost ,parHKDZProvinceID , parHKDZCityID,  parHKDZDistrictID, parNATIVEPOST , parNATIVETEL , parNATIVEADDRESS, 
@@ -1581,6 +1594,8 @@ namespace DrectSoft.Core.OwnBedInfo
             try
             {
                 luePayId.CodeValue = string.Empty;
+                luePayWay.CodeValue = string.Empty;
+                lueSpeCas.CodeValue = string.Empty;
                 textEditNoOfRecord.Text = string.Empty;
                 textEditPatID.Text = string.Empty;
                 txtName.Text = string.Empty;
