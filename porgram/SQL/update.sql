@@ -17,3 +17,15 @@ alter table INPATIENT add specas varchar2(1);
 -- Add comments to the columns 
 comment on column INPATIENT.specas
   is '特殊病例';
+  
+  -- Add/modify columns 
+alter table IEM_MAINPAGE_BASICINFO_SX add hospital_sense VARCHAR2(12);
+-- Add comments to the columns 
+comment on column IEM_MAINPAGE_BASICINFO_SX.hospital_sense
+  is '院内感染代码';
+  
+    -- Add/modify columns 
+alter table IEM_MAINPAGE_BASICINFO_SX add hospital_sense_name VARCHAR2(50);
+-- Add comments to the columns 
+comment on column IEM_MAINPAGE_BASICINFO_SX.hospital_sense_name
+  is '院内感染';

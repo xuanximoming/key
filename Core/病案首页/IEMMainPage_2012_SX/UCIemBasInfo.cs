@@ -1426,54 +1426,6 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="e"></param>
         private void lueProvice_CodeValueChanged(object sender, EventArgs e)
         {
-            ////if (lueCSD_ProvinceID.CodeValue != null)
-            ////{
-            //LookUpEditor lue = ((LookUpEditor)sender);
-            //string provice = lue.CodeValue;
-            //if (string.IsNullOrEmpty(provice)) return;
-
-            //if (lue.Name == "lueCSD_ProvinceID")
-            //{
-            //    lueCSD_CityID.SqlWordbook.ExtraCondition = "provinceid = '" + provice + "'";
-            //    //lueCSD_CityID.SqlWordbook = lueCSD_CityID.SqlWordbook;
-            //    //lueCSD_CityID.CodeValue = "";
-            //    //lueCSD_CityID.IsModified = true;
-            //    //lueCSD_CityID.CodeValue = lueCSD_CityID.SqlWordbook.BookData.Rows[0]["ID"].ToString();
-            //    BindCity(lueCSD_CityID, provice);
-            //    //BindCity(lueCSD_CityID, City);
-            //    //lueCSD_CityID.Focus();
-            //}
-            //else if (lue.Name == "lueJG_ProvinceID")
-            //{
-            //    lueJG_CityID.SqlWordbook.ExtraCondition = "provinceid = '" + provice + "'";
-            //    BindCity(lueJG_CityID, provice);
-            //}
-            //else if (lue.Name == "lueXZZ_ProvinceID")
-            //{
-            //    lueXZZ_CityID.SqlWordbook.ExtraCondition = "provinceid = '" + provice + "'";
-            //    BindCity(lueXZZ_CityID, provice);
-            //}
-            //else if (lue.Name == "lueHKDZ_ProvinceID")
-            //{
-            //    lueHKDZ_CityID.SqlWordbook.ExtraCondition = "provinceid = '" + provice + "'";
-            //    BindCity(lueHKDZ_CityID, provice);
-            //}
-
-            //else if (lue.Name == "lueCSD_CityID")
-            //{
-            //    lueCSD_DistrictID.SqlWordbook.ExtraCondition = "cityid = '" + provice + "'";
-            //    BindDistrict(lueCSD_DistrictID, provice);
-            //}
-            //else if (lue.Name == "lueXZZ_CityID")
-            //{
-            //    lueXZZ_DistrictID.SqlWordbook.ExtraCondition = "cityid = '" + provice + "'";
-            //    BindDistrict(lueXZZ_DistrictID, provice);
-            //}
-            //else if (lue.Name == "lueHKDZ_CityID")
-            //{
-            //    lueHKDZ_DistrictID.SqlWordbook.ExtraCondition = "cityid = '" + provice + "'";
-            //    BindDistrict(lueHKDZ_DistrictID, provice);
-            //}
             LookUpEditor lue = ((LookUpEditor)sender);
             string provice = lue.CodeValue;
             if (string.IsNullOrEmpty(provice)) return;
@@ -1486,8 +1438,6 @@ namespace DrectSoft.Core.IEMMainPage
                 {
                     lueCSD_CityID.CodeValue = m_row[0]["ID"].ToString();
                 }
-                //lueCSD_CityID.CodeValue = lueCSD_CityID.SqlWordbook.BookData.Rows[0]["ID"].ToString();
-                //BindCity(lueCSD_CityID, provice);
             }
             else if (lue.Name == "lueJG_ProvinceID")
             {

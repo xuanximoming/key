@@ -121,6 +121,8 @@
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnEditOutDiag = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditOutDiagCHn = new DevExpress.XtraEditors.SimpleButton();
+            this.lueYNGR_CODE = new DevTextBoxAndButton.Bwj(this.components);
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood2.Properties)).BeginInit();
@@ -1098,11 +1100,34 @@
             this.btnEditOutDiagCHn.Text = "编辑";
             this.btnEditOutDiagCHn.Click += new System.EventHandler(this.btnEditOutDiagCHn_Click);
             // 
+            // lueYNGR_CODE
+            // 
+            this.lueYNGR_CODE.BackColor = System.Drawing.Color.White;
+            this.lueYNGR_CODE.DiaCode = "";
+            this.lueYNGR_CODE.DiaValue = "";
+            this.lueYNGR_CODE.Location = new System.Drawing.Point(391, 252);
+            this.lueYNGR_CODE.Name = "lueYNGR_CODE";
+            this.lueYNGR_CODE.Size = new System.Drawing.Size(170, 21);
+            this.lueYNGR_CODE.TabIndex = 209;
+            this.lueYNGR_CODE.WaterText = "请按回车键检索";
+            this.lueYNGR_CODE.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lueYNGR_CODE_KeyPress);
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl4.Location = new System.Drawing.Point(306, 256);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(72, 14);
+            this.labelControl4.TabIndex = 210;
+            this.labelControl4.Text = "院内感染诊断";
+            // 
             // UCIemDiagnose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.lueYNGR_CODE);
             this.Controls.Add(this.btnEditOutDiagCHn);
             this.Controls.Add(this.btnEditOutDiag);
             this.Controls.Add(this.btn_del2);
@@ -1321,5 +1346,7 @@
         private DevExpress.XtraEditors.SimpleButton btnEditOutDiagCHn;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevTextBoxAndButton.Bwj lueYNGR_CODE;
     }
 }

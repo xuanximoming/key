@@ -1576,6 +1576,8 @@ namespace DrectSoft.Core.IEMMainPage
         }
         private string _Hurt_Toxicosis_ElementID;
 
+
+
         /// <summary>
         /// 损伤、中毒的外部因素：
         /// </summary>
@@ -1591,6 +1593,38 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
         private string _Hurt_Toxicosis_Element;
+
+        /// <summary>
+        /// 院内感染代码
+        /// </summary>
+        public string Hospital_sense
+        {
+            get
+            {
+                return this._Hospital_sense;
+            }
+            set
+            {
+                _Hospital_sense = value;
+            }
+        }
+        private string _Hospital_sense;
+
+        /// <summary>
+        /// 院内感染名称
+        /// </summary>
+        public string Hospital_sense_name
+        {
+            get
+            {
+                return this._Hospital_sense_name;
+            }
+            set
+            {
+                _Hospital_sense_name = value;
+            }
+        }
+        private string _Hospital_sense_name;
 
         /// <summary>
         /// 药物过敏 □1.无 2.有

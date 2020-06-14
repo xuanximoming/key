@@ -529,6 +529,8 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Pathology_Observation_Fq = row["pathology_observation_fq"].ToString();
                     IemInfo.IemDiagInfo.Follow_Up_Cycle = row["follow_up_cycle"].ToString();
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = row["hurt_toxicosis_ele_id"].ToString();
+                    IemInfo.IemDiagInfo.Hospital_sense = row["Hospital_sense"].ToString();
+                    IemInfo.IemDiagInfo.Hospital_sense_name = row["Hospital_sense_name"].ToString();
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = row["hurt_toxicosis_ele_name"].ToString();
 
                     IemInfo.IemDiagInfo.Allergic_Drug = row["allergic_drug"].ToString();
@@ -752,6 +754,8 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Pathology_Observation_Fq = "";
                     IemInfo.IemDiagInfo.Follow_Up_Cycle = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = "";
+                    IemInfo.IemDiagInfo.Hospital_sense = "";
+                    IemInfo.IemDiagInfo.Hospital_sense_name = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = "";
 
                     IemInfo.IemDiagInfo.Allergic_Drug = "";
@@ -1739,6 +1743,12 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
 
             SqlParameter paraHURT_TOXICOSIS_ELE_ID = new SqlParameter("@HURT_TOXICOSIS_ELE_ID", SqlDbType.VarChar, 20);
             paraHURT_TOXICOSIS_ELE_ID.Value = info.IemDiagInfo.Hurt_Toxicosis_ElementID;
+
+            SqlParameter paraHospital_sense = new SqlParameter("@Hospital_sense", SqlDbType.VarChar, 20);
+            paraHospital_sense.Value = info.IemDiagInfo.Hospital_sense;
+            SqlParameter paraHospital_sense_name = new SqlParameter("@Hospital_sense_name", SqlDbType.VarChar, 20);
+            paraHospital_sense_name.Value = info.IemDiagInfo.Hospital_sense_name;
+
             SqlParameter paraHURT_TOXICOSIS_ELE_Name = new SqlParameter("@HURT_TOXICOSIS_ELE_Name", SqlDbType.VarChar, 20);
             paraHURT_TOXICOSIS_ELE_Name.Value = info.IemDiagInfo.Hurt_Toxicosis_Element;
             SqlParameter paraPATHOLOGY_DIAGNOSIS_ID = new SqlParameter("@PATHOLOGY_DIAGNOSIS_ID", SqlDbType.VarChar, 20);
@@ -1934,7 +1944,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraQuality_Control_Date,
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
                 paraCREATE_USER,paraCREATE_TIME,paraMODIFIED_USER,paraMODIFIED_TIME,paraZYMOSIS,
-                paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
+                paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraHospital_sense,paraHospital_sense_name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
                 paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraINHOSCALL,paraTYPEHOS,paraOUTHOSTYPE,
                 paraANTIBACTERIAL_DRUGS,paraDURATIONDATE,paraCOMBINED_MEDICATION,paraPATHWAY_FLAG,
                 paraPATHWAY_OVER,paraPATH_OUT_REASON,paraVARIATION_FLAG,paraVARIATION_REASON,

@@ -177,7 +177,7 @@ namespace DrectSoft.Core.IEMMainPage
                     //ProcLoadData();
                 }
                 else
-                    if (m_GoType == "MZDIAG" || m_GoType == "RYZDIAG")
+                    if (m_GoType == "MZDIAG" || m_GoType == "RYZDIAG" || m_GoType == "YGDIAG")
                     {
                         switch (m_DiagTypeName)
                         {

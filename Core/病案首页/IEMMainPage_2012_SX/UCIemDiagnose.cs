@@ -52,7 +52,10 @@ namespace DrectSoft.Core.IEMMainPage
         {
             //m_SqlHelper = DataAccessFactory.DefaultDataAccess;
             //InitLookUpEditor();
+            GetFormLoadData();
         }
+
+
 
         #region 初始化下拉框
         private void InitLookUpEditor()
@@ -216,6 +219,9 @@ namespace DrectSoft.Core.IEMMainPage
 
             lueHurt_Toxicosis_Ele.CodeValue = m_IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID;
 
+            lueYNGR_CODE.DiaCode = m_IemInfo.IemDiagInfo.Hospital_sense;
+            lueYNGR_CODE.DiaValue = m_IemInfo.IemDiagInfo.Hospital_sense_name;
+            lueYNGR_CODE.Text = m_IemInfo.IemDiagInfo.Hospital_sense_name;
             txtPathologyName.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_Name;
             txtPathologyID.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID;
             txtPathologySn.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Sn;
@@ -300,6 +306,8 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID = lueHurt_Toxicosis_Ele.CodeValue;
             m_IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = lueHurt_Toxicosis_Ele.Text;
 
+            m_IemInfo.IemDiagInfo.Hospital_sense = lueYNGR_CODE.DiaCode;
+            m_IemInfo.IemDiagInfo.Hospital_sense_name = lueYNGR_CODE.DiaValue;
             m_IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = txtPathologyName.Text;
             m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = txtPathologyID.Text;
             m_IemInfo.IemDiagInfo.Pathology_Observation_Sn = txtPathologySn.Text;
@@ -357,20 +365,7 @@ namespace DrectSoft.Core.IEMMainPage
 
             DataTable dt = m_IemInfo.IemDiagInfo.OutDiagTable;
             dt.Rows.Clear();
-            //门(急)诊诊断
-            //m_IemInfo.IemDiagInfo = new List<Iem_Mainpage_Diagnosis>();
-            //if (!String.IsNullOrEmpty(this.lueOutDiag.CodeValue))
-            //{
-            //    DataRow imOut = dt.NewRow();
-            //    //Iem_Mainpage_Diagnosis imOut = new Iem_Mainpage_Diagnosis();
-            //    imOut["Diagnosis_Code"] = this.lueOutDiag.CodeValue;
-            //    imOut["Diagnosis_Name"] = this.lueOutDiag.DisplayValue;
-            //    imOut["Diagnosis_Type_Id"] = 13;
-            //    //m_IemInfo.IemDiagInfo.Add(imOut);
-            //    dt.Rows.Add(imOut);
-            //    m_IemInfo.IemDiagInfo.OutDiagID = this.lueOutDiag.CodeValue;
-            //    m_IemInfo.IemDiagInfo.OutDiagName = this.lueOutDiag.DisplayValue;
-            //}
+
             #region 已修改  by xlb 2013-07-15 解决保存时表数据窜位置现象
 
             if (this.gridControl1.DataSource != null || this.gridControl2.DataSource != null)
@@ -1000,6 +995,60 @@ namespace DrectSoft.Core.IEMMainPage
             }
             return null;
         }
+        private string GoType = string.Empty;//表明大类别的Type
+        private string MZDiagType = string.Empty;//诊断类型
+        private string inputText = string.Empty;//获取文本里面的内容
+        private DataTable dtXY = new DataTable();
+        private void lueYNGR_CODE_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                Button btn = new Button();
+                if (e.KeyChar == 13)//lueMZXYZD_CODE.Text.Trim() != null &&
+                {
+                    GoType = "YGDIAG";
+                    MZDiagType = "XIYI";
+                    inputText = lueYNGR_CODE.Text.Trim();
 
+                    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtXY, GoType, MZDiagType, inputText);
+                    if (diagInfo.GetFormResult())
+                    {
+                        diagInfo.ShowDialog();
+                        if (diagInfo.IsClosed)
+                        {
+                            lueYNGR_CODE.Text = diagInfo.inText;
+                            lueYNGR_CODE.DiaCode = diagInfo.inCode;
+                            lueYNGR_CODE.DiaValue = diagInfo.inText;
+                        }
+                    }
+                    else
+                    {
+                        lueYNGR_CODE.DiaCode = diagInfo.inCode;
+                        lueYNGR_CODE.DiaValue = diagInfo.inText;
+                        lueYNGR_CODE.Multiline = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
+            }
+        }
+        public void GetFormLoadData()
+        {
+            try
+            {
+                string SqlAllDiagChinese = @"select  py, wb, name, id icd from diagnosisofchinese where valid='1' union select py, wb, name, icdid icd from diagnosischiothername where valid='1'";
+                dtXY = m_SqlHelper.ExecuteDataTable(SqlAllDiagChinese, CommandType.Text);
+
+                string SqlAllDiag = @"select py, wb, name, icd from diagnosis  where valid='1' union select py, wb, name, icdid icd from diagnosisothername where valid='1';
+";
+                dtXY = m_SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
