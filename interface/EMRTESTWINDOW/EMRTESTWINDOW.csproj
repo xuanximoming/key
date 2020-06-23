@@ -166,10 +166,6 @@
       <Project>{27b359a9-7701-44f7-b5d4-583c74b7cfd6}</Project>
       <Name>AnalysisXML</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EmrInfirce\EmrInfirce.csproj">
-      <Project>{365b4e91-c897-447d-a2b5-3ea7400a19ca}</Project>
-      <Name>EmrInfirce</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo20.ico" />

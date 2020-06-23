@@ -50,7 +50,7 @@
 		<tr index="12" height="20" x="0" y="850" width="120" text="大便(次/日)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="TIMEOFSHIT"/>
 		<tr index="13" height="20" x="0" y="870" width="120"  text="体重(kg)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="WEIGHT"/>
 		<tr index="14" height="20" x="0" y="890" width="120"  text="身高(cm)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="HEIGHT"/>
-		<tr index="15" height="20" x="0" y="910" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
+		<tr index="15" height="20" x="0" y="910" width="120"  text="小便(次/日)" textColor="" visualType="1" verAlign="0" size="" showType="1" datafield="PARAM1"/>
 		<tr index="16" height="20" x="0" y="930" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
 		<tr index="16" height="20" x="0" y="950" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
 		<tr index="16" height="20" x="0" y="970" width="120"  text="" textColor="红" visualType="1" verAlign="0" size="" showType="1" datafield=""/>
@@ -180,6 +180,7 @@
 		<item name="colTIMESOFSHIT" datafield="TIMEOFSHIT" showtype="1" isShow="1" cellControl="2" showDlg="DrectSoft.EMR.ThreeRecordAll.Controls.DLG">大便次数</item>
 		<item name="colWEIGHT" datafield="WEIGHT" showtype="1" isShow="1" cellControl="1">体重(kg)</item>
 		<item name="colHEIGHT" datafield="HEIGHT" showtype="1" isShow="1" cellControl="1">身高(cm)</item>
+		<item name="PARAM1" datafield="PARAM1" showtype="1" isShow="1" cellControl="1">小便次数</item>
 	</dataColumns>
 	<!--<item name="colALLERGY" datafield="PARAM1" showtype="1" isShow="1" cellControl="1">过敏药物</item>-->
 	<!--字段的默认值-->  
@@ -211,6 +212,7 @@
 		<item name="colTimesOfShit" datafield="TIMEOFSHIT" showtype="1" cellControl="2" showDlg="DrectSoft.Core.NurseDocument.Controls.DLGSigns">大便次数</item>
 		<item name="colOther" datafield="HEIGHT" showtype="1" cellControl="1">身高(cm)</item>
 		<item name="colWeight" datafield="WEIGHT" showtype="1" cellControl="1">体重(kg)</item>
+		<item name="PARAM1" datafield="PARAM1" showtype="1" cellControl="1">小便次数</item>
 	</DataRowEdit>
 	<!--<item name="colSleep" datafield="PARAM1" showtype="1" cellControl="1">过敏药物</item>-->
 	<!--最新体征录入界面配置文件 src指向界面现有NursingRecordNew和NursingRecord两个界面 isBreak表示是否换行 showDlg弹出框地址-->
@@ -222,7 +224,7 @@
 		<item itemName="TIMEOFSHIT" lblCaption="大便次数" width="200" controlStyle="DrectSoft.Common.Ctrs.OTHER.DSTextBoxSelFile" isBreak="false" showDlg="DrectSoft.Core.NurseDocument.Controls.DLG"/>
 		<item itemName="HEIGHT" lblCaption="身高(cm)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="true" >e</item>
 		<item itemName="WEIGHT" lblCaption="体重(kg)" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
-		<item itemName="PARAM1" lblCaption="" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
+		<item itemName="PARAM1" lblCaption="小便次数" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
 		<item itemName="PARAM2" lblCaption="" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />
 	</NurseMeasure>
 	<!--<item itemName="PARAM1" lblCaption="过敏药物" width="200" controlStyle="System.Windows.Forms.TextBox" isBreak="false" />-->
