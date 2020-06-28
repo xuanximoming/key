@@ -1,22 +1,17 @@
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DrectSoft.Common;
+using DrectSoft.Common.Ctrs.DLG;
+using DrectSoft.Common.Report;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
+using DrectSoft.Wordbook;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DrectSoft.FrameWork.WinForm.Plugin;
 using System.Data.SqlClient;
-using DrectSoft.Core;
-using DevExpress.XtraScheduler.Data;
-using DrectSoft.Wordbook;
-using DrectSoft.Common.Report;
-using DrectSoft.Common;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
-using DrectSoft.Service;
+using System.Drawing;
+using System.Windows.Forms;
 using System.Xml;
-using DrectSoft.Common.Ctrs.DLG;
 
 namespace DrectSoft.Core.QCDeptReport
 {
@@ -149,17 +144,18 @@ namespace DrectSoft.Core.QCDeptReport
                   new SqlParameter("@InpatName", SqlDbType.VarChar),
                   new SqlParameter("@datetimebegin", SqlDbType.VarChar),
                   new SqlParameter("@datetimeend",SqlDbType.VarChar),
+                  new SqlParameter("@userid",SqlDbType.VarChar),
                   new SqlParameter("@qcstattype",SqlDbType.Int),
                   new SqlParameter("@result", SqlDbType.Structured)
                   };
 
                 sqlParams[0].Value = App.User.CurrentDeptId == null ? "" : App.User.CurrentDeptId;
-                //sqlParams[0].Value = "";
                 sqlParams[1].Value = inpatName;
                 sqlParams[2].Value = BeginTime;
                 sqlParams[3].Value = EndTime;
-                sqlParams[4].Value = 1;
-                sqlParams[5].Direction = ParameterDirection.Output;
+                sqlParams[4].Value = App.User.Id;
+                sqlParams[5].Value = 1;
+                sqlParams[6].Direction = ParameterDirection.Output;
                 //DataSet ds = m_DataAccessEmrly.ExecuteDataSet("usp_GetInpatientFiling", sqlParams, CommandType.StoredProcedure);
                 DrectSoft.DSSqlHelper.DS_SqlHelper.CreateSqlHelper();
                 DataSet ds = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataSet("EMRPROC.usp_GetInpatientFiling", sqlParams, CommandType.StoredProcedure);
@@ -677,7 +673,7 @@ namespace DrectSoft.Core.QCDeptReport
         /// <auth>Yanqiao.Cai</auth>
         /// <date>2011-11-09</date>
         /// </summary>
-        public string  EditPatientInfo()
+        public string EditPatientInfo()
         {
             try
             {
@@ -693,7 +689,7 @@ namespace DrectSoft.Core.QCDeptReport
                 }
                 string syxh = dataRow["Noofinpat"].ToString();
                 return syxh;
-             
+
             }
             catch (Exception ex)
             {

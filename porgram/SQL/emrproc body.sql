@@ -1,26 +1,28 @@
 CREATE OR REPLACE PACKAGE BODY emrproc IS
 
- PROCEDURE USP_EMR_DISOUTHOS(v_PATNOOFHIS       VARCHAR2,
-                             o_result           OUT empcurtyp) as
-  errorException exception; --申明异常  
-  errorCode number; --异常代号  
-  errorMsg varchar2(1000); --异常信息  
-begin                              
-  update inpatient set status = '1500',outwarddate = '',outhosdate = '' where patnoofhis = v_PATNOOFHIS;
-  OPEN o_result FOR
-      select 'OK' from dual;                        
-  exception  
-    when errorException then  
-         errorCode := SQLCODE;  
-         errorMsg := SUBSTR(SQLERRM, 1, 200);
-         OPEN o_result FOR
-              select errorCode,errorMsg from dual;
-    when others then  
-         errorCode := SQLCODE;      
-         errorMsg := SUBSTR(SQLERRM, 1, 200); 
-         OPEN o_result FOR
-              select errorCode,errorMsg from dual;                         
-end ;
+  PROCEDURE USP_EMR_DISOUTHOS(v_PATNOOFHIS VARCHAR2,
+                              o_result     OUT empcurtyp) as
+    errorException exception; --申明异常  
+    errorCode number; --异常代号  
+    errorMsg  varchar2(1000); --异常信息  
+  begin
+    update inpatient
+       set status = '1500', outwarddate = '', outhosdate = ''
+     where patnoofhis = v_PATNOOFHIS;
+    OPEN o_result FOR
+      select 'OK' from dual;
+  exception
+    when errorException then
+      errorCode := SQLCODE;
+      errorMsg  := SUBSTR(SQLERRM, 1, 200);
+      OPEN o_result FOR
+        select errorCode, errorMsg from dual;
+    when others then
+      errorCode := SQLCODE;
+      errorMsg  := SUBSTR(SQLERRM, 1, 200);
+      OPEN o_result FOR
+        select errorCode, errorMsg from dual;
+  end;
 
   /*******************************************************************/
   PROCEDURE usp_emr_patrecfile(v_flag             INTEGER,
@@ -59,7 +61,7 @@ end ;
     [输出参数]
     [结果集、排序]
     质量控制统计数据集
-
+    
     [调用的sp]
     [调用实例]
     EXEC usp_Emr_PatRecFile 1,2,'T','FNAME','CONTENT','SORTID','OWN','AUDIT','CRAETE','AUDIT',1,1,1,1
@@ -115,7 +117,7 @@ end ;
          v_isconfigpagesize,
          v_DepartCode,
          v_wardCode);
-
+    
     ELSIF v_flag = 2 THEN
       UPDATE recorddetail
          SET --content   = v_filecontent,
@@ -129,7 +131,7 @@ end ;
              captiondatetime = v_captiondatetime
        WHERE ID = v_indx;
     END IF;
-
+  
     OPEN o_result FOR
       select p_count from dual;
   END;
@@ -148,12 +150,12 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -192,9 +194,9 @@ end ;
     UPDATE users
        SET jobid = REPLACE(jobid, v_id || ',', '')
      WHERE ID IN (SELECT ID FROM users WHERE jobid LIKE '%v_ID%');
-
+  
     DELETE FROM job2permission WHERE ID = v_id;
-
+  
     DELETE FROM jobs WHERE ID = v_id;
   END;
 
@@ -293,7 +295,7 @@ end ;
       select '' from dual;
     if v_EditType = '1' then
       insert into LONG_ORDER
-
+      
         (LONGID,
          NOOFINPAT,
          GROUPID,
@@ -455,7 +457,7 @@ end ;
     elsif v_EditType = '4' then
       open o_result for
         select * from LONG_ORDER where LONGID = V_LONGID;
-
+    
     end if;
   end;
 
@@ -512,7 +514,7 @@ end ;
     --添加
     open o_result for
       select '' from dual;
-
+  
     if v_EditType = '1' then
       insert into TEMP_ORDER
         (TEMPID,
@@ -664,7 +666,7 @@ end ;
     elsif v_EditType = '4' then
       open o_result for
         select * from TEMP_ORDER where TEMPID = v_TEMPID;
-
+    
     end if;
   end;
 
@@ -689,10 +691,10 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -755,12 +757,12 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
+    
      exec usp_EditFamilyHistoryInfo v_EditType='3',v_ID='5'
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -821,10 +823,10 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -892,11 +894,11 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -906,7 +908,7 @@ end ;
           --AND notesonnursing.indx = v_indx
        and timeslot = v_timeslot
        and noofinpat = v_noofinpat;
-
+  
     /* --保存护理信息数据
     INSERT INTO notesonnursing
       (ID,
@@ -1048,11 +1050,11 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -1061,7 +1063,7 @@ end ;
      WHERE dateofsurvey = v_dateofsurvey
        AND timeslot = v_timeslot
        and noofinpat = v_noofinpat;
-
+  
     /* --保存护理信息数据
     INSERT INTO notesonnursing
       (ID,
@@ -1175,7 +1177,7 @@ end ;
                                o_result    OUT empcurtyp) as
   begin
     open o_result for
-
+    
       select V_ID from dual;
     --添加
     if v_EditType = '1' then
@@ -1187,20 +1189,20 @@ end ;
          v_NoofInPat,
          v_DoTime,
          v_Patid);
-
+    
       --修改
     elsif v_EditType = '2' then
-
+    
       UPDATE PatientStatus
          set CCODE     = v_CCode,
              DoTime    = v_DoTime,
              NOOFINPAT = v_NoofInPat,
              Patid     = v_Patid
        WHERE id = V_ID;
-
+    
       --删除
     elsif v_EditType = '3' then
-
+    
       /*update Emr_ConfigPoint a set a.valid = 0 where ID = V_ID;*/
       delete from PatientStatus
        where CCODE = v_CCode
@@ -1208,7 +1210,7 @@ end ;
          and id = V_id
          and Patid = v_Patid;
       commit;
-
+    
       /*--查询
       elsif v_EditType = '4' then open o_result for
         select (case
@@ -1250,8 +1252,8 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
      exec usp_EditPatientContacts v_EditType='1',v_ID='0',v_NoOfInpat='75278',v_Name='李琼',v_Sex='2'
@@ -1328,16 +1330,16 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
     --删除当前记录
     DELETE personalhistory WHERE noofinpat = v_noofinpat;
-
+  
     --添加
     INSERT INTO personalhistory
       (ID,
@@ -1387,10 +1389,10 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -1501,22 +1503,22 @@ end ;
         v_mbms   := 'dxms';
       END;
     END IF;
-
+  
     IF v_flag = 0 THEN
       BEGIN
         v_sql := 'select a.ID,a.Name,a.Describe,b.ID CatalogID ,b.Name Catalog,a.' ||
                  v_sortid || ' PrevID,a.' || v_sortid || ' SortID';
-
+      
         IF (v_type <> 3800) THEN
           v_sql := v_sql || ', a.Valid';
         ELSE
           v_sql := v_sql || ',1 Valid';
         END IF;
-
+      
         v_sql := v_sql || ' from ' || v_dybm ||
                  ' a left join ModelDirectory b on a.' || v_sortid ||
                  ' = b.ID order by ID';
-
+      
         OPEN o_result FOR v_sql;
       END;
     END IF;
@@ -1524,9 +1526,9 @@ end ;
 
   /************************************************************************************/
   PROCEDURE USP_EMR_GETPATINFO(v_NoOfinpat varchar, o_result OUT empcurtyp) AS
-
+  
     v_addresstip VARCHAR(30); --关于读取地址的配置标识
-
+  
   begin
     select instr(value, '<IsReadAddressInfo>0</IsReadAddressInfo>', 1, 1)
       into v_addresstip
@@ -1535,12 +1537,12 @@ end ;
     /* if v_addresstip = '0'--读取省市县
     then */
     open o_result for
-      SELECT b.noofinpat  noofinpat, --首页序号
+      SELECT b.noofinpat noofinpat, --首页序号
              b.patnoofhis patnoofhis, --HIS首页序号
-             b.patid      patid, --住院号
-             b.NAME   patname, --姓名
-             b.sexid  sex, --病人性别
-             j.name   sexname, --病人性别名称
+             b.patid patid, --住院号
+             b.NAME patname, --姓名
+             b.sexid sex, --病人性别
+             j.name sexname, --病人性别名称
              b.agestr agestr, --年龄
              b.py py, --拼音
              b.wb wb, --五笔
@@ -1566,7 +1568,7 @@ end ;
                else
                 '一级护理'
              end hljb, --护理级别
-
+             
              case b.attendlevel
                when '1' then
                 '6101'
@@ -1579,7 +1581,7 @@ end ;
                else
                 '6101'
              end attendlevel, --护理级别
-
+             
              b.isbaby yebz, --婴儿标志
              CASE
                WHEN b.isbaby = '0' THEN
@@ -1593,30 +1595,38 @@ end ;
              a.deptid ksdm, --科室代码
              --a.ID bedid, --床位代码
              b.outbed bedid, --出院床位
-             (select dg.name from department dg where b.admitdept = dg.ID AND d1.valid = '1' and rownum =1)  ryksmc,--入院科室名称
-             (select dg.name from department dg where b.outhosdept = dg.ID AND d1.valid = '1' and rownum =1)  cyksmc,--入院科室名称
-             wh.NAME        bqmc, --病区名称
-             a.formerward   ybqdm, --原病区代码
+             (select dg.name
+                from department dg
+               where b.admitdept = dg.ID
+                 AND d1.valid = '1'
+                 and rownum = 1) ryksmc, --入院科室名称
+             (select dg.name
+                from department dg
+               where b.outhosdept = dg.ID
+                 AND d1.valid = '1'
+                 and rownum = 1) cyksmc, --入院科室名称
+             wh.NAME bqmc, --病区名称
+             a.formerward ybqdm, --原病区代码
              a.formerdeptid yksdm, --原科室代码
              a.formerdeptid ycwdm, --原床位代码
-             a.inbed        inbed, --占床标志
-             a.borrow       jcbz, --借床标志
-             a.sexinfo      cwlx, --床位类型
+             a.inbed inbed, --占床标志
+             a.borrow jcbz, --借床标志
+             a.sexinfo cwlx, --床位类型
              -- SUBSTR(b.admitdate, 1, 16) admitdate,--入院时间
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'yyyy') || '年' ||
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'MM') || '月' ||
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'dd') || '日' || ' ' ||
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'hh24') || ':' ||
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'mi') admitdate, --入院时间
-
-            b.admitdiagnosis     ryzd, --入院诊断
-           b.admitdiagnosis     zdmc, --诊断名称
-             b.resident zyysdm, --住院医生代码
-             c.NAME     zyys, --住院医生
-             c.NAME  cwys, --床位医生
-             g.NAME  zzys, --主治医师
-             h.NAME  zrys, --主任医师
-             a.valid yxjl, --有效记录
+             
+             b.admitdiagnosis ryzd, --入院诊断
+             b.admitdiagnosis zdmc, --诊断名称
+             b.resident       zyysdm, --住院医生代码
+             c.NAME           zyys, --住院医生
+             c.NAME           cwys, --床位医生
+             g.NAME           zzys, --主治医师
+             h.NAME           zrys, --主任医师
+             a.valid          yxjl, --有效记录
              --me.pzlx pzlx, --凭证类型
              dd1.NAME pzlx, --费用类别
              /*TO_CHAR((CASE
@@ -1649,12 +1659,12 @@ end ;
                WHERE qc.noofinpat = b.noofinpat
                  AND qc.valid = 1
                  AND qc.foulstate = 1) AS iswarn, --是否违规
-
+             
              b.organization Organization, --工作单位
              b.officeplace, --工作单位（新）
-
+             
              --NVL(b.nativeaddress, b.officeplace) Address, --户口住址 edit by ywk
-
+             
              case
                when v_addresstip > 0 then
                 b.nativeaddress
@@ -1675,43 +1685,43 @@ end ;
              j2.name marital, --婚姻
              --nvl(a2.name, a1.name) HOMETOWN, --出生地
              --a2.name || a1.name HOMETOWN,
-
+             
              --case when v_addresstip = '0' then
              /*  case when a1.provincename = a2.cityname then a1.provincename
              else a1.provincename || a2.cityn*/ --end HOMETOWN,
              -- else  b.csdaddress
              -- end HOMETOWN,
-
+             
              case
                when v_addresstip > 0 then
-                --case
-                 -- when a1.provincename = a2.cityname then
-                --   a1.provincename
-                 -- else
-                   --a1.provincename || a2.cityname
-                   b.provinceid
-                --end
+               --case
+               -- when a1.provincename = a2.cityname then
+               --   a1.provincename
+               -- else
+               --a1.provincename || a2.cityname
+                b.provinceid
+             --end
                else
                 b.csdaddress
              end HOMETOWN, --出生地
-
+             
              case
                when v_addresstip > 0 then
-                --case
-                --  when a3.provincename = a4.cityname then
-                  -- a3.provincename
-                --  else
-                  -- a3.provincename || a4.cityname
-                  b.nativeplace_p
-               -- end --JiGuan, --籍贯
+               --case
+               --  when a3.provincename = a4.cityname then
+               -- a3.provincename
+               --  else
+               -- a3.provincename || a4.cityname
+                b.nativeplace_p
+             -- end --JiGuan, --籍贯
                else
                 b.jgaddress
              end JiGuan, --籍贯
-
+             
              /*  case when a3.provincename = a4.cityname then a3.provincename
              else a3.provincename || a4.cityname end JiGuan, --籍贯
              --else b.jgaddress end*/ -- JiGuan,--籍贯
-
+             
              to_char(to_date(b.birth, 'yyyy-MM-dd hh24:mi:ss'), 'yyyy') || '年' ||
              to_char(to_date(b.birth, 'yyyy-MM-dd hh24:mi:ss'), 'MM') || '月' ||
              to_char(to_date(b.birth, 'yyyy-MM-dd hh24:mi:ss'), 'dd') || '日' birth, --出生日期
@@ -1731,32 +1741,44 @@ end ;
              d1.name ADMITDEPT, --入院科室
              w1.name ADMITWARD, --入院病区
              case
-               --xll 2013-08-15 修改为 住院天数不足一天为1天 算入院当天 不算出院当天
+             --xll 2013-08-15 修改为 住院天数不足一天为1天 算入院当天 不算出院当天
                when b.status in (1500, 1501) then --病人在院时 拿当前时间-入院时间+1  xull 2013-05-08
                /* trunc(sysdate) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
+               trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
                 decode(trunc(sysdate) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),0,1,trunc(sysdate) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),
+                       0,
+                       1,
+                       trunc(sysdate) -
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
                when b.outwarddate is not null then --其他状态 病人有出区时间 出区时间-入院+1
                /* trunc(to_date(b.outwarddate, 'yyyy-MM-dd hh24:mi:ss')) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
+               trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
                 decode(trunc(to_date(b.outwarddate, 'yyyy-MM-dd hh24:mi:ss')) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),0,1,trunc(to_date(b.outwarddate, 'yyyy-MM-dd hh24:mi:ss')) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
-
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),
+                       0,
+                       1,
+                       trunc(to_date(b.outwarddate, 'yyyy-MM-dd hh24:mi:ss')) -
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
+             
                when b.outhosdate is not null then --其他状态 病人有出院时间 出院时间-入院+1
                /* trunc(to_date(b.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
+               trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
                 decode(trunc(to_date(b.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),0,1,trunc(to_date(b.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),
+                       0,
+                       1,
+                       trunc(to_date(b.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) -
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
                else --其他无法预料 直接当前时间-入院时间+1  xull 2013-05-08 一般不存在
                /* trunc(sysdate) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
-                 decode(trunc(sysdate) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),0,1,trunc(sysdate) -
-                trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
+               trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')) + 1*/
+                decode(trunc(sysdate) -
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')),
+                       0,
+                       1,
+                       trunc(sysdate) -
+                       trunc(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss')))
              end indays, --住院天数
              u1.name ClinicDoctor, --门诊医生
              u2.name Resident, --住院医生
@@ -1765,7 +1787,7 @@ end ;
              b.isbaby, ---新增取得当前用户是不是婴儿，add by ywk
              b.mother, ---母亲的首页序号也取出来 add by ywk 2012年11月23日15:54:23
              j5.name relations,
-               to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'yyyy') || '年' ||
+             to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'yyyy') || '年' ||
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'MM') || '月' ||
              to_char(to_date(b.admitdate, 'yyyy-MM-dd hh24:mi:ss'), 'dd') || '日' jieqi --计算节气的日期
         FROM inpatient b
@@ -1811,16 +1833,16 @@ end ;
       --                  AND a1.category = '1000'
       --LEFT JOIN Areas a2 on a2.id = b.countyid
       --                  AND a2.category = '1001'
-       -- left outer JOIN s_province a1
-        --  on a1.provinceid = b.provinceid
+      -- left outer JOIN s_province a1
+      --  on a1.provinceid = b.provinceid
         left outer JOIN s_city a2
           on a2.cityid = b.countyid
-
-       -- left outer join s_province a3
-       --   on a3.provinceid = b.nativeplace_p
+      
+      -- left outer join s_province a3
+      --   on a3.provinceid = b.nativeplace_p
         left outer join s_city a4
           on a4.cityid = b.nativeplace_c
-
+      
         LEFT JOIN dictionary_detail j3
           on j3.detailid = b.nationid
          AND j3.categoryid = '42'
@@ -1854,7 +1876,7 @@ end ;
           on j5.detailid = b.relationship
          AND j5.categoryid = '44'
        WHERE b.noofinpat = v_NoOfinpat;
-
+  
   end;
 
   /*********************************************************************************/
@@ -1889,7 +1911,7 @@ end ;
   begin
     v_sql := 'truncate table tmp_Emr_QueryOrderSuites ';
     EXECUTE IMMEDIATE v_sql;
-
+  
     -- 在界面上将按照长期、临时分别显示相应的成套医嘱，所以在生成数据集时要特殊处理，以满足数据过滤的需要
     insert into tmp_Emr_QueryOrderSuites
       select e.ID              GroupID,
@@ -1940,12 +1962,12 @@ end ;
        where e.UseRange = 2900
           or (e.UseRange = 2901 and e.DeptID = v_DeptID)
           or (e.UseRange = 2903 and e.DoctorID = v_DoctorID);
-
+  
     -- 输出结果集
     if v_yzlr = 1 then
       open o_result for
         select distinct GroupID,
-
+                        
                         Name,
                         DeptID,
                         WardID,
@@ -1977,7 +1999,7 @@ end ;
           from tmp_Emr_QueryOrderSuites
          order by UseRange, Name;
     end if;
-
+  
     open o_result1 for
       select DetailID,
              GroupID,
@@ -2008,7 +2030,7 @@ end ;
         from tmp_Emr_QueryOrderSuites
        where DetailID is not null
        order by GroupID, DetailID;
-
+  
   end;
 
   /*********************************************************************************/
@@ -2048,14 +2070,14 @@ end ;
     v_cyhzbz varchar2(50); -- 草药汇总信息标志
     v_sql    varchar2(4000);
   begin
-
+  
     --yxy临时表暂时使用实体表
     /*
      v_tablename := 'tmp_newfzxh';
-
+    
     droptable(v_tablename);
      --创建临时表
-
+    
      v_sql := 'create table ' || v_tablename || '(
      cqlsbz  int    not null,  -- 长期临时标志, 0: 临时; 1: 长期
      yzxh  int  not null,  -- 医嘱序号
@@ -2066,12 +2088,12 @@ end ;
      constraint pk_newfzxh primary key (yzxh, cqlsbz)
      )';
      execute immediate v_sql;*/
-
+  
     v_sql := 'truncate table tmp_newfzxh ';
     EXECUTE IMMEDIATE v_sql;
-
+  
     if ((v_OrderType = 0) or (v_OrderType = 2)) then
-
+    
       insert into tmp_newfzxh
         (cqlsbz, yzxh, GroupID, GroupFlag, OrderType, Memo)
         select 0, TempID, GroupID, GroupFlag, OrderType, Memo
@@ -2081,7 +2103,7 @@ end ;
                ((v_onlynew = 1) and (OrderStatus = 3200)))
          order by TempID;
     end if;
-
+  
     if ((v_OrderType = 1) or (v_OrderType = 2)) then
       insert into tmp_newfzxh
         (cqlsbz, yzxh, GroupID, GroupFlag, OrderType, Memo)
@@ -2092,7 +2114,7 @@ end ;
                ((v_onlynew = 1) and (OrderStatus = 3200)))
          order by LongID;
     end if;
-
+  
     --select v_lastcqlsbz = 0, v_lastfzxh = 0
     v_cyhzbz := '草药汇总';
     declare
@@ -2101,7 +2123,7 @@ end ;
           from tmp_newfzxh
          order by cqlsbz, yzxh
            for update of GroupID;
-
+    
       --游标
     begin
       open cr_fzxh;
@@ -2113,7 +2135,7 @@ end ;
           -- 组开始或单条或未分组,分组序号与医嘱序号一致
           begin
             if ((v_yznrlb = 3110) and (instr(v_Memo, v_cyhzbz) > 0)) then
-
+            
               update tmp_newfzxh
                  set Memo = v_cyhzbz + to_char(v_GroupID)
                where current of cr_fzxh; -- 草药汇总的Memo中要保存草药明细的分组序号
@@ -2121,19 +2143,19 @@ end ;
             v_GroupID := v_yzxh; --, v_lastfzxh = v_yzxh
           end;
         end if;
-
+      
         update tmp_newfzxh
            set GroupID = v_GroupID
          where current of cr_fzxh; --yzxh = v_yzxh and cqlsbz = v_cqlsbz
-
+      
         fetch cr_fzxh
           into v_cqlsbz, v_yzxh, v_GroupFlag, v_yznrlb, v_Memo;
       end loop;
-
+    
       close cr_fzxh;
-
+    
     end;
-
+  
     update Temp_Order a
        set GroupID =
            (select b.GroupID
@@ -2144,7 +2166,7 @@ end ;
               from tmp_newfzxh b
              where a.TempID = b.yzxh
                and b.cqlsbz = 0);
-
+  
     update Long_Order a
        set GroupID =
            (select b.GroupID
@@ -2155,7 +2177,7 @@ end ;
               from tmp_newfzxh b
              where a.LongID = b.yzxh
                and b.cqlsbz = 1);
-
+  
   end;
 
   /*********************************************************************************/
@@ -2177,9 +2199,9 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
      exec usp_GetApplyRecord v_DateBegin=N'2001-04-20',v_DateEnd=N'2011-04-27',v_OutHosDept=N'0000'
@@ -2270,9 +2292,9 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
      exec usp_GetApplyRecord v_DateBegin=N'2001-04-20',v_DateEnd=N'2011-04-27',v_OutHosDept=N'0000'
@@ -2343,12 +2365,12 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -2382,7 +2404,7 @@ end ;
      输出参数
      结果集、排序
     失分统计信息
-
+    
      调用的sp
      调用实例
      exec usp_GetInpatientFiling '','', '2007-06-01', '2012-06-30',2
@@ -2530,7 +2552,7 @@ end ;
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_GetIemInfo  9
@@ -2540,22 +2562,22 @@ end ;
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result1 FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result2 FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result3 FOR
       SELECT '' FROM DUAL;
-
+  
     SELECT MAX(imb.iem_mainpage_no)
       INTO v_infono
       FROM iem_mainpage_basicinfo imb
      WHERE imb.noofinpat = v_noofinpat
        AND imb.valide = 1;
-
+  
     --数据顺序不可变，与程序里相关
     --基本信息
     OPEN o_result FOR
@@ -2563,7 +2585,7 @@ end ;
         FROM iem_mainpage_basicinfo
        WHERE iem_mainpage_no = v_infono
          AND valide = 1;
-
+  
     --诊断
     OPEN o_result1 FOR
       SELECT *
@@ -2571,16 +2593,16 @@ end ;
        WHERE iem_mainpage_no = v_infono
          AND valide = 1
        ORDER BY order_value;
-
+  
     --手术
     /*    OPEN o_result2 FOR
     SELECT *
       FROM iem_mainpage_operation
      WHERE iem_mainpage_no = v_infono
        AND valide = 1;*/
-
+  
     OPEN o_result2 FOR
-
+    
       SELECT iem.iem_mainpage_operation_no,
              iem.iem_mainpage_no,
              iem.operation_code,
@@ -2642,7 +2664,7 @@ end ;
          and dic.categoryid = '30'
        WHERE valide = 1
          and iem.iem_mainpage_no = v_infono;
-
+  
     --产妇婴儿信息
     OPEN o_result3 FOR
       SELECT *
@@ -2656,6 +2678,7 @@ end ;
                                    v_InpatName     VARCHAR DEFAULT '',
                                    v_datetimebegin VARCHAR,
                                    v_datetimeend   VARCHAR,
+                                   v_userid   VARCHAR,
                                    v_qcstattype    INT,
                                    o_result        OUT empcurtyp) AS
     /**********
@@ -2674,72 +2697,52 @@ end ;
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_GetInpatientFiling '','', '2011-02-24', '2011-03-24',1
      修改记录
     **********/
+    myv_userid varchar2(6);
   BEGIN
+    if v_InpatName IS NULL then
+      myv_userid := v_userid;
+    else
+        myv_userid := '%';
+    end if;
     IF v_qcstattype = 1 THEN
       --出院未归档病历
       OPEN o_result FOR
-        SELECT --ROW_NUMBER() OVER(ORDER BY inp.noofinpat) AS rowid_,
-        DISTINCT inp.outhosdept,
-                 de.NAME        deptname,
-                 inp.noofinpat  AS noofinpat,
-                 inp.patnoofhis AS patnoofhis,
-                 inp.patid      AS patid,
-                 inp.NAME       AS NAME,
-                 inp.sexid      AS sexid,
-                 dd.NAME        AS sexname,
-                 inp.agestr     AS agestr,
-                 --TO_CHAR(inp.admitdate, 'yyyy-mm-dd') AS admitdate,
-                 --TO_CHAR(inp.outhosdate, 'yyyy-mm-dd') AS outhosdate,
-
-                 --edit by cyq 2013-03-14
-                 --to_date(inp.admitdate, 'yyyy-MM-dd hh24:mi:ss') AS admitdate,
-                -- to_date(inp.outhosdate, 'yyyy-MM-dd hh24:mi:ss') AS outhosdate,
-
-                substr(inp.admitdate,1,16) AS admitdate,
-                substr(inp.outhosdate,1,16) AS outhosdate,
-
-                 --trunc(to_date(inp.admitdate, 'yyyy-MM-dd hh24:mi:ss')) AS admitdate,
-                 --trunc(to_date(inp.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) AS outhosdate,
-
-                 --add by cyq 2013-03-14
-                 --to_date(inp.inwarddate, 'yyyy-MM-dd hh24:mi:ss') AS inwarddate,
-                -- to_date(inp.outwarddate, 'yyyy-MM-dd hh24:mi:ss') AS outwarddate,
-
-                 substr(inp.inwarddate,1,16) AS inwarddate,
-                  substr(inp.outwarddate,1,16) AS outwarddate,
-                 1                 inhoscnt, ---住院次数
-                 residentuser.NAME residentname,
-                 attenduser.NAME   attendname,
-                 chiefuser.NAME    chiefname,
-                 inp.admitdiagnosis         admitdiag,
-                 /*                 datediff('dd',
-                          inp.admitdate,
-                          NVL(trim(inp.outwarddate),
-                              TO_CHAR(SYSDATE, 'yyyy-mm-dd'))) inhosdays,
-                 NVL(datediff('dd',
-                              trim(inp.outwarddate),
-                              TO_CHAR(SYSDATE, 'yyyy-mm-dd')),
-                     0) outhosdays,*/
-
-                 isday(datediff('dd',
-                                inp.admitdate,
-                                 NVL(trim(inp.outhosdate),
-                                --NVL(trim(inp.outwarddate),
-                                    TO_CHAR(SYSDATE, 'yyyy-mm-dd')))) inhosdays, --2013-6-24 zjy
-                 isday(datediff('dd',
-                               -- trim(inp.outwarddate), eidt by ywk
-                                  trim(inp.outhosdate),
-                                TO_CHAR(SYSDATE, 'yyyy-mm-dd'))) outhosdays, --2013-6-24 zjy
-
-                 inp.noofinpat NoOfInpat
+        SELECT DISTINCT inp.outhosdept,
+                        de.NAME        deptname,
+                        inp.noofinpat  AS noofinpat,
+                        inp.patnoofhis AS patnoofhis,
+                        inp.patid      AS patid,
+                        inp.NAME       AS NAME,
+                        inp.sexid      AS sexid,
+                        dd.NAME        AS sexname,
+                        inp.agestr     AS agestr,
+                        
+                        substr(inp.admitdate, 1, 16) AS admitdate,
+                        substr(inp.outhosdate, 1, 16) AS outhosdate,
+                        
+                        substr(inp.inwarddate, 1, 16) AS inwarddate,
+                        substr(inp.outwarddate, 1, 16) AS outwarddate,
+                        1 inhoscnt, ---住院次数
+                        residentuser.NAME residentname,
+                        attenduser.NAME attendname,
+                        chiefuser.NAME chiefname,
+                        inp.admitdiagnosis admitdiag,
+                        isday(datediff('dd',
+                                       inp.admitdate,
+                                       NVL(trim(inp.outhosdate),
+                                           TO_CHAR(SYSDATE, 'yyyy-mm-dd')))) inhosdays, --2013-6-24 zjy
+                        isday(datediff('dd',
+                                       trim(inp.outhosdate),
+                                       TO_CHAR(SYSDATE, 'yyyy-mm-dd'))) outhosdays, --2013-6-24 zjy
+                        
+                        inp.noofinpat NoOfInpat
           FROM inpatient inp
-        --JOIN medicalrecord med ON inp.noofinpat = med.noofinpat
           LEFT JOIN recorddetail rd
             on rd.noofinpat = inp.noofinpat
           LEFT JOIN dictionary_detail dd
@@ -2755,23 +2758,20 @@ end ;
             ON de.ID = inp.outhosdept
           LEFT JOIN diagnosis diag
             ON diag.markid = inp.admitdiagnosis
-         WHERE /*inp.status = 1503*/ --edit by ywk  2012年3月7日17:03:55
+         WHERE 
          inp.status in ('1502', '1503')
-        --AND med.lockinfo IN (4700, 4702, 4703)
          AND (inp.islock IN (4700, 4702, 4703) or inp.islock is null)
-        --AND TO_CHAR(inp.admitdate, 'yyyy-mm-dd') >= v_datetimebegin
-        --AND TO_CHAR(inp.admitdate, 'yyyy-mm-dd') <= v_datetimeend
-
+        
          AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) >=
          to_date(v_datetimebegin || ' 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
          AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) <=
          to_date(v_datetimeend || ' 23:59:59', 'yyyy-mm-dd hh24:mi:ss')
-
+        
          AND (TO_CHAR(outhosdept) = v_deptcode OR v_deptcode = '' OR
          v_deptcode IS NULL)
-         AND (inp.patid = v_InpatName or v_InpatName = '' or
-         v_InpatName is null)
-
+         AND (inp.patid like '%' || v_InpatName || '%')
+         and inp.attend like '%' || myv_userid || '%'
+        
          ORDER BY inp.noofinpat;
     ELSIF v_qcstattype = 2 THEN
       --归档病历
@@ -2788,17 +2788,17 @@ end ;
                  inp.agestr     AS agestr,
                  --TO_CHAR(inp.admitdate, 'yyyy-mm-dd') AS admitdate,
                  --TO_CHAR(inp.outhosdate, 'yyyy-mm-dd') AS outhosdate,
-
+                 
                  --edit by cyq 2013-03-14
                  to_date(inp.admitdate, 'yyyy-MM-dd hh24:mi:ss') AS admitdate,
                  to_date(inp.outhosdate, 'yyyy-MM-dd hh24:mi:ss') AS outhosdate,
                  --trunc(to_date(inp.admitdate, 'yyyy-MM-dd hh24:mi:ss')) AS admitdate,
                  --trunc(to_date(inp.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) AS outhosdate,
-
+                 
                  --add by cyq 2013-03-14
                  to_date(inp.inwarddate, 'yyyy-MM-dd hh24:mi:ss') AS inwarddate,
                  to_date(inp.outwarddate, 'yyyy-MM-dd hh24:mi:ss') AS outwarddate,
-
+                 
                  1 inhoscnt, ---住院次数
                  residentuser.NAME residentname,
                  attenduser.NAME attendname,
@@ -2835,21 +2835,21 @@ end ;
            AND rd.islock = '4701'
               --AND TO_CHAR(inp.admitdate, 'yyyy.mm.dd') >= v_datetimebegin
               --AND TO_CHAR(inp.admitdate, 'yyyy.mm.dd') <= v_datetimeend
-
+              
            AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) >=
                to_date(v_datetimebegin || ' 00:00:00',
                        'yyyy-mm-dd hh24:mi:ss')
            AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) <=
                to_date(v_datetimeend || ' 23:59:59',
                        'yyyy-mm-dd hh24:mi:ss')
-
+              
            AND (TO_CHAR(outhosdept) = v_deptcode OR v_deptcode = '' OR
                v_deptcode IS NULL)
            AND (TO_CHAR(inp.noofinpat) = v_InpatName OR v_InpatName = '' OR
                v_InpatName IS NULL)
          ORDER BY inp.noofinpat;
-
-     ELSIF v_qcstattype =3 THEN
+    
+    ELSIF v_qcstattype = 3 THEN
       --归档病历
       OPEN o_result FOR
         SELECT --ROW_NUMBER() OVER(ORDER BY inp.noofinpat) AS rowid_,
@@ -2864,17 +2864,17 @@ end ;
                  inp.agestr     AS agestr,
                  --TO_CHAR(inp.admitdate, 'yyyy-mm-dd') AS admitdate,
                  --TO_CHAR(inp.outhosdate, 'yyyy-mm-dd') AS outhosdate,
-
+                 
                  --edit by cyq 2013-03-14
                  to_date(inp.admitdate, 'yyyy-MM-dd hh24:mi:ss') AS admitdate,
                  to_date(inp.outhosdate, 'yyyy-MM-dd hh24:mi:ss') AS outhosdate,
                  --trunc(to_date(inp.admitdate, 'yyyy-MM-dd hh24:mi:ss')) AS admitdate,
                  --trunc(to_date(inp.outhosdate, 'yyyy-MM-dd hh24:mi:ss')) AS outhosdate,
-
+                 
                  --add by cyq 2013-03-14
                  to_date(inp.inwarddate, 'yyyy-MM-dd hh24:mi:ss') AS inwarddate,
                  to_date(inp.outwarddate, 'yyyy-MM-dd hh24:mi:ss') AS outwarddate,
-
+                 
                  1 inhoscnt, ---住院次数
                  residentuser.NAME residentname,
                  attenduser.NAME attendname,
@@ -2907,19 +2907,20 @@ end ;
           LEFT JOIN diagnosis diag
             ON diag.mapid = inp.admitdiagnosis
          WHERE
-              --AND TO_CHAR(inp.admitdate, 'yyyy.mm.dd') >= v_datetimebegin
-              --AND TO_CHAR(inp.admitdate, 'yyyy.mm.dd') <= v_datetimeend
-
-            trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) >=
-               to_date(v_datetimebegin || ' 00:00:00',
-                       'yyyy-mm-dd hh24:mi:ss')
-           AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) <=
-               to_date(v_datetimeend || ' 23:59:59',
-                       'yyyy-mm-dd hh24:mi:ss')
-
-           AND (TO_CHAR(inp.patid) = v_InpatName OR v_InpatName = '' OR
-               v_InpatName IS NULL)
-               and TO_CHAR(inp.noofinpat) in ( select distinct  noofinpat from inpatientchangeinfo where olddeptid=v_deptcode )
+        --AND TO_CHAR(inp.admitdate, 'yyyy.mm.dd') >= v_datetimebegin
+        --AND TO_CHAR(inp.admitdate, 'yyyy.mm.dd') <= v_datetimeend
+        
+         trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) >=
+         to_date(v_datetimebegin || ' 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
+         AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) <=
+         to_date(v_datetimeend || ' 23:59:59', 'yyyy-mm-dd hh24:mi:ss')
+        
+         AND (TO_CHAR(inp.patid) = v_InpatName OR v_InpatName = '' OR
+          v_InpatName IS NULL)
+         and TO_CHAR(inp.noofinpat) in
+         (select distinct noofinpat
+            from inpatientchangeinfo
+           where olddeptid = v_deptcode)
          ORDER BY inp.noofinpat;
     END IF;
   END;
@@ -2949,11 +2950,11 @@ end ;
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
     usp_GetInpatientReport '62','','','','',''
-
+    
      修改记录
     **********/
   BEGIN
@@ -3003,7 +3004,7 @@ end ;
                dept.NAME applydeptname,
                inp.outbed bedno,
                inp.outhosward ward,
-              inp.admitdiagnosis lczd,
+               inp.admitdiagnosis lczd,
                '' applydoctor,
                TO_CHAR(TO_DATE(SUBSTR(report.submitdate, 1, 10),
                                'yyyy-mm-dd'),
@@ -3045,7 +3046,7 @@ end ;
                                'yyyy-mm-dd'),
                        'yyyy-mm-dd') receivetime,
                '' sampletime,
-              inp.admitdiagnosis clinicdesc,
+               inp.admitdiagnosis clinicdesc,
                '' sampledescdesc,
                '' patpropnodesc,
                inp.outhosward warddesc,
@@ -3117,12 +3118,12 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
+    
      exec usp_GetKnowledgePublicInfo v_OrderType=
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -3138,21 +3139,21 @@ end ;
   PROCEDURE usp_getlookupeditordata(v_querytype NUMERIC, --查询的类型
                                     v_queryid   NUMERIC DEFAULT 0,
                                     o_result    OUT empcurtyp) AS /**********
-                                                            版本号  1.0.0.0.0
-                                                            创建时间
-                                                            作者
-                                                            版权
-                                                            描述  获取需要在lookupeditor里显示的数据,最好包括ID，Name,Py,Memo，这样可以在APP里调用时用统一的方法
-                                                            功能说明
-                                                            输入参数
-                                                            输出参数
-                                                            结果集、排序
-
-                                                            调用的sp
-                                                            调用实例
-
-                                                            修改记录
-                                                            **********/
+                                                              版本号  1.0.0.0.0
+                                                              创建时间
+                                                              作者
+                                                              版权
+                                                              描述  获取需要在lookupeditor里显示的数据,最好包括ID，Name,Py,Memo，这样可以在APP里调用时用统一的方法
+                                                              功能说明
+                                                              输入参数
+                                                              输出参数
+                                                              结果集、排序
+  
+                                                              调用的sp
+                                                              调用实例
+  
+                                                              修改记录
+                                                              **********/
   BEGIN
     IF v_querytype = 1 THEN
       --病人性质(即 医疗付款方式)
@@ -3255,25 +3256,32 @@ end ;
       --操作人员，所有
       OPEN o_result FOR
         SELECT ID, NAME, py, memo FROM users WHERE valid = 1 ORDER BY ID;
-     elsif v_QueryType = 111 then
-    --操作人员，护理  402
-
+    elsif v_QueryType = 111 then
+      --操作人员，护理  402
+    
       OPEN o_result FOR
-    select ID, NAME, Py, Memo from Users where  Valid = 1 and category = '402'  order by ID;
-  elsif v_QueryType = 112 then
-    --操作人员，护理  401 400 403
-
+        select ID, NAME, Py, Memo
+          from Users
+         where Valid = 1
+           and category = '402'
+         order by ID;
+    elsif v_QueryType = 112 then
+      --操作人员，护理  401 400 403
+    
       OPEN o_result FOR
-    select ID, NAME, Py, Memo from Users where  Valid = 1 and (category = '400' or category = '401' or category = '403' )  order by ID;
-
-
+        select ID, NAME, Py, Memo
+          from Users
+         where Valid = 1
+           and (category = '400' or category = '401' or category = '403')
+         order by ID;
+    
     ELSIF v_querytype = 12 THEN
       --诊断，所有
       OPEN o_result FOR
       /*SELECT icd AS ID, NAME, py, WB, memo, icd
-                      FROM diagnosis
-                     WHERE valid = 1
-                     ORDER BY ID;*/
+                            FROM diagnosis
+                           WHERE valid = 1
+                           ORDER BY ID;*/
         SELECT icd AS ID, NAME, py, WB, memo, icd
           FROM diagnosis
          WHERE valid = 1
@@ -3300,16 +3308,16 @@ end ;
       --麻醉方式,需要修改
       OPEN o_result FOR
       /*  SELECT detailid AS ID, NAME, py, memo
-                                        FROM dictionary_detail
-                                       WHERE categoryid = '30'
-                                         AND valid = 1
-                                       ORDER BY ID;*/
+                                              FROM dictionary_detail
+                                             WHERE categoryid = '30'
+                                               AND valid = 1
+                                             ORDER BY ID;*/
       --edit by ywk 2012年4月18日10:12:07
         select ID, NAME, py, wb
           from anesthesia
          where valid = 1
          order by ID desc;
-
+    
     ELSIF v_querytype = 15 THEN
       --切口愈合等级,需要修改
       OPEN o_result FOR
@@ -3349,10 +3357,10 @@ end ;
          ORDER BY ID;
       --损伤中毒库
     elsif v_querytype = 17 then
-
+    
       OPEN o_result FOR
         select a.id, a.name, a.py, a.memo from Toxicosis a order by id;
-
+    
     elsif v_querytype = 18 then
       open o_result for
         SELECT 1 AS ID, '一级手术' NAME, 'yjss' py, NULL memo
@@ -3364,8 +3372,9 @@ end ;
         SELECT 3 AS ID, '三级手术' NAME, 'sjss' py, NULL memo
           FROM DUAL
         UNION ALL
-        SELECT 4 AS ID, '四级手术' NAME, 'sjss' py, NULL memo FROM DUAL;
-
+        SELECT 4 AS ID, '四级手术' NAME, 'sjss' py, NULL memo
+          FROM DUAL;
+    
     ELSIF v_querytype = 19 THEN
       --诊断，所有 中医
       OPEN o_result FOR
@@ -3379,31 +3388,39 @@ end ;
                '' as memo
           from diagnosischiothername
           left join diagnosisofchinese
-            on diagnosisofchinese.id = diagnosischiothername.icdid where diagnosisofchinese.valid=1
+            on diagnosisofchinese.id = diagnosischiothername.icdid
+         where diagnosisofchinese.valid = 1
          ORDER BY ID;
       --新增取字典表的是否 add by ywk
     ELSIF v_querytype = 55 THEN
-
+    
       OPEN o_result FOR
         select detailid as ID, NAME, py, memo
           from dictionary_detail
          WHERE valid = 1
            and categoryid = '69' --去掉未知选项 add by ywk 2012年7月20日 09:08:53
          ORDER BY ID;
-
+    
     ELSIF v_querytype = 20 THEN
       --手术，所有
       OPEN o_result FOR
-       /* select ID, NAME, py, memo
+      /* select ID, NAME, py, memo
+                from operation
+               WHERE valid = 1
+               ORDER BY ID;*/
+        select ID, NAME, py, memo
           from operation
          WHERE valid = 1
-         ORDER BY ID;*/
-           select ID, NAME, py, memo
-          from operation
-         WHERE valid = 1
-         union
-           select operation.id as ID,operothername.name as Name,operothername.py as PY,'' as memo
-          from operothername left join operation on operation.id=operothername.icdid where operation.valid=1  ORDER BY ID;
+        union
+        select operation.id as ID,
+               operothername.name as Name,
+               operothername.py as PY,
+               '' as memo
+          from operothername
+          left join operation
+            on operation.id = operothername.icdid
+         where operation.valid = 1
+         ORDER BY ID;
       --add by wyt 2012-08-27
     ELSIF v_querytype = 30 THEN
       --病人来源
@@ -3463,20 +3480,20 @@ end ;
          order by ID;
     ELSIF v_querytype = 34 THEN
       OPEN o_result FOR
-           SELECT detailid AS ID, NAME, py, memo
-           FROM dictionary_detail
-           WHERE categoryid = '5'
+        SELECT detailid AS ID, NAME, py, memo
+          FROM dictionary_detail
+         WHERE categoryid = '5'
            AND valid = 1
-           ORDER BY ID;
+         ORDER BY ID;
     ELSIF v_querytype = 35 THEN
       OPEN o_result FOR
-           SELECT detailid AS ID, NAME, py, memo
-           FROM dictionary_detail
-           WHERE categoryid = '35'
+        SELECT detailid AS ID, NAME, py, memo
+          FROM dictionary_detail
+         WHERE categoryid = '35'
            AND valid = 1
-           ORDER BY ID; 
+         ORDER BY ID;
     END IF;
-    
+  
   END;
 
   /*  \*********************add by wyt 2012-08-16************************************************************\
@@ -3509,13 +3526,13 @@ end ;
         v_RecordID  varchar(20)='',      --病历
        v_QCStatType int,                 --统计资料类型，1：已归档、2：申请借阅
        v_ApplyDoctor     varchar(6) ,        --申请医师代码
-
+  
        --Add wwj 用于模糊查询
        v_PatID           varchar(32),       --病历号
      输出参数
      结果集、排序
     质量控制统计数据集
-
+  
      调用的sp
      调用实例
      exec usp_GetMedicalRrecordView '', '2011-01-01', '2011-05-26','','','',1, ''
@@ -3524,13 +3541,13 @@ end ;
       ,v_DateTimeEnd='2011-03-10',v_QCStatType='1',v_PatientName='',v_RecordID='',v_ApplyDoctor=''
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-03-01',v_DateTimeEnd='2011-03-25'
       ,v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+  
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-03-01'
       ,v_DateTimeEnd='2011-04-27',v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+  
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-04-01'
       ,v_DateTimeEnd='2011-04-27',v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+  
      修改记录
     **********\
     v_sql       VARCHAR(4000);
@@ -3541,21 +3558,21 @@ end ;
     IF  v_deptcode IS NOT NULL THEN
       v_where := 'and inp.OutHosDept=''' || v_deptcode || '''';
     END IF;
-
+  
     IF v_patid IS NOT NULL THEN
       v_where := v_where || ' and inp.PatID like ' || '''%' || v_patid ||
                  '%''';
     END IF;
-
+  
     IF v_patientname IS NOT NULL THEN
       v_where := v_where || ' and inp.Name like ' || '''%' || v_patientname ||
                  '%''';
     END IF;
-
+  
     IF v_recordid IS NOT NULL THEN
       v_where := v_where || ' and inp.NoOfRecord=''' || v_recordid || '''';
     END IF;
-
+  
     IF v_applydoctor IS NOT NULL THEN
       v_where := v_where || ' and ar.ApplyDoctor=''' || v_applydoctor || '''';
       --set v_LeftWhere=' and ar.ApplyDoctor='''+v_ApplyDoctor+''''
@@ -3595,23 +3612,23 @@ end ;
     --left join MedicalRecord mr on mr.NoOfInpat = inp.NoOfInpat
     --left join ApplyRecord ar on ar.NoOfInpat=inp.NoOfInpat
     left join CurrentDiag cur on cur.patient_id = inp.noofinpat
-
+  
     --串病历借阅记录表，得到病历借阅的状态
     left join ApplyRecord ar on ar.NoOfInpat=inp.NoOfInpat
     left join CategoryDetail cd1 on cd1.CategoryID = '52' and cd1.ID = ar. Status
-
+  
     WHERE inp.Status IN  ('1502','1503')
-
+  
     and rd.islock = '4701'
-
+  
     and (inp.patid = v_patid or v_patid='' or v_patid is null)
-
+  
     and (inp.admitdiagnosis = v_indiag or v_indiag='' or v_indiag is null)
-
+  
     and (inp.outdiagnosis = v_outdiag or v_outdiag='' or v_outdiag is null)
-
+  
     and (cur.diag_code = v_curdiag or v_curdiag='' or v_curdiag is null)
-
+  
     and to_date(substr(nvl(trim(inp.OutWardDate),'1990-01-01'),1,10) , 'yyyy-mm-dd') >=  to_date(
                v_datetimebegin, 'yyyy-mm-dd')
     and to_date(substr(nvl(trim(inp.OutWardDate),'1990-01-01'),1,10) , 'yyyy-mm-dd') <=  to_date(
@@ -3621,10 +3638,10 @@ end ;
     and to_date(substr(nvl(trim(inp.inwarddate),'1990-01-01'),1,10) , 'yyyy-mm-dd') <=  to_date(
                v_datetimeinend, 'yyyy-mm-dd')
      || v_where
-
+  
      --' || v_where || '
      order by inp.NoOfInpat;
-
+  
     ELSIF v_qcstattype = 2 THEN
       --申请借阅患者病历,已经归档的病历
     OPEN o_result FOR
@@ -3688,13 +3705,13 @@ end ;
         v_RecordID  varchar(20)='',      --病历
        v_QCStatType int,                 --统计资料类型，1：已归档、2：申请借阅
        v_ApplyDoctor     varchar(6) ,        --申请医师代码
-
+    
        --Add wwj 用于模糊查询
        v_PatID           varchar(32),       --病历号
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_GetMedicalRrecordView '', '2011-01-01', '2011-05-26','','','',1, ''
@@ -3703,13 +3720,13 @@ end ;
       ,v_DateTimeEnd='2011-03-10',v_QCStatType='1',v_PatientName='',v_RecordID='',v_ApplyDoctor=''
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-03-01',v_DateTimeEnd='2011-03-25'
       ,v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+    
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-03-01'
       ,v_DateTimeEnd='2011-04-27',v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+    
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-04-01'
       ,v_DateTimeEnd='2011-04-27',v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+    
      修改记录
     **********/
     v_sql       VARCHAR(4000);
@@ -3720,39 +3737,39 @@ end ;
     IF v_deptcode IS NOT NULL THEN
       v_where := 'and inp.OutHosDept=''' || v_deptcode || '''';
     END IF;
-
+  
     IF v_patid IS NOT NULL THEN
       v_where := v_where || ' and inp.PatID like ' || '''%' || v_patid ||
                  '%''';
     END IF;
-
+  
     IF v_patientname IS NOT NULL THEN
       v_where := v_where || ' and inp.Name like ' || '''%' || v_patientname ||
                  '%''';
     END IF;
-
+  
     IF v_recordid IS NOT NULL THEN
       v_where := v_where || ' and inp.NoOfRecord like ' || '''%' ||
                  v_recordid || '%''';
     END IF;
-
+  
     IF v_indiag IS NOT NULL THEN
       v_where := v_where || ' and inp.admitdiagnosis=''' || v_indiag || '''';
     END IF;
-
+  
     IF v_outdiag IS NOT NULL THEN
       v_where := v_where || ' and id.diagnosis_code=''' || v_outdiag || '''';
     END IF;
-
+  
     IF v_curdiag IS NOT NULL THEN
       v_where := v_where || ' and cur.diag_code=''' || v_curdiag || '''';
     END IF;
-
+  
     IF v_applydoctor IS NOT NULL THEN
       v_where := v_where || ' and ar.ApplyDoctor=''' || v_applydoctor || '''';
       --set v_LeftWhere=' and ar.ApplyDoctor='''+v_ApplyDoctor+''''
     END IF;
-
+  
     IF v_qcstattype = '1' THEN
       --患者已归档病历阅览
       v_sql := N' SELECT DISTINCT ar.ApplyDate, --ROW_NUMBER() OVER (ORDER BY inp.NoOfInpat ASC) AS RowID_,
@@ -3811,7 +3828,7 @@ end ;
 
      ' || v_where || '
      order by inp.NoOfInpat';
-
+    
     ELSIF v_qcstattype = '2' THEN
       --申请借阅患者病历,已经归档的病历
       v_sql := N' SELECT DISTINCT --ROW_NUMBER() OVER (ORDER BY inp.NoOfInpat ASC) AS RowID_,
@@ -3837,7 +3854,7 @@ end ;
     WHERE inp.Status IN  (''1502'',''1503'')' || v_where ||
                ' AND rd.islock =''4701''  order by inp.NoOfInpat';
     END IF;
-
+  
     OPEN o_result FOR v_sql;
   END;
 
@@ -3868,13 +3885,13 @@ end ;
         v_RecordID  varchar(20)='',      --病历
        v_QCStatType int,                 --统计资料类型，1：已归档、2：申请借阅
        v_ApplyDoctor     varchar(6) ,        --申请医师代码
-
+    
        --Add wwj 用于模糊查询
        v_PatID           varchar(32),       --病历号
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_GetMedicalRrecordView '', '2011-01-01', '2011-05-26','','','',1, ''
@@ -3883,13 +3900,13 @@ end ;
       ,v_DateTimeEnd='2011-03-10',v_QCStatType='1',v_PatientName='',v_RecordID='',v_ApplyDoctor=''
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-03-01',v_DateTimeEnd='2011-03-25'
       ,v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+    
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-03-01'
       ,v_DateTimeEnd='2011-04-27',v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+    
       exec usp_GetMedicalRrecordView v_DeptCode='3202',v_DateTimeBegin='2011-04-01'
       ,v_DateTimeEnd='2011-04-27',v_QCStatType='2',v_PatientName='',v_RecordID='',v_ApplyDoctor='00'
-
+    
      修改记录
     **********/
     v_sql       VARCHAR(4000);
@@ -3900,30 +3917,30 @@ end ;
     IF v_deptcode IS NOT NULL THEN
       v_where := 'and inp.OutHosDept=''' || v_deptcode || '''';
     END IF;
-
+  
     IF v_patid IS NOT NULL THEN
       v_where := v_where || ' and inp.PatID like ' || '''%' || v_patid ||
                  '%''';
     END IF;
-
+  
     IF v_patientname IS NOT NULL THEN
       v_where := v_where || ' and inp.Name like ' || '''%' || v_patientname ||
                  '%''';
     END IF;
-
+  
     IF v_recordid IS NOT NULL THEN
       v_where := v_where || ' and inp.NoOfRecord=''' || v_recordid || '''';
     END IF;
-
+  
     IF v_applydoctor IS NOT NULL THEN
       v_where := v_where || ' and ar.ApplyDoctor=''' || v_applydoctor || '''';
       --set v_LeftWhere=' and ar.ApplyDoctor='''+v_ApplyDoctor+''''
     END IF;
-
+  
     IF v_outdiag IS NOT NULL THEN
       v_where := v_where || ' and inp.Outdiagnosis=''' || v_outdiag || '''';
     END IF;
-
+  
     IF v_qcstattype = '1' THEN
       --患者已归档病历阅览(-- edit by cyq 2012-11-15 添加sexid列)
       v_sql := N' SELECT DISTINCT ar.ApplyDate, --ROW_NUMBER() OVER (ORDER BY inp.NoOfInpat ASC) AS RowID_,
@@ -3967,7 +3984,7 @@ end ;
 
      ' || v_where || '
      order by inp.NoOfInpat';
-
+    
     ELSIF v_qcstattype = '2' THEN
       --申请借阅患者病历,已经归档的病历(-- edit by cyq 2012-11-15 添加sexid列)
       v_sql := N' SELECT DISTINCT --ROW_NUMBER() OVER (ORDER BY inp.NoOfInpat ASC) AS RowID_,
@@ -3987,7 +4004,7 @@ end ;
     WHERE inp.Status IN  (''1502'',''1503'')' || v_where ||
                ' AND rd.islock =''4701''  order by inp.NoOfInpat';
     END IF;
-
+  
     OPEN o_result FOR v_sql;
   END;
 
@@ -4005,8 +4022,8 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
     exec usp_GetMedicalRrecordViewFrm '1'
@@ -4046,7 +4063,7 @@ end ;
       --查询病历号
       OPEN o_result FOR
         SELECT patid ID FROM inpatient ORDER BY ID;
-
+    
     ELSIF v_gettype = '6' THEN
       --查询入院诊断
       OPEN o_result FOR
@@ -4056,7 +4073,7 @@ end ;
                diagnosis.name  diagnosis
           FROM inpatient, diagnosis
          where inpatient.admitdiagnosis = diagnosis.icd;
-
+    
     ELSIF v_gettype = '7' THEN
       --查询出院诊断
       OPEN o_result FOR
@@ -4066,7 +4083,7 @@ end ;
                diagnosis.name  diagnosis
           FROM inpatient, diagnosis
          where inpatient.OUTDIAGNOSIS = diagnosis.icd;
-
+    
       /*   ELSIF v_gettype = '8' THEN
       --查询当前诊断
       OPEN o_result FOR
@@ -4093,11 +4110,11 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -4147,11 +4164,11 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -4215,11 +4232,11 @@ end ;
   BEGIN
     OPEN o_result FOR
     --三测表中数据的修改（科别和床位的绑定）edit by ywk 2012年4月17日16:32:44
-      SELECT dd.NAME AS gender,
-             d.NAME AS dept_name,
+      SELECT dd.NAME       AS gender,
+             d.NAME        AS dept_name,
              ip.outhosdept AS dept_id,
              ip.admitbed,
-             ip.NAME AS patient_name,
+             ip.NAME       AS patient_name,
              ip.agestr,
              --'2020-03-13 15:00:00' as admitdate,
              ip.admitdate,
@@ -4267,11 +4284,11 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
+    
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
   BEGIN
@@ -4285,7 +4302,7 @@ end ;
     ELSIF v_frmtype = '2' THEN
       --获取手术名称
       OPEN o_result FOR
-        SELECT * FROM operation ORDER BY NAME;--surgery原来居然是这个表 edit by ywk 2013年9月15日 15:25:10
+        SELECT * FROM operation ORDER BY NAME; --surgery原来居然是这个表 edit by ywk 2013年9月15日 15:25:10
     END IF;
   END;
 
@@ -4358,7 +4375,7 @@ end ;
                 --mr.ID as RecordID,
                 --b.ID     AS BedID,
                 --b.WardId as WardId
-
+  
   from (
   select InPatient.noofinpat,
                 InPatient.patid,
@@ -4409,7 +4426,7 @@ end ;
   left  join PATDIAG pd on inp.noofinpat= pd.patient_id
     where
       (rd.islock IN (v_status) or rd.islock is null)
-
+  
         and(id.diagnosis_code = v_outdiag or v_outdiag='' or v_outdiag is null)
         /* or (idd.diagnosis_code = v_outdiag or v_outdiag='' or v_outdiag is null))*/
   -- by cyq 2012-12-07
@@ -4490,7 +4507,7 @@ end ;
                       id.diagnosis_type_id,
                       id.order_value,
                       id.diagnosis_code,
-                     inp.admitdiagnosis AdmitDiagnosisName,
+                      inp.admitdiagnosis AdmitDiagnosisName,
                       id.diagnosis_name DiagnosisName
         from InPatient inp
         left join diagnosis diag
@@ -4553,8 +4570,8 @@ end ;
          and (rd.islock IN (v_status) or rd.islock is null)
          and (id.diagnosis_code = v_outdiag or v_outdiag = '' or
               v_outdiag is null) /**
-                                                                                              or (idd.diagnosis_code = v_outdiag or v_outdiag = '' or
-                                                                                                  v_outdiag is null)) **/
+                                                                                                          or (idd.diagnosis_code = v_outdiag or v_outdiag = '' or
+                                                                                                              v_outdiag is null)) **/
             -- by cyq 2012-12-07
          and id.diagnosis_type_id in ('7', '8')
             --and (id.diagnosis_type_id in ('7','8') or id.diagnosis_type_id = '' or id.diagnosis_type_id is null)
@@ -4575,7 +4592,7 @@ end ;
                                  where dis.valid = 1
                                    and dis.id = v_ingroupid) a)) or
               v_ingroupid = '' or v_ingroupid is null) and
-
+              
               ((id.diagnosis_code in
               (select a.COLUMN_VALUE
                     from table (select split_string(dis.diseaseids, '$')
@@ -4645,7 +4662,7 @@ end ;
       --mr.ID as RecordID,
       --b.ID     AS BedID,
       --b.WardId as WardId
-
+    
         from (select InPatient.noofinpat,
                       InPatient.patid,
                       InPatient.noofrecord,
@@ -4718,7 +4735,7 @@ end ;
         left join PATDIAG pd
           on inp.noofinpat = pd.patient_id
        where (rd.islock IN (v_status) or rd.islock is null)
-
+    
          and (id.diagnosis_code = v_outdiag or v_outdiag = '' or
              v_outdiag is null)
             \* or (idd.diagnosis_code = v_outdiag or v_outdiag='' or v_outdiag is null))*\
@@ -4749,9 +4766,9 @@ end ;
                                      o_result          OUT empcurtyp) AS
   BEGIN
     --获取未归档病历
-
+  
     OPEN o_result FOR
-
+    
       select distinct rd.islock,
                       inp.*,
                       dept.Name as OutHosDeptName,
@@ -4789,7 +4806,7 @@ end ;
                       us2.Name as ChiefName,
                       b.ID AS BedID,
                       b.WardId as WardId
-
+      
         from InPatient inp
         left join Department dept
           on dept.ID = inp.OutHosDept
@@ -4812,7 +4829,7 @@ end ;
           on us2.ID = inp.Chief
         left join Users us3
           on us3.ID = inp.Resident
-
+      
        where 1 = 1
             --edit by cyq 2012-12-07
             --and to_date(substr(nvl(trim(inp.OutWardDate), '1990-01-01'), 1, 10),'yyyy-mm-dd') >= to_date(v_dateOutHosBegin, 'yyyy-mm-dd')
@@ -4834,7 +4851,7 @@ end ;
          and to_date(nvl(trim(inp.inwarddate), '1990-01-01 00:00:00'),
                      'yyyy-MM-dd hh24:mi:ss') <=
              to_date(v_dateInHosEnd || ' 23:59:59', 'yyyy-MM-dd hh24:mi:ss')
-
+            
          and trim(inp.OutWardDate) is not null
          and trim(inp.inwarddate) is not null
          and (inp.admitdiagnosis = v_indiag or v_indiag = '' or
@@ -4852,7 +4869,7 @@ end ;
          and (inp.resident = v_physician or v_physician = '' or
              v_physician is null)
        order by OutWardDate;
-
+  
   END;
 
   /*********************************************************************************/
@@ -4873,21 +4890,21 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
      exec usp_GetRecordNoOnFileNew v_DateBegin='2011-04-01',v_DateEnd='2011-04-26',v_DeptID='0000',v_Status='4700,4702,4703'
-
+    
      修改记录
     **********/
-
+  
   BEGIN
     --获取未归档病历
-
+  
     OPEN o_result FOR
-
+    
       select distinct rd.islock,
                       inp.*,
                       dept.Name as OutHosDeptName,
@@ -4926,7 +4943,7 @@ end ;
                       --mr.ID as RecordID,
                       b.ID     AS BedID,
                       b.WardId as WardId
-
+      
         from InPatient inp
         left join Department dept
           on dept.ID = inp.OutHosDept
@@ -4948,7 +4965,7 @@ end ;
           on us2.ID = inp.Chief
         left join Users us3
           on us3.ID = inp.Resident
-
+      
        where to_date(substr(nvl(trim(inp.OutWardDate), '1990-01-01'), 1, 10),
                      'yyyy-mm-dd') >= to_date(v_datebegin, 'yyyy-mm-dd')
          and to_date(substr(nvl(trim(inp.OutWardDate), '1990-01-01'), 1, 10),
@@ -4962,7 +4979,7 @@ end ;
          and (inp.NoOfRecord = v_recordid or v_recordid = '' or
               v_recordid is null)
        order by OutWardDate;
-
+  
   END;
 
   /*********************************************************************************/
@@ -4983,13 +5000,13 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
      exec usp_GetRecordNoOnFileNew v_DateBegin='2011-04-01',v_DateEnd='2011-04-26',v_DeptID='0000',v_Status='4700,4703'
-
+    
      修改记录
     **********/
     v_sql VARCHAR(4000);
@@ -5027,7 +5044,7 @@ end ;
              v_recordid || '''='''' or ' || v_recordid ||
              ' is null)
   order by OutWardDate';
-
+  
     OPEN o_result FOR v_sql;
   END;
 
@@ -5055,12 +5072,12 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
-
+    
      exec usp_GetRecordOnFile v_DateBegin='2011-03-02'
          ,v_DateEnd='2011-03-10',v_PatID='',v_Name='',v_SexID=''
          ,v_AgeBegin='',v_AgeEnd='',v_OutHosDept='0000',v_OutDiagnosis=''
@@ -5071,13 +5088,13 @@ end ;
     --获取已归档病历
     OPEN o_result FOR
       SELECT DISTINCT inp.*,
-                      dept.NAME AS outhosdeptname,
-                      dd.NAME   AS sexname,
-                      u1.NAME   AS residentname,
-                      u2.NAME   AS attendname,
-                      u3.NAME   AS chiefname,
-                      inp.admitdiagnosis   AS indiagnosisname,
-                      d2.NAME   AS outdiagnosisname,
+                      dept.NAME          AS outhosdeptname,
+                      dd.NAME            AS sexname,
+                      u1.NAME            AS residentname,
+                      u2.NAME            AS attendname,
+                      u3.NAME            AS chiefname,
+                      inp.admitdiagnosis AS indiagnosisname,
+                      d2.NAME            AS outdiagnosisname,
                       --mr.lockdate
                       rd.islock
         FROM inpatient inp
@@ -5109,7 +5126,7 @@ end ;
              TO_DATE(v_dateend || ' 23:59:59', 'yyyy-MM-dd hh24:mi:ss')
          and inp.patid like '%' || v_patid || '%'
          and inp.Name like '%' || v_name || '%'
-
+            
          AND (inp.sexid = v_sexid OR v_sexid = '' OR v_sexid IS NULL)
          AND (datediff('yy',
                        inp.birth,
@@ -5149,14 +5166,14 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
-
+    
      exec usp_GetSignInRecord v_DateBegin=N'2011-03-02',v_DateEnd=N'2011-03-09',v_OutHosDept=N'0000'
-
+    
      修改记录
     **********/
   BEGIN
@@ -5234,14 +5251,14 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
-
+    
      exec usp_GetSignInRecord v_DateBegin=N'2011-03-02',v_DateEnd=N'2011-03-09',v_OutHosDept=N'0000'
-
+    
      修改记录
     **********/
   BEGIN
@@ -5301,35 +5318,35 @@ end ;
   PROCEDURE usp_gettemplatepersongroup(v_userid  VARCHAR DEFAULT '',
                                        o_result  OUT empcurtyp,
                                        o_result1 OUT empcurtyp) AS /**********
-                                                                                         版本号  1.0.0.0.0
-                                                                                         创建时间
-                                                                                         作者
-                                                                                         版权
-                                                                                         描述  获取质量评分
-                                                                                         功能说明
-                                                                                         输入参数
-                                                                                           v_NoOfInpat    numeric(9,0),     首页序号
-                                                                                         v_NodeID       int,      节点ID
-                                                                                         v_TemplateID   varchar(64),   模板ID
-                                                                                         v_ParentNodeID int,      父节点ID
-                                                                                         v_Name         varchar(64),   节点名称
-                                                                                         v_UserID       varchar(18),     用户ID
-                                                                                         v_TypeID       int       类别：判断是插入还是删除
-                                                                                         输出参数
-                                                                                         结果集、排序
-                                                                                         质量控制统计数据集
-
-                                                                                         调用的sp
-                                                                                         调用实例
-                                                                                         修改记录
-                                                                                         **********/
+                                                                                           版本号  1.0.0.0.0
+                                                                                           创建时间
+                                                                                           作者
+                                                                                           版权
+                                                                                           描述  获取质量评分
+                                                                                           功能说明
+                                                                                           输入参数
+                                                                                             v_NoOfInpat    numeric(9,0),     首页序号
+                                                                                           v_NodeID       int,      节点ID
+                                                                                           v_TemplateID   varchar(64),   模板ID
+                                                                                           v_ParentNodeID int,      父节点ID
+                                                                                           v_Name         varchar(64),   节点名称
+                                                                                           v_UserID       varchar(18),     用户ID
+                                                                                           v_TypeID       int       类别：判断是插入还是删除
+                                                                                           输出参数
+                                                                                           结果集、排序
+                                                                                           质量控制统计数据集
+  
+                                                                                           调用的sp
+                                                                                           调用实例
+                                                                                           修改记录
+                                                                                           **********/
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result1 FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result FOR
       SELECT t.ID,
              t.nodeid,
@@ -5347,7 +5364,7 @@ end ;
          AND tsp.valid = '1'
        WHERE t.userid = v_userid
        ORDER BY t.nodeid;
-
+  
     OPEN o_result1 FOR
       SELECT ID, templateid, NAME, memo, '是' AS used, sortid
         FROM template_person
@@ -5358,7 +5375,7 @@ end ;
   /**********************************************************************************************/
   PROCEDURE usp_Inpatient_Trigger(v_syxh varchar2 --病人首页序号
                                   ) as
-
+  
     /**********
      版本号  1.0.0.0.0
      创建时间
@@ -5369,9 +5386,9 @@ end ;
      输入参数
      输出参数
      结果集、排序
-
-
-
+    
+    
+    
      调用的sp
      调用实例
       exec usp_Inpatient_Trigger ''
@@ -5392,24 +5409,24 @@ end ;
       from inpatient inp
      where inp.noofinpat = v_syxh
        and rownum = 1;
-
+  
     EMRPROC.usp_EMR_GetAge(v_csrq, v_ryrq, v_brnl, v_xsnl);
-
+  
     update InPatient
        set Age = v_brnl, AgeStr = v_xsnl
      where NoOfInpat = v_syxh;
-
+  
     commit;
-
+  
     -- 记录床位信息
     -- 找出病人床位或科室、病区信息有变化的病人
-
+  
     -- 更新当前床位信息
     /*  update BedInfo set EndDate = to_char(sysdate,'yyyy-mm-dd HH24:mi:ss'), NewDept = b.OutHosDept, NewWard = b.OutHosWard, NewBed = b.OutBed, Mark = 0
     from BedInfo a, inpatient b
     where c.NoOfInpat = b.NoOfInpat
       and a.Mark = 1*/
-
+  
     update BedInfo a
        set (EndDate, NewDept, NewWard, NewBed, Mark) =
            (select to_char(sysdate, 'yyyy-mm-dd HH24:mi:ss'),
@@ -5422,7 +5439,7 @@ end ;
      where a.Mark = 1
        and exists
      (select 1 from inpatient b where a.noofinpat = b.NoOfInpat);
-
+  
     -- 插入最新的床位信息记录
     insert into BedInfo
       (ID,
@@ -5441,21 +5458,21 @@ end ;
              1
         from inpatient a
        where a.NoOfInpat = v_syxh;
-
+  
     -- 处理关联病人
-
+  
     -- 有社保卡号的，找出社保卡号相同的最小住院号
     select min(a.PatID)
       into v_InnerPIX
       from inpatient a
      where a.idno =
            (select b.idno from inpatient b where b.noofinpat = v_syxh);
-
+  
     -- 更新关联的住院号码
     update InPatient a
        set InnerPIX = v_InnerPIX
      where a.NoOfInpat = v_syxh;
-
+  
   end;
 
   /*********************************************************************************/
@@ -5478,38 +5495,38 @@ end ;
     v_Memo varchar(255)=''  --模板描述
     v_Image image         --模板内容
     v_ID numeric(12,0)=''       --模板ID
-
+    
      输出参数
      结果集、排序
     图片管理器模板对图片信息进行保存更新
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     **********/
-
+  
   BEGIN
     IF v_sort = 0 THEN
       INSERT into imagelibrary
         (id, name, memo, valid)
       VALUES
         (seq_imagelibrary_id.NEXTVAL, v_name, v_memo, 1);
-
+    
       open o_result for
         select seq_imagelibrary_id.currval from dual;
     END IF;
-
+  
     IF v_sort = 1 THEN
       UPDATE imagelibrary SET NAME = v_name, memo = v_memo WHERE ID = v_id;
-
+    
       open o_result for
         select v_id from dual;
     END IF;
-
+  
     IF v_sort = 2 THEN
       UPDATE imagelibrary SET NAME = v_name, memo = v_memo WHERE ID = v_id;
-
+    
       open o_result for
         select v_id from dual;
     END IF;
@@ -5517,17 +5534,17 @@ end ;
 
   /*********************************************************************************/
   PROCEDURE usp_insertjob(v_id VARCHAR, v_title VARCHAR, v_memo VARCHAR) AS /**********
-                                                                                                                版本号
-                                                                                                                创建时间
-                                                                                                                作者
-                                                                                                                版权
-                                                                                                                描述
-                                                                                                                功能说明      插入岗位信息
-                                                                                                                输出参数
-                                                                                                                结果集、排序
-                                                                                                                调用的sp
-                                                                                                                调用实例
-                                                                                                               **********/
+                                                                                                                  版本号
+                                                                                                                  创建时间
+                                                                                                                  作者
+                                                                                                                  版权
+                                                                                                                  描述
+                                                                                                                  功能说明      插入岗位信息
+                                                                                                                  输出参数
+                                                                                                                  结果集、排序
+                                                                                                                  调用的sp
+                                                                                                                  调用实例
+                                                                                                                 **********/
   BEGIN
     INSERT INTO jobs (ID, title, memo) VALUES (v_id, v_title, v_memo);
   END;
@@ -5536,17 +5553,17 @@ end ;
   PROCEDURE usp_insertjobpermission(v_id         VARCHAR,
                                     v_moduleid   VARCHAR,
                                     v_modulename VARCHAR) AS /**********
-                                                                                                            版本号
-                                                                                                            创建时间
-                                                                                                            作者
-                                                                                                            版权
-                                                                                                            描述
-                                                                                                            功能说明      增加新的授权信息
-                                                                                                            输出参数
-                                                                                                            结果集、排序
-                                                                                                            调用的sp
-                                                                                                            调用实例
-                                                                                                           **********/
+                                                                                                              版本号
+                                                                                                              创建时间
+                                                                                                              作者
+                                                                                                              版权
+                                                                                                              描述
+                                                                                                              功能说明      增加新的授权信息
+                                                                                                              输出参数
+                                                                                                              结果集、排序
+                                                                                                              调用的sp
+                                                                                                              调用实例
+                                                                                                             **********/
   BEGIN
     INSERT INTO job2permission
       (ID, moduleid, modulename)
@@ -5575,11 +5592,11 @@ end ;
     [输入参数]
     [输出参数]
     [结果集、排序]
-
-
+    
+    
     [调用的sp]
     [调用实例]
-
+    
     [修改记录]
     **********/
   BEGIN
@@ -5623,11 +5640,11 @@ end ;
     [输入参数]
     [输出参数]
     [结果集、排序]
-
-
+    
+    
     [调用的sp]
     [调用实例]
-
+    
     [修改记录]
     **********/
   BEGIN
@@ -5642,7 +5659,7 @@ end ;
        v_version,
        v_sortid,
        v_valid);
-
+  
     --返回新增模板ID
     OPEN o_result FOR
       SELECT temp.ID
@@ -5696,11 +5713,11 @@ end ;
          v_templatepersonid,
          v_name);
     END IF;
-
+  
     IF v_typeid = 2 THEN
       DELETE FROM templatepersongroup WHERE userid = v_userid;
     END IF;
-
+  
     IF v_typeid = 3 THEN
       UPDATE template_person
          SET NAME = v_templatepersonname, memo = v_templatepersonmemo
@@ -5708,14 +5725,14 @@ end ;
          AND valid = '1'
          AND ID = v_templatepersonid;
     END IF;
-
+  
     IF v_typeid = 4 THEN
       BEGIN
         SELECT NVL(MAX(tp.nodeid) + 1, 0)
           INTO v_maxnodeid
           FROM templatepersongroup tp
          WHERE tp.userid = v_userid;
-
+      
         SELECT NVL(MAX(tp.ID), 0)
           INTO v_maxtemplatepersonid
           FROM template_person tp
@@ -5723,7 +5740,7 @@ end ;
            AND tp.valid = '1'
            AND tp.sortmark = '0'
            AND tp.sharedid = '0';
-
+      
         INSERT INTO templatepersongroup
           (ID, userid, nodeid, parentnodeid, nodename, templatepersonid)
         VALUES
@@ -5763,7 +5780,7 @@ end ;
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_InsertUserLogIn '00', '00', '00','00', '00', '00','00'
@@ -5876,21 +5893,21 @@ end ;
                                           --v_Modified_User varchar(10) ,
                                           --v_Modified_Time varchar(19)
                                           o_result OUT empcurtyp) AS /**********
-                                                                                                         版本号  1.0.0.0.0
-                                                                                                         创建时间
-                                                                                                         作者
-                                                                                                         版权
-                                                                                                         描述  插入功病案首页基本信息TABLE
-                                                                                                         功能说明
-                                                                                                         输入参数
-                                                                                                         输出参数
-                                                                                                         结果集、排序
-
-                                                                                                         调用的sp
-                                                                                                         调用实例
-
-                                                                                                         修改记录
-                                                                                                        **********/
+                                                                                                           版本号  1.0.0.0.0
+                                                                                                           创建时间
+                                                                                                           作者
+                                                                                                           版权
+                                                                                                           描述  插入功病案首页基本信息TABLE
+                                                                                                           功能说明
+                                                                                                           输入参数
+                                                                                                           输出参数
+                                                                                                           结果集、排序
+  
+                                                                                                           调用的sp
+                                                                                                           调用实例
+  
+                                                                                                           修改记录
+                                                                                                          **********/
   BEGIN
     INSERT INTO iem_mainpage_basicinfo
       (iem_mainpage_no,
@@ -6095,7 +6112,7 @@ end ;
        -- varchar(10)
        TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss') -- varchar(19)
        );
-
+  
     OPEN o_result FOR
       SELECT seq_iem_mainpage_basicinfo_id.CURRVAL FROM DUAL;
   END;
@@ -6113,21 +6130,21 @@ end ;
                                          --v_Cancel_User varchar(10) ,
                                          --v_Cancel_Time varchar(19)
                                          ) AS /**********
-                                                                                                             版本号  1.0.0.0.0
-                                                                                                             创建时间
-                                                                                                             作者
-                                                                                                             版权
-                                                                                                             描述  插入功病案首页诊断TABLE
-                                                                                                             功能说明
-                                                                                                             输入参数
-                                                                                                             输出参数
-                                                                                                             结果集、排序
-
-                                                                                                             调用的sp
-                                                                                                             调用实例
-
-                                                                                                             修改记录
-                                                                                                            **********/
+                                                                                                               版本号  1.0.0.0.0
+                                                                                                               创建时间
+                                                                                                               作者
+                                                                                                               版权
+                                                                                                               描述  插入功病案首页诊断TABLE
+                                                                                                               功能说明
+                                                                                                               输入参数
+                                                                                                               输出参数
+                                                                                                               结果集、排序
+  
+                                                                                                               调用的sp
+                                                                                                               调用实例
+  
+                                                                                                               修改记录
+                                                                                                              **********/
   BEGIN
     INSERT INTO iem_mainpage_diagnosis
       (iem_mainpage_no,
@@ -6264,16 +6281,15 @@ end ;
                                v_Narcosismark VARCHAR2,
                                v_Grade        VARCHAR2,
                                v_Status       VARCHAR2,
-                               v_Memo         varchar2
-                               ) AS
+                               v_Memo         varchar2) AS
   BEGIN
     UPDATE users
-       SET NAME   = v_name,
-           deptid = v_deptid,
+       SET NAME       = v_name,
+           deptid     = v_deptid,
            deptorward = v_deptorward,
-           wardid = v_wardid,
-           jobid  = v_jobid,
-
+           wardid     = v_wardid,
+           jobid      = v_jobid,
+           
            Py           = v_Py,
            Wb           = v_Wb,
            Sexy         = v_Sexy,
@@ -6316,11 +6332,11 @@ end ;
     [输入参数]
     [输出参数]
     [结果集、排序]
-
-
+    
+    
     [调用的sp]
     [调用实例]
-
+    
     [修改记录]
     **********/
   BEGIN
@@ -6351,11 +6367,11 @@ end ;
     [输入参数]
     [输出参数]
     [结果集、排序]
-
-
+    
+    
     [调用的sp]
     [调用实例]
-
+    
     [修改记录]
     **********/
   BEGIN
@@ -6377,7 +6393,7 @@ end ;
     v_currdatetime VARCHAR2(20);
   BEGIN
     v_currdatetime := TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss');
-
+  
     UPDATE applyrecord
        SET status = '5205'
      WHERE (applydoctor = v_applydoctor OR v_applydoctor = '' OR
@@ -6725,13 +6741,13 @@ end ;
     [结果集、排序]
     [调用的sp]
     [调用实例]
-
+    
     [修改记录]
     **********/
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
-
+  
     IF v_type = 'InsertSymCategory' THEN
       --新增特殊字符类型
       INSERT INTO symbolcategory
@@ -6806,18 +6822,18 @@ end ;
                where a.valid = 1
                  and a.id = b.deptid)
        order by a.id;
-
+  
     OPEN o_result1 FOR
       select * from users;
-
+  
     /*      open o_result for
-
+    
         SELECT a.deptid,b.NAME AS deptname,a.*,  c.NAME AS wardname
     FROM users a
     LEFT JOIN department b ON a.deptid = b.ID
     LEFT JOIN ward c ON a.wardid = c.ID
     order by b.id ;
-
+    
     open o_result for select '' from dual;*/
   END;
 
@@ -7621,7 +7637,7 @@ end ;
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryQCProblemInfo 2
@@ -7705,7 +7721,7 @@ end ;
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryQCPatientInfo '2007-06-01', '2010-06-30','','','','',''
@@ -7724,7 +7740,7 @@ end ;
 ||''/''||isnull(ward.Name,''-'')||''/''||isnull(de.Name,''-'') ||''/'' || isnull(bed.ID,''-'') ||''床/''
 || isnull(inp.AdmitDate,''-'') || ''入院'' as showinfo
 FROM InPatient inp';
-
+  
     IF v_archives = '0' THEN
       --未归档
       BEGIN
@@ -7744,49 +7760,49 @@ FROM InPatient inp';
                  ' JOIN MedicalRecord med ON inp.NoOfInpat = med.NoOfInpat AND med.LockInfo IN (4702)';
       END;
     END IF;
-
+  
     v_sql := v_sql ||
              ' LEFT JOIN Dictionary_detail dd  ON dd.CategoryID = ''3'' AND inp.SexID = dd.DetailID
 LEFT JOIN Bed bed  ON inp.NoOfInpat = bed.NoOfInpat and inp.PatNoOfHis =bed.PatNoOfHis and bed.InBed = 1301';
-
+  
     IF v_bedid != '' AND v_bedid IS NOT NULL THEN
       BEGIN
         v_sql := v_sql || ' and isnull(bed.ID,'''') like ''' || '%' ||
                  v_bedid || '''';
       END;
     END IF;
-
+  
     v_sql := v_sql || ' left join Ward ward  on bed.WardId = ward.ID';
-
+  
     IF v_wardid != '' AND v_wardid IS NOT NULL THEN
       BEGIN
         v_sql := v_sql || ' and isnull(ward.ID,'''') = ''' || v_wardid || '''';
       END;
     END IF;
-
+  
     v_sql := v_sql || ' left join Department de  on bed.DeptID = de.ID';
-
+  
     IF v_deptid != '' AND v_deptid IS NOT NULL THEN
       BEGIN
         v_sql := v_sql || ' and isnull(de.ID,'''') = ''' || v_deptid || '''';
       END;
     END IF;
-
+  
     v_sql := v_sql ||
              ' WHERE inp.Status NOT IN (1509) AND CONVERT(varchar(10),inp.AdmitDate,102) >= ''' ||
              v_datetimefrom || '''';
     v_sql := v_sql || ' AND CONVERT(varchar(10),inp.AdmitDate,102) <= ''' ||
              v_datetimeto || '''';
-
+  
     IF v_name != '' AND v_name IS NOT NULL THEN
       BEGIN
         v_sql := v_sql || ' and isnull(inp.Name,'''') like ''' || '%' ||
                  v_name || '%' || '''';
       END;
     END IF;
-
+  
     v_sql := v_sql || ' order by inp.NoOfInpat';
-
+  
     OPEN o_result FOR v_sql;
   END;
 
@@ -7806,7 +7822,7 @@ LEFT JOIN Bed bed  ON inp.NoOfInpat = bed.NoOfInpat and inp.PatNoOfHis =bed.PatN
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryPatientInfoByNoOfInpat 2
@@ -7885,10 +7901,10 @@ LEFT JOIN Bed bed  ON inp.NoOfInpat = bed.NoOfInpat and inp.PatNoOfHis =bed.PatN
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     护理级别待处理
     **********/
@@ -7927,12 +7943,12 @@ and  not exists (select 1 from Doctor_AssignPatient da where da.NoOfInpat=a.NoOf
 and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                  v_wardid || '''
 ';
-
+      
         --exec sp_executesql v_sql
         OPEN o_result FOR v_sql;
       END;
     END IF;
-
+  
     IF v_querytype = 1 THEN
       --获得分管病人
       BEGIN
@@ -7946,11 +7962,11 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                    WHERE da.noofinpat = a.noofinpat
                      AND ID = v_userid
                      AND valid = 1);
-
+      
         OPEN o_result FOR
           SELECT a.noofinpat  noofinpat, --首页序号
                  a.patnoofhis patnoofhis,
-
+                 
                  --HIS首页序号
                  a.patid  patid, --住院号
                  a.NAME   patname, --姓名
@@ -7958,20 +7974,20 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                  b.NAME   sexname, --病人性别名称
                  a.agestr agestr, --年龄
                  a.status arzt,
-
+                 
                  --病人状态
                  c.NAME wzjbmc, --危重级别名称
                  c.detailid wzjb, --危重级别编码
                  SUBSTR(a.admitdate, 1, 16) admitdate, --入院日期
                  d.icd ryzd,
-
+                 
                  --入院诊断
                  a.admitdiagnosis zdmc, --诊断名称
                  --e.note pzlx, --凭证类型
                  dd1.NAME pzlx, --费用类别
                  g.NAME   ksmc, --科室名称
                  h.NAME   bqmc,
-
+                 
                  --病区名称
                  a.outbed bedid, --出院床位号
                  (SELECT CASE
@@ -7998,7 +8014,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
             LEFT JOIN diagnosis d
               ON d.icd = a.admitdiagnosis
           --LEFT JOIN medicareinfo e ON a.voucherscode = e.ID
-
+          
             LEFT JOIN Dictionary_detail dd1
               ON dd1.categoryid = '1'
              AND a.payid = dd1.detailid
@@ -8036,22 +8052,22 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     病区未归档病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryInwardPatients  '2821', '7006'
      修改记录
-
+    
     **********/
     v_wardid_in VARCHAR2(6);
   BEGIN
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
-
+    
       OPEN o_result FOR
         SELECT b.noofinpat  noofinpat, --首页序号
                b.patnoofhis patnoofhis,
-
+               
                --HIS首页序号
                b.patid  patid, --住院号
                b.NAME   inpatname, --姓名
@@ -8059,18 +8075,18 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                b.agestr agestr, --年龄
                b.status status, --病人状态
                f.NAME   statusname,
-
+               
                --病人状态名称
                b.criticallevel criticallevel, --危重级别
                h.NAME          criticallevelname,
-
+               
                --危重级别名称
                z.NAME residentname, --住院医生
                SUBSTR(b.admitdate, 1, 16) admitdate, --入院日期
                b.admitdiagnosis admitdiagnosis, --入院诊断
                SUBSTR(b.outhosdate, 1, 16) outhosdate, --出院日期
                b.outbed outbed,
-
+               
                --出院床位
                b.memo memo
         --备注
@@ -8119,7 +8135,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_QCTypeScore  'test', 'test',0,0,'test',0
@@ -8133,7 +8149,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
         SELECT 'T' || lpad((nvl(max(substr(typecode, 2)), 0) + 1), 3, '0')
           INTO v_typecodetemp
           FROM qcscoretype;
-
+      
         INSERT INTO qcscoretype
           (typecode,
            typename,
@@ -8202,7 +8218,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_QCOperProblemInfo '2007-06-01', '2010-06-30',1
@@ -8218,7 +8234,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
           FROM medicalrecord
          WHERE noofinpat = v_noofinpat
            AND ROWNUM < 2;
-
+      
         INSERT INTO qcproblemdescription
           (ID,
            noofinpat,
@@ -8304,7 +8320,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_QCItemScore  'test', 'test',3,4,5,6,7,8,9,'E001','test',0
@@ -8317,7 +8333,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
         SELECT 'I' || lpad((nvl(max(substr(itemcode, 2)), 0) + 1), 4, '0')
           INTO v_itemcodetemp
           FROM qcscoreitem;
-
+      
         INSERT INTO qcscoreitem
           (itemcode,
            itemname,
@@ -8392,7 +8408,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_MSQueryTemplate  0,'RM0',''
@@ -8404,7 +8420,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
       BEGIN
         v_sql := 'SELECT ID AS TemplateID ,Name, null SortID from ModelDirectory
 WHERE Valid = 1 AND ID IN (' || v_id || ')';
-
+      
         OPEN o_result FOR v_sql;
       END;
     ELSIF v_type = 1 THEN
@@ -8413,7 +8429,7 @@ WHERE Valid = 1 AND ID IN (' || v_id || ')';
 WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  '%'' and b.Department =''' || v_department ||
                  '''  order by a.SortID ';
-
+      
         OPEN o_result FOR v_sql;
       END;
     ELSIF v_type = 2 THEN
@@ -8528,14 +8544,14 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
   BEGIN
     OPEN o_result FOR
     /*SELECT DISTINCT a.outhosdept deptid,
-                                          b.NAME       deptname,
-                                          a.outhosward wardid,
-                                          c.NAME       wardname
-                            FROM inpatient a, department b, ward c
-                           WHERE a.status NOT IN ('1500', '1503', '1508', '1509')
-                             AND a.outhosdept = b.ID
-                             AND a.outhosward = c.ID
-                           ORDER BY deptid, wardid;*/
+                                              b.NAME       deptname,
+                                              a.outhosward wardid,
+                                              c.NAME       wardname
+                                FROM inpatient a, department b, ward c
+                               WHERE a.status NOT IN ('1500', '1503', '1508', '1509')
+                                 AND a.outhosdept = b.ID
+                                 AND a.outhosward = c.ID
+                               ORDER BY deptid, wardid;*/
       SELECT distinct department.id   deptid,
                       department.name deptname,
                       ward.id         wardid,
@@ -8571,7 +8587,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      调用的sp
         usp_GetUserInfo '00'
      调用实例
-
+    
     **********/
     v_status   INT;
     v_masterid VARCHAR(16);
@@ -8580,30 +8596,30 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result1 FOR
       SELECT '' FROM DUAL;
-
+  
     /*create table tmp_getuserinfo(
     userid    varchar(12) null,
     masterid  varchar(12) null,
     status    int      null
     );*/
     v_sql := 'truncate table tmp_getuserinfo ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     INSERT INTO tmp_getuserinfo
       SELECT a.ID, b.masterid, a.status
         FROM users a
         LEFT JOIN tempusers b
           ON a.ID = b.userid
        WHERE a.ID = v_userid;
-
+  
     SELECT status INTO v_status FROM tmp_getuserinfo;
-
+  
     SELECT masterid INTO v_masterid FROM tmp_getuserinfo;
-
+  
     IF (v_status = 0) THEN
       --此账号为临时账号
       BEGIN
@@ -8613,18 +8629,18 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
          WHERE userid = v_userid
            AND startdate < SYSDATE
            AND enddate > SYSDATE;
-
+      
         IF v_flag > 0 THEN
           BEGIN
             OPEN o_result FOR
               SELECT '该账号尚未启用' FROM DUAL;
-
+          
             RETURN;
           END;
         END IF;
       END;
     END IF;
-
+  
     --捞取用户基本信息
     OPEN o_result FOR
       SELECT d.status,
@@ -8646,7 +8662,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         LEFT JOIN ward c
           ON d.wardid = c.ID
        WHERE a.userid = d.ID;
-
+  
     --捞取用户科室信息
     IF (v_userid = '00') THEN
       BEGIN
@@ -8666,7 +8682,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         --如果是临时用户则捞取其附属老师的账号信息
         IF (v_status = 1) THEN
           v_masterid := v_userid;
-
+        
           OPEN o_result FOR
             SELECT a.deptid, b.NAME deptname, a.wardid, c.NAME wardname
               FROM user2dept a
@@ -8710,17 +8726,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     [输入参数]
     [输出参数]
     [结果集、排序]
-
-
+    
+    
     [调用的sp]
     [调用实例]
-
+    
     [修改记录]
     **********/
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
-
+  
     IF v_type = 1 THEN
       --打开模板
       OPEN o_result FOR
@@ -8785,14 +8801,14 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      输出参数
      结果集、排序
     医疗质量统计分析
-
+    
      调用的sp
      调用实例
     usp_MedQCAnalysis   '2009-11-25','2010-11-25'
      修改记录
         Medical quality statistic analysis
-
-
+    
+    
     **********/
     v_sql VARCHAR2(4000);
   BEGIN
@@ -8813,9 +8829,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     OutHosFail int null --出院未提交数
     );*/
     v_sql := 'truncate table tmp_MedQCAnalysis ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     --插入挂有病区的科室
     INSERT INTO tmp_medqcanalysis
       (deptcode, deptname)
@@ -8823,7 +8839,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         FROM department dept
        WHERE EXISTS
        (SELECT 1 FROM dept2ward ward WHERE dept.ID = ward.deptid);
-
+  
     --更新在院人数
     UPDATE tmp_medqcanalysis
        SET inhos = NVL((SELECT COUNT(1)
@@ -8833,7 +8849,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                              --                        AND CONVERT(varchar(10),inp.AdmitDate,102) <= v_DateTimeEnd
                           AND inp.outhosdept = deptcode),
                        0);
-
+  
     --新入院病人
     UPDATE tmp_medqcanalysis
        SET newinhos = NVL((SELECT COUNT(1)
@@ -8847,7 +8863,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                  TO_DATE(v_datetimeend, 'yyyy-MM-dd')
                              AND inp.outhosdept = deptcode),
                           0);
-
+  
     --新出院病人
     UPDATE tmp_medqcanalysis
        SET newouthos = NVL((SELECT COUNT(1)
@@ -8861,7 +8877,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                   TO_DATE(v_datetimeend, 'yyyy-MM-dd')
                               AND inp.outhosdept = deptcode),
                            0);
-
+  
     --床位数
     UPDATE tmp_medqcanalysis
        SET bedcnt = NVL((SELECT COUNT(1)
@@ -8869,7 +8885,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                          WHERE bed.valid = 1
                            AND bed.deptid = deptcode),
                         0);
-
+  
     --空床位数
     UPDATE tmp_medqcanalysis
        SET emptybedcnt = NVL((SELECT COUNT(1)
@@ -8878,7 +8894,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                 AND bed.inbed = 1300
                                 AND bed.deptid = deptcode),
                              0);
-
+  
     --加床数
     UPDATE tmp_medqcanalysis
        SET addbedcnt = NVL((SELECT COUNT(1)
@@ -8887,7 +8903,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                               AND bed.style = 1202
                               AND bed.deptid = deptcode),
                            0);
-
+  
     --死亡人数  （。。。）
     UPDATE tmp_medqcanalysis
        SET diecnt = NVL((SELECT COUNT(1)
@@ -8915,7 +8931,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                       'yyyy-MM-dd hh24:mi:ss') > 30*/
                            AND inp.outhosdept = deptcode),
                         0);
-
+  
     --手术病人
     UPDATE tmp_medqcanalysis
     /*SET surgerycnt = NVL((SELECT COUNT(1)
@@ -8933,9 +8949,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                    'yyyy-MM-dd hh24:mi:ss') > 30
        AND inp.outhosdept = deptcode),
     0);*/
-
+    
     ---edit by ywk 2012年10月12日 10:21:47
-
+    
     /*select count (*) from(select inp.noofinpat,inp.outhosdept
      FROM inpatient inp
      left join iem_mainpage_basicinfo_2012 bas on inp.noofinpat=bas.noofinpat
@@ -8943,7 +8959,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     WHERE inp.status IN
           (1500, 1501, 1504, 1505, 1506, 1507) and ope.operation_code is not null and inp.outhosdept='2401'
           group by inp.noofinpat,inp.outhosdept)*/
-
+    
     ---edit by 王冀 2012年10月26日
     /*  SET surgerycnt=nvl((SELECT COUNT(1) from  ( select * from (select inp.noofinpat  noo,inp.outhosdept
        FROM inpatient inp
@@ -8982,7 +8998,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  TO_DATE(v_datetimeend,
                          'yyyy-MM-dd')
            group by inp.noofinpat, inp.outhosdept))*/
-
+    
        SET surgerycnt = nvl((select count(distinct(inp.noofinpat))
                               FROM inpatient inp
                               left join iem_mainpage_basicinfo_2012 bas
@@ -9006,7 +9022,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                                  'yyyy-MM-dd hh24:mi:ss')) <=
                                    TO_DATE(v_datetimeend, 'yyyy-MM-dd')),
                             0);
-
+  
     --危重病人
     UPDATE tmp_medqcanalysis
        SET gravecnt = NVL((SELECT COUNT(1)
@@ -9022,7 +9038,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                  TO_DATE(v_datetimeend, 'yyyy-MM-dd')
                              AND inp.outhosdept = deptcode),
                           0);
-
+  
     --出院未提交
     UPDATE tmp_medqcanalysis
     /*   SET outhosfail = NVL((SELECT COUNT(1)
@@ -9036,9 +9052,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
            TO_DATE(v_datetimeend, 'yyyy-MM-dd')
        AND inp.outhosdept = deptcode),
     0);*/
-
+    
     -----edit by ywk 2012年10月12日 09:59:53
-
+    
     -----edit by wj 2012年10月26日  注释
     /* select decode(count(b.id), 0 ,'未写','书写' ) RECORDSTATE,
           '' QC ,
@@ -9170,7 +9186,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                    TO_DATE(v_datetimeend, 'yyyy-MM-dd')
                                AND a.outhosdept = deptcode),
                             0);
-
+  
     --杜总要求演示假数据---test by ywk  2012年10月8日 17:28:55
     /* update tmp_medqcanalysis
     set inhos       = trunc(dbms_random.value(0, 100), 0),
@@ -9185,7 +9201,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         outhosfail  = trunc(dbms_random.value(20, 50), 0),
         kssr        = trunc(dbms_random.value(100000, 800000), 0),
         yzb         = trunc(dbms_random.value(10, 40), 0);*/
-
+  
     OPEN o_result FOR
       SELECT '_' deptcode,
              '总计' deptname,
@@ -9253,7 +9269,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryBrowserInwardPatients 0,0,'2911', '3202'
@@ -9269,32 +9285,32 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_sql       VARCHAR(4000);
   BEGIN
     v_sql := 'truncate table tmp_QueryBrowserinwardPat ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryBrowserInward_extraop ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryBrowserinwardPatExist ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     SELECT COUNT(*)
       INTO v_existdata
       FROM doctor_assignpatient
      WHERE ID = v_id
        AND valid = 1;
-
+  
     v_dqrq := TO_CHAR(SYSDATE, 'yyyy-mm-dd');
     v_ksrq := TO_CHAR(SYSDATE - 3, 'yyyy-mm-dd');
     v_jsrq := TO_CHAR(SYSDATE + 2, 'yyyy-mm-dd');
     v_now  := TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss');
-
+  
     -- 先找出病人记录，然后读取病人的附加信息（手术、出院、转科等）
     INSERT INTO tmp_querybrowserinwardpat
       SELECT b.noofinpat  noofinpat, --首页序号
@@ -9320,7 +9336,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                 '一级护理'
              END) hljb, --护理级别
              */
-
+             
              case b.attendlevel
                when '1' then
                 '一级护理'
@@ -9333,7 +9349,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                else
                 '一级护理'
              end hljb, --护理级别
-
+             
              b.isbaby yebz, --婴儿标志
              a.wardid bqdm, --病区代码
              a.deptid ksdm,
@@ -9349,10 +9365,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
              a.sexinfo cwlx, --床位类型
              SUBSTR(b.admitdate, 1, 16) admitdate,
              --入院日期
-             f.NAME     ryzd, --入院诊断
-            b.admitdiagnosis    zdmc, --诊断名称
-             b.resident zyysdm, --住院医生代码
-             c.NAME     zyys,
+             f.NAME           ryzd, --入院诊断
+             b.admitdiagnosis zdmc, --诊断名称
+             b.resident       zyysdm, --住院医生代码
+             c.NAME           zyys,
              --住院医生
              c.NAME  cwys, --床位医生
              g.NAME  zzys, --主治医师
@@ -9393,7 +9409,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
          AND INSTR(v_deptids, RTRIM(b.outhosdept)) > 0
          AND a.inbed = 1301
       --LEFT JOIN medicareinfo me ON b.voucherscode = me.ID
-
+      
         LEFT JOIN Dictionary_detail dd1
           ON dd1.categoryid = '1'
          AND b.payid = dd1.detailid
@@ -9414,7 +9430,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
          AND j.categoryid = '3'
        WHERE a.wardid = v_wardid_in
          AND a.valid = 1;
-
+  
     -- 检查手术信息:临时医嘱，已审核和已执行的，开始时间、手术时间在当前日期-3、+1之内
     INSERT INTO tmp_querybrowserinward_extraop
       SELECT a.noofinpat,
@@ -9424,7 +9440,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
          AND a.startdate BETWEEN v_ksrq AND v_jsrq
          AND a.ordertype = 3105
          AND a.orderstatus IN (3201, 3202);
-
+  
     UPDATE tmp_querybrowserinwardpat a
        SET extra =
            (SELECT a.extra || (CASE b.diff
@@ -9444,12 +9460,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
               FROM tmp_querybrowserinward_extraop b
              WHERE a.noofinpat = b.noofinpat
                AND ROWNUM <= 1);
-
+  
     -- 检查出院医嘱:临时医嘱，已审核和已执行的，开始时间、出院时间在当前日期0时之后
     v_sql := 'truncate table tmp_QueryBrowserInward_extraop ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     INSERT INTO tmp_querybrowserinward_extraop
       SELECT a.noofinpat,
              datediff('dd', v_now, TO_CHAR(a.entrust, 'yyyy-mm-dd')) diff
@@ -9458,7 +9474,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
          AND a.startdate >= v_dqrq
          AND a.ordertype = 3113
          AND a.orderstatus IN (3201, 3202);
-
+  
     UPDATE tmp_querybrowserinwardpat a
        SET extra =
            (SELECT a.extra || (CASE b.diff
@@ -9472,7 +9488,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
               FROM tmp_querybrowserinward_extraop b
              WHERE a.noofinpat = b.noofinpat
                AND ROWNUM <= 1);
-
+  
     -- 检查转科医嘱:根据病人状态
     UPDATE tmp_querybrowserinwardpat a
        SET extra =
@@ -9481,14 +9497,14 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
              WHERE b.categoryid = a.brzt
                AND ROWNUM < 1)
      WHERE a.brzt IN (1505, 1506, 1507);
-
+  
     -- 检查病人是否有病历
     UPDATE tmp_querybrowserinwardpat a
        SET extra = a.extra || '无病历'
      WHERE noofinpat IS NOT NULL
        AND NOT EXISTS
      (SELECT 1 FROM recorddetail b WHERE a.noofinpat = b.noofinpat);
-
+  
     IF v_querytype = 0 THEN
       --全部
       BEGIN
@@ -9530,7 +9546,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                       '一级护理'
                    END) hljb, --护理级别
                    */
-
+                   
                    case b.attendlevel
                      when '1' then
                       '一级护理'
@@ -9543,7 +9559,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                      else
                       '一级护理'
                    end hljb, --护理级别
-
+                   
                    b.isbaby yebz, --婴儿标志
                    a.wardid bqdm, --病区代码
                    a.deptid ksdm, --科室代码
@@ -9561,9 +9577,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                    SUBSTR(b.admitdate, 1, 16) admitdate, --入院日期
                    f.NAME ryzd,
                    --入院诊断
-                   b.admitdiagnosis    zdmc, --诊断名称
-                   b.resident zyysdm, --住院医生代码
-                   c.NAME     zyys,
+                   b.admitdiagnosis zdmc, --诊断名称
+                   b.resident       zyysdm, --住院医生代码
+                   c.NAME           zyys,
                    --住院医生
                    c.NAME  cwys, --床位医生
                    g.NAME  zzys, --主治医师
@@ -9611,12 +9627,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                AND j.categoryid = '3'
              WHERE da.ID = v_id
                AND da.valid = 1;
-
+        
           -- 检查手术信息:临时医嘱，已审核和已执行的，开始时间、手术时间在当前日期-3、+1之内
           v_sql := 'truncate table tmp_QueryBrowserInward_extraop ';
-
+        
           EXECUTE IMMEDIATE v_sql;
-
+        
           INSERT INTO tmp_querybrowserinward_extraop
             SELECT a.noofinpat,
                    datediff('dd', v_now, TO_CHAR(SUBSTR(a.entrust, 1, 19))) diff
@@ -9625,7 +9641,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                AND a.startdate BETWEEN v_ksrq AND v_jsrq
                AND a.ordertype = 3105
                AND a.orderstatus IN (3201, 3202);
-
+        
           UPDATE tmp_querybrowserinwardpatexist a
              SET extra =
                  (SELECT a.extra || (CASE b.diff
@@ -9645,12 +9661,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                     FROM tmp_querybrowserinward_extraop b
                    WHERE a.noofinpat = b.noofinpat
                      AND ROWNUM < 1);
-
+        
           -- 检查出院医嘱:临时医嘱，已审核和已执行的，开始时间、出院时间在当前日期0时之后
           v_sql := 'truncate table tmp_QueryBrowserInward_extraop ';
-
+        
           EXECUTE IMMEDIATE v_sql;
-
+        
           INSERT INTO tmp_querybrowserinward_extraop
             SELECT a.noofinpat,
                    datediff('dd', v_now, TO_CHAR(a.entrust, 'yyyy-mm-dd')) diff
@@ -9659,7 +9675,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                AND a.startdate >= v_dqrq
                AND a.ordertype = 3113
                AND a.orderstatus IN (3201, 3202);
-
+        
           UPDATE tmp_querybrowserinwardpatexist a
              SET extra =
                  (SELECT a.extra || (CASE b.diff
@@ -9673,7 +9689,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                     FROM tmp_querybrowserinward_extraop b
                    WHERE a.noofinpat = b.noofinpat
                      AND ROWNUM < 1);
-
+        
           -- 检查转科医嘱:根据病人状态
           UPDATE tmp_querybrowserinwardpatexist a
              SET extra =
@@ -9682,7 +9698,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                    WHERE b.categoryid = a.brzt
                      AND ROWNUM < 1)
            WHERE a.brzt IN (1505, 1506, 1507);
-
+        
           -- 检查病人是否有病历
           UPDATE tmp_querybrowserinwardpatexist a
              SET extra = a.extra || '无病历'
@@ -9690,7 +9706,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
              AND NOT EXISTS (SELECT 1
                     FROM recorddetail b
                    WHERE a.noofinpat = b.noofinpat);
-
+        
           OPEN o_result FOR
             SELECT * FROM tmp_querybrowserinwardpatexist order by bedid;
           --ORDER BY TO_CHAR(bedid, '0000');
@@ -9732,12 +9748,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      结果集、排序
     在本病区住过的病人的病人信息
     病人的历次住院信息
-
+    
      调用的sp
      调用实例
      exec usp_QueryInwardPatients   '2922','3225'
      修改记录
-
+    
     **********/
     v_wardid_in        VARCHAR2(6);
     v_npatid           VARCHAR(30);
@@ -9751,22 +9767,22 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
-
+  
     OPEN o_result1 FOR
       SELECT '' FROM DUAL;
-
+  
     v_sql := 'truncate table tmp_QueryHistory_pats ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryHistory_result ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     --查询历史病人
     v_npatid           := RTRIM(v_patid);
     v_npatname         := RTRIM(v_patname);
@@ -9775,7 +9791,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_nouthosdatend    := RTRIM(v_outhosdatend);
     v_nadmitdatebegin  := RTRIM(v_admitdatebegin);
     v_nadmitdatend     := RTRIM(v_admitdatend);
-
+  
     -- 找出入院或出院是在本科室的病人（不分在院和出院）
     INSERT INTO tmp_queryhistory_pats
       SELECT DISTINCT innerpix
@@ -9793,7 +9809,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
          AND (v_nadmitdatebegin = '' OR v_nadmitdatebegin IS NULL OR
              (admitdate >= v_nadmitdatebegin AND
              admitdate <= v_nadmitdatend));
-
+  
     -- 找出病人的历次住院信息
     INSERT INTO tmp_queryhistory_result
       SELECT b.noofinpat, --首页序号
@@ -9804,9 +9820,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
              b.nativeaddress, --户口地址
              SUBSTR(b.admitdate, 1, 20) admitdate,
              --入院日期
-             c.NAME admitdept, --入院科室
-             d.NAME admitward, --入院病区
-            b.admitdiagnosis admitdiagnosis,
+             c.NAME           admitdept, --入院科室
+             d.NAME           admitward, --入院病区
+             b.admitdiagnosis admitdiagnosis,
              --入院诊断
              SUBSTR(b.outhosdate, 1, 20) outhosdate, --出院日期
              f.NAME outhosdept,
@@ -9829,7 +9845,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           ON b.outhosward = g.ID
         LEFT JOIN diagnosis h
           ON b.outdiagnosis = h.icd;
-
+  
     -- 首先返回基本信息记录
     OPEN o_result FOR
       SELECT patid, --住院号
@@ -9841,7 +9857,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                              FROM tmp_queryhistory_result
                             GROUP BY patid)
        ORDER BY patid;
-
+  
     -- 再返回历次住院信息
     OPEN o_result1 FOR
       SELECT * FROM tmp_queryhistory_result ORDER BY patid, admitdate;
@@ -9883,7 +9899,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryInwardPatients  '2911', '3202','','','','','','','','',3,'Y'
@@ -9898,17 +9914,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         v_sql       VARCHAR(4000);
       BEGIN
        \* v_sql := 'truncate table tmp_QueryInwardPatients ';
-
+    
         EXECUTE IMMEDIATE v_sql;
     *\
         v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+    
         EXECUTE IMMEDIATE v_sql;
-
+    
         IF v_wardid IS NULL THEN
           v_wardid_in := '';
         END IF;
-
+    
         \*-- 先找出病人记录，然后读取病人的附加信息（手术、出院、转科等）
         INSERT INTO tmp_queryinwardpatients
           SELECT distinct b.noofinpat noofinpat, --首页序号
@@ -9936,7 +9952,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                    else
                     '一级护理'
                  end hljb, --护理级别
-
+    
                  case b.attendlevel
                    when '1' then
                     '6101'
@@ -10043,7 +10059,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           v_ksrq := TO_CHAR(SYSDATE - 3, 'yyyy-mm-dd');
           v_jsrq := TO_CHAR(SYSDATE + 2, 'yyyy-mm-dd');
           v_now  := TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss');
-
+    
           -- 检查手术信息:临时医嘱，已审核和已执行的，开始时间、手术时间在当前日期-3、+1之内
           INSERT INTO tmp_queryinwardpats_extraop
             SELECT a.noofinpat,
@@ -10053,7 +10069,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                AND a.startdate BETWEEN v_ksrq AND v_jsrq
                AND a.ordertype = 3105
                AND a.orderstatus IN (3201, 3202);
-
+    
           UPDATE tmp_queryinwardpatients a
              SET extra = (SELECT a.extra || (CASE b.diff
                                    WHEN 1 THEN
@@ -10072,12 +10088,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                             FROM tmp_queryinwardpats_extraop b
                            WHERE a.noofinpat = b.noofinpat
                              AND ROWNUM < 1);
-
+    
           -- 检查出院医嘱:临时医嘱，已审核和已执行的，开始时间、出院时间在当前日期0时之后
           v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+    
           EXECUTE IMMEDIATE v_sql;
-
+    
           INSERT INTO tmp_queryinwardpats_extraop
             SELECT a.noofinpat,
                    datediff('dd', v_now, TO_CHAR(a.entrust, 'yyyy-mm-dd')) diff
@@ -10086,7 +10102,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                AND a.startdate >= v_dqrq
                AND a.ordertype = 3113
                AND a.orderstatus IN (3201, 3202);
-
+    
           UPDATE tmp_queryinwardpatients a
              SET extra = (SELECT a.extra || (CASE b.diff
                                    WHEN 0 THEN
@@ -10099,7 +10115,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                             FROM tmp_queryinwardpats_extraop b
                            WHERE a.noofinpat = b.noofinpat
                              AND ROWNUM < 1);
-
+    
           -- 检查转科医嘱:根据病人状态
           UPDATE tmp_queryinwardpatients a
              SET extra = (SELECT a.extra || b.NAME || ' '
@@ -10135,10 +10151,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                     b.formerward ybqdm, --原病区代码
                     b.formerdeptid yksdm, --原科室代码
                     b.formerdeptid ycwdm, --原床位代码
-
+    
                     b.deptid beddeptid,
                     b.wardid bedwardid,
-
+    
                     b.borrow jcbz, --借床标志
                     b.sexinfo cwlx, --床位类型
                     b.valid yxjl --有效记录
@@ -10164,7 +10180,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                       JOIN doctor_assignpatient da ON a.noofinpat = da.noofinpat
                                             AND da.ID = v_id
                                             AND da.valid = 1
-
+    
                     UNION
                     --Modified By wwj 2011-09-02
                     SELECT b.*
@@ -10174,14 +10190,14 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                          from Doctor_AssignPatient
                                         where valid = '1')*\
                     SELECT a.*,
-
+    
                       b.formerward ybqdm, --原病区代码
                     b.formerdeptid yksdm, --原科室代码
                     b.formerdeptid ycwdm, --原床位代码
-
+    
                     b.deptid beddeptid,
                     b.wardid bedwardid,
-
+    
                     b.borrow jcbz, --借床标志
                     b.sexinfo cwlx, --床位类型
                     b.valid yxjl --有效记录
@@ -10189,27 +10205,27 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                      LEFT JOIN bed b ON b.id = a.outbed
            AND b.deptid = v_deptids AND b.wardid = v_wardid
            AND b.noofinpat = a.noofinpat AND b.valid = '1'
-
+    
                       JOIN doctor_assignpatient da ON a.noofinpat = da.noofinpat
                                             AND da.ID = v_id
                                             AND da.valid = 1
                                             and b.deptid=v_deptids and b.wardid=v_wardid
                                             and a.outhosdept=v_deptids and a.outhosward=v_wardid
-
+    
                     UNION
                     --Modified By wwj 2011-09-02
                     SELECT a.*,
                       b.formerward ybqdm, --原病区代码
                     b.formerdeptid yksdm, --原科室代码
                     b.formerdeptid ycwdm, --原床位代码
-
+    
                     b.deptid beddeptid,
                     b.wardid bedwardid,
-
+    
                     b.borrow jcbz, --借床标志
                     b.sexinfo cwlx, --床位类型
                     b.valid yxjl --有效记录
-
+    
                       FROM view_tmp_queryinwardpatients_2 a
                       LEFT JOIN bed b ON b.id = a.outbed
            AND b.deptid = v_deptids AND b.wardid = v_wardid
@@ -10240,10 +10256,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  b.formerward ybqdm, --原病区代码
                     b.formerdeptid yksdm, --原科室代码
                     b.formerdeptid ycwdm, --原床位代码
-
+    
                     b.deptid beddeptid,
                     b.wardid bedwardid,
-
+    
                     b.borrow jcbz, --借床标志
                     b.sexinfo cwlx, --床位类型
                     b.valid yxjl --有效记录
@@ -10275,10 +10291,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                      b.formerward ybqdm, --原病区代码
                     b.formerdeptid yksdm, --原科室代码
                     b.formerdeptid ycwdm, --原床位代码
-
+    
                     b.deptid beddeptid,
                     b.wardid bedwardid,
-
+    
                     b.borrow jcbz, --借床标志
                     b.sexinfo cwlx, --床位类型
                     b.valid yxjl --有效记录
@@ -10293,7 +10309,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                    ORDER BY a.bedid;
               END;
             END IF;
-
+    
             IF v_querybed = 'Y' THEN
               --包含空床
               BEGIN
@@ -10303,10 +10319,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                     b.formerward ybqdm, --原病区代码
                     b.formerdeptid yksdm, --原科室代码
                     b.formerdeptid ycwdm, --原床位代码
-
+    
                     b.deptid beddeptid,
                     b.wardid bedwardid,
-
+    
                     b.borrow jcbz, --借床标志
                     b.sexinfo cwlx, --床位类型
                     b.valid yxjl --有效记录
@@ -10314,7 +10330,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                    LEFT JOIN bed b ON b.id = a.outbed
            AND b.deptid = v_deptids AND b.wardid = v_wardid
            AND b.noofinpat =a.noofinpat AND b.valid = '1'
-
+    
                     ORDER BY a.bedid;
               END;
             END IF;
@@ -10330,17 +10346,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_sql       VARCHAR(4000);
   BEGIN
     v_sql := 'truncate table tmp_QueryInwardPatients ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     -- 先找出病人记录，然后读取病人的附加信息（手术、出院、转科等）
     INSERT INTO tmp_queryinwardpatients
       SELECT distinct b.noofinpat noofinpat, --首页序号
@@ -10357,10 +10373,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                       RTRIM(b.criticallevel) wzjb, --危重级别
                       i.name wzjbmc, --危重级别名称
                       --cd.name hljb,
-
+                      
                       --CASE WHEN b.attendlevel IS NULL THEN 6105 ELSE to_number(b.attendlevel)
                       --END attendlevel, --护理级别
-
+                      
                       case b.attendlevel
                         when '1' then
                          '一级护理'
@@ -10373,7 +10389,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         else
                          '一级护理'
                       end hljb, --护理级别
-
+                      
                       case b.attendlevel
                         when '1' then
                          '6101'
@@ -10397,10 +10413,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                       END yebzname,
                       --a.wardid bqdm, --病区代码
                       --a.deptid ksdm, --科室代码
-
+                      
                       b.outhosward bqdm, --病区代码
                       b.outhosdept ksdm, --科室代码
-
+                      
                       --a.ID bedid, --床位代码
                       case
                         when length(b.outbed) = 1 then
@@ -10511,15 +10527,15 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           ON b.attendlevel = cd.ID
          AND cd.categoryid = '63'
        WHERE /*((b.outhosdept = v_deptids AND b.outhosward = v_wardid) OR
-                                           (v_deptids IN
-                                           (SELECT bedinfo.newdept
-                                                FROM bedinfo
-                                               WHERE bedinfo.noofinpat = b.noofinpat) AND
-                                           v_wardid IN
-                                           (SELECT bedinfo.newward
-                                                FROM bedinfo
-                                               WHERE bedinfo.noofinpat = b.noofinpat)))
-                                       AND a.valid = 1;*/
+                                                 (v_deptids IN
+                                                 (SELECT bedinfo.newdept
+                                                      FROM bedinfo
+                                                     WHERE bedinfo.noofinpat = b.noofinpat) AND
+                                                 v_wardid IN
+                                                 (SELECT bedinfo.newward
+                                                      FROM bedinfo
+                                                     WHERE bedinfo.noofinpat = b.noofinpat)))
+                                             AND a.valid = 1;*/
        b.outhosdept = v_deptids
        AND b.outhosward = v_wardid
        AND b.status in ('1500', '1501')
@@ -10530,7 +10546,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
       v_ksrq := TO_CHAR(SYSDATE - 3, 'yyyy-mm-dd');
       v_jsrq := TO_CHAR(SYSDATE + 2, 'yyyy-mm-dd');
       v_now  := TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss');
-
+    
       -- 检查手术信息:临时医嘱，已审核和已执行的，开始时间、手术时间在当前日期-3、+1之内
       INSERT INTO tmp_queryinwardpats_extraop
         SELECT a.noofinpat,
@@ -10540,7 +10556,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
            AND a.startdate BETWEEN v_ksrq AND v_jsrq
            AND a.ordertype = 3105
            AND a.orderstatus IN (3201, 3202);
-
+    
       UPDATE tmp_queryinwardpatients a
          SET extra = (SELECT a.extra || (CASE b.diff
                                WHEN 1 THEN
@@ -10559,12 +10575,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         FROM tmp_queryinwardpats_extraop b
                        WHERE a.noofinpat = b.noofinpat
                          AND ROWNUM < 1);
-
+    
       -- 检查出院医嘱:临时医嘱，已审核和已执行的，开始时间、出院时间在当前日期0时之后
       v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+    
       EXECUTE IMMEDIATE v_sql;
-
+    
       INSERT INTO tmp_queryinwardpats_extraop
         SELECT a.noofinpat,
                datediff('dd', v_now, TO_CHAR(a.entrust, 'yyyy-mm-dd')) diff
@@ -10573,7 +10589,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
            AND a.startdate >= v_dqrq
            AND a.ordertype = 3113
            AND a.orderstatus IN (3201, 3202);
-
+    
       UPDATE tmp_queryinwardpatients a
          SET extra = (SELECT a.extra || (CASE b.diff
                                WHEN 0 THEN
@@ -10586,7 +10602,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         FROM tmp_queryinwardpats_extraop b
                        WHERE a.noofinpat = b.noofinpat
                          AND ROWNUM < 1);
-
+    
       -- 检查转科医嘱:根据病人状态
       UPDATE tmp_queryinwardpatients a
          SET extra = (SELECT a.extra || b.NAME || ' '
@@ -10603,7 +10619,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
               FROM recorddetail b
              WHERE a.noofinpat = b.noofinpat
                and b.valid = '1');
-
+  
     IF v_querytype = 0 THEN
       --全部
       BEGIN
@@ -10626,7 +10642,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                               ON a.noofinpat = da.noofinpat
                              AND da.ID = v_id
                              AND da.valid = 1
-
+                          
                           UNION
                           --Modified By wwj 2011-09-02
                           SELECT b.*
@@ -10665,7 +10681,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                ORDER BY a.bedid;
           END;
         END IF;
-
+      
         IF v_querybed = 'Y' THEN
           --包含空床
           BEGIN
@@ -10698,7 +10714,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                     v_querynur  VARCHAR DEFAULT '',
                                     v_querybed  VARCHAR DEFAULT 'Y',
                                     o_result    OUT empcurtyp)
-
+  
    AS
     v_table     varchar(500);
     v_wardid_in VARCHAR(6);
@@ -10708,7 +10724,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_now       VARCHAR(24);
     v_sql       VARCHAR(8000);
     v_cfgValue  clob;
-    v_count integer;
+    v_count     integer;
   BEGIN
     --通过appcfg判断是够调用青龙山的存储过程 xuliangliang 2012-12-17
     select ap.VALUE
@@ -10733,23 +10749,23 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                          o_result);
     else
       begin
-        
-       v_table := 'tmp_' || to_char(sysdate, 'yyyyMMddHH24mimiss') ||
+      
+        v_table := 'tmp_' || to_char(sysdate, 'yyyyMMddHH24mimiss') ||
                    dbms_random.string('a', 3);
-       /*全部病人人数有限制，用下面的方法可以显示全部  ，下面配合commit*/
-      /*v_table := 'tmp_usp_queryinwardpatients' ;
-      select count(*) into v_count from user_tables t where t.TABLE_NAME = 'TMP_USP_QUERYINWARDPATIENTS';
-      if v_count > 0 then
-        
-        execute immediate 'drop table ' || v_table ||' purge';
-        end if;*/
+        /*全部病人人数有限制，用下面的方法可以显示全部  ，下面配合commit*/
+        /*v_table := 'tmp_usp_queryinwardpatients' ;
+        select count(*) into v_count from user_tables t where t.TABLE_NAME = 'TMP_USP_QUERYINWARDPATIENTS';
+        if v_count > 0 then
+          
+          execute immediate 'drop table ' || v_table ||' purge';
+          end if;*/
         execute immediate 'create table ' || v_table ||
                           ' as select t.*,''yyyy-MM-dd HH:mm:ss'' as inwarddate,''111111111111111111'' as idinfo from tmp_QueryInwardPatients t where 1<>1';
         --' as select * from tmp_QueryInwardPatients where 1<>1'; --edit by cyq 2013-03-13 添加入科日期列
         IF v_wardid IS NULL THEN
           v_wardid_in := '';
         END IF;
-
+      
         v_sql := 'INSERT INTO ' || v_table ||
                  ' SELECT distinct b.noofinpat noofinpat,' --首页序号
                  || 'b.patnoofhis patnoofhis,' --HIS首页序号
@@ -10765,10 +10781,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  || 'RTRIM(b.criticallevel) wzjb,' --危重级别
                  || 'i.name wzjbmc,'; --危重级别名称
         --cd.name hljb,
-
+      
         --CASE WHEN b.attendlevel IS NULL THEN 6105 ELSE to_number(b.attendlevel)
         --END attendlevel, --护理级别
-
+      
         v_sql := v_sql || ' case b.attendlevel' || '   when ''1'' then ' ||
                  '    ''一级护理''' || '   when ''2'' then' || ' ''二级护理''' ||
                  ' when ''3'' then' || '  ''三级护理''' || '  when ''4'' then' ||
@@ -10784,10 +10800,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  ' ELSE ' || '  ''是''' || ' END yebzname,';
         --a.wardid bqdm, --病区代码
         --a.deptid ksdm, --科室代码
-
+      
         v_sql := v_sql || 'b.outhosward bqdm,' --病区代码
                  || 'b.outhosdept ksdm,'; --科室代码';
-
+      
         --a.ID bedid, --床位代码
         v_sql := v_sql ||
                  ' case when length(b.outbed) = 1 and isnumber(b.outbed) = 1 then ''0'' || b.outbed else b.outbed end bedid,' --床位代码
@@ -10871,7 +10887,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                AND a.inbed = 1301 --占床
         -- 1501 病区分床,1504 取消结算,1505 进入ICU,1506 进入产房,1507 转科状态
           */
-
+      
         v_sql := v_sql || ' LEFT JOIN (select name,detailid from Dictionary_detail where categoryid = ''1'') dd1 ON
                                        b.payid = dd1.detailid
         LEFT JOIN (select name,id from categorydetail where categoryid = ''15'') e ON b.status = e.ID
@@ -10885,26 +10901,26 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         LEFT JOIN (select name, detailid from dictionary_detail where categoryid = ''3'')  j ON j.detailid = b.sexid
         LEFT JOIN (select name,id from categorydetail where categoryid = ''63'') cd ON b.attendlevel = cd.ID
        WHERE 1=1 '; /*((b.outhosdept = v_deptids AND b.outhosward = v_wardid) OR
-                                           (v_deptids IN
-                                           (SELECT bedinfo.newdept
-                                                FROM bedinfo
-                                               WHERE bedinfo.noofinpat = b.noofinpat) AND
-                                           v_wardid IN
-                                           (SELECT bedinfo.newward
-                                                FROM bedinfo
-                                               WHERE bedinfo.noofinpat = b.noofinpat)))
-                                       AND a.valid = 1;*/
+                                                 (v_deptids IN
+                                                 (SELECT bedinfo.newdept
+                                                      FROM bedinfo
+                                                     WHERE bedinfo.noofinpat = b.noofinpat) AND
+                                                 v_wardid IN
+                                                 (SELECT bedinfo.newward
+                                                      FROM bedinfo
+                                                     WHERE bedinfo.noofinpat = b.noofinpat)))
+                                             AND a.valid = 1;*/
         /*  v_sql:=v_sql||' b.outhosdept = '||v_deptids||' AND b.outhosward ='|| v_wardid
         ||' AND b.status in (''1500'',''1501'') AND b.isbaby != ''1''*/
         v_sql := v_sql || ' ORDER BY bedid';
-
+      
         /*
         dbms_output.put_line(substr(v_sql, 1, 1000));
         dbms_output.put_line(substr(v_sql, 1001, 1000));
         dbms_output.put_line(substr(v_sql, 2001, 1000));
         dbms_output.put_line(substr(v_sql, 3001, 1000));
         */
-
+      
         execute immediate v_sql;
         -- 检查病人是否有病历
         v_sql := 'UPDATE ' || v_table || ' a
@@ -10914,7 +10930,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
               FROM recorddetail b
              WHERE a.noofinpat = b.noofinpat
                and b.valid = ''1'')';
-
+      
         execute immediate v_sql;
         IF v_querytype = 0 THEN
           --全部
@@ -10982,7 +10998,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           END;
         END IF;
         --永久删除add by ywk
-        execute immediate 'drop table ' || v_table ||' purge';
+        execute immediate 'drop table ' || v_table || ' purge';
       end;
     end if;
     --commit;
@@ -11027,7 +11043,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryInwardPatients  '2911', '3202','','','','','','','','',3,'Y'
@@ -11041,25 +11057,25 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_now       VARCHAR(24);
     v_sql       VARCHAR(4000);
   BEGIN
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     IF v_querytype = 0 THEN
       --全部
       BEGIN
         OPEN o_result FOR
-
+        
           SELECT rownum         ID,
                  a.*,
                  b.formerward   ybqdm, --原病区代码
                  b.formerdeptid yksdm, --原科室代码
                  b.formerdeptid ycwdm, --原床位代码
-
+                 
                  b.deptid beddeptid,
                  b.wardid bedwardid,
-
+                 
                  b.borrow  jcbz, --借床标志
                  b.sexinfo cwlx, --床位类型
                  b.valid   yxjl --有效记录
@@ -11083,12 +11099,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         where bed.valid = '1'
                           AND bed.deptid = v_deptids
                           AND bed.wardid = v_wardid
-
+                       
                        ) b
               ON b.id = a.outbed
              AND b.noofinpat = a.noofinpat
            ORDER BY a.bedid;
-
+      
       END;
     ELSIF v_querytype = 1 THEN
       --分管
@@ -11101,7 +11117,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                             JOIN doctor_assignpatient da ON a.noofinpat = da.noofinpat
                                                   AND da.ID = v_id
                                                   AND da.valid = 1
-
+                          
                           UNION
                           --Modified By wwj 2011-09-02
                           SELECT b.*
@@ -11111,14 +11127,14 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                                from Doctor_AssignPatient
                                               where valid = '1')*/
                           SELECT a.*,
-
+                                  
                                   b.formerward   ybqdm, --原病区代码
                                   b.formerdeptid yksdm, --原科室代码
                                   b.formerdeptid ycwdm, --原床位代码
-
+                                  
                                   b.deptid beddeptid,
                                   b.wardid bedwardid,
-
+                                  
                                   b.borrow  jcbz, --借床标志
                                   b.sexinfo cwlx, --床位类型
                                   b.valid   yxjl --有效记录
@@ -11128,43 +11144,43 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                                           '%' || v_deptids || '%'
                                       AND view_tmp_queryinwardpatients_2.outhosward like
                                           '%' || v_wardid || '%'
-
+                                   
                                    ) a
                             LEFT JOIN (select *
                                          from bed
                                         where bed.valid = '1'
                                           AND bed.deptid = v_deptids
                                           AND bed.wardid = v_wardid
-
+                                       
                                        ) b
                               ON b.id = a.outbed
                              AND b.noofinpat = a.noofinpat
-
+                          
                             JOIN doctor_assignpatient da
                               ON a.noofinpat = da.noofinpat
                              AND da.ID = v_id
                              AND da.valid = 1
-
+                          
                           UNION
                           --Modified By wwj 2011-09-02
                           SELECT a.*,
-                                 b.formerward   ybqdm, --原病区代码
-                                 b.formerdeptid yksdm, --原科室代码
-                                 b.formerdeptid ycwdm, --原床位代码
-
-                                 b.deptid beddeptid,
-                                 b.wardid bedwardid,
-
-                                 b.borrow  jcbz, --借床标志
-                                 b.sexinfo cwlx, --床位类型
-                                 b.valid   yxjl --有效记录
-
+                                  b.formerward   ybqdm, --原病区代码
+                                  b.formerdeptid yksdm, --原科室代码
+                                  b.formerdeptid ycwdm, --原床位代码
+                                  
+                                  b.deptid beddeptid,
+                                  b.wardid bedwardid,
+                                  
+                                  b.borrow  jcbz, --借床标志
+                                  b.sexinfo cwlx, --床位类型
+                                  b.valid   yxjl --有效记录
+                          
                             FROM (select *
-                                    from view_tmp_queryinwardpatients_2
-                                   where view_tmp_queryinwardpatients_2.outhosdept like
-                                         '%' || v_deptids || '%'
-                                     AND view_tmp_queryinwardpatients_2.outhosward like
-                                         '%' || v_wardid || '%') a
+                                     from view_tmp_queryinwardpatients_2
+                                    where view_tmp_queryinwardpatients_2.outhosdept like
+                                          '%' || v_deptids || '%'
+                                      AND view_tmp_queryinwardpatients_2.outhosward like
+                                          '%' || v_wardid || '%') a
                             LEFT JOIN (select *
                                          from bed
                                         where bed.valid = '1'
@@ -11186,21 +11202,21 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
       BEGIN
         OPEN o_result FOR
         /*SELECT *
-                                                    FROM tmp_queryinwardpatients a
-                                                   WHERE a.noofinpat IS NOT NULL
-                                                     AND NOT EXISTS (SELECT 1
-                                                            FROM doctor_assignpatient d
-                                                           WHERE d.valid = 1
-                                                             AND d.noofinpat = a.noofinpat)
-                                                   ORDER BY a.bedid;*/
+                                                            FROM tmp_queryinwardpatients a
+                                                           WHERE a.noofinpat IS NOT NULL
+                                                             AND NOT EXISTS (SELECT 1
+                                                                    FROM doctor_assignpatient d
+                                                                   WHERE d.valid = 1
+                                                                     AND d.noofinpat = a.noofinpat)
+                                                           ORDER BY a.bedid;*/
           SELECT a.*,
                  b.formerward   ybqdm, --原病区代码
                  b.formerdeptid yksdm, --原科室代码
                  b.formerdeptid ycwdm, --原床位代码
-
+                 
                  b.deptid beddeptid,
                  b.wardid bedwardid,
-
+                 
                  b.borrow  jcbz, --借床标志
                  b.sexinfo cwlx, --床位类型
                  b.valid   yxjl --有效记录
@@ -11215,7 +11231,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         where bed.valid = '1'
                           AND bed.deptid = v_deptids
                           AND bed.wardid = v_wardid
-
+                       
                        ) b
               ON b.id = a.outbed
              AND b.noofinpat = a.noofinpat
@@ -11224,7 +11240,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                     FROM doctor_assignpatient d
                    WHERE d.valid = 1
                      AND d.noofinpat = a.noofinpat)
-
+          
            ORDER BY a.bedid;
       END;
     ELSIF v_querytype = 3 THEN
@@ -11235,17 +11251,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           BEGIN
             OPEN o_result FOR
             /* SELECT *
-                                                                            FROM tmp_QueryInwardPatients a
-                                                                           WHERE a.NoOfInpat IS NOT NULL
-                                                                           ORDER BY a.bedid;*/
+                                                                                        FROM tmp_QueryInwardPatients a
+                                                                                       WHERE a.NoOfInpat IS NOT NULL
+                                                                                       ORDER BY a.bedid;*/
               SELECT a.*,
                      b.formerward   ybqdm, --原病区代码
                      b.formerdeptid yksdm, --原科室代码
                      b.formerdeptid ycwdm, --原床位代码
-
+                     
                      b.deptid beddeptid,
                      b.wardid bedwardid,
-
+                     
                      b.borrow  jcbz, --借床标志
                      b.sexinfo cwlx, --床位类型
                      b.valid   yxjl --有效记录
@@ -11260,7 +11276,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                             where bed.valid = '1'
                               AND bed.deptid = v_deptids
                               AND bed.wardid = v_wardid
-
+                           
                            ) b
                   ON b.id = a.outbed
                  AND b.noofinpat = a.noofinpat
@@ -11268,7 +11284,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                ORDER BY a.bedid;
           END;
         END IF;
-
+      
         IF v_querybed = 'Y' THEN
           --包含空床
           BEGIN
@@ -11278,10 +11294,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                      b.formerward   ybqdm, --原病区代码
                      b.formerdeptid yksdm, --原科室代码
                      b.formerdeptid ycwdm, --原床位代码
-
+                     
                      b.deptid beddeptid,
                      b.wardid bedwardid,
-
+                     
                      b.borrow  jcbz, --借床标志
                      b.sexinfo cwlx, --床位类型
                      b.valid   yxjl --有效记录
@@ -11296,11 +11312,11 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                             where bed.valid = '1'
                               AND bed.deptid = v_deptids
                               AND bed.wardid = v_wardid
-
+                           
                            ) b
                   ON b.id = a.outbed
                  AND b.noofinpat = a.noofinpat
-
+              
                ORDER BY a.bedid;
           END;
         END IF;
@@ -11317,17 +11333,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_sql       VARCHAR(4000);
   BEGIN
     v_sql := 'truncate table tmp_QueryInwardPatients ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     -- 先找出病人记录，然后读取病人的附加信息（手术、出院、转科等）
     INSERT INTO tmp_queryinwardpatients
       SELECT distinct b.noofinpat noofinpat, --首页序号
@@ -11344,10 +11360,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
              RTRIM(b.criticallevel) wzjb, --危重级别
              i.name wzjbmc, --危重级别名称
              --cd.name hljb,
-
+  
              --CASE WHEN b.attendlevel IS NULL THEN 6105 ELSE to_number(b.attendlevel)
              --END attendlevel, --护理级别
-
+  
              case b.attendlevel
                when '1' then
                 '一级护理'
@@ -11360,7 +11376,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                else
                 '一级护理'
              end hljb, --护理级别
-
+  
              case b.attendlevel
                when '1' then
                 '6101'
@@ -11384,10 +11400,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
              END yebzname,
              --a.wardid bqdm, --病区代码
              --a.deptid ksdm, --科室代码
-
+  
              b.outhosward bqdm, --病区代码
              b.outhosdept ksdm, --科室代码
-
+  
              --a.ID bedid, --床位代码
              case when length(b.outbed) = 1 then '0' || b.outbed else b.outbed end bedid, --床位代码
              dg.NAME ksmc, --科室名称
@@ -11495,7 +11511,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
       v_ksrq := TO_CHAR(SYSDATE - 3, 'yyyy-mm-dd');
       v_jsrq := TO_CHAR(SYSDATE + 2, 'yyyy-mm-dd');
       v_now  := TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss');
-
+  
       -- 检查手术信息:临时医嘱，已审核和已执行的，开始时间、手术时间在当前日期-3、+1之内
       INSERT INTO tmp_queryinwardpats_extraop
         SELECT a.noofinpat,
@@ -11505,7 +11521,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
            AND a.startdate BETWEEN v_ksrq AND v_jsrq
            AND a.ordertype = 3105
            AND a.orderstatus IN (3201, 3202);
-
+  
       UPDATE tmp_queryinwardpatients a
          SET extra = (SELECT a.extra || (CASE b.diff
                                WHEN 1 THEN
@@ -11524,12 +11540,12 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         FROM tmp_queryinwardpats_extraop b
                        WHERE a.noofinpat = b.noofinpat
                          AND ROWNUM < 1);
-
+  
       -- 检查出院医嘱:临时医嘱，已审核和已执行的，开始时间、出院时间在当前日期0时之后
       v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+  
       EXECUTE IMMEDIATE v_sql;
-
+  
       INSERT INTO tmp_queryinwardpats_extraop
         SELECT a.noofinpat,
                datediff('dd', v_now, TO_CHAR(a.entrust, 'yyyy-mm-dd')) diff
@@ -11538,7 +11554,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
            AND a.startdate >= v_dqrq
            AND a.ordertype = 3113
            AND a.orderstatus IN (3201, 3202);
-
+  
       UPDATE tmp_queryinwardpatients a
          SET extra = (SELECT a.extra || (CASE b.diff
                                WHEN 0 THEN
@@ -11551,7 +11567,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         FROM tmp_queryinwardpats_extraop b
                        WHERE a.noofinpat = b.noofinpat
                          AND ROWNUM < 1);
-
+  
       -- 检查转科医嘱:根据病人状态
       UPDATE tmp_queryinwardpatients a
          SET extra = (SELECT a.extra || b.NAME || ' '
@@ -11568,7 +11584,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
               FROM recorddetail b
              WHERE a.noofinpat = b.noofinpat
                and b.valid = '1');
-
+  
     IF v_querytype = 0 THEN
       --全部
       BEGIN
@@ -11593,7 +11609,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                   JOIN doctor_assignpatient da ON a.noofinpat = da.noofinpat
                                         AND da.ID = v_id
                                         AND da.valid = 1
-
+  
                 UNION
                 --Modified By wwj 2011-09-02
                 SELECT b.*
@@ -11632,7 +11648,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                ORDER BY a.bedid;
           END;
         END IF;
-
+  
         IF v_querybed = 'Y' THEN
           --包含空床
           BEGIN
@@ -11668,17 +11684,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
     v_sql       VARCHAR(4000);
   BEGIN
     v_sql := 'truncate table tmp_QueryInwardPatients ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryInwardPats_extraop ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     -- 先找出病人记录，然后读取病人的附加信息（手术、出院、转科等）
     INSERT INTO tmp_queryinwardpatients
       SELECT distinct b.noofinpat noofinpat, --首页序号
@@ -11706,7 +11722,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                         else
                          ''
                       end hljb, --护理级别
-
+                      
                       case b.attendlevel
                         when '1' then
                          '6101'
@@ -11745,8 +11761,8 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                       a.borrow jcbz, --借床标志
                       a.sexinfo cwlx, --床位类型
                       SUBSTR(b.admitdate, 1, 16) admitdate, --入院日期
-                     b.admitdiagnosis ryzd, --入院诊断
-                     b.admitdiagnosis zdmc, --诊断名称
+                      b.admitdiagnosis ryzd, --入院诊断
+                      b.admitdiagnosis zdmc, --诊断名称
                       b.resident zyysdm, --住院医生代码
                       c.NAME zyys, --住院医生
                       c.NAME cwys, --床位医生
@@ -11828,7 +11844,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
        AND b.status in ('1500', '1501')
        AND b.isbaby != '1'
        ORDER BY bedid;
-
+  
     -- 检查病人是否有病历
     UPDATE tmp_queryinwardpatients a
        SET extra = extra || '无病历', recordinfo = '无病历'
@@ -11837,7 +11853,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
               FROM recorddetail b
              WHERE a.noofinpat = b.noofinpat
                and b.valid = '1');
-
+  
     IF v_querytype = 0 THEN
       --全部
       BEGIN
@@ -11860,7 +11876,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                               ON a.noofinpat = da.noofinpat
                              AND da.ID = v_id
                              AND da.valid = 1
-
+                          
                           UNION
                           --Modified By wwj 2011-09-02
                           SELECT b.*
@@ -11899,7 +11915,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                ORDER BY a.bedid;
           END;
         END IF;
-
+      
         IF v_querybed = 'Y' THEN
           --包含空床
           BEGIN
@@ -11932,19 +11948,19 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
-
+    
      修改记录
     护理级别待处理
     **********/
     v_sql VARCHAR(3000);
   BEGIN
     v_sql := 'truncate table tmp_QueryOwnManagerPat ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_querytype = 0 THEN
       --获得除分管外的病人
       BEGIN
@@ -11978,12 +11994,12 @@ and  not exists (select 1 from Doctor_AssignPatient da where da.NoOfInpat=a.NoOf
 and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                  v_wardid || '''
 ';
-
+      
         --exec sp_executesql v_sql
         OPEN o_result FOR v_sql;
       END;
     END IF;
-
+  
     IF v_querytype = 1 THEN
       --获得分管病人
       BEGIN
@@ -11997,7 +12013,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                    WHERE da.noofinpat = a.noofinpat
                      AND ID = v_userid
                      AND valid = 1);
-
+      
         INSERT INTO tmp_queryownmanagerpat
           SELECT a.noofinpat  noofinpat, --首页序号
                  a.patnoofhis patnoofhis,
@@ -12013,7 +12029,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                  c.detailid wzjb,
                  --危重级别编码
                  SUBSTR(a.admitdate, 1, 20) admitdate, --入院日期
-                a.admitdiagnosis ryzd,
+                 a.admitdiagnosis ryzd,
                  --入院诊断
                  a.admitdiagnosis zdmc, --诊断名称
                  --e.note pzlx, --凭证类型
@@ -12063,14 +12079,14 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
             LEFT JOIN ward h
               ON f.wardid = g.ID
            WHERE a.status IN (1501, 1504, 1505, 1506, 1507);
-
+      
         -- 检查病人是否有病历
         UPDATE tmp_queryownmanagerpat a
            SET recordinfo = '无病历'
          WHERE noofinpat IS NOT NULL
            AND NOT EXISTS
          (SELECT 1 FROM recorddetail b WHERE a.noofinpat = b.noofinpat);
-
+      
         OPEN o_result FOR
           SELECT * FROM tmp_queryownmanagerpat order by bedid;
         --ORDER BY TO_CHAR(bedid, '0000');
@@ -12095,7 +12111,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     质量控制统计数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryQCGrade  9,'00'
@@ -12105,9 +12121,9 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
     v_sql      VARCHAR2(400);
   BEGIN
     v_sql := 'truncate table tmp_QueryQCGrade ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     --基本评分项目(INSERT 进评分表)
     INSERT INTO tmp_queryqcgrade
       SELECT qct.typecode,
@@ -12139,13 +12155,13 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                WHERE qcgrade.itemcode = itemcode
                  AND qcgrade.noofinpat = v_noofinpat)
        ORDER BY qct.typecode, qci.itemorder;
-
+  
     SELECT OPERATOR
       INTO v_doctorid
       FROM medicalrecord
      WHERE noofinpat = v_noofinpat
        AND ROWNUM < 1;
-
+  
     INSERT INTO qcgrade
       (noofinpat, doctor_id, typecode, itemcode, create_time, create_user)
       SELECT v_noofinpat,
@@ -12155,7 +12171,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              SYSDATE,
              v_operuser
         FROM tmp_queryqcgrade;
-
+  
     --基本评分项目
     OPEN o_result FOR
       SELECT qcg.ID,
@@ -12215,7 +12231,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      输出参数
      结果集、排序
     在病区的病人数据集
-
+    
      调用的sp
      调用实例
      exec usp_QueryQuitPatientNoDoctor  '2911', '3202' ,'2011-05-09','2011-05-09',1
@@ -12230,17 +12246,17 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
     v_sql       VARCHAR(400);
   BEGIN
     v_sql := 'truncate table tmp_QueryQuitPatientNoDoctor ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     v_sql := 'truncate table tmp_QueryQuitPatientNo_extraop ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     -- 先找出病人记录，然后读取病人的附加信息（手术、出院、转科等）
     INSERT INTO tmp_queryquitpatientnodoctor
       SELECT b.noofinpat  noofinpat, --首页序号
@@ -12278,7 +12294,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                else
                 '一级护理'
              end hljb, --护理级别
-
+             
              b.isbaby yebz, --婴儿标志
              (CASE
                WHEN b.isbaby = '0' THEN
@@ -12296,7 +12312,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              b.admitward ybqdm, --原病区代码
              b.admitdept yksdm, --原科室代码
              b.admitbed ycwdm, --原床位代码
-
+             
              --b.InBed InBed  --占床标志
              --                ,
              --                a.Borrow jcbz --借床标志
@@ -12305,11 +12321,11 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              --                ,
              SUBSTR(b.admitdate, 1, 20) admitdate, --入院日期
              --SUBSTR(b.outhosdate, 1, 16) outhosdate, --出院日期ad by ywk 2013年7月26日 15:27:18
-            b.admitdiagnosis     ryzd, --入院诊断
-            b.admitdiagnosis     zdmc, --诊断名称
-             b.resident zyysdm, --住院医生代码
-             c.NAME     zyys, --住院医生
-             c.NAME     cwys,
+             b.admitdiagnosis ryzd, --入院诊断
+             b.admitdiagnosis zdmc, --诊断名称
+             b.resident       zyysdm, --住院医生代码
+             c.NAME           zyys, --住院医生
+             c.NAME           cwys,
              --床位医生
              g.NAME zzys, --主治医师
              h.NAME zrys, --主任医师
@@ -12381,8 +12397,8 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
         LEFT JOIN dictionary_detail j
           ON j.detailid = b.sexid
          AND j.categoryid = '3'
-       WHERE (b.OutHosDept = v_deptids or b.admitdept=v_deptids)
-         AND (b.OutHosWard = v_wardid or b.admitward=v_wardid)--add by ywk  出院在院都在此科室应该可以查出来
+       WHERE (b.OutHosDept = v_deptids or b.admitdept = v_deptids)
+         AND (b.OutHosWard = v_wardid or b.admitward = v_wardid) --add by ywk  出院在院都在此科室应该可以查出来
             /*中心医院需求，要求原来的入院日期改为出院日期 add by ywk 2012年11月21日13:34:11 */
             /*  AND (v_timefrom IS NULL OR
                 TO_CHAR(TO_DATE(b.admitdate, 'yyyy-mm-dd hh24:mi:ss'),
@@ -12396,7 +12412,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
          AND (v_timeto IS NULL OR
              TO_CHAR(TO_DATE(b.outhosdate, 'yyyy-mm-dd hh24:mi:ss'),
                       'yyyy-mm-dd') <= SUBSTR(v_timeto, 1, 10))
-
+            
          AND b.patid like '%' || v_PatientSN || '%'
          AND b.name like '%' || v_Name || '%';
     /*
@@ -12404,7 +12420,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
       v_ksrq := TO_CHAR(SYSDATE - 3, 'yyyy-mm-dd');
       v_jsrq := TO_CHAR(SYSDATE + 2, 'yyyy-mm-dd');
       v_now  := TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss');
-
+    
       -- 检查手术信息:临时医嘱，已审核和已执行的，开始时间、手术时间在当前日期-3、+1之内
       INSERT INTO tmp_queryquitpatientno_extraop
         SELECT a.noofinpat,
@@ -12414,7 +12430,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
            AND a.startdate BETWEEN v_ksrq AND v_jsrq
            AND a.ordertype = 3105
            AND a.orderstatus IN (3201, 3202);
-
+    
       UPDATE tmp_queryquitpatientnodoctor a
          SET extra = (SELECT a.extra || (CASE b.diff
                                WHEN 1 THEN
@@ -12433,12 +12449,12 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                         FROM tmp_queryquitpatientno_extraop b
                        WHERE a.noofinpat = b.noofinpat
                          AND ROWNUM < 1);
-
+    
       -- 检查出院医嘱:临时医嘱，已审核和已执行的，开始时间、出院时间在当前日期0时之后
       v_sql := 'truncate table tmp_QueryQuitPatientNo_extraop ';
-
+    
       EXECUTE IMMEDIATE v_sql;
-
+    
       INSERT INTO tmp_queryquitpatientno_extraop
         SELECT a.noofinpat,
                datediff('dd', v_now, SUBSTR(a.entrust, 1, 10)) diff
@@ -12447,7 +12463,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
            AND a.startdate >= v_dqrq
            AND a.ordertype = 3113
            AND a.orderstatus IN (3201, 3202);
-
+    
       UPDATE tmp_queryquitpatientnodoctor a
          SET extra = (SELECT a.extra || (CASE b.diff
                                WHEN 0 THEN
@@ -12460,7 +12476,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                         FROM tmp_queryquitpatientno_extraop b
                        WHERE a.noofinpat = b.noofinpat
                          AND ROWNUM < 1);
-
+    
       -- 检查转科医嘱:根据病人状态
       UPDATE tmp_queryquitpatientnodoctor a
          SET extra = (SELECT a.extra || b.NAME || ' '
@@ -12475,7 +12491,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
      WHERE noofinpat IS NOT NULL
        AND NOT EXISTS
      (SELECT 1 FROM recorddetail b WHERE a.noofinpat = b.noofinpat);
-
+  
     IF v_querytype = 0 THEN
       --出院末分配医生
       BEGIN
@@ -12491,12 +12507,14 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
       --全部病患
       BEGIN
         OPEN o_result FOR
-          SELECT a.*, substr(inp.inwarddate,1,16) as inwarddate,substr(inp.outhosdate,1,20) as outhosdate
+          SELECT a.*,
+                 substr(inp.inwarddate, 1, 16) as inwarddate,
+                 substr(inp.outhosdate, 1, 20) as outhosdate
             FROM tmp_queryquitpatientnodoctor a
             left join inpatient inp
               on a.noofinpat = inp.noofinpat
              and a.brzt in ('1502', '1503')
-              where( inp.islock<>4701 or inp.islock  is null)
+           where (inp.islock <> 4701 or inp.islock is null)
            order by bedid;
       END;
     END IF;
@@ -12535,7 +12553,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
       ,v_xsnl varchar(16) = null output  --显示年龄(根据实际情况显示的年龄,如XXX年,XX月XX天,XX天)
      输出参数
      修改
-
+    
         妇幼保健院新生儿科需求——出生时间在2小时以内的病人，年龄精确到分钟，出生日期在48小时以内的病人，年龄精确到小时。
      结果集、排序
      调用的sp
@@ -12550,7 +12568,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
     --  , v_date4 = substring(v_dqrq, 1, 10)
     v_date3 := SUBSTR(v_csrq, 1, 16);
     v_date4 := SUBSTR(v_dqrq, 1, 16);
-
+  
     IF (isdate(v_date3) <> 1) OR (isdate(v_date4) <> 1) OR
        (v_date3 > v_date4) THEN
       BEGIN
@@ -12559,12 +12577,12 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
         RETURN;
       END;
     END IF;
-
+  
     v_decmm := 0;
     v_decyy := 0;
     v_dechh := 0;
     v_decmi := 0;
-
+  
     -- 分钟
     --TO_char(to_timestamp('2013-05-01 11:31:11','yyyy-mm-dd HH24:mi:ss'),'mi')
     -- IF TO_CHAR(v_date4, 'mi') >= TO_CHAR(v_date3, 'mi') THEN
@@ -12582,7 +12600,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                            'mi');
       END;
     END IF;
-
+  
     --小时
     IF (TO_char(to_timestamp(v_date4, 'yyyy-mm-dd HH24:mi:ss'), 'hh24') -
        v_decmi) >=
@@ -12600,7 +12618,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                            'hh24');
       END;
     END IF;
-
+  
     --天
     IF (TO_char(to_timestamp(v_date4, 'yyyy-mm-dd HH24:mi:ss'), 'dd') -
        v_dechh) >=
@@ -12611,7 +12629,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
     ELSE
       BEGIN
         v_decmm := 1;
-
+      
         v_dd := TO_CHAR(to_timestamp(v_date4, 'yyyy-mm-dd HH24:mi:ss'),
                         'dd') - v_dechh +
                 datediff('dd',
@@ -12630,7 +12648,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                    TO_char(to_timestamp(v_date3,'yyyy-mm-dd HH24:mi:ss'),'dd');*/
       END;
     END IF;
-
+  
     --月
     IF (TO_char(to_timestamp(v_date4, 'yyyy-mm-dd HH24:mi:ss'), 'mm') -
        v_decmm) >=
@@ -12647,11 +12665,11 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                            'mm');
       END;
     END IF;
-
+  
     --年
     v_yy   := datediff('yy', v_date3, v_date4) - v_decyy;
     v_sjnl := v_yy * 10000 + v_mm * 100 + v_dd;
-
+  
     IF v_yy > 1 THEN
       -- 2岁及以上的情况
       v_xsnl := TO_CHAR(v_yy) || '岁';
@@ -12672,7 +12690,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
     ELSE
       v_xsnl := TO_CHAR(v_mi) || '分钟';
     END IF;
-
+  
     RETURN;
   END;
 
@@ -12683,16 +12701,16 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                            v_xsnl out varchar) as
     d_csrq date;
     d_dqrq date;
-
+  
   begin
     d_csrq := to_date(substr(v_csrq, 1, 10), 'yyyy-mm-dd');
     d_dqrq := to_date(substr(v_dqrq, 1, 10), 'yyyy-mm-dd');
-
+  
     v_sjnl := TRUNC(Months_between(d_dqrq, d_csrq) / 12);
     v_xsnl := v_sjnl || '岁' /*||
-                                                                    (TRUNC(d_dqrq) - ADD_MONTHS(d_csrq, v_sjnl * 12)) || '天'*/
+                                                                        (TRUNC(d_dqrq) - ADD_MONTHS(d_csrq, v_sjnl * 12)) || '天'*/
      ;
-
+  
   end usp_EMR_GetAge;
 
   --医师工作站得到出院病人
@@ -12708,15 +12726,15 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
     v_now       VARCHAR(24);
     v_sql       VARCHAR(4000);
   BEGIN
-
+  
     IF v_wardid IS NULL THEN
       v_wardid_in := '';
     END IF;
-
+  
     v_sql := 'truncate table tmp_QueryInwardPatients ';
-
+  
     EXECUTE IMMEDIATE v_sql;
-
+  
     INSERT INTO tmp_queryinwardpatients
       SELECT b.noofinpat noofinpat, --首页序号
              b.patnoofhis patnoofhis, --HIS首页序号
@@ -12732,10 +12750,10 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              RTRIM(b.criticallevel) wzjb, --危重级别
              i.name wzjbmc, --危重级别名称
              --cd.name hljb,
-
+             
              --CASE WHEN b.attendlevel IS NULL THEN 6105 ELSE to_number(b.attendlevel)
              --END attendlevel, --护理级别
-
+             
              case b.attendlevel
                when '1' then
                 '一级护理'
@@ -12748,7 +12766,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                else
                 '一级护理'
              end hljb, --护理级别
-
+             
              case b.attendlevel
                when '1' then
                 '6101'
@@ -12782,7 +12800,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              a.inbed inbed, --占床标志
              a.borrow jcbz, --借床标志
              a.sexinfo cwlx, --床位类型
-             SUBSTR(to_date(b.admitdate,'yyyy-mm-dd 24hh:mi:ss'), 1, 20) admitdate, --入院日期
+             SUBSTR(to_date(b.admitdate, 'yyyy-mm-dd 24hh:mi:ss'), 1, 20) admitdate, --入院日期
              b.admitdiagnosis ryzd, --入院诊断
              b.admitdiagnosis zdmc, --诊断名称
              b.resident zyysdm, --住院医生代码
@@ -12868,7 +12886,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                   FROM bedinfo
                  WHERE bedinfo.noofinpat = b.noofinpat)))
          AND a.valid is null;
-
+  
     -- 检查病人是否有病历
     UPDATE tmp_queryinwardpatients a
        SET extra = extra || '无病历', recordinfo = '无病历'
@@ -12877,7 +12895,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
               FROM recorddetail b
              WHERE a.noofinpat = b.noofinpat
                and b.valid = '1');
-
+  
     OPEN o_result FOR
       SELECT *
         FROM tmp_queryinwardpatients a
@@ -12919,9 +12937,9 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                                 o_result  OUT empcurtyp) as
   BEGIN
     OPEN o_result FOR
-
+    
       SELECT ip.NAME AS inpatientname,
-
+             
              ip.py,
              ip.wb,
              TO_CHAR(TO_DATE(ca.consulttime, 'yyyy-mm-dd hh24:mi:ss'),
@@ -12984,7 +13002,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
          and (u.id = V_userid or ca.applydept = v_Deptids)
       union
       SELECT ip.NAME AS inpatientname,
-
+             
              ip.py,
              ip.wb,
              TO_CHAR(TO_DATE(ca.consulttime, 'yyyy-mm-dd hh24:mi:ss'),
@@ -13046,7 +13064,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              to_date(finishtime, 'yyyy-mm-dd hh24:mi:ss') >
              trunc(sysdate) - 3)
          and (hh.employeecode = V_userid or (hh.employeecode is null)); -- or hh.employeelevelid=u.grade));
-
+  
   END;
 
   PROCEDURE usp_editBabyinfo(v_Noofinpat  NUMERIC,
@@ -13056,7 +13074,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                              v_patid      VARCHAR,
                              v_Innerpix   VARCHAR,
                              v_outpix     VARCHAR,
-
+                             
                              v_Name            VARCHAR,
                              v_py              VARCHAR,
                              v_wb              VARCHAR,
@@ -13408,11 +13426,11 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
              a.AdmitDiagnosis PATDIAGNAME,
              a.admitdate INHOSPITALTIME,
              a.outhosdate OUTHOSPITALTIME,
-
+             
              bas.iem_mainpage_no      as IEMNO,
              diagnosis.diagnosis_name as DIAGNOSISNAME,
              --wmsys.wm_concat(diagnosis.diagnosis_name) as DIAGNOSISNAME ,
-
+             
              to_char(to_date(a.admitdate, 'yyyy-mm-dd HH24:mi:ss') + 1,
                      'yyyy-mm-dd') SUREDIAGTIME,
              users.name DOCNAME,
@@ -13421,7 +13439,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                       a.admitdate,
                       NVL(trim(a.outwarddate),
                           TO_CHAR(SYSDATE, 'yyyy-mm-dd'))) INCOUNT
-
+      
         from INPATIENT                   a,
              RecordDetail                b,
              diagnosis                   diag,
@@ -13433,11 +13451,11 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
          and a.AdmitDiagnosis = diag.markid(+)
          and a.outhosdept = dept.id(+)
          and a.Resident = users.id(+)
-
+            
          and a.NOOFINPAT = bas.NOOFINPAT(+)
          and bas.iem_mainpage_no = diagnosis.iem_mainpage_no(+)
          and diagnosis.diagnosis_type_id <> 13
-
+            
          and a.status in (1502, 1503)
          and a.islock in (4700, 4702, 4703)
          and (a.OutHosDept = v_deptId or v_deptId = '' or v_deptId is null)
@@ -13469,7 +13487,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
                 bas.iem_mainpage_no,
                 diagnosis.diagnosis_name,
                 users.name;
-
+  
   end;
 
 END;

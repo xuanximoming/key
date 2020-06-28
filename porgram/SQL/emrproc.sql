@@ -416,6 +416,7 @@ CREATE OR REPLACE PACKAGE emrproc IS
                                    v_InpatName     varchar default '',
                                    v_DateTimeBegin varchar,
                                    v_DateTimeEnd   varchar,
+                                   v_userid   VARCHAR,
                                    v_QCStatType    int,
                                    o_result        OUT empcurtyp);
 
