@@ -47,11 +47,17 @@ namespace DrectSoft.Core.NurseDocument
         public static int editable = 1;
         public static int editDays = 1;
         public static bool isAdminDate = true;
-        public static bool isInHospital = false;
+
         public static string version = string.Empty;
         public static string PluseAndHeartRate;//脉搏和心率重叠时显示脉搏或心率1表示脉搏2表示心率Add by xlb 2013-06-05
+        //显示入院状态
         public static string InHospitalCode = "";//入院状态的对应编码针对多家医院存在编码不一致的情况Add by xlb 2013-06-09
+        public static bool isInHospital = false;
         public static string ShowStatus = "";//病人入院状态的显示文本Add by xlb 2013-06-09
+        //显示出院状态
+        public static string OutHospitalCode = "";//出院状态Add by ukey 2020-06-30
+        public static bool isOutHospital = false;
+        public static string ShowOutStatus = "";//病人出院状态的显示文本Add by ukey 2020-06-30
 
         #region 配置参考信息的集合 如“坐标”“行数据代表的字段”等   Key:表字段名称
         public static Dictionary<string, VerticalCoordinate> dicVerticalCoordinate = new Dictionary<string, VerticalCoordinate>();//纵坐标集合 字段名称->坐标对象
@@ -312,7 +318,7 @@ namespace DrectSoft.Core.NurseDocument
                 {
                     isInHospital = false;
                     ShowStatus = "入院";
-                    InHospitalCode = "7008";
+                    InHospitalCode = "7011";
                 }
                 else
                 {
@@ -320,7 +326,23 @@ namespace DrectSoft.Core.NurseDocument
                     //病人入院状态显示文本(Add by xlb 2013-06-09)
                     ShowStatus = nodeElement.Attributes["showText"] == null || nodeElement.Attributes["showText"].Value == "" ? "入院" : nodeElement.Attributes["showText"].Value;
                     //入院状态对应的代码需匹配各家医院(Add by xlb 2013-06-09)
-                    InHospitalCode = nodeElement.Attributes["inHospitalCode"] == null || nodeElement.Attributes["inHospitalCode"].Value == "" ? "7008" : nodeElement.Attributes["inHospitalCode"].Value;
+                    InHospitalCode = nodeElement.Attributes["inHospitalCode"] == null || nodeElement.Attributes["inHospitalCode"].Value == "" ? "7011" : nodeElement.Attributes["inHospitalCode"].Value;
+                }
+                //--------------------------是否自动添加出院状态------------------------------
+                nodeElement = xmlDoc.GetElementsByTagName("ShowOutHospital")[0];
+                if (nodeElement == null)
+                {
+                    isOutHospital = false;
+                    ShowOutStatus = "出院";
+                    OutHospitalCode = "7003";
+                }
+                else
+                {
+                    isOutHospital = nodeElement.Attributes["isShow"] == null || nodeElement.Attributes["isShow"].Value == "" || nodeElement.Attributes["isShow"].Value.Trim() == "0" ? false : true;
+                    //病人入院状态显示文本(Add by xlb 2013-06-09)
+                    ShowOutStatus = nodeElement.Attributes["showText"] == null || nodeElement.Attributes["showText"].Value == "" ? "出院" : nodeElement.Attributes["showText"].Value;
+                    //入院状态对应的代码需匹配各家医院(Add by xlb 2013-06-09)
+                    OutHospitalCode = nodeElement.Attributes["outHospitalCode"] == null || nodeElement.Attributes["outHospitalCode"].Value == "" ? "7003" : nodeElement.Attributes["outHospitalCode"].Value;
                 }
             }
             catch (Exception ex)

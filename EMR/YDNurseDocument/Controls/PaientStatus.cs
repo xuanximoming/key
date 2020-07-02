@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.Wordbook;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Core.NurseDocument;
-using DrectSoft.Common.Ctrs.DLG;
-using DrectSoft.Common.Ctrs.FORM;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.NurseDocument.Controls
 {
@@ -35,14 +28,14 @@ namespace DrectSoft.Core.NurseDocument.Controls
         /// </summary>
         public string NoPatID;
         public string NoOfFirstPage;
-        public PaientStatus(string patid, string _m_InTime,string _m_outTime, string noOfFirstPage)
+        public PaientStatus(string patid, string _m_InTime, string _m_outTime, string noOfFirstPage)
         {
             InitializeComponent();
             NoPatID = patid;
             m_InTime = _m_InTime;
             m_outTime = _m_outTime;
             NoOfFirstPage = noOfFirstPage;
-            
+
         }
         #region 事件
         /// <summary>
@@ -74,10 +67,10 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
             catch (Exception ex)
             {
-                
+
                 throw new Exception(ex.Message);
             }
-            
+
         }
         /// <summary>
         /// 删除操作
@@ -113,7 +106,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
             if (!IsSave())
                 return;
 
-            if (m_EditState==EditState.Add)
+            if (m_EditState == EditState.Add)
             {
                 if (CheckDiticnt())
                 { }
@@ -123,7 +116,7 @@ namespace DrectSoft.Core.NurseDocument.Controls
                     return;
                 }
             }
-            
+
 
 
             if (SaveData(SetEntityByPage()))
@@ -270,16 +263,16 @@ namespace DrectSoft.Core.NurseDocument.Controls
         /// <returns></returns>
         private bool CheckDiticnt()
         {
-//            string sql = string.Format(@"select * from    PatientStatus where 
-//            noofinpat='{0}' and ccode='{1}' ", NoPatID, this.lookUpState.CodeValue);
-//            DataTable dt = MethodSet.App.SqlHelper.ExecuteDataTable(sql, CommandType.Text);
-//            if (dt.Rows.Count > 0)
-//            {
-//                return false;
-//            }
-//            else
-//            {
-                return true;
+            //            string sql = string.Format(@"select * from    PatientStatus where 
+            //            noofinpat='{0}' and ccode='{1}' ", NoPatID, this.lookUpState.CodeValue);
+            //            DataTable dt = MethodSet.App.SqlHelper.ExecuteDataTable(sql, CommandType.Text);
+            //            if (dt.Rows.Count > 0)
+            //            {
+            //                return false;
+            //            }
+            //            else
+            //            {
+            return true;
             //}
         }
 
@@ -300,27 +293,11 @@ namespace DrectSoft.Core.NurseDocument.Controls
                 MessageBox.Show("请选择日期！");
                 return false;
             }
-            if (DateTime.Parse(DateTime.Parse(m_InTime).ToString("yyyy-MM-dd 00:00:00")) > DateTime.Parse(dateEdit.DateTime.ToString("yyyy-MM-dd") + " " + txtTime.Text+":59"))
+            if (DateTime.Parse(DateTime.Parse(m_InTime).ToString("yyyy-MM-dd 00:00:00")) > DateTime.Parse(dateEdit.DateTime.ToString("yyyy-MM-dd") + " " + txtTime.Text + ":59"))
             {
                 MessageBox.Show("新增状态日期应该大于病人入区日期当天的零点");
                 return false;
             }
-            //if (m_outTime == "")
-            //{
-            //    if (DateTime.Parse(dateEdit.DateTime.ToString("yyyy-MM-dd") + " " + txtTime.Text) > DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")))
-            //    {
-            //        MessageBox.Show("新增状态日期应该小于当前日期！");
-            //        return false;
-            //    }
-            //}
-            //else
-            //{
-            //    if (DateTime.Parse(DateTime.Parse(m_outTime).ToString("yyyy-MM-dd HH:mm:ss")) < DateTime.Parse(dateEdit.DateTime.ToString("yyyy-MM-dd") + " " + txtTime.Text))
-            //    {
-            //        MessageBox.Show("新增状态日期应该小于出院日期！");
-            //        return false;
-            //    }
-            //}
             if (this.lookUpState.CodeValue == "")
             {
                 MessageBox.Show("请选择状态！");
@@ -350,23 +327,6 @@ namespace DrectSoft.Core.NurseDocument.Controls
             DataTable m_StateData = new DataTable();
             m_StateData = MethodSet.GetStateData(NoOfFirstPage);
             gridControlState.DataSource = m_StateData;
-
-            //DataTable m_StateData = new DataTable();
-            ////ywk  增加入院和出院时间，筛选查询结果
-            //string outwarddate = string.Empty;//出院时间
-            //string admitdate = string.Empty;//入院时间
-            //DataTable dtInfo = MethodSet.GetPatData(NoOfFirstPage.ToString());
-            //if (dtInfo.Rows.Count > 0)
-            //{
-            //    outwarddate = dtInfo.Rows[0]["OUTWARDDATE"].ToString();
-            //    admitdate = dtInfo.Rows[0]["INWARDDATE"].ToString();
-            //}
-            //if (string.IsNullOrEmpty(admitdate))
-            //{
-            //    return;
-            //}
-            //m_StateData = MethodSet.GetStateData(NoPatID, NoOfFirstPage.ToString(), outwarddate, admitdate);
-            //gridControlState.DataSource = m_StateData;
 
         }
 
@@ -425,7 +385,8 @@ namespace DrectSoft.Core.NurseDocument.Controls
 
                 this.btnADD.Enabled = true;
                 this.btnDel.Enabled = true;
-            }else if(m_EditState==EditState.None)
+            }
+            else if (m_EditState == EditState.None)
             {
                 btnADD.Enabled = true;
                 btnDel.Enabled = true;
@@ -481,10 +442,10 @@ namespace DrectSoft.Core.NurseDocument.Controls
             }
             catch (Exception ex)
             {
-                
+
                 throw new Exception(ex.Message);
             }
-            
+
         }
 
 

@@ -436,7 +436,7 @@ namespace DrectSoft.Core.NurseDocument
         /// <param name="noofinpat">病案号</param>
         /// <param name="inHosDate">入院时间</param>
         /// <param name="inCode">入院状态代码</param>
-        private void InsertInHosStatus(string noofinpat, string inHosDate, string inCode)
+        private void InsertHosStatus(string noofinpat, string inHosDate, string inCode)
         {
             try
             {
@@ -489,7 +489,7 @@ namespace DrectSoft.Core.NurseDocument
             {
                 foreach (DataRow item in dataTable.Rows)
                 {
-                    if (item["ID"].ToString().Trim().Equals(ConfigInfo.InHospitalCode))
+                    if (item["CCODE"].ToString().Trim().Equals(ConfigInfo.InHospitalCode))
                     {//存在入院记录则终止遍历
                         IsNeedInsertInHos = false;
                         break;
@@ -505,7 +505,7 @@ namespace DrectSoft.Core.NurseDocument
             {
                 if (ConfigInfo.isInHospital)
                 {
-                    InsertInHosStatus(NOOFINPAT, m_InTime.Substring(0, 16), ConfigInfo.InHospitalCode);
+                    InsertHosStatus(NOOFINPAT, m_InTime.Substring(0, 16), ConfigInfo.InHospitalCode);
                 }
             }
             if (IsNeedInsertInHos)//true且显示入院状态则插入入院状态
@@ -520,13 +520,9 @@ namespace DrectSoft.Core.NurseDocument
                     }
                     else
                     {
-                        InsertInHosStatus(NOOFINPAT, m_InTime.Substring(0, 16), ConfigInfo.InHospitalCode);
+                        InsertHosStatus(NOOFINPAT, m_InTime.Substring(0, 16), ConfigInfo.InHospitalCode);
                     }
                 }
-                //else//不需要插入就更新这个状态，改为入病区时间 add by ywk 2013年8月12日 18:07:36 (状态表里有了)
-                //{
-                //    UpdateInHosStatus(NOOFINPAT, m_InTime.Substring(0, 16), ConfigInfo.InHospitalCode);
-                //}
             }
 
             dt = GetPatStatesByDateDiv(startdate, enddate, NOOFINPAT);
