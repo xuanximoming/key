@@ -138,6 +138,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
                                       
                                       v_HURT_TOXICOSIS_ELE_ID   varchar2 default '', ---- '损伤、中毒的外部因素';
                                       v_HURT_TOXICOSIS_ELE_Name varchar2 default '', ---- '损伤、中毒的外部因素';
+                                      v_Hospital_sense   varchar2 default '', ---- '院内感染';
+                                      v_Hospital_sense_name   varchar2 default '', ---- '院内感染';
                                       v_ZYMOSISSTATE            varchar2 default '', ---- '医院传染病状态';
                                       v_PATHOLOGY_DIAGNOSIS_ID  varchar2 default '', ---- '病理诊断编号';
                                       v_MONTHAGE                varchar2 default '', ---- '（年龄不足1周岁的） 年龄(月)';
@@ -325,6 +327,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
          
          HURT_TOXICOSIS_ELE_ID, ---- '损伤、中毒的外部因素';
          HURT_TOXICOSIS_ELE_Name,
+         Hospital_sense,
+         Hospital_sense_name,
          ZYMOSISSTATE, ---- '医院传染病状态';
          PATHOLOGY_DIAGNOSIS_ID, ---- '病理诊断编号';
          MONTHAGE, ---- '（年龄不足1周岁的） 年龄(月)';
@@ -428,7 +432,7 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
          v_INCOUNT, ---- '入院次数';
          v_NAME, ---- '患者姓名';
          v_SEXID, ---- '性别';
-         v_BIRTH, ---- '出生';
+         substr(v_BIRTH,1,10), ---- '出生';
          v_MARITAL, ---- '婚姻状况 1.未婚 2.已婚 3.丧偶4.离婚 9.其他';
          v_JOBID, ---- '职业';
          v_NATIONALITYID, ---- '国籍ID';
@@ -487,6 +491,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
          v_ZYMOSIS, ---- '医院传染病';
          v_HURT_TOXICOSIS_ELE_ID, ---- '损伤、中毒的外部因素';
          v_HURT_TOXICOSIS_ELE_Name, ---- '损伤、中毒的外部因素';
+         v_Hospital_sense,
+         v_Hospital_sense_name,
          v_ZYMOSISSTATE, ---- '医院传染病状态';
          v_PATHOLOGY_DIAGNOSIS_ID, ---- '病理诊断编号';
          v_MONTHAGE, ---- '（年龄不足1周岁的） 年龄(月)';
@@ -586,7 +592,7 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
              INCOUNT                  = v_INCOUNT, --入院次数
              NAME                     = v_NAME, --患者姓名
              SEXID                    = v_SEXID, --性别
-             BIRTH                    = v_BIRTH, --出生
+             BIRTH                    = substr(v_BIRTH,1,10), --出生
              MARITAL                  = v_MARITAL, --婚姻状况 1.未婚 2.已婚 3.丧偶4.离婚 9.其他
              JOBID                    = v_JOBID, --职业
              NATIONALITYID            = v_NATIONALITYID, --国籍ID
@@ -638,14 +644,16 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
              IS_COMPLETED             = v_IS_COMPLETED, --完成否 y/n
              COMPLETED_TIME           = v_COMPLETED_TIME, --完成时间
              VALIDE                   = v_VALIDE, --作废否 1/0
-             /* CREATE_USER              = v_CREATE_USER, --创建此记录者
-             CREATE_TIME              = v_CREATE_TIME, --创建时间*/
+             --CREATE_USER              = v_CREATE_USER, --创建此记录者
+             --CREATE_TIME              = v_CREATE_TIME, --创建时间
              MODIFIED_USER           = v_MODIFIED_USER, --修改此记录者
              MODIFIED_TIME           = TO_CHAR(SYSDATE,
                                                'yyyy-mm-dd hh24:mi:ss'), --修改时间
              ZYMOSIS                 = v_ZYMOSIS, --医院传染病
              HURT_TOXICOSIS_ELE_ID   = v_HURT_TOXICOSIS_ELE_ID, --损伤、中毒的外部因素
              HURT_TOXICOSIS_ELE_Name = v_HURT_TOXICOSIS_ELE_Name, --损伤、中毒的外部因素
+             Hospital_sense          = v_Hospital_sense,
+             Hospital_sense_name     = v_Hospital_sense_name,
              ZYMOSISSTATE            = v_ZYMOSISSTATE, --医院传染病状态
              PATHOLOGY_DIAGNOSIS_ID  = v_PATHOLOGY_DIAGNOSIS_ID, --病理诊断编号
              MONTHAGE                = v_MONTHAGE, --（年龄不足1周岁的） 年龄(月)
@@ -1015,7 +1023,9 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
              iem.inpatly,
              iem.asascore,
              myinp.isbaby,
-             myinp.mother
+             myinp.mother,
+             iem.hospital_sense,
+             iem.hospital_sense_name
       
         FROM iem_mainpage_basicinfo_sx iem
       -- edit  by ywk （对于首页表里有的，病人表里也有的数据，在病案首页显示的时候取病人表里的数据）
@@ -1134,6 +1144,19 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
                else
                 ''
              end) outstatus_Name, --出院情况
+             diag.diagnosis_orien orien_id,
+             (case
+               when diag.diagnosis_orien = '1' then
+                '左侧'
+               when diag.diagnosis_orien = '2' then
+                '右侧'
+               when diag.diagnosis_orien = '3' then
+                '单侧'
+               when diag.diagnosis_orien = '4' then
+                '双侧'
+               else
+                ''
+             end) orien_name, --出院情况
              diag.diagnosis_code,
              diag.diagnosis_type_id,
              diag.order_value,
@@ -1210,7 +1233,9 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
              iem.create_time,
              iem.cancel_user,
              iem.cancel_time,
-             iem.operintimes
+             iem.operintimes,
+             iem.complication_code,
+             iem.complication_name
         FROM iem_mainpage_operation_sx iem
         left join users u1
           on iem.execute_user1 = u1.id
@@ -1261,10 +1286,9 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
                                           --v_Valide numeric ,
                                           v_create_user     VARCHAR,
                                           v_OPERATION_LEVEL varchar,
-                                          v_OperInTimes     VARCHAR2
-                                          --v_Create_Time varchar(19)
-                                          --v_Cancel_User varchar(10) ,
-                                          --v_Cancel_Time varchar(19)
+                                          v_OperInTimes     VARCHAR2,
+                                          v_Complication_Code VARCHAR,
+                                          v_Complication_Name VARCHAR
                                           ) AS /**********                                                                                        **********/
   BEGIN
     INSERT INTO iem_mainpage_operation_sx
@@ -1283,7 +1307,9 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        create_user,
        create_time,
        OPERATION_LEVEL,
-       operintimes)
+       operintimes,
+       Complication_Code,
+       Complication_Name)
     VALUES
       (seq_iem_mainpage_operation_id.NEXTVAL,
        v_iem_mainpage_no, --numeric
@@ -1303,7 +1329,9 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        v_create_user, -- varchar(10)
        TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss'),
        v_OPERATION_LEVEL,
-       v_OperInTimes);
+       v_OperInTimes,
+       v_Complication_Code,
+       v_Complication_Name);
   END;
 
   /*********************************************************************************/
@@ -1316,7 +1344,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
                                           v_order_value       VARCHAR,
                                           v_create_user VARCHAR,
                                           v_type        varchar,
-                                          v_typeName    varchar
+                                          v_typeName    varchar,
+                                          v_orien_id varchar
                                           ) AS /**********                                                                                                 **********/
   BEGIN
     INSERT INTO iem_mainpage_diagnosis_sx
@@ -1332,7 +1361,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        create_user,
        create_time,
        type,
-       typeName)
+       typeName,
+       diagnosis_orien)
     VALUES
       (seq_iem_mainpage_diagnosis_id.NEXTVAL,
        v_iem_mainpage_no, -- Iem_Mainpage_NO - numeric
@@ -1350,7 +1380,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        v_create_user, -- Create_User - varchar(10)
        TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss'),
        v_type,
-       v_typeName
+       v_typeName,
+       v_orien_id
        -- Create_Time - varchar(19)
        );
   END;

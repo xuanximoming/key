@@ -221,6 +221,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                         imOut["Operation_Code"] = row["Operation_Code"].ToString();
                         imOut["Operation_Name"] = row["Operation_Name"].ToString();
+
                         imOut["Operation_Date"] = row["Operation_Date"].ToString();
 
                         imOut["operation_level"] = row["operation_level"].ToString();
@@ -238,6 +239,9 @@ namespace DrectSoft.Core.IEMMainPage
                         imOut["Close_Level_Name"] = row["Close_Level_Name"].ToString();
                         imOut["Anaesthesia_User"] = row["Anaesthesia_User"].ToString();
                         imOut["Anaesthesia_User_Name"] = row["Anaesthesia_User_Name"].ToString();
+
+                        imOut["Complication_Code"] = row["Complication_Code"].ToString();
+                        imOut["Complication_Name"] = row["Complication_Name"].ToString();
                         dtOperation.Rows.Add(imOut);
                     }
 

@@ -1,18 +1,12 @@
+using DrectSoft.Common.Ctrs.FORM;
+using DrectSoft.Common.Library;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Wordbook;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Common.Library;
-
-using Convertmy = DrectSoft.Core.UtilsForExtension;
-using DrectSoft.Wordbook;
 using System.Data.SqlClient;
-using DrectSoft.Common.Ctrs.FORM;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2013 1 12
 {
@@ -29,7 +23,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
         {
             get
             {
-                GetUI();
                 return m_IemOperInfo;
             }
             set
@@ -92,7 +85,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     this.m_DataOper = dtOper;
                     this.FreshDataByDataOper();
                 }
-                
+
             }
             catch (Exception)
             {
@@ -105,17 +98,20 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
             this.deOperDate.Focus();
         }
 
-        
-        private DataTable dtXY = new DataTable();
+
+        private DataTable dtOper = new DataTable();
         private DataTable dtDoc = new DataTable();
+        private DataTable dtDiag = new DataTable();
         public void GetFormLoadData()
         {
             try
             {
-                string SqlAllDiag = @"select py, wb, name, ID icd from operation where valid='1'";
-                dtXY = m_App.SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
+                string SqlAllOper = @"select py, wb, name, ID icd from operation where valid='1'";
+                dtOper = m_App.SqlHelper.ExecuteDataTable(SqlAllOper, CommandType.Text);
                 string SqlAllDoctor = @"SELECT py,wb, NAME,ID icd FROM users WHERE valid = 1 ORDER BY icd";
                 dtDoc = m_App.SqlHelper.ExecuteDataTable(SqlAllDoctor, CommandType.Text);
+                string SqlAllDiag = @"SELECT py,wb, NAME,icd FROM diagnosis WHERE valid = 1 union all SELECT py,wb, NAME,ID icd FROM diagnosisofchinese WHERE valid = 1 ORDER BY icd";
+                dtDiag = m_App.SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
             }
             catch (Exception ex)
             {
@@ -129,7 +125,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
 #if DEBUG
 #else
             HideSbutton();
-#endif         
+#endif
         }
 
         /// <summary>
@@ -139,22 +135,21 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
         {
             try
             {
+                //手术
                 if (!string.IsNullOrEmpty(lueOperCode.Text.Trim()) == true)
                 {
-                    //GetFormLoadData("XIYI");
                     string filter = string.Empty;
 
                     string NameFilter = " NAME= '{0}'";
                     filter += string.Format(NameFilter, lueOperCode.Text.Trim());
-                    dtXY.DefaultView.RowFilter = filter;
+                    dtOper.DefaultView.RowFilter = filter;
 
-                    int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
+                    int dataResult = dtOper.DefaultView.ToTable().Rows.Count;
 
                     if (dataResult > 0)
                     {
                         lueOperCode.DiaValue = lueOperCode.Text.Trim();
-                        lueOperCode.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                        //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
+                        lueOperCode.DiaCode = dtOper.DefaultView.ToTable().Rows[0]["icd"].ToString();
 
                     }
                     if (dataResult == 0)
@@ -164,6 +159,69 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     }
 
                 }
+                if (string.IsNullOrEmpty(lueOperCode.Text.Trim()) == true)
+                {
+                    string filter = string.Empty;
+                    string NameFilter = "NAME='{0}'";
+                    filter += string.Format(NameFilter, lueOperCode.Text.Trim());
+                    dtOper.DefaultView.RowFilter = filter;
+
+                    int dataResult = dtOper.DefaultView.ToTable().Rows.Count;
+                    if (dataResult > 0)
+                    {
+                        lueOperCode.DiaValue = lueOperCode.Text.Trim();
+                        lueOperCode.DiaCode = dtOper.DefaultView.ToTable().Rows[0]["icd"].ToString();
+                    }
+                    if (dataResult == 0)
+                    {
+                        lueOperCode.DiaValue = lueOperCode.Text.Trim();
+                        lueOperCode.DiaCode = "";
+                    }
+                }
+                //手术并发症
+                if (!string.IsNullOrEmpty(lueCompCode.Text.Trim()) == true)
+                {
+                    string filter = string.Empty;
+
+                    string NameFilter = " NAME= '{0}'";
+                    filter += string.Format(NameFilter, lueCompCode.Text.Trim());
+                    dtDiag.DefaultView.RowFilter = filter;
+
+                    int dataResult = dtDiag.DefaultView.ToTable().Rows.Count;
+
+                    if (dataResult > 0)
+                    {
+                        lueCompCode.DiaValue = lueCompCode.Text.Trim();
+                        lueCompCode.DiaCode = dtDiag.DefaultView.ToTable().Rows[0]["icd"].ToString();
+
+                    }
+                    if (dataResult == 0)
+                    {
+                        lueCompCode.DiaValue = lueCompCode.Text.Trim();
+                        lueCompCode.DiaCode = "";
+                    }
+
+                }
+                if (string.IsNullOrEmpty(lueCompCode.Text.Trim()) == true)
+                {
+                    string filter = string.Empty;
+                    string NameFilter = "NAME='{0}'";
+                    filter += string.Format(NameFilter, lueCompCode.Text.Trim());
+                    dtDiag.DefaultView.RowFilter = filter;
+
+                    int dataResult = dtDiag.DefaultView.ToTable().Rows.Count;
+                    if (dataResult > 0)
+                    {
+                        lueCompCode.DiaValue = lueCompCode.Text.Trim();
+                        lueCompCode.DiaCode = dtDiag.DefaultView.ToTable().Rows[0]["icd"].ToString();
+                    }
+                    if (dataResult == 0)
+                    {
+                        lueCompCode.DiaValue = lueCompCode.Text.Trim();
+                        lueCompCode.DiaCode = "";
+                    }
+                }
+                //麻醉医师
                 if (!string.IsNullOrEmpty(lueAnaesthesiaUser.Text.Trim()) == true)
                 {
                     string filter = string.Empty;
@@ -202,27 +260,9 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                         lueAnaesthesiaUser.DiaCode = "";
                     }
                 }
-                if (string.IsNullOrEmpty(lueOperCode.Text.Trim()) == true)
-                {
-                    string filter = string.Empty;
-                    string NameFilter = "NAME='{0}'";
-                    filter += string.Format(NameFilter, lueOperCode.Text.Trim());
-                    dtDoc.DefaultView.RowFilter = filter;
 
-                    int dataResult = dtDoc.DefaultView.ToTable().Rows.Count;
-                    if (dataResult > 0)
-                    {
-                        lueOperCode.DiaValue = lueOperCode.Text.Trim();
-                        lueOperCode.DiaCode = dtDoc.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                    }
-                    if (dataResult == 0)
-                    {
-                        lueOperCode.DiaValue = lueOperCode.Text.Trim();
-                        lueOperCode.DiaCode = "";
-                    }
-                }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 throw;
             }
@@ -261,7 +301,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     return;
 
                 }
-
+                //手术
                 if (!String.IsNullOrEmpty(this.lueOperCode.DiaCode))
                 {
                     lueOperCode.Text = "";
@@ -273,6 +313,17 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     this.lueOperCode.DiaCode = "非编码手术";
                 }
 
+                //手术并发症
+                if (!String.IsNullOrEmpty(this.lueCompCode.DiaCode))
+                {
+                    lueCompCode.Text = "";
+                }
+                else
+                {
+                    this.lueCompCode.DiaValue = lueCompCode.Text.Trim();
+                    this.lueCompCode.DiaCode = "非编码诊断";
+                }
+                //麻醉医师
                 if (!String.IsNullOrEmpty(this.lueAnaesthesiaUser.DiaCode))
                 {
                     lueAnaesthesiaUser.Text = "";
@@ -284,15 +335,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     this.lueAnaesthesiaUser.DiaCode = lueAnaesthesiaUser.Text.Trim();
                     this.DialogResult = DialogResult.OK;
                 }
-               
-                //if (!String.IsNullOrEmpty(this.lueOperCode.DiaCode))
-                //{
-                //    this.DialogResult = DialogResult.OK;
-                //}
-                //else
-                //{
-                //    m_App.CustomMessageBox.MessageShow("请选择手术编码");
-                //}
             }
             catch (Exception ex)
             {
@@ -309,11 +351,9 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
         {
             try
             {
-                //BindLueData(lueOperCode1, 20);                           王冀  2013 1 12
                 BindLueOperData(lueExecute1, 11);
                 BindLueOperData(lueExecute2, 11);
                 BindLueOperData(lueExecute3, 11);
-                //BindLueOperData(lueAnaesthesiaUser1, 11);                 王冀 2013 1 12
                 BindLueData(lueCloseLevel, 15);
                 BindLueData(lueAnaesthesiaType, 14);
                 BindLueData(lueOperlevel, 18);
@@ -322,23 +362,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
             {
                 throw;
             }
-        }
-        /// <summary>
-        /// 已注释
-        /// </summary>
-        private void GetUI()
-        {
-
-            //m_IemOperInfo.Operation_Code = lueOperCode.CodeValue;
-            //if (deOperDate.DateTime.CompareTo(DateTime.MinValue) != 0)
-            //    m_IemOperInfo.Operation_Date = deOperDate.DateTime.ToShortDateString() + "" + teOperDate.Time.ToShortTimeString();
-            //m_IemOperInfo.Operation_Name = lueOperCode.DisplayValue;
-            //m_IemOperInfo.Execute_User1 = lueExecute1.CodeValue;
-            //m_IemOperInfo.Execute_User2 = lueExecute2.CodeValue;
-            //m_IemOperInfo.Execute_User3 = lueExecute3.CodeValue;
-            //m_IemOperInfo.Anaesthesia_Type_Id = Convertmy.ToDecimal(lueAnaesthesiaType.CodeValue);
-            //m_IemOperInfo.Close_Level = Convertmy.ToDecimal(lueCloseLevel.CodeValue);
-            //m_IemOperInfo.Anaesthesia_User = lueAnaesthesiaUser.CodeValue;
         }
 
         /// <summary>
@@ -353,10 +376,13 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     return;
                 }
                 DataRow row = m_DataOper.Rows[0];
-                //lueOperCode1.CodeValue = row["Operation_Code"].ToString();
+                //手术
                 lueOperCode.DiaCode = row["Operation_Code"].ToString();
-                lueOperCode.Text = row["Operation_Name"].ToString();
                 lueOperCode.DiaValue = row["Operation_Name"].ToString();
+                lueOperCode.Text = lueOperCode.DiaValue;
+
+
+
                 if (row["Operation_Date"].ToString() != "")
                 {
                     deOperDate.DateTime = DateTime.Parse(DateTime.Parse(row["Operation_Date"].ToString()).ToShortDateString());
@@ -368,10 +394,15 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 lueExecute3.CodeValue = row["Execute_User3"].ToString();
                 lueAnaesthesiaType.CodeValue = row["Anaesthesia_Type_Id"].ToString();
                 lueCloseLevel.CodeValue = row["Close_Level"].ToString();
-                //lueAnaesthesiaUser1.CodeValue = row["Anaesthesia_User"].ToString();
+                //麻醉医师
                 lueAnaesthesiaUser.DiaCode = row["Anaesthesia_User"].ToString();
                 lueAnaesthesiaUser.DiaValue = row["Anaesthesia_User_Name"].ToString();
                 lueAnaesthesiaUser.Text = lueAnaesthesiaUser.DiaValue;
+                //手术并发症
+                lueCompCode.DiaCode = row["Complication_Code"].ToString();
+                lueCompCode.DiaValue = row["Complication_Name"].ToString();
+                lueCompCode.Text = lueCompCode.DiaValue;
+
             }
             catch (Exception)
             {
@@ -426,18 +457,18 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     m_DataOper.Columns.Add("Anaesthesia_User");
                 if (!m_DataOper.Columns.Contains("Anaesthesia_User_Name"))
                     m_DataOper.Columns.Add("Anaesthesia_User_Name");
+
+                if (!m_DataOper.Columns.Contains("Complication_Code"))
+                    m_DataOper.Columns.Add("Complication_Code");
+                if (!m_DataOper.Columns.Contains("Complication_Name"))
+                    m_DataOper.Columns.Add("Complication_Name");
                 #endregion
-                FillUI();
                 DataRow row = m_DataOper.NewRow();
-                //if (lueOperCode.DiaCode == "非编码手术")
-                //{
-                //    row["Operation_Code"] = string.Empty; ;
-                //}
-                //else
-                //{
                 row["Operation_Code"] = lueOperCode.DiaCode;//1.CodeValue;
-                //}
                 row["Operation_Name"] = lueOperCode.DiaValue;//1.DisplayValue;
+                row["Complication_Code"] = lueCompCode.DiaCode;
+                row["Complication_Name"] = lueCompCode.DiaValue;
+
                 if (deOperDate.DateTime.CompareTo(DateTime.MinValue) != 0)
                     row["Operation_Date"] = deOperDate.DateTime.ToShortDateString() + " " + teOperDate.Time.ToShortTimeString();
 
@@ -463,30 +494,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
             {
                 throw;
             }
-        }
-
-        /// <summary>
-        /// 已注释
-        /// </summary>
-        private void FillUI()
-        {
-            //if (m_IemOperInfo == null || String.IsNullOrEmpty(m_IemOperInfo.Operation_Code))
-            //    return;
-            //lueOperCode.CodeValue = m_IemOperInfo.Operation_Code;
-            //if (!String.IsNullOrEmpty(m_IemOperInfo.Operation_Date))
-            //{
-            //    deOperDate.DateTime = Convert.ToDateTime(m_IemOperInfo.Operation_Date);
-            //    teOperDate.Time = Convert.ToDateTime(m_IemOperInfo.Operation_Date);
-            //}
-            ////lueOperCode.DisplayValue = m_IemOperInfo.Operation_Name;
-            //lueExecute1.CodeValue = m_IemOperInfo.Execute_User1;
-            //lueExecute2.CodeValue = m_IemOperInfo.Execute_User2;
-            //lueExecute3.CodeValue = m_IemOperInfo.Execute_User3;
-            //if (m_IemOperInfo.Anaesthesia_Type_Id != null)
-            //    lueAnaesthesiaType.CodeValue = m_IemOperInfo.Anaesthesia_Type_Id.ToString();
-            //if (m_IemOperInfo.Close_Level != null)
-            //    lueCloseLevel.CodeValue = m_IemOperInfo.Close_Level.ToString();
-            //lueAnaesthesiaUser.CodeValue = m_IemOperInfo.Anaesthesia_User;
         }
 
 
@@ -612,14 +619,14 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
         {
             try
             {
-                
+
                 if (e.KeyChar == 13)//lueOperCode.Text.Trim() != null &&
                 {
                     GoType = "operate";
                     MZDiagType = "operate";
                     inputText = lueOperCode.Text.Trim();
 
-                    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtXY, GoType, MZDiagType, inputText);
+                    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtOper, GoType, MZDiagType, inputText);
                     if (diagInfo.GetFormResult())
                     {
                         diagInfo.ShowDialog();
@@ -643,12 +650,46 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
             }
         }
+        private void lueCompCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
 
+                if (e.KeyChar == 13)
+                {
+                    GoType = "operate";
+                    MZDiagType = "diag";
+                    inputText = lueCompCode.Text.Trim();
+
+                    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtDiag, GoType, MZDiagType, inputText);
+                    if (diagInfo.GetFormResult())
+                    {
+                        diagInfo.ShowDialog();
+                        if (diagInfo.IsClosed)
+                        {
+                            lueCompCode.Text = diagInfo.inText;
+                            lueCompCode.DiaCode = diagInfo.inCode;
+                            lueCompCode.DiaValue = diagInfo.inText;
+                        }
+                    }
+                    else
+                    {
+                        lueCompCode.DiaCode = diagInfo.inCode;
+                        lueCompCode.DiaValue = diagInfo.inText;
+                        lueCompCode.Multiline = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
+            }
+        }
         private void lueAnaesthesiaUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
-                if (e.KeyChar == 13)//lueOperCode.Text.Trim() != null &&
+                if (e.KeyChar == 13)
                 {
                     GoType = "operate";
                     MZDiagType = "anaesthetist";
@@ -678,5 +719,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }

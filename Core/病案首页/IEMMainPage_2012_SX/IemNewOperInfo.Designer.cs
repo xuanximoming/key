@@ -31,13 +31,14 @@ namespace DrectSoft.Core.IEMMainPage
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IemNewOperInfo));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.lueCompCode = new DevTextBoxAndButton.Bwj(this.components);
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.lueAnaesthesiaUser = new DevTextBoxAndButton.Bwj(this.components);
             this.lueOperCode = new DevTextBoxAndButton.Bwj(this.components);
             this.teOperDate = new DevExpress.XtraEditors.TimeEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.deOperDate = new DevExpress.XtraEditors.DateEdit();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
-            this.lueAnaesthesiaUser1 = new DrectSoft.Common.Library.LookUpEditor();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lueCloseLevel = new DrectSoft.Common.Library.LookUpEditor();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -52,32 +53,30 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
-            this.lueOperCode1 = new DrectSoft.Common.Library.LookUpEditor();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueAnaesthesiaUser1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCloseLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAnaesthesiaType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOperlevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueOperCode1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.lueCompCode);
+            this.panelControl1.Controls.Add(this.labelControl8);
             this.panelControl1.Controls.Add(this.lueAnaesthesiaUser);
             this.panelControl1.Controls.Add(this.lueOperCode);
             this.panelControl1.Controls.Add(this.teOperDate);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.deOperDate);
             this.panelControl1.Controls.Add(this.btnConfirm);
-            this.panelControl1.Controls.Add(this.lueAnaesthesiaUser1);
             this.panelControl1.Controls.Add(this.labelControl4);
             this.panelControl1.Controls.Add(this.lueCloseLevel);
             this.panelControl1.Controls.Add(this.labelControl5);
@@ -92,13 +91,33 @@ namespace DrectSoft.Core.IEMMainPage
             this.panelControl1.Controls.Add(this.labelControl7);
             this.panelControl1.Controls.Add(this.labelControl46);
             this.panelControl1.Controls.Add(this.labelControl36);
-            this.panelControl1.Controls.Add(this.lueOperCode1);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(599, 190);
             this.panelControl1.TabIndex = 0;
+            // 
+            // lueCompCode
+            // 
+            this.lueCompCode.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.lueCompCode.DiaCode = "";
+            this.lueCompCode.DiaValue = "";
+            this.lueCompCode.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lueCompCode.Location = new System.Drawing.Point(360, 117);
+            this.lueCompCode.Name = "lueCompCode";
+            this.lueCompCode.Size = new System.Drawing.Size(156, 22);
+            this.lueCompCode.TabIndex = 103;
+            this.lueCompCode.WaterText = "请按回车键检索";
+            this.lueCompCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lueCompCode_KeyPress);
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(296, 120);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(60, 14);
+            this.labelControl8.TabIndex = 102;
+            this.labelControl8.Text = "手术并发症";
             // 
             // lueAnaesthesiaUser
             // 
@@ -166,17 +185,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.btnConfirm.TabIndex = 10;
             this.btnConfirm.Text = "确定";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // lueAnaesthesiaUser1
-            // 
-            this.lueAnaesthesiaUser1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
-            this.lueAnaesthesiaUser1.ListWindow = null;
-            this.lueAnaesthesiaUser1.Location = new System.Drawing.Point(65, 165);
-            this.lueAnaesthesiaUser1.Name = "lueAnaesthesiaUser1";
-            this.lueAnaesthesiaUser1.ShowSButton = true;
-            this.lueAnaesthesiaUser1.Size = new System.Drawing.Size(35, 18);
-            this.lueAnaesthesiaUser1.TabIndex = 9;
-            this.lueAnaesthesiaUser1.Visible = false;
             // 
             // labelControl4
             // 
@@ -302,17 +310,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl36.TabIndex = 66;
             this.labelControl36.Text = "手术操作日期";
             // 
-            // lueOperCode1
-            // 
-            this.lueOperCode1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
-            this.lueOperCode1.ListWindow = null;
-            this.lueOperCode1.Location = new System.Drawing.Point(5, 165);
-            this.lueOperCode1.Name = "lueOperCode1";
-            this.lueOperCode1.ShowSButton = true;
-            this.lueOperCode1.Size = new System.Drawing.Size(36, 18);
-            this.lueOperCode1.TabIndex = 100;
-            this.lueOperCode1.Visible = false;
-            // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(57, 15);
@@ -341,14 +338,12 @@ namespace DrectSoft.Core.IEMMainPage
             ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueAnaesthesiaUser1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCloseLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAnaesthesiaType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOperlevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lueOperCode1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,7 +352,6 @@ namespace DrectSoft.Core.IEMMainPage
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DrectSoft.Common.Library.LookUpEditor lueOperCode1;
         private DevExpress.XtraEditors.TimeEdit teOperDate;
         private DevExpress.XtraEditors.DateEdit deOperDate;
         private DevExpress.XtraEditors.LabelControl labelControl36;
@@ -367,7 +361,6 @@ namespace DrectSoft.Core.IEMMainPage
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DrectSoft.Common.Library.LookUpEditor lueExecute2;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DrectSoft.Common.Library.LookUpEditor lueAnaesthesiaUser1;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DrectSoft.Common.Library.LookUpEditor lueCloseLevel;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -379,5 +372,7 @@ namespace DrectSoft.Core.IEMMainPage
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevTextBoxAndButton.Bwj lueOperCode;
         private DevTextBoxAndButton.Bwj lueAnaesthesiaUser;
+        private DevTextBoxAndButton.Bwj lueCompCode;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }

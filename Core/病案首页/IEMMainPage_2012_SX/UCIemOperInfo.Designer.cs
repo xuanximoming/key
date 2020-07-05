@@ -118,6 +118,8 @@
             this.txtintervaldate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -168,6 +170,7 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.Location = new System.Drawing.Point(5, 40);
             this.gridControl1.MainView = this.gridViewOper;
             this.gridControl1.Name = "gridControl1";
@@ -196,7 +199,9 @@
             this.gridColumn18,
             this.gridColumn8,
             this.gridColumn19,
-            this.gridColumn9});
+            this.gridColumn9,
+            this.gridColumn12,
+            this.gridColumn13});
             this.gridViewOper.GridControl = this.gridControl1;
             this.gridViewOper.Name = "gridViewOper";
             this.gridViewOper.OptionsCustomization.AllowColumnMoving = false;
@@ -619,18 +624,18 @@
             this.labelControl22.TabIndex = 228;
             this.labelControl22.Text = "离院方式";
             // 
-            // chkOutHosType1
+            // chkAgainInHospital2
             // 
-            this.chkOutHosType1.Location = new System.Drawing.Point(90, 252);
-            this.chkOutHosType1.Name = "chkOutHosType1";
-            this.chkOutHosType1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkOutHosType1.Properties.Appearance.Options.UseForeColor = true;
-            this.chkOutHosType1.Properties.Caption = "1.医嘱离院";
-            this.chkOutHosType1.Properties.RadioGroupIndex = 0;
-            this.chkOutHosType1.Size = new System.Drawing.Size(84, 19);
-            this.chkOutHosType1.TabIndex = 220;
-            this.chkOutHosType1.TabStop = false;
-            this.chkOutHosType1.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkAgainInHospital2.Location = new System.Drawing.Point(250, 325);
+            this.chkAgainInHospital2.Name = "chkAgainInHospital2";
+            this.chkAgainInHospital2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkAgainInHospital2.Properties.Appearance.Options.UseForeColor = true;
+            this.chkAgainInHospital2.Properties.Caption = "2.有，目的:";
+            this.chkAgainInHospital2.Properties.RadioGroupIndex = 1;
+            this.chkAgainInHospital2.Size = new System.Drawing.Size(90, 19);
+            this.chkAgainInHospital2.TabIndex = 223;
+            this.chkAgainInHospital2.TabStop = false;
+            this.chkAgainInHospital2.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // chkOutHosType2
             // 
@@ -658,18 +663,18 @@
             this.chkOutHosType3.TabStop = false;
             this.chkOutHosType3.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
-            // chkOutHosType4
+            // chkOutHosType9
             // 
-            this.chkOutHosType4.Location = new System.Drawing.Point(39, 303);
-            this.chkOutHosType4.Name = "chkOutHosType4";
-            this.chkOutHosType4.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkOutHosType4.Properties.Appearance.Options.UseForeColor = true;
-            this.chkOutHosType4.Properties.Caption = "4.非医嘱离院";
-            this.chkOutHosType4.Properties.RadioGroupIndex = 0;
-            this.chkOutHosType4.Size = new System.Drawing.Size(104, 19);
-            this.chkOutHosType4.TabIndex = 222;
-            this.chkOutHosType4.TabStop = false;
-            this.chkOutHosType4.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkOutHosType9.Location = new System.Drawing.Point(214, 303);
+            this.chkOutHosType9.Name = "chkOutHosType9";
+            this.chkOutHosType9.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkOutHosType9.Properties.Appearance.Options.UseForeColor = true;
+            this.chkOutHosType9.Properties.Caption = "9.其他";
+            this.chkOutHosType9.Properties.RadioGroupIndex = 0;
+            this.chkOutHosType9.Size = new System.Drawing.Size(59, 19);
+            this.chkOutHosType9.TabIndex = 218;
+            this.chkOutHosType9.TabStop = false;
+            this.chkOutHosType9.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // chkOutHosType5
             // 
@@ -684,18 +689,18 @@
             this.chkOutHosType5.TabStop = false;
             this.chkOutHosType5.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
-            // chkOutHosType9
+            // chkOutHosType4
             // 
-            this.chkOutHosType9.Location = new System.Drawing.Point(214, 303);
-            this.chkOutHosType9.Name = "chkOutHosType9";
-            this.chkOutHosType9.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkOutHosType9.Properties.Appearance.Options.UseForeColor = true;
-            this.chkOutHosType9.Properties.Caption = "9.其他";
-            this.chkOutHosType9.Properties.RadioGroupIndex = 0;
-            this.chkOutHosType9.Size = new System.Drawing.Size(59, 19);
-            this.chkOutHosType9.TabIndex = 218;
-            this.chkOutHosType9.TabStop = false;
-            this.chkOutHosType9.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkOutHosType4.Location = new System.Drawing.Point(39, 303);
+            this.chkOutHosType4.Name = "chkOutHosType4";
+            this.chkOutHosType4.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkOutHosType4.Properties.Appearance.Options.UseForeColor = true;
+            this.chkOutHosType4.Properties.Caption = "4.非医嘱离院";
+            this.chkOutHosType4.Properties.RadioGroupIndex = 0;
+            this.chkOutHosType4.Size = new System.Drawing.Size(104, 19);
+            this.chkOutHosType4.TabIndex = 222;
+            this.chkOutHosType4.TabStop = false;
+            this.chkOutHosType4.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // chkAgainInHospital1
             // 
@@ -710,18 +715,18 @@
             this.chkAgainInHospital1.TabStop = false;
             this.chkAgainInHospital1.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
-            // chkAgainInHospital2
+            // chkOutHosType1
             // 
-            this.chkAgainInHospital2.Location = new System.Drawing.Point(250, 325);
-            this.chkAgainInHospital2.Name = "chkAgainInHospital2";
-            this.chkAgainInHospital2.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.chkAgainInHospital2.Properties.Appearance.Options.UseForeColor = true;
-            this.chkAgainInHospital2.Properties.Caption = "2.有，目的:";
-            this.chkAgainInHospital2.Properties.RadioGroupIndex = 1;
-            this.chkAgainInHospital2.Size = new System.Drawing.Size(90, 19);
-            this.chkAgainInHospital2.TabIndex = 223;
-            this.chkAgainInHospital2.TabStop = false;
-            this.chkAgainInHospital2.Click += new System.EventHandler(this.chk_CheckedChanged);
+            this.chkOutHosType1.Location = new System.Drawing.Point(90, 252);
+            this.chkOutHosType1.Name = "chkOutHosType1";
+            this.chkOutHosType1.Properties.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.chkOutHosType1.Properties.Appearance.Options.UseForeColor = true;
+            this.chkOutHosType1.Properties.Caption = "1.医嘱离院";
+            this.chkOutHosType1.Properties.RadioGroupIndex = 0;
+            this.chkOutHosType1.Size = new System.Drawing.Size(84, 19);
+            this.chkOutHosType1.TabIndex = 220;
+            this.chkOutHosType1.TabStop = false;
+            this.chkOutHosType1.Click += new System.EventHandler(this.chk_CheckedChanged);
             // 
             // hLineEx1
             // 
@@ -1030,6 +1035,18 @@
             this.labelControl12.TabIndex = 286;
             this.labelControl12.Text = "天";
             // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "手术并发症ID";
+            this.gridColumn12.FieldName = "Complication_Code";
+            this.gridColumn12.Name = "gridColumn12";
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "手术并发症";
+            this.gridColumn13.FieldName = "Complication_Name";
+            this.gridColumn13.Name = "gridColumn13";
+            // 
             // UCIemOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1237,5 +1254,7 @@
         private DevExpress.XtraEditors.TextEdit txtintervaldate;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
     }
 }

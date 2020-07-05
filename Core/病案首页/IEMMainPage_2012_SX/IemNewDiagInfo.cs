@@ -219,10 +219,16 @@ namespace DrectSoft.Core.IEMMainPage
                                     m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
                                     textEditInput.Text = inText;
                                     break;
+                                case "diag":
+                                    gridControlDiag.BeginUpdate();
+                                    gridControlDiag.DataSource = INDData;// 绑定数据
+                                    gridControlDiag.EndUpdate();
+                                    m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiag);
+                                    textEditInput.Text = inText;
+                                    break;
                                 default:
                                     break;
                             }
-                            // ProcLoadData();
                         }
 
             }

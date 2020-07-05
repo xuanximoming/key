@@ -50,7 +50,7 @@ alter table INPATIENT add specas varchar2(1);
 -- Add comments to the columns 
 comment on column INPATIENT.specas
   is 'ÌØÊâ²¡Àý';
-  
+
   -- Add/modify columns 
 alter table IEM_MAINPAGE_BASICINFO_SX add hospital_sense VARCHAR2(12);
 -- Add comments to the columns 

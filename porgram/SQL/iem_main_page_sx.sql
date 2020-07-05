@@ -102,7 +102,10 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                       v_ZYMOSIS       varchar2 default '', ---- '医院传染病';
                                       
                                       v_HURT_TOXICOSIS_ELE_ID   varchar2 default '', ---- '损伤、中毒的外部因素';
+                                      
                                       v_HURT_TOXICOSIS_ELE_Name varchar2 default '', ---- '损伤、中毒的外部因素';
+                                      v_Hospital_sense   varchar2 default '', ---- '院内感染';
+                                      v_Hospital_sense_name   varchar2 default '', ---- '院内感染';
                                       v_ZYMOSISSTATE            varchar2 default '', ---- '医院传染病状态';
                                       v_PATHOLOGY_DIAGNOSIS_ID  varchar2 default '', ---- '病理诊断编号';
                                       v_MONTHAGE                varchar2 default '', ---- '（年龄不足1周岁的） 年龄(月)';
@@ -224,10 +227,9 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                           --v_Valide numeric ,
                                           v_create_user     VARCHAR,
                                           v_OPERATION_LEVEL varchar,
-                                          --v_Create_Time varchar(19)
-                                          --v_Cancel_User varchar(10) ,
-                                          v_OperInTimes VARCHAR2
-                                          --v_Cancel_Time varchar(19)
+                                          v_OperInTimes     VARCHAR2,
+                                          v_Complication_Code VARCHAR,
+                                          v_Complication_Name VARCHAR
                                           );
 
   PROCEDURE usp_edif_iem_mainpage_diag_sx(v_iem_mainpage_no   VARCHAR,
@@ -239,7 +241,8 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                           v_order_value       VARCHAR,
                                           v_create_user VARCHAR,
                                           v_type        varchar,
-                                          v_typeName    varchar
+                                          v_typeName    varchar,
+                                          v_orien_id varchar
                                           );
 
   --更新病案首页信息后，对病人信息表进行数据同步 add by ywk 二〇一二年五月四日 15:20:27

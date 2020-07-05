@@ -2042,8 +2042,15 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             SqlParameter OperInTimes = new SqlParameter("@OperInTimes", SqlDbType.VarChar, 19);
             OperInTimes.Value = info["Operation_Date"];
 
+            SqlParameter paraComplicatio_Code = new SqlParameter("@Complication_Code", SqlDbType.VarChar, 60);
+            paraComplicatio_Code.Value = info["Complication_Code"];
+
+            SqlParameter paraComplicatio_Name = new SqlParameter("@Complication_Name", SqlDbType.VarChar, 60);
+            paraComplicatio_Name.Value = info["Complication_Name"];
+
+
             SqlParameter[] paraColl = new SqlParameter[] { paraIem_Mainpage_NO, paraOperation_Code, paraOperation_Date, paraOperation_Name, paraExecute_User1, paraExecute_User2, paraExecute_User3,
-                paraAnaesthesia_Type_Id,paraClose_Level,paraAnaesthesia_User,paraCreate_User,paraOPERATION_LEVEL,OperInTimes };
+                paraAnaesthesia_Type_Id,paraClose_Level,paraAnaesthesia_User,paraCreate_User,paraOPERATION_LEVEL,OperInTimes,paraComplicatio_Code,paraComplicatio_Name };
 
             sqlHelper.ExecuteNoneQuery("IEM_MAIN_PAGE_SX.usp_edit_iem_mainpage_oper_sx", paraColl, CommandType.StoredProcedure);
 
