@@ -32,6 +32,8 @@
             this.btnAddOperation = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridViewOper = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -49,6 +51,8 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -118,10 +122,9 @@
             this.txtintervaldate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLaterHosComaMinute.Properties)).BeginInit();
@@ -174,6 +177,8 @@
             this.gridControl1.Location = new System.Drawing.Point(5, 40);
             this.gridControl1.MainView = this.gridViewOper;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit1});
             this.gridControl1.Size = new System.Drawing.Size(610, 109);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -183,6 +188,7 @@
             // gridViewOper
             // 
             this.gridViewOper.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn20,
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn10,
@@ -218,6 +224,22 @@
             this.gridViewOper.OptionsView.ShowIndicator = false;
             this.gridViewOper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControl1_MouseUp);
             // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "主";
+            this.gridColumn20.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.gridColumn20.FieldName = "MAINOPERATION";
+            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn20.Visible = true;
+            this.gridColumn20.VisibleIndex = 0;
+            this.gridColumn20.Width = 40;
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Caption = "Check";
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "手术操作码";
@@ -225,8 +247,8 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
             this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 65;
+            this.gridColumn1.VisibleIndex = 1;
+            this.gridColumn1.Width = 58;
             // 
             // gridColumn2
             // 
@@ -235,8 +257,8 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 70;
+            this.gridColumn2.VisibleIndex = 2;
+            this.gridColumn2.Width = 63;
             // 
             // gridColumn10
             // 
@@ -245,8 +267,8 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 2;
-            this.gridColumn10.Width = 55;
+            this.gridColumn10.VisibleIndex = 3;
+            this.gridColumn10.Width = 49;
             // 
             // gridColumn11
             // 
@@ -261,8 +283,8 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 3;
-            this.gridColumn3.Width = 55;
+            this.gridColumn3.VisibleIndex = 4;
+            this.gridColumn3.Width = 49;
             // 
             // gridColumn4
             // 
@@ -271,8 +293,8 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 55;
+            this.gridColumn4.VisibleIndex = 5;
+            this.gridColumn4.Width = 49;
             // 
             // gridColumn14
             // 
@@ -288,8 +310,8 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
-            this.gridColumn5.Width = 55;
+            this.gridColumn5.VisibleIndex = 6;
+            this.gridColumn5.Width = 49;
             // 
             // gridColumn15
             // 
@@ -305,8 +327,8 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
-            this.gridColumn6.Width = 55;
+            this.gridColumn6.VisibleIndex = 7;
+            this.gridColumn6.Width = 49;
             // 
             // gridColumn16
             // 
@@ -322,8 +344,8 @@
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 7;
-            this.gridColumn17.Width = 55;
+            this.gridColumn17.VisibleIndex = 8;
+            this.gridColumn17.Width = 49;
             // 
             // gridColumn7
             // 
@@ -339,8 +361,8 @@
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.OptionsColumn.AllowEdit = false;
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 8;
-            this.gridColumn18.Width = 55;
+            this.gridColumn18.VisibleIndex = 9;
+            this.gridColumn18.Width = 49;
             // 
             // gridColumn8
             // 
@@ -356,8 +378,8 @@
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.OptionsColumn.AllowEdit = false;
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 9;
-            this.gridColumn19.Width = 88;
+            this.gridColumn19.VisibleIndex = 10;
+            this.gridColumn19.Width = 104;
             // 
             // gridColumn9
             // 
@@ -365,6 +387,18 @@
             this.gridColumn9.FieldName = "Anaesthesia_User";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "手术并发症ID";
+            this.gridColumn12.FieldName = "Complication_Code";
+            this.gridColumn12.Name = "gridColumn12";
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "手术并发症";
+            this.gridColumn13.FieldName = "Complication_Name";
+            this.gridColumn13.Name = "gridColumn13";
             // 
             // barManager1
             // 
@@ -1035,18 +1069,6 @@
             this.labelControl12.TabIndex = 286;
             this.labelControl12.Text = "天";
             // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "手术并发症ID";
-            this.gridColumn12.FieldName = "Complication_Code";
-            this.gridColumn12.Name = "gridColumn12";
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "手术并发症";
-            this.gridColumn13.FieldName = "Complication_Name";
-            this.gridColumn13.Name = "gridColumn13";
-            // 
             // UCIemOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1123,6 +1145,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCIemOperInfo_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLaterHosComaMinute.Properties)).EndInit();
@@ -1256,5 +1279,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
     }
 }

@@ -43,4 +43,8 @@ a new
                 sqlParam[1].Direction = ParameterDirection.Output;
                 DataTable dt = DS_SqlHelper.ExecuteDataTable("EMRPROC.usp_GetPatientInfoForThreeMeas", sqlParam, CommandType.StoredProcedure);
 
-		
+修改20200709 
+    
+    Namerec 添加控制窗口出现情况参数:
+    Namerec	 0 不开启，1 开启
+	

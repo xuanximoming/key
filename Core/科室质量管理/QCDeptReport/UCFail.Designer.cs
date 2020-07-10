@@ -443,7 +443,7 @@ namespace DrectSoft.Core.QCDeptReport
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 14);
             this.labelControl1.TabIndex = 9;
-            this.labelControl1.Text = "入院日期：";
+            this.labelControl1.Text = "出院日期：";
             // 
             // btnQuery
             // 
@@ -490,7 +490,7 @@ namespace DrectSoft.Core.QCDeptReport
             // 
             // UpWindowtInpatient
             // 
-            this.UpWindowtInpatient.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UpWindowtInpatient.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UpWindowtInpatient.GenShortCode = null;
             this.UpWindowtInpatient.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.UpWindowtInpatient.Owner = null;

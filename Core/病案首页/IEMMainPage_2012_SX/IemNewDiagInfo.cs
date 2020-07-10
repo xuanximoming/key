@@ -16,7 +16,6 @@ namespace DrectSoft.Core.IEMMainPage
         private const string ICDFilter = "ICD like '%{0}%'";
 
         private IEmrHost m_App;
-        //private DataTable m_DiagDataSource;
 
         private string m_DiagName = string.Empty;
         private string m_DiagICD = string.Empty;
@@ -174,7 +173,6 @@ namespace DrectSoft.Core.IEMMainPage
                                 break;
                         }
                     }
-                    //ProcLoadData();
                 }
                 else
                     if (m_GoType == "MZDIAG" || m_GoType == "RYZDIAG" || m_GoType == "YGDIAG")

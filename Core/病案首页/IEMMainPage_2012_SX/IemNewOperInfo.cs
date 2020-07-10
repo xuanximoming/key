@@ -462,6 +462,8 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     m_DataOper.Columns.Add("Complication_Code");
                 if (!m_DataOper.Columns.Contains("Complication_Name"))
                     m_DataOper.Columns.Add("Complication_Name");
+                if (!m_DataOper.Columns.Contains("MAINOPERATION"))
+                    m_DataOper.Columns.Add("MAINOPERATION");
                 #endregion
                 DataRow row = m_DataOper.NewRow();
                 row["Operation_Code"] = lueOperCode.DiaCode;//1.CodeValue;
@@ -486,6 +488,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 row["Close_Level_Name"] = lueCloseLevel.DisplayValue;
                 row["Anaesthesia_User"] = lueAnaesthesiaUser.DiaCode;//.CodeValue;
                 row["Anaesthesia_User_Name"] = lueAnaesthesiaUser.DiaValue;//.DisplayValue;
+                row["MAINOPERATION"] = "";
                 m_DataOper.Rows.Add(row);
                 //m_DataOper.AcceptChanges();
 

@@ -242,6 +242,9 @@ namespace DrectSoft.Core.IEMMainPage
 
                         imOut["Complication_Code"] = row["Complication_Code"].ToString();
                         imOut["Complication_Name"] = row["Complication_Name"].ToString();
+
+                        var ss = row["MAINOPERATION"].ToString();
+
                         dtOperation.Rows.Add(imOut);
                     }
 

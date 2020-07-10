@@ -147,13 +147,13 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // teOperDate
             // 
-            this.teOperDate.EditValue = new System.DateTime(2011, 3, 5, 0, 0, 0, 0);
+            this.teOperDate.EditValue = new System.DateTime(2020, 7, 9, 0, 0, 0, 0);
             this.teOperDate.Location = new System.Drawing.Point(515, 12);
             this.teOperDate.Name = "teOperDate";
             this.teOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.teOperDate.Properties.Mask.EditMask = "HH:mm";
-            this.teOperDate.Size = new System.Drawing.Size(59, 20);
+            this.teOperDate.Properties.Mask.EditMask = "HH:mm:ss";
+            this.teOperDate.Size = new System.Drawing.Size(79, 20);
             this.teOperDate.TabIndex = 3;
             // 
             // btnCancel

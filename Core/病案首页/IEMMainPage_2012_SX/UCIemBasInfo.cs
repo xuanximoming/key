@@ -231,61 +231,10 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
 
-        private void obj_Click(object sender, EventArgs e)
-        {
-            //    //try
-            //    //{
-            //    //    Button btn = new Button();
-            //    //    if (lueMZZYZD_CODE.Text.Trim() != null)
-            //    //    {
-            //    //        GoType = "MZDIAG";
-            //    //        MZDiagType = "ZHONGYI";
-            //    //        inputText = lueMZZYZD_CODE.Text.Trim();
-
-            //    //        IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, GoType, MZDiagType, inputText);
-
-            //    //        //mzdiagInfo.FormClosed += new FormClosedEventHandler(mzdiagInfo_FormClosed);
-            //    //        //bwj1.Text = string.Empty;
-            //    //        //mzdiagInfo.Show();
-            //    //        if (diagInfo.GetFormResult())
-            //    //        {
-            //    //            diagInfo.ShowDialog();
-            //    //            if (diagInfo.IsClosed)
-            //    //            {
-            //    //                lueMZZYZD_CODE.Text = diagInfo.inText;
-            //    //                lueMZZYZD_CODE.DiaCode = diagInfo.inCode;
-            //    //                lueMZZYZD_CODE.DiaValue = diagInfo.inText;
-            //    //            }
-            //    //        }
-            //    //        else
-            //    //        {
-            //    //            lueMZZYZD_CODE.DiaCode = diagInfo.inCode;
-            //    //            lueMZZYZD_CODE.DiaValue = diagInfo.inText;
-            //    //            lueMZZYZD_CODE.Multiline = false;
-            //    //        }
-            //    //    }
-            //    //}
-            //    //catch (Exception ex)
-            //    //{
-            //    //    Common.Ctrs.DLG.MessageBox.Show(ex.Message);
-            //    //}
-        }
-
-
 
         private void UCIemBasInfo_Load(object sender, EventArgs e)
         {
             GetFormLoadData();
-
-            //this.lueMZZYZD_CODE.obj.Click += new EventHandler(obj_Click);
-            //m_SqlHelper = DataAccessFactory.DefaultDataAccess;
-            //InitLookUpEditor();
-
-            //lueCSD_ProvinceID.Focus();
-#if DEBUG
-#else
-            //HideSbutton();
-#endif
 
             //更改出生日期后，年龄算出来(ywk 泗县修改)
             deBirth.EditValueChanged += new EventHandler(deBirth_EditValueChanged);
@@ -329,18 +278,6 @@ namespace DrectSoft.Core.IEMMainPage
                 throw;
             }
         }
-
-        ///// <summary>
-        ///// 加载数据源，点确认的时候输入框是否为空，不为空的话，进行匹配，如果有匹配项的话，直接保存name和code，如果没有匹配项的话，则保存name
-        ///// </summary>
-        //private void LoadFormData()
-        //{
-        //    if (!string.IsNullOrEmpty(lueMZZYZD_CODE.Text.ToString().Trim()) == true)
-        //    {
-
-        //    }
-
-        //}
 
         private void bwj1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1680,7 +1617,7 @@ namespace DrectSoft.Core.IEMMainPage
                     if (dataResult > 0)
                     {
                         lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
+                        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0]["icd"].ToString();    //dtZY.row["icd"].ToString();
 
                     }
                     if (dataResult == 0)
@@ -1704,7 +1641,7 @@ namespace DrectSoft.Core.IEMMainPage
                     if (dataResult > 0)
                     {
                         lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
+                        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0]["icd"].ToString();    //dtZY.row["icd"].ToString();
 
                     }
                     if (dataResult == 0)

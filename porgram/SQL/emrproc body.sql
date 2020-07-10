@@ -2762,9 +2762,9 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
          inp.status in ('1502', '1503')
          AND (inp.islock IN (4700, 4702, 4703) or inp.islock is null)
         
-         AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) >=
+         AND trunc(to_date(inp.outhosdate, 'yyyy-mm-dd hh24:mi:ss')) >=
          to_date(v_datetimebegin || ' 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
-         AND trunc(to_date(inp.admitdate, 'yyyy-mm-dd hh24:mi:ss')) <=
+         AND trunc(to_date(inp.outhosdate, 'yyyy-mm-dd hh24:mi:ss')) <=
          to_date(v_datetimeend || ' 23:59:59', 'yyyy-mm-dd hh24:mi:ss')
         
          AND (TO_CHAR(outhosdept) = v_deptcode OR v_deptcode = '' OR
@@ -3307,12 +3307,6 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
     ELSIF v_querytype = 14 THEN
       --麻醉方式,需要修改
       OPEN o_result FOR
-      /*  SELECT detailid AS ID, NAME, py, memo
-                                              FROM dictionary_detail
-                                             WHERE categoryid = '30'
-                                               AND valid = 1
-                                             ORDER BY ID;*/
-      --edit by ywk 2012年4月18日10:12:07
         select ID, NAME, py, wb
           from anesthesia
          where valid = 1

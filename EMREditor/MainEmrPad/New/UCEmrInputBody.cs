@@ -5891,10 +5891,13 @@ namespace DrectSoft.Core.MainEmrPad.New
                             model.DefaultModelName = model.ModelName;
                             model.DisplayTime = DateTime.Now;
                             model.ModelName = model.ModelName + " " + model.DisplayTime.ToString("yyyy-MM-dd HH:mm:ss") + " " + DoctorEmployee.Name;
-                            Namerec Namerec = new Namerec();
-                            if (Namerec.ShowDialog() == DialogResult.OK)
+                            if (GetConfigValueByKey("Namerec") == "1")
                             {
-                                model.ModelName = Namerec.CommitTitle;
+                                Namerec Namerec = new Namerec();
+                                if (Namerec.ShowDialog() == DialogResult.OK)
+                                {
+                                    model.ModelName = Namerec.CommitTitle;
+                                }
                             }
                             if (AddNewPatRec(model))
                             {
@@ -6215,10 +6218,13 @@ namespace DrectSoft.Core.MainEmrPad.New
                     {
                         model.DisplayTime = daily.CommitDateTime;
                         model.ModelName = model.Description + " " + model.DisplayTime.ToString("yyyy-MM-dd HH:mm:ss") + " " + DoctorEmployee.Name;
-                        Namerec Namerec = new Namerec();
-                        if (Namerec.ShowDialog() == DialogResult.OK)
+                        if (GetConfigValueByKey("Namerec") == "1")
                         {
-                            model.ModelName = Namerec.CommitTitle;
+                            Namerec Namerec = new Namerec();
+                            if (Namerec.ShowDialog() == DialogResult.OK)
+                            {
+                                model.ModelName = Namerec.CommitTitle;
+                            }
                         }
                         model.Description = daily.CommitTitle;
                         //更加设置的时间动态改变树节点的名称
