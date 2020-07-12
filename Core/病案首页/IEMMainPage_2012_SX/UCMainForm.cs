@@ -372,7 +372,6 @@ namespace DrectSoft.Core.IEMMainPage
 
         private void RefreshForm()
         {
-            //this.info = pageInfo;
             LoadForm2();
         }
 

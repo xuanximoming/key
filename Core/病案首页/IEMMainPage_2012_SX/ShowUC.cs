@@ -22,13 +22,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCIemBasInfo(UCIemBasInfo info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "基础信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }
@@ -39,13 +35,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCIemBasInfoEn(UCIemBasInfoEn info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "基础信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }
@@ -56,13 +48,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCIemDiagnose(UCIemDiagnose info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "诊断信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }
@@ -86,13 +74,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCIemOperInfo(UCIemOperInfo info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "手术信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }
@@ -103,13 +87,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCObstetricsBaby(UCObstetricsBaby info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "产妇婴儿信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }
@@ -120,13 +100,9 @@ namespace DrectSoft.Core.IEMMainPage
         /// <param name="info"></param>
         public void ShowUCOthers(UCOthers info, IemMainPageInfo m_pageInfo)
         {
-            //this.ResumeLayout();
-            //this.Height = info.Height + 10;
-            //this.Width = info.Width + 10;
             this.Text = "其他信息编辑";
             this.Controls.Clear();
             this.Controls.Add(info);
-            //info.Dock = DockStyle.Fill;
 
             info.FillUI(m_pageInfo, m_app);
         }

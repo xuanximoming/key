@@ -35,10 +35,6 @@ namespace DrectSoft.Core.IEMMainPage
 
         }
 
-        private void UCIemOperInfo_Load(object sender, EventArgs e)
-        {
-        }
-
 
         public void FillUI(IemMainPageInfo info, IEmrHost app)
         {
@@ -46,8 +42,6 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 m_App = app;
                 m_IemInfo = info;
-
-                //(new FillUIDelegate(FillUIInner)).BeginInvoke(null, null);
                 FillUIInner();
             }
             catch (Exception)
@@ -76,36 +70,10 @@ namespace DrectSoft.Core.IEMMainPage
                 }
                 else
                 {
-
-                    //手术
-                    //DataTable dataTableOper = new DataTable();
-                    //foreach (Iem_MainPage_Operation im in m_IemInfo.IemOperInfo)
-                    //{
-                    //    if (m_OperInfoFrom == null)
-                    //        m_OperInfoFrom = new IemNewOperInfo(m_App);
-                    //    m_OperInfoFrom.IemOperInfo = im;
-                    //    DataTable dataTable = m_OperInfoFrom.DataOper;
-                    //    if (dataTableOper.Rows.Count == 0)
-                    //        dataTableOper = dataTable.Clone();
-                    //    foreach (DataRow row in dataTable.Rows)
-                    //    {
-                    //        dataTableOper.ImportRow(row);
-                    //    }
-                    //    dataTableOper.AcceptChanges();
-                    //}
-                    //this.gridControl1.DataSource = dataTableOper;
                     this.gridControl1.DataSource = null;
                     this.gridControl1.DataSource = m_IemInfo.IemOperInfo.Operation_Table;
 
                     m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewOper);
-
-                    //txtXRay.Text = m_IemInfo.IemBasicInfo.Xay_Sn;
-                    //txtCT.Text = m_IemInfo.IemBasicInfo.Ct_Sn;
-                    //txtMri.Text = m_IemInfo.IemBasicInfo.Mri_Sn;
-                    //txtDsa.Text = m_IemInfo.IemBasicInfo.Dsa_Sn;
-
-                    //gridControl2.EndUpdate();
-                    //gridControl3.EndUpdate();
 
                     #region 新增项目信息
 
@@ -212,21 +180,17 @@ namespace DrectSoft.Core.IEMMainPage
 
                     DataTable dtOperation = m_IemInfo.IemOperInfo.Operation_Table.Clone();
                     dtOperation.Rows.Clear();
-
+                    int i = 0;
                     DataTable dataTable = this.gridControl1.DataSource as DataTable;
                     foreach (DataRow row in dataTable.Rows)
                     {
                         DataRow imOut = dtOperation.NewRow();
-                        //Iem_MainPage_Operation imOut = new Iem_MainPage_Operation();
 
                         imOut["Operation_Code"] = row["Operation_Code"].ToString();
                         imOut["Operation_Name"] = row["Operation_Name"].ToString();
-
                         imOut["Operation_Date"] = row["Operation_Date"].ToString();
-
                         imOut["operation_level"] = row["operation_level"].ToString();
                         imOut["operation_level_Name"] = row["operation_level_Name"].ToString();
-
                         imOut["Execute_User1"] = row["Execute_User1"].ToString();
                         imOut["Execute_User1_Name"] = row["Execute_User1_Name"];
                         imOut["Execute_User2"] = row["Execute_User2"].ToString();
@@ -239,11 +203,11 @@ namespace DrectSoft.Core.IEMMainPage
                         imOut["Close_Level_Name"] = row["Close_Level_Name"].ToString();
                         imOut["Anaesthesia_User"] = row["Anaesthesia_User"].ToString();
                         imOut["Anaesthesia_User_Name"] = row["Anaesthesia_User_Name"].ToString();
-
                         imOut["Complication_Code"] = row["Complication_Code"].ToString();
                         imOut["Complication_Name"] = row["Complication_Name"].ToString();
-
-                        var ss = row["MAINOPERATION"].ToString();
+                        imOut["MAINOPERATION"] = row["MAINOPERATION"].ToString();
+                        imOut["IATROGENIC"] = row["IATROGENIC"].ToString();
+                        imOut["ISCHOOSEDATE"] = row["ISCHOOSEDATE"].ToString();
 
                         dtOperation.Rows.Add(imOut);
                     }

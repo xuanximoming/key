@@ -48,7 +48,6 @@ namespace DrectSoft.Core.IEMMainPage
                     else if (i == 1)
                         GetItemDiagInfo(dataSet.Tables[i]);
                     else if (i == 2)
-                        //GetItemOperInfo(dataSet.Tables[i]);
                         IemInfo.IemOperInfo.Operation_Table = dataSet.Tables[i];
                     else if (i == 3)
                         GetItemObsBaby(dataSet.Tables[i]);
@@ -358,7 +357,6 @@ namespace DrectSoft.Core.IEMMainPage
                     DefaultInfo.Mother = PatData.Rows[0]["mother"].ToString();
                 }
                 #endregion
-
                 foreach (DataRow row in dataTable.Rows)
                 {
                     #region 赋值
@@ -568,13 +566,10 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Quality_Control_Date = row["quality_control_date"].ToString();
 
                     #endregion
-
                     IemInfo.IemBasicInfo.IsBaby = row["IsBaby"].ToString();
                     IemInfo.IemBasicInfo.Mother = row["Mother"].ToString();
                     break;
                 }
-
-
                 #region 给实体赋空值
                 //在这处理给默认值 2012年3月5日17:17:43
                 if (dataTable.Rows.Count == 0)
@@ -2041,16 +2036,21 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraOPERATION_LEVEL.Value = info["operation_level"];
             SqlParameter OperInTimes = new SqlParameter("@OperInTimes", SqlDbType.VarChar, 19);
             OperInTimes.Value = info["Operation_Date"];
-
             SqlParameter paraComplicatio_Code = new SqlParameter("@Complication_Code", SqlDbType.VarChar, 60);
             paraComplicatio_Code.Value = info["Complication_Code"];
-
             SqlParameter paraComplicatio_Name = new SqlParameter("@Complication_Name", SqlDbType.VarChar, 60);
             paraComplicatio_Name.Value = info["Complication_Name"];
+            SqlParameter paraMAINOPERATION = new SqlParameter("@MAINOPERATION", SqlDbType.VarChar, 60);
+            paraMAINOPERATION.Value = info["MAINOPERATION"];
+            SqlParameter paraIATROGENIC = new SqlParameter("@IATROGENIC", SqlDbType.VarChar, 60);
+            paraIATROGENIC.Value = info["IATROGENIC"];
+            SqlParameter paraISCHOOSEDATE = new SqlParameter("@ISCHOOSEDATE", SqlDbType.VarChar, 60);
+            paraISCHOOSEDATE.Value = info["ISCHOOSEDATE"];
 
 
-            SqlParameter[] paraColl = new SqlParameter[] { paraIem_Mainpage_NO, paraOperation_Code, paraOperation_Date, paraOperation_Name, paraExecute_User1, paraExecute_User2, paraExecute_User3,
-                paraAnaesthesia_Type_Id,paraClose_Level,paraAnaesthesia_User,paraCreate_User,paraOPERATION_LEVEL,OperInTimes,paraComplicatio_Code,paraComplicatio_Name };
+            SqlParameter[] paraColl = new SqlParameter[] { paraIem_Mainpage_NO, paraOperation_Code, paraOperation_Date, paraOperation_Name, 
+                paraExecute_User1, paraExecute_User2, paraExecute_User3,paraAnaesthesia_Type_Id,paraClose_Level,paraAnaesthesia_User,paraCreate_User,
+                paraOPERATION_LEVEL,OperInTimes,paraComplicatio_Code,paraComplicatio_Name,paraMAINOPERATION,paraIATROGENIC,paraISCHOOSEDATE };
 
             sqlHelper.ExecuteNoneQuery("IEM_MAIN_PAGE_SX.usp_edit_iem_mainpage_oper_sx", paraColl, CommandType.StoredProcedure);
 

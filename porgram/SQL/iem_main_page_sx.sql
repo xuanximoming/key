@@ -49,12 +49,12 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                       v_RELATIONSHIP   varchar2 default '', ---- '与联系人关系';
                                       v_CONTACTADDRESS varchar2 default '', ---- '联系人地址';
                                       
-                                      v_CONTACTTEL varchar2 default '', ---- '联系人电话';
-                                      v_ADMITDATE  varchar2 default '', ---- '入院时间';
-                                      v_MAINDIAGDATE  varchar2 default '',----主要诊断确诊日期
-                                      v_ADMITDEPT  varchar2 default '', ---- '入院科室';
-                                      v_ADMITWARD  varchar2 default '', ---- '入院病区';
-                                      v_TRANS_DATE varchar2 default '', ---- '转院时间';
+                                      v_CONTACTTEL   varchar2 default '', ---- '联系人电话';
+                                      v_ADMITDATE    varchar2 default '', ---- '入院时间';
+                                      v_MAINDIAGDATE varchar2 default '', ----主要诊断确诊日期
+                                      v_ADMITDEPT    varchar2 default '', ---- '入院科室';
+                                      v_ADMITWARD    varchar2 default '', ---- '入院病区';
+                                      v_TRANS_DATE   varchar2 default '', ---- '转院时间';
                                       
                                       v_TRANS_ADMITDEPT varchar2 default '', ---- '转院科别';
                                       v_TRANS_ADMITWARD varchar2 default '', ---- '转院病区';
@@ -65,17 +65,17 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                       v_ACTUALDAYS               varchar2 default '', ---- '实际住院天数';
                                       v_PATHOLOGY_DIAGNOSIS_NAME varchar2 default '', ---- '病理诊断名称';
                                       v_PATHOLOGY_OBSERVATION_SN varchar2 default '', ---- '病理检查号 ';
-                                      v_PATHOLOGY_OBSERVATION_FQ varchar2 default '',-----病理分期：
-                                      v_FOLLOW_UP_CYCLE varchar2 default '',----随诊期限
+                                      v_PATHOLOGY_OBSERVATION_FQ varchar2 default '', -----病理分期：
+                                      v_FOLLOW_UP_CYCLE          varchar2 default '', ----随诊期限
                                       v_ALLERGIC_DRUG            varchar2 default '', ---- '过敏药物';
                                       v_SECTION_DIRECTOR         varchar2 default '', ---- '科主任';
                                       
-                                      v_DIRECTOR               varchar2 default '', ---- '主（副主）任医师';
-                                      v_VS_EMPLOYEE_CODE       varchar2 default '', ---- '主治医师';
-                                      v_RESIDENT_EMPLOYEE_CODE varchar2 default '', ---- '住院医师';
-                                      v_ATTENDING_PHYSICIAN_CODE varchar2 default '',---主诊医师
-                                      v_REFRESH_EMPLOYEE_CODE  varchar2 default '', ---- '进修医师';
-                                      v_DUTY_NURSE             varchar2 default '', ---- '责任护士';
+                                      v_DIRECTOR                 varchar2 default '', ---- '主（副主）任医师';
+                                      v_VS_EMPLOYEE_CODE         varchar2 default '', ---- '主治医师';
+                                      v_RESIDENT_EMPLOYEE_CODE   varchar2 default '', ---- '住院医师';
+                                      v_ATTENDING_PHYSICIAN_CODE varchar2 default '', ---主诊医师
+                                      v_REFRESH_EMPLOYEE_CODE    varchar2 default '', ---- '进修医师';
+                                      v_DUTY_NURSE               varchar2 default '', ---- '责任护士';
                                       
                                       v_INTERNE                varchar2 default '', ---- '实习医师';
                                       v_CODING_USER            varchar2 default '', ---- '编码员';
@@ -101,34 +101,33 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                       v_MODIFIED_TIME varchar2 default '', ---- '修改时间';
                                       v_ZYMOSIS       varchar2 default '', ---- '医院传染病';
                                       
-                                      v_HURT_TOXICOSIS_ELE_ID   varchar2 default '', ---- '损伤、中毒的外部因素';
+                                      v_HURT_TOXICOSIS_ELE_ID varchar2 default '', ---- '损伤、中毒的外部因素';
                                       
                                       v_HURT_TOXICOSIS_ELE_Name varchar2 default '', ---- '损伤、中毒的外部因素';
-                                      v_Hospital_sense   varchar2 default '', ---- '院内感染';
-                                      v_Hospital_sense_name   varchar2 default '', ---- '院内感染';
+                                      v_Hospital_sense          varchar2 default '', ---- '院内感染';
+                                      v_Hospital_sense_name     varchar2 default '', ---- '院内感染';
                                       v_ZYMOSISSTATE            varchar2 default '', ---- '医院传染病状态';
                                       v_PATHOLOGY_DIAGNOSIS_ID  varchar2 default '', ---- '病理诊断编号';
                                       v_MONTHAGE                varchar2 default '', ---- '（年龄不足1周岁的） 年龄(月)';
                                       v_WEIGHT                  varchar2 default '', ---- '新生儿出生体重(克)';
                                       
-                                      v_INWEIGHT         varchar2 default '', ---- '新生儿入院体重(克)';
-                                      v_INHOSTYPE        varchar2 default '', ---- '入院途径:1.急诊  2.门诊  3.其他医疗机构转入  9.其他';
-                                      v_INHOSINFO        varchar2 default '', --入院情况 □ 1. 危 2. 急 3. 一般
-                                      v_INHOSCALL        varchar2 default '', ----住院期间是否告病危或病重 □ 1. 是 2. 否
-                                      v_TYPEHOSPITAL     varchar2 default '',----其他医疗机构
-                                      v_OUTHOSTYPE       varchar2 default '', ---- '离院方式 □ 1.医嘱离院  2.医嘱转院 3.医嘱转社区卫生服务机构/乡镇卫生院 4.非医嘱离院5.死亡9.其他';
-                                      v_ANTIBACTERIAL_DRUGS varchar2 default '',----Ⅰ类手术切口预防性应用抗菌药物
-                                      v_DURATIONDATE varchar2 default '',---使用持续时间
-                                      v_COMBINED_MEDICATION varchar2 default '',----联合用药
+                                      v_INWEIGHT            varchar2 default '', ---- '新生儿入院体重(克)';
+                                      v_INHOSTYPE           varchar2 default '', ---- '入院途径:1.急诊  2.门诊  3.其他医疗机构转入  9.其他';
+                                      v_INHOSINFO           varchar2 default '', --入院情况 □ 1. 危 2. 急 3. 一般
+                                      v_INHOSCALL           varchar2 default '', ----住院期间是否告病危或病重 □ 1. 是 2. 否
+                                      v_TYPEHOSPITAL        varchar2 default '', ----其他医疗机构
+                                      v_OUTHOSTYPE          varchar2 default '', ---- '离院方式 □ 1.医嘱离院  2.医嘱转院 3.医嘱转社区卫生服务机构/乡镇卫生院 4.非医嘱离院5.死亡9.其他';
+                                      v_ANTIBACTERIAL_DRUGS varchar2 default '', ----Ⅰ类手术切口预防性应用抗菌药物
+                                      v_DURATIONDATE        varchar2 default '', ---使用持续时间
+                                      v_COMBINED_MEDICATION varchar2 default '', ----联合用药
                                       
-                                      v_PATHWAY_FLAG varchar2 default '',----联合用药
-                                      v_PATHWAY_OVER varchar2 default '',----联合用药
-                                      v_PATH_OUT_REASON varchar2 default '',----联合用药
-                                      v_VARIATION_FLAG varchar2 default '',----联合用药
-                                      v_VARIATION_REASON varchar2 default '',----联合用药
-                                      v_REHOSPITALIZATION varchar2 default '',----联合用药
-                                      v_INTERVALDATE varchar2 default '',----联合用药
-                                      
+                                      v_PATHWAY_FLAG      varchar2 default '', ----联合用药
+                                      v_PATHWAY_OVER      varchar2 default '', ----联合用药
+                                      v_PATH_OUT_REASON   varchar2 default '', ----联合用药
+                                      v_VARIATION_FLAG    varchar2 default '', ----联合用药
+                                      v_VARIATION_REASON  varchar2 default '', ----联合用药
+                                      v_REHOSPITALIZATION varchar2 default '', ----联合用药
+                                      v_INTERVALDATE      varchar2 default '', ----联合用药
                                       
                                       v_RECEIVEHOSPITAL  varchar2 default '', ---- '2.医嘱转院，拟接收医疗机构名称：';
                                       v_RECEIVEHOSPITAL2 varchar2 default '', ---- '3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名;
@@ -146,7 +145,7 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                       v_ALLERGIC_FLAG      varchar2 default '', ---- '药物过敏1.无 2.有';
                                       
                                       v_AUTOPSY_FLAG     varchar2 default '', ---- '死亡患者尸检 □ 1.是  2.否';
-                                      v_FOLLOW_UP     varchar2 default '',----随诊 □ 1. 是 2. 否
+                                      v_FOLLOW_UP        varchar2 default '', ----随诊 □ 1. 是 2. 否
                                       v_CSD_PROVINCEID   varchar2 default '', ---- '出生地 省';
                                       v_CSD_CITYID       varchar2 default '', ---- '出生地 市';
                                       v_CSD_DISTRICTID   varchar2 default '', ---- '出生地 县';
@@ -224,26 +223,26 @@ CREATE OR REPLACE PACKAGE iem_main_page_sx IS
                                           v_anaesthesia_type_id NUMERIC,
                                           v_close_level         NUMERIC,
                                           v_anaesthesia_user    VARCHAR,
-                                          --v_Valide numeric ,
-                                          v_create_user     VARCHAR,
-                                          v_OPERATION_LEVEL varchar,
-                                          v_OperInTimes     VARCHAR2,
-                                          v_Complication_Code VARCHAR,
-                                          v_Complication_Name VARCHAR
-                                          );
+                                          v_create_user         VARCHAR,
+                                          v_OPERATION_LEVEL     varchar,
+                                          v_OperInTimes         VARCHAR2,
+                                          v_Complication_Code   VARCHAR,
+                                          v_Complication_Name   VARCHAR,
+                                          v_MAINOPERATION       VARCHAR,
+                                          v_IATROGENIC          VARCHAR,
+                                          v_ISCHOOSEDATE        VARCHAR);
 
   PROCEDURE usp_edif_iem_mainpage_diag_sx(v_iem_mainpage_no   VARCHAR,
                                           v_diagnosis_type_id VARCHAR,
                                           v_diagnosis_code    VARCHAR,
                                           v_diagnosis_name    VARCHAR,
                                           v_status_id         VARCHAR,
-                                          v_outstatus_id         VARCHAR,
+                                          v_outstatus_id      VARCHAR,
                                           v_order_value       VARCHAR,
-                                          v_create_user VARCHAR,
-                                          v_type        varchar,
-                                          v_typeName    varchar,
-                                          v_orien_id varchar
-                                          );
+                                          v_create_user       VARCHAR,
+                                          v_type              varchar,
+                                          v_typeName          varchar,
+                                          v_orien_id          varchar);
 
   --更新病案首页信息后，对病人信息表进行数据同步 add by ywk 二〇一二年五月四日 15:20:27
   PROCEDURE usp_Edit_Iem_PaientInfo_sx(v_NOOFINPAT      varchar2 default '', ---- '病人首页序号';

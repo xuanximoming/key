@@ -54,6 +54,12 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.cbMAINOPERATION = new System.Windows.Forms.ComboBox();
+            this.cbIATROGENIC = new System.Windows.Forms.ComboBox();
+            this.cbISCHOOSEDATE = new System.Windows.Forms.ComboBox();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).BeginInit();
@@ -69,6 +75,12 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.labelControl11);
+            this.panelControl1.Controls.Add(this.labelControl10);
+            this.panelControl1.Controls.Add(this.labelControl9);
+            this.panelControl1.Controls.Add(this.cbISCHOOSEDATE);
+            this.panelControl1.Controls.Add(this.cbIATROGENIC);
+            this.panelControl1.Controls.Add(this.cbMAINOPERATION);
             this.panelControl1.Controls.Add(this.lueCompCode);
             this.panelControl1.Controls.Add(this.labelControl8);
             this.panelControl1.Controls.Add(this.lueAnaesthesiaUser);
@@ -95,7 +107,7 @@ namespace DrectSoft.Core.IEMMainPage
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(599, 190);
+            this.panelControl1.Size = new System.Drawing.Size(585, 243);
             this.panelControl1.TabIndex = 0;
             // 
             // lueCompCode
@@ -104,7 +116,7 @@ namespace DrectSoft.Core.IEMMainPage
             this.lueCompCode.DiaCode = "";
             this.lueCompCode.DiaValue = "";
             this.lueCompCode.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lueCompCode.Location = new System.Drawing.Point(360, 117);
+            this.lueCompCode.Location = new System.Drawing.Point(345, 117);
             this.lueCompCode.Name = "lueCompCode";
             this.lueCompCode.Size = new System.Drawing.Size(156, 22);
             this.lueCompCode.TabIndex = 103;
@@ -113,7 +125,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(296, 120);
+            this.labelControl8.Location = new System.Drawing.Point(281, 120);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(60, 14);
             this.labelControl8.TabIndex = 102;
@@ -125,7 +137,7 @@ namespace DrectSoft.Core.IEMMainPage
             this.lueAnaesthesiaUser.DiaCode = "";
             this.lueAnaesthesiaUser.DiaValue = "";
             this.lueAnaesthesiaUser.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lueAnaesthesiaUser.Location = new System.Drawing.Point(87, 120);
+            this.lueAnaesthesiaUser.Location = new System.Drawing.Point(72, 117);
             this.lueAnaesthesiaUser.Name = "lueAnaesthesiaUser";
             this.lueAnaesthesiaUser.Size = new System.Drawing.Size(156, 22);
             this.lueAnaesthesiaUser.TabIndex = 101;
@@ -138,7 +150,7 @@ namespace DrectSoft.Core.IEMMainPage
             this.lueOperCode.DiaCode = "";
             this.lueOperCode.DiaValue = "";
             this.lueOperCode.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lueOperCode.Location = new System.Drawing.Point(87, 12);
+            this.lueOperCode.Location = new System.Drawing.Point(72, 12);
             this.lueOperCode.Name = "lueOperCode";
             this.lueOperCode.Size = new System.Drawing.Size(156, 22);
             this.lueOperCode.TabIndex = 2;
@@ -148,7 +160,7 @@ namespace DrectSoft.Core.IEMMainPage
             // teOperDate
             // 
             this.teOperDate.EditValue = new System.DateTime(2020, 7, 9, 0, 0, 0, 0);
-            this.teOperDate.Location = new System.Drawing.Point(515, 12);
+            this.teOperDate.Location = new System.Drawing.Point(500, 12);
             this.teOperDate.Name = "teOperDate";
             this.teOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -158,7 +170,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(425, 154);
+            this.btnCancel.Location = new System.Drawing.Point(414, 205);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 11;
@@ -168,7 +180,7 @@ namespace DrectSoft.Core.IEMMainPage
             // deOperDate
             // 
             this.deOperDate.EditValue = null;
-            this.deOperDate.Location = new System.Drawing.Point(360, 12);
+            this.deOperDate.Location = new System.Drawing.Point(345, 12);
             this.deOperDate.Name = "deOperDate";
             this.deOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -179,7 +191,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(282, 154);
+            this.btnConfirm.Location = new System.Drawing.Point(267, 205);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(87, 27);
             this.btnConfirm.TabIndex = 10;
@@ -188,7 +200,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(33, 121);
+            this.labelControl4.Location = new System.Drawing.Point(18, 121);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 14);
             this.labelControl4.TabIndex = 99;
@@ -198,7 +210,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueCloseLevel.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueCloseLevel.ListWindow = null;
-            this.lueCloseLevel.Location = new System.Drawing.Point(360, 93);
+            this.lueCloseLevel.Location = new System.Drawing.Point(345, 93);
             this.lueCloseLevel.Name = "lueCloseLevel";
             this.lueCloseLevel.ShowSButton = true;
             this.lueCloseLevel.Size = new System.Drawing.Size(156, 18);
@@ -206,7 +218,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(282, 94);
+            this.labelControl5.Location = new System.Drawing.Point(267, 94);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(72, 14);
             this.labelControl5.TabIndex = 97;
@@ -216,7 +228,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueAnaesthesiaType.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueAnaesthesiaType.ListWindow = null;
-            this.lueAnaesthesiaType.Location = new System.Drawing.Point(87, 93);
+            this.lueAnaesthesiaType.Location = new System.Drawing.Point(72, 93);
             this.lueAnaesthesiaType.Name = "lueAnaesthesiaType";
             this.lueAnaesthesiaType.ShowSButton = true;
             this.lueAnaesthesiaType.Size = new System.Drawing.Size(156, 18);
@@ -224,7 +236,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(33, 94);
+            this.labelControl6.Location = new System.Drawing.Point(18, 94);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(48, 14);
             this.labelControl6.TabIndex = 95;
@@ -234,7 +246,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueExecute3.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueExecute3.ListWindow = null;
-            this.lueExecute3.Location = new System.Drawing.Point(360, 66);
+            this.lueExecute3.Location = new System.Drawing.Point(345, 66);
             this.lueExecute3.Name = "lueExecute3";
             this.lueExecute3.ShowSButton = true;
             this.lueExecute3.Size = new System.Drawing.Size(156, 18);
@@ -242,7 +254,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(334, 67);
+            this.labelControl3.Location = new System.Drawing.Point(319, 67);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(20, 14);
             this.labelControl3.TabIndex = 93;
@@ -252,7 +264,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueExecute2.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueExecute2.ListWindow = null;
-            this.lueExecute2.Location = new System.Drawing.Point(87, 66);
+            this.lueExecute2.Location = new System.Drawing.Point(72, 66);
             this.lueExecute2.Name = "lueExecute2";
             this.lueExecute2.ShowSButton = true;
             this.lueExecute2.Size = new System.Drawing.Size(156, 18);
@@ -260,7 +272,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(65, 67);
+            this.labelControl2.Location = new System.Drawing.Point(50, 67);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(16, 14);
             this.labelControl2.TabIndex = 91;
@@ -270,7 +282,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueOperlevel.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueOperlevel.ListWindow = null;
-            this.lueOperlevel.Location = new System.Drawing.Point(87, 41);
+            this.lueOperlevel.Location = new System.Drawing.Point(72, 41);
             this.lueOperlevel.Name = "lueOperlevel";
             this.lueOperlevel.ShowSButton = true;
             this.lueOperlevel.Size = new System.Drawing.Size(156, 18);
@@ -280,7 +292,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueExecute1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueExecute1.ListWindow = null;
-            this.lueExecute1.Location = new System.Drawing.Point(360, 39);
+            this.lueExecute1.Location = new System.Drawing.Point(345, 39);
             this.lueExecute1.Name = "lueExecute1";
             this.lueExecute1.ShowSButton = true;
             this.lueExecute1.Size = new System.Drawing.Size(156, 18);
@@ -288,7 +300,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(33, 42);
+            this.labelControl7.Location = new System.Drawing.Point(18, 42);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(48, 14);
             this.labelControl7.TabIndex = 89;
@@ -296,7 +308,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl46
             // 
-            this.labelControl46.Location = new System.Drawing.Point(330, 42);
+            this.labelControl46.Location = new System.Drawing.Point(315, 42);
             this.labelControl46.Name = "labelControl46";
             this.labelControl46.Size = new System.Drawing.Size(24, 14);
             this.labelControl46.TabIndex = 89;
@@ -304,7 +316,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl36
             // 
-            this.labelControl36.Location = new System.Drawing.Point(282, 16);
+            this.labelControl36.Location = new System.Drawing.Point(267, 16);
             this.labelControl36.Name = "labelControl36";
             this.labelControl36.Size = new System.Drawing.Size(72, 14);
             this.labelControl36.TabIndex = 66;
@@ -312,17 +324,75 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(57, 15);
+            this.labelControl1.Location = new System.Drawing.Point(42, 15);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(24, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "手术";
             // 
+            // cbMAINOPERATION
+            // 
+            this.cbMAINOPERATION.FormattingEnabled = true;
+            this.cbMAINOPERATION.Items.AddRange(new object[] {
+            "否",
+            "是"});
+            this.cbMAINOPERATION.Location = new System.Drawing.Point(72, 149);
+            this.cbMAINOPERATION.Name = "cbMAINOPERATION";
+            this.cbMAINOPERATION.Size = new System.Drawing.Size(156, 22);
+            this.cbMAINOPERATION.TabIndex = 104;
+            // 
+            // cbIATROGENIC
+            // 
+            this.cbIATROGENIC.FormattingEnabled = true;
+            this.cbIATROGENIC.Items.AddRange(new object[] {
+            "否",
+            "是"});
+            this.cbIATROGENIC.Location = new System.Drawing.Point(345, 149);
+            this.cbIATROGENIC.Name = "cbIATROGENIC";
+            this.cbIATROGENIC.Size = new System.Drawing.Size(156, 22);
+            this.cbIATROGENIC.TabIndex = 105;
+            // 
+            // cbISCHOOSEDATE
+            // 
+            this.cbISCHOOSEDATE.FormattingEnabled = true;
+            this.cbISCHOOSEDATE.Items.AddRange(new object[] {
+            "",
+            "择期手术",
+            "急诊手术"});
+            this.cbISCHOOSEDATE.Location = new System.Drawing.Point(72, 180);
+            this.cbISCHOOSEDATE.Name = "cbISCHOOSEDATE";
+            this.cbISCHOOSEDATE.Size = new System.Drawing.Size(156, 22);
+            this.cbISCHOOSEDATE.TabIndex = 106;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(18, 153);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(48, 14);
+            this.labelControl9.TabIndex = 107;
+            this.labelControl9.Text = "主次标志";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(281, 152);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(60, 14);
+            this.labelControl10.TabIndex = 108;
+            this.labelControl10.Text = "医源性手术";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(18, 184);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(48, 14);
+            this.labelControl11.TabIndex = 109;
+            this.labelControl11.Text = "手术类型";
+            // 
             // IemNewOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 190);
+            this.ClientSize = new System.Drawing.Size(585, 243);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -374,5 +444,11 @@ namespace DrectSoft.Core.IEMMainPage
         private DevTextBoxAndButton.Bwj lueAnaesthesiaUser;
         private DevTextBoxAndButton.Bwj lueCompCode;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private System.Windows.Forms.ComboBox cbIATROGENIC;
+        private System.Windows.Forms.ComboBox cbMAINOPERATION;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private System.Windows.Forms.ComboBox cbISCHOOSEDATE;
     }
 }

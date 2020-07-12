@@ -56,17 +56,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
         }
         private DataTable m_DataOper;
 
-        //private const string SqlAllOper = @"select operation_code,operation_name from iem_mainpage_operation_sx where valid='1'";
-        //private const string PY
-
-        /// <summary>
-        /// 得到手术操作的数据，全部换成手输，按enter键弹出页面，借鉴诊断页面
-        /// </summary>
-        //public void GetOperData()
-        //{
-
-        //}
-
         /// <summary>
         /// 手术信息窗口
         /// </summary>
@@ -122,10 +111,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
         private void IemNewOperInfo_Load(object sender, EventArgs e)
         {
             GetFormLoadData();
-#if DEBUG
-#else
-            HideSbutton();
-#endif
         }
 
         /// <summary>
@@ -386,7 +371,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 if (row["Operation_Date"].ToString() != "")
                 {
                     deOperDate.DateTime = DateTime.Parse(DateTime.Parse(row["Operation_Date"].ToString()).ToShortDateString());
-                    teOperDate.Time = DateTime.Parse(DateTime.Parse(row["Operation_Date"].ToString()).ToShortTimeString());
+                    teOperDate.Time = DateTime.Parse(DateTime.Parse(row["Operation_Date"].ToString()).ToLongTimeString());
                 }
                 lueOperlevel.CodeValue = row["operation_level"].ToString();
                 lueExecute1.CodeValue = row["Execute_User1"].ToString();
@@ -398,10 +383,15 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 lueAnaesthesiaUser.DiaCode = row["Anaesthesia_User"].ToString();
                 lueAnaesthesiaUser.DiaValue = row["Anaesthesia_User_Name"].ToString();
                 lueAnaesthesiaUser.Text = lueAnaesthesiaUser.DiaValue;
+                //医保新增
                 //手术并发症
                 lueCompCode.DiaCode = row["Complication_Code"].ToString();
                 lueCompCode.DiaValue = row["Complication_Name"].ToString();
                 lueCompCode.Text = lueCompCode.DiaValue;
+                //主次标志、医源性手术、手术类型
+                cbMAINOPERATION.SelectedIndex = int.Parse(row["MAINOPERATION"].ToString());
+                cbIATROGENIC.SelectedIndex = int.Parse(row["IATROGENIC"].ToString());
+                cbISCHOOSEDATE.SelectedIndex = int.Parse(row["ISCHOOSEDATE"].ToString());
 
             }
             catch (Exception)
@@ -458,12 +448,22 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 if (!m_DataOper.Columns.Contains("Anaesthesia_User_Name"))
                     m_DataOper.Columns.Add("Anaesthesia_User_Name");
 
+                //医保新增
+                //并发症
                 if (!m_DataOper.Columns.Contains("Complication_Code"))
                     m_DataOper.Columns.Add("Complication_Code");
                 if (!m_DataOper.Columns.Contains("Complication_Name"))
                     m_DataOper.Columns.Add("Complication_Name");
+                //主次标志
                 if (!m_DataOper.Columns.Contains("MAINOPERATION"))
                     m_DataOper.Columns.Add("MAINOPERATION");
+                //医源性手术
+                if (!m_DataOper.Columns.Contains("IATROGENIC"))
+                    m_DataOper.Columns.Add("IATROGENIC");
+                //手术类型
+                if (!m_DataOper.Columns.Contains("ISCHOOSEDATE"))
+                    m_DataOper.Columns.Add("ISCHOOSEDATE");
+
                 #endregion
                 DataRow row = m_DataOper.NewRow();
                 row["Operation_Code"] = lueOperCode.DiaCode;//1.CodeValue;
@@ -472,7 +472,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 row["Complication_Name"] = lueCompCode.DiaValue;
 
                 if (deOperDate.DateTime.CompareTo(DateTime.MinValue) != 0)
-                    row["Operation_Date"] = deOperDate.DateTime.ToShortDateString() + " " + teOperDate.Time.ToShortTimeString();
+                    row["Operation_Date"] = deOperDate.DateTime.ToShortDateString() + " " + teOperDate.Time.ToLongTimeString();
 
                 row["operation_level"] = lueOperlevel.CodeValue;
                 row["operation_level_Name"] = lueOperlevel.DisplayValue;
@@ -488,9 +488,10 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 row["Close_Level_Name"] = lueCloseLevel.DisplayValue;
                 row["Anaesthesia_User"] = lueAnaesthesiaUser.DiaCode;//.CodeValue;
                 row["Anaesthesia_User_Name"] = lueAnaesthesiaUser.DiaValue;//.DisplayValue;
-                row["MAINOPERATION"] = "";
+                row["MAINOPERATION"] = cbMAINOPERATION.SelectedIndex.ToString();
+                row["IATROGENIC"] = cbIATROGENIC.SelectedIndex.ToString();
+                row["ISCHOOSEDATE"] = cbISCHOOSEDATE.SelectedIndex.ToString();
                 m_DataOper.Rows.Add(row);
-                //m_DataOper.AcceptChanges();
 
             }
             catch (Exception)

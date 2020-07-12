@@ -1168,12 +1168,6 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        ORDER BY order_value;
   
     --手术
-    /*    OPEN o_result2 FOR
-    SELECT *
-      FROM iem_mainpage_operation
-     WHERE iem_mainpage_no = v_infono
-       AND valide = 1;*/
-  
     OPEN o_result2 FOR
     
       SELECT iem.iem_mainpage_operation_no,
@@ -1235,7 +1229,10 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
              iem.cancel_time,
              iem.operintimes,
              iem.complication_code,
-             iem.complication_name
+             iem.complication_name,
+             iem.mainoperation,
+             iem.iatrogenic,
+             iem.ischoosedate
         FROM iem_mainpage_operation_sx iem
         left join users u1
           on iem.execute_user1 = u1.id
@@ -1283,13 +1280,15 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
                                           v_anaesthesia_type_id NUMERIC,
                                           v_close_level         NUMERIC,
                                           v_anaesthesia_user    VARCHAR,
-                                          --v_Valide numeric ,
                                           v_create_user     VARCHAR,
                                           v_OPERATION_LEVEL varchar,
                                           v_OperInTimes     VARCHAR2,
                                           v_Complication_Code VARCHAR,
-                                          v_Complication_Name VARCHAR
-                                          ) AS /**********                                                                                        **********/
+                                          v_Complication_Name VARCHAR,
+                                          v_MAINOPERATION VARCHAR,
+                                          v_IATROGENIC VARCHAR,
+                                          v_ISCHOOSEDATE VARCHAR
+                                          ) AS 
   BEGIN
     INSERT INTO iem_mainpage_operation_sx
       (iem_mainpage_operation_no,
@@ -1309,29 +1308,32 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        OPERATION_LEVEL,
        operintimes,
        Complication_Code,
-       Complication_Name)
+       Complication_Name,
+       iem_mainpage_operation_sx.mainoperation,
+       iem_mainpage_operation_sx.iatrogenic,
+       iem_mainpage_operation_sx.ischoosedate)
     VALUES
       (seq_iem_mainpage_operation_id.NEXTVAL,
-       v_iem_mainpage_no, --numeric
-       v_operation_code, -- varchar(60)
+       v_iem_mainpage_no,
+       v_operation_code,
        v_operation_date,
-       -- varchar(19)
-       v_operation_name, -- varchar(300)
-       v_execute_user1, -- varchar(20)
+       v_operation_name, 
+       v_execute_user1,
        v_execute_user2,
-       -- varchar(20)
-       v_execute_user3, -- varchar(20)
-       v_anaesthesia_type_id, -- numeric
+       v_execute_user3,
+       v_anaesthesia_type_id,
        v_close_level,
-       -- numeric
-       v_anaesthesia_user, -- varchar(20)
-       1, -- numeric
-       v_create_user, -- varchar(10)
+       v_anaesthesia_user, 
+       1,
+       v_create_user, 
        TO_CHAR(SYSDATE, 'yyyy-mm-dd HH24:mi:ss'),
        v_OPERATION_LEVEL,
        v_OperInTimes,
        v_Complication_Code,
-       v_Complication_Name);
+       v_Complication_Name,
+       v_MAINOPERATION,
+       v_IATROGENIC,
+       v_ISCHOOSEDATE);
   END;
 
   /*********************************************************************************/
