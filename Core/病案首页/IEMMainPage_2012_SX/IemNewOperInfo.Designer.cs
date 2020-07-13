@@ -31,13 +31,17 @@ namespace DrectSoft.Core.IEMMainPage
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IemNewOperInfo));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.cbISCHOOSEDATE = new System.Windows.Forms.ComboBox();
+            this.cbIATROGENIC = new System.Windows.Forms.ComboBox();
+            this.cbMAINOPERATION = new System.Windows.Forms.ComboBox();
             this.lueCompCode = new DevTextBoxAndButton.Bwj(this.components);
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.lueAnaesthesiaUser = new DevTextBoxAndButton.Bwj(this.components);
             this.lueOperCode = new DevTextBoxAndButton.Bwj(this.components);
-            this.teOperDate = new DevExpress.XtraEditors.TimeEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.deOperDate = new DevExpress.XtraEditors.DateEdit();
             this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lueCloseLevel = new DrectSoft.Common.Library.LookUpEditor();
@@ -52,29 +56,34 @@ namespace DrectSoft.Core.IEMMainPage
             this.lueExecute1 = new DrectSoft.Common.Library.LookUpEditor();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl46 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cbMAINOPERATION = new System.Windows.Forms.ComboBox();
-            this.cbIATROGENIC = new System.Windows.Forms.ComboBox();
-            this.cbISCHOOSEDATE = new System.Windows.Forms.ComboBox();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl36 = new DevExpress.XtraEditors.LabelControl();
+            this.deOperDate = new DevExpress.XtraEditors.DateEdit();
+            this.teOperDate = new DevExpress.XtraEditors.TimeEdit();
+            this.teOperEndDate = new DevExpress.XtraEditors.TimeEdit();
+            this.deOperEndDate = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCloseLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAnaesthesiaType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOperlevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teOperEndDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperEndDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperEndDate.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.teOperEndDate);
+            this.panelControl1.Controls.Add(this.deOperEndDate);
+            this.panelControl1.Controls.Add(this.labelControl12);
             this.panelControl1.Controls.Add(this.labelControl11);
             this.panelControl1.Controls.Add(this.labelControl10);
             this.panelControl1.Controls.Add(this.labelControl9);
@@ -110,13 +119,71 @@ namespace DrectSoft.Core.IEMMainPage
             this.panelControl1.Size = new System.Drawing.Size(585, 243);
             this.panelControl1.TabIndex = 0;
             // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(291, 182);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(48, 14);
+            this.labelControl11.TabIndex = 109;
+            this.labelControl11.Text = "手术类型";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(281, 151);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(60, 14);
+            this.labelControl10.TabIndex = 108;
+            this.labelControl10.Text = "医源性手术";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(18, 183);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(48, 14);
+            this.labelControl9.TabIndex = 107;
+            this.labelControl9.Text = "主次标志";
+            // 
+            // cbISCHOOSEDATE
+            // 
+            this.cbISCHOOSEDATE.FormattingEnabled = true;
+            this.cbISCHOOSEDATE.Items.AddRange(new object[] {
+            "",
+            "择期手术",
+            "急诊手术"});
+            this.cbISCHOOSEDATE.Location = new System.Drawing.Point(345, 178);
+            this.cbISCHOOSEDATE.Name = "cbISCHOOSEDATE";
+            this.cbISCHOOSEDATE.Size = new System.Drawing.Size(156, 22);
+            this.cbISCHOOSEDATE.TabIndex = 106;
+            // 
+            // cbIATROGENIC
+            // 
+            this.cbIATROGENIC.FormattingEnabled = true;
+            this.cbIATROGENIC.Items.AddRange(new object[] {
+            "否",
+            "是"});
+            this.cbIATROGENIC.Location = new System.Drawing.Point(345, 148);
+            this.cbIATROGENIC.Name = "cbIATROGENIC";
+            this.cbIATROGENIC.Size = new System.Drawing.Size(156, 22);
+            this.cbIATROGENIC.TabIndex = 105;
+            // 
+            // cbMAINOPERATION
+            // 
+            this.cbMAINOPERATION.FormattingEnabled = true;
+            this.cbMAINOPERATION.Items.AddRange(new object[] {
+            "否",
+            "是"});
+            this.cbMAINOPERATION.Location = new System.Drawing.Point(72, 179);
+            this.cbMAINOPERATION.Name = "cbMAINOPERATION";
+            this.cbMAINOPERATION.Size = new System.Drawing.Size(156, 22);
+            this.cbMAINOPERATION.TabIndex = 104;
+            // 
             // lueCompCode
             // 
             this.lueCompCode.BackColor = System.Drawing.SystemColors.HighlightText;
             this.lueCompCode.DiaCode = "";
             this.lueCompCode.DiaValue = "";
             this.lueCompCode.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lueCompCode.Location = new System.Drawing.Point(345, 117);
+            this.lueCompCode.Location = new System.Drawing.Point(72, 148);
             this.lueCompCode.Name = "lueCompCode";
             this.lueCompCode.Size = new System.Drawing.Size(156, 22);
             this.lueCompCode.TabIndex = 103;
@@ -125,7 +192,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(281, 120);
+            this.labelControl8.Location = new System.Drawing.Point(8, 151);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(60, 14);
             this.labelControl8.TabIndex = 102;
@@ -157,17 +224,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.lueOperCode.WaterText = "请按回车键检索";
             this.lueOperCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lueOperCode_KeyPress);
             // 
-            // teOperDate
-            // 
-            this.teOperDate.EditValue = new System.DateTime(2020, 7, 9, 0, 0, 0, 0);
-            this.teOperDate.Location = new System.Drawing.Point(500, 12);
-            this.teOperDate.Name = "teOperDate";
-            this.teOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.teOperDate.Properties.Mask.EditMask = "HH:mm:ss";
-            this.teOperDate.Size = new System.Drawing.Size(79, 20);
-            this.teOperDate.TabIndex = 3;
-            // 
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(414, 205);
@@ -176,18 +232,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // deOperDate
-            // 
-            this.deOperDate.EditValue = null;
-            this.deOperDate.Location = new System.Drawing.Point(345, 12);
-            this.deOperDate.Name = "deOperDate";
-            this.deOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deOperDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.deOperDate.Size = new System.Drawing.Size(156, 20);
-            this.deOperDate.TabIndex = 1;
             // 
             // btnConfirm
             // 
@@ -228,7 +272,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueAnaesthesiaType.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueAnaesthesiaType.ListWindow = null;
-            this.lueAnaesthesiaType.Location = new System.Drawing.Point(72, 93);
+            this.lueAnaesthesiaType.Location = new System.Drawing.Point(345, 121);
             this.lueAnaesthesiaType.Name = "lueAnaesthesiaType";
             this.lueAnaesthesiaType.ShowSButton = true;
             this.lueAnaesthesiaType.Size = new System.Drawing.Size(156, 18);
@@ -236,7 +280,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(18, 94);
+            this.labelControl6.Location = new System.Drawing.Point(291, 122);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(48, 14);
             this.labelControl6.TabIndex = 95;
@@ -246,7 +290,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueExecute3.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueExecute3.ListWindow = null;
-            this.lueExecute3.Location = new System.Drawing.Point(345, 66);
+            this.lueExecute3.Location = new System.Drawing.Point(72, 93);
             this.lueExecute3.Name = "lueExecute3";
             this.lueExecute3.ShowSButton = true;
             this.lueExecute3.Size = new System.Drawing.Size(156, 18);
@@ -254,7 +298,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(319, 67);
+            this.labelControl3.Location = new System.Drawing.Point(46, 94);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(20, 14);
             this.labelControl3.TabIndex = 93;
@@ -264,7 +308,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueExecute2.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueExecute2.ListWindow = null;
-            this.lueExecute2.Location = new System.Drawing.Point(72, 66);
+            this.lueExecute2.Location = new System.Drawing.Point(345, 64);
             this.lueExecute2.Name = "lueExecute2";
             this.lueExecute2.ShowSButton = true;
             this.lueExecute2.Size = new System.Drawing.Size(156, 18);
@@ -272,7 +316,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(50, 67);
+            this.labelControl2.Location = new System.Drawing.Point(323, 65);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(16, 14);
             this.labelControl2.TabIndex = 91;
@@ -292,7 +336,7 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             this.lueExecute1.Kind = DrectSoft.Wordbook.WordbookKind.Sql;
             this.lueExecute1.ListWindow = null;
-            this.lueExecute1.Location = new System.Drawing.Point(345, 39);
+            this.lueExecute1.Location = new System.Drawing.Point(72, 66);
             this.lueExecute1.Name = "lueExecute1";
             this.lueExecute1.ShowSButton = true;
             this.lueExecute1.Size = new System.Drawing.Size(156, 18);
@@ -308,19 +352,11 @@ namespace DrectSoft.Core.IEMMainPage
             // 
             // labelControl46
             // 
-            this.labelControl46.Location = new System.Drawing.Point(315, 42);
+            this.labelControl46.Location = new System.Drawing.Point(42, 69);
             this.labelControl46.Name = "labelControl46";
             this.labelControl46.Size = new System.Drawing.Size(24, 14);
             this.labelControl46.TabIndex = 89;
             this.labelControl46.Text = "术者";
-            // 
-            // labelControl36
-            // 
-            this.labelControl36.Location = new System.Drawing.Point(267, 16);
-            this.labelControl36.Name = "labelControl36";
-            this.labelControl36.Size = new System.Drawing.Size(72, 14);
-            this.labelControl36.TabIndex = 66;
-            this.labelControl36.Text = "手术操作日期";
             // 
             // labelControl1
             // 
@@ -330,63 +366,67 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "手术";
             // 
-            // cbMAINOPERATION
+            // labelControl36
             // 
-            this.cbMAINOPERATION.FormattingEnabled = true;
-            this.cbMAINOPERATION.Items.AddRange(new object[] {
-            "否",
-            "是"});
-            this.cbMAINOPERATION.Location = new System.Drawing.Point(72, 149);
-            this.cbMAINOPERATION.Name = "cbMAINOPERATION";
-            this.cbMAINOPERATION.Size = new System.Drawing.Size(156, 22);
-            this.cbMAINOPERATION.TabIndex = 104;
+            this.labelControl36.Location = new System.Drawing.Point(267, 16);
+            this.labelControl36.Name = "labelControl36";
+            this.labelControl36.Size = new System.Drawing.Size(72, 14);
+            this.labelControl36.TabIndex = 66;
+            this.labelControl36.Text = "手术操作日期";
             // 
-            // cbIATROGENIC
+            // deOperDate
             // 
-            this.cbIATROGENIC.FormattingEnabled = true;
-            this.cbIATROGENIC.Items.AddRange(new object[] {
-            "否",
-            "是"});
-            this.cbIATROGENIC.Location = new System.Drawing.Point(345, 149);
-            this.cbIATROGENIC.Name = "cbIATROGENIC";
-            this.cbIATROGENIC.Size = new System.Drawing.Size(156, 22);
-            this.cbIATROGENIC.TabIndex = 105;
+            this.deOperDate.EditValue = null;
+            this.deOperDate.Location = new System.Drawing.Point(345, 12);
+            this.deOperDate.Name = "deOperDate";
+            this.deOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deOperDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deOperDate.Size = new System.Drawing.Size(156, 20);
+            this.deOperDate.TabIndex = 1;
             // 
-            // cbISCHOOSEDATE
+            // teOperDate
             // 
-            this.cbISCHOOSEDATE.FormattingEnabled = true;
-            this.cbISCHOOSEDATE.Items.AddRange(new object[] {
-            "",
-            "择期手术",
-            "急诊手术"});
-            this.cbISCHOOSEDATE.Location = new System.Drawing.Point(72, 180);
-            this.cbISCHOOSEDATE.Name = "cbISCHOOSEDATE";
-            this.cbISCHOOSEDATE.Size = new System.Drawing.Size(156, 22);
-            this.cbISCHOOSEDATE.TabIndex = 106;
+            this.teOperDate.EditValue = new System.DateTime(2020, 7, 9, 0, 0, 0, 0);
+            this.teOperDate.Location = new System.Drawing.Point(500, 12);
+            this.teOperDate.Name = "teOperDate";
+            this.teOperDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.teOperDate.Properties.Mask.EditMask = "HH:mm:ss";
+            this.teOperDate.Size = new System.Drawing.Size(79, 20);
+            this.teOperDate.TabIndex = 3;
             // 
-            // labelControl9
+            // teOperEndDate
             // 
-            this.labelControl9.Location = new System.Drawing.Point(18, 153);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(48, 14);
-            this.labelControl9.TabIndex = 107;
-            this.labelControl9.Text = "主次标志";
+            this.teOperEndDate.EditValue = new System.DateTime(2020, 7, 9, 0, 0, 0, 0);
+            this.teOperEndDate.Location = new System.Drawing.Point(500, 38);
+            this.teOperEndDate.Name = "teOperEndDate";
+            this.teOperEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.teOperEndDate.Properties.Mask.EditMask = "HH:mm:ss";
+            this.teOperEndDate.Size = new System.Drawing.Size(79, 20);
+            this.teOperEndDate.TabIndex = 111;
             // 
-            // labelControl10
+            // deOperEndDate
             // 
-            this.labelControl10.Location = new System.Drawing.Point(281, 152);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(60, 14);
-            this.labelControl10.TabIndex = 108;
-            this.labelControl10.Text = "医源性手术";
+            this.deOperEndDate.EditValue = null;
+            this.deOperEndDate.Location = new System.Drawing.Point(345, 38);
+            this.deOperEndDate.Name = "deOperEndDate";
+            this.deOperEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deOperEndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.deOperEndDate.Size = new System.Drawing.Size(156, 20);
+            this.deOperEndDate.TabIndex = 110;
             // 
-            // labelControl11
+            // labelControl12
             // 
-            this.labelControl11.Location = new System.Drawing.Point(18, 184);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(48, 14);
-            this.labelControl11.TabIndex = 109;
-            this.labelControl11.Text = "手术类型";
+            this.labelControl12.Location = new System.Drawing.Point(267, 42);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(72, 14);
+            this.labelControl12.TabIndex = 112;
+            this.labelControl12.Text = "手术结束日期";
             // 
             // IemNewOperInfo
             // 
@@ -405,15 +445,18 @@ namespace DrectSoft.Core.IEMMainPage
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueCloseLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAnaesthesiaType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueOperlevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueExecute1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teOperDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teOperEndDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperEndDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deOperEndDate.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,9 +465,6 @@ namespace DrectSoft.Core.IEMMainPage
 
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TimeEdit teOperDate;
-        private DevExpress.XtraEditors.DateEdit deOperDate;
-        private DevExpress.XtraEditors.LabelControl labelControl36;
         private DrectSoft.Common.Library.LookUpEditor lueExecute1;
         private DevExpress.XtraEditors.LabelControl labelControl46;
         private DrectSoft.Common.Library.LookUpEditor lueExecute3;
@@ -450,5 +490,11 @@ namespace DrectSoft.Core.IEMMainPage
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private System.Windows.Forms.ComboBox cbISCHOOSEDATE;
+        private DevExpress.XtraEditors.TimeEdit teOperEndDate;
+        private DevExpress.XtraEditors.DateEdit deOperEndDate;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TimeEdit teOperDate;
+        private DevExpress.XtraEditors.DateEdit deOperDate;
+        private DevExpress.XtraEditors.LabelControl labelControl36;
     }
 }

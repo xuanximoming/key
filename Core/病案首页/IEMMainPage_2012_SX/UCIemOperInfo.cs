@@ -189,6 +189,7 @@ namespace DrectSoft.Core.IEMMainPage
                         imOut["Operation_Code"] = row["Operation_Code"].ToString();
                         imOut["Operation_Name"] = row["Operation_Name"].ToString();
                         imOut["Operation_Date"] = row["Operation_Date"].ToString();
+                        imOut["Operation_EndDate"] = row["Operation_EndDate"].ToString();
                         imOut["operation_level"] = row["operation_level"].ToString();
                         imOut["operation_level_Name"] = row["operation_level_Name"].ToString();
                         imOut["Execute_User1"] = row["Execute_User1"].ToString();
@@ -379,7 +380,6 @@ namespace DrectSoft.Core.IEMMainPage
                 if (m_OperInfoFrom.ShowDialog() == DialogResult.OK)
                 {
                     m_OperInfoFrom.IemOperInfo = null;
-                    //dataTableOper.Rows.Remove(dataRow);
                     DataTable dtReturn = m_OperInfoFrom.DataOper;
                     //遍历选中行所在表的列若返回表中有该行则更新选中行的该列
                     foreach (DataColumn item in dataRow.Table.Columns)

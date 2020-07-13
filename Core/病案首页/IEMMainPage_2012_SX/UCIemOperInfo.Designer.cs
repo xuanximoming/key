@@ -32,7 +32,6 @@
             this.btnAddOperation = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridViewOper = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,6 +51,10 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -121,9 +124,7 @@
             this.txtintervaldate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -211,7 +212,8 @@
             this.gridColumn13,
             this.gridColumn20,
             this.gridColumn21,
-            this.gridColumn22});
+            this.gridColumn22,
+            this.gridColumn23});
             this.gridViewOper.GridControl = this.gridControl1;
             this.gridViewOper.Name = "gridViewOper";
             this.gridViewOper.OptionsCustomization.AllowColumnMoving = false;
@@ -227,12 +229,6 @@
             this.gridViewOper.OptionsView.ShowGroupPanel = false;
             this.gridViewOper.OptionsView.ShowIndicator = false;
             this.gridViewOper.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gridControl1_MouseUp);
-            // 
-            // repositoryItemCheckEdit1
-            // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Caption = "Check";
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // gridColumn1
             // 
@@ -393,6 +389,30 @@
             this.gridColumn13.Caption = "手术并发症";
             this.gridColumn13.FieldName = "Complication_Name";
             this.gridColumn13.Name = "gridColumn13";
+            // 
+            // gridColumn20
+            // 
+            this.gridColumn20.Caption = "主次标志";
+            this.gridColumn20.FieldName = "MAINOPERATION";
+            this.gridColumn20.Name = "gridColumn20";
+            // 
+            // gridColumn21
+            // 
+            this.gridColumn21.Caption = "医源性手术";
+            this.gridColumn21.FieldName = "IATROGENIC";
+            this.gridColumn21.Name = "gridColumn21";
+            // 
+            // gridColumn22
+            // 
+            this.gridColumn22.Caption = "手术类型";
+            this.gridColumn22.FieldName = "ISCHOOSEDATE";
+            this.gridColumn22.Name = "gridColumn22";
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Caption = "Check";
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // barManager1
             // 
@@ -1063,23 +1083,11 @@
             this.labelControl12.TabIndex = 286;
             this.labelControl12.Text = "天";
             // 
-            // gridColumn21
+            // gridColumn23
             // 
-            this.gridColumn21.Caption = "医源性手术";
-            this.gridColumn21.FieldName = "IATROGENIC";
-            this.gridColumn21.Name = "gridColumn21";
-            // 
-            // gridColumn22
-            // 
-            this.gridColumn22.Caption = "手术类型";
-            this.gridColumn22.FieldName = "ISCHOOSEDATE";
-            this.gridColumn22.Name = "gridColumn22";
-            // 
-            // gridColumn20
-            // 
-            this.gridColumn20.Caption = "主次标志";
-            this.gridColumn20.FieldName = "MAINOPERATION";
-            this.gridColumn20.Name = "gridColumn20";
+            this.gridColumn23.Caption = "手术结束日期";
+            this.gridColumn23.FieldName = "Operation_EndDate";
+            this.gridColumn23.Name = "gridColumn23";
             // 
             // UCIemOperInfo
             // 
@@ -1294,5 +1302,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
     }
 }

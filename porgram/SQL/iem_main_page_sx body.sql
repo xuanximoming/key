@@ -1232,7 +1232,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
              iem.complication_name,
              iem.mainoperation,
              iem.iatrogenic,
-             iem.ischoosedate
+             iem.ischoosedate,
+             iem.operation_enddate
         FROM iem_mainpage_operation_sx iem
         left join users u1
           on iem.execute_user1 = u1.id
@@ -1273,6 +1274,7 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
   PROCEDURE usp_edit_iem_mainpage_oper_sx(v_iem_mainpage_no     NUMERIC,
                                           v_operation_code      VARCHAR,
                                           v_operation_date      VARCHAR,
+                                          v_operation_enddate   VARCHAR,
                                           v_operation_name      VARCHAR,
                                           v_execute_user1       VARCHAR,
                                           v_execute_user2       VARCHAR,
@@ -1311,7 +1313,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        Complication_Name,
        iem_mainpage_operation_sx.mainoperation,
        iem_mainpage_operation_sx.iatrogenic,
-       iem_mainpage_operation_sx.ischoosedate)
+       iem_mainpage_operation_sx.ischoosedate,
+       iem_mainpage_operation_sx.operation_enddate)
     VALUES
       (seq_iem_mainpage_operation_id.NEXTVAL,
        v_iem_mainpage_no,
@@ -1333,7 +1336,8 @@ CREATE OR REPLACE PACKAGE BODY iem_main_page_sx IS
        v_Complication_Name,
        v_MAINOPERATION,
        v_IATROGENIC,
-       v_ISCHOOSEDATE);
+       v_ISCHOOSEDATE,
+       v_operation_enddate);
   END;
 
   /*********************************************************************************/

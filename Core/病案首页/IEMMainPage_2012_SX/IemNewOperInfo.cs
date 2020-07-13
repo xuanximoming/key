@@ -82,12 +82,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
             }
         }
 
-        public void GetFocus()
-        {
-            this.deOperDate.Focus();
-        }
-
-
         private DataTable dtOper = new DataTable();
         private DataTable dtDoc = new DataTable();
         private DataTable dtDiag = new DataTable();
@@ -366,13 +360,18 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                 lueOperCode.DiaValue = row["Operation_Name"].ToString();
                 lueOperCode.Text = lueOperCode.DiaValue;
 
-
-
                 if (row["Operation_Date"].ToString() != "")
                 {
                     deOperDate.DateTime = DateTime.Parse(DateTime.Parse(row["Operation_Date"].ToString()).ToShortDateString());
                     teOperDate.Time = DateTime.Parse(DateTime.Parse(row["Operation_Date"].ToString()).ToLongTimeString());
                 }
+
+                if (row["Operation_EndDate"].ToString() != "")
+                {
+                    deOperEndDate.DateTime = DateTime.Parse(DateTime.Parse(row["Operation_EndDate"].ToString()).ToShortDateString());
+                    teOperEndDate.Time = DateTime.Parse(DateTime.Parse(row["Operation_EndDate"].ToString()).ToLongTimeString());
+                }
+
                 lueOperlevel.CodeValue = row["operation_level"].ToString();
                 lueExecute1.CodeValue = row["Execute_User1"].ToString();
                 lueExecute2.CodeValue = row["Execute_User2"].ToString();
@@ -410,6 +409,8 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     m_DataOper.Columns.Add("Operation_Code");
                 if (!m_DataOper.Columns.Contains("Operation_Date"))
                     m_DataOper.Columns.Add("Operation_Date");
+                if (!m_DataOper.Columns.Contains("Operation_EndDate"))
+                    m_DataOper.Columns.Add("Operation_EndDate");
                 if (!m_DataOper.Columns.Contains("Operation_Name"))
                     m_DataOper.Columns.Add("Operation_Name");
 
@@ -473,6 +474,9 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
 
                 if (deOperDate.DateTime.CompareTo(DateTime.MinValue) != 0)
                     row["Operation_Date"] = deOperDate.DateTime.ToShortDateString() + " " + teOperDate.Time.ToLongTimeString();
+
+                if (deOperEndDate.DateTime.CompareTo(DateTime.MinValue) != 0)
+                    row["Operation_EndDate"] = deOperEndDate.DateTime.ToShortDateString() + " " + teOperEndDate.Time.ToLongTimeString();
 
                 row["operation_level"] = lueOperlevel.CodeValue;
                 row["operation_level_Name"] = lueOperlevel.DisplayValue;

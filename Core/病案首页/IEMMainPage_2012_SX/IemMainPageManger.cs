@@ -2016,6 +2016,8 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraOperation_Code.Value = info["Operation_Code"];
             SqlParameter paraOperation_Date = new SqlParameter("@Operation_Date", SqlDbType.VarChar, 19);
             paraOperation_Date.Value = info["Operation_Date"];
+            SqlParameter paraOperation_EndDate = new SqlParameter("@Operation_EndDate", SqlDbType.VarChar, 19);
+            paraOperation_EndDate.Value = info["Operation_EndDate"];
             SqlParameter paraOperation_Name = new SqlParameter("@Operation_Name", SqlDbType.VarChar, 300);
             paraOperation_Name.Value = info["Operation_Name"];
             SqlParameter paraExecute_User1 = new SqlParameter("@Execute_User1", SqlDbType.VarChar, 20);
@@ -2048,7 +2050,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             paraISCHOOSEDATE.Value = info["ISCHOOSEDATE"];
 
 
-            SqlParameter[] paraColl = new SqlParameter[] { paraIem_Mainpage_NO, paraOperation_Code, paraOperation_Date, paraOperation_Name, 
+            SqlParameter[] paraColl = new SqlParameter[] { paraIem_Mainpage_NO, paraOperation_Code, paraOperation_Date,paraOperation_EndDate,paraOperation_Name, 
                 paraExecute_User1, paraExecute_User2, paraExecute_User3,paraAnaesthesia_Type_Id,paraClose_Level,paraAnaesthesia_User,paraCreate_User,
                 paraOPERATION_LEVEL,OperInTimes,paraComplicatio_Code,paraComplicatio_Name,paraMAINOPERATION,paraIATROGENIC,paraISCHOOSEDATE };
 
