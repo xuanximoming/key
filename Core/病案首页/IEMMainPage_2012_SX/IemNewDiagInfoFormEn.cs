@@ -106,7 +106,6 @@ namespace DrectSoft.Core.IEMMainPage
             try
             {
                 m_App = app;
-                //InitLookUpEditor();
                 m_OPETYPE = operatetype;
                 m_DIAGCODE = diagcode;
                 m_STATUSID = status;
@@ -366,14 +365,6 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
                         dtXY.DefaultView.RowFilter = filter;
 
                         int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
-
-                        if (dataResult > 0)
-                        {
-                            bwj1.DiaValue = bwj1.Text.Trim();
-                            bwj1.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                            //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
-
-                        }
                         if (dataResult == 0)
                         {
                             bwj1.DiaValue = bwj1.Text.Trim();
@@ -390,25 +381,6 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
         }
 
 
-        /// <summary>
-        /// 判断是中医还是西医 绑定数据源
-        /// </summary>
-        //private void InitLookUpEditor()
-        //{
-        //    try
-        //    {
-        //        if (chkDiagType1.Checked)
-        //        {
-        //            BindLueData(lueOutDiag, Diagnosis);
-        //            DiagnosisType = "1";
-        //        }
-        //        lueOutDiag.CodeValue = "";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw;
-        //    }
-        //}
         #region 绑定LUE
         private void BindLueData(LookUpEditor lueInfo, DataTable table)
         {

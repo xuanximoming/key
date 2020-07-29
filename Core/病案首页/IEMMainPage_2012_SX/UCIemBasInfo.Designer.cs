@@ -471,6 +471,9 @@
             this.txtContactTEL.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtContactTEL.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtContactTEL.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtContactTEL.Properties.Mask.EditMask = "[0-9]*";
+            this.txtContactTEL.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtContactTEL.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtContactTEL.Size = new System.Drawing.Size(101, 18);
             this.txtContactTEL.TabIndex = 25;
             // 
@@ -1114,6 +1117,9 @@
             this.txtOfficeTEL.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtOfficeTEL.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtOfficeTEL.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtOfficeTEL.Properties.Mask.EditMask = "[0-9]*";
+            this.txtOfficeTEL.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtOfficeTEL.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtOfficeTEL.Size = new System.Drawing.Size(79, 18);
             this.txtOfficeTEL.TabIndex = 17;
             // 
@@ -1135,6 +1141,9 @@
             this.txtOfficePost.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.White;
             this.txtOfficePost.Properties.AppearanceReadOnly.Options.UseBackColor = true;
             this.txtOfficePost.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtOfficePost.Properties.Mask.EditMask = "[0-9]*";
+            this.txtOfficePost.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtOfficePost.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtOfficePost.Size = new System.Drawing.Size(61, 18);
             this.txtOfficePost.TabIndex = 18;
             // 

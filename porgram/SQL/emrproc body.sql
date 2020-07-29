@@ -2678,7 +2678,7 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
                                    v_InpatName     VARCHAR DEFAULT '',
                                    v_datetimebegin VARCHAR,
                                    v_datetimeend   VARCHAR,
-                                   v_userid   VARCHAR,
+                                   v_userid        VARCHAR,
                                    v_qcstattype    INT,
                                    o_result        OUT empcurtyp) AS
     /**********
@@ -2708,7 +2708,7 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
     if v_InpatName IS NULL then
       myv_userid := v_userid;
     else
-        myv_userid := '%';
+      myv_userid := '%';
     end if;
     IF v_qcstattype = 1 THEN
       --出院未归档病历
@@ -2758,19 +2758,20 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
             ON de.ID = inp.outhosdept
           LEFT JOIN diagnosis diag
             ON diag.markid = inp.admitdiagnosis
-         WHERE 
-         inp.status in ('1502', '1503')
-         AND (inp.islock IN (4700, 4702, 4703) or inp.islock is null)
-        
-         AND trunc(to_date(inp.outhosdate, 'yyyy-mm-dd hh24:mi:ss')) >=
-         to_date(v_datetimebegin || ' 00:00:00', 'yyyy-mm-dd hh24:mi:ss')
-         AND trunc(to_date(inp.outhosdate, 'yyyy-mm-dd hh24:mi:ss')) <=
-         to_date(v_datetimeend || ' 23:59:59', 'yyyy-mm-dd hh24:mi:ss')
-        
-         AND (TO_CHAR(outhosdept) = v_deptcode OR v_deptcode = '' OR
-         v_deptcode IS NULL)
-         AND (inp.patid like '%' || v_InpatName || '%')
-         and inp.attend like '%' || myv_userid || '%'
+         WHERE inp.status in ('1502', '1503')
+           AND (inp.islock IN (4700, 4702, 4703) or inp.islock is null)
+              
+           AND trunc(to_date(inp.outhosdate, 'yyyy-mm-dd hh24:mi:ss')) >=
+               to_date(v_datetimebegin || ' 00:00:00',
+                       'yyyy-mm-dd hh24:mi:ss')
+           AND trunc(to_date(inp.outhosdate, 'yyyy-mm-dd hh24:mi:ss')) <=
+               to_date(v_datetimeend || ' 23:59:59',
+                       'yyyy-mm-dd hh24:mi:ss')
+              
+           AND (TO_CHAR(outhosdept) = v_deptcode OR v_deptcode = '' OR
+               v_deptcode IS NULL)
+           AND (inp.patid like '%' || v_InpatName || '%')
+           and inp.attend like '%' || myv_userid || '%'
         
          ORDER BY inp.noofinpat;
     ELSIF v_qcstattype = 2 THEN
@@ -3139,21 +3140,21 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
   PROCEDURE usp_getlookupeditordata(v_querytype NUMERIC, --查询的类型
                                     v_queryid   NUMERIC DEFAULT 0,
                                     o_result    OUT empcurtyp) AS /**********
-                                                              版本号  1.0.0.0.0
-                                                              创建时间
-                                                              作者
-                                                              版权
-                                                              描述  获取需要在lookupeditor里显示的数据,最好包括ID，Name,Py,Memo，这样可以在APP里调用时用统一的方法
-                                                              功能说明
-                                                              输入参数
-                                                              输出参数
-                                                              结果集、排序
-  
-                                                              调用的sp
-                                                              调用实例
-  
-                                                              修改记录
-                                                              **********/
+                                                                  版本号  1.0.0.0.0
+                                                                  创建时间
+                                                                  作者
+                                                                  版权
+                                                                  描述  获取需要在lookupeditor里显示的数据,最好包括ID，Name,Py,Memo，这样可以在APP里调用时用统一的方法
+                                                                  功能说明
+                                                                  输入参数
+                                                                  输出参数
+                                                                  结果集、排序
+      
+                                                                  调用的sp
+                                                                  调用实例
+      
+                                                                  修改记录
+                                                                  **********/
   BEGIN
     IF v_querytype = 1 THEN
       --病人性质(即 医疗付款方式)
@@ -3279,9 +3280,9 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
       --诊断，所有
       OPEN o_result FOR
       /*SELECT icd AS ID, NAME, py, WB, memo, icd
-                            FROM diagnosis
-                           WHERE valid = 1
-                           ORDER BY ID;*/
+                                        FROM diagnosis
+                                       WHERE valid = 1
+                                       ORDER BY ID;*/
         SELECT icd AS ID, NAME, py, WB, memo, icd
           FROM diagnosis
          WHERE valid = 1
@@ -3399,9 +3400,9 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
       --手术，所有
       OPEN o_result FOR
       /* select ID, NAME, py, memo
-                from operation
-               WHERE valid = 1
-               ORDER BY ID;*/
+                            from operation
+                           WHERE valid = 1
+                           ORDER BY ID;*/
         select ID, NAME, py, memo
           from operation
          WHERE valid = 1
@@ -4564,8 +4565,8 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
          and (rd.islock IN (v_status) or rd.islock is null)
          and (id.diagnosis_code = v_outdiag or v_outdiag = '' or
               v_outdiag is null) /**
-                                                                                                          or (idd.diagnosis_code = v_outdiag or v_outdiag = '' or
-                                                                                                              v_outdiag is null)) **/
+                                                                                                                                  or (idd.diagnosis_code = v_outdiag or v_outdiag = '' or
+                                                                                                                                      v_outdiag is null)) **/
             -- by cyq 2012-12-07
          and id.diagnosis_type_id in ('7', '8')
             --and (id.diagnosis_type_id in ('7','8') or id.diagnosis_type_id = '' or id.diagnosis_type_id is null)
@@ -5312,28 +5313,28 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
   PROCEDURE usp_gettemplatepersongroup(v_userid  VARCHAR DEFAULT '',
                                        o_result  OUT empcurtyp,
                                        o_result1 OUT empcurtyp) AS /**********
-                                                                                           版本号  1.0.0.0.0
-                                                                                           创建时间
-                                                                                           作者
-                                                                                           版权
-                                                                                           描述  获取质量评分
-                                                                                           功能说明
-                                                                                           输入参数
-                                                                                             v_NoOfInpat    numeric(9,0),     首页序号
-                                                                                           v_NodeID       int,      节点ID
-                                                                                           v_TemplateID   varchar(64),   模板ID
-                                                                                           v_ParentNodeID int,      父节点ID
-                                                                                           v_Name         varchar(64),   节点名称
-                                                                                           v_UserID       varchar(18),     用户ID
-                                                                                           v_TypeID       int       类别：判断是插入还是删除
-                                                                                           输出参数
-                                                                                           结果集、排序
-                                                                                           质量控制统计数据集
-  
-                                                                                           调用的sp
-                                                                                           调用实例
-                                                                                           修改记录
-                                                                                           **********/
+                                                                                               版本号  1.0.0.0.0
+                                                                                               创建时间
+                                                                                               作者
+                                                                                               版权
+                                                                                               描述  获取质量评分
+                                                                                               功能说明
+                                                                                               输入参数
+                                                                                                 v_NoOfInpat    numeric(9,0),     首页序号
+                                                                                               v_NodeID       int,      节点ID
+                                                                                               v_TemplateID   varchar(64),   模板ID
+                                                                                               v_ParentNodeID int,      父节点ID
+                                                                                               v_Name         varchar(64),   节点名称
+                                                                                               v_UserID       varchar(18),     用户ID
+                                                                                               v_TypeID       int       类别：判断是插入还是删除
+                                                                                               输出参数
+                                                                                               结果集、排序
+                                                                                               质量控制统计数据集
+      
+                                                                                               调用的sp
+                                                                                               调用实例
+                                                                                               修改记录
+                                                                                               **********/
   BEGIN
     OPEN o_result FOR
       SELECT '' FROM DUAL;
@@ -5411,15 +5412,6 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
      where NoOfInpat = v_syxh;
   
     commit;
-  
-    -- 记录床位信息
-    -- 找出病人床位或科室、病区信息有变化的病人
-  
-    -- 更新当前床位信息
-    /*  update BedInfo set EndDate = to_char(sysdate,'yyyy-mm-dd HH24:mi:ss'), NewDept = b.OutHosDept, NewWard = b.OutHosWard, NewBed = b.OutBed, Mark = 0
-    from BedInfo a, inpatient b
-    where c.NoOfInpat = b.NoOfInpat
-      and a.Mark = 1*/
   
     update BedInfo a
        set (EndDate, NewDept, NewWard, NewBed, Mark) =
@@ -5528,17 +5520,17 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
 
   /*********************************************************************************/
   PROCEDURE usp_insertjob(v_id VARCHAR, v_title VARCHAR, v_memo VARCHAR) AS /**********
-                                                                                                                  版本号
-                                                                                                                  创建时间
-                                                                                                                  作者
-                                                                                                                  版权
-                                                                                                                  描述
-                                                                                                                  功能说明      插入岗位信息
-                                                                                                                  输出参数
-                                                                                                                  结果集、排序
-                                                                                                                  调用的sp
-                                                                                                                  调用实例
-                                                                                                                 **********/
+                                                                                                                      版本号
+                                                                                                                      创建时间
+                                                                                                                      作者
+                                                                                                                      版权
+                                                                                                                      描述
+                                                                                                                      功能说明      插入岗位信息
+                                                                                                                      输出参数
+                                                                                                                      结果集、排序
+                                                                                                                      调用的sp
+                                                                                                                      调用实例
+                                                                                                                     **********/
   BEGIN
     INSERT INTO jobs (ID, title, memo) VALUES (v_id, v_title, v_memo);
   END;
@@ -5547,17 +5539,17 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
   PROCEDURE usp_insertjobpermission(v_id         VARCHAR,
                                     v_moduleid   VARCHAR,
                                     v_modulename VARCHAR) AS /**********
-                                                                                                              版本号
-                                                                                                              创建时间
-                                                                                                              作者
-                                                                                                              版权
-                                                                                                              描述
-                                                                                                              功能说明      增加新的授权信息
-                                                                                                              输出参数
-                                                                                                              结果集、排序
-                                                                                                              调用的sp
-                                                                                                              调用实例
-                                                                                                             **********/
+                                                                                                                  版本号
+                                                                                                                  创建时间
+                                                                                                                  作者
+                                                                                                                  版权
+                                                                                                                  描述
+                                                                                                                  功能说明      增加新的授权信息
+                                                                                                                  输出参数
+                                                                                                                  结果集、排序
+                                                                                                                  调用的sp
+                                                                                                                  调用实例
+                                                                                                                 **********/
   BEGIN
     INSERT INTO job2permission
       (ID, moduleid, modulename)
@@ -5887,21 +5879,21 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
                                           --v_Modified_User varchar(10) ,
                                           --v_Modified_Time varchar(19)
                                           o_result OUT empcurtyp) AS /**********
-                                                                                                           版本号  1.0.0.0.0
-                                                                                                           创建时间
-                                                                                                           作者
-                                                                                                           版权
-                                                                                                           描述  插入功病案首页基本信息TABLE
-                                                                                                           功能说明
-                                                                                                           输入参数
-                                                                                                           输出参数
-                                                                                                           结果集、排序
-  
-                                                                                                           调用的sp
-                                                                                                           调用实例
-  
-                                                                                                           修改记录
-                                                                                                          **********/
+                                                                                                               版本号  1.0.0.0.0
+                                                                                                               创建时间
+                                                                                                               作者
+                                                                                                               版权
+                                                                                                               描述  插入功病案首页基本信息TABLE
+                                                                                                               功能说明
+                                                                                                               输入参数
+                                                                                                               输出参数
+                                                                                                               结果集、排序
+      
+                                                                                                               调用的sp
+                                                                                                               调用实例
+      
+                                                                                                               修改记录
+                                                                                                              **********/
   BEGIN
     INSERT INTO iem_mainpage_basicinfo
       (iem_mainpage_no,
@@ -6124,21 +6116,21 @@ CREATE OR REPLACE PACKAGE BODY emrproc IS
                                          --v_Cancel_User varchar(10) ,
                                          --v_Cancel_Time varchar(19)
                                          ) AS /**********
-                                                                                                               版本号  1.0.0.0.0
-                                                                                                               创建时间
-                                                                                                               作者
-                                                                                                               版权
-                                                                                                               描述  插入功病案首页诊断TABLE
-                                                                                                               功能说明
-                                                                                                               输入参数
-                                                                                                               输出参数
-                                                                                                               结果集、排序
-  
-                                                                                                               调用的sp
-                                                                                                               调用实例
-  
-                                                                                                               修改记录
-                                                                                                              **********/
+                                                                                                                   版本号  1.0.0.0.0
+                                                                                                                   创建时间
+                                                                                                                   作者
+                                                                                                                   版权
+                                                                                                                   描述  插入功病案首页诊断TABLE
+                                                                                                                   功能说明
+                                                                                                                   输入参数
+                                                                                                                   输出参数
+                                                                                                                   结果集、排序
+      
+                                                                                                                   调用的sp
+                                                                                                                   调用实例
+      
+                                                                                                                   修改记录
+                                                                                                                  **********/
   BEGIN
     INSERT INTO iem_mainpage_diagnosis
       (iem_mainpage_no,
@@ -8538,14 +8530,14 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
   BEGIN
     OPEN o_result FOR
     /*SELECT DISTINCT a.outhosdept deptid,
-                                              b.NAME       deptname,
-                                              a.outhosward wardid,
-                                              c.NAME       wardname
-                                FROM inpatient a, department b, ward c
-                               WHERE a.status NOT IN ('1500', '1503', '1508', '1509')
-                                 AND a.outhosdept = b.ID
-                                 AND a.outhosward = c.ID
-                               ORDER BY deptid, wardid;*/
+                                                      b.NAME       deptname,
+                                                      a.outhosward wardid,
+                                                      c.NAME       wardname
+                                        FROM inpatient a, department b, ward c
+                                       WHERE a.status NOT IN ('1500', '1503', '1508', '1509')
+                                         AND a.outhosdept = b.ID
+                                         AND a.outhosward = c.ID
+                                       ORDER BY deptid, wardid;*/
       SELECT distinct department.id   deptid,
                       department.name deptname,
                       ward.id         wardid,
@@ -10521,15 +10513,15 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           ON b.attendlevel = cd.ID
          AND cd.categoryid = '63'
        WHERE /*((b.outhosdept = v_deptids AND b.outhosward = v_wardid) OR
-                                                 (v_deptids IN
-                                                 (SELECT bedinfo.newdept
-                                                      FROM bedinfo
-                                                     WHERE bedinfo.noofinpat = b.noofinpat) AND
-                                                 v_wardid IN
-                                                 (SELECT bedinfo.newward
-                                                      FROM bedinfo
-                                                     WHERE bedinfo.noofinpat = b.noofinpat)))
-                                             AND a.valid = 1;*/
+                                                             (v_deptids IN
+                                                             (SELECT bedinfo.newdept
+                                                                  FROM bedinfo
+                                                                 WHERE bedinfo.noofinpat = b.noofinpat) AND
+                                                             v_wardid IN
+                                                             (SELECT bedinfo.newward
+                                                                  FROM bedinfo
+                                                                 WHERE bedinfo.noofinpat = b.noofinpat)))
+                                                         AND a.valid = 1;*/
        b.outhosdept = v_deptids
        AND b.outhosward = v_wardid
        AND b.status in ('1500', '1501')
@@ -10747,15 +10739,17 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         v_table := 'tmp_' || to_char(sysdate, 'yyyyMMddHH24mimiss') ||
                    dbms_random.string('a', 3);
         /*全部病人人数有限制，用下面的方法可以显示全部  ，下面配合commit*/
-        /*v_table := 'tmp_usp_queryinwardpatients' ;
-        select count(*) into v_count from user_tables t where t.TABLE_NAME = 'TMP_USP_QUERYINWARDPATIENTS';
+        v_table := 'tmp_usp_queryinwardpatients';
+        select count(*)
+          into v_count
+          from user_tables t
+         where t.TABLE_NAME = 'TMP_USP_QUERYINWARDPATIENTS';
         if v_count > 0 then
-          
-          execute immediate 'drop table ' || v_table ||' purge';
-          end if;*/
+        
+          execute immediate 'drop table ' || v_table || ' purge';
+        end if;
         execute immediate 'create table ' || v_table ||
                           ' as select t.*,''yyyy-MM-dd HH:mm:ss'' as inwarddate,''111111111111111111'' as idinfo from tmp_QueryInwardPatients t where 1<>1';
-        --' as select * from tmp_QueryInwardPatients where 1<>1'; --edit by cyq 2013-03-13 添加入科日期列
         IF v_wardid IS NULL THEN
           v_wardid_in := '';
         END IF;
@@ -10774,10 +10768,6 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  || 'e.name brztname,' --病人状态名称
                  || 'RTRIM(b.criticallevel) wzjb,' --危重级别
                  || 'i.name wzjbmc,'; --危重级别名称
-        --cd.name hljb,
-      
-        --CASE WHEN b.attendlevel IS NULL THEN 6105 ELSE to_number(b.attendlevel)
-        --END attendlevel, --护理级别
       
         v_sql := v_sql || ' case b.attendlevel' || '   when ''1'' then ' ||
                  '    ''一级护理''' || '   when ''2'' then' || ' ''二级护理''' ||
@@ -10792,13 +10782,11 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  || '  CASE ' || '   WHEN b.isbaby = ''0'' THEN ' ||
                  ' ''否''' || ' WHEN b.isbaby IS NULL THEN ' || '  ''''' ||
                  ' ELSE ' || '  ''是''' || ' END yebzname,';
-        --a.wardid bqdm, --病区代码
-        --a.deptid ksdm, --科室代码
       
         v_sql := v_sql || 'b.outhosward bqdm,' --病区代码
                  || 'b.outhosdept ksdm,'; --科室代码';
       
-        --a.ID bedid, --床位代码
+  
         v_sql := v_sql ||
                  ' case when length(b.outbed) = 1 and isnumber(b.outbed) = 1 then ''0'' || b.outbed else b.outbed end bedid,' --床位代码
                  || 'dg.NAME ksmc,' --科室名称
@@ -10818,16 +10806,8 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  || 'g.NAME zzys,' --主治医师
                  || 'h.NAME zrys,' --主任医师
                  || 'a.valid yxjl,' --有效记录
-                --me.pzlx pzlx, --凭证类型
                  || 'dd1.NAME pzlx,'; --费用类别';
-        /*
-        TO_CHAR((CASE
-                  WHEN INSTR(v_deptids, a.deptid) = 0 AND (b.noofinpat IS NULL) THEN
-                   '属于其它科室'
-                  ELSE
-                   ''
-                END)) extra, --额外信息
-        */
+      
         v_sql := v_sql || '  CASE
                WHEN b.outhosdept =''' || v_deptids ||
                  ''' AND b.outhosward =''' || v_wardid ||
@@ -10874,13 +10854,7 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
                  v_wardid ||
                  ''' and valid = ''1'')
              a ON a.id = b.outbed AND a.noofinpat = b.noofinpat ';
-        /*LEFT JOIN inpatient b ON a.noofinpat = b.noofinpat
-                               AND a.patnoofhis = b.patnoofhis
-                                  --AND INSTR(v_deptids, RTRIM(b.outhosdept)) > 0
-                                  --AND b.status IN (1501, 1504, 1505, 1506, 1507) --在院
-                               AND a.inbed = 1301 --占床
-        -- 1501 病区分床,1504 取消结算,1505 进入ICU,1506 进入产房,1507 转科状态
-          */
+       
       
         v_sql := v_sql || ' LEFT JOIN (select name,detailid from Dictionary_detail where categoryid = ''1'') dd1 ON
                                        b.payid = dd1.detailid
@@ -10894,26 +10868,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
         LEFT JOIN (select id,name from users) h ON b.chief = h.id
         LEFT JOIN (select name, detailid from dictionary_detail where categoryid = ''3'')  j ON j.detailid = b.sexid
         LEFT JOIN (select name,id from categorydetail where categoryid = ''63'') cd ON b.attendlevel = cd.ID
-       WHERE 1=1 '; /*((b.outhosdept = v_deptids AND b.outhosward = v_wardid) OR
-                                                 (v_deptids IN
-                                                 (SELECT bedinfo.newdept
-                                                      FROM bedinfo
-                                                     WHERE bedinfo.noofinpat = b.noofinpat) AND
-                                                 v_wardid IN
-                                                 (SELECT bedinfo.newward
-                                                      FROM bedinfo
-                                                     WHERE bedinfo.noofinpat = b.noofinpat)))
-                                             AND a.valid = 1;*/
-        /*  v_sql:=v_sql||' b.outhosdept = '||v_deptids||' AND b.outhosward ='|| v_wardid
-        ||' AND b.status in (''1500'',''1501'') AND b.isbaby != ''1''*/
+       WHERE 1=1 '; 
         v_sql := v_sql || ' ORDER BY bedid';
       
-        /*
-        dbms_output.put_line(substr(v_sql, 1, 1000));
-        dbms_output.put_line(substr(v_sql, 1001, 1000));
-        dbms_output.put_line(substr(v_sql, 2001, 1000));
-        dbms_output.put_line(substr(v_sql, 3001, 1000));
-        */
       
         execute immediate v_sql;
         -- 检查病人是否有病历
@@ -10992,10 +10949,10 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           END;
         END IF;
         --永久删除add by ywk
-        execute immediate 'drop table ' || v_table || ' purge';
+        --execute immediate 'drop table ' || v_table || ' purge';
       end;
     end if;
-    --commit;
+    commit;
   END;
 
   /*
@@ -11196,13 +11153,13 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
       BEGIN
         OPEN o_result FOR
         /*SELECT *
-                                                            FROM tmp_queryinwardpatients a
-                                                           WHERE a.noofinpat IS NOT NULL
-                                                             AND NOT EXISTS (SELECT 1
-                                                                    FROM doctor_assignpatient d
-                                                                   WHERE d.valid = 1
-                                                                     AND d.noofinpat = a.noofinpat)
-                                                           ORDER BY a.bedid;*/
+                                                                            FROM tmp_queryinwardpatients a
+                                                                           WHERE a.noofinpat IS NOT NULL
+                                                                             AND NOT EXISTS (SELECT 1
+                                                                                    FROM doctor_assignpatient d
+                                                                                   WHERE d.valid = 1
+                                                                                     AND d.noofinpat = a.noofinpat)
+                                                                           ORDER BY a.bedid;*/
           SELECT a.*,
                  b.formerward   ybqdm, --原病区代码
                  b.formerdeptid yksdm, --原科室代码
@@ -11245,9 +11202,9 @@ WHERE a.ID=b.TemplateID and a.Valid = 1 AND a.SortID like ''' || v_id ||
           BEGIN
             OPEN o_result FOR
             /* SELECT *
-                                                                                        FROM tmp_QueryInwardPatients a
-                                                                                       WHERE a.NoOfInpat IS NOT NULL
-                                                                                       ORDER BY a.bedid;*/
+                                                                                                                FROM tmp_QueryInwardPatients a
+                                                                                                               WHERE a.NoOfInpat IS NOT NULL
+                                                                                                               ORDER BY a.bedid;*/
               SELECT a.*,
                      b.formerward   ybqdm, --原病区代码
                      b.formerdeptid yksdm, --原科室代码
@@ -12702,7 +12659,7 @@ and f.DeptID=''' || v_deptid || ''' and  f.WardId=''' ||
   
     v_sjnl := TRUNC(Months_between(d_dqrq, d_csrq) / 12);
     v_xsnl := v_sjnl || '岁' /*||
-                                                                        (TRUNC(d_dqrq) - ADD_MONTHS(d_csrq, v_sjnl * 12)) || '天'*/
+                                                                                (TRUNC(d_dqrq) - ADD_MONTHS(d_csrq, v_sjnl * 12)) || '天'*/
      ;
   
   end usp_EMR_GetAge;

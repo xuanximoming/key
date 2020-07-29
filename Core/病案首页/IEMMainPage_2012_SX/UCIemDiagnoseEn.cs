@@ -187,7 +187,7 @@ namespace DrectSoft.Core.IEMMainPage
         }
         #endregion
 
-        private IemNewDiagInfoForm m_DiagInfoForm = null;
+        private IemNewDiagInfoFormEn m_DiagInfoForm = null;
 
         public void FillUI(IemMainPageInfo info, IEmrHost app)
         {
@@ -533,7 +533,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "add", "", "", "", "", "");
+                m_DiagInfoForm = new IemNewDiagInfoFormEn(m_App, "add", "", "", "", "", "");
                 m_DiagInfoForm.ShowDialog();
                 if (m_DiagInfoForm.DialogResult == DialogResult.OK)
                 {
@@ -559,18 +559,12 @@ namespace DrectSoft.Core.IEMMainPage
                     else if (m_DiagInfoForm.DiagnosisType == "2")
                     {
                         DataTable dataTableOper = new DataTable();
-                        //if (this.gridControl2.DataSource != null)
-                        //    dataTableOper = this.gridControl2.DataSource as DataTable;
                         if (dataTableOper.Rows.Count == 0)
                             dataTableOper = dataTable.Clone();
                         foreach (DataRow row in dataTable.Rows)
                         {
                             dataTableOper.ImportRow(row);
                         }
-                        //this.gridControl2.BeginUpdate();
-                        //this.gridControl2.DataSource = dataTableOper;
-                        //m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiagnose2);
-                        //this.gridControl2.EndUpdate();
                     }
                 }
             }
@@ -600,7 +594,7 @@ namespace DrectSoft.Core.IEMMainPage
                 string statusid = dataRow["Status_Id"].ToString();//诊断结果（入院病情)
                 string outstatus = dataRow["Outstatus_id"].ToString(); //出院情况
                 string diagtype = "xiyi";
-                m_DiagInfoForm = new IemNewDiagInfoForm(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
+                m_DiagInfoForm = new IemNewDiagInfoFormEn(m_App, "edit", diagcode, diagname, statusid, outstatus, diagtype);
                 if (m_DiagInfoForm.ShowDialog() == DialogResult.OK)
                 {
                     m_DiagInfoForm.IemOperInfo = null;
@@ -651,9 +645,6 @@ namespace DrectSoft.Core.IEMMainPage
                         new Point(control.Width + control.Location.X, control.Height + control.Location.Y));
                 }
             }
-
-            //e.Graphics.DrawLine(Pens.Black, new Point(0, 0), new Point(0, this.Height));
-            //e.Graphics.DrawLine(Pens.Black, new Point(this.Width - 1, 0), new Point(this.Width - 1, this.Height));
         }
 
         /// <summary>

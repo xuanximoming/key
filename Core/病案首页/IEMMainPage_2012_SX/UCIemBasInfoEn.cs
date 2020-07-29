@@ -233,61 +233,11 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
 
-        private void obj_Click(object sender, EventArgs e)
-        {
-            //    //try
-            //    //{
-            //    //    Button btn = new Button();
-            //    //    if (lueMZZYZD_CODE.Text.Trim() != null)
-            //    //    {
-            //    //        GoType = "MZDIAG";
-            //    //        MZDiagType = "ZHONGYI";
-            //    //        inputText = lueMZZYZD_CODE.Text.Trim();
-
-            //    //        IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, GoType, MZDiagType, inputText);
-
-            //    //        //mzdiagInfo.FormClosed += new FormClosedEventHandler(mzdiagInfo_FormClosed);
-            //    //        //bwj1.Text = string.Empty;
-            //    //        //mzdiagInfo.Show();
-            //    //        if (diagInfo.GetFormResult())
-            //    //        {
-            //    //            diagInfo.ShowDialog();
-            //    //            if (diagInfo.IsClosed)
-            //    //            {
-            //    //                lueMZZYZD_CODE.Text = diagInfo.inText;
-            //    //                lueMZZYZD_CODE.DiaCode = diagInfo.inCode;
-            //    //                lueMZZYZD_CODE.DiaValue = diagInfo.inText;
-            //    //            }
-            //    //        }
-            //    //        else
-            //    //        {
-            //    //            lueMZZYZD_CODE.DiaCode = diagInfo.inCode;
-            //    //            lueMZZYZD_CODE.DiaValue = diagInfo.inText;
-            //    //            lueMZZYZD_CODE.Multiline = false;
-            //    //        }
-            //    //    }
-            //    //}
-            //    //catch (Exception ex)
-            //    //{
-            //    //    Common.Ctrs.DLG.MessageBox.Show(ex.Message);
-            //    //}
-        }
-
 
 
         private void UCIemBasInfoEn_Load(object sender, EventArgs e)
         {
             GetFormLoadData();
-
-            //this.lueMZZYZD_CODE.obj.Click += new EventHandler(obj_Click);
-            //m_SqlHelper = DataAccessFactory.DefaultDataAccess;
-            //InitLookUpEditor();
-
-            //lueCSD_ProvinceID.Focus();
-#if DEBUG
-#else
-            //HideSbutton();
-#endif
 
             //更改出生日期后，年龄算出来(ywk 泗县修改)
             deBirth.EditValueChanged += new EventHandler(deBirth_EditValueChanged);
@@ -332,52 +282,6 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
 
-        ///// <summary>
-        ///// 加载数据源，点确认的时候输入框是否为空，不为空的话，进行匹配，如果有匹配项的话，直接保存name和code，如果没有匹配项的话，则保存name
-        ///// </summary>
-        //private void LoadFormData()
-        //{
-        //    if (!string.IsNullOrEmpty(lueMZZYZD_CODE.Text.ToString().Trim()) == true)
-        //    {
-
-        //    }
-
-        //}
-
-        //private void bwj1_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    try
-        //    {
-        //        Button btn = new Button();
-        //        if (e.KeyChar == 13)//lueMZZYZD_CODE.Text.Trim() != null && 
-        //        {
-        //            GoType = "MZDIAG";
-        //            MZDiagType = "ZHONGYI";
-
-        //            IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtZY, GoType, MZDiagType, inputText);
-        //            if (diagInfo.GetFormResult())
-        //            {
-        //                diagInfo.ShowDialog();
-        //                if (diagInfo.IsClosed)
-        //                {
-        //                    lueMZZYZD_CODE.Text = diagInfo.inText;
-        //                    lueMZZYZD_CODE.DiaCode = diagInfo.inCode;
-        //                    lueMZZYZD_CODE.DiaValue = diagInfo.inText;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                lueMZZYZD_CODE.DiaCode = diagInfo.inCode;
-        //                lueMZZYZD_CODE.DiaValue = diagInfo.inText;
-        //                lueMZZYZD_CODE.Multiline = false;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
-        //    }
-        //}
 
         private void bwj2_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -464,13 +368,6 @@ namespace DrectSoft.Core.IEMMainPage
                         lueMZXYZD_CODE.Text = mzdiagInfo.inText;
                     }
                 }
-                //if (m_MZTYPE == "ZHONGYI")
-                //{
-                //    if (mzdiagInfo.IsClosed)
-                //    {
-                //        lueMZZYZD_CODE.Text = mzdiagInfo.inText;
-                //    }
-                //}
             }
             catch (Exception ex)
             {
@@ -1189,17 +1086,6 @@ namespace DrectSoft.Core.IEMMainPage
             textEditotherhospital.Text = info.IemBasicInfo.TypeHos;
             lueINHOSINFO.CodeValue = info.IemBasicInfo.InHosInfo;
             lueINHOSCALL.CodeValue = info.IemBasicInfo.InHosCall;
-            //第十行 治疗类别
-            //if (m_IemInfo.IemBasicInfo.CURE_TYPE == "1")
-            //    chkCURE_TYPE1.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.CURE_TYPE == "1.1")
-            //    chkCURE_TYPE2.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.CURE_TYPE == "1.2")
-            //    chkCURE_TYPE3.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.CURE_TYPE == "2")
-            //    chkCURE_TYPE4.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.CURE_TYPE == "3")
-            //    chkCURE_TYPE5.Checked = true;
 
             //入院信息
 
@@ -1249,49 +1135,14 @@ namespace DrectSoft.Core.IEMMainPage
             lueOutHosWard.CodeValue = info.IemBasicInfo.OutHosWardID;
             textEdit_cybf.Text = info.IemBasicInfo.OutHosWardID; ;
 
-            //门急诊诊断
-            //lueMZZYZD_CODE.DiaCode = m_IemInfo.IemBasicInfo.MZZYZD_CODE;//.CodeValue 
-            //lueMZZYZD_CODE.DiaValue = m_IemInfo.IemBasicInfo.MZZYZD_NAME;
-            //lueMZZYZD_CODE.Text = m_IemInfo.IemBasicInfo.MZZYZD_NAME;
+            
             lueMZXYZD_CODE.DiaCode = m_IemInfo.IemBasicInfo.MZXYZD_CODE;//.CodeValue 
             lueMZXYZD_CODE.DiaValue = m_IemInfo.IemBasicInfo.MZXYZD_NAME;
             lueMZXYZD_CODE.Text = m_IemInfo.IemBasicInfo.MZXYZD_NAME;
-            //lueMZXYZD_CODE1.CodeValue = m_IemInfo.IemBasicInfo.MZXYZD_CODE;
 
             lueRYZD_CODE.DiaCode = m_IemInfo.IemBasicInfo.RYXYZD_CODE;
             lueRYZD_CODE.DiaValue = m_IemInfo.IemBasicInfo.RYXYZD_NAME;
             lueRYZD_CODE.Text = m_IemInfo.IemBasicInfo.RYXYZD_NAME;
-
-            //第十三行 实施临床路径
-            //if (m_IemInfo.IemBasicInfo.SSLCLJ == "1")
-            //    chkSSLCLJ1.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.SSLCLJ == "2")
-            //    chkSSLCLJ2.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.SSLCLJ == "3")
-            //    chkSSLCLJ3.Checked = true;
-
-
-            //if (m_IemInfo.IemBasicInfo.ZYZJ == "1")
-            //    chkZYZJ1.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.ZYZJ == "2")
-            //    chkZYZJ2.Checked = true;
-
-            //第十四行 使用中医诊疗设备
-            //if (m_IemInfo.IemBasicInfo.ZYZLSB == "1")
-            //    chkZYZLSB1.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.ZYZLSB == "2")
-            //    chkZYZLSB2.Checked = true;
-
-            //if (m_IemInfo.IemBasicInfo.ZYZLJS == "1")
-            //    chkZYZLJS1.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.ZYZLJS == "2")
-            //    chkZYZLJS2.Checked = true;
-
-            //第十五行 辨证施护
-            //if (m_IemInfo.IemBasicInfo.BZSH == "1")
-            //    chkBZSH1.Checked = true;
-            //else if (m_IemInfo.IemBasicInfo.BZSH == "2")
-            //    chkBZSH2.Checked = true;
 
             #endregion
         }
@@ -1329,14 +1180,12 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第三行
             m_IemInfo.IemBasicInfo.CSD_ProvinceID = lueCSD_ProvinceID.CodeValue;
-            //   m_IemInfo.IemBasicInfo.CSD_ProvinceName = lueCSD_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.CSD_ProvinceName = textEdit_csd.Text.Trim();
             m_IemInfo.IemBasicInfo.CSD_CityID = lueCSD_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.CSD_CityName = lueCSD_CityID.Text;
             m_IemInfo.IemBasicInfo.CSD_DistrictID = lueCSD_DistrictID.CodeValue;
             m_IemInfo.IemBasicInfo.CSD_DistrictName = lueCSD_DistrictID.Text;
             m_IemInfo.IemBasicInfo.JG_ProvinceID = lueJG_ProvinceID.CodeValue;
-            // m_IemInfo.IemBasicInfo.JG_ProvinceName = lueJG_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.JG_ProvinceName = textEdit_jg.Text.Trim();
             m_IemInfo.IemBasicInfo.JG_CityID = lueJG_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.JG_CityName = lueJG_CityID.Text;
@@ -1351,7 +1200,6 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第五行
             m_IemInfo.IemBasicInfo.XZZ_ProvinceID = lueXZZ_ProvinceID.CodeValue;
-            //   m_IemInfo.IemBasicInfo.XZZ_ProvinceName = lueXZZ_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.XZZ_ProvinceName = textEdit_xzz.Text.Trim();
             m_IemInfo.IemBasicInfo.XZZ_CityID = lueXZZ_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.XZZ_CityName = lueXZZ_CityID.Text;
@@ -1362,7 +1210,6 @@ namespace DrectSoft.Core.IEMMainPage
 
             //第六行
             m_IemInfo.IemBasicInfo.HKDZ_ProvinceID = lueHKDZ_ProvinceID.CodeValue;
-            //  m_IemInfo.IemBasicInfo.HKDZ_ProvinceName = lueHKDZ_ProvinceID.Text;
             m_IemInfo.IemBasicInfo.HKDZ_ProvinceName = textEdit_hkdz.Text.Trim();
             m_IemInfo.IemBasicInfo.HKDZ_CityID = lueHKDZ_CityID.CodeValue;
             m_IemInfo.IemBasicInfo.HKDZ_CityName = lueHKDZ_CityID.Text;
@@ -1395,17 +1242,6 @@ namespace DrectSoft.Core.IEMMainPage
 
             m_IemInfo.IemBasicInfo.InHosInfo = lueINHOSINFO.CodeValue;
             m_IemInfo.IemBasicInfo.InHosCall = lueINHOSCALL.CodeValue;
-            //第十行 治疗类别
-            //if (chkCURE_TYPE1.Checked)
-            //    m_IemInfo.IemBasicInfo.CURE_TYPE = "1";
-            //else if (chkCURE_TYPE2.Checked)
-            //    m_IemInfo.IemBasicInfo.CURE_TYPE = "1.1";
-            //else if (chkCURE_TYPE3.Checked)
-            //    m_IemInfo.IemBasicInfo.CURE_TYPE = "1.2";
-            //else if (chkCURE_TYPE4.Checked)
-            //    m_IemInfo.IemBasicInfo.CURE_TYPE = "2";
-            //else if (chkCURE_TYPE5.Checked)
-            //    m_IemInfo.IemBasicInfo.CURE_TYPE = "3";
 
             //入院信息
 
@@ -1443,51 +1279,18 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemBasicInfo.RYXYZD_CODE = lueRYZD_CODE.DiaCode;
             m_IemInfo.IemBasicInfo.RYXYZD_NAME = lueRYZD_CODE.DiaValue;
 
-            //第十三行 实施临床路径
-            //if (chkSSLCLJ1.Checked)
-            //    m_IemInfo.IemBasicInfo.SSLCLJ = "1";
-            //else if (chkSSLCLJ2.Checked)
-            //    m_IemInfo.IemBasicInfo.SSLCLJ = "2";
-            //else if (chkSSLCLJ3.Checked)
-            //    m_IemInfo.IemBasicInfo.SSLCLJ = "3";
-            //else
             m_IemInfo.IemBasicInfo.SSLCLJ = "";
 
-            //if (chkZYZJ1.Checked)
-            //    m_IemInfo.IemBasicInfo.ZYZJ = "1";
-            //else if (chkZYZJ2.Checked)
-            //    m_IemInfo.IemBasicInfo.ZYZJ = "2";
-            //else
-            //{
             m_IemInfo.IemBasicInfo.ZYZJ = "";
             //}
 
             //第十四行 使用中医诊疗设备
-            //if (chkZYZLSB1.Checked)
-            //    m_IemInfo.IemBasicInfo.ZYZLSB = "1";
-            //else if (chkZYZLSB2.Checked)
-            //    m_IemInfo.IemBasicInfo.ZYZLSB = "2";
-            //else
-            //{
+
             m_IemInfo.IemBasicInfo.ZYZLSB = "";
-            //}
-            //if (chkZYZLJS1.Checked)
-            //    m_IemInfo.IemBasicInfo.ZYZLJS = "1";
-            //else if (chkZYZLJS2.Checked)
-            //    m_IemInfo.IemBasicInfo.ZYZLJS = "2";
-            //else
-            //{
             m_IemInfo.IemBasicInfo.ZYZLJS = "";
-            //}
             //第十五行 辨证施护
-            //if (chkBZSH1.Checked)
-            //    m_IemInfo.IemBasicInfo.BZSH = "1";
-            //else if (chkBZSH2.Checked)
-            //    m_IemInfo.IemBasicInfo.BZSH = "2";
-            //else
-            //{
             m_IemInfo.IemBasicInfo.BZSH = "";
-            //}
+
             #endregion
 
 
@@ -1674,10 +1477,6 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 if (control is LabelControl)
                 {
-                    //if (control.Visible == true)
-                    //{
-                    //e.Graphics.DrawLine(Pens.Black, new Point(control.Location.X, control.Location.Y + control.Height),
-                    //    new Point(control.Width + control.Location.X, control.Height + control.Location.Y));
                     control.Visible = false;
                     e.Graphics.DrawString(control.Text, control.Font, Brushes.Black, control.Location);
 
@@ -1695,9 +1494,6 @@ namespace DrectSoft.Core.IEMMainPage
                 }
             }
 
-            //e.Graphics.DrawLine(Pens.Black, new Point(0, 0), new Point(0, this.Height));
-            //e.Graphics.DrawLine(Pens.Black, new Point(0, 0), new Point(this.Width, 0));
-            //e.Graphics.DrawLine(Pens.Black, new Point(this.Width - 1, 0), new Point(this.Width - 1, this.Height));
         }
 
         private void InitForm()
@@ -1728,12 +1524,6 @@ namespace DrectSoft.Core.IEMMainPage
 
                     int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
 
-                    if (dataResult > 0)
-                    {
-                        lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
-                        lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
@@ -1751,12 +1541,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                     int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
 
-                    if (dataResult > 0)
-                    {
-                        lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
-                        lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
 
-                    }
                     if (dataResult == 0)
                     {
                         lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();

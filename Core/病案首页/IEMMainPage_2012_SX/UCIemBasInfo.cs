@@ -1613,13 +1613,6 @@ namespace DrectSoft.Core.IEMMainPage
                     dtZY.DefaultView.RowFilter = filter;
 
                     int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
-
-                    if (dataResult > 0)
-                    {
-                        lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0]["icd"].ToString();    //dtZY.row["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
@@ -1637,13 +1630,6 @@ namespace DrectSoft.Core.IEMMainPage
                     dtZY.DefaultView.RowFilter = filter;
 
                     int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
-
-                    if (dataResult > 0)
-                    {
-                        lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
-                        lueMZZYZD_CODE.DiaCode = dtZY.DefaultView.ToTable().Rows[0]["icd"].ToString();    //dtZY.row["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueMZZYZD_CODE.DiaValue = lueMZZYZD_CODE.Text.Trim();
@@ -1662,13 +1648,6 @@ namespace DrectSoft.Core.IEMMainPage
 
                     int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
 
-                    if (dataResult > 0)
-                    {
-                        lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
-                        lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                        //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
@@ -1685,14 +1664,6 @@ namespace DrectSoft.Core.IEMMainPage
                     dtXY.DefaultView.RowFilter = filter;
 
                     int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
-
-                    if (dataResult > 0)
-                    {
-                        lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();
-                        lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                        //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueMZXYZD_CODE.DiaValue = lueMZXYZD_CODE.Text.Trim();

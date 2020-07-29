@@ -335,12 +335,6 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
 
                         int dataResult = dtZY.DefaultView.ToTable().Rows.Count;
 
-                        if (dataResult > 0)
-                        {
-                            bwj1.DiaValue = bwj1.Text.Trim();
-                            bwj1.DiaCode = dtZY.DefaultView.ToTable().Rows[0][0].ToString();    //dtZY.row["icd"].ToString();
-
-                        }
                         if (dataResult == 0)
                         {
                             bwj1.DiaValue = bwj1.Text.Trim();
@@ -363,13 +357,6 @@ select py, wb, name, icdid from diagnosisothername where valid='1'";
 
                         int dataResult = dtXY.DefaultView.ToTable().Rows.Count;
 
-                        if (dataResult > 0)
-                        {
-                            bwj1.DiaValue = bwj1.Text.Trim();
-                            bwj1.DiaCode = dtXY.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                            //lueMZXYZD_CODE.DiaCode = dtXY.DefaultView.ToTable().Rows[0][3].ToString();    //dtZY.row["icd"].ToString();
-
-                        }
                         if (dataResult == 0)
                         {
                             bwj1.DiaValue = bwj1.Text.Trim();

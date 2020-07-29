@@ -125,12 +125,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
 
                     int dataResult = dtOper.DefaultView.ToTable().Rows.Count;
 
-                    if (dataResult > 0)
-                    {
-                        lueOperCode.DiaValue = lueOperCode.Text.Trim();
-                        lueOperCode.DiaCode = dtOper.DefaultView.ToTable().Rows[0]["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueOperCode.DiaValue = lueOperCode.Text.Trim();
@@ -146,11 +140,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     dtOper.DefaultView.RowFilter = filter;
 
                     int dataResult = dtOper.DefaultView.ToTable().Rows.Count;
-                    if (dataResult > 0)
-                    {
-                        lueOperCode.DiaValue = lueOperCode.Text.Trim();
-                        lueOperCode.DiaCode = dtOper.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                    }
                     if (dataResult == 0)
                     {
                         lueOperCode.DiaValue = lueOperCode.Text.Trim();
@@ -168,12 +157,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
 
                     int dataResult = dtDiag.DefaultView.ToTable().Rows.Count;
 
-                    if (dataResult > 0)
-                    {
-                        lueCompCode.DiaValue = lueCompCode.Text.Trim();
-                        lueCompCode.DiaCode = dtDiag.DefaultView.ToTable().Rows[0]["icd"].ToString();
-
-                    }
                     if (dataResult == 0)
                     {
                         lueCompCode.DiaValue = lueCompCode.Text.Trim();
@@ -189,11 +172,6 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     dtDiag.DefaultView.RowFilter = filter;
 
                     int dataResult = dtDiag.DefaultView.ToTable().Rows.Count;
-                    if (dataResult > 0)
-                    {
-                        lueCompCode.DiaValue = lueCompCode.Text.Trim();
-                        lueCompCode.DiaCode = dtDiag.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                    }
                     if (dataResult == 0)
                     {
                         lueCompCode.DiaValue = lueCompCode.Text.Trim();
@@ -209,11 +187,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     dtDoc.DefaultView.RowFilter = filter;
 
                     int dataResult = dtDoc.DefaultView.ToTable().Rows.Count;
-                    if (dataResult > 0)
-                    {
-                        lueAnaesthesiaUser.DiaValue = lueAnaesthesiaUser.Text.Trim();
-                        lueAnaesthesiaUser.DiaCode = dtDoc.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                    }
+
                     if (dataResult == 0)
                     {
                         lueAnaesthesiaUser.DiaValue = lueAnaesthesiaUser.Text.Trim();
@@ -228,11 +202,7 @@ namespace DrectSoft.Core.IEMMainPage                         //wangji   edit   2
                     dtDoc.DefaultView.RowFilter = filter;
 
                     int dataResult = dtDoc.DefaultView.ToTable().Rows.Count;
-                    if (dataResult > 0)
-                    {
-                        lueAnaesthesiaUser.DiaValue = lueAnaesthesiaUser.Text.Trim();
-                        lueAnaesthesiaUser.DiaCode = dtDoc.DefaultView.ToTable().Rows[0]["icd"].ToString();
-                    }
+
                     if (dataResult == 0)
                     {
                         lueAnaesthesiaUser.DiaValue = lueAnaesthesiaUser.Text.Trim();
