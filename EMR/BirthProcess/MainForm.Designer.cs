@@ -163,7 +163,7 @@
             // 
             this.DevButtonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DevButtonSave.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonSave.Image")));
-            this.DevButtonSave.Location = new System.Drawing.Point(889, 479);
+            this.DevButtonSave.Location = new System.Drawing.Point(306, 5);
             this.DevButtonSave.Name = "DevButtonSave";
             this.DevButtonSave.Size = new System.Drawing.Size(80, 23);
             this.DevButtonSave.TabIndex = 56;
@@ -226,6 +226,7 @@
             this.panelControl1.Controls.Add(this.DevButtonAdd);
             this.panelControl1.Controls.Add(this.timeEditCheckTime);
             this.panelControl1.Controls.Add(this.labelControl3);
+            this.panelControl1.Controls.Add(this.DevButtonSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 39);
             this.panelControl1.Name = "panelControl1";
@@ -235,7 +236,7 @@
             // DevButtonDelete1
             // 
             this.DevButtonDelete1.Image = ((System.Drawing.Image)(resources.GetObject("DevButtonDelete1.Image")));
-            this.DevButtonDelete1.Location = new System.Drawing.Point(292, 6);
+            this.DevButtonDelete1.Location = new System.Drawing.Point(410, 5);
             this.DevButtonDelete1.Name = "DevButtonDelete1";
             this.DevButtonDelete1.Size = new System.Drawing.Size(80, 23);
             this.DevButtonDelete1.TabIndex = 59;
@@ -561,9 +562,8 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.ButtonEdit);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.DevButtonSave);
             this.Name = "MainForm";
-            this.Size = new System.Drawing.Size(977, 506);
+            this.Size = new System.Drawing.Size(977, 475);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit2)).EndInit();

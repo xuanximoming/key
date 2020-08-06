@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DrectSoft.FrameWork.WinForm.Plugin;
+﻿using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
-using DrectSoft.Emr.Util;
-using System.Collections;
-using DrectSoft.Service;
 using DrectSoft.Common.Ctrs.FORM;
-using DevExpress.XtraTreeList;
-using DrectSoft.Common.Ctrs.DLG;
-using System.Xml;
 using DrectSoft.Core.MainEmrPad.New;
+using DrectSoft.Emr.Util;
+using DrectSoft.FrameWork.WinForm.Plugin;
+using DrectSoft.Service;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace DrectSoft.Core.MainEmrPad.DailyForm
 {
@@ -62,7 +55,7 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
         public DailyFormDisplayDateTime(IEmrHost app, UCEmrInputBody emrInputBody)
             : this()
         {
-            if(null == emrInputBody)
+            if (null == emrInputBody)
             {
                 return;
             }
@@ -81,8 +74,8 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
                 dateEditData.EditValue = System.DateTime.Now.ToString("yyyy-MM-dd");
                 timeEditTime.EditValue = System.DateTime.Now.ToString("HH:mm:ss");
             }
-            List<EmrModel> modelList = Util.GetAllEmrModels(emrInputBody.CurrentTreeList.Nodes,new List<EmrModel>());
-            ComputeDateTime(m_CurrentEmrModel, m_FirstEmrModel,modelList);
+            List<EmrModel> modelList = Util.GetAllEmrModels(emrInputBody.CurrentTreeList.Nodes, new List<EmrModel>());
+            ComputeDateTime(m_CurrentEmrModel, m_FirstEmrModel, modelList);
         }
 
         /// <summary>
@@ -105,7 +98,7 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
                         if (null != firstModel)
                         {
                             m_MaxDateTime = firstModel.DisplayTime;
-                            this.labelControlTip.Text += "，小于下一个病历时间 " + firstModel.DisplayTime.ToString("yyyy-MM-dd HH:mm:ss")+"。";
+                            this.labelControlTip.Text += "，小于下一个病历时间 " + firstModel.DisplayTime.ToString("yyyy-MM-dd HH:mm:ss") + "。";
                         }
                     }
                     else
@@ -124,7 +117,7 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
             {
                 throw ex;
             }
-        } 
+        }
         #endregion
 
         /// <summary>
@@ -185,7 +178,7 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
                                 }
                                 //编辑首程不能越过其它有效病历(上限)
                                 DataRow preValidRecord = allRecords.Where(p => DateTime.Parse(p["captiondatetime"].ToString()) < emrModel.DisplayTime && int.Parse(p["valid"].ToString()) == 1).OrderByDescending(q => DateTime.Parse(q["captiondatetime"].ToString())).FirstOrDefault();
-                                if(null != preValidRecord && null != preValidRecord["captiondatetime"] && DateTime.Parse(preValidRecord["captiondatetime"].ToString()) > m_MinDateTime)
+                                if (null != preValidRecord && null != preValidRecord["captiondatetime"] && DateTime.Parse(preValidRecord["captiondatetime"].ToString()) > m_MinDateTime)
                                 {
                                     m_MinDateTime = DateTime.Parse(preValidRecord["captiondatetime"].ToString());
                                 }
@@ -263,39 +256,13 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
         {
             try
             {
-                #region "已注释"
-                //if (m_MinDateTime != DateTime.MinValue && m_MaxDateTime != DateTime.MinValue)
-                //{
-                //    if (Convert.ToDateTime(dateTime) <= m_MinDateTime || Convert.ToDateTime(dateTime) >= m_MaxDateTime)
-                //    {
-                //        m_App.CustomMessageBox.MessageShow("请选择指定范围内的时间", DrectSoft.Core.CustomMessageBoxKind.ErrorOk);
-                //        return false;
-                //    }
-                //}
-                //else if (m_MinDateTime != DateTime.MinValue && m_MaxDateTime == DateTime.MinValue)
-                //{
-                //    if (Convert.ToDateTime(dateTime) <= m_MinDateTime)
-                //    {
-                //        m_App.CustomMessageBox.MessageShow("请选择指定范围内的时间", DrectSoft.Core.CustomMessageBoxKind.ErrorOk);
-                //        return false;
-                //    }
-                //}
-                //else if (m_MinDateTime == DateTime.MinValue && m_MaxDateTime != DateTime.MinValue)
-                //{
-                //    if (Convert.ToDateTime(dateTime) >= m_MaxDateTime)
-                //    {
-                //        m_App.CustomMessageBox.MessageShow("请选择指定范围内的时间", DrectSoft.Core.CustomMessageBoxKind.ErrorOk);
-                //        return false;
-                //    }
-                //}
-                #endregion
 
                 if (CommitDateTime < m_MinDateTime || CommitDateTime > m_MaxDateTime)
                 {///时间范围验证
                     MessageBox.Show(labelControlTip.Text);
                     return false;
                 }
-                List<EmrModel> allOtherModels = GetAllEmrModels(m_TreeList.Nodes,null);
+                List<EmrModel> allOtherModels = GetAllEmrModels(m_TreeList.Nodes, null);
                 if (allOtherModels.Any(p => p.DisplayTime.ToString("yyyy-MM-dd HH:mm:ss") == CommitDateTime.ToString("yyyy-MM-dd HH:mm:ss")))
                 {
                     MessageBox.Show("病历时间为 " + CommitDateTime.ToString("yyyy-MM-dd HH:mm:ss") + " 的病历已存在，请修改病历时间。");

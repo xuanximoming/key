@@ -407,14 +407,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                             date.Text = formDateTime.CommitDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
                             ////修改病程的記錄日期,加粗顯示
-                            //ZYText date = new ZYText();
-                            //date.Name = (ele.Parent as ZYText).Name;
-                            //date.Attributes.SetValue(ZYTextConst.c_FontBold, true);
-                            //date.Text = formDateTime.CommitDateTime.ToString("yyyy-MM-dd HH:mm:ss");
-
-                            //this.CurrentEditorControl.EMRDoc._InsertBlock(date);
-                            //this.CurrentEditorControl.DeleteElement(ele.Parent);
-                            //this.CurrentEditorControl.EMRDoc.Refresh();
                             RefreshElement();
 
                             //修改节点和tab页标题
@@ -432,12 +424,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                             caption.Text = formTitle.GetTitle();
 
                             ////修改病程的標題
-                            //ZYText caption = new ZYText();
-                            //caption.Name = (ele.Parent as ZYText).Name;
-                            //caption.Text = formTitle.GetTitle();
-
-                            //this.CurrentEditorControl.EMRDoc._InsertBlock(caption);
-                            //this.CurrentEditorControl.DeleteElement(ele.Parent);
                             RefreshElement();
 
                             //修改标题描述

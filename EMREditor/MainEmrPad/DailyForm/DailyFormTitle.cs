@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
+﻿using DrectSoft.Common.Ctrs.FORM;
 using DrectSoft.FrameWork.WinForm.Plugin;
-using DrectSoft.Common.Ctrs.FORM;
+using System;
 
 namespace DrectSoft.Core.MainEmrPad.DailyForm
 {
@@ -28,18 +21,6 @@ namespace DrectSoft.Core.MainEmrPad.DailyForm
 
         private void simpleButtonOK_Click(object sender, EventArgs e)
         {
-            /*
-            if (textEditTitleName.Text.Trim() == "")
-            {
-                textEditTitleName.Text = "";
-                textEditTitleName.Focus();
-            }
-            else
-            {
-                this.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            }
-            */
-
             if (textEditTitleName.Text.Trim() == "")
             {
                 textEditTitleName.Text = "   ";

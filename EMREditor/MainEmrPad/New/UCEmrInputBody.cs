@@ -7475,12 +7475,14 @@ namespace DrectSoft.Core.MainEmrPad.New
                     {
                         if (!string.IsNullOrEmpty(newDateTime))
                         {
-                            string title = model.ModelName.Split(' ')[0];
-                            string date = model.ModelName.Split(' ')[1];
-                            string time = model.ModelName.Split(' ')[2];
-                            string creater = model.ModelName.Split(' ')[3];
-
-                            model.ModelName = title + " " + (newDateTime == null ? date + " " + time : newDateTime) + " " + creater;
+                            if (model.ModelName.Split(' ').Length == 4)
+                            {
+                                string title = model.ModelName.Split(' ')[0];
+                                string date = model.ModelName.Split(' ')[1];
+                                string time = model.ModelName.Split(' ')[2];
+                                string creater = model.ModelName.Split(' ')[3];
+                                model.ModelName = title + " " + (newDateTime == null ? date + " " + time : newDateTime) + " " + creater;
+                            }
                             model.DisplayTime = newDateTime == null ? model.DisplayTime : Convert.ToDateTime(newDateTime);
                             node.SetValue("colName", model.ModelName);
                             xtraTabControlEmr.SelectedTabPage.Text = model.ModelName;

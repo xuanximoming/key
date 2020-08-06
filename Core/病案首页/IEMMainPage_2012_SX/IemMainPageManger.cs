@@ -2215,6 +2215,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             catch (Exception ex)
             {
                 m_app.SqlHelper.RollbackTransaction();
+                throw ex;
             }
         }
 

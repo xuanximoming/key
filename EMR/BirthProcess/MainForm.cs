@@ -1,5 +1,4 @@
 ﻿using DrectSoft.Common.Eop;
-using DrectSoft.DSSqlHelper;
 using DrectSoft.FrameWork.WinForm;
 using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
@@ -13,6 +12,7 @@ namespace DrectSoft.Core.BirthProcess
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraUserControl, IEMREditor
     {
+        private string Noofinpat;
         private IEmrHost m_app;
         internal IEmrHost App
         {
@@ -35,8 +35,6 @@ namespace DrectSoft.Core.BirthProcess
         public MainForm()
         {
             InitializeComponent();
-            DS_SqlHelper.CreateSqlHelper();
-            Init();
         }
 
         public MainForm(IEmrHost app)
@@ -47,21 +45,19 @@ namespace DrectSoft.Core.BirthProcess
         public MainForm(string noofinpat)
             : this()
         {
-            Init();
+            Noofinpat = noofinpat;
+            //Init();
         }
+
 
         private void Init()
         {
 
             timeEditCheckTime.Time = DateTime.Now;
-            SqlParameter[] sqlParams = new SqlParameter[]
-                        {
-                            new SqlParameter("@Noofinpat",SqlDbType.VarChar,9),
-                            new SqlParameter("@result",SqlDbType.Structured,50),
-                        };
-            sqlParams[0].Value = "10000000";
-            sqlParams[1].Direction = ParameterDirection.Output;
-            DataSet ds = DS_SqlHelper.ExecuteDataSet("BIRTHPROCESS.usp_GetBIRTHPROCESS_UTERINE", sqlParams, CommandType.StoredProcedure);
+            SqlParameter[] sqlParams = new SqlParameter[] { new SqlParameter("@Noofinpat", CurrentNoofinpat.NoOfFirstPage.ToString()) };
+            //sqlParams[0].Value = "100000";//CurrentNoofinpat.NoOfFirstPage.ToString();
+            //sqlParams[1].Direction = ParameterDirection.Output;
+            DataSet ds = m_app.SqlHelper.ExecuteDataSet("BIRTHPROCESS.usp_GetBIRTHPROCESS_UTERINE", sqlParams, CommandType.StoredProcedure);
             DataTable dt = ds.Tables[0];
 
             List<recoder1> list = new List<recoder1>();
@@ -99,6 +95,7 @@ namespace DrectSoft.Core.BirthProcess
             {
                 if (app == null) return;
                 m_app = app;
+                Init();
             }
             catch (Exception ex)
             {
@@ -151,7 +148,7 @@ namespace DrectSoft.Core.BirthProcess
             List<recoder1> list = new List<recoder1>();
             list = gridControl1.DataSource == null ? list : gridControl1.DataSource as List<recoder1>;
             recoder1 rec = new recoder1();
-            rec.Noofinpat = "10000000";
+            rec.Noofinpat = CurrentNoofinpat.NoOfFirstPage.ToString();
             rec.UterineRaws = Guid.NewGuid().ToString();
             rec.CheckTime = DateTime.Now.ToString();
             list.Add(rec);
@@ -187,7 +184,7 @@ namespace DrectSoft.Core.BirthProcess
                 sqlParams[7].Value = rec.SignaturesDoctor != null ? rec.SignaturesDoctor : "";
                 sqlParams[8].Value = rec.InputPerson != null ? rec.InputPerson : "";
                 sqlParams[9].Value = rec.Del != null ? rec.Del : "";
-                DS_SqlHelper.ExecuteNonQuery("BIRTHPROCESS.usp_SaveBIRTHPROCESS_UTERINE", sqlParams, CommandType.StoredProcedure);
+                m_app.SqlHelper.ExecuteNoneQuery("BIRTHPROCESS.usp_SaveBIRTHPROCESS_UTERINE", sqlParams, CommandType.StoredProcedure);
             }
         }
 
@@ -200,7 +197,7 @@ namespace DrectSoft.Core.BirthProcess
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(5, ex.Message);
             }
 
         }
