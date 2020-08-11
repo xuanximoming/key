@@ -38,7 +38,7 @@ namespace DrectSoft.Common
         /// </summary>
         public static IUser currentUser;
 
-        #region 普通方法 ↓　bwj 2012-10-19
+        #region 普通方法　bwj 2012-10-19
         /// <summary>
         /// 判断是否能PING通数据库服务器--收录并改进
         /// </summary>
@@ -116,7 +116,7 @@ namespace DrectSoft.Common
             }
         }
 
-        #endregion 普通方法 ↑
+        #endregion
 
         /// <summary>
         /// 设置控件背景色
@@ -1308,7 +1308,7 @@ namespace DrectSoft.Common
             }
         }
 
-        #region 设置控件属性方法参照IemControlDefault表 ↓ Add by xlb 2013-07-01
+        #region 设置控件属性方法参照IemControlDefault表Add by xlb 2013-07-01
 
         /// <summary>
         /// <Auth>XLB</Auth>

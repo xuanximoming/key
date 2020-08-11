@@ -357,16 +357,8 @@ namespace DrectSoft.Core.NurseDocument
             try
             {
                 string fieldName = dataList.FieldName;//字段名称
-                bool temp = false;//该体征点是否需要过滤
                 foreach (DataPoint dp in dataList)
                 {
-                    #region 此处注销by xlb 2013-06-25 保留特殊状态段的点画图标和垂直连线正常连线时再清值
-                    //temp = CheckDataPointFilter(dp);
-                    //if (temp)  //该时段存在"外出"等病人状态
-                    //{
-                    //    dp.value = "";
-                    //}
-                    #endregion
                     if (string.IsNullOrEmpty(dp.value.Trim()))//过滤输入多个空格引起画图出错问题
                     {
                         continue;
@@ -378,6 +370,31 @@ namespace DrectSoft.Core.NurseDocument
 
                     if (fieldName.Equals(DataLoader.TEMPERATURE)) //如是温度
                     {
+                        if (float.Parse(dp.value) < 35)
+                        {
+                            //小于35度，画体温不升标志
+                            DataPoint dpmax = new DataPoint();
+                            dpmax.value = "35";
+                            float maxY = dpmax.ToYCoordinate(ConfigInfo.dicVerticalCoordinate[fieldName]);
+
+                            DataPoint dpmin = new DataPoint();
+                            dpmin.value = "34.6";
+                            float minY = (int)dpmin.ToYCoordinate(ConfigInfo.dicVerticalCoordinate[fieldName]);
+                            Font fontText = new Font(ConfigInfo.m_fontName, ConfigInfo.m_captionSize, FontStyle.Regular);
+
+                            StringFormat sf = new StringFormat();
+                            sf.Alignment = StringAlignment.Center;
+                            sf.LineAlignment = StringAlignment.Center;
+
+                            //RectangleF recf = new Rectangle((int)pos.X, maxY, 5, minY - maxY);
+
+                            System.Drawing.Drawing2D.AdjustableArrowCap lineCap = new System.Drawing.Drawing2D.AdjustableArrowCap(2, 2, true);
+                            Pen redArrowPen = new Pen(Color.Blue, 2);
+                            redArrowPen.CustomEndCap = lineCap;
+
+                            gph.DrawLine(redArrowPen, pos.X, maxY, pos.X, minY);
+                        }
+
                         switch (dp.temperatureType)
                         {
                             case 8801:
@@ -443,13 +460,6 @@ namespace DrectSoft.Core.NurseDocument
                 bool temp = false;//该体征点是否需要过滤
                 for (int i = 0; i < dataList.Count; i++)
                 {
-                    #region 注销 by xlb 2013-06-25 连线时再清特殊状态时段数据
-                    //temp = CheckDataPointFilter(dataList[i]);
-                    //if (temp)  //该时段存在"外出"等病人状态
-                    //{
-                    //    dataList[i].value = "";
-                    //}
-                    #endregion
                     if (dataList[i].value == "")
                     {
                         continue;

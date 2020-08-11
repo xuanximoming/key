@@ -417,7 +417,6 @@ namespace DrectSoft.Core.NurseDocument
             try
             {
                 string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}' and a.dotime >='{1}' and a.dotime <'{2}' order by dotime ", NOOFINPAT, startdate.ToString("yyyy-MM-dd 00:00"), enddate.ToString("yyyy-MM-dd 00:00"));
-                //string sql = string.Format(@"select a.dotime,b.name,b.id from PatientStatus a join THREE_CHECK_EVENT b on  a.ccode=b.id and a.noofinpat='{0}'  order by dotime ", NOOFINPAT);
                 return DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
             }
             catch (Exception ex)
@@ -489,7 +488,7 @@ namespace DrectSoft.Core.NurseDocument
             {
                 foreach (DataRow item in dataTable.Rows)
                 {
-                    if (item["CCODE"].ToString().Trim().Equals(ConfigInfo.InHospitalCode))
+                    if (item["id"].ToString().Trim().Equals(ConfigInfo.InHospitalCode))
                     {//存在入院记录则终止遍历
                         IsNeedInsertInHos = false;
                         break;
