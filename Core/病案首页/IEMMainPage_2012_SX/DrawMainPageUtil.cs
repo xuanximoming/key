@@ -550,7 +550,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                 //医院名称
                 xmlNodeChildren = xmlNode.SelectNodes("Hospital")[0];
-                m_PointYTitle = float.Parse(xmlNodeChildren.Attributes["fontsize"].Value);
+                m_PointYTitle = float.Parse(xmlNodeChildren.Attributes["PointY"].Value);
                 Font font = GetFont(xmlNodeChildren);
                 Name = xmlNodeChildren.InnerText + m_IemMainPageEntity.IemBasicInfo.HospitalName;
                 float lineHight = TextRenderer.MeasureText("高", font).Height;

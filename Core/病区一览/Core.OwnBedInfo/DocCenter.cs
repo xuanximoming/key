@@ -3003,17 +3003,9 @@ namespace DrectSoft.Core.OwnBedInfo
                 string syxh = dataRow["noofinpat"].ToString();
                 if ((!string.IsNullOrEmpty(syxh)))
                 {
-                    //DialogResult dResult = m_App.CustomMessageBox.MessageShow("确定让病人出院吗？", CustomMessageBoxKind.QuestionYesNo);
                     DialogResult dResult = MessageBox.Show("您确定让 " + dataRow["PATNAME"].ToString() + " 出院吗？", "病人出院", MessageBoxButtons.YesNo);
                     if (dResult == DialogResult.Yes)
                     {
-                        //string sql = string.Format("update inpatient i set i.status=1503 and i.outhosdept='{0}' and i.outhosward='{1}' and i.outwarddate='{2}' and i.outhosdate='{3}' where inpatient.noofinpat={4}",
-                        // m_App.User.CurrentDeptId,
-                        //m_App.User.CurrentWardId,
-                        //DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                        //DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), 
-                        //Convert.ToInt32(syxh));
-                        // m_App.SqlHelper.ExecuteNoneQuery(sql, CommandType.Text);
                         //xll 添加电子病历出院标记 1  emrouthos
                         string sql = "update inpatient i set i.status=1503,i.outhosdept=@outhostdept, i.outhosward=@outhostward,i.outwarddate=@outwarddate,i.outhosdate=@outhostdate,i.emrouthos='1' where i.noofinpat=@noofinpat";
                         SqlParameter[] sps ={

@@ -1205,9 +1205,9 @@ namespace MedicalRecordManage.UCControl
                 {
                     string StrSelectPat = @"select * from inpatient where inpatient.noofinpat = '{0}';";
                     string strStatus = m_app.SqlHelper.ExecuteDataTable(string.Format(StrSelectPat, noofinpat), CommandType.Text).Rows[0]["status"].ToString().Trim();
-                    if (strStatus.Equals("1500"))
+                    if (strStatus.Equals("1503"))
                     {
-                        string StrDisOutHos = @"update inpatient set status = '1500',outwarddate = '',outhosdate = '' where noofinpat = '{0}';";
+                        string StrDisOutHos = @"update inpatient set status = '1500',outwarddate = '',outhosdate = '',emrouthos='' where noofinpat = '{0}';";
                         m_app.SqlHelper.ExecuteNoneQuery(string.Format(StrDisOutHos, noofinpat), CommandType.Text);
                         DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(message + "成功");
                         dbGridView.DeleteRow(dbGridView.FocusedRowHandle);

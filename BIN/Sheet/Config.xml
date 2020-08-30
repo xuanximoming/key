@@ -150,7 +150,7 @@
 	</legend>
 	<!--需要过滤体征数据的病人状态值，即 如果该时段病人为此状态之一，则此时段数据点不绘制，color可配置各个状态的颜色 -->
 	<patientstatefilter>
-		<item valueText="入院" breakLinkLine="1" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="入院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="外出" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="请假" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="不升" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>

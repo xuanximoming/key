@@ -386,8 +386,6 @@ namespace DrectSoft.Core.NurseDocument
                             sf.Alignment = StringAlignment.Center;
                             sf.LineAlignment = StringAlignment.Center;
 
-                            //RectangleF recf = new Rectangle((int)pos.X, maxY, 5, minY - maxY);
-
                             System.Drawing.Drawing2D.AdjustableArrowCap lineCap = new System.Drawing.Drawing2D.AdjustableArrowCap(2, 2, true);
                             Pen redArrowPen = new Pen(Color.Blue, 2);
                             redArrowPen.CustomEndCap = lineCap;
@@ -448,7 +446,7 @@ namespace DrectSoft.Core.NurseDocument
         }
 
         /// <summary>
-        /// 
+        /// 绘制物理升温点
         /// </summary>
         /// <param name="dataList">升温点</param>
         /// <param name="dataList1">体温点</param>
@@ -457,7 +455,6 @@ namespace DrectSoft.Core.NurseDocument
             try
             {
                 string fieldName = dataList.FieldName;//字段名称
-                bool temp = false;//该体征点是否需要过滤
                 for (int i = 0; i < dataList.Count; i++)
                 {
                     if (dataList[i].value == "")
@@ -501,9 +498,10 @@ namespace DrectSoft.Core.NurseDocument
         }
 
         /// <summary>
-        /// Modify by xlb
+        /// 根据体温单配置文件patientstatefilter----breakLinkLine字段判断连线是否断开
+        /// modify by ukey 20200816
         /// </summary>
-        /// <param name="dp"></param>
+        /// <param name="dp">体温</param>
         /// <returns></returns>
         private bool CheckDataPointFilter(DataPoint dp)
         {
@@ -518,10 +516,7 @@ namespace DrectSoft.Core.NurseDocument
                     //同一天且同一时段
                     if (DateTime.Parse(item.Key.date).Date == DateTime.Parse(dp.date).Date && ConfigInfo.GetHourDuringIndex(item.Key.date) == ConfigInfo.GetTimelotIndex(dp.timeslot))
                     {
-                        ////if (!string.IsNullOrEmpty(dp.value.ToString().Trim()))//Modify by xlb （加这个判断为什么？）有特殊状态且有值正常画？
-                        ////{
                         return true;
-                        ////}
                     }
                 }
                 return false;
@@ -668,12 +663,6 @@ namespace DrectSoft.Core.NurseDocument
             try
             {
                 string filedName = dataList.FieldName;
-                //Pen pen = ConfigInfo.GetColorPen(ConfigInfo.dicVitalSignsLineColor[filedName]);
-                //if (filedName == DataLoader.HEARTRATE)
-                //{
-                //    pen.DashStyle = DashStyle.Custom;
-                //    pen.DashPattern = new float[] { 6, 2 };
-                //}
                 Pen pen = ConfigInfo.GetPen(filedName);
                 bool temp = false;//该体征点是否需要过滤
                 bool _temp = false;//解决一天没有体征数据单有特殊状态时连线不断开问题
@@ -1552,6 +1541,7 @@ namespace DrectSoft.Core.NurseDocument
                     bool linkNextTemperature = ConfigInfo.temperatureChangedNode.Attributes["linkNextTemperature"] == null ? false : ConfigInfo.temperatureChangedNode.Attributes["linkNextTemperature"].Value == "1" ? true : false;
                     if (linkNextTemperature)
                     {
+                        //绘制体温点和升温连线
                         LinkDataPoints(VitalSignsDataPointsPHYSICALHOTTING, ref VitalSignsDataPointsTEMPERATURE);
                     }
                     else

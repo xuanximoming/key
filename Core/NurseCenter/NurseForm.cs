@@ -1584,7 +1584,6 @@ namespace DrectSoft.Emr.NurseCenter
                     DialogResult dResult = m_App.CustomMessageBox.MessageShow("确定让病人出院吗？", CustomMessageBoxKind.QuestionYesNo);
                     if (dResult == DialogResult.Yes)
                     {
-                        // string sql = string.Format("update inpatient set inpatient.status=1503,inpatient.emrouthos='1' where inpatient.noofinpat={0};", Convert.ToInt32(syxh));
                         string sql = "update inpatient i set i.status=1503,i.outhosdept=@outhostdept, i.outhosward=@outhostward,i.outwarddate=@outwarddate,i.outhosdate=@outhostdate,i.emrouthos='1' where i.noofinpat=@noofinpat";
                         SqlParameter[] sps ={
                                                new SqlParameter("@outhostdept",m_App.User.CurrentDeptId),

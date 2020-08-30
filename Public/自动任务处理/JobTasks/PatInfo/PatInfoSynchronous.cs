@@ -114,7 +114,6 @@ namespace DrectSoft.JobManager
 
                 m_EmrHelper = DataAccessFactory.DefaultDataAccess;
                 m_HisHelper = DataAccessFactory.GetSqlDataAccess("HISDB");
-                //m_EhrHelper = DataAccessFactory.GetSqlDataAccess("EHRDB");
                 m_NewPatients = new Dictionary<string, DataRow>();
                 m_NewBeds = new Dictionary<string, DataRow>();
                 try
@@ -812,10 +811,6 @@ namespace DrectSoft.JobManager
                 m_UpdateColumns = GetConfigValueByKey("UpdateCloumns");
                 DataSet resultDS = GetPatientAndBedTable(isInit);
                 InitPatientAndBedData(resultDS.Tables[0], resultDS.Tables[1]);
-                //if (isInit)
-                //    InitPatientAndBedData(resultDS.Tables[0], resultDS.Tables[1]);
-                //else
-                //    SynchChangedPatientAndBedData(resultDS.Tables[0], resultDS.Tables[1]);
             }
             catch
             { throw; }
