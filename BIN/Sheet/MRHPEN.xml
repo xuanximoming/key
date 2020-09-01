@@ -4,7 +4,7 @@
 	<DefaultStyle fontsize="14" fontname="宋体" FontStyle="Regular"/>
 	<!-- 表头 -->
 	<Title>
-		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="40">医疗机构：</Hospital>
+		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="10">医疗机构：</Hospital>
 		<HomePage fontsize="18" fontname="宋体" FontStyle="Bold" top="10">住 院 病 案 首 页</HomePage>
 		<CardNumber Width="300">健康卡号:</CardNumber>
 		<inTime Width="300"></inTime>

@@ -70,7 +70,7 @@
 		<column name="Value20" maxpix="240" fontfamily="宋体" fontsize="10" />
 	</report>
 	<report name="FY_YBHLJLD">
-		<column name="Value7" maxpix="270" fontfamily="宋体" fontsize="10" />
+		<column name="Value7" maxpix="200" fontfamily="宋体" fontsize="10" />
 	</report>
 	<report name="FY_ZZHLJLD">
 		<column name="Value10" maxpix="200" fontfamily="宋体" fontsize="10" />

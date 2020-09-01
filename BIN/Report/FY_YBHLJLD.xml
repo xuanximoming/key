@@ -2,16 +2,16 @@
 <root>
 	<!-- 凡是 datafield 有值的情况下，值形如Value@的中@必须要按序排列 从1开始；时间和签名列除外 -->
 	<Columns horRepeat="0">
-		<Column offsetXPreCol="0" y="50" width="150" height="60" text="日期/时间" fontsize="" bold="0" align="0" datafield="DateTimeShow"/>
-		<Column offsetXPreCol="150" y="50" width="50" height="60" text="体温℃" fontsize="" bold="0" align="0" datafield="Value1"/>
-		<Column offsetXPreCol="50" y="50" width="50" height="30" text="心率次/分" fontsize="" bold="0" align="0" datafield=""/>
-		<Column offsetXPreCol="0" y="80" width="50" height="30" text="脉率次/分" fontsize="" bold="0" align="0" datafield="Value2"/>
-		<Column offsetXPreCol="50" y="50" width="50" height="60" text="呼吸分/次" fontsize="" bold="0" align="0" datafield="Value3"/>
-		<Column offsetXPreCol="50" y="50" width="50" height="60" text="血压mmHg" fontsize="" bold="0" align="0" datafield="Value4"/>
-		<Column offsetXPreCol="50" y="50" width="50" height="60" text="血氧%" fontsize="" bold="0" align="0" datafield="Value5"/>
-		<Column offsetXPreCol="50" y="50" width="50" height="60" text="意识" fontsize="" bold="0" align="0" datafield="Value6"/>
-		<Column offsetXPreCol="50" y="50" width="220" height="60" text="病情及治疗" fontsize="" bold="0" align="0" datafield="Value7"/>
-		<Column offsetXPreCol="220" y="50" width="60" height="60" text="签名" fontsize="" bold="0" align="0" datafield="Value8"/>
+		<Column line="0"  offsetXPreCol="0" y="50" width="150" height="60" text="日期/时间" fontsize="" bold="0" align="0" datafield="DateTimeShow"/>
+		<Column line="0"  offsetXPreCol="150" y="50" width="50" height="60" text="体温℃" fontsize="" bold="0" align="0" datafield="Value1"/>
+		<Column line="0"  offsetXPreCol="50" y="50" width="50" height="30" text="心率次/分" fontsize="" bold="0" align="0" datafield=""/>
+		<Column line="0"  offsetXPreCol="0" y="80" width="50" height="30" text="脉率次/分" fontsize="" bold="0" align="0" datafield="Value2"/>
+		<Column line="0"  offsetXPreCol="50" y="50" width="50" height="60" text="呼吸分/次" fontsize="" bold="0" align="0" datafield="Value3"/>
+		<Column line="0"  offsetXPreCol="50" y="50" width="50" height="60" text="血压mmHg" fontsize="" bold="0" align="0" datafield="Value4"/>
+		<Column line="0"  offsetXPreCol="50" y="50" width="50" height="60" text="血氧%" fontsize="" bold="0" align="0" datafield="Value5"/>
+		<Column line="0"  offsetXPreCol="50" y="50" width="50" height="60" text="意识" fontsize="" bold="0" align="0" datafield="Value6"/>
+		<Column line="0"  offsetXPreCol="50" y="50" width="200" height="60" text="病情及治疗" fontsize="" bold="0" align="0" datafield="Value7"/>
+		<Column line="0"  offsetXPreCol="200" y="50" width="60" height="60" text="签名" fontsize="" bold="0" align="0" datafield="Value8"/>
 	</Columns>
 	<StaticText>
 		<item x="40" y="0" width="740" height="0" text="重症护理记录单" fontsize="20" bold="1" align=""/>
