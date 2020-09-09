@@ -351,7 +351,7 @@ namespace DrectSoft.Core.NurseDocument
         /// <summary>
         /// 绘制数据点
         /// </summary>
-        /// <param name="dataList"></param>
+        /// <param name="dataList">物理降温/物理升温/体温点集合</param>
         public void FillVitalSignsData(DataCollection dataList)
         {
             try
@@ -455,32 +455,36 @@ namespace DrectSoft.Core.NurseDocument
             try
             {
                 string fieldName = dataList.FieldName;//字段名称
+                string icon = ConfigInfo.temperatureChangedNode.Attributes["icon"] == null ? "0" : ConfigInfo.temperatureChangedNode.Attributes["icon"].Value;
                 for (int i = 0; i < dataList.Count; i++)
                 {
                     if (dataList[i].value == "")
                     {
                         continue;
                     }
-                    string iconName = string.Empty;
+                    string iconName = fieldName;
                     PointF pos = new PointF();
                     pos.X = dataList[i].ToXCoordinate();
                     pos.Y = dataList[i].ToYCoordinate(ConfigInfo.dicVerticalCoordinate[fieldName]);
-
-                    switch (dataList1[i].temperatureType)//当前对应的体温点类型
+                    if (icon == "1")
                     {
-                        case 8801:
-                            iconName = DataLoader.YEWEN;
-                            break;
-                        case 8802:
-                            iconName = DataLoader.KOUWEN;
-                            break;
-                        case 8803:
-                            iconName = DataLoader.GANGWEN;
-                            break;
-                        default:
-                            iconName = DataLoader.YEWEN;
-                            break;
+                        switch (dataList1[i].temperatureType)//当前对应的体温点类型
+                        {
+                            case 8801:
+                                iconName = DataLoader.YEWEN;
+                                break;
+                            case 8802:
+                                iconName = DataLoader.KOUWEN;
+                                break;
+                            case 8803:
+                                iconName = DataLoader.GANGWEN;
+                                break;
+                            default:
+                                iconName = DataLoader.YEWEN;
+                                break;
+                        }
                     }
+
                     if (iconName == DataLoader.KOUWEN)
                     {
                         gph.DrawImage(LegendIconSource.dic_legendIcon[iconName], pos.X + ConfigInfo.subMoveX, pos.Y - 3, ConfigInfo.m_lineIconSize.Width + 2, ConfigInfo.m_lineIconSize.Height + 2);
@@ -960,93 +964,99 @@ namespace DrectSoft.Core.NurseDocument
             catch (Exception ex) { throw ex; }
         }
 
-        private void FillNullForPulseAndHeartrate(DataCollection datalistMain, DataCollection dataList)
-        {
-            try
-            {
-                Pen pen = ConfigInfo.GetColorPen(ConfigInfo.dicVitalSignsLineColor[datalistMain.FieldName]);
-                bool temp = false;//该体征点是否需要过滤
-                bool _temp = false;//解决一天没有体征数据单有特殊状态时连线不断开问题
-                DataPoint preDataPoint = null;
-                bool prePointRepalce = false;//上一个数据点是否是置换点
-                for (int i = 0; i < datalistMain.Count; i++)
-                {
-                    if (string.IsNullOrEmpty(datalistMain[i].value))//脉搏值为空值，用当前点的心率值充当
-                    {
-                        if (datalistMain[i].date == dataList[i].date && datalistMain[i].timeslot == dataList[i].timeslot)
-                        {
-                            if (string.IsNullOrEmpty(dataList[i].value)) continue;
-                            datalistMain[i].value = dataList[i].value;
-                            //脉搏点连线
-                            temp = CheckDataPointFilter(datalistMain[i]);
-                            _temp = CheckDataPointFilter(datalistMain[i], preDataPoint);
-                            if (_temp)
-                            {
-                                preDataPoint = null;
-                            }
-                            if (temp)  //该时段存在"外出"等病人状态
-                            {
-                                datalistMain[i].value = "";
-                                preDataPoint = null;
-                            }
-                            if (string.IsNullOrEmpty(datalistMain[i].value))
-                            {
-                                continue;
-                            }
-                            if (preDataPoint != null && prePointRepalce == false)
-                            {
-                                gph.DrawLine(pen, (int)preDataPoint.ToXCoordinate() + ConfigInfo.lineMoveX, (int)preDataPoint.ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1, (int)datalistMain[i].ToXCoordinate() + ConfigInfo.lineMoveX, (int)datalistMain[i].ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1);
-                            }
-                            preDataPoint = datalistMain[i];
-                            if (temp)  //该时段存在"外出"等病人状态
-                            {
-                                preDataPoint = null;
-                            }
-                            //---------
-                            prePointRepalce = true;
-                        }
-                    }
-                    else
-                    {
-                        //脉搏点连线
-                        if (prePointRepalce == true)
-                        {
-                            prePointRepalce = false;
-                        }
-                        temp = CheckDataPointFilter(datalistMain[i]);
-                        _temp = CheckDataPointFilter(datalistMain[i], preDataPoint);
-                        if (_temp)
-                        {
-                            preDataPoint = null;
-                        }
-                        if (temp)  //该时段存在"外出"等病人状态
-                        {
-                            datalistMain[i].value = "";
-                            preDataPoint = null;
-                        }
-                        if (string.IsNullOrEmpty(datalistMain[i].value))
-                        {
-                            continue;
-                        }
-                        if (preDataPoint != null && prePointRepalce == false)
-                        {
-                            gph.DrawLine(pen, (int)preDataPoint.ToXCoordinate() + ConfigInfo.lineMoveX, (int)preDataPoint.ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1, (int)datalistMain[i].ToXCoordinate() + ConfigInfo.lineMoveX, (int)datalistMain[i].ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1);
-                        }
-                        preDataPoint = datalistMain[i];
-                        if (temp)  //该时段存在"外出"等病人状态
-                        {
-                            preDataPoint = null;
-                        }
-                        //---------
-                        prePointRepalce = false;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        /// <summary>
+        /// 脉搏和心跳
+        /// 解决一天没有体征数据单有特殊状态时连线不断开问题
+        /// </summary>
+        /// <param name="datalistMain"></param>
+        /// <param name="dataList"></param>
+        //private void FillNullForPulseAndHeartrate(DataCollection datalistMain, DataCollection dataList)
+        //{
+        //    try
+        //    {
+        //        Pen pen = ConfigInfo.GetColorPen(ConfigInfo.dicVitalSignsLineColor[datalistMain.FieldName]);
+        //        bool temp = false;//该体征点是否需要过滤
+        //        bool _temp = false;//解决一天没有体征数据单有特殊状态时连线不断开问题
+        //        DataPoint preDataPoint = null;
+        //        bool prePointRepalce = false;//上一个数据点是否是置换点
+        //        for (int i = 0; i < datalistMain.Count; i++)
+        //        {
+        //            if (string.IsNullOrEmpty(datalistMain[i].value))//脉搏值为空值，用当前点的心率值充当
+        //            {
+        //                if (datalistMain[i].date == dataList[i].date && datalistMain[i].timeslot == dataList[i].timeslot)
+        //                {
+        //                    if (string.IsNullOrEmpty(dataList[i].value)) continue;
+        //                    datalistMain[i].value = dataList[i].value;
+        //                    //脉搏点连线
+        //                    temp = CheckDataPointFilter(datalistMain[i]);
+        //                    _temp = CheckDataPointFilter(datalistMain[i], preDataPoint);
+        //                    if (_temp)
+        //                    {
+        //                        preDataPoint = null;
+        //                    }
+        //                    if (temp)  //该时段存在"外出"等病人状态
+        //                    {
+        //                        datalistMain[i].value = "";
+        //                        preDataPoint = null;
+        //                    }
+        //                    if (string.IsNullOrEmpty(datalistMain[i].value))
+        //                    {
+        //                        continue;
+        //                    }
+        //                    if (preDataPoint != null && prePointRepalce == false)
+        //                    {
+        //                        gph.DrawLine(pen, (int)preDataPoint.ToXCoordinate() + ConfigInfo.lineMoveX, (int)preDataPoint.ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1, (int)datalistMain[i].ToXCoordinate() + ConfigInfo.lineMoveX, (int)datalistMain[i].ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1);
+        //                    }
+        //                    preDataPoint = datalistMain[i];
+        //                    if (temp)  //该时段存在"外出"等病人状态
+        //                    {
+        //                        preDataPoint = null;
+        //                    }
+        //                    //---------
+        //                    prePointRepalce = true;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                //脉搏点连线
+        //                if (prePointRepalce == true)
+        //                {
+        //                    prePointRepalce = false;
+        //                }
+        //                temp = CheckDataPointFilter(datalistMain[i]);
+        //                _temp = CheckDataPointFilter(datalistMain[i], preDataPoint);
+        //                if (_temp)
+        //                {
+        //                    preDataPoint = null;
+        //                }
+        //                if (temp)  //该时段存在"外出"等病人状态
+        //                {
+        //                    datalistMain[i].value = "";
+        //                    preDataPoint = null;
+        //                }
+        //                if (string.IsNullOrEmpty(datalistMain[i].value))
+        //                {
+        //                    continue;
+        //                }
+        //                if (preDataPoint != null && prePointRepalce == false)
+        //                {
+        //                    gph.DrawLine(pen, (int)preDataPoint.ToXCoordinate() + ConfigInfo.lineMoveX, (int)preDataPoint.ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1, (int)datalistMain[i].ToXCoordinate() + ConfigInfo.lineMoveX, (int)datalistMain[i].ToYCoordinate(ConfigInfo.dicVerticalCoordinate[datalistMain.FieldName]) + 1);
+        //                }
+        //                preDataPoint = datalistMain[i];
+        //                if (temp)  //该时段存在"外出"等病人状态
+        //                {
+        //                    preDataPoint = null;
+        //                }
+        //                //---------
+        //                prePointRepalce = false;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
 
         /// <summary>
         /// 绘制非体征数据点
@@ -1228,6 +1238,13 @@ namespace DrectSoft.Core.NurseDocument
             catch (Exception ex)
             { throw ex; }
         }
+
+
+        /// <summary>
+        /// 获取特殊的病人状态事件
+        /// </summary>
+        /// <param name="dataList"></param>
+        /// <returns></returns>
         private DataCollection FillEventData(DataCollection dataList)
         {
             try
@@ -1351,6 +1368,10 @@ namespace DrectSoft.Core.NurseDocument
             }
         }
 
+        /// <summary>
+        /// 绘制特殊的病人状态事件
+        /// </summary>
+        /// <param name="dataList"></param>
         private void FillSpecialEventData(DataCollection dataList)
         {
             try
@@ -1467,10 +1488,8 @@ namespace DrectSoft.Core.NurseDocument
             }
         }
 
-
-
         /// <summary>
-        /// 解决桑植医院特殊状态断开时不连线录入值画点需求
+        /// 解决医院特殊状态断开时不连线录入值画点需求
         /// Modify by xlb 2013-06-24
         /// </summary>
         /// <param name="g"></param>
@@ -1523,7 +1542,8 @@ namespace DrectSoft.Core.NurseDocument
                     VitalSignsDataPointsTEMPERATURE = dataLoader.GetVitalSignsDataPoints(DataLoader.TEMPERATURE);//体温
                     FillVitalSignsData(VitalSignsDataPointsTEMPERATURE);//绘制点                   
                     /*物理降温点集合*/
-                    VitalSignsDataPointsPHYSICALCOOLING = dataLoader.GetVitalSignsDataPoints(DataLoader.PHYSICALCOOLING);//物理降温
+                    VitalSignsDataPointsPHYSICALCOOLING = dataLoader.GetVitalSignsDataPoints(DataLoader.PHYSICALCOOLING);
+                    //绘制物理降温点
                     FillVitalSignsData(VitalSignsDataPointsPHYSICALCOOLING);
                     Brush brush = null;
                     /*通过配置决定体温物理降温连线画笔颜色*/
@@ -1531,13 +1551,14 @@ namespace DrectSoft.Core.NurseDocument
                     /*降温点体温点连线*/
                     LinkDifferentTypeDataPoint(VitalSignsDataPointsPHYSICALCOOLING/*物理降温点集合*/, VitalSignsDataPointsTEMPERATURE/*温度点集合*/, brush/*画笔颜色*/, DashStyle.Custom);
                     /*物理升温点集合*/
-                    VitalSignsDataPointsPHYSICALHOTTING = dataLoader.GetVitalSignsDataPoints(DataLoader.PHYSICALHOTTING);//物理升温
+                    VitalSignsDataPointsPHYSICALHOTTING = dataLoader.GetVitalSignsDataPoints(DataLoader.PHYSICALHOTTING);
                     /*绘制物理升温点*/
                     FillVitalSignsData(VitalSignsDataPointsPHYSICALHOTTING, VitalSignsDataPointsTEMPERATURE);
-
+                    /*通过配置决定体温物理升温连线画笔颜色*/
                     brush = ConfigInfo.GetColorBrush(ConfigInfo.temperatureChangedNode.Attributes["lineColorUp"] == null ? "蓝" : ConfigInfo.temperatureChangedNode.Attributes["lineColorUp"].Value);
                     //------Add by xlb 2013-06-24解决桑植断开时录入值则正常画图标-------------------------------
-                    LinkDifferentTypeDataPoint(VitalSignsDataPointsPHYSICALHOTTING, VitalSignsDataPointsTEMPERATURE, brush, DashStyle.Custom);
+                    /*升温点体温点连线*/
+                    LinkDifferentTypeDataPoint(VitalSignsDataPointsPHYSICALHOTTING/*物理升温点集合*/, VitalSignsDataPointsTEMPERATURE/*温度点集合*/, brush/*画笔颜色*/, DashStyle.Custom);
                     bool linkNextTemperature = ConfigInfo.temperatureChangedNode.Attributes["linkNextTemperature"] == null ? false : ConfigInfo.temperatureChangedNode.Attributes["linkNextTemperature"].Value == "1" ? true : false;
                     if (linkNextTemperature)
                     {
@@ -1688,7 +1709,10 @@ namespace DrectSoft.Core.NurseDocument
             }
         }
 
-        //二次加工重合点
+
+        /// <summary>
+        /// 二次加工重合点
+        /// </summary>
         public void DrawReclosing()
         {
             try

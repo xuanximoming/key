@@ -32,6 +32,7 @@ namespace DrectSoft.Core.Permission
         private int m_Status = 0;
         private int m_Valid = 0;
         private string m_Memo = String.Empty;
+        private string m_PracticeCode = String.Empty;
         #endregion declaration
 
         public UsersEntity()
@@ -50,6 +51,19 @@ namespace DrectSoft.Core.Permission
                 m_Id = value;
             }
         }
+
+        public string PracticeCode
+        {
+            get
+            {
+                return m_PracticeCode;
+            }
+            set
+            {
+                m_PracticeCode = value;
+            }
+        }
+
         public string Name
         {
             get

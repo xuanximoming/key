@@ -9,8 +9,8 @@
 	<fontsize size="9"/>
 	<!--图片大小-->
 	<size width="709" height="1100"/>
-	<!--体温变化图标 value 0:表示圆圈 1：表示x; linkNextTemperature : 是否连接下一个体温点 0：不连接 1：连接-->
-	<TemperatureChanged icon="0" lineColorUp="蓝" lineColorDown="红" linkNextTemperature="1"/>
+	<!--物理升温体温变化图标 value 0:表示圆圈 1：表示使用体温相同的图标; linkNextTemperature : 升温是否连接下一个体温点 0：不连接 1：连接 lineColorDown：物理降温颜色，蓝，红-->
+	<TemperatureChanged icon="0" lineColorUp="红" LineType="1" lineColorDown="红" linkNextTemperature="0"/>
 	<!--绘制一些非数据表格中文本-->
 	<ThemeText>
 		<item startX="0" startY="10" width="728" height="25" text="医院" blod="0" size="16" align=""/>

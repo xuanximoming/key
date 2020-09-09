@@ -1,9 +1,7 @@
-﻿using System;
+﻿using DrectSoft.Common.Ctrs.DLG;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
-using DrectSoft.Common.Ctrs.DLG;
 
 namespace DrectSoft.Core.NurseDocument
 {
@@ -166,8 +164,8 @@ namespace DrectSoft.Core.NurseDocument
                 dic_legendIcon.Add(DataLoader.BREATHE, m_BitmapHuXi);
                 m_BitmapHuXiSpecial = (Bitmap)Resources.ResourceManager.GetImage(Resources.ResourceNames.NursKouWen);//呼吸机
                 dic_legendIcon.Add(DataLoader._BREATHE, m_BitmapHuXiSpecial);
-                
-                //string icon = ConfigInfo.temperatureChangedNode.Attributes["icon"] == null ? "0" : ConfigInfo.temperatureChangedNode.Attributes["icon"].Value;
+
+
                 m_BitmapWuLiJiangWen = (Bitmap)Resources.ResourceManager.GetImage(Resources.ResourceNames.NursXinLv);
                 m_BitmapWuLiShengWen = (Bitmap)Resources.ResourceManager.GetImage(Resources.ResourceNames.NursXinLv);
                 dic_legendIcon.Add(DataLoader.PHYSICALCOOLING, m_BitmapWuLiJiangWen);

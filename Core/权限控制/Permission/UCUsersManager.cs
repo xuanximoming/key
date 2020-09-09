@@ -468,6 +468,7 @@ namespace DrectSoft.Core.Permission
                             lookUpEditorCategory.CodeValue = row["Category"].ToString();
                             lookUpEditorJobTitle.CodeValue = row["JobTitle"].ToString();
                             txtRecipeID.Text = row["RecipeID"].ToString();
+                            te_PRACTICECODE.Text = row["PracticeCode"].ToString();
                             cmbRecipeMark.SelectedIndex = Convert.ToInt32(row["RecipeMark"].ToString() == "" ? "-1" : row["RecipeMark"].ToString());
                             cbPower.SelectedIndex = Convert.ToInt32(row["Power"].ToString() == "" ? "-1" : row["Power"].ToString());
                             cmbNarcosisMark.SelectedIndex = Convert.ToInt32(row["NarcosisMark"].ToString() == "" ? "-1" : row["NarcosisMark"].ToString());
@@ -828,25 +829,6 @@ namespace DrectSoft.Core.Permission
         #endregion
 
         /// <summary>
-        /// 删除员工信息
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void simpleButtonDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                m_PubOperator.DelUser(textEditID.Text.Trim());
-                ClearUI();
-                FillTreeListUsers();
-            }
-            catch (Exception ex)
-            {
-                MyMessageBox.Show(1, ex);
-            }
-        }
-
-        /// <summary>
         /// 清空UI上员工基本信息
         /// </summary>
         private void ClearUI()
@@ -859,8 +841,6 @@ namespace DrectSoft.Core.Permission
                 lookUpEditorWard.Text = "";
                 memoEditMemo.Text = "";
 
-
-                //cmbSexy.SelectedIndex = -1;
                 lookUpSex.EditValue = "";
 
                 deBirth.Text = "";
@@ -874,36 +854,13 @@ namespace DrectSoft.Core.Permission
                 cmbNarcosisMark.SelectedIndex = -1;
                 lookUpEditorGrade.CodeValue = "";
                 cmbStatus.SelectedIndex = -1;
+                te_PRACTICECODE.Text = "";
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        #region 增加新员工，不需要功能
-
-        /// <summary>
-        /// 增加新员工
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void simpleButtonAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ClearUI();
-                m_PubOperator.InsertUser(textEditID.Text.Trim(), textEditName.Text.Trim());
-            }
-            catch (Exception ex)
-            {
-                MyMessageBox.Show(1, ex);
-            }
-        }
-
-        #endregion
-
-
         /// <summary>
         /// 重新编辑员工基本信息
         /// </summary>
@@ -933,14 +890,13 @@ namespace DrectSoft.Core.Permission
 
                 UsersEntity users = new UsersEntity();
                 users.Id = textEditID.Text.Trim();
+                users.PracticeCode = te_PRACTICECODE.Text.Trim();
                 users.Name = textEditName.Text.Trim();
                 users.Deptid = lookUpEditorDept.CodeValue.ToString();
                 users.Wardid = lookUpEditorWard.CodeValue.ToString();
                 users.Jobid = selectJobId;
                 users.DeptOrWard = selectDeptOrWard;
-
                 users.Sexy = lookUpSex.EditValue.ToString().Trim();
-
                 users.Birth = deBirth.Text.ToString();
                 users.Marital = lookUpEditorMarital.CodeValue;
                 if (CkeckIDCardss(txtIDNo.Text.Trim().ToString()))
@@ -987,10 +943,8 @@ namespace DrectSoft.Core.Permission
                     popupContainerEditJob.Enabled = true;
                     memoEditMemo.Enabled = true;
                     simpleButtonReset.Enabled = true;
-                    //simpleButtonDelete.Enabled = true;
                     simpleButtonCancel.Enabled = true;
 
-                    //cmbSexy.Enabled = true;
                     lookUpSex.Enabled = true;
                     deBirth.Enabled = true;
                     lookUpEditorMarital.Enabled = true;
@@ -998,6 +952,7 @@ namespace DrectSoft.Core.Permission
                     lookUpEditorCategory.Enabled = true;
                     lookUpEditorJobTitle.Enabled = true;
                     txtRecipeID.Enabled = true;
+                    te_PRACTICECODE.Enabled = true;
                     cmbRecipeMark.Enabled = true;
                     cbPower.Enabled = true;
                     if (cbPower.SelectedIndex == 1) popupContainerEditpower.Enabled = true;
@@ -1011,10 +966,8 @@ namespace DrectSoft.Core.Permission
                     popupContainerEditpower.Enabled = false;
                     memoEditMemo.Enabled = false;
                     simpleButtonReset.Enabled = false;
-                    //simpleButtonDelete.Enabled = false;
                     simpleButtonCancel.Enabled = false;
 
-                    //cmbSexy.Enabled = false;
                     lookUpSex.Enabled = false;
 
                     deBirth.Enabled = false;
@@ -1023,6 +976,7 @@ namespace DrectSoft.Core.Permission
                     lookUpEditorCategory.Enabled = false;
                     lookUpEditorJobTitle.Enabled = false;
                     txtRecipeID.Enabled = false;
+                    te_PRACTICECODE.Enabled = false;
                     cmbRecipeMark.Enabled = false;
                     cbPower.Enabled = false;
                     cmbNarcosisMark.Enabled = false;

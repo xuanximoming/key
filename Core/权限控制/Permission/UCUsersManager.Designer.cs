@@ -45,7 +45,9 @@
             this.lookUpWindowWard = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.lookUpWindowDept = new DrectSoft.Common.Library.LookUpWindow(this.components);
             this.groupControlBasicInfo = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.popupContainerControlPower = new DevExpress.XtraEditors.PopupContainerControl();
+            this.te_PRACTICECODE = new DevExpress.XtraEditors.TextEdit();
             this.checkedListBoxControlpower = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.popupContainerEditpower = new DevExpress.XtraEditors.PopupContainerEdit();
@@ -87,7 +89,6 @@
             this.txtRecipeID = new DevExpress.XtraEditors.TextEdit();
             this.textEditName = new DevExpress.XtraEditors.TextEdit();
             this.simpleButtonCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButtonDelete = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButtonReset = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
@@ -126,6 +127,7 @@
             this.groupControlBasicInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerControlPower)).BeginInit();
             this.popupContainerControlPower.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_PRACTICECODE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControlpower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerEditpower.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPower.Properties)).BeginInit();
@@ -302,7 +304,7 @@
             // 
             // lookUpWindowWard
             // 
-            this.lookUpWindowWard.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowWard.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowWard.GenShortCode = null;
             this.lookUpWindowWard.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowWard.Owner = null;
@@ -310,7 +312,7 @@
             // 
             // lookUpWindowDept
             // 
-            this.lookUpWindowDept.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowDept.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowDept.GenShortCode = null;
             this.lookUpWindowDept.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowDept.Owner = null;
@@ -318,6 +320,8 @@
             // 
             // groupControlBasicInfo
             // 
+            this.groupControlBasicInfo.Controls.Add(this.te_PRACTICECODE);
+            this.groupControlBasicInfo.Controls.Add(this.labelControl21);
             this.groupControlBasicInfo.Controls.Add(this.popupContainerControlPower);
             this.groupControlBasicInfo.Controls.Add(this.labelControl12);
             this.groupControlBasicInfo.Controls.Add(this.popupContainerEditpower);
@@ -354,7 +358,6 @@
             this.groupControlBasicInfo.Controls.Add(this.txtRecipeID);
             this.groupControlBasicInfo.Controls.Add(this.textEditName);
             this.groupControlBasicInfo.Controls.Add(this.simpleButtonCancel);
-            this.groupControlBasicInfo.Controls.Add(this.simpleButtonDelete);
             this.groupControlBasicInfo.Controls.Add(this.simpleButtonReset);
             this.groupControlBasicInfo.Controls.Add(this.labelControl13);
             this.groupControlBasicInfo.Controls.Add(this.labelControl18);
@@ -370,6 +373,14 @@
             this.groupControlBasicInfo.TabIndex = 1;
             this.groupControlBasicInfo.Text = "基本信息";
             // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(468, 213);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(84, 14);
+            this.labelControl21.TabIndex = 64;
+            this.labelControl21.Text = "执业证书编码：";
+            // 
             // popupContainerControlPower
             // 
             this.popupContainerControlPower.Controls.Add(this.checkedListBoxControlpower);
@@ -377,6 +388,14 @@
             this.popupContainerControlPower.Name = "popupContainerControlPower";
             this.popupContainerControlPower.Size = new System.Drawing.Size(396, 100);
             this.popupContainerControlPower.TabIndex = 62;
+            // 
+            // te_PRACTICECODE
+            // 
+            this.te_PRACTICECODE.EnterMoveNextControl = true;
+            this.te_PRACTICECODE.Location = new System.Drawing.Point(568, 212);
+            this.te_PRACTICECODE.Name = "te_PRACTICECODE";
+            this.te_PRACTICECODE.Size = new System.Drawing.Size(120, 20);
+            this.te_PRACTICECODE.TabIndex = 63;
             // 
             // checkedListBoxControlpower
             // 
@@ -473,7 +492,7 @@
             // 
             // lookUpWindowGrade
             // 
-            this.lookUpWindowGrade.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowGrade.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowGrade.GenShortCode = null;
             this.lookUpWindowGrade.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowGrade.Owner = null;
@@ -492,7 +511,7 @@
             // 
             // lookUpWindowJobTitle
             // 
-            this.lookUpWindowJobTitle.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowJobTitle.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowJobTitle.GenShortCode = null;
             this.lookUpWindowJobTitle.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowJobTitle.Owner = null;
@@ -511,7 +530,7 @@
             // 
             // lookUpWindowCategory
             // 
-            this.lookUpWindowCategory.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowCategory.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowCategory.GenShortCode = null;
             this.lookUpWindowCategory.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowCategory.Owner = null;
@@ -530,7 +549,7 @@
             // 
             // lookUpWindowMarital
             // 
-            this.lookUpWindowMarital.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowMarital.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowMarital.GenShortCode = null;
             this.lookUpWindowMarital.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowMarital.Owner = null;
@@ -767,17 +786,6 @@
             this.simpleButtonCancel.TabIndex = 22;
             this.simpleButtonCancel.Text = "取消(&C)";
             this.simpleButtonCancel.Click += new System.EventHandler(this.simpleButtonCancel_Click);
-            // 
-            // simpleButtonDelete
-            // 
-            this.simpleButtonDelete.Enabled = false;
-            this.simpleButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("simpleButtonDelete.Image")));
-            this.simpleButtonDelete.Location = new System.Drawing.Point(351, 292);
-            this.simpleButtonDelete.Name = "simpleButtonDelete";
-            this.simpleButtonDelete.Size = new System.Drawing.Size(80, 27);
-            this.simpleButtonDelete.TabIndex = 21;
-            this.simpleButtonDelete.Text = "删除(&D)";
-            this.simpleButtonDelete.Click += new System.EventHandler(this.simpleButtonDelete_Click);
             // 
             // simpleButtonReset
             // 
@@ -1021,7 +1029,7 @@
             // 
             // lookUpWindowusers
             // 
-            this.lookUpWindowusers.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowusers.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowusers.GenShortCode = null;
             this.lookUpWindowusers.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowusers.Owner = null;
@@ -1055,6 +1063,7 @@
             this.groupControlBasicInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerControlPower)).EndInit();
             this.popupContainerControlPower.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.te_PRACTICECODE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControlpower)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupContainerEditpower.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbPower.Properties)).EndInit();
@@ -1120,7 +1129,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit textEditName;
         private DevExpress.XtraEditors.SimpleButton simpleButtonCancel;
-        private DevExpress.XtraEditors.SimpleButton simpleButtonDelete;
         private DevExpress.XtraEditors.SimpleButton simpleButtonReset;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButtonEdit;
@@ -1184,5 +1192,7 @@
         private DevExpress.XtraEditors.PopupContainerEdit popupContainerEditpower;
         private DevExpress.XtraEditors.PopupContainerControl popupContainerControlPower;
         private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControlpower;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.TextEdit te_PRACTICECODE;
     }
 }

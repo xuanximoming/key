@@ -270,37 +270,6 @@ namespace DrectSoft.Core.Permission
         }
 
         /// <summary>
-        /// 删除某个员工信息
-        /// </summary>
-        /// <param name="id"></param>
-        public void DelUser(string id)
-        {
-            try
-            {
-                //string StrDelUser = " DELETE Users WHERE ID ='" + id + "'";
-                SqlParameter[] sqlParam = new SqlParameter[] 
-            { 
-                new SqlParameter("@ID", SqlDbType.VarChar)
-            };
-                sqlParam[0].Value = id;
-                m_DataAccess.ExecuteNoneQuery("usp_DeleteUserInfo", sqlParam, CommandType.StoredProcedure);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// 增加新员工
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="name"></param>
-        public void InsertUser(string id, string name)
-        {
-            //TODO:
-        }
-        /// <summary>
         /// 更新员工信息
         /// </summary>
         /// <param name="users">员工信息实体</param>
@@ -335,7 +304,8 @@ namespace DrectSoft.Core.Permission
                 new SqlParameter("@Narcosismark", SqlDbType.VarChar),
                 new SqlParameter("@Grade", SqlDbType.VarChar),
                 new SqlParameter("@Status", SqlDbType.VarChar),
-                new SqlParameter("@Memo", SqlDbType.VarChar)
+                new SqlParameter("@Memo", SqlDbType.VarChar),
+                new SqlParameter("@PracticeCode", SqlDbType.VarChar)
             };
                 sqlParam[0].Value = users.Id;
                 sqlParam[1].Value = users.Name;
@@ -362,6 +332,7 @@ namespace DrectSoft.Core.Permission
                 sqlParam[18].Value = users.Grade;
                 sqlParam[19].Value = users.Status;
                 sqlParam[20].Value = users.Memo;
+                sqlParam[21].Value = users.PracticeCode;
                 try
                 {
                     m_DataAccess.ExecuteNoneQuery("usp_UpdateUserInfo", sqlParam, CommandType.StoredProcedure);

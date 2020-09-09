@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PicSignForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnBrowse = new DevExpress.XtraEditors.SimpleButton();
-            this.btnClose = new DrectSoft.Common.Ctrs.OTHER.DevButtonClose();
-            this.btnSave = new DrectSoft.Common.Ctrs.OTHER.DevButtonSave();
+            this.btnClose = new DrectSoft.Common.Ctrs.OTHER.DevButtonClose(this.components);
+            this.btnSave = new DrectSoft.Common.Ctrs.OTHER.DevButtonSave(this.components);
             this.pePicSign = new DevExpress.XtraEditors.PictureEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.txtDepartment = new DrectSoft.Common.Ctrs.OTHER.DevTextEdit();
