@@ -145,8 +145,8 @@
 		<item text="脉搏" datafield="PULSE" linecolor="红" show="1" startX="375" startY="1009" height="18" width="40" lineType="solid"/>
 		<item text="心率" datafield="HEARTRATE" linecolor="红" show="1" startX="475" startY="1009" height="18" width="40" lineType="solid"/>
 		<item text="呼吸" datafield="BREATHE" linecolor="蓝" show="1" startX="575" startY="1009" height="18" width="40" lineType="solid"/>
-		<item text="物理降温" datafield="PHYSICALCOOLING" linecolor="蓝" show="0" startX="985" startY="1007" height="20" width="40" lineType="solid"/>
-		<item text="物理升温" datafield="PHYSICALHOTTING" linecolor="蓝" show="0" startX="985" startY="1007" height="20" width="40" lineType="solid"/>
+		<item text="物理降温" datafield="PHYSICALCOOLING" linecolor="红" show="0" startX="985" startY="1007" height="20" width="40" lineType="dotted"/>
+		<item text="物理升温" datafield="PHYSICALHOTTING" linecolor="红" show="0" startX="985" startY="1007" height="20" width="40" lineType="solid"/>
 	</legend>
 	<!--需要过滤体征数据的病人状态值，即 如果该时段病人为此状态之一，则此时段数据点不绘制，color可配置各个状态的颜色 -->
 	<patientstatefilter>

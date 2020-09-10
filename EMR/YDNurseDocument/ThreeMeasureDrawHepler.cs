@@ -607,12 +607,8 @@ namespace DrectSoft.Core.NurseDocument
         {
             try
             {
-                Pen pen = new Pen(color, 1);
-                pen.DashStyle = dashStyle;
-                if (pen.DashStyle == DashStyle.Custom)
-                {
-                    pen.DashPattern = new float[] { 6, 2 };//设置短划线和空白部分的数组
-                }
+                string filedName = dataList1.FieldName;
+                Pen pen = ConfigInfo.GetPen(filedName);
                 for (int i = 0; i < dataList1.Count; i++)
                 {
                     if (dataList1[i].value == "" || dataList2[i].value == "") continue;
