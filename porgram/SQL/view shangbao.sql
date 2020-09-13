@@ -340,3 +340,20 @@ select
 
 from IEM_MAINPAGE_BASICINFO_SX iem where iem.valide =1;
 
+
+create or replace view iem_mainpage_operation_sxv as
+select t.iem_mainpage_operation_no,
+t.iem_mainpage_no,
+   (select mapid from operation where id = t.operation_code) operation_code,
+                                       t.operation_name,
+                                       t.operation_date,
+                                       t.operation_level,
+                                       (select name from users s where s.id = t.execute_user1) execute_user1,
+                                       (select name from users s where s.id = t.execute_user2) execute_user2,
+                                       (select name from users s where s.id = t.execute_user3) execute_user3,
+                                       t.close_level,
+                                       (select mapid from anesthesia where id = t.anaesthesia_type_id) anaesthesia_type_id,
+                                       t.anaesthesia_type_id a,
+                                       (select name from users s where s.id = t.anaesthesia_user) anaesthesia_user
+                                  from IEM_MAINPAGE_OPERATION_SX t
+                                 where t.valide = 1;
