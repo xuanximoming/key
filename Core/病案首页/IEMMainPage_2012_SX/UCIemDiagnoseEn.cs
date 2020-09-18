@@ -193,7 +193,6 @@ namespace DrectSoft.Core.IEMMainPage
         {
             m_App = app;
             m_IemInfo = info;
-            //(new FillUIDelegate(FillUIInner)).BeginInvoke(null, null);
             FillUIInner();
         }
 
@@ -258,16 +257,6 @@ namespace DrectSoft.Core.IEMMainPage
             else if (m_IemInfo.IemDiagInfo.Rh == "4")
                 chkRH4.Checked = true;
 
-
-            //foreach (DataRow im in dataTableOper.Rows)
-            //{
-            //    if (im["Diagnosis_Type_Id"].ToString() == "13")
-            //        this.lueOutDiag.CodeValue = im["Diagnosis_Code"].ToString() == "" ? "" : im["Diagnosis_Code"].ToString();
-            //    //else if (im["Diagnosis_Type_Id"].ToString() == "2")
-            //    //    this.lueInDiag.CodeValue = im["Diagnosis_Code"].ToString() == "" ? "" : im["Diagnosis_Code"].ToString();
-            //}
-
-
             lueKszr.CodeValue = m_IemInfo.IemDiagInfo.Section_DirectorID;
             lueZrys.CodeValue = m_IemInfo.IemDiagInfo.DirectorID;
             lueZzys.CodeValue = m_IemInfo.IemDiagInfo.Vs_EmployeeID;
@@ -289,9 +278,7 @@ namespace DrectSoft.Core.IEMMainPage
             if (!String.IsNullOrEmpty(m_IemInfo.IemDiagInfo.Quality_Control_Date))
             {
                 deZkDate.DateTime = Convert.ToDateTime(m_IemInfo.IemDiagInfo.Quality_Control_Date);
-                //teZkDate.Time = Convert.ToDateTime(m_IemInfo.IemDiagInfo.Quality_Control_Date);
             }
-            //}
             #endregion
         }
 
@@ -378,34 +365,18 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 //出院诊断
                 DataTable dataTable = this.gridControl1.DataSource as DataTable;
-                //DataTable dataTable2 = this.gridControl2.DataSource as DataTable;
                 DataTable dataTableNew = new DataTable();
                 if (dataTable != null)
                 {
                     //复制西医表结构
                     dataTableNew = dataTable.Clone();
                 }
-                //else if (dataTable2 != null)
-                //{
-                //    //复制中医表结构
-                //    dataTableNew = dataTable2.Clone();
-                //}
                 if (dataTable != null)
                 {
                     //中西医表都不为NULL则合并量表数据
                     dataTableNew.Merge(dataTable);
-                    //dataTableNew.Merge(dataTable2);
 
                 }
-                //else if (dataTable == null)
-                //{
-                //    //否则复制不为NULL的表
-                //    dataTableNew = dataTable2;
-                //}
-                //else if (dataTable2 == null)
-                //{
-                //    dataTableNew = dataTable;
-                //}
                 int XYindex = 0;//西医数据集排序码
                 int ZYindex = 0;//中医数据集排序码
                 for (int i = 0; i < dataTableNew.Rows.Count; i++)
@@ -441,14 +412,6 @@ namespace DrectSoft.Core.IEMMainPage
                         }
                         ZYindex++;
                     }
-                    //if (i == 0)
-                    //{
-                    //    imOut["Diagnosis_Type_Id"] = 7;//7表示主要诊断
-                    //}
-                    //else
-                    //{
-                    //    imOut["Diagnosis_Type_Id"] = 8;//8表示其他诊断
-                    //}
                     imOut["Status_Id"] = Convertmy.ToDecimal(row["Status_Id"]);
                     imOut["Status_Name"] = row["Status_Name"];
                     imOut["OutStatus_Id"] = Convertmy.ToDecimal(row["OutStatus_Id"]);
@@ -809,114 +772,7 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
 
-        //private void btn_up2_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DataTable dataTable = (DataTable)gridControl2.DataSource;
-        //        int index = 0;
-        //        if (gridViewDiagnose2.FocusedRowHandle < 1)
-        //            return;
-        //        else
-        //        {
-        //            DataTable dt = dataTable.Clone();
-        //            for (int i = 0; i < dataTable.Rows.Count; i++)
-        //            {
-        //                if (i == gridViewDiagnose2.FocusedRowHandle - 1)
-        //                {
-        //                    dt.ImportRow(dataTable.Rows[i + 1]);
-        //                }
-        //                else if (i == gridViewDiagnose2.FocusedRowHandle)
-        //                    dt.ImportRow(dataTable.Rows[i - 1]);
-        //                else
-        //                    dt.ImportRow(dataTable.Rows[i]);
-        //            }
-        //            index = gridViewDiagnose2.FocusedRowHandle - 1;
 
-        //            this.gridControl2.BeginUpdate();
-        //            this.gridControl2.DataSource = dt;
-        //            m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiagnose2);
-        //            this.gridControl2.EndUpdate();
-
-        //            gridViewDiagnose2.FocusedRowHandle = index;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
-        //    }
-        //}
-
-        //private void btn_down2_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        DataTable dataTable = (DataTable)gridControl2.DataSource;
-
-        //        int index = 0;
-        //        if (gridViewDiagnose2.FocusedRowHandle < 0)
-        //            return;
-        //        else if (gridViewDiagnose2.FocusedRowHandle == dataTable.Rows.Count - 1)
-        //            return;
-        //        else
-        //        {
-        //            DataTable dt = dataTable.Clone();
-        //            for (int i = 0; i < dataTable.Rows.Count; i++)
-        //            {
-        //                if (i == gridViewDiagnose2.FocusedRowHandle + 1)
-        //                {
-        //                    dt.ImportRow(dataTable.Rows[i - 1]);
-        //                }
-        //                else if (i == gridViewDiagnose2.FocusedRowHandle)
-        //                    dt.ImportRow(dataTable.Rows[i + 1]);
-        //                else
-        //                    dt.ImportRow(dataTable.Rows[i]);
-        //            }
-
-        //            index = gridViewDiagnose2.FocusedRowHandle + 1;
-        //            this.gridControl2.BeginUpdate();
-        //            this.gridControl2.DataSource = dt;
-        //            m_App.PublicMethod.ConvertGridDataSourceUpper(gridViewDiagnose2);
-        //            this.gridControl2.EndUpdate();
-
-        //            gridViewDiagnose2.FocusedRowHandle = index;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
-        //    }
-
-        //}
-
-        //private void btn_del2_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (gridViewDiagnose2.FocusedRowHandle < 0)
-        //            return;
-        //        else
-        //        {
-
-        //            DataRow dataRow = gridViewDiagnose2.GetDataRow(gridViewDiagnose2.FocusedRowHandle);
-        //            if (dataRow == null)
-        //                return;
-
-        //            DataTable dataTableOper = this.gridControl2.DataSource as DataTable;
-
-        //            dataTableOper.Rows.Remove(dataRow);
-
-        //            this.gridControl2.BeginUpdate();
-        //            this.gridControl2.DataSource = dataTableOper;
-        //            this.gridControl2.EndUpdate();
-
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
-        //    }
-        //}
         /// <summary>
         /// 复选框选中后可右键取消选中
         /// add by ywk 2012年7月30日 08:43:05 
