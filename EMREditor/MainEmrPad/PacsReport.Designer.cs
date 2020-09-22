@@ -71,8 +71,6 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.simpleButton3);
-            this.panel1.Controls.Add(this.simpleButton2);
-            this.panel1.Controls.Add(this.simpleButton1);
             this.panel1.Controls.Add(this.labelControl23);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.memoEditResult);
@@ -103,7 +101,7 @@
             this.panel1.Controls.Add(this.labelControl1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(759, 661);
+            this.panel1.Size = new System.Drawing.Size(759, 634);
             this.panel1.TabIndex = 0;
             // 
             // simpleButton3
@@ -117,7 +115,7 @@
             // simpleButton2
             // 
             this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton2.Location = new System.Drawing.Point(389, 815);
+            this.simpleButton2.Location = new System.Drawing.Point(391, 645);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(110, 28);
             this.simpleButton2.TabIndex = 29;
@@ -126,7 +124,7 @@
             // simpleButton1
             // 
             this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButton1.Location = new System.Drawing.Point(239, 815);
+            this.simpleButton1.Location = new System.Drawing.Point(230, 645);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(110, 28);
             this.simpleButton1.TabIndex = 28;
@@ -135,7 +133,7 @@
             // labelControl23
             // 
             this.labelControl23.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.labelControl23.Location = new System.Drawing.Point(425, 774);
+            this.labelControl23.Location = new System.Drawing.Point(436, 880);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(257, 22);
             this.labelControl23.TabIndex = 27;
@@ -145,7 +143,7 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(44, 798);
+            this.panel3.Location = new System.Drawing.Point(47, 913);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(672, 10);
             this.panel3.TabIndex = 26;
@@ -153,7 +151,7 @@
             // memoEditResult
             // 
             this.memoEditResult.EditValue = resources.GetString("memoEditResult.EditValue");
-            this.memoEditResult.Location = new System.Drawing.Point(62, 468);
+            this.memoEditResult.Location = new System.Drawing.Point(65, 471);
             this.memoEditResult.Name = "memoEditResult";
             this.memoEditResult.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.memoEditResult.Properties.Appearance.Options.UseFont = true;
@@ -162,7 +160,7 @@
             this.memoEditResult.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.memoEditResult.Properties.ReadOnly = true;
             this.memoEditResult.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.memoEditResult.Size = new System.Drawing.Size(628, 384);
+            this.memoEditResult.Size = new System.Drawing.Size(628, 391);
             this.memoEditResult.TabIndex = 25;
             this.memoEditResult.UseOptimizedRendering = true;
             // 
@@ -398,8 +396,10 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 660);
+            this.ClientSize = new System.Drawing.Size(758, 685);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.simpleButton2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

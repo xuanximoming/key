@@ -765,7 +765,6 @@ namespace DrectSoft.Core.MainEmrPad
                 }
                 else
                 {
-                    //防止更新遗漏，没有维护此选项就默认原来的 add by ywk 二〇一三年七月二十三日 13:30:13 
                     string oldpacssql = @" select p.infeepatientid 住院号, p.patientname 患者姓名, p.sex 性别, p.age 年龄, 
                                             p.devicetype 设备类型, p.devicename 设备名称, p.studyscription 检查项目,
                                           p.studytime 检查时间, p.studystatusname 检查状态,

@@ -3277,7 +3277,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         }
         #endregion
 
-        #region ===小模板列表===========================
+        #region 小模板列表
         /// <summary>
         /// 科室小模板
         /// </summary>
@@ -3591,7 +3591,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         }
         #endregion===
 
-        #region ===加载病历 Modify by xlb 2013-06-21====
+        #region 加载病历
 
         /// <summary>
         /// 加载病历提取信息
@@ -4073,6 +4073,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         #endregion
 
         #region 鼠标拖拽
+
         #region TreeList - 拖动
         private void treeList_MouseDown(object sender, MouseEventArgs e)
         {
@@ -4229,7 +4230,7 @@ namespace DrectSoft.Core.MainEmrPad.New
         }
         #endregion
 
-        #region 特殊字符 - 拖动
+        #region 特殊字符
         private void imageListBoxControlSymbol_MouseDown(object sender, MouseEventArgs e)
         {
             try
@@ -4361,6 +4362,7 @@ namespace DrectSoft.Core.MainEmrPad.New
             }
         }
         #endregion
+
         #endregion
 
         #region 鼠标双击事件
