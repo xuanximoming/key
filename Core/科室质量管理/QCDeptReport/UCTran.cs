@@ -144,17 +144,18 @@ namespace DrectSoft.Core.QCDeptReport
                   new SqlParameter("@InpatName", SqlDbType.VarChar),
                   new SqlParameter("@datetimebegin", SqlDbType.VarChar),
                   new SqlParameter("@datetimeend",SqlDbType.VarChar),
+                  new SqlParameter("@userid",SqlDbType.VarChar),
                   new SqlParameter("@qcstattype",SqlDbType.Int),
                   new SqlParameter("@result", SqlDbType.Structured)
                   };
 
                 sqlParams[0].Value = App.User.CurrentDeptId == null ? "" : App.User.CurrentDeptId;
-                //sqlParams[0].Value = "";
                 sqlParams[1].Value = inpatName;
                 sqlParams[2].Value = BeginTime;
                 sqlParams[3].Value = EndTime;
-                sqlParams[4].Value = 3;
-                sqlParams[5].Direction = ParameterDirection.Output;
+                sqlParams[4].Value = App.User.Id;
+                sqlParams[5].Value = 3;
+                sqlParams[6].Direction = ParameterDirection.Output;
                 //DataSet ds = m_DataAccessEmrly.ExecuteDataSet("usp_GetInpatientFiling", sqlParams, CommandType.StoredProcedure);
                 DrectSoft.DSSqlHelper.DS_SqlHelper.CreateSqlHelper();
                 DataSet ds = DrectSoft.DSSqlHelper.DS_SqlHelper.ExecuteDataSet("EMRPROC.usp_GetInpatientFiling", sqlParams, CommandType.StoredProcedure);
