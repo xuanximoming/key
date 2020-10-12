@@ -183,7 +183,7 @@ namespace DrectSoft.Core.MainEmrPad
             {
                 try
                 {
-                    return GetPatReportLis(CurrentInpatient.RecordNoOfClinic.ToString(), CurrentInpatient.TimesOfAdmission.ToString());
+                    return GetPatReportLis(CurrentInpatient.RecordNoOfHospital.ToString(), CurrentInpatient.TimesOfAdmission.ToString());
                 }
                 catch (Exception ex)
                 {
