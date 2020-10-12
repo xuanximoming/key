@@ -12,7 +12,7 @@ namespace DrectSoft
             File.AppendAllText(WebPath, Msg + "\r\n");
         }
 
-        public void WriteImage(byte[] image)
+        public void WriteImage(byte[] image, string filename)
         {
             string folder = AppDomain.CurrentDomain.BaseDirectory;
             if (!Directory.Exists(folder))
@@ -23,7 +23,7 @@ namespace DrectSoft
             {
                 Directory.CreateDirectory(folder + "Images\\");
             }
-            string photoUrl = folder + "Images\\image.jpg";
+            string photoUrl = folder + "Images\\" + filename + ".jpg";
             FileStream fs = new FileStream(photoUrl, FileMode.OpenOrCreate, FileAccess.Write);
             BinaryWriter bw = new BinaryWriter(fs);
             bw.BaseStream.Write(image, 0, image.Length);

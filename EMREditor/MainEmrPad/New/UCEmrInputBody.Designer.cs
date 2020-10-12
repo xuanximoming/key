@@ -375,7 +375,7 @@
             this.dockPanelLeft.Options.AllowFloating = false;
             this.dockPanelLeft.Options.FloatOnDblClick = false;
             this.dockPanelLeft.Options.ShowCloseButton = false;
-            this.dockPanelLeft.OriginalSize = new System.Drawing.Size(192, 439);
+            this.dockPanelLeft.OriginalSize = new System.Drawing.Size(192, 513);
             this.dockPanelLeft.Size = new System.Drawing.Size(192, 513);
             this.dockPanelLeft.Text = "导航";
             // 
@@ -458,7 +458,7 @@
             this.dockPanelLeft2.Options.AllowFloating = false;
             this.dockPanelLeft2.Options.FloatOnDblClick = false;
             this.dockPanelLeft2.Options.ShowCloseButton = false;
-            this.dockPanelLeft2.OriginalSize = new System.Drawing.Size(192, 439);
+            this.dockPanelLeft2.OriginalSize = new System.Drawing.Size(192, 513);
             this.dockPanelLeft2.Size = new System.Drawing.Size(192, 513);
             this.dockPanelLeft2.Text = "大纲视图";
             // 
@@ -511,7 +511,7 @@
             this.dockPanelRight2.Options.AllowFloating = false;
             this.dockPanelRight2.Options.FloatOnDblClick = false;
             this.dockPanelRight2.Options.ShowCloseButton = false;
-            this.dockPanelRight2.OriginalSize = new System.Drawing.Size(242, 439);
+            this.dockPanelRight2.OriginalSize = new System.Drawing.Size(242, 513);
             this.dockPanelRight2.Size = new System.Drawing.Size(242, 513);
             this.dockPanelRight2.Text = "临床数据提取";
             // 
@@ -650,6 +650,7 @@
             // 
             // gridControlLIS
             // 
+            this.gridControlLIS.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControlLIS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControlLIS.Location = new System.Drawing.Point(0, 0);
             this.gridControlLIS.MainView = this.gridViewLIS;
@@ -956,7 +957,7 @@
             this.dockPanelRight1.Options.AllowFloating = false;
             this.dockPanelRight1.Options.FloatOnDblClick = false;
             this.dockPanelRight1.Options.ShowCloseButton = false;
-            this.dockPanelRight1.OriginalSize = new System.Drawing.Size(242, 439);
+            this.dockPanelRight1.OriginalSize = new System.Drawing.Size(242, 513);
             this.dockPanelRight1.Size = new System.Drawing.Size(242, 513);
             this.dockPanelRight1.Text = "工具箱";
             // 
@@ -1292,7 +1293,7 @@
             this.dockPanelRight3.Options.AllowFloating = false;
             this.dockPanelRight3.Options.FloatOnDblClick = false;
             this.dockPanelRight3.Options.ShowCloseButton = false;
-            this.dockPanelRight3.OriginalSize = new System.Drawing.Size(242, 439);
+            this.dockPanelRight3.OriginalSize = new System.Drawing.Size(242, 513);
             this.dockPanelRight3.Size = new System.Drawing.Size(242, 513);
             this.dockPanelRight3.Text = "小模板列表";
             // 

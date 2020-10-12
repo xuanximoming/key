@@ -616,6 +616,8 @@ namespace DrectSoft.Core.MainEmrPad
                     //同一时间出现多个组合项目是包含相同明细项目累人，要按照b204（样本号）b205（检查仪器）b206（检查时间）过滤。
                     //譬如我们现在同一时间做的 肝功能一组、生化一组、GLU 程序中显示是三个组合项目，但明细项目都是一致的，应过滤按b202累加，即显示为肝功能一组+生化一组+GLU
                     string LISANDPACSTIP = GetConfigValueByKey("IsOpenLISandPACS") == "" ? "" : GetConfigValueByKey("IsOpenLISandPACS");
+
+                    #region 销售演示
                     if (LISANDPACSTIP == "1")//启用销售演示数据 add by ywk LIS、PACS数据提出实现，免得每次销售出去演示都要改一遍
                     {
                         string s_searchList1 = @"SELECT 
@@ -672,6 +674,7 @@ namespace DrectSoft.Core.MainEmrPad
                             }
                         }
                     }
+                    #endregion
 
                     if (LISANDPACSTIP == "0" || LISANDPACSTIP == "")//正式使用 
                     {

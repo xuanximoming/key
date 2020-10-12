@@ -92,19 +92,19 @@ namespace DrectSoft
             }
 
         }
-        public string GetImage(string id, string PicID)
+        public DataTable GetImage(string id, string PicID)
         {
             try
             {
                 DataTable dt = null;
                 string sql = string.Format(@"SELECT PicData FROM PicTable where ID='{0}' and PicID='{1}'", id, PicID);
-                DS_SqlHelper.CreateSqlHelperByDBName("EHRDB");
+                DS_SqlHelper.CreateSqlHelperByDBName("PACSDB");
                 dt = DS_SqlHelper.ExecuteDataTable(sql, CommandType.Text);
                 byte[] bytes = (byte[])dt.Rows[0]["PicData"];
                 if (bytes.Length == 0)
-                    return "";
-                io.WriteImage(bytes);
-                return "Images\\image.jpg";
+                    return null;
+                io.WriteImage(bytes, id + PicID);
+                return dt;
             }
             catch (Exception ex)
             {

@@ -79,10 +79,10 @@ namespace DrectSoft
         {
             try
             {
-                string path = null;
-                path = getdate.GetImage(id, picid);
+                DataTable dt = null;
+                dt = getdate.GetImage(id, picid);
 
-                return path;
+                return JsonConvert.SerializeObject(dt);
             }
             catch (Exception ex)
             {
