@@ -39,7 +39,7 @@ namespace DrectSoft.Core.NurseDocument
         public static int heartRatePulse = 0;//心率之间有心率脉搏，心率是否断开
         public static int temperatureAndHotting = 0;//体温点有升温 
         public static string breakLinkLine = "0";//当遇到特殊病人状态(如外出，手术，请假等)，体征数据线是否断开 0：不断开 1：断开
-        public static string Intercept = "0";//当遇到特殊病人状态(如外出，手术，请假等)，体征数据线是否断开 0：不断开 1：断开
+        public static string Intercept = "0";//当遇到特殊病人状态(如外出，手术，请假等)，为同一时间段时，特殊状态显示样式 0：并列，1：上下
 
         public static string configName = string.Empty;//add zxy 配置文件名 2012-12-28 
         public static int subMoveX = -3;//x轴水平微调量 正数表示向右平移，反之向左平移，0表示不微调

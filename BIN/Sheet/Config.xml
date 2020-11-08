@@ -154,7 +154,7 @@
 		<item valueText="外出" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="请假" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="不升" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
-		<item valueText="手术" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="手术" breakLinkLine="0" intercept="0" position="0" showtime="1" color="红"/>
 		<item valueText="出院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="分娩" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 	</patientstatefilter>

@@ -1292,10 +1292,14 @@ namespace DrectSoft.Core.NurseDocument
                             }
                         }
                     }
-                    if (isIntercept)
-                        hourDuringIndex += 1;
+
                     if (preEventDataPoint != null)
                     {
+                        if (DateTime.Parse(preEventDataPoint.date).Date == DateTime.Parse(dp.date).Date && temphourDuringIndex == hourDuringIndex)
+                        {
+                            if (isIntercept)
+                                hourDuringIndex += 1;
+                        }
                         //与上一个的数据点比较 如果不是同时段 或者 不是同一天 清空暂存数据
                         if (DateTime.Parse(preEventDataPoint.date).Date != DateTime.Parse(dp.date).Date || temphourDuringIndex != hourDuringIndex)
                         {
@@ -1316,6 +1320,7 @@ namespace DrectSoft.Core.NurseDocument
                             sb.Remove(0, sb.Length);//若是次时段，清空
                             temphourDuringIndex = -1;
                         }
+
                     }
                     recf.Offset(dp.GetOffsetDays_1() * (ConfigInfo.m_columnList[1].width) + ConfigInfo.smallGridWidth * hourDuringIndex, 0);
                     recf.Width = ConfigInfo.smallGridWidth;
