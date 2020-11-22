@@ -384,6 +384,7 @@ namespace DrectSoft.Core.NurseDocument
             try
             {
                 DataTable dt = dataLoader.GetPatData(CurrentPat);
+
                 if (dt.Rows[0]["inwarddate"].ToString() != "" && dt.Rows[0]["inwarddate"].ToString() != null)
                 {
                     m_InTime = dt.Rows[0]["inwarddate"].ToString();

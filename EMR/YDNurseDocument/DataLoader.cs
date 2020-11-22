@@ -317,6 +317,7 @@ namespace DrectSoft.Core.NurseDocument
                 };
                 sqlParam[0].Value = m_noofinpat;
                 sqlParam[1].Direction = ParameterDirection.Output;
+
                 DataTable dt = DS_SqlHelper.ExecuteDataTable("EMRPROC.usp_GetPatientInfoForThreeMeas", sqlParam, CommandType.StoredProcedure);
                 if (dt.Rows[0]["inwarddate"].ToString() != "" && dt.Rows[0]["inwarddate"].ToString() != null)
                 {
@@ -330,6 +331,7 @@ namespace DrectSoft.Core.NurseDocument
                 {
                     DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show("入院和入科时间不能同时为空");
                 }
+
                 adminDate = DateTime.Parse((DateTime.Parse(dt.Rows[0]["ADMITDATE"].ToString())).ToString("yyyy-MM-dd"));
                 if (dt.Rows[0]["OUTWARDDATE"].ToString().Trim() != null && dt.Rows[0]["OUTWARDDATE"].ToString().Trim() != "")
                 {
@@ -345,7 +347,6 @@ namespace DrectSoft.Core.NurseDocument
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 
