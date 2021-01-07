@@ -1670,7 +1670,7 @@ namespace DrectSoft.Core.IEMMainPage
             try
             {
                 float pointY;
-                pointY = PrintOperation(g, m_PointYTitle) + 30;
+                pointY = PrintOperation(g, m_PointY - m_BasePointY) + 30;
                 pointY = PrintSecondPageOther(g, pointY) + 20;
                 if (m_IemMainPageEntity.IemObstetricsBaby != null)
                     pointY = FuKeChanKeYingEr(g, pointY) + 20;

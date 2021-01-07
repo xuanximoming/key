@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
-	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="70" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
+	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="100" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
 	<DefaultStyle fontsize="14" fontname="宋体" FontStyle="Regular"/>
 	<!-- 表头 -->
 	<Title>
-		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="40">医疗机构：</Hospital>
+		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="20">医疗机构：</Hospital>
 		<HomePage fontsize="18" fontname="宋体" FontStyle="Bold" top="10">住 院 病 案 首 页</HomePage>
 		<CardNumber Width="300">健康卡号:</CardNumber>
 		<inTime Width="300"></inTime>
@@ -95,6 +95,7 @@
 	</OutHospitalDiaglosis>
 	<PrintOperation>
 		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
+		<Durationdate></Durationdate>
 	</PrintOperation>
 	<FristPageOther interval="31">
 		<!--第一行-->
