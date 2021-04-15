@@ -194,7 +194,7 @@ namespace DrectSoft.Core.IEMMainPage
                             g.ScaleTransform(scale, scale);
                             g.DrawImage(img, 0, 0);
                         }
-                        bitmap.Save(folder + "1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        bitmap.Save(folder + "1.png", System.Drawing.Imaging.ImageFormat.Png);
                     }
                 }
 
@@ -226,7 +226,7 @@ namespace DrectSoft.Core.IEMMainPage
                             g.ScaleTransform(scale, scale);
                             g.DrawImage(img, 0, 0);
                         }
-                        bitmap.Save(folder + "2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        bitmap.Save(folder + "2.png", System.Drawing.Imaging.ImageFormat.Png);
                     }
                 }
             }
@@ -289,7 +289,7 @@ namespace DrectSoft.Core.IEMMainPage
                 {
                     fi.Delete();
                 }
-                foreach (FileInfo fi in dirInfo.GetFiles("*.jpg"))
+                foreach (FileInfo fi in dirInfo.GetFiles("*.png"))
                 {
                     fi.Delete();
                 }

@@ -130,21 +130,21 @@ namespace DrectSoft.Core.IEMMainPage
                     string folder = AppDomain.CurrentDomain.BaseDirectory + "PrintImage\\";
 
                     //读取第一页
-                    FileStream fs = File.OpenRead(folder + "1.jpg");
+                    FileStream fs = File.OpenRead(folder + "1.png");
                     int filelength = 0;
                     filelength = (int)fs.Length;
                     Byte[] image = new Byte[filelength];
                     fs.Read(image, 0, filelength);
-                    encode = Convert.ToBase64String(image);
+                    encode = Convert.ToBase64String(image).Replace("+", "%2B");
                     fs.Close();
 
                     //读取第二页
-                    FileStream fs1 = File.OpenRead(folder + "2.jpg");
+                    FileStream fs1 = File.OpenRead(folder + "2.png");
                     int filelength1 = 0;
                     filelength1 = (int)fs1.Length;
                     Byte[] image1 = new Byte[filelength1];
                     fs1.Read(image1, 0, filelength1);
-                    backencode = Convert.ToBase64String(image1);
+                    backencode = Convert.ToBase64String(image1).Replace("+", "%2B");
                     fs1.Close();
                     string pra = "base64encode1=" + encode + "&base64encode2=" + backencode +
                                     "&ecardid=" + info.IemBasicInfo.CardNumber + "&mdrecno=" + info.IemBasicInfo.NOOFRECORD +
