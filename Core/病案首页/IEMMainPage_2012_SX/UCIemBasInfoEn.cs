@@ -1135,7 +1135,7 @@ namespace DrectSoft.Core.IEMMainPage
             lueOutHosWard.CodeValue = info.IemBasicInfo.OutHosWardID;
             textEdit_cybf.Text = info.IemBasicInfo.OutHosWardID; ;
 
-            
+
             lueMZXYZD_CODE.DiaCode = m_IemInfo.IemBasicInfo.MZXYZD_CODE;//.CodeValue 
             lueMZXYZD_CODE.DiaValue = m_IemInfo.IemBasicInfo.MZXYZD_NAME;
             lueMZXYZD_CODE.Text = m_IemInfo.IemBasicInfo.MZXYZD_NAME;
@@ -1571,7 +1571,7 @@ namespace DrectSoft.Core.IEMMainPage
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            ((ShowUC)this.Parent).Close(false, null);
+            ((ShowUC)this.Parent).Close(false, m_IemInfo);
         }
 
         /// <summary>

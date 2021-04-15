@@ -705,6 +705,62 @@ namespace DrectSoft.DSSqlHelper
             return JsonConvert.DeserializeObject<DataTable>(result);
         }
 
+
+        /// <summary>
+        /// 使用webservice执行带参查询返回结果表
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public static string HttpPostData(string ServiceIp, string method, string param)
+        {
+
+            string url = "http://" + ServiceIp + "/WebService.asmx";
+            string result = string.Empty;
+            byte[] bytes = null;
+            Stream writer = null;
+            HttpWebRequest request = null;
+            HttpWebResponse response = null;
+            bytes = Encoding.UTF8.GetBytes(param);
+            request = (HttpWebRequest)HttpWebRequest.Create(url + "/" + method);
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = bytes.Length;
+            try
+            {
+                writer = request.GetRequestStream();        //获取用于写入请求数据的Stream对象
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            writer.Write(bytes, 0, bytes.Length);       //把参数数据写入请求数据流
+            writer.Close();
+
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();      //获得响应
+            }
+            catch (WebException ex)
+            {
+                return null;
+            }
+
+            #region 这种方式读取到的是一个返回的结果字符串
+            Stream stream = response.GetResponseStream();        //获取响应流
+            XmlTextReader Reader = new XmlTextReader(stream);
+            Reader.MoveToContent();
+            result = Reader.ReadInnerXml();
+            #endregion
+
+            response.Close();
+            Reader.Close();
+
+            stream.Dispose();
+            stream.Close();
+            return result;
+        }
+
         public static DataTable ExecuteDataTableInTran(string commandText, DbParameter[] pars,
             CommandType commandtype)
         {

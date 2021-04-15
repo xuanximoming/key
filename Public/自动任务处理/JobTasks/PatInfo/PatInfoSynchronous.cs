@@ -779,7 +779,7 @@ namespace DrectSoft.JobManager
                                              select *from  ZC_INPATIENT where 
                                                        (STATUS IN(1502,1503) and (outwarddate between '{0}' and '{1}'))";
                     //xll 2012-11-21 修改查找病人出院天数10天内的自动同步
-                    DataTable inpatient = this.m_HisHelper.ExecuteDataTable(string.Format(sqlInpatient, DateTime.Now.AddDays(-10.0).ToString("yyyy-MM-dd"),
+                    DataTable inpatient = this.m_HisHelper.ExecuteDataTable(string.Format(sqlInpatient, DateTime.Now.AddDays(-1500.0).ToString("yyyy-MM-dd"),
                         DateTime.Now.AddDays(1.0).ToString("yyyy-MM-dd"), sqlDept), CommandType.Text);
                     inpatient.TableName = "inpatient";
                     ds.Tables.Add(inpatient.Copy());

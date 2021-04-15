@@ -31,6 +31,11 @@ namespace DrectSoft.Core.IEMMainPage
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IemNewDiagInfoForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.chkOrien4 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkOrien3 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkOrien2 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkOrien1 = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.bwj1 = new DevTextBoxAndButton.Bwj(this.components);
             this.chkDiagType2 = new DevExpress.XtraEditors.CheckEdit();
             this.chkDiagType1 = new DevExpress.XtraEditors.CheckEdit();
@@ -44,13 +49,12 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl59 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl58 = new DevExpress.XtraEditors.LabelControl();
-            this.chkOrien4 = new DevExpress.XtraEditors.CheckEdit();
-            this.chkOrien3 = new DevExpress.XtraEditors.CheckEdit();
-            this.chkOrien2 = new DevExpress.XtraEditors.CheckEdit();
-            this.chkOrien1 = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDiagType2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDiagType1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus4.Properties)).BeginInit();
@@ -58,10 +62,6 @@ namespace DrectSoft.Core.IEMMainPage
             ((System.ComponentModel.ISupportInitialize)(this.lueOutDiag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -91,6 +91,58 @@ namespace DrectSoft.Core.IEMMainPage
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(610, 186);
             this.panelControl1.TabIndex = 0;
+            // 
+            // chkOrien4
+            // 
+            this.chkOrien4.Location = new System.Drawing.Point(343, 117);
+            this.chkOrien4.Name = "chkOrien4";
+            this.chkOrien4.Properties.Caption = "4.Ë«²à";
+            this.chkOrien4.Properties.RadioGroupIndex = 2;
+            this.chkOrien4.Size = new System.Drawing.Size(53, 19);
+            this.chkOrien4.TabIndex = 131;
+            this.chkOrien4.TabStop = false;
+            this.chkOrien4.Tag = "Ë«²à";
+            // 
+            // chkOrien3
+            // 
+            this.chkOrien3.Location = new System.Drawing.Point(250, 119);
+            this.chkOrien3.Name = "chkOrien3";
+            this.chkOrien3.Properties.Caption = "3.µ¥²à";
+            this.chkOrien3.Properties.RadioGroupIndex = 2;
+            this.chkOrien3.Size = new System.Drawing.Size(53, 19);
+            this.chkOrien3.TabIndex = 130;
+            this.chkOrien3.TabStop = false;
+            this.chkOrien3.Tag = "µ¥²à";
+            // 
+            // chkOrien2
+            // 
+            this.chkOrien2.Location = new System.Drawing.Point(174, 119);
+            this.chkOrien2.Name = "chkOrien2";
+            this.chkOrien2.Properties.Caption = "2.ÓÒ²à";
+            this.chkOrien2.Properties.RadioGroupIndex = 2;
+            this.chkOrien2.Size = new System.Drawing.Size(53, 19);
+            this.chkOrien2.TabIndex = 129;
+            this.chkOrien2.TabStop = false;
+            this.chkOrien2.Tag = "ÓÒ²à";
+            // 
+            // chkOrien1
+            // 
+            this.chkOrien1.Location = new System.Drawing.Point(99, 117);
+            this.chkOrien1.Name = "chkOrien1";
+            this.chkOrien1.Properties.Caption = "1.×ó²à";
+            this.chkOrien1.Properties.RadioGroupIndex = 2;
+            this.chkOrien1.Size = new System.Drawing.Size(53, 19);
+            this.chkOrien1.TabIndex = 128;
+            this.chkOrien1.TabStop = false;
+            this.chkOrien1.Tag = "×ó²à";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(36, 122);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(48, 14);
+            this.labelControl2.TabIndex = 127;
+            this.labelControl2.Text = "Õï¶Ï·½Î»";
             // 
             // bwj1
             // 
@@ -224,58 +276,6 @@ namespace DrectSoft.Core.IEMMainPage
             this.labelControl58.TabIndex = 115;
             this.labelControl58.Text = "ÈëÔº²¡Çé";
             // 
-            // chkOrien4
-            // 
-            this.chkOrien4.Location = new System.Drawing.Point(343, 117);
-            this.chkOrien4.Name = "chkOrien4";
-            this.chkOrien4.Properties.Caption = "4.Ë«²à";
-            this.chkOrien4.Properties.RadioGroupIndex = 2;
-            this.chkOrien4.Size = new System.Drawing.Size(53, 19);
-            this.chkOrien4.TabIndex = 131;
-            this.chkOrien4.TabStop = false;
-            this.chkOrien4.Tag = "Ë«²à";
-            // 
-            // chkOrien3
-            // 
-            this.chkOrien3.Location = new System.Drawing.Point(250, 119);
-            this.chkOrien3.Name = "chkOrien3";
-            this.chkOrien3.Properties.Caption = "3.µ¥²à";
-            this.chkOrien3.Properties.RadioGroupIndex = 2;
-            this.chkOrien3.Size = new System.Drawing.Size(53, 19);
-            this.chkOrien3.TabIndex = 130;
-            this.chkOrien3.TabStop = false;
-            this.chkOrien3.Tag = "µ¥²à";
-            // 
-            // chkOrien2
-            // 
-            this.chkOrien2.Location = new System.Drawing.Point(174, 119);
-            this.chkOrien2.Name = "chkOrien2";
-            this.chkOrien2.Properties.Caption = "2.ÓÒ²à";
-            this.chkOrien2.Properties.RadioGroupIndex = 2;
-            this.chkOrien2.Size = new System.Drawing.Size(53, 19);
-            this.chkOrien2.TabIndex = 129;
-            this.chkOrien2.TabStop = false;
-            this.chkOrien2.Tag = "ÓÒ²à";
-            // 
-            // chkOrien1
-            // 
-            this.chkOrien1.Location = new System.Drawing.Point(99, 117);
-            this.chkOrien1.Name = "chkOrien1";
-            this.chkOrien1.Properties.Caption = "1.×ó²à";
-            this.chkOrien1.Properties.RadioGroupIndex = 2;
-            this.chkOrien1.Size = new System.Drawing.Size(53, 19);
-            this.chkOrien1.TabIndex = 128;
-            this.chkOrien1.TabStop = false;
-            this.chkOrien1.Tag = "×ó²à";
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(36, 122);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(48, 14);
-            this.labelControl2.TabIndex = 127;
-            this.labelControl2.Text = "³öÔºÇé¿ö";
-            // 
             // IemNewDiagInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -293,6 +293,10 @@ namespace DrectSoft.Core.IEMMainPage
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkOrien1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDiagType2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkDiagType1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus4.Properties)).EndInit();
@@ -300,10 +304,6 @@ namespace DrectSoft.Core.IEMMainPage
             ((System.ComponentModel.ISupportInitialize)(this.lueOutDiag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkStatus1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkOrien1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

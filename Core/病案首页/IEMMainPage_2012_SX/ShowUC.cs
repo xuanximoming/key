@@ -1,5 +1,6 @@
 ﻿using DrectSoft.FrameWork.WinForm.Plugin;
 using System;
+using System.IO;
 
 namespace DrectSoft.Core.IEMMainPage
 {
@@ -119,8 +120,44 @@ namespace DrectSoft.Core.IEMMainPage
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
             }
             else
-                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            {
+                try
+                {
+                    this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                    //电子病历上传病案首页图片到其他系统
+                    string encode = "";
+                    string backencode = "";
+                    string folder = AppDomain.CurrentDomain.BaseDirectory + "PrintImage\\";
 
+                    //读取第一页
+                    FileStream fs = File.OpenRead(folder + "1.jpg");
+                    int filelength = 0;
+                    filelength = (int)fs.Length;
+                    Byte[] image = new Byte[filelength];
+                    fs.Read(image, 0, filelength);
+                    encode = Convert.ToBase64String(image);
+                    fs.Close();
+
+                    //读取第二页
+                    FileStream fs1 = File.OpenRead(folder + "2.jpg");
+                    int filelength1 = 0;
+                    filelength1 = (int)fs1.Length;
+                    Byte[] image1 = new Byte[filelength1];
+                    fs1.Read(image1, 0, filelength1);
+                    backencode = Convert.ToBase64String(image1);
+                    fs1.Close();
+                    string pra = "base64encode1=" + encode + "&base64encode2=" + backencode +
+                                    "&ecardid=" + info.IemBasicInfo.CardNumber + "&mdrecno=" + info.IemBasicInfo.NOOFRECORD +
+                                    "&medical=" + info.IemBasicInfo.NOOFRECORD + "&operatorname=" + m_app.User.DoctorName +
+                                    "&operatorno=" + m_app.User.DoctorId + "&operatordatetime=" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                    string value = DrectSoft.DSSqlHelper.DS_SqlHelper.HttpPostData(DrectSoft.Service.DS_SqlService.GetConfigValueByKey("ServiceWanIp"), "HttpPostGetPdf", pra);
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
             this.Close();
         }
 

@@ -180,6 +180,27 @@ namespace DrectSoft.Core.IEMMainPage
                 g1.Save();
                 g1.Dispose();
 
+                //第一页wmf to jpg
+                using (System.Drawing.Imaging.Metafile img = new System.Drawing.Imaging.Metafile(m_FilePath1))
+                {
+
+                    System.Drawing.Imaging.MetafileHeader header = img.GetMetafileHeader();
+                    float scale = header.DpiX / 96f;
+                    using (System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap((int)(scale * img.Width / header.DpiX * 100), (int)(scale * img.Height / header.DpiY * 100)))
+                    {
+                        using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap))
+                        {
+                            g.Clear(System.Drawing.Color.White);
+                            g.ScaleTransform(scale, scale);
+                            g.DrawImage(img, 0, 0);
+                        }
+                        bitmap.Save(folder + "1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+                }
+
+
+
+
                 Bitmap bmp2 = new Bitmap(m_PageWidth, m_PageHeight, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
                 Graphics g2 = Graphics.FromImage(bmp2);
                 m_FilePath2 = folder + Guid.NewGuid().ToString() + ".wmf";
@@ -190,6 +211,24 @@ namespace DrectSoft.Core.IEMMainPage
                 PrintSecondPage(g2);
                 g2.Save();
                 g2.Dispose();
+
+                //第二页wmf to jpg
+                using (System.Drawing.Imaging.Metafile img = new System.Drawing.Imaging.Metafile(m_FilePath2))
+                {
+
+                    System.Drawing.Imaging.MetafileHeader header = img.GetMetafileHeader();
+                    float scale = header.DpiX / 96f;
+                    using (System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap((int)(scale * img.Width / header.DpiX * 100), (int)(scale * img.Height / header.DpiY * 100)))
+                    {
+                        using (System.Drawing.Graphics g = System.Drawing.Graphics.FromImage(bitmap))
+                        {
+                            g.Clear(System.Drawing.Color.White);
+                            g.ScaleTransform(scale, scale);
+                            g.DrawImage(img, 0, 0);
+                        }
+                        bitmap.Save(folder + "2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -231,9 +270,6 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                //删除原先保存在C盘的文件
-                DeleteMetaFileAllInner(@"C:\");
-
                 //删除打印需要的矢量文件
                 DeleteMetaFileAllInner(AppDomain.CurrentDomain.BaseDirectory + "PrintImage\\");
             }
@@ -250,6 +286,10 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 DirectoryInfo dirInfo = new DirectoryInfo(folder);
                 foreach (FileInfo fi in dirInfo.GetFiles("*.wmf"))
+                {
+                    fi.Delete();
+                }
+                foreach (FileInfo fi in dirInfo.GetFiles("*.jpg"))
                 {
                     fi.Delete();
                 }

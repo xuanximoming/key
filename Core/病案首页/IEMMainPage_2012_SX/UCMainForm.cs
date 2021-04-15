@@ -182,7 +182,6 @@ namespace DrectSoft.Core.IEMMainPage
             BindParentFormCloseEvent();
         }
 
-
         /// <summary>
         /// 重新定位PictureBox
         /// </summary>
