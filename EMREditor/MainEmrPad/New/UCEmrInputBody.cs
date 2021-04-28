@@ -5627,7 +5627,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                     #endregion
 
                     Save(m_CurrentModel);
-
                     if (null != CurrentForm && null != CurrentForm.CurrentEditorControl && null != CurrentForm.CurrentEditorControl.EMRDoc)
                     {
                         CurrentForm.CurrentEditorControl.EMRDoc.Modified = false;
