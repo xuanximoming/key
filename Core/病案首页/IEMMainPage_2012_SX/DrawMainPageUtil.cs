@@ -12,7 +12,7 @@ namespace DrectSoft.Core.IEMMainPage
 {
     public class DrawMainPageUtil
     {
-        #region Property && Field
+        #region 变量定义Property && Field
 
         PrintDocument m_PrintDocument;
 
@@ -1737,7 +1737,7 @@ namespace DrectSoft.Core.IEMMainPage
             {
                 //表格的行高
                 int firstLineHieght = 38;
-                int lineHeight = 26;
+                float lineHeight = 26;
                 float pointX = m_PointX;
                 Font font = m_DefaultFont;
                 sf.Alignment = StringAlignment.Center;
@@ -1756,9 +1756,9 @@ namespace DrectSoft.Core.IEMMainPage
                 int columnWidth8 = 70;//麻醉医师
 
                 int lineWidth = 770; //ColumnWidth1 + ColumnWidth2 + ...... = lineWidth
-                int xOffset = 12;
 
                 XmlNode xmlNode = xmlDoc.GetElementsByTagName("PrintOperation")[0];
+                lineHeight = float.Parse(xmlNode.Attributes["interval"].Value); //行间距
                 XmlNodeList xmlNodes = xmlNode.ChildNodes;
                 Pen solidPen = new Pen(Brushes.Black, 2);
                 if (xmlNodes.Count > 0)
@@ -1775,7 +1775,7 @@ namespace DrectSoft.Core.IEMMainPage
 
                     //使用持续时间：
                     string Durationdate = m_IemMainPageEntity.IemBasicInfo.Durationdate;//todo
-                    pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (lineHeight - charHeight) / 2, lineHeight, charWidth, "使用持续时间：", Durationdate, 50, "小时") + 25;
+                    pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (lineHeight - charHeight) / 2, charHeight, charWidth, "使用持续时间：", Durationdate, 50, "小时") + 25;
 
                     //联合用药
                     g.DrawString("联合用药", font, Brushes.Black, new PointF(pointX, pointY + (lineHeight - charHeight) / 2));
@@ -1861,159 +1861,159 @@ namespace DrectSoft.Core.IEMMainPage
                     for (int i = 0; i < 8; i++)
                     {
                         //手术及操作编码
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, lineHeight));
-                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, (int)lineHeight));
+                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + (int)lineHeight));
                         //手术及操作编码value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Code"].ToString(), pointX, pointY + 2, columnWidth1, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Code"].ToString(), pointX, pointY + 2, columnWidth1, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth1;
 
                         //手术及操作日期
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth2, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth2, (int)lineHeight));
                         //手术及操作日期value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Date"].ToString(), pointX, pointY + 2, columnWidth2, lineHeight, m_DefaultValueFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Date"].ToString(), pointX, pointY + 2, columnWidth2, (int)lineHeight, m_DefaultValueFont);
                         }
 
 
                         pointX += columnWidth2;
 
                         //手术级别
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth3, (int)lineHeight));
                         //手术级别value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth3, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Level"].ToString(), pointX, pointY + 2, columnWidth3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Level"].ToString(), pointX, pointY + 2, columnWidth3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth3;
 
                         //手术及操作名称
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth4, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth4, (int)lineHeight));
                         //手术及操作名称value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth4, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth4, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Name"].ToString(), pointX, pointY + 2, columnWidth4, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Operation_Name"].ToString(), pointX, pointY + 2, columnWidth4, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth4;
 
                         //手术及操作医师【术者】
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, (int)lineHeight));
                         //手术及操作医师【术者】value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Execute_User1_Name"].ToString(), pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Execute_User1_Name"].ToString(), pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth5 / 3;
 
                         //手术及操作医师【Ⅰ助】
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, (int)lineHeight));
                         //手术及操作医师【Ⅰ助】value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Execute_User2_Name"].ToString(), pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Execute_User2_Name"].ToString(), pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth5 / 3;
 
                         //手术及操作医师【Ⅱ助】
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, (int)lineHeight));
                         //手术及操作医师【Ⅱ助】value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Execute_User3_Name"].ToString(), pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Execute_User3_Name"].ToString(), pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth5 / 3;
 
                         //切口愈合等级
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth6, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth6, (int)lineHeight));
                         //切口愈合等级value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth6, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth6, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Close_Level_Name"].ToString(), pointX, pointY + 2, columnWidth6, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Close_Level_Name"].ToString(), pointX, pointY + 2, columnWidth6, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth6;
 
                         //麻醉方式
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth7, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth7, (int)lineHeight));
                         //切口愈合等级value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth7, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth7, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Anaesthesia_Type_Name"].ToString(), pointX, pointY + 2, columnWidth7, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Anaesthesia_Type_Name"].ToString(), pointX, pointY + 2, columnWidth7, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth7;
 
                         //麻醉医师
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth8, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth8, (int)lineHeight));
                         //麻醉医师value
                         if (operationTable.Rows.Count <= 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth8, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth8, (int)lineHeight, m_DefaultFont);
                         }
                         else if (operationTable.Rows.Count > i)
                         {
-                            DrawStringInCell2(g, operationTable.Rows[i]["Anaesthesia_User_Name"].ToString(), pointX, pointY + 2, columnWidth8, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, operationTable.Rows[i]["Anaesthesia_User_Name"].ToString(), pointX, pointY + 2, columnWidth8, (int)lineHeight, m_DefaultFont);
                         }
 
-                        g.DrawLine(Pens.White, new Point((int)pointX + columnWidth8, (int)pointY), new Point((int)pointX + columnWidth8, (int)pointY + lineHeight));
+                        g.DrawLine(Pens.White, new Point((int)pointX + columnWidth8, (int)pointY), new Point((int)pointX + columnWidth8, (int)pointY + (int)lineHeight));
 
                         pointX = m_PointX;
                         if (i == 7)
                         {
-                            g.DrawLine(solidPen, new Point((int)pointX, (int)pointY + lineHeight), new Point((int)pointX + lineWidth, (int)pointY + lineHeight));
+                            g.DrawLine(solidPen, new Point((int)pointX, (int)pointY + (int)lineHeight), new Point((int)pointX + lineWidth, (int)pointY + (int)lineHeight));
                             pointY += 6;
                         }
                         else
@@ -2028,159 +2028,159 @@ namespace DrectSoft.Core.IEMMainPage
                     for (int i = 0; i < 8; i++)
                     {
                         //手术及操作编码
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, lineHeight));
-                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth1, (int)lineHeight));
+                        g.DrawLine(Pens.White, new Point((int)pointX, (int)pointY), new Point((int)pointX, (int)pointY + (int)lineHeight));
                         //手术及操作编码value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth1, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth1, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth1;
 
                         //手术及操作日期
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth2, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth2, (int)lineHeight));
                         //手术及操作日期value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth1, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth2, lineHeight, m_DefaultValueFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth2, (int)lineHeight, m_DefaultValueFont);
                         }
 
 
                         pointX += columnWidth2;
 
                         //手术级别
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth3, (int)lineHeight));
                         //手术级别value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth3, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth3;
 
                         //手术及操作名称
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth4, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth4, (int)lineHeight));
                         //手术及操作名称value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth4, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth4, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth4, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth4, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth4;
 
                         //手术及操作医师【术者】
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, (int)lineHeight));
                         //手术及操作医师【术者】value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth5 / 3;
 
                         //手术及操作医师【Ⅰ助】
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, (int)lineHeight));
                         //手术及操作医师【Ⅰ助】value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth5 / 3;
 
                         //手术及操作医师【Ⅱ助】
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth5 / 3, (int)lineHeight));
                         //手术及操作医师【Ⅱ助】value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth5 / 3, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth5 / 3, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth5 / 3;
 
                         //切口愈合等级
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth6, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth6, (int)lineHeight));
                         //切口愈合等级value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth6, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth6, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth6, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth6, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth6;
 
                         //麻醉方式
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth7, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth7, (int)lineHeight));
                         //切口愈合等级value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth7, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth7, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth7, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth7, (int)lineHeight, m_DefaultFont);
                         }
 
 
                         pointX += columnWidth7;
 
                         //麻醉医师
-                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth8, lineHeight));
+                        g.DrawRectangle(Pens.Black, new Rectangle((int)pointX, (int)pointY, columnWidth8, (int)lineHeight));
                         //麻醉医师value
                         if (i == 0)
                         {
-                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth8, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "/", pointX, pointY + 2, columnWidth8, (int)lineHeight, m_DefaultFont);
                         }
                         else
                         {
-                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth8, lineHeight, m_DefaultFont);
+                            DrawStringInCell2(g, "", pointX, pointY + 2, columnWidth8, (int)lineHeight, m_DefaultFont);
                         }
 
-                        g.DrawLine(Pens.White, new Point((int)pointX + columnWidth8, (int)pointY), new Point((int)pointX + columnWidth8, (int)pointY + lineHeight));
+                        g.DrawLine(Pens.White, new Point((int)pointX + columnWidth8, (int)pointY), new Point((int)pointX + columnWidth8, (int)pointY + (int)lineHeight));
 
                         pointX = m_PointX;
                         if (i == 7)
                         {
-                            g.DrawLine(solidPen, new Point((int)pointX, (int)pointY + lineHeight), new Point((int)pointX + lineWidth, (int)pointY + lineHeight));
+                            g.DrawLine(solidPen, new Point((int)pointX, (int)pointY + (int)lineHeight), new Point((int)pointX + lineWidth, (int)pointY + (int)lineHeight));
                             pointY += 6;
                         }
                         else

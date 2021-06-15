@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
-	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="100" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
+	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="70" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
 	<DefaultStyle fontsize="14" fontname="宋体" FontStyle="Regular"/>
 	<!-- 表头 -->
 	<Title>
@@ -13,7 +13,7 @@
 		<OrganizationCode fontsize="14" fontname="宋体" FontStyle="Regular" PointX="550" PointY="40">组织机构代码:</OrganizationCode>
 	</Title>
 	<!-- 病人信息 -->
-	<PatientBaseInfo interval="28">
+	<PatientBaseInfo interval="27">
 		<!-- 第一行 -->
 		<Name type="UnderLine" underLineWidth="90" nextLine="0" space="25" unit="">姓名</Name>
 		<SexID type="CheckBox" SelectItem="1.男  2.女" nextLine="0" space="20" unit="">性别</SexID>
@@ -93,7 +93,7 @@
 			<LeftDiaglosis MainColumn="1" rightColumn="11" leftColumn="12" inStatus="出院情况： 1. 治愈 2. 好转 3. 未愈 4. 死亡 5. 其他">其他诊断：;</LeftDiaglosis>
 		</Body>
 	</OutHospitalDiaglosis>
-	<PrintOperation>
+	<PrintOperation interval="27">
 		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
 		<Durationdate></Durationdate>
 	</PrintOperation>
@@ -160,7 +160,7 @@
 		<Rehospitalization type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否因同一病种再入院</Rehospitalization>
 		<Intervaldate type="UnderLine" underLineWidth="40" nextLine="1" space="40" unit="天">与上次出院日期间隔天数</Intervaldate>
 	</SecondPageOther>
-	<Feeinfo>
+	<Feeinfo interval="27">
 		<txtTotal mapping="zfy"></txtTotal> <!-- 总费用 -->
 		<txtOwnFee mapping="OwnFee"></txtOwnFee><!-- 自负金额 -->
 		<txtYBYLFY mapping="YBYLFY"></txtYBYLFY><!-- 一般医疗服务费 -->
