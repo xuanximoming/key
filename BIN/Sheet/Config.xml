@@ -148,7 +148,7 @@
 		<item text="物理降温" datafield="PHYSICALCOOLING" linecolor="红" show="0" startX="985" startY="1007" height="20" width="40" lineType="dotted"/>
 		<item text="物理升温" datafield="PHYSICALHOTTING" linecolor="红" show="0" startX="985" startY="1007" height="20" width="40" lineType="solid"/>
 	</legend>
-	<!--需要过滤体征数据的病人状态值，即 如果该时段病人为此状态之一，则此时段数据点不绘制，color可配置各个状态的颜色 -->
+	<!--需要过滤体征数据的病人状态值，即如果该时段病人为此状态之一，则此时段数据点不绘制，color可配置各个状态的颜色 -->
 	<patientstatefilter>
 		<item valueText="入院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="外出" breakLinkLine="1" intercept="1" position="0" showtime="1" color="红"/>
@@ -157,6 +157,7 @@
 		<item valueText="手术" breakLinkLine="0" intercept="0" position="0" showtime="1" color="红"/>
 		<item valueText="出院" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
 		<item valueText="分娩" breakLinkLine="0" intercept="1" position="0" showtime="1" color="红"/>
+		<item valueText="拒试" breakLinkLine="1" intercept="1" position="0" showtime="1" color="红"/>
 	</patientstatefilter>
 	<!--绘制事件的起点纵坐标-->
 	<EventYStart startY="190" endY="750"/>

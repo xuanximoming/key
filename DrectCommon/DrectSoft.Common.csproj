@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="WinForm\PrintHistoryForm.resx">
       <DependentUpon>PrintHistoryForm.cs</DependentUpon>
     </EmbeddedResource>

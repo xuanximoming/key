@@ -282,7 +282,6 @@
     <Compile Include="UI\MedicalRecordWriteUpForm.Designer.cs">
       <DependentUpon>MedicalRecordWriteUpForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="UCControl\MedIemArchive.resx">
       <DependentUpon>MedIemArchive.cs</DependentUpon>
     </EmbeddedResource>
