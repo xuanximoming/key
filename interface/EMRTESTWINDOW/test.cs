@@ -18,7 +18,7 @@ namespace EMRTESTWINDOW
         {
             try
             {
-                Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory + "app\\";
+                //Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory + "app\\";
                 //AnalysisXML xml = new AnalysisXML();
                 //DataTable dtdate = xml.GetMedicalInsurance("AC,AB", "006425", "主诉,现病史,既往史");
                 //richTextBox1.Text = "";
