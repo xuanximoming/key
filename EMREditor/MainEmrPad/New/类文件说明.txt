@@ -32,3 +32,10 @@ EMREditor\EMREditor\MainEmrPad\New\UCEmrInputBody.cs
 
 2016-09-18 选中隐藏表格后，选中元素打印提示没有选中元素。
 EMREditor\EMREditor\MainEmrPad\New\PrintForm.cs
+
+2021-11-29
+门诊部分修改
+
+添加存储过程
+PATIENT_INFO.usp_inpatient_clinic内容
+

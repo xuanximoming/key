@@ -3,46 +3,63 @@
   <!-- 凡是 datafield 有值的情况下，值形如Value@的中@必须要按序排列 从1开始；时间和签名列除外 -->
   <Columns horRepeat="0">
     <Column line="1" offsetXPreCol="0" y="90" width="70" height="60" text="日期-时间" fontsize="" bold="0" align="0" datafield="DateTimeShow"></Column>
-    <Column line="0" offsetXPreCol="70" y="90" width="150" height="25" text="生命体征" fontsize="" bold="0" align="0" datafield=""></Column>
-    <Column line="0" offsetXPreCol="0" y="115" width="30" height="35" text="T  ℃" fontsize="" bold="0" align="0" datafield="Value1"></Column>
-    <Column line="0" offsetXPreCol="30" y="115" width="40" height="35" text="HR  次/分" fontsize="" bold="0" align="0" datafield="Value2"></Column>
-    <Column line="0" offsetXPreCol="40" y="115" width="30" height="35" text="R次/分" fontsize="" bold="0" align="0" datafield="Value3"></Column>
-    <Column line="0" offsetXPreCol="30" y="115" width="50" height="35" text="BP   mmHg" fontsize="" bold="0" align="0" datafield="Value4"></Column>
-    <Column line="0" offsetXPreCol="50" y="90" width="40" height="60" text="SPO2  %" fontsize="" bold="0" align="0" datafield="Value5"></Column>
-    <Column line="0" offsetXPreCol="40" y="90" width="30" height="60" text="意识" fontsize="" bold="0" align="0" datafield="Value6"></Column>
-    <Column line="0" offsetXPreCol="30" y="90" width="110" height="25" text="瞳孔" fontsize="" bold="0" align="0" datafield=""></Column>
-    <Column line="0" offsetXPreCol="0" y="115" width="35" height="35" text="左  mm" fontsize="" bold="0" align="0" datafield="Value7"></Column>
-    <Column line="0" offsetXPreCol="35" y="115" width="35" height="35" text="右  mm" fontsize="" bold="0" align="0" datafield="Value8"></Column>
-    <Column line="0" offsetXPreCol="35" y="115" width="40" height="35" text="对光放射" fontsize="" bold="0" align="0" datafield="Value9"></Column>
-    <Column line="0" offsetXPreCol="40" y="90" width="40" height="60" text="鼻导管给氧L/min" fontsize="" bold="0" align="0" datafield="Value10"></Column>
-    <Column line="0" offsetXPreCol="40" y="90" width="35" height="60" text="留置针" fontsize="" bold="0" align="0" datafield="Value11"></Column>
-    <Column line="0" offsetXPreCol="35" y="90" width="40" height="60" text="" fontsize="" bold="0" align="0" datafield="Value12"></Column>
-    <Column line="0" offsetXPreCol="40" y="90" width="80" height="25" text="入量" fontsize="" bold="0" align="0" datafield=""></Column>
-    <Column line="0" offsetXPreCol="0" y="115" width="50" height="35" text="项目" fontsize="" bold="0" align="0" datafield="Value13"></Column>
-    <Column line="0" offsetXPreCol="50" y="115" width="30" height="35" text="量  ml" fontsize="" bold="0" align="0" datafield="Value14"></Column>
-    <Column line="0" offsetXPreCol="30" y="90" width="150" height="25" text="出量" fontsize="" bold="0" align="0" datafield=""></Column>
-    <Column line="0" offsetXPreCol="0" y="115" width="60" height="35" text="项目" fontsize="" bold="0" align="0" datafield="Value15"></Column>
-    <Column line="0" offsetXPreCol="60" y="115" width="30" height="35" text="量  ml" fontsize="" bold="0" align="0" datafield="Value16"></Column>
-    <Column line="0" offsetXPreCol="30" y="115" width="30" height="35" text="颜色" fontsize="" bold="0" align="0" datafield="Value17"></Column>
-    <Column line="0" offsetXPreCol="30" y="115" width="30" height="35" text="性状" fontsize="" bold="0" align="0" datafield="Value18"></Column>
-    <Column line="0" offsetXPreCol="30" y="90" width="40" height="60" text="卧位" fontsize="" bold="0" align="0" datafield="Value19"></Column>
-    <Column line="0" offsetXPreCol="40" y="90" width="30" height="60" text="受压皮肤" fontsize="" bold="0" align="0" datafield="Value20"></Column>
-    <Column line="0" offsetXPreCol="30" y="90" width="150" height="60" text="其他" fontsize="" bold="0" align="-1" datafield="Value21"></Column>
+    <Column line="0" offsetXPreCol="70" y="90" width="40" height="60" text="意识" fontsize="" bold="0" align="0" datafield="Value1"></Column>
+    <Column line="0" offsetXPreCol="40" y="90" width="150" height="20" text="瞳孔" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="110" width="75" height="20" text="大小mm" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="35" height="20" text="左" fontsize="" bold="0" align="0" datafield="Value2"></Column>
+    <Column line="0" offsetXPreCol="35" y="130" width="40" height="20" text="右" fontsize="" bold="0" align="0" datafield="Value3"></Column>
+	<Column line="0" offsetXPreCol="40" y="110" width="75" height="20" text="光反射" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="35" height="20" text="左" fontsize="" bold="0" align="0" datafield="Value4"></Column>
+    <Column line="0" offsetXPreCol="35" y="130" width="40" height="20" text="右" fontsize="" bold="0" align="0" datafield="Value5"></Column>
+	<Column line="0" offsetXPreCol="40" y="90" width="40" height="40" text="体温" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="40" height="20" text="℃" fontsize="" bold="0" align="0" datafield="Value6"></Column>
+    <Column line="-1" offsetXPreCol="40" y="90" width="40" height="40" text="脉搏-心率" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="40" height="20" text="次/分" fontsize="" bold="0" align="0" datafield="Value7"></Column>
+	
+	<Column line="0" offsetXPreCol="40" y="90" width="40" height="40" text="呼吸" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="40" height="20" text="次/分" fontsize="" bold="0" align="0" datafield="Value8"></Column>
+	
+	<Column line="0" offsetXPreCol="40" y="90" width="40" height="40" text="血压" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="40" height="20" text="mmHg" fontsize="" bold="0" align="0" datafield="Value9"></Column>
+	
+	<Column line="0" offsetXPreCol="40" y="90" width="45" height="40" text="血氧饱和度" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="45" height="20" text="%" fontsize="" bold="0" align="0" datafield="Value10"></Column>
+	
+	<Column line="0" offsetXPreCol="45" y="90" width="45" height="40" text="吸氧流量" fontsize="" bold="0" align="0" datafield=""></Column>
+    <Column line="0" offsetXPreCol="0" y="130" width="45" height="20" text="L/min" fontsize="" bold="0" align="0" datafield="Value11"></Column>
+	
+	<Column line="0" offsetXPreCol="45" y="90" width="160" height="40" text="入量" fontsize="" bold="0" align="0" datafield=""></Column>
+	<Column line="0" offsetXPreCol="0" y="130" width="100" height="20" text="项目" fontsize="" bold="0" align="0" datafield="Value12"></Column>
+	<Column line="0" offsetXPreCol="100" y="130" width="30" height="20" text="途径" fontsize="" bold="0" align="0" datafield="Value13"></Column>
+	<Column line="0" offsetXPreCol="30" y="130" width="30" height="20" text="ml" fontsize="" bold="0" align="0" datafield="Value14"></Column>
+	
+	<Column line="0" offsetXPreCol="30" y="90" width="150" height="20" text="出量" fontsize="" bold="0" align="0" datafield=""></Column>
+	<Column line="0" offsetXPreCol="0" y="110" width="30" height="20" text="尿量" fontsize="" bold="0" align="0" datafield=""></Column>
+	<Column line="0" offsetXPreCol="0" y="130" width="30" height="20" text="ml" fontsize="" bold="0" align="0" datafield="Value15"></Column>
+	<Column line="0" offsetXPreCol="30" y="110" width="120" height="20" text="其他引流量" fontsize="" bold="0" align="0" datafield=""></Column>
+	<Column line="0" offsetXPreCol="0" y="130" width="90" height="20" text="项目" fontsize="" bold="0" align="0" datafield="Value16"></Column>
+	<Column line="0" offsetXPreCol="90" y="130" width="30" height="20" text="ml" fontsize="" bold="0" align="0" datafield="Value17"></Column>
+	
+    <Column line="0" offsetXPreCol="30" y="90" width="150" height="60" text="病情观察及措施" fontsize="" bold="0" align="-1" datafield="Value21"></Column>
     <Column line="0" offsetXPreCol="150" y="90" width="60" height="60" text="签名" fontsize="" bold="0" align="0" datafield="RecordDoctorImgbyte"></Column>
   </Columns>
   <StaticText>
-    <item x="30" y="30" width="986" height="35" text=" 儿科护理记录单" fontsize="20" bold="1" align=""></item>
+    <item x="100" y="30" width="986" height="35" text="护理记录单" fontsize="20" bold="1" align=""></item>
     <item x="0" y="710" width="1186" height="70" text="第      页" fontsize="11" bold="0" align=""></item>
-    <item x="0" y="730" width="986" height="70" text="    说明：观察内容无异常时，用N来表示，异常时如实描述。" fontsize="11" bold="0" align="-1"></item>
+    <item x="80" y="730" width="986" height="70" text="审核护士签字:____________" fontsize="11" bold="0" align="-1"></item>
   </StaticText>
 
   <PatientInfo>
-    <item x="40" y="40" width="986" height="40" align="0" fontsize="20" bold="1" datafield="HospitalName"   text="@"></item>
-    <item x="40" y="765" width="1100" height="40" align="0" fontsize="11" bold="0" datafield="CurrPage"   text="@"></item>
-    <item x="100" y="110" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="Depart"   text="科别：@"></item>
-    <item x="300" y="110" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InBedNo"  text="床号：@"></item>
-    <item x="500" y="110" width="150" height="32" align="-1" fontsize="11" bold="0" datafield="InpatientName"  text="姓名：@"></item>
-    <item x="760" y="110" width="220" height="32" align="-1" fontsize="11" bold="0" datafield="InNo"  text="住院号：@"></item>
+    <item x="100" y="40" width="986" height="40" align="0" fontsize="20" bold="1" datafield="HospitalName"   text="@"></item>
+    <item x="45" y="765" width="1100" height="40" align="0" fontsize="9" bold="0" datafield="CurrPage"   text="@"></item>
+	<item x="60" y="110" width="150" height="32" align="0" fontsize="9" bold="0" datafield="Depart"   text="科别：@"/>
+	<item x="210" y="110" width="100" height="32" align="-1" fontsize="9" bold="0" datafield="InpatientName"  text="姓名：@"/>
+	<item x="310" y="110" width="70" height="32" align="-1" fontsize="9" bold="0" datafield="Sex"  text="性别：@"/>
+	<item x="380" y="110" width="80" height="32" align="-1" fontsize="9" bold="0" datafield="InpatientAge"  text="年龄：@"/>
+	<item x="460" y="110" width="110" height="32" align="-1" fontsize="9" bold="0" datafield="InBedNo"  text="床号：@"/>
+	<item x="570" y="110" width="120" height="32" align="-1" fontsize="9" bold="0" datafield="InNo"  text="病案号：@"/>
+	<item x="690" y="110" width="150" height="32" align="-1" fontsize="9" bold="0" datafield="InDateTime"  text="入院日期：@"/>
+	<item x="840" y="110" width="300" height="32" align="-1" fontsize="9" bold="0" datafield="AdmitDiagnosis"  text="主要诊断：@"/>
   </PatientInfo>
 
   <OtherInfo>
