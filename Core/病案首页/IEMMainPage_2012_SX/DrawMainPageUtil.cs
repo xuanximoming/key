@@ -1462,11 +1462,18 @@ namespace DrectSoft.Core.IEMMainPage
                 float pointX = pointStartX + xOffset;
                 foreach (XmlNode Node in xmlNodes)
                 {
-                    Type t = m_IemMainPageEntity.IemDiagInfo.GetType();
-                    PropertyInfo info = t.GetProperty(Node.Name);
-                    string Value = info.GetValue(m_IemMainPageEntity.IemDiagInfo, null).ToString();
-                    int intSpace = int.Parse(Node.Attributes["space"].Value);
-                    string unit = Node.Attributes["unit"].Value;
+                    string Value = "";
+                    int intSpace = 0;
+                    string unit = "";
+                    if (Node.Name != "Notes")
+                    {
+                        Type t = m_IemMainPageEntity.IemDiagInfo.GetType();
+                        PropertyInfo info = t.GetProperty(Node.Name);
+                        Value = info.GetValue(m_IemMainPageEntity.IemDiagInfo, null).ToString();
+                        intSpace = int.Parse(Node.Attributes["space"].Value);
+                        unit = Node.Attributes["unit"].Value;
+                    }
+
 
                     switch (Node.Attributes["type"].Value)
                     {
@@ -1483,6 +1490,9 @@ namespace DrectSoft.Core.IEMMainPage
                             pointX = DrawCheckBox(g, pointX, pointY + (interval - lineHeight) / 2, Value, lineHeight);
                             pointX = DrawSelectItem(g, pointX, pointY + (interval - lineHeight) / 2, Node.Attributes["SelectItem"].Value) + intSpace;
 
+                            break;
+                        case "Note":
+                            pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY + (interval - lineHeight) / 2, lineHeight, charWidth, Node.InnerText, Value, int.Parse(Node.Attributes["underLineWidth"].Value), unit) + intSpace;
                             break;
                         default:
                             break;

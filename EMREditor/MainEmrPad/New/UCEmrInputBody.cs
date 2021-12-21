@@ -2518,11 +2518,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                             }
 
                         }
-
-                        //if (model.DailyEmrModel && !model.FirstDailyEmrModel && model.InstanceId == -1)
-                        //{///替换模板标题(病程时间) - 非首次病程在加载之前
-                        //    pad.InsertDisplayTimeAndTitle(model.ModelContent, model.DisplayTime.ToString("yyyy-MM-dd HH:mm:ss"), model.Description);
-                        //}
                         m_RecordDal.LoadModelInstanceNew(model);
                         if (model.Valid == false)
                         {

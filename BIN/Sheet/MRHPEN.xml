@@ -108,6 +108,7 @@
 		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
 	</PrintOperation>
 	<FristPageOther interval="35">
+	    <Note type="Note" underLineWidth="0" nextLine="1" space="20" unit="">入院病情: 1.有  2.临床未确定  3.情况不明  4.无</Note>
 		<!--第一行-->
 		<Hurt_Toxicosis_Element type="UnderLine" underLineWidth="385" nextLine="0" space="20" unit="">损伤、中毒的外部原因</Hurt_Toxicosis_Element>
 		<Hurt_Toxicosis_ElementID type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">疾病编码</Hurt_Toxicosis_ElementID>
