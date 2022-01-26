@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="70" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
+	<DefaultStyle fontsize="14" fontname="宋体" FontStyle="Regular"/>
+	<!-- 表头 -->
+	<Title>
+		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="20">医疗机构：</Hospital>
+		<HomePage fontsize="18" fontname="宋体" FontStyle="Bold" top="10">住 院 病 案 首 页</HomePage>
+		<CardNumber Width="300">健康卡号:</CardNumber>
+		<inTime Width="300"></inTime>
+		<recordNo Width="200"></recordNo>
+		<Pay Width="1" PointX="15" PointY="40">医疗付款方式:</Pay>
+		<OrganizationCode fontsize="14" fontname="宋体" FontStyle="Regular" PointX="550" PointY="40">组织机构代码:</OrganizationCode>
+	</Title>
+	<!-- 病人信息 -->
+	<PatientBaseInfo interval="27">
+		<!-- 第一行 -->
+		<Name type="UnderLine" underLineWidth="90" nextLine="0" space="25" unit="">姓名</Name>
+		<SexID type="CheckBox" SelectItem="1.男  2.女" nextLine="0" space="20" unit="">性别</SexID>
+		<BirthPrint type="UnderLine" underLineWidth="120" nextLine="0" space="25" unit="">出生日期</BirthPrint>
+		<Age type="UnderLine" underLineWidth="65" nextLine="0" space="25" unit="">年龄</Age>
+		<NationalityName type="UnderLine" underLineWidth="65" nextLine="1" space="0" unit="">国籍</NationalityName>
+		<!-- 第二行 -->
+		<MonthAge type="UnderLine" underLineWidth="60" nextLine="0" space="50" unit="月">（年龄不足1周岁的） 年龄</MonthAge>
+		<Weight type="UnderLine" underLineWidth="60" nextLine="0" space="50" unit="克">新生儿出生体重</Weight>
+		<InWeight type="UnderLine" underLineWidth="60" nextLine="1" space="0" unit="克">新生儿入院体重</InWeight>
+		<!-- 第三行 -->
+		<CSD_ProvinceName type="UnderLine" underLineWidth="250" nextLine="0" space="0" unit="">出生地</CSD_ProvinceName>
+		<JG_ProvinceName type="UnderLine" underLineWidth="250" nextLine="0" space="0" unit="">籍贯</JG_ProvinceName>
+		<NationName type="UnderLine" underLineWidth="65" nextLine="1" space="0" unit="">民族</NationName>
+		<!-- 第四行 -->
+		<IDNO type="UnderLine" underLineWidth="200" nextLine="0" space="10" unit="">身份证号</IDNO>
+		<JobName type="UnderLine" underLineWidth="120" nextLine="0" space="10" unit="">职业</JobName>
+		<SexID type="CheckBox" SelectItem="1.未婚 2.已婚 3.丧偶 4.离婚 9.其他" nextLine="1" space="0" unit="">婚姻</SexID>
+		<!-- 第五行 -->
+		<XZZ_ProvinceName type="UnderLine" underLineWidth="340" nextLine="0" space="0" unit="">现在住址</XZZ_ProvinceName>
+		<XZZ_TEL type="UnderLine" underLineWidth="120" nextLine="0" space="28" unit="">电话</XZZ_TEL>
+		<XZZ_Post type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">邮编</XZZ_Post>
+		<!-- 第六行 -->
+		<HKDZ_ProvinceName type="UnderLine" underLineWidth="496" nextLine="0" space="28" unit="">户口地址</HKDZ_ProvinceName>
+		<HKDZ_Post type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">邮编</HKDZ_Post>
+		<!-- 第七行 -->
+		<OfficePlace type="UnderLine" underLineWidth="255" nextLine="0" space="16" unit="">工作单位及地址</OfficePlace>
+		<OfficeTEL type="UnderLine" underLineWidth="120" nextLine="0" space="28" unit="">单位电话</OfficeTEL>
+		<OfficePost type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">邮编</OfficePost>
+		<!-- 第八行 -->
+		<ContactPerson type="UnderLine" underLineWidth="80" nextLine="0" space="15" unit="">联系人姓名</ContactPerson>
+		<RelationshipName type="UnderLine" underLineWidth="80" nextLine="0" space="15" unit="">关系</RelationshipName>
+		<ContactAddress type="UnderLine" underLineWidth="233" nextLine="0" space="15" unit="">地址</ContactAddress>
+		<ContactTEL type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">电话</ContactTEL>
+		<!-- 第九行 -->
+		<InHosType type="CheckBox" SelectItem="1.急诊   2.门诊   3.其他医疗机构转入" nextLine="0" space="0" unit="">入院途径</InHosType>
+		<TypeHos type="UnderLine" underLineWidth="170" nextLine="1" space="0" unit="   9.其他"></TypeHos>
+		<!-- 第十行 -->
+		<AdmitDatePrint type="UnderLine" underLineWidth="150" nextLine="0" space="20" unit="">入院时间</AdmitDatePrint>
+		<AdmitDeptName type="UnderLine" underLineWidth="115" nextLine="0" space="20" unit="">入院科别</AdmitDeptName>
+		<AdmitWardName type="UnderLine" underLineWidth="71" nextLine="0" space="20" unit="">病房</AdmitWardName>
+		<Trans_AdmitDeptName type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">转科科别</Trans_AdmitDeptName>
+		<!-- 第十一行 -->
+		<OutWardDatePrint type="UnderLine" underLineWidth="150" nextLine="0" space="20" unit="">出院日期</OutWardDatePrint>
+		<OutHosDeptName type="UnderLine" underLineWidth="115" nextLine="0" space="20" unit="">出院科别</OutHosDeptName>
+		<OutHosWardName type="UnderLine" underLineWidth="71" nextLine="0" space="20" unit="">病房</OutHosWardName>
+		<ActualDays type="UnderLine" underLineWidth="100" nextLine="1" space="0" unit="天">实际住院</ActualDays>
+		<!-- 第十二行 -->
+		<MZXYZD_NAME type="UnderLine" underLineWidth="190" nextLine="0" space="25" unit="">门（急）诊诊断</MZXYZD_NAME>
+		<MZXYZD_CODE type="UnderLine" underLineWidth="120" nextLine="0" space="10" unit="">疾病编码</MZXYZD_CODE>
+		<InHosInfo type="CheckBox" SelectItem="1. 危 2. 急 3. 一般" nextLine="1" space="0" unit="">入院情况</InHosInfo>
+		<!-- 第十三行 -->
+		<RYXYZD_NAME type="UnderLine" underLineWidth="233" nextLine="0" space="25" unit="">入院诊断</RYXYZD_NAME>
+		<RYXYZD_CODE type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">疾病编码</RYXYZD_CODE>
+		<!-- 第十四行 -->
+		<MainDiagDate type="UnderLine" underLineWidth="180" nextLine="0" space="20" unit="">主要诊断确诊日期</MainDiagDate>
+		<InHosCall type="CheckBox" SelectItem=" 1. 是 2. 否" nextLine="0" space="0" unit="">住院期间是否告病危或病重</InHosCall>
+	</PatientBaseInfo>
+	<!-- 诊断 -->
+	<OutHospitalDiaglosis rowheight="28" ColumnWidth="4;230,65,45,45" titleRowHeight="34">
+		<!-- TableHead -->
+		<Head>
+			<Column1 Width="230" ColumnName="Diagnosis_Name">出院诊断</Column1>
+			<Column2 Width="65" ColumnName="Diagnosis_Code">疾病编码</Column2>
+			<Column3 Width="45" ColumnName="Status_Id">入院病情</Column3>
+			<Column4 Width="45" ColumnName="OutStatus_Id">出院情况</Column4>
+			<Column5 Width="230" ColumnName="Diagnosis_Name">出院诊断</Column5>
+			<Column6 Width="65" ColumnName="Diagnosis_Code">疾病编码</Column6>
+			<Column7 Width="45" ColumnName="Status_Id">入院病情</Column7>
+			<Column8 Width="45" ColumnName="OutStatus_Id">出院情况</Column8>
+		</Head>
+		<!-- Tablebody -->
+		<Body>
+			<!-- 左侧诊断 -->
+			<rightDiaglosis MainColumn="3" OtherColumn="8" inStatus="入院病情: 1.有  2.临床未确定  3.情况不明  4.无 ">主要诊断：;其他诊断：</rightDiaglosis>
+			<!-- 右侧诊断 -->
+			<LeftDiaglosis MainColumn="1" rightColumn="11" leftColumn="12" inStatus="出院情况： 1. 治愈 2. 好转 3. 未愈 4. 死亡 5. 其他">其他诊断：;</LeftDiaglosis>
+		</Body>
+	</OutHospitalDiaglosis>
+	<PrintOperation interval="27">
+		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
+		<Durationdate></Durationdate>
+	</PrintOperation>
+	<FristPageOther interval="31">
+		<!--第一行-->
+		<Hurt_Toxicosis_Element type="UnderLine" underLineWidth="385" nextLine="0" space="20" unit="">损伤、中毒的外部原因</Hurt_Toxicosis_Element>
+		<Hurt_Toxicosis_ElementID type="UnderLine" underLineWidth="120" nextLine="1" space="0" unit="">疾病编码</Hurt_Toxicosis_ElementID>
+	    <!--第二行-->
+		<Pathology_Diagnosis_Name type="UnderLine" underLineWidth="200" nextLine="0" space="15" unit="">病理诊断</Pathology_Diagnosis_Name>
+		<Pathology_Diagnosis_ID type="UnderLine" underLineWidth="100" nextLine="0" space="0" unit="">疾病编码</Pathology_Diagnosis_ID>
+		<Pathology_Observation_Sn type="UnderLine" underLineWidth="100" nextLine="0" space="15" unit="">病理号</Pathology_Observation_Sn>
+		<Pathology_Observation_Fq type="UnderLine" underLineWidth="100" nextLine="1" space="0" unit="">分期：</Pathology_Observation_Fq>
+		<!--第三行-->
+		<Allergic_Flag type="CheckBox" SelectItem="1.无 2.有" nextLine="0" space="0" unit="">药物过敏</Allergic_Flag>
+		<Allergic_Drug type="UnderLine" underLineWidth="291" nextLine="0" space="30" unit="">过敏药物：</Allergic_Drug>
+		<Autopsy_Flag type="CheckBox" SelectItem="1.是  2.否" nextLine="1" space="0" unit="">死亡患者尸检</Autopsy_Flag>
+		<!--第四行-->
+		<BloodType type="CheckBox" SelectItem="1.A  2.B  3.O  4.AB  5.不详  6.未查" nextLine="0" space="40" unit="">血型</BloodType>
+		<Rh type="CheckBox" SelectItem="1.阴  2.阳  3.不详  4.未查" nextLine="1" space="0" unit="">Rh</Rh>
+		<!--第五行-->
+		<Follow_Up type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="30" unit="">随诊</Follow_Up>
+		<Follow_Up_Cycle type="UnderLine" underLineWidth="291" nextLine="1" space="0" unit="">随诊期限</Follow_Up_Cycle>
+		<!--第六行-->
+		<Section_DirectorName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">科主任</Section_DirectorName>
+		<DirectorName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主任（副主任）医师</DirectorName>
+		<Attending_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主诊医师</Attending_EmployeeName>
+		<Vs_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主治医师</Vs_EmployeeName>
+		<Resident_EmployeeName type="UnderLine" underLineWidth="70" nextLine="1" space="0" unit="">住院医师</Resident_EmployeeName>
+		<!--第七行-->
+		<Duty_NurseName type="UnderLine" underLineWidth="95" nextLine="0" space="43" unit="">责任护士</Duty_NurseName>
+		<Refresh_EmployeeName type="UnderLine" underLineWidth="95" nextLine="0" space="43" unit="">进修医师</Refresh_EmployeeName>
+		<InterneName type="UnderLine" underLineWidth="95" nextLine="0" space="44" unit="">实习医师</InterneName>
+		<Coding_UserName type="UnderLine" underLineWidth="95" nextLine="1" space="0" unit="">编码员</Coding_UserName>
+		<!--第八行-->
+		<Medical_Quality_Id type="CheckBox" SelectItem="1.甲  2.乙  3.丙" nextLine="0" space="15" unit="">病案质量</Medical_Quality_Id>
+		<Quality_Control_DoctorName type="UnderLine" underLineWidth="95" nextLine="0" space="15" unit="">质控医师</Quality_Control_DoctorName>
+		<Quality_Control_NurseName type="UnderLine" underLineWidth="95" nextLine="0" space="15" unit="">质控护士</Quality_Control_NurseName>
+		<Quality_Control_DatePrint type="UnderLine" underLineWidth="120" nextLine="0" space="0" unit="">质控日期</Quality_Control_DatePrint>
+	</FristPageOther>
+	<SecondPageOther interval="31">
+		<!--第一行-->
+		<Pathway_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否实施临床路径管理</Pathway_Flag>
+		<Pathway_Over type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否完成临床路径</Pathway_Over>
+		<Path_Out_Reason type="UnderLine" underLineWidth="160" nextLine="1" space="0" unit="">退出原因</Path_Out_Reason>
+		<!--第二行-->
+		<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>
+		<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>
+		<!--第三行-->
+		<OutHosType type="CheckBox" SelectItem="1.医嘱离院  2.医嘱转院," nextLine="0" space="15" unit="">离院方式</OutHosType>
+		<ReceiveHosPital type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">拟接收医疗机构名称</ReceiveHosPital>
+		<!--第四行-->
+		<ReceiveHosPital2 type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">3.医嘱转社区卫生服务机构/乡镇卫生院，拟接收医疗机构名称:</ReceiveHosPital2>
+		<!--第五行-->
+		<AgainInHospital type="CheckBox" SelectItem="1.无  2.有，" nextLine="0" space="15" unit="">是否有出院31天内再住院计划</AgainInHospital>
+		<AgainInHospitalReason type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">目的:</AgainInHospitalReason>
+		<!--第六行-->
+		<BeforeHosComaDay type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="天">颅脑损伤患者昏迷时间： 入院前</BeforeHosComaDay>
+		<BeforeHosComaHour type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="小时"> </BeforeHosComaHour>
+		<BeforeHosComaMinute type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="分钟"> </BeforeHosComaMinute>
+		<LaterHosComaDay type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="天">入院后</LaterHosComaDay>
+		<LaterHosComaHour type="UnderLine" underLineWidth="40" nextLine="0" space="0" unit="小时"> </LaterHosComaHour>
+		<LaterHosComaMinute type="UnderLine" underLineWidth="40" nextLine="1" space="0" unit="分钟"> </LaterHosComaMinute>
+		<!--第七行-->
+		<Rehospitalization type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否因同一病种再入院</Rehospitalization>
+		<Intervaldate type="UnderLine" underLineWidth="40" nextLine="1" space="40" unit="天">与上次出院日期间隔天数</Intervaldate>
+	</SecondPageOther>
+	<Feeinfo interval="27">
+		<txtTotal mapping="zfy"></txtTotal> <!-- 总费用 -->
+		<txtOwnFee mapping="OwnFee"></txtOwnFee><!-- 自负金额 -->
+		<txtYBYLFY mapping="YBYLFY"></txtYBYLFY><!-- 一般医疗服务费 -->
+		<txtYBZLFY mapping="YBZLFY"></txtYBZLFY><!-- 一般治疗操作费 -->
+		<txtCare mapping="Care"></txtCare><!-- 护理费 -->
+		<txtZHQTFY mapping="ZHQTFY"></txtZHQTFY><!-- 综合其他费用 -->
+		<txtBLZDF mapping="BLZDF"></txtBLZDF><!-- 病理诊断费 -->
+		<txtSYSZDF mapping="SYSZDF"></txtSYSZDF><!-- 实验室诊断费 -->
+		<txtYXXZDF mapping="YXXZDF"></txtYXXZDF><!-- 影像学诊断费 -->
+		<txtLCZDF mapping=""></txtLCZDF><!-- 临床诊断项目费 -->
+		<txtFSSZLF mapping=""></txtFSSZLF><!-- 非手术治疗项目费 -->
+		<txtLCWLZLF mapping=""></txtLCWLZLF><!-- 临床物理治疗费 -->
+		<txtSSZLF mapping=""></txtSSZLF><!-- 手术治疗费 -->
+		<txtMZF mapping=""></txtMZF><!-- 麻醉费 -->
+		<txtSSF mapping=""></txtSSF><!-- 手术费 -->
+		<txtKFF mapping=""></txtKFF><!-- 康复费 -->
+		<txtZYZLF mapping=""></txtZYZLF><!-- 中医治疗费 -->
+		<txtXYF mapping=""></txtXYF><!-- 西药费 -->
+		<txtKJYWF mapping=""></txtKJYWF><!-- 抗菌药物费用 -->
+		<txtCPMedical mapping=""></txtCPMedical><!-- 中成药费 -->
+		<txtCMedical mapping=""></txtCMedical><!-- 中草药费 -->
+		<txtBloodFee mapping=""></txtBloodFee><!-- 血费 -->
+		<txtXDBLZPF mapping=""></txtXDBLZPF><!-- 白蛋白类制品费 -->
+		<txtQDBLZPF mapping=""></txtQDBLZPF><!-- 球蛋白类制品费 -->
+		<txtNXYZLZPF mapping=""></txtNXYZLZPF><!-- 凝血因子类制品费 -->
+		<txtXBYZLZPF mapping=""></txtXBYZLZPF><!-- 细胞因子类制品费 -->
+		<txtJCYYCXCLF mapping=""></txtJCYYCXCLF><!-- 检查用一次性医用材料费 -->
+		<txtZLYYCXCLF mapping=""></txtZLYYCXCLF><!-- 治疗用一次性医用材料费 -->
+		<txtSSYYCXCLF mapping=""></txtSSYYCXCLF><!-- 手术用一次性医用材料费 -->
+		<txtOtherFee mapping=""></txtOtherFee><!-- 其他费 -->
+	</Feeinfo>
+	<Note interval="28">
+		<!--根据展现情况调整每行字数，需要更多行，在下面继续添加即可-->
+		<line1>说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助</line1>
+		<line2>5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他</line2>
+		<line3>（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”。</line3>
+	</Note>
+</root>
