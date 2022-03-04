@@ -89,12 +89,37 @@ namespace DrectSoft
                 return ex.Message;
             }
         }
+
+        /// <summary>
+        /// XmlToHtml
+        /// </summary>
+        /// <param name="RecordId"></param>
+        /// <returns></returns>
         [WebMethod]
         public string HttpPostXmlToHtml(int RecordId)
         {
             try
             {
                 return getdate.XmlToHtml(RecordId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        /// <summary>
+        /// 获取病历列表
+        /// </summary>
+        /// <param name="PatId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public string HttpPostPatient(string PatId)
+        {
+            try
+            {
+                DataTable dt = null;
+                dt = getdate.GetRecordDetalList(PatId);
+                return JsonConvert.SerializeObject(dt);// getdate.XmlToHtml(RecordId);
             }
             catch (Exception ex)
             {

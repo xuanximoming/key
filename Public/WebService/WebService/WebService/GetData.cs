@@ -118,12 +118,12 @@ namespace DrectSoft
 
 
 
-        public DataTable GetRecordDetal(string PatId)
+        public DataTable GetRecordDetalList(string PatId)
         {
 
             try
             {
-                string sqlStr = " select ID from RECORDDETAIL where id = @id ";
+                string sqlStr = " select to_char(t.ID) id,t.name from RECORDDETAIL t,inpatient a where t.noofinpat = a.noofinpat and a.patid = @id";
                 DbParameter[] sqlParams = new DbParameter[]
                     {
                         new SqlParameter("@id",SqlDbType.Char,32)
@@ -131,12 +131,13 @@ namespace DrectSoft
                 sqlParams[0].Value = PatId;
                 DS_SqlHelper.DefaultDataAccess();
                 DataTable dt = DS_SqlHelper.ExecuteDataTable(sqlStr, sqlParams, CommandType.Text);
+                return dt;
             }
             catch (Exception ex)
             {
                 io.WriteLog(ex.Message);
+                return null;
             }
-            return null;
         }
         /// <summary>
         /// 通过病历编码获取病历xml内容并解析成html
