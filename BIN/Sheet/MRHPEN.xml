@@ -93,7 +93,7 @@
 			<LeftDiaglosis MainColumn="1" rightColumn="11" leftColumn="12" inStatus="出院情况： 1. 治愈 2. 好转 3. 未愈 4. 死亡 5. 其他">其他诊断：;</LeftDiaglosis>
 		</Body>
 	</OutHospitalDiaglosis>
-	<PrintOperation>
+	<PrintOperation interval="28">
 		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
 		<Durationdate></Durationdate>
 	</PrintOperation>
@@ -141,6 +141,15 @@
 		<!--第二行-->
 		<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>
 		<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>
+		
+		<Inspect_CT type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">检查情况：CT</Inspect_CT>
+		<Inspect_PETCT type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">PETCT</Inspect_PETCT>
+		<Inspect_TOCT type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">双源CT</Inspect_TOCT>
+		<Inspect_X type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">X片</Inspect_X>
+		<Inspect_B type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">B超</Inspect_B>
+		<Inspect_UC type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">超声心电图</Inspect_UC>
+		<Inspect_MRI type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">MRI</Inspect_MRI>
+		<Inspect_ISOTOPE type="CheckBox" SelectItem="1.阳性 2.阴性 3.未做" nextLine="1" space="0" unit="">同位素检查</Inspect_ISOTOPE>
 		<!--第三行-->
 		<OutHosType type="CheckBox" SelectItem="1.医嘱离院  2.医嘱转院," nextLine="0" space="15" unit="">离院方式</OutHosType>
 		<ReceiveHosPital type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">拟接收医疗机构名称</ReceiveHosPital>

@@ -54,6 +54,7 @@
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -124,7 +125,24 @@
             this.txtintervaldate = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
+            this.textEditct = new DevExpress.XtraEditors.TextEdit();
+            this.textEditPETCT = new DevExpress.XtraEditors.TextEdit();
+            this.textEdittoct = new DevExpress.XtraEditors.TextEdit();
+            this.textEditx = new DevExpress.XtraEditors.TextEdit();
+            this.textEdituc = new DevExpress.XtraEditors.TextEdit();
+            this.textEditmri = new DevExpress.XtraEditors.TextEdit();
+            this.textEditISOTOPE = new DevExpress.XtraEditors.TextEdit();
+            this.textEditb = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -163,6 +181,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtintervaldate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditct.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPETCT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdittoct.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditx.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdituc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditmri.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditISOTOPE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditb.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddOperation
@@ -408,6 +434,12 @@
             this.gridColumn22.FieldName = "ISCHOOSEDATE";
             this.gridColumn22.Name = "gridColumn22";
             // 
+            // gridColumn23
+            // 
+            this.gridColumn23.Caption = "手术结束日期";
+            this.gridColumn23.FieldName = "Operation_EndDate";
+            this.gridColumn23.Name = "gridColumn23";
+            // 
             // repositoryItemCheckEdit1
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
@@ -440,7 +472,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 454);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 505);
             this.barDockControlBottom.Size = new System.Drawing.Size(620, 0);
             // 
             // barDockControlLeft
@@ -448,14 +480,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 454);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 505);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(620, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 454);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 505);
             // 
             // btn_del_Operinfo
             // 
@@ -491,7 +523,7 @@
             // 
             // btn_Close
             // 
-            this.btn_Close.Location = new System.Drawing.Point(523, 413);
+            this.btn_Close.Location = new System.Drawing.Point(523, 462);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(75, 27);
             this.btn_Close.TabIndex = 182;
@@ -500,7 +532,7 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.Location = new System.Drawing.Point(419, 413);
+            this.btn_OK.Location = new System.Drawing.Point(419, 462);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(75, 27);
             this.btn_OK.TabIndex = 181;
@@ -1083,17 +1115,207 @@
             this.labelControl12.TabIndex = 286;
             this.labelControl12.Text = "天";
             // 
-            // gridColumn23
+            // labelControl13
             // 
-            this.gridColumn23.Caption = "手术结束日期";
-            this.gridColumn23.FieldName = "Operation_EndDate";
-            this.gridColumn23.Name = "gridColumn23";
+            this.labelControl13.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl13.Location = new System.Drawing.Point(30, 405);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(60, 14);
+            this.labelControl13.TabIndex = 291;
+            this.labelControl13.Text = "检查情况：";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl14.Location = new System.Drawing.Point(96, 405);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(27, 14);
+            this.labelControl14.TabIndex = 292;
+            this.labelControl14.Text = "CT：";
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl15.Location = new System.Drawing.Point(188, 405);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(49, 14);
+            this.labelControl15.TabIndex = 293;
+            this.labelControl15.Text = "PETCT：";
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl16.Location = new System.Drawing.Point(311, 405);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(51, 14);
+            this.labelControl16.TabIndex = 294;
+            this.labelControl16.Text = "双源CT：";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl17.Location = new System.Drawing.Point(431, 405);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(31, 14);
+            this.labelControl17.TabIndex = 295;
+            this.labelControl17.Text = "X片：";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl18.Location = new System.Drawing.Point(497, 431);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(31, 14);
+            this.labelControl18.TabIndex = 296;
+            this.labelControl18.Text = "B超：";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl19.Location = new System.Drawing.Point(94, 428);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(72, 14);
+            this.labelControl19.TabIndex = 297;
+            this.labelControl19.Text = "超声心电图：";
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl20.Location = new System.Drawing.Point(241, 430);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(32, 14);
+            this.labelControl20.TabIndex = 298;
+            this.labelControl20.Text = "MRI：";
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl21.Location = new System.Drawing.Point(341, 429);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(72, 14);
+            this.labelControl21.TabIndex = 299;
+            this.labelControl21.Text = "同位素检查：";
+            // 
+            // labelControl26
+            // 
+            this.labelControl26.Appearance.ForeColor = System.Drawing.Color.DimGray;
+            this.labelControl26.Location = new System.Drawing.Point(30, 462);
+            this.labelControl26.Name = "labelControl26";
+            this.labelControl26.Size = new System.Drawing.Size(177, 14);
+            this.labelControl26.TabIndex = 300;
+            this.labelControl26.Text = "填写数字：1阳性，2阴性，3未做";
+            // 
+            // textEditct
+            // 
+            this.textEditct.EditValue = "3";
+            this.textEditct.Location = new System.Drawing.Point(122, 403);
+            this.textEditct.Name = "textEditct";
+            this.textEditct.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditct.Properties.Mask.EditMask = "[1-3]";
+            this.textEditct.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditct.Size = new System.Drawing.Size(61, 18);
+            this.textEditct.TabIndex = 305;
+            // 
+            // textEditPETCT
+            // 
+            this.textEditPETCT.EditValue = "3";
+            this.textEditPETCT.Location = new System.Drawing.Point(241, 403);
+            this.textEditPETCT.Name = "textEditPETCT";
+            this.textEditPETCT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditPETCT.Properties.Mask.EditMask = "[1-3]";
+            this.textEditPETCT.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditPETCT.Size = new System.Drawing.Size(61, 18);
+            this.textEditPETCT.TabIndex = 306;
+            // 
+            // textEdittoct
+            // 
+            this.textEdittoct.EditValue = "3";
+            this.textEdittoct.Location = new System.Drawing.Point(363, 403);
+            this.textEdittoct.Name = "textEdittoct";
+            this.textEdittoct.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEdittoct.Properties.Mask.EditMask = "[1-3]";
+            this.textEdittoct.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdittoct.Size = new System.Drawing.Size(61, 18);
+            this.textEdittoct.TabIndex = 307;
+            // 
+            // textEditx
+            // 
+            this.textEditx.EditValue = "3";
+            this.textEditx.Location = new System.Drawing.Point(461, 403);
+            this.textEditx.Name = "textEditx";
+            this.textEditx.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditx.Properties.Mask.EditMask = "[1-3]";
+            this.textEditx.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditx.Size = new System.Drawing.Size(61, 18);
+            this.textEditx.TabIndex = 308;
+            // 
+            // textEdituc
+            // 
+            this.textEdituc.EditValue = "3";
+            this.textEdituc.Location = new System.Drawing.Point(165, 428);
+            this.textEdituc.Name = "textEdituc";
+            this.textEdituc.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEdituc.Properties.Mask.EditMask = "[1-3]";
+            this.textEdituc.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdituc.Size = new System.Drawing.Size(61, 18);
+            this.textEdituc.TabIndex = 309;
+            // 
+            // textEditmri
+            // 
+            this.textEditmri.EditValue = "3";
+            this.textEditmri.Location = new System.Drawing.Point(277, 427);
+            this.textEditmri.Name = "textEditmri";
+            this.textEditmri.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditmri.Properties.Mask.EditMask = "[1-3]";
+            this.textEditmri.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditmri.Size = new System.Drawing.Size(61, 18);
+            this.textEditmri.TabIndex = 310;
+            // 
+            // textEditISOTOPE
+            // 
+            this.textEditISOTOPE.EditValue = "3";
+            this.textEditISOTOPE.Location = new System.Drawing.Point(417, 429);
+            this.textEditISOTOPE.Name = "textEditISOTOPE";
+            this.textEditISOTOPE.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditISOTOPE.Properties.Mask.EditMask = "[1-3]";
+            this.textEditISOTOPE.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditISOTOPE.Size = new System.Drawing.Size(61, 18);
+            this.textEditISOTOPE.TabIndex = 311;
+            // 
+            // textEditb
+            // 
+            this.textEditb.EditValue = "3";
+            this.textEditb.Location = new System.Drawing.Point(534, 429);
+            this.textEditb.Name = "textEditb";
+            this.textEditb.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.textEditb.Properties.Mask.EditMask = "[1-3]";
+            this.textEditb.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEditb.Size = new System.Drawing.Size(61, 18);
+            this.textEditb.TabIndex = 312;
             // 
             // UCIemOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.textEditb);
+            this.Controls.Add(this.textEditISOTOPE);
+            this.Controls.Add(this.textEditmri);
+            this.Controls.Add(this.textEdituc);
+            this.Controls.Add(this.textEditx);
+            this.Controls.Add(this.textEdittoct);
+            this.Controls.Add(this.textEditPETCT);
+            this.Controls.Add(this.textEditct);
+            this.Controls.Add(this.labelControl26);
+            this.Controls.Add(this.labelControl21);
+            this.Controls.Add(this.labelControl20);
+            this.Controls.Add(this.labelControl19);
+            this.Controls.Add(this.labelControl18);
+            this.Controls.Add(this.labelControl17);
+            this.Controls.Add(this.labelControl16);
+            this.Controls.Add(this.labelControl15);
+            this.Controls.Add(this.labelControl14);
+            this.Controls.Add(this.labelControl13);
             this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.txtintervaldate);
             this.Controls.Add(this.labelControl11);
@@ -1160,7 +1382,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "UCIemOperInfo";
-            this.Size = new System.Drawing.Size(620, 454);
+            this.Size = new System.Drawing.Size(620, 505);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UCIemOperInfo_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewOper)).EndInit();
@@ -1200,6 +1422,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkREHOSPITALIZATION1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtintervaldate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditct.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditPETCT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdittoct.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditx.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdituc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditmri.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditISOTOPE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditb.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1303,5 +1533,23 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn21;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn22;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn23;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl26;
+        private DevExpress.XtraEditors.TextEdit textEditb;
+        private DevExpress.XtraEditors.TextEdit textEditISOTOPE;
+        private DevExpress.XtraEditors.TextEdit textEditmri;
+        private DevExpress.XtraEditors.TextEdit textEdituc;
+        private DevExpress.XtraEditors.TextEdit textEditx;
+        private DevExpress.XtraEditors.TextEdit textEdittoct;
+        private DevExpress.XtraEditors.TextEdit textEditPETCT;
+        private DevExpress.XtraEditors.TextEdit textEditct;
     }
 }

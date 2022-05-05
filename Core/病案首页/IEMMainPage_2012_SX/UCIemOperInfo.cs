@@ -55,7 +55,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-                #region
+                #region 病患基本信息
                 if (m_IemInfo.IemBasicInfo.Iem_Mainpage_NO == "")
                 {
                     //to do 病患基本信息
@@ -156,6 +156,16 @@ namespace DrectSoft.Core.IEMMainPage
                     txtLaterHosComaMinute.Text = m_IemInfo.IemBasicInfo.LaterHosComaMinute;
 
 
+                    #region 四川医院信息
+                    textEditct.Text = m_IemInfo.IemBasicInfo.Inspect_CT.ToString();
+                    textEditPETCT.Text = m_IemInfo.IemBasicInfo.Inspect_PETCT.ToString();
+                    textEdittoct.Text = m_IemInfo.IemBasicInfo.Inspect_TOCT.ToString();
+                    textEditx.Text = m_IemInfo.IemBasicInfo.Inspect_X.ToString();
+                    textEdituc.Text = m_IemInfo.IemBasicInfo.Inspect_UC.ToString();
+                    textEditmri.Text = m_IemInfo.IemBasicInfo.Inspect_MRI.ToString();
+                    textEditb.Text = m_IemInfo.IemBasicInfo.Inspect_B.ToString();
+                    textEditISOTOPE.Text = m_IemInfo.IemBasicInfo.Inspect_ISOTOPE.ToString();
+                    #endregion
                     #endregion
                 }
                 #endregion
@@ -174,6 +184,7 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
+                #region 手术信息
                 if (this.gridControl1.DataSource != null)
                 {
                     //手术
@@ -216,8 +227,10 @@ namespace DrectSoft.Core.IEMMainPage
                     m_IemInfo.IemOperInfo.Operation_Table = dtOperation;
 
                 }
+                #endregion
 
-                #region 新增项目信息
+
+                #region 2012新增项目信息
 
                 if (chkOutHosType1.Checked)
                     m_IemInfo.IemBasicInfo.OutHosType = "1";
@@ -308,6 +321,17 @@ namespace DrectSoft.Core.IEMMainPage
                 m_IemInfo.IemBasicInfo.LaterHosComaMinute = txtLaterHosComaMinute.Text;
 
 
+                #endregion
+
+                #region 四川医院信息
+                m_IemInfo.IemBasicInfo.Inspect_CT = Convert.ToInt32(textEditct.Text);
+                m_IemInfo.IemBasicInfo.Inspect_PETCT = Convert.ToInt32(textEditPETCT.Text);
+                m_IemInfo.IemBasicInfo.Inspect_TOCT = Convert.ToInt32(textEdittoct.Text);
+                m_IemInfo.IemBasicInfo.Inspect_X = Convert.ToInt32(textEditx.Text);
+                m_IemInfo.IemBasicInfo.Inspect_UC = Convert.ToInt32(textEdituc.Text);
+                m_IemInfo.IemBasicInfo.Inspect_MRI = Convert.ToInt32(textEditmri.Text);
+                m_IemInfo.IemBasicInfo.Inspect_B = Convert.ToInt32(textEditb.Text);
+                m_IemInfo.IemBasicInfo.Inspect_ISOTOPE = Convert.ToInt32(textEditISOTOPE.Text);
                 #endregion
 
             }
@@ -510,8 +534,6 @@ namespace DrectSoft.Core.IEMMainPage
             try
             {
                 GetUI();
-                //((ShowUC)this.Parent).Close(true, m_IemInfo);
-
                 //点击确认按钮就将数据更新到数据库
                 CurrentInpatient = m_App.CurrentPatientInfo;
                 CurrentInpatient.ReInitializeAllProperties();
@@ -582,5 +604,6 @@ namespace DrectSoft.Core.IEMMainPage
                 throw;
             }
         }
+
     }
 }

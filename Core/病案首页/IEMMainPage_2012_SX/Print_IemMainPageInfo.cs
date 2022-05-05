@@ -65,6 +65,7 @@ namespace DrectSoft.Core.IEMMainPage
     /// </summary>
     public class Iem_Mainpage_Basicinfo
     {
+        #region 第一页基础信息模块
         /// <summary>
         /// 病案首页序号
         /// </summary>
@@ -792,7 +793,7 @@ namespace DrectSoft.Core.IEMMainPage
         /// 修改时间
         /// </summary>
         public string Modified_Time { get; set; }
-
+        #endregion
 
         #region 2012国家卫生部表中病案首页新增内容
 
@@ -1213,6 +1214,18 @@ namespace DrectSoft.Core.IEMMainPage
             }
         }
         private string _CardNumber;
+
+        #endregion
+
+        #region 2022四川医院增加
+        public int Inspect_CT { get; set; }
+        public int Inspect_PETCT { get; set; }
+        public int Inspect_TOCT { get; set; }
+        public int Inspect_X { get; set; }
+        public int Inspect_UC { get; set; }
+        public int Inspect_MRI { get; set; }
+        public int Inspect_B { get; set; }
+        public int Inspect_ISOTOPE { get; set; }
 
         #endregion
 

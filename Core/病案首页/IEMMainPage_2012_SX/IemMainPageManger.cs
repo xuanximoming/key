@@ -564,10 +564,19 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Quality_Control_NurseName = row["quality_control_nurseName"].ToString();
 
                     IemInfo.IemDiagInfo.Quality_Control_Date = row["quality_control_date"].ToString();
-
-                    #endregion
                     IemInfo.IemBasicInfo.IsBaby = row["IsBaby"].ToString();
                     IemInfo.IemBasicInfo.Mother = row["Mother"].ToString();
+
+                    //四川新增
+                    IemInfo.IemBasicInfo.Inspect_CT = Convert.ToInt32(row["inspect_ct"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_PETCT = Convert.ToInt32(row["inspect_petct"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_TOCT = Convert.ToInt32(row["inspect_toct"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_ISOTOPE = Convert.ToInt32(row["inspect_isotope"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_B = Convert.ToInt32(row["inspect_b"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_MRI = Convert.ToInt32(row["inspect_mri"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_UC = Convert.ToInt32(row["inspect_uc"].ToString());
+                    IemInfo.IemBasicInfo.Inspect_X = Convert.ToInt32(row["inspect_x"].ToString());
+                    #endregion
                     break;
                 }
                 #region 给实体赋空值
@@ -753,6 +762,8 @@ namespace DrectSoft.Core.IEMMainPage
                     IemInfo.IemDiagInfo.Hospital_sense_name = "";
                     IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = "";
 
+
+
                     IemInfo.IemDiagInfo.Allergic_Drug = "";
                     IemInfo.IemDiagInfo.Allergic_Flag = "";
                     IemInfo.IemDiagInfo.BloodType = "";
@@ -797,55 +808,22 @@ namespace DrectSoft.Core.IEMMainPage
 
                     IemInfo.IemDiagInfo.Quality_Control_Date = "";
 
-                    ///////费用模块
-                    //IemInfo.IemFeeInfo.Ashes_Check = row["Ashes_Check"].ToString();
-                    //IemInfo.IemFeeInfo.IsFirstCase = row["is_first_case"].ToString();
-                    //IemInfo.IemFeeInfo.IsFollowing = row["is_following"].ToString();
-                    //IemInfo.IemFeeInfo.IsTeachingCase = row["is_teaching_case"].ToString();
-                    //IemInfo.IemFeeInfo.Following_Ending_Date = row["following_ending_date"].ToString();
 
-                    //IemInfo.IemFeeInfo.BloodType = row["blood_type_id"].ToString();
-                    //IemInfo.IemFeeInfo.Rh = row["Rh"].ToString();
-                    //IemInfo.IemFeeInfo.BloodReaction = row["blood_reaction_id"].ToString();
-                    //IemInfo.IemFeeInfo.Rbc = row["blood_rbc"].ToString();
-                    //IemInfo.IemFeeInfo.Plt = row["blood_plt"].ToString();
+                    //四川新增
+                    IemInfo.IemBasicInfo.Inspect_CT = 3;
+                    IemInfo.IemBasicInfo.Inspect_PETCT = 3;
+                    IemInfo.IemBasicInfo.Inspect_TOCT = 3;
+                    IemInfo.IemBasicInfo.Inspect_ISOTOPE = 3;
+                    IemInfo.IemBasicInfo.Inspect_B = 3;
+                    IemInfo.IemBasicInfo.Inspect_MRI = 3;
+                    IemInfo.IemBasicInfo.Inspect_UC = 3;
+                    IemInfo.IemBasicInfo.Inspect_X = 3;
 
-                    //IemInfo.IemFeeInfo.Plasma = row["Blood_Plasma"].ToString();
-                    //IemInfo.IemFeeInfo.Wb = row["blood_wb"].ToString();
-                    //IemInfo.IemFeeInfo.Others = row["blood_others"].ToString();
-
-                    ////费用信息暂时假数据
-                    //IemInfo.IemFeeInfo.Total = "15000";
-                    //IemInfo.IemFeeInfo.Bed = "100";
-                    //IemInfo.IemFeeInfo.Care = "200";
-                    //IemInfo.IemFeeInfo.WMedical = "300";
-                    //IemInfo.IemFeeInfo.CPMedical = "400";
-                    //IemInfo.IemFeeInfo.CMedical = "500";
-                    //IemInfo.IemFeeInfo.Radiate = "600";
-                    //IemInfo.IemFeeInfo.Assay = "700";
-                    //IemInfo.IemFeeInfo.Ox = "800";
-                    //IemInfo.IemFeeInfo.Blood = "900";
-                    //IemInfo.IemFeeInfo.Mecical = "1000";
-                    //IemInfo.IemFeeInfo.Operation = "1100";
-                    //IemInfo.IemFeeInfo.Accouche = "1200";
-                    //IemInfo.IemFeeInfo.Ris = "1300";
-                    //IemInfo.IemFeeInfo.Anaesthesia = "1400";
-                    //IemInfo.IemFeeInfo.Baby = "1500";
-                    //IemInfo.IemFeeInfo.FollwBed = "1600";
-                    //IemInfo.IemFeeInfo.Others1 = "1700";
-                    //IemInfo.IemFeeInfo.Others2 = "1800";
-                    //IemInfo.IemFeeInfo.Others3 = "1900";
-                    //IemInfo.IemFeeInfo = GetIemFeeInfo(IemInfo);
 
 
                     IemInfo.IemBasicInfo.IsBaby = DefaultInfo.IsBaby;
                     IemInfo.IemBasicInfo.Mother = DefaultInfo.Mother;
 
-
-                    //IemInfo.IemBasicInfo.Xay_Sn = row["Xay_Sn"].ToString();
-                    //IemInfo.IemBasicInfo.Ct_Sn = row["Ct_Sn"].ToString();
-                    //IemInfo.IemBasicInfo.Mri_Sn = row["Mri_Sn"].ToString();
-                    //IemInfo.IemBasicInfo.Dsa_Sn = row["Dsa_Sn"].ToString();
                     if (IemInfo.IemBasicInfo.IsBaby == "1")//如果是婴儿
                     {
                         IemInfo.IemBasicInfo.MotherPatOfHis = GetPatData(IemInfo.IemBasicInfo.Mother).Rows[0]["patnoofhis"].ToString();
@@ -1927,6 +1905,25 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
             SqlParameter paraBZSH = new SqlParameter("@BZSH", SqlDbType.VarChar, 20);
             paraBZSH.Value = info.IemBasicInfo.BZSH;
 
+
+            SqlParameter paraCT = new SqlParameter("@INSPECT_CT", SqlDbType.Decimal);
+            paraCT.Value = info.IemBasicInfo.Inspect_CT;
+            SqlParameter paraPETCT = new SqlParameter("@INSPECT_PETCT", SqlDbType.Decimal);
+            paraPETCT.Value = info.IemBasicInfo.Inspect_PETCT;
+            SqlParameter paraTOCT = new SqlParameter("@INSPECT_TOCT", SqlDbType.Decimal);
+            paraTOCT.Value = info.IemBasicInfo.Inspect_TOCT;
+            SqlParameter paraX = new SqlParameter("@INSPECT_X", SqlDbType.Decimal);
+            paraX.Value = info.IemBasicInfo.Inspect_X;
+            SqlParameter paraUC = new SqlParameter("@INSPECT_UC", SqlDbType.Decimal);
+            paraUC.Value = info.IemBasicInfo.Inspect_UC;
+            SqlParameter paraMRI = new SqlParameter("@INSPECT_MRI", SqlDbType.Decimal);
+            paraMRI.Value = info.IemBasicInfo.Inspect_MRI;
+            SqlParameter paraB = new SqlParameter("@INSPECT_B", SqlDbType.Decimal);
+            paraB.Value = info.IemBasicInfo.Inspect_B;
+            SqlParameter paraISOTOPE = new SqlParameter("@INSPECT_ISOTOPE", SqlDbType.Decimal);
+            paraISOTOPE.Value = info.IemBasicInfo.Inspect_ISOTOPE;
+
+
             SqlParameter[] paraColl = new SqlParameter[] { paraedittype  ,paraIEM_MAINPAGE_NO ,paraPATNOOFHIS ,paraNoOfInpat,paraPayID ,paraSocialCare,
                 paraInCount,paraName ,paraSexID,paraBirth,paraMarital,
                 paraJobID,paraNationalityID,paraNationID,paraIDNO,paraOrganization,paraOfficePlace,
@@ -1939,7 +1936,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraQuality_Control_Date,
                 paraBLOODTYPE,paraRH,paraIS_COMPLETED,paraCOMPLETED_TIME,
                 paraCREATE_USER,paraCREATE_TIME,paraMODIFIED_USER,paraMODIFIED_TIME,paraZYMOSIS,
-                paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraHospital_sense,paraHospital_sense_name,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
+                paraHURT_TOXICOSIS_ELE_ID,paraHURT_TOXICOSIS_ELE_Name,paraHospital_sense,paraHospital_sense_name,paraCT,paraPATHOLOGY_DIAGNOSIS_ID,paraMONTHAGE,paraWEIGHT,
                 paraINWEIGHT ,paraINHOSTYPE,paraINHOSINFO,paraINHOSCALL,paraTYPEHOS,paraOUTHOSTYPE,
                 paraANTIBACTERIAL_DRUGS,paraDURATIONDATE,paraCOMBINED_MEDICATION,paraPATHWAY_FLAG,
                 paraPATHWAY_OVER,paraPATH_OUT_REASON,paraVARIATION_FLAG,paraVARIATION_REASON,
@@ -1953,7 +1950,7 @@ left join ward w1 on i.outhosward=w1.id where noofinpat='{0}'  ", CurrentInpatie
                 paraHKDZ_PROVINCEID,paraHKDZ_CITYID,paraHKDZ_DISTRICTID,paraHKDZ_PROVINCENAME,paraHKDZ_CITYNAME,
                 paraHKDZ_DISTRICTNAME,paraHKDZ_POST,paraJG_PROVINCEID,paraJG_CITYID,paraJG_PROVINCENAME,paraJG_CITYNAME,paraAge,
                 paraCURE_TYPE,paraMZZYZD_NAME,paraMZZYZD_CODE,paraMZXYZD_NAME,paraMZXYZD_CODE,paraRYXYZD_NAME,paraRYXYZD_CODE,paraSSLCLJ,paraZYZJ,
-                paraZYZLSB,paraZYZLJS,paraBZSH
+                paraZYZLSB,paraZYZLJS,paraBZSH,paraPETCT,paraTOCT,paraX,paraUC,paraMRI,paraB,paraISOTOPE
         };
 
             #endregion
