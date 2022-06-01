@@ -117,6 +117,7 @@
             this.chkFollowup1 = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtFOLLOWUPCYCLE = new DevExpress.XtraEditors.TextEdit();
+            this.bPathologyID = new DevTextBoxAndButton.Bwj(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkBlood2.Properties)).BeginInit();
@@ -921,7 +922,7 @@
             // txtPathologyID
             // 
             this.txtPathologyID.EditValue = "";
-            this.txtPathologyID.Location = new System.Drawing.Point(89, 247);
+            this.txtPathologyID.Location = new System.Drawing.Point(417, 208);
             this.txtPathologyID.Name = "txtPathologyID";
             this.txtPathologyID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.txtPathologyID.Size = new System.Drawing.Size(126, 18);
@@ -1051,11 +1052,25 @@
             this.txtFOLLOWUPCYCLE.Size = new System.Drawing.Size(115, 18);
             this.txtFOLLOWUPCYCLE.TabIndex = 228;
             // 
+            // bPathologyID
+            // 
+            this.bPathologyID.BackColor = System.Drawing.Color.White;
+            this.bPathologyID.DiaCode = "";
+            this.bPathologyID.DiaValue = "";
+            this.bPathologyID.Location = new System.Drawing.Point(92, 247);
+            this.bPathologyID.Multiline = true;
+            this.bPathologyID.Name = "bPathologyID";
+            this.bPathologyID.Size = new System.Drawing.Size(132, 19);
+            this.bPathologyID.TabIndex = 233;
+            this.bPathologyID.WaterText = "请按回车键检索";
+            this.bPathologyID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bPathologyID_KeyPress);
+            // 
             // UCIemDiagnoseEn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.bPathologyID);
             this.Controls.Add(this.txtFOLLOWUPCYCLE);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.chkFollowup2);
@@ -1276,5 +1291,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtFOLLOWUPCYCLE;
         private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevTextBoxAndButton.Bwj bPathologyID;
     }
 }

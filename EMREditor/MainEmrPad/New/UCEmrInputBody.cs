@@ -5524,7 +5524,6 @@ namespace DrectSoft.Core.MainEmrPad.New
             try
             {
                 GC.Collect();
-
                 //检查是否男性且包含月经史
                 if (!CheckMouthHistory())
                 {
@@ -5712,10 +5711,9 @@ namespace DrectSoft.Core.MainEmrPad.New
                 string allstr = body.InnerText;
 
                 List<string> tkeys = new List<string>(m_checkitem.Keys);
-
                 if (null != m_app && null != m_app.CurrentPatientInfo && null != m_app.CurrentPatientInfo.PersonalInformation && null == m_app.CurrentPatientInfo.PersonalInformation.Sex)
                 {
-                    DataTable dt = DS_SqlService.GetInpatientByID((int)m_app.CurrentPatientInfo.NoOfFirstPage, 2);
+                    DataTable dt = DS_SqlService.GetInpatientByID((int)m_app.CurrentPatientInfo.NoOfFirstPage, 1);
                     if (null == dt || dt.Rows.Count == 0)
                     {
                         throw new Exception("该病人数据异常，请联系管理员。");

@@ -253,7 +253,10 @@ namespace DrectSoft.Common.Eop
             {
                 return _personalInformation;
             }
-            set { _personalInformation = value; }
+            set
+            {
+                _personalInformation = value;
+            }
         }
         private PatientBasicInfo _personalInformation;
 

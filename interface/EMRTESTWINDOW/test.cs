@@ -24,7 +24,7 @@ namespace EMRTESTWINDOW
                 //richTextBox1.Text = "";
                 ChangePat changepat = new ChangePat();
                 IChangePat ichangepat = changepat;
-                string patNum = "20181231";
+                string patNum = "2018123100";
                 int i = ichangepat.InitEmr("00", "管理员", "000", "00", "401");
                 //uc = ichangepat.ChangePatient(patNum);
                 ichangepat.ChangePatientOut(this.Handle.ToString(), patNum);

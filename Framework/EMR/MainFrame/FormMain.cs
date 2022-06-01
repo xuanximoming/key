@@ -899,6 +899,7 @@ namespace DrectSoft.MainFrame
             if (patInfo != null)
             {
                 this.CurrentPatientInfo = new Inpatient(patInfo);
+                MessageBox.Show(this.CurrentPatientInfo.PersonalInformation.ToString());
             }
             //}
             this.xtraTabbedMdiManager1.SelectedPageChanged += new EventHandler(this.xtraTabbedMdiManager1_SelectedPageChanged);

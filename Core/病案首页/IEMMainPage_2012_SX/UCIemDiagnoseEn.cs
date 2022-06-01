@@ -213,7 +213,7 @@ namespace DrectSoft.Core.IEMMainPage
             lueHurt_Toxicosis_Ele.CodeValue = m_IemInfo.IemDiagInfo.Hurt_Toxicosis_ElementID;
 
             txtPathologyName.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_Name;
-            txtPathologyID.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID;
+            bPathologyID.Text = m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID;
             txtPathologySn.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Sn;
             txtPathologyFq.Text = m_IemInfo.IemDiagInfo.Pathology_Observation_Fq;
             txtFOLLOWUPCYCLE.Text = m_IemInfo.IemDiagInfo.Follow_Up_Cycle;
@@ -292,7 +292,7 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemDiagInfo.Hurt_Toxicosis_Element = lueHurt_Toxicosis_Ele.Text;
 
             m_IemInfo.IemDiagInfo.Pathology_Diagnosis_Name = txtPathologyName.Text;
-            m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = txtPathologyID.Text;
+            m_IemInfo.IemDiagInfo.Pathology_Diagnosis_ID = bPathologyID.Text.Trim();
             m_IemInfo.IemDiagInfo.Pathology_Observation_Sn = txtPathologySn.Text;
             m_IemInfo.IemDiagInfo.Pathology_Observation_Fq = txtPathologyFq.Text;
             m_IemInfo.IemDiagInfo.Follow_Up_Cycle = txtFOLLOWUPCYCLE.Text;
@@ -802,6 +802,51 @@ namespace DrectSoft.Core.IEMMainPage
                 }
             }
             return null;
+        }
+        private string DiagType = string.Empty;//诊断类型
+        private string GoType = string.Empty;//表明大类别的Type
+        private string inputText = string.Empty;//获取文本里面的内容
+        private void bPathologyID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string SqlAllDiag = @"select py, wb, name, icd from diagnosis_xt where valid='1' union 
+                                    select py, wb, name, icd from diagnosis_xt_bj where valid='1'";
+            DataTable dtXY = m_App.SqlHelper.ExecuteDataTable(SqlAllDiag, CommandType.Text);
+            try
+            {
+                Button btn = new Button();
+                string oldstr = bPathologyID.Text.Trim();
+
+                if (bPathologyID.Text.Trim() != null && e.KeyChar == 13)
+                {
+                    DiagType = "BINGLI";
+                    inputText = txtPathologyName.Text.Trim();
+                    GoType = "OUTHOSDIAG";
+                    IemNewDiagInfo diagInfo = new IemNewDiagInfo(m_App, dtXY, GoType, DiagType, inputText);
+                    if (diagInfo.GetFormResult())
+                    {
+                        diagInfo.ShowDialog();
+                        if (diagInfo.IsClosed)
+                        {
+
+                            bPathologyID.Text = diagInfo.inCode;
+                            bPathologyID.DiaCode = diagInfo.inCode;
+                            bPathologyID.DiaValue = diagInfo.inText;
+                            txtPathologyName.Text = diagInfo.inText;
+                            bPathologyID.Focus();
+                            bPathologyID.Enabled = true;
+                        }
+                    }
+                    else
+                    {
+                        bPathologyID.DiaCode = diagInfo.inCode;
+                        bPathologyID.DiaValue = diagInfo.inText;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DrectSoft.Common.Ctrs.DLG.MyMessageBox.Show(ex.Message);
+            }
         }
 
     }

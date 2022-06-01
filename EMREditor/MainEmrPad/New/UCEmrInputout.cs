@@ -770,7 +770,8 @@ namespace DrectSoft.Core.MainEmrPad.New
             }
             catch (Exception ex)
             {
-                MyMessageBox.Show(1, ex);
+                //MyMessageBox.Show(1, ex);
+                MessageBox.Show(ex.Message);
             }
         }
 
