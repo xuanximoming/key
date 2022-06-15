@@ -54,7 +54,7 @@ namespace DrectSoft.Emr.TemplateFactory
 
         }
 
-        public void SaveTempltepackge(string name)
+        public void SaveTempltepackge(string name, string oldcode)
         {
             try
             {
@@ -63,12 +63,23 @@ namespace DrectSoft.Emr.TemplateFactory
                 string py = code[0];
                 string wb = code[1];
                 string SqlSave = @"select max(to_number(dept_id)) id from emrdept where dept_id <>'*'";
-                DataTable DtSqlSave;
-                DtSqlSave = m_app.SqlHelper.ExecuteDataTable(SqlSave);
-                DataRow DrSqlSave = DtSqlSave.Rows[0];
-                string StMaxId = (Int32.Parse(DrSqlSave["id"].ToString()) + 1).ToString();
-                SqlSave = null;
-                SqlSave = @"Insert into emrdept(dept_id,dept_name,py,wb) values ('" + StMaxId + "','" + name + "','" + py + "','" + wb + "')";
+                if ((oldcode != null && oldcode != "") && (name != null && name != ""))
+                {
+                    SqlSave = @"update emrdept a set a.dept_name='" + name + "' ,a.py= '" + py + "',a.wb= '" + wb + "' where a.dept_id='" + oldcode + "'";
+                }
+                else if ((name != null && name != "") && ((oldcode == null || oldcode == "")))
+                {
+                    DataTable DtSqlSave;
+                    DtSqlSave = m_app.SqlHelper.ExecuteDataTable(SqlSave);
+                    DataRow DrSqlSave = DtSqlSave.Rows[0];
+                    string StMaxId = (Int32.Parse(DrSqlSave["id"].ToString()) + 1).ToString();
+                    SqlSave = null;
+                    SqlSave = @"Insert into emrdept(dept_id,dept_name,py,wb) values ('" + StMaxId + "','" + name + "','" + py + "','" + wb + "')";
+                }
+                else
+                {
+                    SqlSave = @"delete from emrdept a where a.dept_id='" + oldcode + "'";
+                }
                 m_app.SqlHelper.ExecuteNoneQuery(SqlSave);
             }
             catch (Exception ex)

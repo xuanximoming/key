@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TemplatePagek));
             this.Sb_save = new DevExpress.XtraEditors.SimpleButton();
-            this.Sb_del = new DevExpress.XtraEditors.SimpleButton();
             this.Lbc_pacgename = new DevExpress.XtraEditors.LabelControl();
             this.Te_name = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEditorTemplate = new DrectSoft.Common.Library.LookUpEditor();
-            this.lookUpWindowtemplate = new DrectSoft.Common.Library.LookUpWindow();
+            this.lookUpWindowtemplate = new DrectSoft.Common.Library.LookUpWindow(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Te_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -46,20 +46,12 @@
             // 
             // Sb_save
             // 
-            this.Sb_save.Location = new System.Drawing.Point(41, 171);
+            this.Sb_save.Location = new System.Drawing.Point(90, 171);
             this.Sb_save.Name = "Sb_save";
             this.Sb_save.Size = new System.Drawing.Size(75, 23);
             this.Sb_save.TabIndex = 1;
             this.Sb_save.Text = "保存";
             this.Sb_save.Click += new System.EventHandler(this.Sb_save_Click);
-            // 
-            // Sb_del
-            // 
-            this.Sb_del.Location = new System.Drawing.Point(149, 171);
-            this.Sb_del.Name = "Sb_del";
-            this.Sb_del.Size = new System.Drawing.Size(75, 23);
-            this.Sb_del.TabIndex = 2;
-            this.Sb_del.Text = "删除";
             // 
             // Lbc_pacgename
             // 
@@ -82,7 +74,6 @@
             this.panelControl1.Controls.Add(this.lookUpEditorTemplate);
             this.panelControl1.Controls.Add(this.Sb_save);
             this.panelControl1.Controls.Add(this.Te_name);
-            this.panelControl1.Controls.Add(this.Sb_del);
             this.panelControl1.Controls.Add(this.Lbc_pacgename);
             this.panelControl1.Location = new System.Drawing.Point(0, -1);
             this.panelControl1.Name = "panelControl1";
@@ -111,7 +102,7 @@
             // 
             // lookUpWindowtemplate
             // 
-            this.lookUpWindowtemplate.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lookUpWindowtemplate.Font = new System.Drawing.Font("SimSun", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lookUpWindowtemplate.GenShortCode = null;
             this.lookUpWindowtemplate.MatchType = DrectSoft.Common.Library.ShowListMatchType.Any;
             this.lookUpWindowtemplate.Owner = null;
@@ -140,7 +131,6 @@
         #endregion
 
         private DevExpress.XtraEditors.SimpleButton Sb_save;
-        private DevExpress.XtraEditors.SimpleButton Sb_del;
         private DevExpress.XtraEditors.LabelControl Lbc_pacgename;
         private DevExpress.XtraEditors.TextEdit Te_name;
         private DevExpress.XtraEditors.PanelControl panelControl1;

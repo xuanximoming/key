@@ -468,6 +468,7 @@
     <Content Include="ButtonImage\zoommenu.bmp" />
     <Content Include="ButtonImage\树状菜单图标1.bmp" />
     <Content Include="ButtonImage\树状菜单图标2.bmp" />
+    <Content Include="Modification record\Modification record.txt" />
     <Content Include="Resources\TreeIcons.bmp" />
     <None Include="Resources\审批.ico" />
     <None Include="Resources\加载.ico" />
@@ -671,9 +672,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Modification record\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
