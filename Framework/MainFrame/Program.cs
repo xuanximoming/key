@@ -51,6 +51,7 @@ namespace MainFrame
                     appinfo.Add(args[i]);
                 }
             }
+
             Application.EnableVisualStyles();
             // Application.SetCompatibleTextRenderingDefault(false);
             try

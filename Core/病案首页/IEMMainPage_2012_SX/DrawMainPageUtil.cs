@@ -101,7 +101,6 @@ namespace DrectSoft.Core.IEMMainPage
         {
             try
             {
-
                 m_IemMainPageEntity = iemMainPageEntity;
                 InitVariable();
                 InitMetaFile();

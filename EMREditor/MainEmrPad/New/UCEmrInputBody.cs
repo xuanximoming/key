@@ -1035,7 +1035,6 @@ namespace DrectSoft.Core.MainEmrPad.New
                 {
                     newPad = xtraTabControlEmr.TabPages.Add();
                 }
-
                 newPad.Text = editor.Title;
                 editor.DesignUI.Dock = DockStyle.Fill;
                 newPad.Controls.Add(editor.DesignUI);
@@ -1045,18 +1044,15 @@ namespace DrectSoft.Core.MainEmrPad.New
                 }
                 //加载控件至页面
                 editor.Load(m_app);
-
                 newPad.Tag = container;
                 m_CurrentEmrEditor = editor;
                 m_TempContainerPages.Add(container, newPad);
                 xtraTabControlEmr.SelectedTabPage = newPad;
-
                 if (m_CurrentTreeListNode != null)
                 {
                     newPad.Text = m_CurrentTreeListNode.GetValue("colName").ToString();
                 }
                 MyContainerCode = container.ContainerCatalog;
-
                 DS_Common.HideWaitDialog(m_WaitDialog);
             }
             catch (Exception ex)
