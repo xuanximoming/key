@@ -327,15 +327,15 @@ namespace EmrInsert
             sb.AppendFormat(",'{0}'", dr["VISITTYPE"]);
             sb.AppendFormat(",'{0}'", dr["NAME"]);
             sb.AppendFormat(",'{0}'", dr["SEXID"]);
-            sb.AppendFormat(",'{0}'", dr["BIRTH"]);
+            sb.AppendFormat(",to_date('{0}','yyyy-mm-dd')", dr["BIRTH"]);
             sb.AppendFormat(",'{0}'", dr["AGE"]);
             sb.AppendFormat(",'{0}'", dr["MARITALID"]);
             sb.AppendFormat(",'{0}'", dr["VISITNO"]);
-            sb.AppendFormat(",'{0}'", dr["VISITTIME"]);
+            sb.AppendFormat(",to_date('{0}','yyyy-mm-dd')", dr["VISITTIME"]);
             sb.AppendFormat(",'{0}'", dr["ROOMCODE"]);
             sb.AppendFormat(",'{0}'", dr["ROOMNAME"]);
             sb.AppendFormat(",'{0}'", dr["DEPTID"]);
-            sb.AppendFormat(",'{0}'", dr["CREATETIME"]);
+            sb.AppendFormat(",to_date('{0}','yyyy-mm-dd hh24:mi:ss')", dr["CREATETIME"]);
             sb.AppendFormat(",'{0}'", dr["CREATEUSERID"]);
             sb.AppendFormat(",'{0}'", dr["VALID"]);
             sb.AppendFormat(",'{0}'", dr["NATIONALITY"]);

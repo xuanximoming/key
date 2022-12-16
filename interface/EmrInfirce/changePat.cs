@@ -232,6 +232,8 @@ namespace EmrInfirce
                     return;
                 }
                 _emrHelper.InsertOutPat(dt);
+                dt = _emrHelper.SelectDataBase(string.Format("select * from InPatient_Clinic where PatNoOfHis='{0}'", PatNoOfHis));
+                _noOfInpat = Convert.ToDecimal(dt.Rows[0]["PatNoofHis"]);
             }
             //存在更新
             else
