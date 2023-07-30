@@ -101,6 +101,8 @@ namespace DrectSoft.Core.IEMMainPage
                 txtQDBLZPF.Text = m_IemInfo.IemFeeInfo.QDBLZPF.Trim('-');
                 txtNXYZLZPF.Text = m_IemInfo.IemFeeInfo.NXYZLZPF.Trim('-');
 
+                txtZYZLF.Text = m_IemInfo.IemFeeInfo.ZYZLF.Trim('-');
+
                 txtXBYZLZPF.Text = m_IemInfo.IemFeeInfo.XBYZLZPF.Trim('-');
                 txtJCYYCXCLF.Text = m_IemInfo.IemFeeInfo.JCYYCXCLF.Trim('-');
                 txtZLYYCXCLF.Text = m_IemInfo.IemFeeInfo.ZLYYCXCLF.Trim('-');
@@ -146,6 +148,8 @@ namespace DrectSoft.Core.IEMMainPage
             m_IemInfo.IemFeeInfo.XDBLZPF = txtXDBLZPF.Text;
             m_IemInfo.IemFeeInfo.QDBLZPF = txtQDBLZPF.Text;
             m_IemInfo.IemFeeInfo.NXYZLZPF = txtNXYZLZPF.Text;
+
+            m_IemInfo.IemFeeInfo.ZYZLF = txtZYZLF.Text;
 
             m_IemInfo.IemFeeInfo.XBYZLZPF = txtXBYZLZPF.Text;
             m_IemInfo.IemFeeInfo.JCYYCXCLF = txtJCYYCXCLF.Text;

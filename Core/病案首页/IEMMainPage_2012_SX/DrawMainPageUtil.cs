@@ -2690,14 +2690,15 @@ namespace DrectSoft.Core.IEMMainPage
                 pointX = m_PointX + offsetX;
 
                 //中医治疗费
-                string zyzdf = m_IemMainPageEntity.IemFeeInfo.ZYZDF;//todo
-                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "5.中医类：（12）中医治疗费：", zyzdf, 60, "");
+                string zyzlf = m_IemMainPageEntity.IemFeeInfo.ZYZLF;//todo
+                pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "5.中医类：（12）中医治疗费：", zyzlf, 60, "");
+
+
 
                 #region 屏蔽，改成国家统一发布版本
                 ////中医诊断费
-                //string zyzlf = m_IemMainPageEntity.IemFeeInfo.ZYZLF;//todo
-                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "（13）中医治疗", zyzlf, 60, "");
-
+                //string zyzdf = m_IemMainPageEntity.IemFeeInfo.ZYZDF;//todo
+                //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "5.中医类：（12）中医诊断费：", zyzdf, 60, "");
                 ////中医外治费
                 //string zywz = m_IemMainPageEntity.IemFeeInfo.ZYWZ;//todo
                 //pointX = DrawNameAndValueAndUnderLine(g, pointX, pointY, lineHeight, charWidth, "（中医外治:", zywz, 60, "");

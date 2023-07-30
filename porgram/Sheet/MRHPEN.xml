@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
-	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="70" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
+	<PageSize width="800" height="1120" type="A4" Landscape="false" PointX="15" PointY="80" BasePointX="0" BasePointY="60" Basewidth="25" Baseheight="20" />
 	<DefaultStyle fontsize="14" fontname="宋体" FontStyle="Regular"/>
 	<!-- 表头 -->
 	<Title>
-		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="40">医疗机构：</Hospital>
+		<Hospital fontsize="14" fontname="宋体" FontStyle="Regular" PointY="20">医疗机构：</Hospital>
 		<HomePage fontsize="18" fontname="宋体" FontStyle="Bold" top="10">住 院 病 案 首 页</HomePage>
 		<CardNumber Width="300">健康卡号:</CardNumber>
 		<inTime Width="300"></inTime>
@@ -31,7 +31,7 @@
 		<!-- 第四行 -->
 		<IDNO type="UnderLine" underLineWidth="200" nextLine="0" space="10" unit="">身份证号</IDNO>
 		<JobName type="UnderLine" underLineWidth="120" nextLine="0" space="10" unit="">职业</JobName>
-		<SexID type="CheckBox" SelectItem="1.未婚 2.已婚 3.丧偶 4.离婚 9.其他" nextLine="1" space="0" unit="">婚姻</SexID>
+		<Marital type="CheckBox" SelectItem="1.未婚 2.已婚 3.丧偶 4.离婚 9.其他" nextLine="1" space="0" unit="">婚姻</Marital>
 		<!-- 第五行 -->
 		<XZZ_ProvinceName type="UnderLine" underLineWidth="340" nextLine="0" space="0" unit="">现在住址</XZZ_ProvinceName>
 		<XZZ_TEL type="UnderLine" underLineWidth="120" nextLine="0" space="28" unit="">电话</XZZ_TEL>
@@ -90,11 +90,12 @@
 			<!-- 左侧诊断 -->
 			<rightDiaglosis MainColumn="3" OtherColumn="8" inStatus="入院病情: 1.有  2.临床未确定  3.情况不明  4.无 ">主要诊断：;其他诊断：</rightDiaglosis>
 			<!-- 右侧诊断 -->
-			<LeftDiaglosis rightColumn="11" leftColumn="12" inStatus="出院情况： 1. 治愈 2. 好转 3. 未愈 4. 死亡 5. 其他">其他诊断：</LeftDiaglosis>
+			<LeftDiaglosis MainColumn="1" rightColumn="11" leftColumn="12" inStatus="出院情况： 1. 治愈 2. 好转 3. 未愈 4. 死亡 5. 其他">其他诊断：;</LeftDiaglosis>
 		</Body>
 	</OutHospitalDiaglosis>
-	<PrintOperation>
+	<PrintOperation interval="28">
 		<!--手术记录表格上的一行，需要在这添加一行内容<Durationdate></Durationdate>-->
+		<Durationdate></Durationdate>
 	</PrintOperation>
 	<FristPageOther interval="31">
 		<!--第一行-->
@@ -116,11 +117,11 @@
 		<Follow_Up type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="30" unit="">随诊</Follow_Up>
 		<Follow_Up_Cycle type="UnderLine" underLineWidth="291" nextLine="1" space="0" unit="">随诊期限</Follow_Up_Cycle>
 		<!--第六行-->
-		<Section_DirectorName type="UnderLine" underLineWidth="95" nextLine="0" space="5" unit="">科主任</Section_DirectorName>
-		<DirectorName type="UnderLine" underLineWidth="95" nextLine="0" space="5" unit="">主任（副主任）医师</DirectorName>
-		<!--<Attending_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主诊医师</Attending_EmployeeName>-->
-		<Vs_EmployeeName type="UnderLine" underLineWidth="95" nextLine="0" space="5" unit="">主治医师</Vs_EmployeeName>
-		<Resident_EmployeeName type="UnderLine" underLineWidth="95" nextLine="1" space="0" unit="">住院医师</Resident_EmployeeName>
+		<Section_DirectorName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">科主任</Section_DirectorName>
+		<DirectorName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主任（副主任）医师</DirectorName>
+		<Attending_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主诊医师</Attending_EmployeeName>
+		<Vs_EmployeeName type="UnderLine" underLineWidth="70" nextLine="0" space="5" unit="">主治医师</Vs_EmployeeName>
+		<Resident_EmployeeName type="UnderLine" underLineWidth="70" nextLine="1" space="0" unit="">住院医师</Resident_EmployeeName>
 		<!--第七行-->
 		<Duty_NurseName type="UnderLine" underLineWidth="95" nextLine="0" space="43" unit="">责任护士</Duty_NurseName>
 		<Refresh_EmployeeName type="UnderLine" underLineWidth="95" nextLine="0" space="43" unit="">进修医师</Refresh_EmployeeName>
@@ -134,12 +135,21 @@
 	</FristPageOther>
 	<SecondPageOther interval="31">
 		<!--第一行-->
-		<!--<Pathway_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否实施临床路径管理</Pathway_Flag>-->
-		<!--<Pathway_Over type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否完成临床路径</Pathway_Over>-->
-		<!--<Path_Out_Reason type="UnderLine" underLineWidth="160" nextLine="1" space="0" unit="">退出原因</Path_Out_Reason>-->
+		<Pathway_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否实施临床路径管理</Pathway_Flag>
+		<Pathway_Over type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否完成临床路径</Pathway_Over>
+		<Path_Out_Reason type="UnderLine" underLineWidth="160" nextLine="1" space="0" unit="">退出原因</Path_Out_Reason>
 		<!--第二行-->
-		<!--<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>-->
-		<!--<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>-->
+		<Variation_Flag type="CheckBox" SelectItem="1. 是 2. 否" nextLine="0" space="15" unit="">是否变异</Variation_Flag>
+		<Variation_Reason type="UnderLine" underLineWidth="360" nextLine="1" space="0" unit="">变异原因</Variation_Reason>
+		
+		<Inspect_CT type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">检查情况：CT</Inspect_CT>
+		<Inspect_PETCT type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">PETCT</Inspect_PETCT>
+		<Inspect_TOCT type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">双源CT</Inspect_TOCT>
+		<Inspect_X type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">X片</Inspect_X>
+		<Inspect_B type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">B超</Inspect_B>
+		<Inspect_UC type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">超声心电图</Inspect_UC>
+		<Inspect_MRI type="CheckBox" SelectItem="" nextLine="0" space="0" unit="">MRI</Inspect_MRI>
+		<Inspect_ISOTOPE type="CheckBox" SelectItem="1.阳性 2.阴性 3.未做" nextLine="1" space="0" unit="">同位素检查</Inspect_ISOTOPE>
 		<!--第三行-->
 		<OutHosType type="CheckBox" SelectItem="1.医嘱离院  2.医嘱转院," nextLine="0" space="15" unit="">离院方式</OutHosType>
 		<ReceiveHosPital type="UnderLine" underLineWidth="240" nextLine="1" space="0" unit="">拟接收医疗机构名称</ReceiveHosPital>
@@ -160,42 +170,41 @@
 		<Intervaldate type="UnderLine" underLineWidth="40" nextLine="1" space="40" unit="天">与上次出院日期间隔天数</Intervaldate>
 	</SecondPageOther>
 	<Feeinfo>
-		<txtTotal mapping="zfy"></txtTotal> <!-- 总费用 -->
+		<txtTotal mapping="ZFY"></txtTotal> <!-- 总费用 -->
 		<txtOwnFee mapping="OwnFee"></txtOwnFee><!-- 自负金额 -->
-		<txtYBYLFY mapping="YBYLFY"></txtYBYLFY><!-- 一般医疗服务费 -->
-		<txtYBZLFY mapping="YBZLFY"></txtYBZLFY><!-- 一般治疗操作费 -->
-		<txtCare mapping="Care"></txtCare><!-- 护理费 -->
-		<txtZHQTFY mapping="ZHQTFY"></txtZHQTFY><!-- 综合其他费用 -->
+		<txtYBYLFY mapping="YLFUF"></txtYBYLFY><!-- 一般医疗服务费 -->
+		<txtYBZLFY mapping="ZLCZF"></txtYBZLFY><!-- 一般治疗操作费 -->
+		<txtCare mapping="HLF"></txtCare><!-- 护理费 -->
+		<txtZHQTFY mapping="QTFY"></txtZHQTFY><!-- 综合其他费用 -->
 		<txtBLZDF mapping="BLZDF"></txtBLZDF><!-- 病理诊断费 -->
 		<txtSYSZDF mapping="SYSZDF"></txtSYSZDF><!-- 实验室诊断费 -->
 		<txtYXXZDF mapping="YXXZDF"></txtYXXZDF><!-- 影像学诊断费 -->
-		<txtLCZDF mapping=""></txtLCZDF><!-- 临床诊断项目费 -->
-		<txtFSSZLF mapping=""></txtFSSZLF><!-- 非手术治疗项目费 -->
-		<txtLCWLZLF mapping=""></txtLCWLZLF><!-- 临床物理治疗费 -->
-		<txtSSZLF mapping=""></txtSSZLF><!-- 手术治疗费 -->
-		<txtMZF mapping=""></txtMZF><!-- 麻醉费 -->
-		<txtSSF mapping=""></txtSSF><!-- 手术费 -->
-		<txtKFF mapping=""></txtKFF><!-- 康复费 -->
-		<txtZYZLF mapping=""></txtZYZLF><!-- 中医治疗费 -->
-		<txtXYF mapping=""></txtXYF><!-- 西药费 -->
-		<txtKJYWF mapping=""></txtKJYWF><!-- 抗菌药物费用 -->
-		<txtCPMedical mapping=""></txtCPMedical><!-- 中成药费 -->
-		<txtCMedical mapping=""></txtCMedical><!-- 中草药费 -->
-		<txtBloodFee mapping=""></txtBloodFee><!-- 血费 -->
-		<txtXDBLZPF mapping=""></txtXDBLZPF><!-- 白蛋白类制品费 -->
-		<txtQDBLZPF mapping=""></txtQDBLZPF><!-- 球蛋白类制品费 -->
-		<txtNXYZLZPF mapping=""></txtNXYZLZPF><!-- 凝血因子类制品费 -->
-		<txtXBYZLZPF mapping=""></txtXBYZLZPF><!-- 细胞因子类制品费 -->
-		<txtJCYYCXCLF mapping=""></txtJCYYCXCLF><!-- 检查用一次性医用材料费 -->
-		<txtZLYYCXCLF mapping=""></txtZLYYCXCLF><!-- 治疗用一次性医用材料费 -->
-		<txtSSYYCXCLF mapping=""></txtSSYYCXCLF><!-- 手术用一次性医用材料费 -->
-		<txtOtherFee mapping=""></txtOtherFee><!-- 其他费 -->
+		<txtLCZDF mapping="LCZDXMF"></txtLCZDF><!-- 临床诊断项目费 -->
+		<txtFSSZLF mapping="FSSZLXMF"></txtFSSZLF><!-- 非手术治疗项目费 -->
+		<txtLCWLZLF mapping="WLZLF"></txtLCWLZLF><!-- 临床物理治疗费 -->
+		<txtSSZLF mapping="SSZLF"></txtSSZLF><!-- 手术治疗费 -->
+		<txtMZF mapping="MAF"></txtMZF><!-- 麻醉费 -->
+		<txtSSF mapping="SSF"></txtSSF><!-- 手术费 -->
+		<txtKFF mapping="KFF"></txtKFF><!-- 康复费 -->
+		<txtZYZLF mapping="ZYZLF"></txtZYZLF><!-- 中医治疗费 -->
+		<txtXYF mapping="XYF"></txtXYF><!-- 西药费 -->
+		<txtKJYWF mapping="KJYWF"></txtKJYWF><!-- 抗菌药物费用 -->
+		<txtCPMedical mapping="ZCYF"></txtCPMedical><!-- 中成药费 -->
+		<txtCMedical mapping="ZCYF1"></txtCMedical><!-- 中草药费 -->
+		<txtBloodFee mapping="XF"></txtBloodFee><!-- 血费 -->
+		<txtXDBLZPF mapping="BDBLZPF"></txtXDBLZPF><!-- 白蛋白类制品费 -->
+		<txtQDBLZPF mapping="QDBLZPF"></txtQDBLZPF><!-- 球蛋白类制品费 -->
+		<txtNXYZLZPF mapping="NXYZLZPF"></txtNXYZLZPF><!-- 凝血因子类制品费 -->
+		<txtXBYZLZPF mapping="XBYZLZPF"></txtXBYZLZPF><!-- 细胞因子类制品费 -->
+		<txtJCYYCXCLF mapping="HCYYCLF"></txtJCYYCXCLF><!-- 检查用一次性医用材料费 -->
+		<txtZLYYCXCLF mapping="YYCLF"></txtZLYYCXCLF><!-- 治疗用一次性医用材料费 -->
+		<txtSSYYCXCLF mapping="YCXYYCLF"></txtSSYYCXCLF><!-- 手术用一次性医用材料费 -->
+		<txtOtherFee mapping="QTF"></txtOtherFee><!-- 其他费 -->
 	</Feeinfo>
 	<Note interval="28">
 		<!--根据展现情况调整每行字数，需要更多行，在下面继续添加即可-->
 		<line1>说明：（一）医疗付费方式  1.城镇职工基本医疗保险  2.城镇居民基本医疗保险 3.新型农村合作医疗 4.贫困救助</line1>
 		<line2>5.商业医疗保险  6.全公费  7.全自费  8.其他社会保险  9.其他</line2>
-		<line3>（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用</line3>
-		<line4>我看行</line4>
+		<line3>（二）凡可由医院信息系统提供住院费用清单的，住院病案首页中可不填写“住院费用”。</line3>
 	</Note>
 </root>
