@@ -94,3 +94,15 @@ PACKAGE BODY iem_main_page_sx.usp_Edit_Iem_BasicInfo_sx
 
 Sheet/MRHPEN.xml
 
+## 3、记录20230903
+
+出院超过10天的患者同步
+
+DrectSoft.JobManager.PatInfoSynchronous.GetPatientAndBedTable 
+
+```c#
+//xll 2012-11-21 修改查找病人出院天数10天内的自动同步，这里放大时间限制
+                    DataTable inpatient = this.m_HisHelper.ExecuteDataTable(string.Format(sqlInpatient, DateTime.Now.AddDays(-10.0).ToString("yyyy-MM-dd"),
+                        DateTime.Now.AddDays(1.0).ToString("yyyy-MM-dd"), sqlDept), CommandType.Text);
+```
+

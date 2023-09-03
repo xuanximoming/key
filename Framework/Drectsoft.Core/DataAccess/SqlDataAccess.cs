@@ -791,7 +791,7 @@ namespace DrectSoft.Core
 
                             foreach (DataColumn dc in changedTable.PrimaryKey)
                             {
-                                operation += " " + dc.ColumnName + ":" + dr[dc.ColumnName].ToString();
+                                operation += " " + dc.ColumnName + ":" + dr[dc.ColumnName].ToString() + " PATID" + dr["PATID"].ToString();
                             }
 
                             this.ExecuteNoneQuery(sql, paraList.ToArray(), CommandType.Text);
